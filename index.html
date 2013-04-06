@@ -5,8 +5,8 @@
 <title>Titled Document</title>
 
 <script src="scripts.js"></script>
-<script src="TXC_2-AIRP-1-sj2.xml-stations.json"></script>
-<script src="TXC_2-AIRP-1-sj2.xml-vjdata.json"></script>
+<script src="./json/TXC_2-NORT-1-sj2.xml-stations.json"></script>
+<script src="./json/TXC_2-NORT-1-sj2.xml-vjdata.json"></script>
 
 <script>
 function numToDay(day) {
@@ -296,7 +296,7 @@ function updateTimeLeft() {
 	if (best_shot == null) {
 		// STILL!
 		document.getElementById("stops").innerHTML = "(no trains stopping here in the next twenty-four hours)";
-		document.getElementById("time-left").innerHTML = "a long time";
+		document.getElementById("time-left").innerHTML = "in a long time";
 		return;
 	}
 	
@@ -330,8 +330,8 @@ function updateTimeLeft() {
 		text = " <span class=\"big\">now</span>";
 	}
 	else if (time_left >= 120) {
-		text = " <span class=\"big\">" + Math.floor(time_left / 60) + 
-		"</span>" + " hours <span id=\"big\">" + time_left % 60 + "</span>" + " minutes";
+		text = " <span class=\"big\">in " + Math.floor(time_left / 60) + 
+		"</span>" + " hours and <span id=\"big\">" + time_left % 60 + "</span>" + " minutes";
 	}
 	document.getElementById("time-left").innerHTML = text;
 	//document.getElementById("stationlist").innerHTML = next["jpref"]["jpatsect"][0][0];
@@ -411,101 +411,72 @@ function updateTimeLeft() {
 
 <style>
 body {
-	background-color: rgb(32,103,178);
-	color: white;
-	font-family: "Cantarell";
-	
-	
+	background-color: white;
+	color: black;
+	font-family: cantarell;
 }
-#footer {
+
+#floating {
 	position:fixed;
-	width:95%;
-	bottom:0;
-	text-align: left;
-	background-color: rgb(32,103,178);
-	opacity: 100%;
-	padding-bottom: 0px;
-	
-	height: 60px;
+	top:0;
+	background-color: white;
+	font-size: 28px;
+}
+
+#time {
 	font-size: 24px;
-	
-}
-
-.bolder {
-	font-family: 'Cantarell Bold';
-	font-size: 25px;	
-}
-@font-face {
-	src:local('Cantarell Regular'), local('Cantarell-Regular'), url(font/Cantarell-Regular.ttf);
-	font-family: 'Cantarell';
-	font-style: normal;
-	font-weight: 400;
-}
-
-@font-face {
-	src:local('Cantarell Bold'), local('Cantarell-Bold'), url(font/Cantarell-Bold.ttf);
-	font-family: 'Cantarell Bold';
-	font-style: normal;
-	font-weight: 700;
-}
-
-.list {
-	font-family: "Cantarell";
-	/*background-color: black;*/
-	background-color: rgb(32,103,178);
-	color: white;
-	padding-bottom: 0px;
-	opacity: 100%;
-	font-size: inherit;
-	border: 0;
-	padding-left: 5px;
-	overflow: hidden;
-	
-	
-}
-
-#header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: 30px;
-	background-color: rgb(32,103,178);
-	padding-bottom: 0px;
-	
-	
-}
-#content {
-	padding-top: 60px;
-	padding-bottom: 60px;
-}
-.big {
-	font-size: 35px;
 	font-weight: bold;
 }
 
+#clock {
+	padding-right: 4em;
+}
+
+#list1 {
+	width: 10em;
+}
+
+#content {
+	font-size: 20px;
+	padding-top: 4em;
+	font-weight: bold
+}
+
+#stops {
+	font-size: 18px;
+}
 	
 </style>
 </head>
 
 <body onload="loaded()">
-<div id="header">
-<table style="border: 0; width: 99%; background-color: inherit"><tr><td style="width: 70%">
-<h1>Next train from: <span id="list1-outer"><select id="list1" class="list" onchange="onBitChange()">
+<table id="floating">
+<tr>
+<td>
+The next train from <span id="list1-outer">
+<select id="list1" class="list" onchange="onBitChange()">
 <option value="">Something screwed up!</option>
-</select></span>
+</select>
+</span>
 <span id="list2-outer">
 <select id="list2" class="list" onchange="onBitChange()">
-</select></span></h1></td><!--<td  style="text-align:left">Time now:</td>--><td style="font-weight:bold; text-align: right; font-size: 60px;" id="clock"></td></tr></table></div>
+</select>
+</span>
+is due <span id="time-left"></span>
+</div>
+<div id="time">
+Time now:
+<span id="clock">
+</span>
+</div>
+</tr>
+
+</table>
 <div id="content">
-<h2>Is due <span id="time-left"></span></h2>
-<div style="font-size: 20px">
-<b>Stopping at:</b><br />
+Stopping at:
+</div>
 <div id="stops">
 </div>
-</div>
-</div>
-<div id="footer" style="display: none">Choose a station:
-
-</div>
 </body>
+
 </html>
