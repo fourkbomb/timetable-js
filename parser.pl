@@ -48,6 +48,9 @@ my %in;
 
 my %current_vj_data;
 
+# pass or PASD (PickupAndSetDown).
+my $activity;
+
 my %daysToNumbers = (
 	Monday => int 0,
 	Tuesday => int 1,
@@ -139,7 +142,14 @@ sub StartTag {
 				$current_vj_data{days} = \@a;
 			}
 			else {
-				$current_vj_data{days} = $day1;
+				if (defined $current_vj_data{days}) {
+					push $current_vj_data{days}, $day1;
+				}	
+				else {
+					my @a;
+					$a[0] = $day1;
+					$current_vj_data{days} = \@a;
+				}
 			}
 		}
 
@@ -224,7 +234,7 @@ sub EndTag {
 #			}
 #			print "\n";
 #		}
-#		$current_tdif = undef;
+		$current_tdif = undef;
 #		sleep 2;
 	}
 	elsif ($_[1] eq "JourneyPattern") {
@@ -298,6 +308,7 @@ sub Text {
 	elsif ($inside_runtime) {
 		s/PT//;
 		$current_tdif = $_;
+		$current_tdif .= " $activity";
 		$inside_runtime = 0;
 	}
 	elsif ($in_line) {
@@ -331,6 +342,17 @@ sub Text {
 	elsif ($in{DepartureTime}) {
 		$current_vj_data{leaves} = $_;
 	}
+	elsif ($in{Activity}) {
+		if ($_ eq "pass") {
+			$activity = $_;
+		}
+		elsif ($_ eq "pickUpAndSetDown") {
+			$activity = "pasd";
+		}
+		else {
+			warn "Unkown <Activity> type: $_";
+		}
+	}
 
 }
 sub PI{}
@@ -344,6 +366,9 @@ my $TABS_TO_USE = 0;
 my $pi = XML::Parser->new(Style => "Stream");
 my $FILE = shift;
 $pi->parsefile($FILE);
+for (@ARGV) {
+	$pi->parsefile($_);
+}
 #for (keys %stations) {
 #	print "$_ => $stations{$_}\n";
 #}
@@ -358,33 +383,24 @@ my %jpats;
 my %vjdata;
 =cut
 my $code = JSON::PP->new->ascii->pretty;
-print "\n\nSTATIONS\n\n";
-print $code->encode( \%stations );
-print "\n\nJOURNEY PATTERN SECTIONS\n\n";
-print $code->encode( \%journeypatterns );
-print "\n\nROUTE DATA\n\n";
-print $code->encode( \%route_data);
-print "\n\nJOURNEY PATTERNS\n\n";
-print $code->encode( \%jpats);
-print "\n\nVEHICLE JOURNEY DATA\n\n";
-print $code->encode( \%vjdata);
-
-open FILE, ">", "$FILE-stations.json" or warn "Not outputting stations to file: $!";
+print "Saving: Stations";
+open FILE, ">", "$FILE-stations.json" or warn "\nNot outputting stations to file: $!";
 print FILE $code->encode( \%stations);
 close FILE;
-
-open FILE, ">", "$FILE-jpsects.json" or warn "Not outputting jpsects: $!";
-print FILE $code->encode( \%journeypatterns);
-close FILE;
-
-open FILE, ">", "$FILE-routedata.json" or warn "Not outputting routedata: $!";
-print FILE $code->encode( \%route_data);
-close FILE;
-
-open FILE, ">", "$FILE-jpats.json" or warn "Not outputting journeypatterns: $!";
-print FILE $code->encode( \%jpats);
-close FILE;
-
-open FILE, ">", "$FILE-vjdata.json" or warn "Not outputting vehicle journey info: $!";
+#print " Journey Pattern Sections";
+#open FILE, ">", "$FILE-jpsects.json" or warn "\nNot outputting jpsects: $!";
+#print FILE $code->encode( \%journeypatterns);
+#close FILE;
+#print " Route Data";
+#open FILE, ">", "$FILE-routedata.json" or warn "\nNot outputting routedata: $!";
+#print FILE $code->encode( \%route_data);
+#close FILE;
+#print " Journey Patterns";
+#open FILE, ">", "$FILE-jpats.json" or warn "\nNot outputting journeypatterns: $!";
+#print FILE $code->encode( \%jpats);
+#close FILE;
+print " Vehicle Journey Data";
+open FILE, ">", "$FILE-vjdata.json" or warn "\nNot outputting vehicle journey info: $!";
 print FILE $code->encode( \%vjdata);
 close FILE;
+print " - DONE!\n\n";
