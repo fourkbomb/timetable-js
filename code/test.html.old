@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Titled Document</title>
 
-<script src="scripts.js"></script>
+
 <script src="./json/TXC_2-NORT-1-sj2.xml-stations.json"></script>
 <script src="./json/TXC_2-NORT-1-sj2.xml-vjdata.json"></script>
 
 <script>
 function numToDay(day) {
-  switch(day) {
+	switch(day) {
 		case 0:
 		return "Sunday";
 		case 1:
@@ -29,7 +29,6 @@ function numToDay(day) {
 }
 
 var stops = [];
-var stationplatform = {};
 var stopsAndPlats = [];
 var times = {};
 var LatestTrain;
@@ -39,25 +38,10 @@ for (j in TRIP_DATA) {
 var html = "";
 
 for (s in stations) {
-	stops.push(stations[s]);
-
-		
+	stops.push(stations[s]);	
 }
 stops = stops.sort()
-for (s in stops) {
-	var j = stops[s].split("(");
-	if (j[1] != null) {
-		j[0] = j[0].replace(/ $/, "");
-		j[1] = "(" + j[1];
-		if (stationplatform[j[0]] == null) {
-			stationplatform[j[0]] = [j[1].replace("(", "").replace(")", "")];
-		}
-		else {
-			stationplatform[j[0]].push(j[1].replace("(", "").replace(")", ""));
-		}
-		stationplatform[j[0]] = stationplatform[j[0]].sort();
-	}	
-}
+
 
 var CURRENT_STATION;
 
@@ -67,37 +51,7 @@ function clockUpdate() {
 
 function onBitChange() {
 	LatestTrain = null;
-	if (document.getElementById("list1").value != CURRENT_STATION) {
-		var curplat = document.getElementById("list2").value;
-		var curplat_exists = false;
-		var curplatindex = 0;
-		var z = stationplatform[document.getElementById("list1").value];
-		var html = "";
-		// populate list2.
-		for (i in z) {
-			if (z[i] == curplat) {
-				curplat_exists = true;
-				//curplatindex++;
-			}
-			html += '<option value="' + z[i] + '">' + z[i] + '</option>';
-			if (!curplat_exists) {
-				curplatindex++;
-			}
-		}
-		
-		if (document.getElementById("list2").innerHTML != html) {
-			document.getElementById("list2").innerHTML = html;
-			var j = document.getElementById("list2");
-			j.selectedIndex = curplatindex;
-			if (j.selectedIndex < 0 || j.selectedIndex >= j.options.length) {
-				j.selectedIndex = 0;
-			}
-		}
-		
-	}
-	CURRENT_STATION = document.getElementById("list1").value;
-	var CURPLAT = document.getElementById("list2").value;
-	CURRENT_STATION += " (" + CURPLAT + ")";
+	CURRENT_STATION = document.getElementById("list").value;
 	//document.getElementById("from").innerHTML = CURRENT_STATION;
 	// HEAR THAT IE?
 	//times = null;
@@ -134,7 +88,7 @@ function onBitChange() {
 			
 			if (jps[z].indexOf(CURRENT_STATION) != -1) {
 				ok = true;
-				//window.console.log(jps[z][0] + " == " + CURRENT_STATION + " index " + z);
+				window.console.log(jps[z][0] + " == " + CURRENT_STATION + " index " + z);
 				break;
 			}	
 			o = jps[z][1].split(/M/);//, jps[z][1]);
@@ -214,26 +168,21 @@ function getHoursAndMinutesWithDate(NOW) {
 }
 var current_entry = null;
 function loaded() {
-	for (s in stationplatform) {
-		
-		html += "<option value=\"" + s + "\">" + s + "</option>\n";	
+	for (s in stops) {
+		html += "<option value=\"" + stops[s] + "\">" + stops[s] + "</option>\n";	
 	}
-
 	clockUpdate();
-	document.getElementById("list1").innerHTML = html;
+	document.getElementById("list").innerHTML = html;
 	onBitChange();
 	updateTimeLeft();
-	setInterval(updateTimeLeft, 1000);
+	setInterval(updateTimeLeft, 6000);
 	setInterval(clockUpdate, 1000);
 }
 function updateTimeLeft() {
-	var l2o = document.getElementById("list2-outer");
-	var l2 = document.getElementById("list2");
-	l2o.style.width = l2.offsetWidth - 100;
-	var NOW = new Date();	
+	var NOW = new Date();
 	var test = new Date();
 	var first = false;
-	if (LatestTrain == null || NOW.valueOf() > LatestTrain.valueOf()) {
+	if (NOW.valueOf() > LatestTrain.valueOf()) {
 		first = true;
 	}
 	//LatestTrain = null;
@@ -253,13 +202,6 @@ function updateTimeLeft() {
 			if (test.valueOf() < NOW.valueOf()) {
 				continue;	
 			}
-			test.setSeconds(0);
-			/*var tsecs = Math.floor(test.valueOf() / 1000);
-			var nsecs = Math.floor(NOW.valueOf() / 1000);
-			if ((nsecs % 60) - (tsecs % 60) < 30 && test.getHours() == NOW.getHours() && test.getMinutes() == NOW.getMinutes()) {
-				continue;
-			}*/
-			
 		}
 		else {
 			var newDay = NOW.getDay() + 1;
@@ -285,7 +227,7 @@ function updateTimeLeft() {
 		}
 		
 	}
-	if (best_shot == null && LatestTrain != null) {
+	if (best_shot == null) {
 		var now = new Date();
 		now.setDate(now.getDate() + 1);
 		best_shot = [times[getHoursAndMinutesWithDate(LatestTrain)], LatestTrain];
@@ -296,7 +238,7 @@ function updateTimeLeft() {
 	if (best_shot == null) {
 		// STILL!
 		document.getElementById("stops").innerHTML = "(no trains stopping here in the next twenty-four hours)";
-		document.getElementById("time-left").innerHTML = "in a long time";
+		document.getElementById("time-left").innerHTML = "a long time";
 		return;
 	}
 	
@@ -310,7 +252,6 @@ function updateTimeLeft() {
 		time_left *= 60;
 	}
 	time_left = Math.round(time_left);
-	time_left--;
 	var time = new Date(best_shot[1].valueOf());
 	time.setSeconds(0);
 	/*
@@ -322,22 +263,18 @@ function updateTimeLeft() {
                "4M"
             ],
 	*/
-	var text = " in <span class=\"big\">" + time_left + "</span> minutes";
+	var text = time_left + " minutes";
 	if (time_left == 1) {
-		text = " in <span class=\"big\">" + time_left + "</span> minute";
-	}
-	else if (time_left  <= 0) {
-		text = " <span class=\"big\">now</span>";
+		text = time_left + " minute";
 	}
 	else if (time_left >= 120) {
-		text = " <span class=\"big\">in " + Math.floor(time_left / 60) + 
-		"</span>" + " hours and <span id=\"big\">" + time_left % 60 + "</span>" + " minutes";
+		text = Math.floor(time_left / 60) + " hours " + time_left % 60 + " minutes";
 	}
 	document.getElementById("time-left").innerHTML = text;
 	//document.getElementById("stationlist").innerHTML = next["jpref"]["jpatsect"][0][0];
 	var txt = "<table>";
 	var stops = next["jpref"]["jpatsect"];
-	var MinDiff = -1;
+	var MinDiff = 0;
 	var SecDiff = 0;
 	var found_current_station = false;
 //	window.console.log(" ");
@@ -383,17 +320,13 @@ function updateTimeLeft() {
 			time.setSeconds(time.getSeconds() + SecDiff);
 			var text = "";
 			var ary = stops[i][0].split("(");
-			txt += "<td class=\"bolder\">" + ary[0] + "&nbsp;&nbsp;</td>";
-			txt += "<td>" + ary[1].replace(")", "") + "&nbsp;&nbsp;</td>";
-			//text = ary[0] + ary[1];
-			txt += "<td class=\"bolder\">" + getHoursAndMinutesWithDate(time) + "</td></tr>";
-		}
-		else {
-			
-			var ary = stops[i][0].split("(");
 			txt += "<td><strong>" + ary[0] + "&nbsp;&nbsp;</strong></td>";
 			txt += "<td>(" + ary[1] + "&nbsp;&nbsp;</td>";
+			//text = ary[0] + ary[1];
 			txt += "<td>(<strong>" + getHoursAndMinutesWithDate(time) + "</strong>)</td></tr>";
+		}
+		else {
+			txt += "<td>" + stops[i][0] + "</td></tr>";
 		}
 		MinDiff = 0;
 		SecDiff = 0;
@@ -417,59 +350,64 @@ body {
 }
 
 #floating {
+	padding-top: 20px;
 	position:fixed;
-	top:0;
 	background-color: white;
-	font-size: 22px;
 }
 
-#time {
-	font-size: 18px;
+#header {
+	position:fixed;
+	top:0;
+	text-align: right;
+	background-color: white;
+	padding-bottom: 5px;
+	height: 30px;
+	font-size: 26px;
 }
 
 #clock {
 	padding-right: 4em;
 }
 
-#list1 {
-	width: 10em;
+#list {
+	font-family: cantarell;
+	padding-bottom: 0px;
+	font-size: 16px;
+	border: 1;
+	padding-left: 5px;
 }
 
-#stops {
-	font-size: 12px;
-	padding-top: 2.8em;
+#stopping {
+	padding-top: 80px
 }
-	
+
+#invis {
+	color: rgba(0,0,0,0);
+	font-size: 0px;
+}
+
+#invis::selection {
+	background-color: white;
+}
+
 </style>
 </head>
 
 <body onload="loaded()">
-<table id="floating">
-<tr>
-<td>
-The next train from <span id="list1-outer">
-<select id="list1" class="list" onchange="onBitChange()">
-<option value="">Something screwed up!</option>
-</select>
-</span>
-<span id="list2-outer">
-<select id="list2" class="list" onchange="onBitChange()">
-</select>
-</span>
-is due <span id="time-left"></span>
+<div id="floating" style="font-size: 18px"><table style="border: 0; width: 100%; font-size: 26px;"><tr><td style="width: 100%">
+Next train from <select style="width: 11em" id="list" onchange="onBitChange()"><option value="">Something bad happened.</option></select> is due in <span id="time-left"></span></td></tr></table>
 </div>
-<div id="time">
-Time now:
-<span id="clock">
-</span>
-</div>
-</tr>
 
-</table>
-<div id="content">
-Stopping at:
+<div id="stopping">
+<b>Stopping at:</b><br />
 <div id="stops">
 </div>
+</div>
+<!-- This should technically be at the top -->
+<div id="header"><table style="border: 0; width: 100%;"><tr>
+<td>Time now:</td>
+<td id="clock"></td>
+<!--<td id="invis"><span id="from">--></span></div></td>
+</tr>
 </body>
-
 </html>
