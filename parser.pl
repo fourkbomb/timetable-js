@@ -4,6 +4,82 @@ use JSON::PP;
 use strict;
 use warnings;
 
+my $mday = (localtime(time))[3];
+my $mon  = (localtime(time))[4];
+my $year = (localtime(time))[5];
+
+$mon++; # 0-based, but TXC is 1-based
+$year += 1900; # perl's year is from 1900
+
+
+my @FILES_TO_PROCESS;
+
+for (@ARGV) {
+	print "find matches for: $_\n";
+	s/-\d-/\*/;
+	my @results = glob($_);
+	print "found: ", join(" ", @results);
+	
+	my @most_recent;
+
+	for (@results) {
+		my $startline = `cat $_ | grep StartDate`;
+		my $endline = `cat $_ | grep EndDate`;
+		$startline =~ s/<\/?StartDate>//g;
+		$startline =~ s/\s+//g;
+		chomp $startline;
+		$endline =~ s/<\/?EndDate>//g;
+		$endline =~ s/\s+//g;
+		chomp $endline;
+		print "$_: $startline - $endline\n";
+		my @start = split/-/, $startline;
+		my @end = split/-/, $endline;
+		if ($year < $start[0] || ($mon < $start[1] and $year == $start[0])
+		       	|| ($mday < $start[2] and $year == $start[0] 
+			and $mon == $start[1])) {
+			print "!! $_ is not valid yet. It will become valid on",
+				" $startline. Skipping this file.\n";	
+			next;
+		}
+		elsif ($year > $end[0] || ($mon > $end[1] and $year == $end[0]) ||
+			($mday > $end[2] and $mon == $end[1] and $year == $end[0])) {
+				print "!! $_ has been invalid since $endline.",
+				" Skipping this file.\n";
+				next;
+		}
+		else {
+			if (@most_recent) {
+				#choose most recent option.
+				my $prevdata = $most_recent[1];
+				my @vs = split/-/, $prevdata;
+				if ($vs[0] < $start[0] || ($vs[1] < $start[1] and
+						$vs[0] == $start[0]) || (
+					$vs[2] < $start[2] and $vs[1] == $start[1]
+						and $vs[0] == $start[0])) {
+					$most_recent[0] = $_;#, $startline];
+					$most_recent[1] = $startline;
+				}
+				else {
+					print "!! $_ is not the file with the",
+					" most recent StartDate. Skipping.\n";
+					next;
+				}
+			}
+			else {
+				$most_recent[0] = $_;#, $startline];
+				$most_recent[1] = $startline;
+			}
+		}
+
+	}
+	print "AND THE WINNER IS: ", join(" ", @most_recent), "!\n";
+	push @FILES_TO_PROCESS, $most_recent[0];
+	
+
+}
+
+print "Now I process: ", join(" ", @FILES_TO_PROCESS), "\n";
+
 my %stations;
 
 # storage format: jps id => an AoAs - id => [["Macarthur", "+2M"],...]
@@ -349,6 +425,12 @@ sub Text {
 		elsif ($_ eq "pickUpAndSetDown") {
 			$activity = "pasd";
 		}
+		elsif ($_ =~ /pickUp/i) {
+			$activity ="pickUp";
+		}
+		elsif (/setDown/i) {
+			$activity ="setDown";
+		}
 		else {
 			warn "Unkown <Activity> type: $_";
 		}
@@ -364,9 +446,10 @@ my $TABS_TO_USE = 0;
 # begin actual processing
 
 my $pi = XML::Parser->new(Style => "Stream");
-my $FILE = shift;
+my $FILE = shift @FILES_TO_PROCESS;
 $pi->parsefile($FILE);
-for (@ARGV) {
+
+for (@FILES_TO_PROCESS) {
 	$pi->parsefile($_);
 }
 #for (keys %stations) {
@@ -384,23 +467,26 @@ my %vjdata;
 =cut
 my $code = JSON::PP->new->ascii->pretty;
 print "Saving: Stations";
-open FILE, ">", "$FILE-stations.json" or warn "\nNot outputting stations to file: $!";
-print FILE $code->encode( \%stations);
+open FILE, ">", "$FILE-data.json" or warn "\nNot outputting stations to file: $!";
+print FILE "var stations = ", $code->encode( \%stations);
+=begin
 close FILE;
-#print " Journey Pattern Sections";
-#open FILE, ">", "$FILE-jpsects.json" or warn "\nNot outputting jpsects: $!";
-#print FILE $code->encode( \%journeypatterns);
-#close FILE;
-#print " Route Data";
-#open FILE, ">", "$FILE-routedata.json" or warn "\nNot outputting routedata: $!";
-#print FILE $code->encode( \%route_data);
-#close FILE;
-#print " Journey Patterns";
-#open FILE, ">", "$FILE-jpats.json" or warn "\nNot outputting journeypatterns: $!";
-#print FILE $code->encode( \%jpats);
-#close FILE;
+print " Journey Pattern Sections";
+open FILE, ">", "$FILE-jpsects.json" or warn "\nNot outputting jpsects: $!";
+print FILE $code->encode( \%journeypatterns);
+close FILE;
+print " Route Data";
+open FILE, ">", "$FILE-routedata.json" or warn "\nNot outputting routedata: $!";
+print FILE $code->encode( \%route_data);
+close FILE;
+print " Journey Patterns";
+open FILE, ">", "$FILE-jpats.json" or warn "\nNot outputting journeypatterns: $!";
+print FILE $code->encode( \%jpats);
+close FILE;
 print " Vehicle Journey Data";
 open FILE, ">", "$FILE-vjdata.json" or warn "\nNot outputting vehicle journey info: $!";
-print FILE $code->encode( \%vjdata);
+=cut
+print " VJ Data";
+print FILE ";\n\nvar TRIP_DATA = ", $code->encode( \%vjdata), ";\n\n";
 close FILE;
 print " - DONE!\n\n";
