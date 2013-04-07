@@ -78,6 +78,12 @@ for (@ARGV) {
 
 }
 
+if (!@FILES_TO_PROCESS) {
+	print STDERR "Ack! No valid files left to process. Please update your TXC data.\n";
+	exit 35;
+}
+
+
 print "Now I process: ", join(" ", @FILES_TO_PROCESS), "\n";
 
 my %stations;
