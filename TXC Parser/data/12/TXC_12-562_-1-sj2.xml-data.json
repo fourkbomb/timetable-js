@@ -1,0 +1,899 @@
+var OPERATOR = "Shorelink";
+
+
+var LINES = {
+   "12-562-_-sj2-1" : "562"
+}
+;
+
+var stations = {
+   "2113215" : "Khartoum Rd Nr Waterloo Rd",
+   "2073133" : "Bolwarra Av Near Bandalong Av",
+   "2073148" : "Gordon West Ps",
+   "207353" : "Ryde Rd near Yarran St",
+   "207213" : "Gregory and Carr Funerals Pacific Hwy",
+   "207235" : "Gordon Station_ Henry St - Stand B",
+   "211312" : "Macquarie Centre_ Stand E",
+   "211372" : "Talavera Rd Nr Lane Cove Rd",
+   "2113312" : "Lane Cove Rd Near Fontenoy Rd",
+   "2073127" : "Kiparra St near Duneba Av",
+   "207350" : "Ryde Rd near Minnamurra Av",
+   "207393" : "Bolwarra Av Near Bandalong Av",
+   "207233" : "Ryde Rd near Minnamurra Av",
+   "207394" : "Bandalong Av Near Dunoon Av",
+   "2113214" : "Khartoum Rd Nr Waterloo Rd",
+   "2113224" : "Waterloo Rd Nr Byfield St",
+   "2073131" : "Dunoon Av Near Duneba Av",
+   "211373" : "Talavera Rd W Of Lane Cove Rd",
+   "207388" : "Wyuna Rd Near Ryde Rd",
+   "2113221" : "Waterloo Rd Nr Byfield St",
+   "2073132" : "Bandalong Av Near Dunoon Av",
+   "2113211" : "Waterloo Rd Nr Khartoum Rd",
+   "211380" : "Talavera Rd Nr Lane Cove Rd",
+   "207355" : "Ryde Rd near Kooyong St",
+   "207389" : "Wyuna Rd Near Ryde Rd",
+   "211378" : "Khartoum Rd Nr Talavera Rd",
+   "207387" : "Wyuna Rd near Bolwarra Av",
+   "207398" : "Kiparra St near Ryde Rd",
+   "211374" : "Talavera Rd Nr Khartoum Rd",
+   "2073128" : "Dunoon Av Near Kiparra St",
+   "207395" : "Dunoon Av Near Duneba Av",
+   "207348" : "Ryde Rd Near Cadow St",
+   "207351" : "Ryde Rd near Nadene Pl",
+   "207396" : "Dunoon Av Near Duneba Av",
+   "207214" : "Anz Bank Night Rider Pacific Hwy",
+   "207386" : "Bolwarra Av Near Wyuna Rd",
+   "2113188" : "Lane Cove Near Fontenoy",
+   "207397" : "Dunoon Av Near Kiparra St",
+   "207234" : "Pacific Hwy near Merriwa St",
+   "207349" : "Ryde Rd near Cultowa Rd",
+   "2113213" : "Waterloo Rd Nr Cottonwood Cr",
+   "207359" : "Ryde Rd near Yanko Rd",
+   "211379" : "Talavera Rd Nr Khartoum Rd",
+   "2073130" : "Dunoon Av Near Duneba Av",
+   "207354" : "Ryde Rd Near Cadow St",
+   "2113230" : "Macquarie University_ Macquarie Dr",
+   "207352" : "Ryde Rd near West St",
+   "207347" : "Ryde Rd near Kendall St",
+   "207392" : "Bolwarra Av Near Bandalong Av",
+   "2073135" : "Gordon West Ps",
+   "207250" : "Gordon Station_ Henry St - Stand A",
+   "207391" : "Bolwarra Av Near Wyuna Rd",
+   "207212" : "Gordon Post Office Night Rider Pacific Hwy",
+   "211375" : "Khartoum Rd Nr Talavera Rd",
+   "2113223" : "Waterloo Rd Nr Cottonwood Cr"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_12-562-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-3-TA",
+      "leaves" : "12:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207235",
+               null
+            ],
+            [
+               "207212",
+               "28S pasd"
+            ],
+            [
+               "207213",
+               "1M7S pasd"
+            ],
+            [
+               "207233",
+               "2M26S pasd"
+            ],
+            [
+               "207353",
+               "36S pasd"
+            ],
+            [
+               "207354",
+               "33S pasd"
+            ],
+            [
+               "207355",
+               "24S pasd"
+            ],
+            [
+               "2073148",
+               "26S pasd"
+            ],
+            [
+               "2073127",
+               "20S pasd"
+            ],
+            [
+               "2073128",
+               "23S pasd"
+            ],
+            [
+               "2073130",
+               "46S pasd"
+            ],
+            [
+               "2073131",
+               "31S pasd"
+            ],
+            [
+               "2073132",
+               "15S pasd"
+            ],
+            [
+               "2073133",
+               "48S pasd"
+            ],
+            [
+               "207386",
+               "22S pasd"
+            ],
+            [
+               "207387",
+               "24S pasd"
+            ],
+            [
+               "207388",
+               "11S pasd"
+            ],
+            [
+               "207359",
+               "42S pasd"
+            ],
+            [
+               "2113312",
+               "4M18S pasd"
+            ],
+            [
+               "211372",
+               "1M36S pasd"
+            ],
+            [
+               "211373",
+               "37S pasd"
+            ],
+            [
+               "211374",
+               "1M10S pasd"
+            ],
+            [
+               "211375",
+               "24S pasd"
+            ],
+            [
+               "2113215",
+               "37S pasd"
+            ],
+            [
+               "2113211",
+               "24S pasd"
+            ],
+            [
+               "2113221",
+               "27S pasd"
+            ],
+            [
+               "2113213",
+               "46S pasd"
+            ],
+            [
+               "211312",
+               "59S pasd"
+            ],
+            [
+               "2113230",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Gordon Station - Macquarie University_ Macquarie Dr",
+            "rs_ref" : "RS_12-562-_-sj2-1-H-2",
+            "id" : "R_12-562-_-sj2-1-H-2"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   },
+   "VJ_12-562-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-4-TA",
+      "leaves" : "10:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207235",
+               null
+            ],
+            [
+               "207212",
+               "28S pasd"
+            ],
+            [
+               "207213",
+               "1M7S pasd"
+            ],
+            [
+               "207233",
+               "2M26S pasd"
+            ],
+            [
+               "207353",
+               "36S pasd"
+            ],
+            [
+               "207354",
+               "33S pasd"
+            ],
+            [
+               "207355",
+               "24S pasd"
+            ],
+            [
+               "2073148",
+               "26S pasd"
+            ],
+            [
+               "2073127",
+               "20S pasd"
+            ],
+            [
+               "2073128",
+               "23S pasd"
+            ],
+            [
+               "2073130",
+               "46S pasd"
+            ],
+            [
+               "2073131",
+               "31S pasd"
+            ],
+            [
+               "2073132",
+               "15S pasd"
+            ],
+            [
+               "2073133",
+               "48S pasd"
+            ],
+            [
+               "207386",
+               "22S pasd"
+            ],
+            [
+               "207387",
+               "24S pasd"
+            ],
+            [
+               "207388",
+               "11S pasd"
+            ],
+            [
+               "207359",
+               "42S pasd"
+            ],
+            [
+               "2113312",
+               "4M18S pasd"
+            ],
+            [
+               "211372",
+               "1M36S pasd"
+            ],
+            [
+               "211373",
+               "37S pasd"
+            ],
+            [
+               "211374",
+               "1M10S pasd"
+            ],
+            [
+               "211375",
+               "24S pasd"
+            ],
+            [
+               "2113215",
+               "37S pasd"
+            ],
+            [
+               "2113211",
+               "24S pasd"
+            ],
+            [
+               "2113221",
+               "27S pasd"
+            ],
+            [
+               "2113213",
+               "46S pasd"
+            ],
+            [
+               "211312",
+               "59S pasd"
+            ],
+            [
+               "2113230",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Gordon Station - Macquarie University_ Macquarie Dr",
+            "rs_ref" : "RS_12-562-_-sj2-1-H-2",
+            "id" : "R_12-562-_-sj2-1-H-2"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   },
+   "VJ_12-562-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-5-TA",
+      "leaves" : "11:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207235",
+               null
+            ],
+            [
+               "207212",
+               "28S pasd"
+            ],
+            [
+               "207213",
+               "1M7S pasd"
+            ],
+            [
+               "207233",
+               "2M26S pasd"
+            ],
+            [
+               "207353",
+               "36S pasd"
+            ],
+            [
+               "207354",
+               "33S pasd"
+            ],
+            [
+               "207355",
+               "24S pasd"
+            ],
+            [
+               "2073148",
+               "26S pasd"
+            ],
+            [
+               "2073127",
+               "20S pasd"
+            ],
+            [
+               "2073128",
+               "23S pasd"
+            ],
+            [
+               "2073130",
+               "46S pasd"
+            ],
+            [
+               "2073131",
+               "31S pasd"
+            ],
+            [
+               "2073132",
+               "15S pasd"
+            ],
+            [
+               "2073133",
+               "48S pasd"
+            ],
+            [
+               "207386",
+               "22S pasd"
+            ],
+            [
+               "207387",
+               "24S pasd"
+            ],
+            [
+               "207388",
+               "11S pasd"
+            ],
+            [
+               "207359",
+               "42S pasd"
+            ],
+            [
+               "2113312",
+               "4M18S pasd"
+            ],
+            [
+               "211372",
+               "1M36S pasd"
+            ],
+            [
+               "211373",
+               "37S pasd"
+            ],
+            [
+               "211374",
+               "1M10S pasd"
+            ],
+            [
+               "211375",
+               "24S pasd"
+            ],
+            [
+               "2113215",
+               "37S pasd"
+            ],
+            [
+               "2113211",
+               "24S pasd"
+            ],
+            [
+               "2113221",
+               "27S pasd"
+            ],
+            [
+               "2113213",
+               "46S pasd"
+            ],
+            [
+               "211312",
+               "59S pasd"
+            ],
+            [
+               "2113230",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Gordon Station - Macquarie University_ Macquarie Dr",
+            "rs_ref" : "RS_12-562-_-sj2-1-H-2",
+            "id" : "R_12-562-_-sj2-1-H-2"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   },
+   "VJ_12-562-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-1-TA",
+      "leaves" : "10:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2113230",
+               null
+            ],
+            [
+               "211312",
+               "4M pasd"
+            ],
+            [
+               "2113223",
+               "43S pasd"
+            ],
+            [
+               "2113224",
+               "24S pasd"
+            ],
+            [
+               "2113214",
+               "44S pasd"
+            ],
+            [
+               "211378",
+               "24S pasd"
+            ],
+            [
+               "211379",
+               "32S pasd"
+            ],
+            [
+               "211380",
+               "1M2S pasd"
+            ],
+            [
+               "2113188",
+               "1M11S pasd"
+            ],
+            [
+               "207389",
+               "6M pasd"
+            ],
+            [
+               "207391",
+               "46S pasd"
+            ],
+            [
+               "207392",
+               "29S pasd"
+            ],
+            [
+               "207393",
+               "21S pasd"
+            ],
+            [
+               "207394",
+               "45S pasd"
+            ],
+            [
+               "207395",
+               "25S pasd"
+            ],
+            [
+               "207396",
+               "28S pasd"
+            ],
+            [
+               "207397",
+               "45S pasd"
+            ],
+            [
+               "207398",
+               "28S pasd"
+            ],
+            [
+               "2073135",
+               "33S pasd"
+            ],
+            [
+               "207347",
+               "27S pasd"
+            ],
+            [
+               "207348",
+               "20S pasd"
+            ],
+            [
+               "207349",
+               "52S pasd"
+            ],
+            [
+               "207350",
+               "27S pasd"
+            ],
+            [
+               "207351",
+               "34S pasd"
+            ],
+            [
+               "207352",
+               "39S pasd"
+            ],
+            [
+               "207234",
+               "1M53S pasd"
+            ],
+            [
+               "207214",
+               "59S pasd"
+            ],
+            [
+               "207250",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Macquarie University_ Macquarie Dr - Gordon Station",
+            "rs_ref" : "RS_12-562-_-sj2-1-R-1",
+            "id" : "R_12-562-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   },
+   "VJ_12-562-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-2-TA",
+      "leaves" : "12:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2113230",
+               null
+            ],
+            [
+               "211312",
+               "4M pasd"
+            ],
+            [
+               "2113223",
+               "43S pasd"
+            ],
+            [
+               "2113224",
+               "24S pasd"
+            ],
+            [
+               "2113214",
+               "44S pasd"
+            ],
+            [
+               "211378",
+               "24S pasd"
+            ],
+            [
+               "211379",
+               "32S pasd"
+            ],
+            [
+               "211380",
+               "1M2S pasd"
+            ],
+            [
+               "2113188",
+               "1M11S pasd"
+            ],
+            [
+               "207389",
+               "6M pasd"
+            ],
+            [
+               "207391",
+               "46S pasd"
+            ],
+            [
+               "207392",
+               "29S pasd"
+            ],
+            [
+               "207393",
+               "21S pasd"
+            ],
+            [
+               "207394",
+               "45S pasd"
+            ],
+            [
+               "207395",
+               "25S pasd"
+            ],
+            [
+               "207396",
+               "28S pasd"
+            ],
+            [
+               "207397",
+               "45S pasd"
+            ],
+            [
+               "207398",
+               "28S pasd"
+            ],
+            [
+               "2073135",
+               "33S pasd"
+            ],
+            [
+               "207347",
+               "27S pasd"
+            ],
+            [
+               "207348",
+               "20S pasd"
+            ],
+            [
+               "207349",
+               "52S pasd"
+            ],
+            [
+               "207350",
+               "27S pasd"
+            ],
+            [
+               "207351",
+               "34S pasd"
+            ],
+            [
+               "207352",
+               "39S pasd"
+            ],
+            [
+               "207234",
+               "1M53S pasd"
+            ],
+            [
+               "207214",
+               "59S pasd"
+            ],
+            [
+               "207250",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Macquarie University_ Macquarie Dr - Gordon Station",
+            "rs_ref" : "RS_12-562-_-sj2-1-R-1",
+            "id" : "R_12-562-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   },
+   "VJ_12-562-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_12-562-_-sj2-1-6-TA",
+      "leaves" : "13:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2113230",
+               null
+            ],
+            [
+               "211312",
+               "4M pasd"
+            ],
+            [
+               "2113223",
+               "43S pasd"
+            ],
+            [
+               "2113224",
+               "24S pasd"
+            ],
+            [
+               "2113214",
+               "44S pasd"
+            ],
+            [
+               "211378",
+               "24S pasd"
+            ],
+            [
+               "211379",
+               "32S pasd"
+            ],
+            [
+               "211380",
+               "1M2S pasd"
+            ],
+            [
+               "2113188",
+               "1M11S pasd"
+            ],
+            [
+               "207389",
+               "6M pasd"
+            ],
+            [
+               "207391",
+               "46S pasd"
+            ],
+            [
+               "207392",
+               "29S pasd"
+            ],
+            [
+               "207393",
+               "21S pasd"
+            ],
+            [
+               "207394",
+               "45S pasd"
+            ],
+            [
+               "207395",
+               "25S pasd"
+            ],
+            [
+               "207396",
+               "28S pasd"
+            ],
+            [
+               "207397",
+               "45S pasd"
+            ],
+            [
+               "207398",
+               "28S pasd"
+            ],
+            [
+               "2073135",
+               "33S pasd"
+            ],
+            [
+               "207347",
+               "27S pasd"
+            ],
+            [
+               "207348",
+               "20S pasd"
+            ],
+            [
+               "207349",
+               "52S pasd"
+            ],
+            [
+               "207350",
+               "27S pasd"
+            ],
+            [
+               "207351",
+               "34S pasd"
+            ],
+            [
+               "207352",
+               "39S pasd"
+            ],
+            [
+               "207234",
+               "1M53S pasd"
+            ],
+            [
+               "207214",
+               "59S pasd"
+            ],
+            [
+               "207250",
+               "59S pasd"
+            ]
+         ],
+         "id" : "JP_12-562-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Macquarie University_ Macquarie Dr - Gordon Station",
+            "rs_ref" : "RS_12-562-_-sj2-1-R-1",
+            "id" : "R_12-562-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-562-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "562"
+   }
+}
+;
+

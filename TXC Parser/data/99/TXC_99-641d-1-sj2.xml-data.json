@@ -1,0 +1,475 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-641-d-sj2-1" : "641"
+}
+;
+
+var stations = {
+   "206542" : "Alexander St Nr Hayberry St",
+   "206853" : "Penshurst St Nr Crabbes Av",
+   "208879" : "The Esplanade Terminus",
+   "208845" : "Military Rd Nr Mandalong Rd",
+   "209058" : "Military Rd Nr Cabramatta Rd",
+   "208872" : "Raglan St near Military Rd",
+   "206049" : "Miller St Nr Carlow St",
+   "206854" : "Penshurst St Nr Forsyth St",
+   "208880" : "Waitovu St Nr Queenwood School",
+   "209021" : "Military Rd Nr Hampden Av",
+   "206025" : "Pacific Hwy nr West St",
+   "208847" : "Military Rd Nr Belmont Rd",
+   "206541" : "Burlington St Stand 5",
+   "208875" : "Raglan St Nr Esther Rd",
+   "206733" : "Victoria Av nr Macquarie St",
+   "2088177" : "Military Rd Nr Lang St",
+   "206549" : "Willoughby Rd Nr Donnelly St",
+   "208947" : "Military Rd Nr Watson St",
+   "2088178" : "Military Rd Nr Bond St",
+   "206534" : "Willoughby Rd Nr Garland Rd",
+   "206732" : "Victoria Av nr Baldry St",
+   "2088176" : "Military Rd Nr Prince St",
+   "206852" : "Penshurst St Nr Macmahon St",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "208876" : "Raglan St Nr The Esplanade",
+   "208873" : "Raglan St Nr Muston St",
+   "206537" : "Willoughby Rd Nr Atchison St",
+   "206718" : "Chatswood Transport Interchange Stand B",
+   "206535" : "Willoughby Rd Nr Dodds St",
+   "2065138" : "Pacific Hwy Nr Myrtle St",
+   "206730" : "Victoria Av opp Spring St",
+   "206879" : "Willoughby Rd Nr Small St",
+   "206877" : "Willoughby Rd Nr Hudson Av",
+   "206856" : "Penshurst St Nr Laurel St",
+   "206731" : "Victoria Av nr Archer St",
+   "208874" : "Raglan St Nr Gibson Rd",
+   "206538" : "Willoughby Rd near Ernest St",
+   "206081" : "Ridge St nr St Marys Primary",
+   "206857" : "Penshurst St Nr Mowbray Rd",
+   "208846" : "Military Rd Nr Upper Almora St",
+   "208818" : "Spit Junction_ Military Rd",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "206878" : "Willoughby Rd Nr Frenchs Rd",
+   "206855" : "Penshurst St Nr Rosewall St",
+   "206734" : "Victoria Av nr Penshurst St",
+   "206075" : "Falcon St nr Moodie St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-641-d-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-641-d-sj2-1-2-b00a4",
+      "leaves" : "07:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206718",
+               null
+            ],
+            [
+               "206730",
+               "1M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "1M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206852",
+               "1M pasd"
+            ],
+            [
+               "206853",
+               "1M pasd"
+            ],
+            [
+               "206854",
+               "1M pasd"
+            ],
+            [
+               "206855",
+               "1M pasd"
+            ],
+            [
+               "206856",
+               "1M pasd"
+            ],
+            [
+               "206857",
+               "1M pasd"
+            ],
+            [
+               "206877",
+               "1M pasd"
+            ],
+            [
+               "206878",
+               "1M pasd"
+            ],
+            [
+               "206879",
+               "1M pasd"
+            ],
+            [
+               "206534",
+               "1M pasd"
+            ],
+            [
+               "206535",
+               "2M pasd"
+            ],
+            [
+               "206549",
+               "0S pasd"
+            ],
+            [
+               "206537",
+               "1M pasd"
+            ],
+            [
+               "206538",
+               "1M pasd"
+            ],
+            [
+               "206541",
+               "1M pasd"
+            ],
+            [
+               "206542",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206081",
+               "2M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "1M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "208818",
+               "1M pasd"
+            ],
+            [
+               "208845",
+               "0S pasd"
+            ],
+            [
+               "208846",
+               "1M pasd"
+            ],
+            [
+               "208847",
+               "0S pasd"
+            ],
+            [
+               "208872",
+               "1M pasd"
+            ],
+            [
+               "208873",
+               "1M pasd"
+            ],
+            [
+               "208874",
+               "1M pasd"
+            ],
+            [
+               "208875",
+               "1M pasd"
+            ],
+            [
+               "208876",
+               "0S pasd"
+            ],
+            [
+               "208879",
+               "2M pasd"
+            ],
+            [
+               "208880",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-641-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Chatswood Station - Waitovu St Nr Queenwood School",
+            "rs_ref" : "RS_99-641-d-sj2-1-H-1",
+            "id" : "R_99-641-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-641-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "641"
+   },
+   "VJ_99-641-d-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_99-641-d-sj2-1-1-b00a5",
+      "leaves" : "07:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206718",
+               null
+            ],
+            [
+               "206730",
+               "1M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "1M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206852",
+               "1M pasd"
+            ],
+            [
+               "206853",
+               "1M pasd"
+            ],
+            [
+               "206854",
+               "1M pasd"
+            ],
+            [
+               "206855",
+               "1M pasd"
+            ],
+            [
+               "206856",
+               "1M pasd"
+            ],
+            [
+               "206857",
+               "1M pasd"
+            ],
+            [
+               "206877",
+               "1M pasd"
+            ],
+            [
+               "206878",
+               "1M pasd"
+            ],
+            [
+               "206879",
+               "1M pasd"
+            ],
+            [
+               "206534",
+               "1M pasd"
+            ],
+            [
+               "206535",
+               "2M pasd"
+            ],
+            [
+               "206549",
+               "0S pasd"
+            ],
+            [
+               "206537",
+               "1M pasd"
+            ],
+            [
+               "206538",
+               "1M pasd"
+            ],
+            [
+               "206541",
+               "1M pasd"
+            ],
+            [
+               "206542",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206081",
+               "2M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "1M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "208818",
+               "1M pasd"
+            ],
+            [
+               "208845",
+               "0S pasd"
+            ],
+            [
+               "208846",
+               "1M pasd"
+            ],
+            [
+               "208847",
+               "0S pasd"
+            ],
+            [
+               "208872",
+               "1M pasd"
+            ],
+            [
+               "208873",
+               "1M pasd"
+            ],
+            [
+               "208874",
+               "1M pasd"
+            ],
+            [
+               "208875",
+               "1M pasd"
+            ],
+            [
+               "208876",
+               "0S pasd"
+            ],
+            [
+               "208879",
+               "2M pasd"
+            ],
+            [
+               "208880",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-641-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Chatswood Station - Waitovu St Nr Queenwood School",
+            "rs_ref" : "RS_99-641-d-sj2-1-H-1",
+            "id" : "R_99-641-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-641-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "641"
+   }
+}
+;
+

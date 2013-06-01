@@ -1,0 +1,840 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-741-_-sj2-1" : "741"
+}
+;
+
+var stations = {
+   "2290392" : "Tennent Rd nr Melody La",
+   "230619" : "Merrigum St nr Bahloo Reserve",
+   "2290231" : "Wilsons Rd Nr Violet Town Rd",
+   "2290182" : "Warners Bay Rd nr Cowmeadow Rd",
+   "2290260" : "Pacific Hwy nr Oakdale Rd",
+   "2290220" : "Auklet Rd nr Kestrel Av",
+   "230635" : "Lake St opp Wilga St",
+   "2290232" : "Violet Town Rd 350m N of McElwee Dr",
+   "230620" : "South St opp Tomaree Wy",
+   "2290234" : "Violet Town Rd nr Charles St",
+   "2290233" : "Violet Town Rd opp Albert St",
+   "2290209" : "Warners Bay Rd nr Wilsons Rd",
+   "230640" : "Lake St nr Lachlan St",
+   "2290285" : "Pacific Hwy nr Gateshead Primary",
+   "230634" : "Lake St Nr Willandra Cr",
+   "2290217" : "43 Auklet Rd",
+   "2290198" : "Oxford St opp O'Brien St",
+   "2290211" : "Wilsons Rd nr Tango St",
+   "230613" : "Balemo Cr nr Nooroo Cl",
+   "229048" : "Pacific Hwy Near Oakdale Rd",
+   "229066" : "Auklet Rd nr Outlook Cl",
+   "229035" : "Pacific Hwy Near Hughes St",
+   "230617" : "Balemo Cr nr Danina Wy",
+   "230636" : "Lake St Nr South St",
+   "2290279" : "Croudace Rd Nr Violet Town Rd",
+   "230611" : "South St nr Tomaree Wy",
+   "2290393" : "Tennent Rd opp Melody La",
+   "230615" : "Balemo Cr nr Talinga Cl",
+   "230612" : "Merrigum St nr South St",
+   "2290278" : "Croudace Rd Nr Violet Town Rd",
+   "2290210" : "Wilsons Rd nr Ada St",
+   "2290215" : "Kestrel Av nr Auklet Rd",
+   "229047" : "Pacific Hwy nr Lake St",
+   "2290395" : "Tennent Rd opp Crawford La",
+   "229033" : "Pacific Hwy nr Felton St",
+   "2290219" : "105 Auklet Rd",
+   "229049" : "Pacific Hwy nr Hunter Sports High",
+   "2290221" : "Kestrel Av nr Fulmar Cl",
+   "229050" : "Pacific Hwy Near Hughes St",
+   "2290391" : "Tennent Rd nr Warners Bay Rd",
+   "2290216" : "Auklet Rd nr Mynah Cl",
+   "2290396" : "Tennent Rd nr Bottlebrush Rd",
+   "229071" : "Tennent Rd nr Helen St",
+   "230641" : "Lake St Nr Willandra Cr",
+   "230625" : "Lake St Nr Swan St",
+   "2290280" : "Croudace Rd 400m W of Willandra Cr",
+   "2290287" : "Oxford St nr Pacific Hwy",
+   "230618" : "Balemo Cr opp Nooroo Cl",
+   "2290240" : "Violet Town Rd 380m N of McElwee Dr",
+   "2290218" : "Auklet Rd nr Curlew Cl",
+   "2290213" : "Wilsons Rd Nr Violet Town Rd",
+   "230614" : "Balemo Cr opp Danina Wy",
+   "230616" : "Balemo Cr nr Merrigum St",
+   "2290394" : "Tennent Rd nr Crawford La",
+   "229034" : "St Marys School",
+   "230626" : "St Pius School",
+   "2290481" : "Kestrel Av nr Willow Rd",
+   "230624" : "Lake St Nr Swan St",
+   "2290277" : "Croudace Rd 350m W of Willanda Cr",
+   "229036" : "Pacific St nr Macquarie Av",
+   "2290397" : "Tennent Rd nr Blue Gum Ct"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-741-_-sj2-1-5-b0096" : {
+      "vjcode" : "VJ_94-741-_-sj2-1-5-b0096",
+      "leaves" : "14:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229036",
+               null
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "230625",
+               "1M pasd"
+            ],
+            [
+               "230626",
+               "1M pasd"
+            ],
+            [
+               "230640",
+               "0S pasd"
+            ],
+            [
+               "230641",
+               "1M pasd"
+            ],
+            [
+               "2290277",
+               "1M pasd"
+            ],
+            [
+               "2290278",
+               "0S pasd"
+            ],
+            [
+               "2290234",
+               "1M pasd"
+            ],
+            [
+               "2290240",
+               "1M pasd"
+            ],
+            [
+               "2290213",
+               "1M pasd"
+            ],
+            [
+               "230611",
+               "1M pasd"
+            ],
+            [
+               "230612",
+               "1M pasd"
+            ],
+            [
+               "230613",
+               "0S pasd"
+            ],
+            [
+               "230614",
+               "1M pasd"
+            ],
+            [
+               "230615",
+               "0S pasd"
+            ],
+            [
+               "2290215",
+               "1M pasd"
+            ],
+            [
+               "2290216",
+               "1M pasd"
+            ],
+            [
+               "2290217",
+               "0S pasd"
+            ],
+            [
+               "229066",
+               "1M pasd"
+            ],
+            [
+               "2290218",
+               "0S pasd"
+            ],
+            [
+               "2290219",
+               "1M pasd"
+            ],
+            [
+               "2290220",
+               "0S pasd"
+            ],
+            [
+               "2290221",
+               "0S pasd"
+            ],
+            [
+               "2290481",
+               "1M pasd"
+            ],
+            [
+               "2290397",
+               "2M pasd"
+            ],
+            [
+               "2290395",
+               "0S pasd"
+            ],
+            [
+               "2290393",
+               "0S pasd"
+            ],
+            [
+               "229071",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "0S pasd"
+            ],
+            [
+               "2290210",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-741-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Pacific St nr Macquarie Av - Wilsons Rd nr Ada St",
+            "rs_ref" : "RS_94-741-_-sj2-1-R-2",
+            "id" : "R_94-741-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-741-_-sj2-1",
+      "days" : [
+         "Wednesday"
+      ],
+      "line" : "741"
+   },
+   "VJ_94-741-_-sj2-1-4-b0096" : {
+      "vjcode" : "VJ_94-741-_-sj2-1-4-b0096",
+      "leaves" : "08:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2290211",
+               null
+            ],
+            [
+               "2290182",
+               "1M pasd"
+            ],
+            [
+               "2290391",
+               "0S pasd"
+            ],
+            [
+               "2290392",
+               "1M pasd"
+            ],
+            [
+               "2290394",
+               "0S pasd"
+            ],
+            [
+               "2290396",
+               "0S pasd"
+            ],
+            [
+               "2290215",
+               "2M pasd"
+            ],
+            [
+               "2290216",
+               "0S pasd"
+            ],
+            [
+               "2290217",
+               "1M pasd"
+            ],
+            [
+               "229066",
+               "0S pasd"
+            ],
+            [
+               "2290218",
+               "1M pasd"
+            ],
+            [
+               "2290219",
+               "0S pasd"
+            ],
+            [
+               "2290220",
+               "0S pasd"
+            ],
+            [
+               "2290221",
+               "1M pasd"
+            ],
+            [
+               "2290481",
+               "1M pasd"
+            ],
+            [
+               "230616",
+               "0S pasd"
+            ],
+            [
+               "230617",
+               "1M pasd"
+            ],
+            [
+               "230618",
+               "0S pasd"
+            ],
+            [
+               "230619",
+               "1M pasd"
+            ],
+            [
+               "230620",
+               "0S pasd"
+            ],
+            [
+               "2290231",
+               "1M pasd"
+            ],
+            [
+               "2290232",
+               "2M pasd"
+            ],
+            [
+               "2290233",
+               "1M pasd"
+            ],
+            [
+               "2290279",
+               "0S pasd"
+            ],
+            [
+               "2290280",
+               "1M pasd"
+            ],
+            [
+               "230634",
+               "0S pasd"
+            ],
+            [
+               "230635",
+               "1M pasd"
+            ],
+            [
+               "230636",
+               "0S pasd"
+            ],
+            [
+               "230624",
+               "1M pasd"
+            ],
+            [
+               "229047",
+               "1M pasd"
+            ],
+            [
+               "229048",
+               "0S pasd"
+            ],
+            [
+               "229049",
+               "1M pasd"
+            ],
+            [
+               "2290285",
+               "0S pasd"
+            ],
+            [
+               "229050",
+               "0S pasd"
+            ],
+            [
+               "2290198",
+               "2M pasd"
+            ],
+            [
+               "229033",
+               "0S pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-741-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Wilsons Rd nr Tango St - St Marys School",
+            "rs_ref" : "RS_94-741-_-sj2-1-H-3",
+            "id" : "R_94-741-_-sj2-1-H-3"
+         }
+      },
+      "service" : "94-741-_-sj2-1",
+      "line" : "741"
+   },
+   "VJ_94-741-_-sj2-1-3-b0096" : {
+      "vjcode" : "VJ_94-741-_-sj2-1-3-b0096",
+      "leaves" : "15:22:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229036",
+               null
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "230625",
+               "1M pasd"
+            ],
+            [
+               "230626",
+               "1M pasd"
+            ],
+            [
+               "230640",
+               "0S pasd"
+            ],
+            [
+               "230641",
+               "1M pasd"
+            ],
+            [
+               "2290277",
+               "1M pasd"
+            ],
+            [
+               "2290278",
+               "0S pasd"
+            ],
+            [
+               "2290234",
+               "1M pasd"
+            ],
+            [
+               "2290240",
+               "1M pasd"
+            ],
+            [
+               "2290213",
+               "1M pasd"
+            ],
+            [
+               "230611",
+               "1M pasd"
+            ],
+            [
+               "230612",
+               "1M pasd"
+            ],
+            [
+               "230613",
+               "0S pasd"
+            ],
+            [
+               "230614",
+               "1M pasd"
+            ],
+            [
+               "230615",
+               "0S pasd"
+            ],
+            [
+               "2290215",
+               "1M pasd"
+            ],
+            [
+               "2290216",
+               "1M pasd"
+            ],
+            [
+               "2290217",
+               "0S pasd"
+            ],
+            [
+               "229066",
+               "1M pasd"
+            ],
+            [
+               "2290218",
+               "0S pasd"
+            ],
+            [
+               "2290219",
+               "1M pasd"
+            ],
+            [
+               "2290220",
+               "0S pasd"
+            ],
+            [
+               "2290221",
+               "0S pasd"
+            ],
+            [
+               "2290481",
+               "1M pasd"
+            ],
+            [
+               "2290397",
+               "2M pasd"
+            ],
+            [
+               "2290395",
+               "0S pasd"
+            ],
+            [
+               "2290393",
+               "0S pasd"
+            ],
+            [
+               "229071",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "0S pasd"
+            ],
+            [
+               "2290210",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-741-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Pacific St nr Macquarie Av - Wilsons Rd nr Ada St",
+            "rs_ref" : "RS_94-741-_-sj2-1-R-2",
+            "id" : "R_94-741-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-741-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Thursday"
+      ],
+      "line" : "741"
+   },
+   "VJ_94-741-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-741-_-sj2-1-2-b0096",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229036",
+               null
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "230625",
+               "1M pasd"
+            ],
+            [
+               "230626",
+               "1M pasd"
+            ],
+            [
+               "230640",
+               "0S pasd"
+            ],
+            [
+               "230641",
+               "1M pasd"
+            ],
+            [
+               "2290277",
+               "1M pasd"
+            ],
+            [
+               "2290278",
+               "0S pasd"
+            ],
+            [
+               "2290234",
+               "1M pasd"
+            ],
+            [
+               "2290240",
+               "1M pasd"
+            ],
+            [
+               "2290213",
+               "1M pasd"
+            ],
+            [
+               "230611",
+               "1M pasd"
+            ],
+            [
+               "230612",
+               "1M pasd"
+            ],
+            [
+               "230613",
+               "0S pasd"
+            ],
+            [
+               "230614",
+               "1M pasd"
+            ],
+            [
+               "230615",
+               "0S pasd"
+            ],
+            [
+               "2290215",
+               "1M pasd"
+            ],
+            [
+               "2290216",
+               "1M pasd"
+            ],
+            [
+               "2290217",
+               "0S pasd"
+            ],
+            [
+               "229066",
+               "1M pasd"
+            ],
+            [
+               "2290218",
+               "0S pasd"
+            ],
+            [
+               "2290219",
+               "1M pasd"
+            ],
+            [
+               "2290220",
+               "0S pasd"
+            ],
+            [
+               "2290221",
+               "0S pasd"
+            ],
+            [
+               "2290481",
+               "1M pasd"
+            ],
+            [
+               "2290397",
+               "2M pasd"
+            ],
+            [
+               "2290395",
+               "0S pasd"
+            ],
+            [
+               "2290393",
+               "0S pasd"
+            ],
+            [
+               "229071",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "0S pasd"
+            ],
+            [
+               "2290210",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-741-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Pacific St nr Macquarie Av - Wilsons Rd nr Ada St",
+            "rs_ref" : "RS_94-741-_-sj2-1-R-2",
+            "id" : "R_94-741-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-741-_-sj2-1",
+      "days" : [
+         "Friday"
+      ],
+      "line" : "741"
+   },
+   "VJ_94-741-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-741-_-sj2-1-1-b0096",
+      "leaves" : "14:57:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2290287",
+               null
+            ],
+            [
+               "229033",
+               "0S pasd"
+            ],
+            [
+               "229034",
+               "1M pasd"
+            ],
+            [
+               "229035",
+               "0S pasd"
+            ],
+            [
+               "229036",
+               "1M pasd"
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "230625",
+               "1M pasd"
+            ],
+            [
+               "230626",
+               "1M pasd"
+            ],
+            [
+               "230640",
+               "0S pasd"
+            ],
+            [
+               "230641",
+               "1M pasd"
+            ],
+            [
+               "2290277",
+               "1M pasd"
+            ],
+            [
+               "2290278",
+               "0S pasd"
+            ],
+            [
+               "2290234",
+               "1M pasd"
+            ],
+            [
+               "2290240",
+               "1M pasd"
+            ],
+            [
+               "2290213",
+               "1M pasd"
+            ],
+            [
+               "230611",
+               "1M pasd"
+            ],
+            [
+               "230612",
+               "1M pasd"
+            ],
+            [
+               "230613",
+               "0S pasd"
+            ],
+            [
+               "230614",
+               "1M pasd"
+            ],
+            [
+               "230615",
+               "0S pasd"
+            ],
+            [
+               "2290215",
+               "1M pasd"
+            ],
+            [
+               "2290216",
+               "1M pasd"
+            ],
+            [
+               "2290217",
+               "0S pasd"
+            ],
+            [
+               "229066",
+               "1M pasd"
+            ],
+            [
+               "2290218",
+               "0S pasd"
+            ],
+            [
+               "2290219",
+               "1M pasd"
+            ],
+            [
+               "2290220",
+               "0S pasd"
+            ],
+            [
+               "2290221",
+               "0S pasd"
+            ],
+            [
+               "2290481",
+               "1M pasd"
+            ],
+            [
+               "2290397",
+               "2M pasd"
+            ],
+            [
+               "2290395",
+               "0S pasd"
+            ],
+            [
+               "2290393",
+               "0S pasd"
+            ],
+            [
+               "229071",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "0S pasd"
+            ],
+            [
+               "2290210",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-741-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Oxford St nr Pacific Hwy - Wilsons Rd nr Ada St",
+            "rs_ref" : "RS_94-741-_-sj2-1-R-1",
+            "id" : "R_94-741-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-741-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "741"
+   }
+}
+;
+

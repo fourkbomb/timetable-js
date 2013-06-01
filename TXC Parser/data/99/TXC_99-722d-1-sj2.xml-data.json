@@ -1,0 +1,664 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-722-d-sj2-1" : "722"
+}
+;
+
+var stations = {
+   "2099167" : "Carcoola Rd Nr Carawa Rd",
+   "2099153" : "Truman Av nr Badcoe Rd",
+   "2099172" : "Carawa Rd Nr Alfred St",
+   "2099163" : "Carrington Av Nr Toronto Av",
+   "2099166" : "Carcoola Rd nr Cromer Primary",
+   "2099174" : "Fisher Rd North Nr Grover Av",
+   "2099165" : "Grover Av nr Carcoola Rd",
+   "2099197" : "Fisher Rd nr Tor Rd",
+   "2099140" : "Alfred Nr Rowena",
+   "209682" : "Queenscliff Rd Nr Dalley St",
+   "2099170" : "Fisher Rd North Nr Tennyson Rd",
+   "209650" : "Harbord Rd Nr Wyadra Av",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "209542" : "Pittwater Rd Nr Steinton St",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "210065" : "Harbord Rd at West St",
+   "2099138" : "Carawa Rd nr Waroon Rd",
+   "209683" : "Cavill St Nr Dalley St",
+   "2099192" : "Westminster Av nr Lismore Av",
+   "209688" : "Harbord Rd nr Coles Rd",
+   "209687" : "Harbord Rd Nr Soldiers Av",
+   "2099194" : "Fisher Rd North nr Lynwood Av",
+   "2099164" : "Carrington Av Nr Washington Av",
+   "2099151" : "Toronto Av Nr Cromer Rd",
+   "2099209" : "Truman Av nr Howse Cr",
+   "209911" : "Pittwater Rd nr May Rd",
+   "209913" : "Pittwater Rd nr St Davids Av",
+   "209541" : "Belgrave St Nr Raglan St",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "209689" : "Harbord Rd nr Wyuna Av",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "2100118" : "Tristram Rd nr Boyer Rd",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "2099171" : "Fisher Rd North Nr Carawa Rd",
+   "209557" : "North Steyne Nr Collingwood St",
+   "209690" : "Harbord Rd nr William St",
+   "2099145" : "Alfred St nr Alamein Av",
+   "2099212" : "Toronto Av Nr Carrington Av",
+   "209686" : "Lawrence St Nr Harbord Rd",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "2100156" : "Oxford Falls Grammar School",
+   "209685" : "Cavill St nr Lawrence St",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "2099196" : "Regent St nr Westminster Av",
+   "209511" : "Belgrave St Stand F",
+   "2099142" : "Alfred St Nr Greenwood Av",
+   "209556" : "North Steyne Nr Pacific St",
+   "2100137" : "Willandra Rd nr Anthony Cl",
+   "2099152" : "Toronto Av nr Kenna Pl",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "209555" : "North Steyne Nr Pine St",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "2099191" : "Lismore Av nr Pittwater Rd",
+   "2099139" : "Alfred St Nr Maas St",
+   "209730" : "South Creek Rd nr Toronto Av",
+   "209681" : "Queenscliff Rd Nr Greycliffe St",
+   "2100119" : "Oxford Falls Rd nr Brooker Av",
+   "209912" : "Pittwater Rd Nr Pacific Pde",
+   "2099141" : "Narraweena_ Alfred nr Raynor",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "2099144" : "Alfred St Nr Parr Pde",
+   "2099198" : "Fisher Rd Nr Ilikai Pl",
+   "2099154" : "Howse Cr nr Truman Av",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "209561" : "North Steyne Nr Carlton St",
+   "2099173" : "Fisher Rd North Nr Ryrie Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-722-d-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-722-d-sj2-1-2-b00b7",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209511",
+               null
+            ],
+            [
+               "209541",
+               "0S pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209561",
+               "1M pasd"
+            ],
+            [
+               "209555",
+               "1M pasd"
+            ],
+            [
+               "209556",
+               "0S pasd"
+            ],
+            [
+               "209557",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "1M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "0S pasd"
+            ],
+            [
+               "209686",
+               "1M pasd"
+            ],
+            [
+               "209687",
+               "0S pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "0S pasd"
+            ],
+            [
+               "209650",
+               "0S pasd"
+            ],
+            [
+               "209690",
+               "1M pasd"
+            ],
+            [
+               "210065",
+               "3M pasd"
+            ],
+            [
+               "209911",
+               "2M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "2099191",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "0S pasd"
+            ],
+            [
+               "2099196",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "0S pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "209730",
+               "1M pasd"
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "0S pasd"
+            ],
+            [
+               "2099138",
+               "1M pasd"
+            ],
+            [
+               "2099172",
+               "0S pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "1M pasd"
+            ],
+            [
+               "2099142",
+               "0S pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "2M pasd"
+            ],
+            [
+               "2100156",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-722-d-sj2-1-H-1",
+            "id" : "R_99-722-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-d-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-722-d-sj2-1-1-b00b2",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209511",
+               null
+            ],
+            [
+               "209541",
+               "0S pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209561",
+               "1M pasd"
+            ],
+            [
+               "209555",
+               "1M pasd"
+            ],
+            [
+               "209556",
+               "0S pasd"
+            ],
+            [
+               "209557",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "1M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "0S pasd"
+            ],
+            [
+               "209686",
+               "1M pasd"
+            ],
+            [
+               "209687",
+               "0S pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "0S pasd"
+            ],
+            [
+               "209650",
+               "0S pasd"
+            ],
+            [
+               "209690",
+               "1M pasd"
+            ],
+            [
+               "210065",
+               "3M pasd"
+            ],
+            [
+               "209911",
+               "2M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "2099191",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "0S pasd"
+            ],
+            [
+               "2099196",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "0S pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "209730",
+               "1M pasd"
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "0S pasd"
+            ],
+            [
+               "2099138",
+               "1M pasd"
+            ],
+            [
+               "2099172",
+               "0S pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "1M pasd"
+            ],
+            [
+               "2099142",
+               "0S pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "2M pasd"
+            ],
+            [
+               "2100156",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-722-d-sj2-1-H-1",
+            "id" : "R_99-722-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   }
+}
+;
+

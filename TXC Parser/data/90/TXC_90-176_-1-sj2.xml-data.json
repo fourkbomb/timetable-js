@@ -1,0 +1,922 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-176-_-sj2-1" : "176"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "209957" : "Griffin Rd nr Tasman St",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "209958" : "Griffin Rd Nr Pitt Rd",
+   "210028" : "Condamine St nr Kentwell Rd",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "209954" : "Howard St nr The Strand",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "208912" : "Military Rd Nr Watson St",
+   "209332" : "Sydney Rd nr Wanganella St",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "209961" : "Pitt Rd nr Ross St",
+   "209962" : "Pitt Rd Nr Playfair Rd",
+   "209330" : "Sydney Rd Nr Woodland St",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "209323" : "Condamine St Nr Gordon St",
+   "208944" : "Military Rd nr Rangers Rd",
+   "209960" : "Pitt Rd nr Spring Rd",
+   "210062" : "Winbourne Rd nr Mitchell Rd",
+   "209329" : "Condamine St nr Sydney Rd",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "209334" : "Sydney Rd nr Coral St",
+   "210066" : "Winbourne Rd Nr Carter Rd",
+   "2100145" : "Pittwater Rd nr Warringah Mall Stand B",
+   "209335" : "Manly Rd nr Heaton Av",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "209959" : "Pitt Rd Nr Griffin Rd",
+   "2088193" : "Military Rd Nr Lang St",
+   "209019" : "Military Rd Nr Hampden Av",
+   "209956" : "Griffin Rd nr Banksia St",
+   "209965" : "Abbott Rd Nr Burilla Av",
+   "2000133" : "York St at Lang Park",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "209964" : "Abbott Rd Nr Fay St",
+   "209953" : "Howard Av Nr Clyde Rd",
+   "209328" : "Condamine St Nr Griffiths St",
+   "209963" : "Pitt Rd Nr Fairport St",
+   "209951" : "Howard Av Nr Avon Rd",
+   "209331" : "Sydney Rd nr West St",
+   "210026" : "Pittwater Rd nr Orchard Rd",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "209324" : "Condamine St nr Innes Rd",
+   "200035" : "Wynyard Station_ York St - Stand N",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "2088188" : "Spit Rd Nr Stanton Rd",
+   "209955" : "The Strand nr Oaks Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-176-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_90-176-_-sj2-1-1-b00b2",
+      "leaves" : "05:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209951",
+               null
+            ],
+            [
+               "209953",
+               "1M pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "0S pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209959",
+               "0S pasd"
+            ],
+            [
+               "209960",
+               "1M pasd"
+            ],
+            [
+               "209961",
+               "0S pasd"
+            ],
+            [
+               "209962",
+               "1M pasd"
+            ],
+            [
+               "209963",
+               "0S pasd"
+            ],
+            [
+               "209964",
+               "1M pasd"
+            ],
+            [
+               "209965",
+               "0S pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208912",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "7M setDown"
+            ]
+         ],
+         "id" : "JP_90-176-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Avon Rd - Wynyard Station",
+            "rs_ref" : "RS_90-176-_-sj2-1-H-1",
+            "id" : "R_90-176-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-176-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "176"
+   },
+   "VJ_90-176-_-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_90-176-_-sj2-1-2-b00b7",
+      "leaves" : "05:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209951",
+               null
+            ],
+            [
+               "209953",
+               "1M pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "0S pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209959",
+               "0S pasd"
+            ],
+            [
+               "209960",
+               "1M pasd"
+            ],
+            [
+               "209961",
+               "0S pasd"
+            ],
+            [
+               "209962",
+               "1M pasd"
+            ],
+            [
+               "209963",
+               "0S pasd"
+            ],
+            [
+               "209964",
+               "1M pasd"
+            ],
+            [
+               "209965",
+               "0S pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208912",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "7M setDown"
+            ]
+         ],
+         "id" : "JP_90-176-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Avon Rd - Wynyard Station",
+            "rs_ref" : "RS_90-176-_-sj2-1-H-1",
+            "id" : "R_90-176-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-176-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "176"
+   },
+   "VJ_90-176-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_90-176-_-sj2-1-4-b00b2",
+      "leaves" : "06:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209951",
+               null
+            ],
+            [
+               "209953",
+               "1M pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "0S pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209959",
+               "0S pasd"
+            ],
+            [
+               "209960",
+               "1M pasd"
+            ],
+            [
+               "209961",
+               "0S pasd"
+            ],
+            [
+               "209962",
+               "1M pasd"
+            ],
+            [
+               "209963",
+               "0S pasd"
+            ],
+            [
+               "209964",
+               "1M pasd"
+            ],
+            [
+               "209965",
+               "0S pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208912",
+               "2M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "7M setDown"
+            ]
+         ],
+         "id" : "JP_90-176-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Avon Rd - Wynyard Station",
+            "rs_ref" : "RS_90-176-_-sj2-1-H-1",
+            "id" : "R_90-176-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-176-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "176"
+   },
+   "VJ_90-176-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_90-176-_-sj2-1-3-b00b7",
+      "leaves" : "06:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209951",
+               null
+            ],
+            [
+               "209953",
+               "1M pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "0S pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209959",
+               "0S pasd"
+            ],
+            [
+               "209960",
+               "1M pasd"
+            ],
+            [
+               "209961",
+               "0S pasd"
+            ],
+            [
+               "209962",
+               "1M pasd"
+            ],
+            [
+               "209963",
+               "0S pasd"
+            ],
+            [
+               "209964",
+               "1M pasd"
+            ],
+            [
+               "209965",
+               "0S pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208912",
+               "2M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "7M setDown"
+            ]
+         ],
+         "id" : "JP_90-176-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Avon Rd - Wynyard Station",
+            "rs_ref" : "RS_90-176-_-sj2-1-H-1",
+            "id" : "R_90-176-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-176-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "176"
+   }
+}
+;
+

@@ -1,0 +1,1085 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-651-b-sj2-1" : "651b"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "209321" : "Condamine St Nr Gordon St",
+   "2065109" : "Falcon St Nr Alexander St",
+   "206641" : "River Rd West Nr Longueville Rd",
+   "2065107" : "North Sydney Boys High",
+   "210028" : "Condamine St nr Kentwell Rd",
+   "209313" : "Sydney Rd nr Rickard St",
+   "2066122" : "Longueville Rd Nr Kenneth St",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "2100109" : "Condamine St nr Fishbourne Rd",
+   "2066118" : "River Rd Nr Mcmahons Rd",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "209330" : "Sydney Rd Nr Woodland St",
+   "209312" : "Sydney Rd nr Pickworth Av",
+   "2065118" : "River Rd Nr Christie St",
+   "208947" : "Military Rd Nr Watson St",
+   "209323" : "Condamine St Nr Gordon St",
+   "2088178" : "Military Rd Nr Bond St",
+   "2100110" : "Condamine St nr Pozieres Pde",
+   "208953" : "Military Rd nr Wycombe Rd",
+   "2066255" : "Tambourine Bay Rd Nr Taleeban Rd",
+   "209329" : "Condamine St nr Sydney Rd",
+   "2088179" : "Military Rd Nr Cowles Rd",
+   "208945" : "Military Rd nr Rangers Rd",
+   "2066104" : "River Rd Nr Stevenson St",
+   "208811" : "Spit Rd Nr Parriwi Rd",
+   "209334" : "Sydney Rd nr Coral St",
+   "209335" : "Manly Rd nr Heaton Av",
+   "2100145" : "Pittwater Rd nr Warringah Mall Stand B",
+   "209320" : "Condamine St nr St Kierans",
+   "209314" : "Sydney Rd Nr Woodland St",
+   "2066106" : "River Rd Nr Greenwich Primary",
+   "2065123" : "River Rd Nr Greenwich Rd",
+   "209019" : "Military Rd Nr Hampden Av",
+   "2066107" : "River Rd Nr Greenwich Hospital",
+   "210011" : "Condamine St nr James St",
+   "2088180" : "Spit Junction_ Spit Rd.",
+   "206643" : "Yallambee Rd Nr Wangalla Rd",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "209328" : "Condamine St Nr Griffiths St",
+   "2066169" : "St Ignatius Junior",
+   "2066117" : "River Rd Nr Gore Creek Reserve",
+   "206642" : "Warraroon Rd Nr Yallambee Rd",
+   "2065125" : "River Rd Nr St Vincents Rd",
+   "209322" : "Condamine St nr Sloane Cr",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "208954" : "Military Rd Nr Watson St",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "206644" : "Tambourne Bay Rd Nr Sofala Av",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "206075" : "Falcon St nr Moodie St",
+   "209211" : "Manly Rd Nr Avona Cr",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "209311" : "Sydney Rd nr Dudley St",
+   "2065121" : "River Rd Nr Canberra Av",
+   "2088181" : "Spit Rd Nr Awaba St",
+   "209058" : "Military Rd Nr Cabramatta Rd",
+   "206674" : "River Rd West Nr Longueville Rd",
+   "208912" : "Military Rd Nr Watson St",
+   "209332" : "Sydney Rd nr Wanganella St",
+   "209021" : "Military Rd Nr Hampden Av",
+   "2088233" : "Spit Junction_ Spit Rd.",
+   "2065124" : "River Rd Nr St Vincents Rd",
+   "2066105" : "River Rd Nr Bushland Park",
+   "209315" : "Sydney Rd Nr Condamine St",
+   "206073" : "Falcon St nr Miller St",
+   "208911" : "Military Rd Nr Watson St",
+   "2088177" : "Military Rd Nr Lang St",
+   "2067105" : "St Ignatius Senior",
+   "2065115" : "Shirley St Nr Pacific Hwy",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "208944" : "Military Rd nr Rangers Rd",
+   "2088176" : "Military Rd Nr Prince St",
+   "209317" : "Condamine St Nr Griffiths St",
+   "206575" : "River Rd Nr Allawah Pl",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "209316" : "Condamine St nr Sydney Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "2065119" : "River Rd Nr Christie St",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "209318" : "Condamine St Nr Balgowlah Rd",
+   "209326" : "Condamine St Nr Kenneth Rd",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "2066121" : "Northwood Rd Nr Longueville Rd",
+   "209319" : "Condamine St nr King St",
+   "2088193" : "Military Rd Nr Lang St",
+   "209048" : "Military Rd Nr Cabramatta Rd",
+   "2066167" : "Riverview St Nr Tambourine Bay Rd",
+   "2065108" : "Falcon St Nr West St",
+   "209020" : "Sceggs Redlands",
+   "2065110" : "Falcon St Nr West St",
+   "209333" : "Sydney Rd nr Maretimo St",
+   "2065122" : "River Rd Nr Portview Rd",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "209331" : "Sydney Rd nr West St",
+   "2065116" : "River Rd Nr Carlyle St",
+   "2088185" : "Spit Rd Nr Pearl Bay Av",
+   "209324" : "Condamine St nr Innes Rd",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "2065120" : "River Rd Nr Eastview St",
+   "2065117" : "River Rd Nr Shirley Rd",
+   "206670" : "River Rd West Nr Tambourine Bay",
+   "2066266" : "Yallambee Rd Nr Tambourine Bay Rd",
+   "2088188" : "Spit Rd Nr Stanton Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-651-b-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-651-b-sj2-1-2-b00b7",
+      "leaves" : "15:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2066169",
+               null
+            ],
+            [
+               "2067105",
+               "1M pasd"
+            ],
+            [
+               "206644",
+               "4M pasd"
+            ],
+            [
+               "206670",
+               "0S pasd"
+            ],
+            [
+               "206674",
+               "1M pasd"
+            ],
+            [
+               "2066121",
+               "1M pasd"
+            ],
+            [
+               "2066118",
+               "0S pasd"
+            ],
+            [
+               "2066104",
+               "1M pasd"
+            ],
+            [
+               "2066105",
+               "0S pasd"
+            ],
+            [
+               "2066106",
+               "1M pasd"
+            ],
+            [
+               "2065125",
+               "0S pasd"
+            ],
+            [
+               "2065122",
+               "1M pasd"
+            ],
+            [
+               "2065121",
+               "1M pasd"
+            ],
+            [
+               "2065118",
+               "1M pasd"
+            ],
+            [
+               "2065117",
+               "1M pasd"
+            ],
+            [
+               "2065110",
+               "2M pasd"
+            ],
+            [
+               "206074",
+               "1M pasd"
+            ],
+            [
+               "206075",
+               "2M pasd"
+            ],
+            [
+               "208947",
+               "3M pasd"
+            ],
+            [
+               "208954",
+               "0S pickUp"
+            ],
+            [
+               "208953",
+               "2M pickUp"
+            ],
+            [
+               "208948",
+               "0S pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209048",
+               "2M pickUp"
+            ],
+            [
+               "209058",
+               "0S pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "0S pasd"
+            ],
+            [
+               "2088179",
+               "1M pasd"
+            ],
+            [
+               "2088233",
+               "0S pickUp"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "0S pasd"
+            ],
+            [
+               "2088184",
+               "1M pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "3M pasd"
+            ],
+            [
+               "209311",
+               "1M pasd"
+            ],
+            [
+               "209312",
+               "1M pasd"
+            ],
+            [
+               "209313",
+               "1M pasd"
+            ],
+            [
+               "209314",
+               "0S pasd"
+            ],
+            [
+               "209315",
+               "1M pasd"
+            ],
+            [
+               "209316",
+               "0S pasd"
+            ],
+            [
+               "209317",
+               "1M pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "1M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209320",
+               "0S pasd"
+            ],
+            [
+               "209321",
+               "0S pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-651-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Ignatius Junior - Pittwater Rd nr Warringah Mall",
+            "rs_ref" : "RS_99-651-b-sj2-1-R-1",
+            "id" : "R_99-651-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-651-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "651b"
+   },
+   "VJ_99-651-b-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-651-b-sj2-1-4-b00b2",
+      "leaves" : "07:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100145",
+               null
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "2M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "2M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "2M pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209333",
+               "0S pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "209020",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208945",
+               "0S pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "208912",
+               "0S pasd"
+            ],
+            [
+               "206073",
+               "5M pasd"
+            ],
+            [
+               "2065107",
+               "0S pasd"
+            ],
+            [
+               "2065108",
+               "0S pasd"
+            ],
+            [
+               "2065109",
+               "2M pasd"
+            ],
+            [
+               "2065115",
+               "0S pasd"
+            ],
+            [
+               "2065116",
+               "1M pasd"
+            ],
+            [
+               "2065119",
+               "0S pasd"
+            ],
+            [
+               "2065120",
+               "1M pasd"
+            ],
+            [
+               "2065123",
+               "1M pasd"
+            ],
+            [
+               "206575",
+               "0S pasd"
+            ],
+            [
+               "2065124",
+               "0S pasd"
+            ],
+            [
+               "2066107",
+               "1M pasd"
+            ],
+            [
+               "2066117",
+               "2M pasd"
+            ],
+            [
+               "2066122",
+               "1M pasd"
+            ],
+            [
+               "206641",
+               "1M pasd"
+            ],
+            [
+               "206642",
+               "1M pasd"
+            ],
+            [
+               "206643",
+               "1M pasd"
+            ],
+            [
+               "2066266",
+               "0S pasd"
+            ],
+            [
+               "2066255",
+               "1M pasd"
+            ],
+            [
+               "2066167",
+               "1M pasd"
+            ],
+            [
+               "2066169",
+               "1M pasd"
+            ],
+            [
+               "2067105",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-651-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Pittwater Rd nr Warringah Mall - St Ignatius Senior",
+            "rs_ref" : "RS_99-651-b-sj2-1-H-2",
+            "id" : "R_99-651-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-651-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "651b"
+   },
+   "VJ_99-651-b-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-651-b-sj2-1-1-b00b2",
+      "leaves" : "15:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2066169",
+               null
+            ],
+            [
+               "2067105",
+               "1M pasd"
+            ],
+            [
+               "206644",
+               "4M pasd"
+            ],
+            [
+               "206670",
+               "0S pasd"
+            ],
+            [
+               "206674",
+               "1M pasd"
+            ],
+            [
+               "2066121",
+               "1M pasd"
+            ],
+            [
+               "2066118",
+               "0S pasd"
+            ],
+            [
+               "2066104",
+               "1M pasd"
+            ],
+            [
+               "2066105",
+               "0S pasd"
+            ],
+            [
+               "2066106",
+               "1M pasd"
+            ],
+            [
+               "2065125",
+               "0S pasd"
+            ],
+            [
+               "2065122",
+               "1M pasd"
+            ],
+            [
+               "2065121",
+               "1M pasd"
+            ],
+            [
+               "2065118",
+               "1M pasd"
+            ],
+            [
+               "2065117",
+               "1M pasd"
+            ],
+            [
+               "2065110",
+               "2M pasd"
+            ],
+            [
+               "206074",
+               "1M pasd"
+            ],
+            [
+               "206075",
+               "2M pasd"
+            ],
+            [
+               "208947",
+               "3M pasd"
+            ],
+            [
+               "208954",
+               "0S pickUp"
+            ],
+            [
+               "208953",
+               "2M pickUp"
+            ],
+            [
+               "208948",
+               "0S pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209048",
+               "2M pickUp"
+            ],
+            [
+               "209058",
+               "0S pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "0S pasd"
+            ],
+            [
+               "2088179",
+               "1M pasd"
+            ],
+            [
+               "2088233",
+               "0S pickUp"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "0S pasd"
+            ],
+            [
+               "2088184",
+               "1M pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "3M pasd"
+            ],
+            [
+               "209311",
+               "1M pasd"
+            ],
+            [
+               "209312",
+               "1M pasd"
+            ],
+            [
+               "209313",
+               "1M pasd"
+            ],
+            [
+               "209314",
+               "0S pasd"
+            ],
+            [
+               "209315",
+               "1M pasd"
+            ],
+            [
+               "209316",
+               "0S pasd"
+            ],
+            [
+               "209317",
+               "1M pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "1M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209320",
+               "0S pasd"
+            ],
+            [
+               "209321",
+               "0S pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-651-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Ignatius Junior - Pittwater Rd nr Warringah Mall",
+            "rs_ref" : "RS_99-651-b-sj2-1-R-1",
+            "id" : "R_99-651-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-651-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "651b"
+   },
+   "VJ_99-651-b-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-651-b-sj2-1-3-b00b7",
+      "leaves" : "07:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100145",
+               null
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "2M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "2M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "2M pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "0S pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209333",
+               "0S pasd"
+            ],
+            [
+               "209334",
+               "0S pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "0S pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "209020",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208945",
+               "0S pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "208912",
+               "0S pasd"
+            ],
+            [
+               "206073",
+               "5M pasd"
+            ],
+            [
+               "2065107",
+               "0S pasd"
+            ],
+            [
+               "2065108",
+               "0S pasd"
+            ],
+            [
+               "2065109",
+               "2M pasd"
+            ],
+            [
+               "2065115",
+               "0S pasd"
+            ],
+            [
+               "2065116",
+               "1M pasd"
+            ],
+            [
+               "2065119",
+               "0S pasd"
+            ],
+            [
+               "2065120",
+               "1M pasd"
+            ],
+            [
+               "2065123",
+               "1M pasd"
+            ],
+            [
+               "206575",
+               "0S pasd"
+            ],
+            [
+               "2065124",
+               "0S pasd"
+            ],
+            [
+               "2066107",
+               "1M pasd"
+            ],
+            [
+               "2066117",
+               "2M pasd"
+            ],
+            [
+               "2066122",
+               "1M pasd"
+            ],
+            [
+               "206641",
+               "1M pasd"
+            ],
+            [
+               "206642",
+               "1M pasd"
+            ],
+            [
+               "206643",
+               "1M pasd"
+            ],
+            [
+               "2066266",
+               "0S pasd"
+            ],
+            [
+               "2066255",
+               "1M pasd"
+            ],
+            [
+               "2066167",
+               "1M pasd"
+            ],
+            [
+               "2066169",
+               "1M pasd"
+            ],
+            [
+               "2067105",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-651-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Pittwater Rd nr Warringah Mall - St Ignatius Senior",
+            "rs_ref" : "RS_99-651-b-sj2-1-H-2",
+            "id" : "R_99-651-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-651-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "651b"
+   }
+}
+;
+

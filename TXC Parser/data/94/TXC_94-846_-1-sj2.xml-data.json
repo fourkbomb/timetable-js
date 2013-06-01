@@ -1,0 +1,521 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-846-_-sj2-1" : "846"
+}
+;
+
+var stations = {
+   "2280231" : "Floraville Rd Nr Floraville Primary",
+   "2280305" : "Tingira Dr opp Cassegrain Cl",
+   "2280229" : "Floraville Rd opp Park St",
+   "228026" : "Pacific Hwy nr York Cr",
+   "2280234" : "Floraville Rd opp Violet Town Rd",
+   "2282185" : "Bareki Rd Nr Moani St",
+   "2280153" : "Regal Wy Nr Connaught Rd",
+   "2280136" : "Connaught Rd opp Parklea Av",
+   "228294" : "Mills St Opp Warners Bay Primary",
+   "2280117" : "Wommara Av nr John Fisher Rd",
+   "2280154" : "Connaught Rd nr Arundel Pl",
+   "2282131" : "Ian St Opp Murray St",
+   "2280144" : "Regal Wy opp Kento Cr",
+   "2280145" : "Regal Wy nr Ruston Av",
+   "2280142" : "Regal Wy nr Helmsdale Dr",
+   "2282126" : "Jonathan St Opp Janice St",
+   "2280320" : "Macquarie Dr nr Regal Way",
+   "2282128" : "Cherry Rd 300 E Of Linden Av",
+   "2280143" : "Regal Wy nr Stonehaven Pl",
+   "2282120" : "Linden Av Nr Morris St",
+   "2280141" : "Regal Wy nr Suffolk Dr",
+   "2282127" : "Jonathan St Nr Cherry Rd",
+   "2280140" : "Regal Wy nr Aberdeen Dr",
+   "2282119" : "Linden Av Nr Cherry Rd",
+   "228292" : "Queen St Nr James St",
+   "2280232" : "Floraville Rd nr Victoria St",
+   "2280237" : "Floraville Rd nr Nyanda Av",
+   "2282125" : "Jonathan St Nr Janice St",
+   "228061" : "Tingira Dr nr Violet Town Rd",
+   "228290" : "Queen St Nr Warner St",
+   "2280155" : "Connaught Rd nr Parklea Av",
+   "2282130" : "Glad Gunson Dr Nr Lynn Av",
+   "2282109" : "Harkins St Nr Elizabeth St",
+   "228285" : "Jonathan St Nr Warners Bay Rd",
+   "228275" : "Bayview St Nr Warner St",
+   "228291" : "Warner St Nr Bayview St",
+   "2280233" : "Floraville Rd nr Harold St",
+   "2280318" : "Macquarie Dr nr Tallawalla Rd",
+   "2280150" : "Regal Wy nr Linekar Cl",
+   "2280119" : "Floraville Rd Nr Belmont Bus Depot",
+   "2282113" : "Ian St At Eleebana Primary School",
+   "2280162" : "Macquarie Dr opp Tingira Dr",
+   "2280238" : "Floraville Rd Nr Floraville Primary",
+   "228289" : "Mills St Nr Warners Bay Primary",
+   "2282111" : "Ian St Nr Mulimbah St",
+   "2282180" : "Bareki Rd Nr Eleebana Rd",
+   "2280236" : "Floraville Rd nr Hollway St",
+   "228037" : "Pacific Hwy nr Patrick St",
+   "228069" : "Belmont Christian College",
+   "2280120" : "Floraville Rd nr Pacific Hwy",
+   "2280159" : "Macquarie Dr nr Tingira Dr",
+   "2282178" : "Bareki Rd Opp Moani St",
+   "2280149" : "Regal Wy opp Helmsdale Dr",
+   "2280241" : "Floraville Rd nr Maxwell Av",
+   "2280235" : "Floraville Rd nr Violet Town Rd",
+   "2280240" : "Floraville Rd nr Sampson Av",
+   "2280148" : "Regal Wy opp Stonehaven Pl",
+   "2280152" : "Regal Wy nr Trafalgar Cr",
+   "2282181" : "Bareki Rd 200m S Of Harkins St",
+   "228288" : "Jonathan St Nr Warners Bay Rd",
+   "2280228" : "Floraville Rd nr Fairweather Av",
+   "2282182" : "Bareki Rd 250m S Of Harkins St",
+   "2282112" : "Ian St Opp Penfold Cl",
+   "2282141" : "Ian St Nr Elizabeth St",
+   "2280239" : "Floraville Rd nr Griffiths Av",
+   "2280151" : "Regal Wy opp Aberdeen Dr",
+   "2282140" : "Ian St Nr Buring Cl",
+   "2280139" : "Regal Wy nr Warwick Wy",
+   "2282179" : "Bareki Rd Opp Yerambla Cl",
+   "2282114" : "Glad Gunson Dr Nr Eleebana Primary",
+   "2282142" : "Elizabeth St Nr Macquarie Dr",
+   "2282121" : "Linden Av Nr Glad Gunson Dr",
+   "2280146" : "Regal Wy opp Ruston Av",
+   "2280230" : "Floraville Rd nr Park Royal Dr",
+   "2282123" : "Cherry Rd 250m E Of Linden Av",
+   "2280242" : "Floraville Rd nr York Cr",
+   "2280227" : "Floraville Rd opp York Cr",
+   "2280304" : "Tingira Dr nr Cassegrain Cl",
+   "2282184" : "Bareki Rd Nr Yerambla Cl",
+   "2282110" : "Ian St Nr Murray St",
+   "2280147" : "Regal Wy nr Kenton Cr",
+   "2280160" : "Macquarie Dr Nr St Johns Dr",
+   "2280138" : "Regal Wy Nr Connaught Rd",
+   "228071" : "Wommara Av nr Pacific Hwy",
+   "2282124" : "Jonathan St Nr Cherry St",
+   "2282183" : "Bareki Rd Nr Birubi Cl",
+   "2282177" : "Macquarie Rd Nr Bareki Rd",
+   "2280161" : "Macquarie Dr Nr St Johns Dr",
+   "2282122" : "Linden Av Nr Cherry Rd",
+   "2280137" : "Connaught Rd nr Westminster Cl",
+   "2282186" : "Macquarie Dr Nr Bareki Rd",
+   "2282139" : "Ian St Nr Penfold Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-846-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-846-_-sj2-1-2-b0096",
+      "leaves" : "07:36:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228291",
+               null
+            ],
+            [
+               "228292",
+               "0S pasd"
+            ],
+            [
+               "228294",
+               "1M pasd"
+            ],
+            [
+               "228285",
+               "1M pasd"
+            ],
+            [
+               "2282126",
+               "1M pasd"
+            ],
+            [
+               "2282127",
+               "0S pasd"
+            ],
+            [
+               "2282128",
+               "1M pasd"
+            ],
+            [
+               "2282119",
+               "1M pasd"
+            ],
+            [
+               "2282120",
+               "1M pasd"
+            ],
+            [
+               "2282130",
+               "1M pasd"
+            ],
+            [
+               "2282131",
+               "0S pasd"
+            ],
+            [
+               "2282139",
+               "1M pasd"
+            ],
+            [
+               "2282140",
+               "0S pasd"
+            ],
+            [
+               "2282141",
+               "1M pasd"
+            ],
+            [
+               "2282142",
+               "0S pasd"
+            ],
+            [
+               "2282182",
+               "1M pasd"
+            ],
+            [
+               "2282183",
+               "1M pasd"
+            ],
+            [
+               "2282184",
+               "0S pasd"
+            ],
+            [
+               "2282185",
+               "1M pasd"
+            ],
+            [
+               "2282186",
+               "1M pasd"
+            ],
+            [
+               "2280159",
+               "1M pasd"
+            ],
+            [
+               "2280160",
+               "1M pasd"
+            ],
+            [
+               "2280320",
+               "0S pasd"
+            ],
+            [
+               "2280146",
+               "1M pasd"
+            ],
+            [
+               "2280147",
+               "0S pasd"
+            ],
+            [
+               "2280148",
+               "1M pasd"
+            ],
+            [
+               "2280149",
+               "0S pasd"
+            ],
+            [
+               "2280150",
+               "1M pasd"
+            ],
+            [
+               "2280151",
+               "0S pasd"
+            ],
+            [
+               "2280152",
+               "0S pasd"
+            ],
+            [
+               "2280153",
+               "1M pasd"
+            ],
+            [
+               "2280154",
+               "1M pasd"
+            ],
+            [
+               "2280155",
+               "0S pasd"
+            ],
+            [
+               "2280304",
+               "1M pasd"
+            ],
+            [
+               "2280235",
+               "2M pasd"
+            ],
+            [
+               "2280236",
+               "1M pasd"
+            ],
+            [
+               "2280237",
+               "1M pasd"
+            ],
+            [
+               "2280238",
+               "1M pasd"
+            ],
+            [
+               "2280239",
+               "0S pasd"
+            ],
+            [
+               "2280240",
+               "1M pasd"
+            ],
+            [
+               "2280241",
+               "0S pasd"
+            ],
+            [
+               "2280242",
+               "1M pasd"
+            ],
+            [
+               "2280120",
+               "0S pasd"
+            ],
+            [
+               "228026",
+               "1M pasd"
+            ],
+            [
+               "228071",
+               "0S pasd"
+            ],
+            [
+               "228069",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-846-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Warner St Nr Bayview St - Belmont Christian College",
+            "rs_ref" : "RS_94-846-_-sj2-1-H-2",
+            "id" : "R_94-846-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-846-_-sj2-1",
+      "line" : "846"
+   },
+   "VJ_94-846-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-846-_-sj2-1-1-b0096",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228069",
+               null
+            ],
+            [
+               "2280117",
+               "1M pasd"
+            ],
+            [
+               "228037",
+               "1M pasd"
+            ],
+            [
+               "2280119",
+               "0S pasd"
+            ],
+            [
+               "2280227",
+               "1M pasd"
+            ],
+            [
+               "2280228",
+               "0S pasd"
+            ],
+            [
+               "2280229",
+               "0S pasd"
+            ],
+            [
+               "2280230",
+               "1M pasd"
+            ],
+            [
+               "2280231",
+               "1M pasd"
+            ],
+            [
+               "2280232",
+               "0S pasd"
+            ],
+            [
+               "2280233",
+               "1M pasd"
+            ],
+            [
+               "2280234",
+               "0S pasd"
+            ],
+            [
+               "228061",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "1M pasd"
+            ],
+            [
+               "2280136",
+               "1M pasd"
+            ],
+            [
+               "2280137",
+               "0S pasd"
+            ],
+            [
+               "2280138",
+               "1M pasd"
+            ],
+            [
+               "2280139",
+               "0S pasd"
+            ],
+            [
+               "2280140",
+               "1M pasd"
+            ],
+            [
+               "2280141",
+               "0S pasd"
+            ],
+            [
+               "2280142",
+               "1M pasd"
+            ],
+            [
+               "2280143",
+               "0S pasd"
+            ],
+            [
+               "2280144",
+               "0S pasd"
+            ],
+            [
+               "2280145",
+               "1M pasd"
+            ],
+            [
+               "2280318",
+               "0S pasd"
+            ],
+            [
+               "2280161",
+               "1M pasd"
+            ],
+            [
+               "2280162",
+               "0S pasd"
+            ],
+            [
+               "2282177",
+               "1M pasd"
+            ],
+            [
+               "2282178",
+               "1M pasd"
+            ],
+            [
+               "2282179",
+               "0S pasd"
+            ],
+            [
+               "2282180",
+               "1M pasd"
+            ],
+            [
+               "2282181",
+               "1M pasd"
+            ],
+            [
+               "2282109",
+               "0S pasd"
+            ],
+            [
+               "2282110",
+               "1M pasd"
+            ],
+            [
+               "2282111",
+               "0S pasd"
+            ],
+            [
+               "2282112",
+               "0S pasd"
+            ],
+            [
+               "2282113",
+               "1M pasd"
+            ],
+            [
+               "2282114",
+               "1M pasd"
+            ],
+            [
+               "2282121",
+               "0S pasd"
+            ],
+            [
+               "2282122",
+               "1M pasd"
+            ],
+            [
+               "2282123",
+               "1M pasd"
+            ],
+            [
+               "2282124",
+               "1M pasd"
+            ],
+            [
+               "2282125",
+               "0S pasd"
+            ],
+            [
+               "228288",
+               "0S pasd"
+            ],
+            [
+               "228289",
+               "1M pasd"
+            ],
+            [
+               "228290",
+               "1M pasd"
+            ],
+            [
+               "228275",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-846-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Belmont Christian College - Bayview St Nr Warner St",
+            "rs_ref" : "RS_94-846-_-sj2-1-R-1",
+            "id" : "R_94-846-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-846-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "846"
+   }
+}
+;
+

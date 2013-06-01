@@ -1,0 +1,691 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-705-_-sj2-1" : "705"
+}
+;
+
+var stations = {
+   "2113133" : "Coxs Rd Nr Shaw St",
+   "2113101" : "Elliott Av Nr Rudd St",
+   "2113120" : "Twin Rd Nr Boyce St",
+   "211386" : "Elliott Av Nr Moncrieff Dr",
+   "2113102" : "Elliott Av Nr Sager Pl",
+   "2113100" : "Twin Rd Nr Dempsey St",
+   "2112162" : "Quarry Rd Opp Arthur St",
+   "211359" : "Coxs Rd Nr Badajoz Rd",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "211383" : "Moncrieff Dr Nr Cressy Rd",
+   "211246" : "Twin Rd Nr John Miller St",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "2113124" : "Twin Rd Nr Nerang St",
+   "211388" : "Bridge Rd Nr Lavarack St",
+   "2112165" : "Quarry Rd Nr Dobson Cr",
+   "2112160" : "Quarry Rd Nr Aeolus Av",
+   "211251" : "Higginbotham Rd Nr Cressy Rd",
+   "211356" : "Coxs Rd Nr Holy Spirit Primary",
+   "211387" : "Twin Rd nr Badajoz Rd",
+   "2112115" : "Smalls Rd Nr Fawcett St",
+   "2112167" : "Quarry Rd Nr Boyce St",
+   "2113139" : "Coxs Rd Nr Jopling St",
+   "2113137" : "Coxs Rd Nr Wolfe Rd",
+   "2112168" : "Quarry Rd Nr Jones St",
+   "211382" : "Twin Rd nr John Miller St",
+   "2113114" : "Pittwater Rd Nr Bronhill Av",
+   "2112245" : "Quarry Rd Nr Lane Cove Rd",
+   "2113110" : "Rene St Nr Mccallum Av",
+   "211393" : "Bridge Rd Nr Eastview Av",
+   "2113111" : "Pittwater Rd Nr Rene St",
+   "2113104" : "Lumsdaine Av Nr Elliott Av",
+   "211252" : "Higginbotham Rd Nr Cressy Rd",
+   "211394" : "Twin Rd Nr Dempsey St",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "211385" : "Sager Pl Nr Elliott Av",
+   "211355" : "Coxs Rd Nr North Ryde Primary",
+   "2113134" : "Coxs Rd Nr Shaw St",
+   "211389" : "Bridge Rd Nr Smalls Rd",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "211250" : "Pidding Rd Nr Pidding Park",
+   "2113308" : "Twin Rd Nr East Ryde Primary",
+   "211358" : "Coxs Rd Nr Blamey St",
+   "2113136" : "Coxs Rd Nr Jeanette St",
+   "2113105" : "Lumsdaine Av Nr Elliott Av",
+   "2112114" : "Smalls Rd Nr Fawcett St",
+   "211157" : "Higginbotham Rd nr Lyndhurst St",
+   "2113112" : "Pittwater Rd 190m S Of Bronhill Av",
+   "2113108" : "Rene St Nr Mccallum Av",
+   "211181" : "Higginbotham Rd nr Nelson St",
+   "211150" : "Higginbotham Rd nr Nelson St",
+   "2113123" : "Twin Rd Nr Numa Rd",
+   "2113138" : "Coxs Rd Nr Cressy Rd",
+   "2113115" : "Pittwater Rd Nr Bronhill Av",
+   "211384" : "Moncrieff Dr Nr Cilento Cr",
+   "2112159" : "Quarry Rd Nr Lavarack St",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "2112164" : "Quarry Rd Nr Woodbine Cr",
+   "2113113" : "Pittwater Rd 235m S Of Bronhill Av",
+   "211399" : "Twin Rd Nr Lane Cove Rd",
+   "211275" : "Higginbotham Rd Nr Nelson St",
+   "2112161" : "Quarry Rd Nr Arthur St",
+   "2113125" : "Twin Rd Nr Nerang St",
+   "2113121" : "Twin Rd Nr Boyce St",
+   "2113122" : "Twin Rd Nr Numa Rd",
+   "211357" : "Coxs Rd Nr Ryrie St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-705-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-705-_-sj2-1-4-b00bj",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211355",
+               null
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "0S pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "2113138",
+               "0S pasd"
+            ],
+            [
+               "2113134",
+               "1M pasd"
+            ],
+            [
+               "2113115",
+               "1M pasd"
+            ],
+            [
+               "2113113",
+               "1M pasd"
+            ],
+            [
+               "2113111",
+               "0S pasd"
+            ],
+            [
+               "2113108",
+               "1M pasd"
+            ],
+            [
+               "2113105",
+               "1M pasd"
+            ],
+            [
+               "2113102",
+               "0S pasd"
+            ],
+            [
+               "211386",
+               "1M pasd"
+            ],
+            [
+               "211246",
+               "1M pasd"
+            ],
+            [
+               "211387",
+               "0S pasd"
+            ],
+            [
+               "2113125",
+               "1M pasd"
+            ],
+            [
+               "2113122",
+               "0S pasd"
+            ],
+            [
+               "2113121",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "1M pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "1M pasd"
+            ],
+            [
+               "2112115",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "1M pasd"
+            ],
+            [
+               "2112161",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "0S pasd"
+            ],
+            [
+               "2112164",
+               "1M pasd"
+            ],
+            [
+               "2112167",
+               "0S pasd"
+            ],
+            [
+               "211250",
+               "2M pasd"
+            ],
+            [
+               "211251",
+               "2M pasd"
+            ],
+            [
+               "211181",
+               "0S pasd"
+            ],
+            [
+               "211150",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-705-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Coxs Rd Nr North Ryde Primary - Higginbotham Rd nr Nelson St",
+            "rs_ref" : "RS_99-705-_-sj2-1-R-2",
+            "id" : "R_99-705-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-705-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "705"
+   },
+   "VJ_99-705-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-705-_-sj2-1-2-b00bk",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211355",
+               null
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "0S pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "2113138",
+               "0S pasd"
+            ],
+            [
+               "2113134",
+               "1M pasd"
+            ],
+            [
+               "2113115",
+               "1M pasd"
+            ],
+            [
+               "2113113",
+               "1M pasd"
+            ],
+            [
+               "2113111",
+               "0S pasd"
+            ],
+            [
+               "2113108",
+               "1M pasd"
+            ],
+            [
+               "2113105",
+               "1M pasd"
+            ],
+            [
+               "2113102",
+               "0S pasd"
+            ],
+            [
+               "211386",
+               "1M pasd"
+            ],
+            [
+               "211246",
+               "1M pasd"
+            ],
+            [
+               "211387",
+               "0S pasd"
+            ],
+            [
+               "2113125",
+               "1M pasd"
+            ],
+            [
+               "2113122",
+               "0S pasd"
+            ],
+            [
+               "2113121",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "1M pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "1M pasd"
+            ],
+            [
+               "2112115",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "1M pasd"
+            ],
+            [
+               "2112161",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "0S pasd"
+            ],
+            [
+               "2112164",
+               "1M pasd"
+            ],
+            [
+               "2112167",
+               "0S pasd"
+            ],
+            [
+               "211250",
+               "2M pasd"
+            ],
+            [
+               "211251",
+               "2M pasd"
+            ],
+            [
+               "211181",
+               "0S pasd"
+            ],
+            [
+               "211150",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-705-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Coxs Rd Nr North Ryde Primary - Higginbotham Rd nr Nelson St",
+            "rs_ref" : "RS_99-705-_-sj2-1-R-2",
+            "id" : "R_99-705-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-705-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "705"
+   },
+   "VJ_99-705-_-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-705-_-sj2-1-3-b00bk",
+      "leaves" : "08:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211157",
+               null
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "0S pasd"
+            ],
+            [
+               "2112168",
+               "4M pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "0S pasd"
+            ],
+            [
+               "2112160",
+               "1M pasd"
+            ],
+            [
+               "2112114",
+               "1M pasd"
+            ],
+            [
+               "211393",
+               "2M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "1M pasd"
+            ],
+            [
+               "2113120",
+               "1M pasd"
+            ],
+            [
+               "2113123",
+               "1M pasd"
+            ],
+            [
+               "2113124",
+               "0S pasd"
+            ],
+            [
+               "2113308",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "0S pasd"
+            ],
+            [
+               "211383",
+               "1M pasd"
+            ],
+            [
+               "211384",
+               "0S pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "2113101",
+               "1M pasd"
+            ],
+            [
+               "2113104",
+               "0S pasd"
+            ],
+            [
+               "2113110",
+               "1M pasd"
+            ],
+            [
+               "2113112",
+               "1M pasd"
+            ],
+            [
+               "2113114",
+               "1M pasd"
+            ],
+            [
+               "2113136",
+               "0S pasd"
+            ],
+            [
+               "2113137",
+               "1M pasd"
+            ],
+            [
+               "2113133",
+               "0S pasd"
+            ],
+            [
+               "2113139",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "0S pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-705-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Higginbotham Rd nr Lyndhurst St - Coxs Rd Nr North Ryde Primary",
+            "rs_ref" : "RS_99-705-_-sj2-1-H-1",
+            "id" : "R_99-705-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-705-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "705"
+   },
+   "VJ_99-705-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-705-_-sj2-1-1-b00bj",
+      "leaves" : "08:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211157",
+               null
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "0S pasd"
+            ],
+            [
+               "2112168",
+               "4M pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "0S pasd"
+            ],
+            [
+               "2112160",
+               "1M pasd"
+            ],
+            [
+               "2112114",
+               "1M pasd"
+            ],
+            [
+               "211393",
+               "2M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "1M pasd"
+            ],
+            [
+               "2113120",
+               "1M pasd"
+            ],
+            [
+               "2113123",
+               "1M pasd"
+            ],
+            [
+               "2113124",
+               "0S pasd"
+            ],
+            [
+               "2113308",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "0S pasd"
+            ],
+            [
+               "211383",
+               "1M pasd"
+            ],
+            [
+               "211384",
+               "0S pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "2113101",
+               "1M pasd"
+            ],
+            [
+               "2113104",
+               "0S pasd"
+            ],
+            [
+               "2113110",
+               "1M pasd"
+            ],
+            [
+               "2113112",
+               "1M pasd"
+            ],
+            [
+               "2113114",
+               "1M pasd"
+            ],
+            [
+               "2113136",
+               "0S pasd"
+            ],
+            [
+               "2113137",
+               "1M pasd"
+            ],
+            [
+               "2113133",
+               "0S pasd"
+            ],
+            [
+               "2113139",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "0S pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-705-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Higginbotham Rd nr Lyndhurst St - Coxs Rd Nr North Ryde Primary",
+            "rs_ref" : "RS_99-705-_-sj2-1-H-1",
+            "id" : "R_99-705-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-705-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "705"
+   }
+}
+;
+

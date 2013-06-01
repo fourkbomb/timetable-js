@@ -1,0 +1,413 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-789-_-sj2-1" : "789"
+}
+;
+
+var stations = {
+   "2289186" : "Lexington Pde Opp Rosemont St",
+   "230583" : "Bridges Rd Opp Penman St",
+   "228598" : "Wallsend Rd opp Rowes Ln",
+   "2287317" : "Aries Wy opp Virgo St",
+   "228596" : "Cardiff Rd nr Rainbow Cl",
+   "2287302" : "Croudace Rd opp Urara Pde",
+   "228595" : "Wallsend Rd nr Rowes Ln",
+   "2287305" : "Croudace Rd nr Sherwood St",
+   "228945" : "Park Av Nr Brisbane Water Rd",
+   "228741" : "Cardiff Rd nr Smith Rd",
+   "228935" : "Park Av Nr Fletcher St",
+   "2289269" : "Carnley Av Nr Grinsell St",
+   "2287318" : "Aries Wy opp Leo Cl",
+   "2289185" : "Lexington Pde Opp Rachael Av",
+   "2287315" : "Aries Wy nr Taurus St",
+   "2305139" : "Carnley Av Nr Birdwood St",
+   "2289320" : "Lexington Pde opp Princeton Av",
+   "2285245" : "Main Rd nr Wallsend Rd",
+   "2287311" : "Jubilee Rd nr Aries Wy",
+   "2287326" : "Aries Wy opp Taurus St",
+   "228597" : "Cardiff Rd nr Daintree Cl",
+   "2285246" : "Main Rd opp Highfield Tce",
+   "2285252" : "Main Rd nr Harrisons Ln",
+   "230585" : "Carnley Av Nr Birdwood St",
+   "2287322" : "Aries Wy nr Gemini Av",
+   "2289183" : "Northcott  Dr Opp Kullaiba Rd",
+   "2287303" : "Croudace Rd opp Sherwood St",
+   "2285248" : "Main Rd nr Baptist Church",
+   "2289110" : "St Pius X High School",
+   "2285250" : "Main Rd 200m E of Cockburns Ln",
+   "230586" : "Carnley Av Nr Orchardtown Rd",
+   "2285249" : "Main Rd opp Baptist Church",
+   "2287309" : "Jubilee Rd opp Taurus St",
+   "228925" : "Park Av Nr Westfield Kotara",
+   "2287308" : "Watkins Rd nr Kerry Av",
+   "2305167" : "Charlestown Rd Nr Hurn St",
+   "2285247" : "Main Rd 250m E of Cockburns Ln",
+   "2287312" : "Jubilee Rd nr Taurus St",
+   "2285228" : "Main Rd opp Cockburns Ln",
+   "2289182" : "Northcott Dr Nr Bradford Cl",
+   "2287304" : "Croudace Rd nr Elermore Vale Primary",
+   "2289187" : "Lexington Pde Nr Kotara High",
+   "2285251" : "Main Rd nr Cockburns Ln",
+   "228740" : "Cardiff Rd opp Watkins Rd",
+   "2287266" : "Watkins Rd opp Kerry Av",
+   "2287310" : "Jubilee Rd opp Aries Wy",
+   "2287324" : "Aries Wy nr Virgo St",
+   "2305138" : "Carnley Av Nr Orchardtown Rd",
+   "2287316" : "Aries Wy nr Aries Way Reserve",
+   "2287306" : "Croudace Rd nr Urara Pde",
+   "228733" : "Cardiff Rd nr Watkins Rd",
+   "2287319" : "Aries Wy opp Gemini Av",
+   "228732" : "Cardiff Rd opp Smith Rd",
+   "2287325" : "Aries Wy opp Aries Way Reserve",
+   "2287314" : "Aries Wy nr Croudace Rd",
+   "2287320" : "Aries Wy nr Jubile Rd",
+   "2305175" : "Cardiff Rd Nr Marshall St",
+   "2305174" : "Cardiff Rd Opp Beverley Cr",
+   "2287323" : "Aries Wy nr Leo Cl",
+   "2289273" : "Carnley Av Nr Charlestown Rd",
+   "2287328" : "Croudace Rd nr Jubilee Rd",
+   "228947" : "Park Av Nr Dibbs St",
+   "2287321" : "Aries Wy nr Pisces Av",
+   "2289194" : "Lexington Pde Nr Kotara High",
+   "2287327" : "Aries Wy nr Aquarius Av",
+   "2289258" : "Park Av Nr Northcott Rd",
+   "2289219" : "Lexington Pde Nr Rachael Av",
+   "2305168" : "Charlestown Rd Opp Carnley Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-789-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-789-_-sj2-1-2-b0096",
+      "leaves" : "15:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289194",
+               null
+            ],
+            [
+               "2289219",
+               "1M pasd"
+            ],
+            [
+               "2289258",
+               "1M pasd"
+            ],
+            [
+               "228947",
+               "1M pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "2289182",
+               "0S pasd"
+            ],
+            [
+               "230583",
+               "1M pasd"
+            ],
+            [
+               "230585",
+               "1M pasd"
+            ],
+            [
+               "230586",
+               "0S pasd"
+            ],
+            [
+               "2289269",
+               "4M pasd"
+            ],
+            [
+               "2305168",
+               "0S pasd"
+            ],
+            [
+               "2305175",
+               "2M pasd"
+            ],
+            [
+               "2285249",
+               "0S pasd"
+            ],
+            [
+               "2285250",
+               "1M pasd"
+            ],
+            [
+               "2285251",
+               "0S pasd"
+            ],
+            [
+               "2285252",
+               "1M pasd"
+            ],
+            [
+               "228595",
+               "1M pasd"
+            ],
+            [
+               "228596",
+               "2M pasd"
+            ],
+            [
+               "228732",
+               "1M pasd"
+            ],
+            [
+               "228733",
+               "0S pasd"
+            ],
+            [
+               "2287308",
+               "1M pasd"
+            ],
+            [
+               "2287309",
+               "1M pasd"
+            ],
+            [
+               "2287310",
+               "0S pasd"
+            ],
+            [
+               "2287321",
+               "0S pasd"
+            ],
+            [
+               "2287322",
+               "1M pasd"
+            ],
+            [
+               "2287323",
+               "1M pasd"
+            ],
+            [
+               "2287324",
+               "0S pasd"
+            ],
+            [
+               "2287325",
+               "0S pasd"
+            ],
+            [
+               "2287326",
+               "1M pasd"
+            ],
+            [
+               "2287327",
+               "1M pasd"
+            ],
+            [
+               "2287328",
+               "0S pasd"
+            ],
+            [
+               "2287305",
+               "1M pasd"
+            ],
+            [
+               "2287306",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-789-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Lexington Pde Nr Kotara High - Croudace Rd nr Urara Pde",
+            "rs_ref" : "RS_94-789-_-sj2-1-R-2",
+            "id" : "R_94-789-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-789-_-sj2-1",
+      "line" : "789"
+   },
+   "VJ_94-789-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-789-_-sj2-1-1-b0096",
+      "leaves" : "07:46:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2287302",
+               null
+            ],
+            [
+               "2287303",
+               "0S pasd"
+            ],
+            [
+               "2287304",
+               "1M pasd"
+            ],
+            [
+               "2287314",
+               "1M pasd"
+            ],
+            [
+               "2287315",
+               "0S pasd"
+            ],
+            [
+               "2287316",
+               "1M pasd"
+            ],
+            [
+               "2287317",
+               "0S pasd"
+            ],
+            [
+               "2287318",
+               "1M pasd"
+            ],
+            [
+               "2287319",
+               "0S pasd"
+            ],
+            [
+               "2287320",
+               "1M pasd"
+            ],
+            [
+               "2287311",
+               "0S pasd"
+            ],
+            [
+               "2287312",
+               "0S pasd"
+            ],
+            [
+               "2287266",
+               "1M pasd"
+            ],
+            [
+               "228740",
+               "1M pasd"
+            ],
+            [
+               "228741",
+               "0S pasd"
+            ],
+            [
+               "228597",
+               "1M pasd"
+            ],
+            [
+               "228598",
+               "3M pasd"
+            ],
+            [
+               "2285245",
+               "0S pasd"
+            ],
+            [
+               "2285246",
+               "1M pasd"
+            ],
+            [
+               "2285228",
+               "0S pasd"
+            ],
+            [
+               "2285247",
+               "1M pasd"
+            ],
+            [
+               "2285248",
+               "0S pasd"
+            ],
+            [
+               "2305174",
+               "1M pasd"
+            ],
+            [
+               "2305167",
+               "1M pasd"
+            ],
+            [
+               "2289273",
+               "1M pasd"
+            ],
+            [
+               "2305138",
+               "4M pasd"
+            ],
+            [
+               "2305139",
+               "0S pasd"
+            ],
+            [
+               "2289183",
+               "1M pasd"
+            ],
+            [
+               "228947",
+               "1M pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228925",
+               "1M pasd"
+            ],
+            [
+               "2289320",
+               "1M pasd"
+            ],
+            [
+               "2289185",
+               "1M pasd"
+            ],
+            [
+               "2289186",
+               "0S pasd"
+            ],
+            [
+               "2289187",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-789-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Croudace Rd opp Urara Pde - Lexington Pde Nr Kotara High",
+            "rs_ref" : "RS_94-789-_-sj2-1-H-1",
+            "id" : "R_94-789-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-789-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   }
+}
+;
+

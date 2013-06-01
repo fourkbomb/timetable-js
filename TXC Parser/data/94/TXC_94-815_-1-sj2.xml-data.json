@@ -1,0 +1,595 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-815-_-sj2-1" : "815"
+}
+;
+
+var stations = {
+   "228977" : "Pacific Hwy Opp Faul St",
+   "229197" : "Pell St Nr Curry St",
+   "230093" : "Darby St near Parry St",
+   "228957" : "Northcott Dr nr Kinros Av",
+   "2291104" : "Scenic Dr Opp Woodward St",
+   "2291108" : "Scenic Dr Nr Woodward St",
+   "2291103" : "Scenic Dr Opp Charlotte St",
+   "2291123" : "Ridge St Nr Mitchell St",
+   "228956" : "Northcott Dr nr Kinross Av",
+   "228924" : "Northcott Dr Northcott Dr Near Cynthia St",
+   "2291130" : "Patrick St Nr Burwood St",
+   "2291129" : "Patrick St Nr Kilgour Av",
+   "229196" : "Holy Family School",
+   "230034" : "Hunter St opp Darby St",
+   "229140" : "Scenic Dr Opp Ashford Pde",
+   "2291110" : "Lloyd St Nr Scenic Dr",
+   "230067" : "Darby St near Art Gallery",
+   "228945" : "Park Av Nr Brisbane Water Rd",
+   "2291109" : "Scenic Dr Nr Charlotte St",
+   "2291131" : "Patrick St Nr Watkins St",
+   "228935" : "Park Av Nr Fletcher St",
+   "228960" : "Northcott Dr nr Park Av",
+   "228958" : "Northcott Dr nr Lexington Pde",
+   "228928" : "Garden City",
+   "230026" : "Hunter St near Darby St",
+   "228981" : "Pacific Hwy Nr Faul St",
+   "2291105" : "Scenic Dr Opp Toorakcl",
+   "2291125" : "Mitchell St Nr Berner St",
+   "2291128" : "Patrick St Nr Robey St",
+   "230017" : "Scott St near Wolfe St",
+   "230064" : "Darby St Nr Tooke St",
+   "230092" : "Darby St Nr Bull St",
+   "229193" : "Ridge St Nr Mitchell St",
+   "229149" : "Scenic Dr Nr Sun Hill Dr",
+   "2289174" : "Pacific Hwy Nr Northcott Dr",
+   "230065" : "Darby St near St Johns Church",
+   "2300103" : "Newcastle Terminus",
+   "228922" : "Northcott Dr Northcote Rd Near Kineaross Av",
+   "2291127" : "Patrick St Nr Union St",
+   "2291132" : "Mitchell St Nr Barr St",
+   "230094" : "Darby St Nr Tooke St",
+   "2291107" : "Scenic Dr Nr Perina Pl",
+   "2291126" : "Mitchell St Nr Lingard St",
+   "2289110" : "St Pius X High School",
+   "2291124" : "Mitchell St Nr Llewellyn St",
+   "2289165" : "Northcott Dr Opp Wade St",
+   "228923" : "Northcott Dr Northcott Dr Near Wade St",
+   "2289176" : "Pacific Hwy Opp Northcott Dr",
+   "230029" : "Scott St opp Perkins St",
+   "2289164" : "Northcott Dr Opp Cynthia St",
+   "2291106" : "Merewether Heights Primary",
+   "230062" : "Darby St near Bar Beach Av",
+   "229139" : "Scenic Dr Opp Sun Hill Dr",
+   "2291135" : "Mitchell St Nr Park St",
+   "2289187" : "Lexington Pde Nr Kotara High",
+   "230033" : "Scott St opp Wolfe St",
+   "230041" : "Scott St near Newcastle Station",
+   "2291102" : "Scenic Dr Nr Hickson St",
+   "230095" : "Darby St Nr Parkway Av",
+   "229147" : "Scenic Dr Nr Sun Hill Dr",
+   "230066" : "Darby St Nr Bull St",
+   "229198" : "Lloyd St Nr Curry St",
+   "230047" : "Hunter St near Perkins St",
+   "2291112" : "Holy Family School",
+   "230091" : "Darby St near Queen St",
+   "230063" : "Darby St Nr Parkway Av",
+   "230046" : "Scott St before Bolton St",
+   "2291111" : "Pell St Nr Janet St",
+   "2289177" : "Northcott Dr Nr Ellerslie Rd",
+   "229141" : "Scenic Dr Opp Sun Hill Dr",
+   "228947" : "Park Av Nr Dibbs St",
+   "2289194" : "Lexington Pde Nr Kotara High",
+   "229148" : "Scenic Dr Nr Ashford Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-815-_-sj2-1-3-b0096" : {
+      "vjcode" : "VJ_94-815-_-sj2-1-3-b0096",
+      "leaves" : "15:29:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289187",
+               null
+            ],
+            [
+               "2289174",
+               "2M pasd"
+            ],
+            [
+               "228977",
+               "1M pasd"
+            ],
+            [
+               "229147",
+               "3M pasd"
+            ],
+            [
+               "229148",
+               "1M pasd"
+            ],
+            [
+               "229149",
+               "0S pasd"
+            ],
+            [
+               "2291106",
+               "1M pasd"
+            ],
+            [
+               "2291107",
+               "0S pasd"
+            ],
+            [
+               "2291108",
+               "1M pasd"
+            ],
+            [
+               "2291109",
+               "1M pasd"
+            ],
+            [
+               "2291110",
+               "1M pasd"
+            ],
+            [
+               "2291111",
+               "1M pasd"
+            ],
+            [
+               "2291112",
+               "0S pasd"
+            ],
+            [
+               "2291123",
+               "1M pasd"
+            ],
+            [
+               "2291124",
+               "0S pasd"
+            ],
+            [
+               "2291125",
+               "0S pasd"
+            ],
+            [
+               "2291126",
+               "1M pasd"
+            ],
+            [
+               "2291127",
+               "0S pasd"
+            ],
+            [
+               "2291128",
+               "1M pasd"
+            ],
+            [
+               "2291129",
+               "0S pasd"
+            ],
+            [
+               "230063",
+               "1M pasd"
+            ],
+            [
+               "230064",
+               "0S pasd"
+            ],
+            [
+               "230065",
+               "1M pasd"
+            ],
+            [
+               "230066",
+               "0S pasd"
+            ],
+            [
+               "230067",
+               "1M pasd"
+            ],
+            [
+               "230034",
+               "1M pasd"
+            ],
+            [
+               "230029",
+               "1M pasd"
+            ],
+            [
+               "230033",
+               "0S pasd"
+            ],
+            [
+               "230041",
+               "1M pasd"
+            ],
+            [
+               "2300103",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-815-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Lexington Pde Nr Kotara High - Newcastle Station Terminus",
+            "rs_ref" : "RS_94-815-_-sj2-1-R-3",
+            "id" : "R_94-815-_-sj2-1-R-3"
+         }
+      },
+      "service" : "94-815-_-sj2-1",
+      "line" : "815"
+   },
+   "VJ_94-815-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-815-_-sj2-1-2-b0096",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289110",
+               null
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228960",
+               "0S pasd"
+            ],
+            [
+               "2289164",
+               "1M pasd"
+            ],
+            [
+               "2289165",
+               "1M pasd"
+            ],
+            [
+               "228956",
+               "0S pasd"
+            ],
+            [
+               "228957",
+               "1M pasd"
+            ],
+            [
+               "228958",
+               "0S pasd"
+            ],
+            [
+               "2289174",
+               "1M pasd"
+            ],
+            [
+               "228977",
+               "1M pasd"
+            ],
+            [
+               "229147",
+               "3M pasd"
+            ],
+            [
+               "229148",
+               "0S pasd"
+            ],
+            [
+               "229149",
+               "1M pasd"
+            ],
+            [
+               "2291106",
+               "1M pasd"
+            ],
+            [
+               "2291107",
+               "0S pasd"
+            ],
+            [
+               "2291108",
+               "1M pasd"
+            ],
+            [
+               "2291109",
+               "1M pasd"
+            ],
+            [
+               "2291110",
+               "1M pasd"
+            ],
+            [
+               "2291111",
+               "1M pasd"
+            ],
+            [
+               "2291112",
+               "0S pasd"
+            ],
+            [
+               "2291123",
+               "0S pasd"
+            ],
+            [
+               "2291124",
+               "1M pasd"
+            ],
+            [
+               "2291125",
+               "0S pasd"
+            ],
+            [
+               "2291126",
+               "0S pasd"
+            ],
+            [
+               "2291127",
+               "1M pasd"
+            ],
+            [
+               "2291128",
+               "0S pasd"
+            ],
+            [
+               "2291129",
+               "1M pasd"
+            ],
+            [
+               "230063",
+               "0S pasd"
+            ],
+            [
+               "230064",
+               "1M pasd"
+            ],
+            [
+               "230065",
+               "0S pasd"
+            ],
+            [
+               "230066",
+               "1M pasd"
+            ],
+            [
+               "230067",
+               "1M pasd"
+            ],
+            [
+               "230034",
+               "0S pasd"
+            ],
+            [
+               "230029",
+               "1M pasd"
+            ],
+            [
+               "230033",
+               "0S pasd"
+            ],
+            [
+               "230041",
+               "1M pasd"
+            ],
+            [
+               "2300103",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-815-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "St Pius X High School - Newcastle Station Terminus",
+            "rs_ref" : "RS_94-815-_-sj2-1-R-2",
+            "id" : "R_94-815-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-815-_-sj2-1",
+      "line" : "815"
+   },
+   "VJ_94-815-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-815-_-sj2-1-1-b0096",
+      "leaves" : "08:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2300103",
+               null
+            ],
+            [
+               "230046",
+               "2M pasd"
+            ],
+            [
+               "230017",
+               "1M pasd"
+            ],
+            [
+               "230047",
+               "1M pasd"
+            ],
+            [
+               "230026",
+               "1M pasd"
+            ],
+            [
+               "230091",
+               "1M pasd"
+            ],
+            [
+               "230092",
+               "1M pasd"
+            ],
+            [
+               "230093",
+               "1M pasd"
+            ],
+            [
+               "230094",
+               "0S pasd"
+            ],
+            [
+               "230095",
+               "1M pasd"
+            ],
+            [
+               "230062",
+               "1M pasd"
+            ],
+            [
+               "2291130",
+               "1M pasd"
+            ],
+            [
+               "2291131",
+               "1M pasd"
+            ],
+            [
+               "2291132",
+               "0S pasd"
+            ],
+            [
+               "2291135",
+               "2M pasd"
+            ],
+            [
+               "229193",
+               "0S pasd"
+            ],
+            [
+               "229196",
+               "1M pasd"
+            ],
+            [
+               "229197",
+               "0S pasd"
+            ],
+            [
+               "229198",
+               "0S pasd"
+            ],
+            [
+               "2291102",
+               "1M pasd"
+            ],
+            [
+               "2291103",
+               "1M pasd"
+            ],
+            [
+               "2291104",
+               "0S pasd"
+            ],
+            [
+               "2291105",
+               "1M pasd"
+            ],
+            [
+               "229139",
+               "1M pasd"
+            ],
+            [
+               "229140",
+               "0S pasd"
+            ],
+            [
+               "229141",
+               "1M pasd"
+            ],
+            [
+               "228981",
+               "1M pasd"
+            ],
+            [
+               "2289176",
+               "1M pasd"
+            ],
+            [
+               "2289177",
+               "0S pasd"
+            ],
+            [
+               "228922",
+               "1M pasd"
+            ],
+            [
+               "228923",
+               "0S pasd"
+            ],
+            [
+               "228924",
+               "1M pasd"
+            ],
+            [
+               "228928",
+               "0S pasd"
+            ],
+            [
+               "228947",
+               "0S pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228960",
+               "0S pasd"
+            ],
+            [
+               "2289164",
+               "1M pasd"
+            ],
+            [
+               "2289165",
+               "0S pasd"
+            ],
+            [
+               "228956",
+               "1M pasd"
+            ],
+            [
+               "228957",
+               "0S pasd"
+            ],
+            [
+               "228958",
+               "0S pasd"
+            ],
+            [
+               "2289194",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-815-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Newcastle Station Terminus - Lexington Pde Nr Kotara High",
+            "rs_ref" : "RS_94-815-_-sj2-1-H-1",
+            "id" : "R_94-815-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-815-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "815"
+   }
+}
+;
+

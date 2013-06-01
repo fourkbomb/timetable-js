@@ -1,0 +1,1244 @@
+var OPERATOR = "Dions Bus Service";
+
+
+var LINES = {
+   "36-1U-_-sj2-1" : "1U"
+}
+;
+
+var stations = {
+   "251523" : "Jims Fish Shop Lawrence Hargrave Dr",
+   "251818" : "Ferrara Furniture Princes Hwy near Caldwell Av",
+   "251915" : "Fraternity Bowling Club Princes Hwy",
+   "251539" : "Thirroul Uniting Church Lawrence Hargrave Dr",
+   "251918" : "Alminco Princes Hwy near Jardine St",
+   "251517" : "Lawrence Hargrave Dr before Church St",
+   "251726" : "Purely Mechanical Auto Repairs And Windmill Mot",
+   "251817" : "Stocklands_ Princes Hwy",
+   "251544" : "Lawrence Hargrave Dr Near Hewitts Av",
+   "251619" : "Bulli Bowling Club",
+   "251930" : "Princess Hwy near Lysaght St",
+   "251722" : "Woonona Mitsubishi Princes Hwy near Collaery Rd",
+   "2500277" : "Irvine St Near Madoline St",
+   "251828" : "Health Sense Pharmacy Princes Hwy",
+   "251925" : "Princes Hwy near Elliotts Rd",
+   "251712" : "Woonona Shops_ Princes Hwy after Russell St",
+   "251541" : "Austinmer Railway Moore St",
+   "251923" : "Fairy Meadow Public School Princes Hwy",
+   "251518" : "Thirroul Plaza Lawrence Hargrave Dr",
+   "251711" : "Northern Automotive and Bulli Fire Station",
+   "251919" : "Antiques Princes Hwy near Chapman St",
+   "251813" : "Blairs Tyre Service and Bellambi Beach",
+   "251528" : "Moore St near Slade St",
+   "251524" : "Lawrence Hargrave Dr Near Henley Rd",
+   "251535" : "Lawrence Hargrave Dr near Cochrane Rd",
+   "251721" : "Southern Mines Rescue Princes Hwy",
+   "251659" : "Princes Hwy and Point St",
+   "251824" : "Blairs Tyre Service and Bellambi Beach",
+   "251727" : "Woonona RSL Princes Hwy near Nicholson Rd",
+   "251542" : "Austinmer Railway Moore St",
+   "251519" : "Thirroul Fire Lawrence Hargrave Dr",
+   "251728" : "Princes Hwy before Popes Rd",
+   "251812" : "Blaas Autocraft Smash Repairs",
+   "251723" : "Rixons Pass Rd Princes Hwy",
+   "251718" : "Rixons Pass Rd Princes Hwy",
+   "251616" : "Bulli Flower And Gift Shop Princes Hwy",
+   "251811" : "Bellambi Lane and Russel Vale Service Centre",
+   "2519119" : "Princes Hwy and Lysaght Av",
+   "250019" : "Wollongong University Northfields Ave - Stand 1",
+   "251720" : "Southern Mines Rescue Princes Hwy",
+   "251717" : "Hollymount Park Princes Hwy Near Stanhope St",
+   "251913" : "Kitchen and Joinery Princes Hwy",
+   "251515" : "Lawrence Hargrave Dr near Prince St",
+   "251514" : "Lawrence Hargrave Dr Near Hewitts Av",
+   "251927" : "Cabbage Tree Creek",
+   "251719" : "Princes Hwy near Collaery Rd",
+   "2515102" : "Lawrence Hargrave Drive and Lachlan St",
+   "251543" : "Lawrence Hargrave Dr near High St",
+   "251929" : "Princess Hwy near Mt Ousley Rd",
+   "251534" : "Lawrence Hargrave Dr Near Henley Rd",
+   "251922" : "Cabbage Tree Motor Park Princes Hwy",
+   "251617" : "Princes Hwy Near Hospital Rd",
+   "251536" : "Thirroul Fire Lawrence Hargrave Dr",
+   "251730" : "Bulli Fire Princes Hwy",
+   "251612" : "Princes Hwy Near Point St",
+   "251618" : "Bulli Hotel_ Princes Highway",
+   "251516" : "Thirroul Medical Centre George St",
+   "251724" : "Hollymount Park Princes Hwy Near Stanhope St",
+   "251660" : "Lawrence Hargrave Drive and George St",
+   "251615" : "Shell Service Princes Hwy",
+   "251527" : "Moore St near Lawrence Hargrave Dr",
+   "251826" : "Butcher Shop Princes Hwy near Thurston Cr",
+   "251912" : "Princess Hwy near Mt Ousley Rd",
+   "251716" : "Princes Hwy Near Hale St",
+   "251920" : "Princes Hwy near Hope St",
+   "251917" : "Fair Meadow Community Centre Princes Hwy",
+   "251538" : "Lawrence Hargrave Dr near St",
+   "251926" : "Bosco Accounting Princes Hwy near Guest Av",
+   "251620" : "Bulli Public School",
+   "251725" : "Princes Hwy Near Hale St",
+   "251551" : "Thirroul Railway Lawrence Hargrave Dr",
+   "251921" : "Princes Hwy before Florence St",
+   "251928" : "Princes Hwy near Collaery Av",
+   "251816" : "Memorial Park_ Princes Hwy",
+   "251614" : "Police and Community Youth Club Princes Hwy",
+   "251823" : "St Columbkilles School Princes Hwy",
+   "251819" : "Pauls Old Wares Princes Hwy",
+   "251825" : "Blaas Autocraft Smash Repairs",
+   "2518102" : "Woolworths Petrol Plus Princes Hwy",
+   "251815" : "Corrimal RSL Princes Hwy near Collins St",
+   "251715" : "Purely Mechanical Auto Repairs And Windmill Mot",
+   "251714" : "Woonona RSL Princes Hwy near Nicholson Rd",
+   "251827" : "Towncraft Princes Hwy near Thurston Cr",
+   "251729" : "Strachan Park _ Princes Hwy",
+   "251821" : "National Bank Princes Hwy near Railway St",
+   "251822" : "Corrimal Hardware Princes Hwy near Collins St",
+   "251911" : "Princess Hwy near Lysaght St",
+   "251914" : "Cabbage Tree Creek",
+   "251532" : "Lawrence Hargrave Dr near Kennedy Rd",
+   "251537" : "Thirroul Plaza Lawrence Hargrave Dr",
+   "251713" : "Princes Hwy after Campbell St",
+   "251529" : "Moore St near Lawrence Hargrave Dr",
+   "251613" : "Bulli Bowling Club",
+   "251525" : "Lawrence Hargrave Dr Near Mountain Rd",
+   "251814" : "Fire and Anglican Church Princes Hwy",
+   "251611" : "Bulli Public School",
+   "251533" : "Lawrence Hargrave Dr Near Mountain Rd",
+   "251916" : "Princes Hwy near Elliotts Rd",
+   "251924" : "Fairy Meadow Shops Princes Hwy",
+   "251526" : "Lawrence Hargrave Dr near Kennedy Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_36-1U-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-3-TA",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251542",
+               null
+            ],
+            [
+               "251529",
+               "24S pasd"
+            ],
+            [
+               "251532",
+               "14S pasd"
+            ],
+            [
+               "251533",
+               "14S pasd"
+            ],
+            [
+               "251534",
+               "24S pasd"
+            ],
+            [
+               "251535",
+               "11S pasd"
+            ],
+            [
+               "251536",
+               "15S pasd"
+            ],
+            [
+               "251537",
+               "18S pasd"
+            ],
+            [
+               "251538",
+               "35S pasd"
+            ],
+            [
+               "251551",
+               "25S pasd"
+            ],
+            [
+               "251539",
+               "42S pasd"
+            ],
+            [
+               "251543",
+               "47S pasd"
+            ],
+            [
+               "251544",
+               "49S pasd"
+            ],
+            [
+               "251611",
+               "1M46S pasd"
+            ],
+            [
+               "251612",
+               "58S pasd"
+            ],
+            [
+               "251613",
+               "54S pasd"
+            ],
+            [
+               "251614",
+               "1M4S pasd"
+            ],
+            [
+               "251615",
+               "11S pasd"
+            ],
+            [
+               "251616",
+               "9S pasd"
+            ],
+            [
+               "251711",
+               "13S pasd"
+            ],
+            [
+               "251712",
+               "14S pasd"
+            ],
+            [
+               "251713",
+               "13S pasd"
+            ],
+            [
+               "251714",
+               "22S pasd"
+            ],
+            [
+               "251715",
+               "51S pasd"
+            ],
+            [
+               "251716",
+               "36S pasd"
+            ],
+            [
+               "251717",
+               "35S pasd"
+            ],
+            [
+               "251718",
+               "47S pasd"
+            ],
+            [
+               "251719",
+               "33S pasd"
+            ],
+            [
+               "251720",
+               "1M16S pasd"
+            ],
+            [
+               "251811",
+               "19S pasd"
+            ],
+            [
+               "251812",
+               "16S pasd"
+            ],
+            [
+               "251813",
+               "25S pasd"
+            ],
+            [
+               "251814",
+               "1M6S pasd"
+            ],
+            [
+               "251815",
+               "40S pasd"
+            ],
+            [
+               "251816",
+               "34S pasd"
+            ],
+            [
+               "251817",
+               "40S pasd"
+            ],
+            [
+               "251826",
+               "45S pasd"
+            ],
+            [
+               "251827",
+               "1M9S pasd"
+            ],
+            [
+               "251828",
+               "1M7S pasd"
+            ],
+            [
+               "251921",
+               "1M6S pasd"
+            ],
+            [
+               "251922",
+               "1M7S pasd"
+            ],
+            [
+               "251923",
+               "38S pasd"
+            ],
+            [
+               "251924",
+               "30S pasd"
+            ],
+            [
+               "251925",
+               "38S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250019",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Austinmer Station - Wollongong University",
+            "rs_ref" : "RS_36-1U-_-sj2-1-R-2",
+            "id" : "R_36-1U-_-sj2-1-R-2"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-4-TA",
+      "leaves" : "17:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250019",
+               null
+            ],
+            [
+               "2500277",
+               "1M15S pasd"
+            ],
+            [
+               "251911",
+               "2M45S pasd"
+            ],
+            [
+               "251912",
+               "30S pasd"
+            ],
+            [
+               "251913",
+               "20S pasd"
+            ],
+            [
+               "251914",
+               "21S pasd"
+            ],
+            [
+               "251915",
+               "22S pasd"
+            ],
+            [
+               "251916",
+               "27S pasd"
+            ],
+            [
+               "251917",
+               "25S pasd"
+            ],
+            [
+               "251918",
+               "1M1S pasd"
+            ],
+            [
+               "251919",
+               "18S pasd"
+            ],
+            [
+               "251920",
+               "25S pasd"
+            ],
+            [
+               "251818",
+               "35S pasd"
+            ],
+            [
+               "251819",
+               "51S pasd"
+            ],
+            [
+               "2518102",
+               "41S pasd"
+            ],
+            [
+               "251821",
+               "44S pasd"
+            ],
+            [
+               "251822",
+               "53S pasd"
+            ],
+            [
+               "251823",
+               "31S pasd"
+            ],
+            [
+               "251824",
+               "36S pasd"
+            ],
+            [
+               "251825",
+               "26S pasd"
+            ],
+            [
+               "251721",
+               "34S pasd"
+            ],
+            [
+               "251722",
+               "49S pasd"
+            ],
+            [
+               "251723",
+               "38S pasd"
+            ],
+            [
+               "251724",
+               "36S pasd"
+            ],
+            [
+               "251725",
+               "26S pasd"
+            ],
+            [
+               "251726",
+               "33S pasd"
+            ],
+            [
+               "251727",
+               "34S pasd"
+            ],
+            [
+               "251728",
+               "24S pasd"
+            ],
+            [
+               "251729",
+               "32S pasd"
+            ],
+            [
+               "251730",
+               "54S pasd"
+            ],
+            [
+               "251617",
+               "39S pasd"
+            ],
+            [
+               "251618",
+               "55S pasd"
+            ],
+            [
+               "251619",
+               "33S pasd"
+            ],
+            [
+               "251659",
+               "25S pasd"
+            ],
+            [
+               "251620",
+               "26S pasd"
+            ],
+            [
+               "251660",
+               "29S pasd"
+            ],
+            [
+               "251514",
+               "32S pasd"
+            ],
+            [
+               "251515",
+               "26S pasd"
+            ],
+            [
+               "2515102",
+               "31S pasd"
+            ],
+            [
+               "251516",
+               "14S pasd"
+            ],
+            [
+               "251517",
+               "24S pasd"
+            ],
+            [
+               "251518",
+               "1M pasd"
+            ],
+            [
+               "251519",
+               "29S pasd"
+            ],
+            [
+               "251523",
+               "17S pasd"
+            ],
+            [
+               "251524",
+               "19S pasd"
+            ],
+            [
+               "251525",
+               "43S pasd"
+            ],
+            [
+               "251526",
+               "17S pasd"
+            ],
+            [
+               "251527",
+               "14S pasd"
+            ],
+            [
+               "251528",
+               "23S pasd"
+            ],
+            [
+               "251541",
+               "23S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Wollongong University - Austinmer Station",
+            "rs_ref" : "RS_36-1U-_-sj2-1-H-3",
+            "id" : "R_36-1U-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-2-TA",
+      "leaves" : "14:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250019",
+               null
+            ],
+            [
+               "2500277",
+               "1M19S pasd"
+            ],
+            [
+               "2519119",
+               "1M19S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wollongong University - Princes Hwy and Lysaght Av",
+            "rs_ref" : "RS_36-1U-_-sj2-1-H-1",
+            "id" : "R_36-1U-_-sj2-1-H-1"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-7-TA",
+      "leaves" : "08:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251542",
+               null
+            ],
+            [
+               "251529",
+               "36S pasd"
+            ],
+            [
+               "251532",
+               "21S pasd"
+            ],
+            [
+               "251533",
+               "21S pasd"
+            ],
+            [
+               "251534",
+               "37S pasd"
+            ],
+            [
+               "251535",
+               "17S pasd"
+            ],
+            [
+               "251536",
+               "22S pasd"
+            ],
+            [
+               "251537",
+               "26S pasd"
+            ],
+            [
+               "251538",
+               "35S pasd"
+            ],
+            [
+               "251551",
+               "25S pasd"
+            ],
+            [
+               "251539",
+               "36S pasd"
+            ],
+            [
+               "251543",
+               "40S pasd"
+            ],
+            [
+               "251544",
+               "42S pasd"
+            ],
+            [
+               "251611",
+               "1M31S pasd"
+            ],
+            [
+               "251612",
+               "49S pasd"
+            ],
+            [
+               "251613",
+               "46S pasd"
+            ],
+            [
+               "251614",
+               "56S pasd"
+            ],
+            [
+               "251615",
+               "11S pasd"
+            ],
+            [
+               "251616",
+               "9S pasd"
+            ],
+            [
+               "251711",
+               "13S pasd"
+            ],
+            [
+               "251712",
+               "14S pasd"
+            ],
+            [
+               "251713",
+               "13S pasd"
+            ],
+            [
+               "251714",
+               "22S pasd"
+            ],
+            [
+               "251715",
+               "51S pasd"
+            ],
+            [
+               "251716",
+               "36S pasd"
+            ],
+            [
+               "251717",
+               "35S pasd"
+            ],
+            [
+               "251718",
+               "47S pasd"
+            ],
+            [
+               "251719",
+               "33S pasd"
+            ],
+            [
+               "251720",
+               "1M16S pasd"
+            ],
+            [
+               "251811",
+               "19S pasd"
+            ],
+            [
+               "251812",
+               "16S pasd"
+            ],
+            [
+               "251813",
+               "25S pasd"
+            ],
+            [
+               "251814",
+               "1M6S pasd"
+            ],
+            [
+               "251815",
+               "40S pasd"
+            ],
+            [
+               "251816",
+               "34S pasd"
+            ],
+            [
+               "251817",
+               "40S pasd"
+            ],
+            [
+               "251826",
+               "45S pasd"
+            ],
+            [
+               "251827",
+               "1M9S pasd"
+            ],
+            [
+               "251828",
+               "1M7S pasd"
+            ],
+            [
+               "251921",
+               "1M6S pasd"
+            ],
+            [
+               "251922",
+               "1M7S pasd"
+            ],
+            [
+               "251923",
+               "38S pasd"
+            ],
+            [
+               "251924",
+               "30S pasd"
+            ],
+            [
+               "251925",
+               "38S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250019",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-6-R-2",
+         "route" : {
+            "name" : "Austinmer Station - Wollongong University",
+            "rs_ref" : "RS_36-1U-_-sj2-1-R-2",
+            "id" : "R_36-1U-_-sj2-1-R-2"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-6-TA",
+      "leaves" : "14:33:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251614",
+               null
+            ],
+            [
+               "251615",
+               "23S pasd"
+            ],
+            [
+               "251616",
+               "18S pasd"
+            ],
+            [
+               "251711",
+               "26S pasd"
+            ],
+            [
+               "251712",
+               "28S pasd"
+            ],
+            [
+               "251713",
+               "25S pasd"
+            ],
+            [
+               "251714",
+               "31S pasd"
+            ],
+            [
+               "251715",
+               "1M12S pasd"
+            ],
+            [
+               "251716",
+               "50S pasd"
+            ],
+            [
+               "251717",
+               "49S pasd"
+            ],
+            [
+               "251718",
+               "1M5S pasd"
+            ],
+            [
+               "251719",
+               "47S pasd"
+            ],
+            [
+               "251720",
+               "1M46S pasd"
+            ],
+            [
+               "251811",
+               "19S pasd"
+            ],
+            [
+               "251812",
+               "16S pasd"
+            ],
+            [
+               "251813",
+               "25S pasd"
+            ],
+            [
+               "251814",
+               "1M6S pasd"
+            ],
+            [
+               "251815",
+               "40S pasd"
+            ],
+            [
+               "251816",
+               "34S pasd"
+            ],
+            [
+               "251817",
+               "40S pasd"
+            ],
+            [
+               "251826",
+               "32S pasd"
+            ],
+            [
+               "251827",
+               "49S pasd"
+            ],
+            [
+               "251828",
+               "48S pasd"
+            ],
+            [
+               "251921",
+               "47S pasd"
+            ],
+            [
+               "251922",
+               "48S pasd"
+            ],
+            [
+               "251923",
+               "27S pasd"
+            ],
+            [
+               "251924",
+               "21S pasd"
+            ],
+            [
+               "251925",
+               "28S pasd"
+            ],
+            [
+               "251926",
+               "35S pasd"
+            ],
+            [
+               "251927",
+               "1M28S pasd"
+            ],
+            [
+               "251928",
+               "38S pasd"
+            ],
+            [
+               "251929",
+               "59S pasd"
+            ],
+            [
+               "251930",
+               "1M20S pasd"
+            ],
+            [
+               "250019",
+               "1M20S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-5-R-4",
+         "route" : {
+            "name" : "Bulli Station - Wollongong University",
+            "rs_ref" : "RS_36-1U-_-sj2-1-R-4",
+            "id" : "R_36-1U-_-sj2-1-R-4"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-1-TA",
+      "leaves" : "09:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250019",
+               null
+            ],
+            [
+               "2500277",
+               "1M19S pasd"
+            ],
+            [
+               "2519119",
+               "1M19S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wollongong University - Princes Hwy and Lysaght Av",
+            "rs_ref" : "RS_36-1U-_-sj2-1-H-1",
+            "id" : "R_36-1U-_-sj2-1-H-1"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   },
+   "VJ_36-1U-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_36-1U-_-sj2-1-5-TA",
+      "leaves" : "16:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251542",
+               null
+            ],
+            [
+               "251529",
+               "24S pasd"
+            ],
+            [
+               "251532",
+               "14S pasd"
+            ],
+            [
+               "251533",
+               "14S pasd"
+            ],
+            [
+               "251534",
+               "24S pasd"
+            ],
+            [
+               "251535",
+               "11S pasd"
+            ],
+            [
+               "251536",
+               "15S pasd"
+            ],
+            [
+               "251537",
+               "18S pasd"
+            ],
+            [
+               "251538",
+               "35S pasd"
+            ],
+            [
+               "251551",
+               "25S pasd"
+            ],
+            [
+               "251539",
+               "36S pasd"
+            ],
+            [
+               "251543",
+               "40S pasd"
+            ],
+            [
+               "251544",
+               "42S pasd"
+            ],
+            [
+               "251611",
+               "1M31S pasd"
+            ],
+            [
+               "251612",
+               "49S pasd"
+            ],
+            [
+               "251613",
+               "46S pasd"
+            ],
+            [
+               "251614",
+               "56S pasd"
+            ],
+            [
+               "251615",
+               "11S pasd"
+            ],
+            [
+               "251616",
+               "9S pasd"
+            ],
+            [
+               "251711",
+               "13S pasd"
+            ],
+            [
+               "251712",
+               "14S pasd"
+            ],
+            [
+               "251713",
+               "13S pasd"
+            ],
+            [
+               "251714",
+               "22S pasd"
+            ],
+            [
+               "251715",
+               "51S pasd"
+            ],
+            [
+               "251716",
+               "36S pasd"
+            ],
+            [
+               "251717",
+               "35S pasd"
+            ],
+            [
+               "251718",
+               "47S pasd"
+            ],
+            [
+               "251719",
+               "33S pasd"
+            ],
+            [
+               "251720",
+               "1M16S pasd"
+            ],
+            [
+               "251811",
+               "19S pasd"
+            ],
+            [
+               "251812",
+               "16S pasd"
+            ],
+            [
+               "251813",
+               "25S pasd"
+            ],
+            [
+               "251814",
+               "22S pasd"
+            ],
+            [
+               "251815",
+               "13S pasd"
+            ],
+            [
+               "251816",
+               "11S pasd"
+            ],
+            [
+               "251817",
+               "14S pasd"
+            ],
+            [
+               "251826",
+               "32S pasd"
+            ],
+            [
+               "251827",
+               "49S pasd"
+            ],
+            [
+               "251828",
+               "48S pasd"
+            ],
+            [
+               "251921",
+               "47S pasd"
+            ],
+            [
+               "251922",
+               "48S pasd"
+            ],
+            [
+               "251923",
+               "27S pasd"
+            ],
+            [
+               "251924",
+               "21S pasd"
+            ],
+            [
+               "251925",
+               "28S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250019",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_36-1U-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Austinmer Station - Wollongong University",
+            "rs_ref" : "RS_36-1U-_-sj2-1-R-2",
+            "id" : "R_36-1U-_-sj2-1-R-2"
+         }
+      },
+      "service" : "36-1U-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "1U"
+   }
+}
+;
+

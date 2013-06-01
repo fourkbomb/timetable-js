@@ -1,0 +1,623 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-610-a-sj2-1" : "610"
+}
+;
+
+var stations = {
+   "211063" : "Church St nr Herberton Av",
+   "211090" : "Woolwich Rd nr Ferry St",
+   "2046100" : "Great North Rd Nr Garfield St",
+   "211048" : "Woolwich Rd nr Glenview Cr",
+   "211049" : "Woolwich Rd nr Futuna St",
+   "211053" : "Woolwich Rd nr Passy Av",
+   "2046105" : "Great North Rd Nr Second Av",
+   "204724" : "Westbourne St Nr Marlborough St",
+   "204747" : "Lyons Rd Nr Janet St",
+   "204661" : "Lyons Rd Nr Mons St",
+   "2046102" : "Great North Rd Nr Lyons Rd",
+   "204616" : "Lyons Rd Nr Great North Rd",
+   "211058" : "Alexandra St nr D'Aram St",
+   "204745" : "Lyons Rd Nr Thompson St",
+   "204659" : "Lyons Rd Nr Ingham Av",
+   "2046107" : "Ramsay Rd Nr Connecticut Av",
+   "211047" : "Woolwich Rd nr Vernon St",
+   "204613" : "Lyons Rd nr Lamrock Av",
+   "204658" : "Lyons Rd Nr Pine Av",
+   "211051" : "Woolwich Rd nr Wybalena Rd",
+   "204662" : "Lyons Rd nr Tait Lane",
+   "211056" : "Alexandra St nr Ernest St",
+   "204751" : "Lyons Rd Nr Dempsey Pl",
+   "211060" : "Church St nr Mount St",
+   "204731" : "Marlborough St Nr Lyons Rd",
+   "204561" : "Ramsay St Nr Yasmar Av",
+   "211055" : "Woolwich Rd nr Foss St",
+   "204749" : "Lyons Rd Nr Gipps St",
+   "204521" : "Ramsay St Nr Wattle St",
+   "211052" : "Woolwich Rd nr Crescent St",
+   "211046" : "Woolwich Rd Nr Gladstone Av",
+   "2046140" : "Ramsay Rd Nr Henley Marine Dr",
+   "211024" : "Marist Sisters Stand B",
+   "204615" : "Lyons Rd Nr Trevanion St",
+   "204750" : "Lyons Rd Nr Thompson St",
+   "2110108" : "Woolwich Rd nr Serpentine Rd",
+   "211059" : "Alexandra St nr Stanley Rd",
+   "204657" : "Lyons Rd Nr Mckinnon Av",
+   "211054" : "Ferry St nr Ambrose St",
+   "204563" : "Ramsay St Nr Northcote St",
+   "204562" : "Ramsay St Nr Alt St",
+   "204660" : "Lyons Rd Opp Lamrock Av",
+   "204730" : "Marlborough St Nr Tavistock St",
+   "211062" : "Church St opp Herberton Av",
+   "204553" : "Ramsay St Nr Dalhousie St",
+   "2046106" : "Ramsay Rd Nr Fairlight St",
+   "204612" : "Lyons Rd Nr Mons St",
+   "211050" : "Woolwich Rd nr Jeanneret Av",
+   "204664" : "Lyons Rd Nr Hampden Rd",
+   "211061" : "Church St nr Moorefield Av",
+   "204614" : "Lyons Rd Nr Ingham Av",
+   "204746" : "Lyons Rd Nr Gipps St",
+   "204744" : "Lyons Rd Nr Tranmere St",
+   "2046103" : "Great North Rd Nr Lyons Rd",
+   "2046142" : "Ramsay Rd Nr Fairlight St",
+   "211057" : "Alexandra St nr Ellesmere Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-610-a-sj2-1-3-b00bj" : {
+      "vjcode" : "VJ_99-610-a-sj2-1-3-b00bj",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211024",
+               null
+            ],
+            [
+               "211048",
+               "6M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "0S pasd"
+            ],
+            [
+               "204724",
+               "4M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "1M pasd"
+            ],
+            [
+               "2046106",
+               "1M pasd"
+            ],
+            [
+               "2046107",
+               "0S pasd"
+            ],
+            [
+               "204521",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-610-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Ramsay St Nr Wattle St",
+            "rs_ref" : "RS_99-610-a-sj2-1-R-2",
+            "id" : "R_99-610-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-610-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "610"
+   },
+   "VJ_99-610-a-sj2-1-4-b00bk" : {
+      "vjcode" : "VJ_99-610-a-sj2-1-4-b00bk",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211024",
+               null
+            ],
+            [
+               "211048",
+               "6M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "0S pasd"
+            ],
+            [
+               "204724",
+               "4M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "1M pasd"
+            ],
+            [
+               "2046106",
+               "1M pasd"
+            ],
+            [
+               "2046107",
+               "0S pasd"
+            ],
+            [
+               "204521",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-610-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Ramsay St Nr Wattle St",
+            "rs_ref" : "RS_99-610-a-sj2-1-R-2",
+            "id" : "R_99-610-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-610-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "610"
+   },
+   "VJ_99-610-a-sj2-1-1-b009a" : {
+      "vjcode" : "VJ_99-610-a-sj2-1-1-b009a",
+      "leaves" : "07:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204553",
+               null
+            ],
+            [
+               "204561",
+               "1M pasd"
+            ],
+            [
+               "204562",
+               "0S pasd"
+            ],
+            [
+               "204563",
+               "1M pasd"
+            ],
+            [
+               "2046140",
+               "1M pasd"
+            ],
+            [
+               "2046142",
+               "1M pasd"
+            ],
+            [
+               "2046100",
+               "1M pasd"
+            ],
+            [
+               "2046102",
+               "2M pasd"
+            ],
+            [
+               "204657",
+               "1M pasd"
+            ],
+            [
+               "204658",
+               "0S pasd"
+            ],
+            [
+               "204659",
+               "2M pasd"
+            ],
+            [
+               "204660",
+               "1M pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "1M pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "1M pasd"
+            ],
+            [
+               "204750",
+               "1M pasd"
+            ],
+            [
+               "204751",
+               "1M pasd"
+            ],
+            [
+               "211062",
+               "8M pasd"
+            ],
+            [
+               "211060",
+               "1M pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-610-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Ramsay St Nr Dalhousie St - Marist Sisters",
+            "rs_ref" : "RS_99-610-a-sj2-1-H-1",
+            "id" : "R_99-610-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-610-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "610"
+   },
+   "VJ_99-610-a-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-610-a-sj2-1-2-b00bj",
+      "leaves" : "07:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204553",
+               null
+            ],
+            [
+               "204561",
+               "1M pasd"
+            ],
+            [
+               "204562",
+               "0S pasd"
+            ],
+            [
+               "204563",
+               "1M pasd"
+            ],
+            [
+               "2046140",
+               "1M pasd"
+            ],
+            [
+               "2046142",
+               "1M pasd"
+            ],
+            [
+               "2046100",
+               "1M pasd"
+            ],
+            [
+               "2046102",
+               "2M pasd"
+            ],
+            [
+               "204657",
+               "1M pasd"
+            ],
+            [
+               "204658",
+               "0S pasd"
+            ],
+            [
+               "204659",
+               "2M pasd"
+            ],
+            [
+               "204660",
+               "1M pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "1M pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "1M pasd"
+            ],
+            [
+               "204750",
+               "1M pasd"
+            ],
+            [
+               "204751",
+               "1M pasd"
+            ],
+            [
+               "211062",
+               "8M pasd"
+            ],
+            [
+               "211060",
+               "1M pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-610-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Ramsay St Nr Dalhousie St - Marist Sisters",
+            "rs_ref" : "RS_99-610-a-sj2-1-H-1",
+            "id" : "R_99-610-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-610-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "610"
+   }
+}
+;
+

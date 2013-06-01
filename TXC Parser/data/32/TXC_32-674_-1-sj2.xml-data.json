@@ -1,0 +1,4485 @@
+var OPERATOR = "Westbus Windsor";
+
+
+var LINES = {
+   "32-674-_-sj2-1" : "674"
+}
+;
+
+var stations = {
+   "2756420" : "Macquarie St near Suffolk St",
+   "2756116" : "Mileham St near Harpur Cr",
+   "2770372" : "Hatherton Rd near Forrester Rd",
+   "2770300" : "Gasmata Cr Near Finisterre Av",
+   "2770311" : "Hatherton Rd near Le Maire Av",
+   "2770281" : "Luxford Rd Near Semana St",
+   "2770565" : "Whalan High School_ near Samarai Rd",
+   "2756337" : "St Matthews Catholic PS_ Tebbutt St",
+   "2756218" : "George St near Catherine St",
+   "2770380" : "Mt Druitt Interchange (Set Down ONLY)",
+   "275650" : "George St near Argyle St",
+   "2756124" : "Windsor Interchange Stand B",
+   "2770143" : "Mt Druitt Public School Belmore Av",
+   "2756150" : "Alexander St near Selkirk Pl",
+   "2756169" : "Rifle Range Rd near Collith Av",
+   "2756117" : "Mileham St Near Butler Wy",
+   "2770312" : "Hatherton Rd near Rymill Rd",
+   "2756127" : "Cable and Windsor Town Centre",
+   "2770277" : "Gasmata Cr Near Moresby Cr",
+   "2756210" : "Richmond Rd near Llandilo Rd",
+   "2770561" : "Samarai Rd near Jakari Cr",
+   "2770570" : "Luxford Rd near Bulolo Dr",
+   "275647" : "George St near James St",
+   "2770562" : "Madang Avenue Public School_ near Samarai Rd",
+   "277090" : "Forrester Rd near Waitaki St",
+   "2760285" : "Palmyra Av near Australis Dr",
+   "2765267" : "Llandilo Rd near Sunnymead Rd",
+   "2770172" : "Luxford Rd near Popondetta Rd",
+   "275613" : "Richmond Rd near George St",
+   "2770373" : "Hatherton Rd near Rymill Rd",
+   "2770272" : "Luxford Rd Near Hatherton Rd",
+   "2756143" : "Bede Polding College Rifle Range Rd",
+   "2756151" : "Alexander St near Fullerton Cr",
+   "2770275" : "Holy Family Parish Luxford Rd",
+   "2756412" : "Bligh Park Shops Sirius Rd",
+   "2770560" : "Samarai Rd near Jakari Cr",
+   "275646" : "George St Near Drummond St",
+   "2756411" : "George St near Drummond St",
+   "2747354" : "Shane Park Rd near Palmyra Av",
+   "2753658" : "Correctional Centre Entrance_ The Northern Rd",
+   "2770309" : "Hatherton Rd Near Weddell Av",
+   "2770248" : "Mt Druitt Public School Belmore Av",
+   "2770142" : "Belmore Av Near Kurrajong Av",
+   "2770141" : "Occasional Child Care Centre North Pde",
+   "2770302" : "Luxford Rd near Mangariva Av",
+   "2770507" : "Mt Druitt Interchange (Stand 7)",
+   "277091" : "Forrester Rd near Lingayen Av",
+   "2747355" : "Shane Park Rd near Palmyra Av",
+   "2747282" : "Stony Creek & Shane Park Rds",
+   "276580" : "Second Llandilo Rd near Second Rd",
+   "2770580" : "Moresby Cr near Morobe St",
+   "2770576" : "Palmyra Av near Captain Cook Dr",
+   "2756130" : "Windsor Public School George St",
+   "2770276" : "Gasmata Cr Near Finisterre Av",
+   "2756142" : "Windsor Leagues Club Rifle Range Rd",
+   "2756185" : "Mileham St near Woods Rd",
+   "276588" : "Llandilo Rd near Spence Rd",
+   "2770308" : "Forrester Rd near Waitaki St",
+   "2770568" : "Luxford Rd near Bulolo Dr",
+   "2747264" : "Llandilo Public School and Seventh Av",
+   "2770299" : "Gasmata Cr Near Moresby Cr",
+   "2770558" : "Samarai Rd near Moresby Cr",
+   "2770579" : "Palmyra Av near walkway",
+   "2756118" : "Netball Courts And Reservoir Mileham St",
+   "2760246" : "Palmyra Av and Stony Creek Rd",
+   "276585" : "St Marys Rd near Richmond Rd",
+   "2760284" : "Palmyra Av near Captain Cook Dr",
+   "2756155" : "Colonial Reserve Colonial Dr near Harradine Cr",
+   "2770279" : "Luxford Rd Near Samarai Rd",
+   "2756123" : "Windsor Interchange Stand A",
+   "2770567" : "Luxford Rd near Banaro Av",
+   "275649" : "South Windsor Shops George St",
+   "2756154" : "Colonial Dr near Alexander St",
+   "2765258" : "Sirius Pl",
+   "2770307" : "Forrester Rd near Lingayen Av",
+   "2756184" : "Mileham St Near Butler Wy",
+   "276581" : "Richmond Rd near Llandilo Rd",
+   "276587" : "St Marys St near Sirius Pl",
+   "2770171" : "Waikanda Cr near Luxford Rd",
+   "2756296" : "Willeroo Dr near Sanctuary Dr",
+   "2770296" : "Luxford Rd near Saidor Rd",
+   "2756171" : "Windsor Leagues Club Rifle Range Rd",
+   "2770564" : "Whalan High School_ near Samarai Rd",
+   "2770295" : "Luxford Rd Near Semana St",
+   "2770249" : "Belmore Av Near Kurrajong Av",
+   "2770374" : "38 Hatherton Rd",
+   "2756170" : "Bede Polding College Rifle Range Rd",
+   "275316" : "Richmond Rd near Blacktown Rd",
+   "2770578" : "Palmyra Av after Australis Dr",
+   "2770297" : "Luxford Rd Near Samarai Rd",
+   "2756186" : "Mileham St near Erina Pl",
+   "2770304" : "Luxford Rd near Ellsworth Dr",
+   "2770375" : "Hatherton Rd Near Weddell Av",
+   "2770138" : "Overpass North Pde Near Carlisle Av",
+   "2770563" : "Madang Avenue Public School_ near Samarai Rd",
+   "2770569" : "Luxford Rd near Gasmata Cr",
+   "2756152" : "Bligh Park Primary School Alexander St",
+   "2756133" : "Mcleod Park George St Near Campbell St",
+   "2756183" : "Netball Courts And Reservoir Mileham St",
+   "275648" : "Mcleod Park George St Near Campbell St",
+   "2770559" : "Samarai Rd near Moresby Cr",
+   "2760286" : "Palmyra Av near walkway",
+   "2770250" : "Mt Druitt Community Centre Belmore Av",
+   "2756148" : "Alexander St near Wetherill Cr",
+   "2770140" : "Overpass North Pde Near Carlisle Av",
+   "2770310" : "41 Hatherton Rd",
+   "2770577" : "Palmyra Av before Australis Dr",
+   "2760249" : "Palmyra Av and Stony Creek Rd",
+   "2770274" : "Luxford Rd near Mangariva Av",
+   "2756168" : "Rifle Range Rd near Colonial Dr",
+   "2756415" : "Rifle Range Rd and Marsden Cr",
+   "2770273" : "Luxford Rd near Manila Rd",
+   "2770194" : "Luxford Rd near Waikanda Cr",
+   "2756125" : "George St near Dight St",
+   "2756134" : "George St near James St",
+   "2756149" : "Alexander St near Fullerton Cr",
+   "2770376" : "Hatherton Rd near Luxford Rd",
+   "2770305" : "Luxford Rd near Mendana St",
+   "2756156" : "Colonial Dr near Guardian Cr",
+   "276586" : "St Marys Rd near Government Rd",
+   "2770193" : "Luxford Rd near Popondetta Rd",
+   "2770280" : "Luxford Rd near Sunda Av",
+   "2756132" : "South Windsor Shops George St",
+   "2756157" : "Community Centre Colonial Dr near Turner Cl",
+   "2770303" : "Luxford Rd near Manila Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_32-674-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-15-TA",
+      "leaves" : "06:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756123",
+               null
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "18S pasd"
+            ],
+            [
+               "2756415",
+               "24S pasd"
+            ],
+            [
+               "275613",
+               "1M58S pasd"
+            ],
+            [
+               "2756210",
+               "2M20S pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2747282",
+               "2M pasd"
+            ],
+            [
+               "2747264",
+               "14M pasd"
+            ],
+            [
+               "2770576",
+               "6M4S pasd"
+            ],
+            [
+               "2770577",
+               "30S pasd"
+            ],
+            [
+               "2770578",
+               "13S pasd"
+            ],
+            [
+               "2770579",
+               "43S pasd"
+            ],
+            [
+               "277090",
+               "1M12S pasd"
+            ],
+            [
+               "277091",
+               "34S pasd"
+            ],
+            [
+               "2770372",
+               "44S pasd"
+            ],
+            [
+               "2770373",
+               "13S pasd"
+            ],
+            [
+               "2770374",
+               "33S pasd"
+            ],
+            [
+               "2770375",
+               "23S pasd"
+            ],
+            [
+               "2770272",
+               "17S pasd"
+            ],
+            [
+               "2770273",
+               "46S pasd"
+            ],
+            [
+               "2770274",
+               "31S pasd"
+            ],
+            [
+               "2770275",
+               "33S pasd"
+            ],
+            [
+               "2770193",
+               "44S pasd"
+            ],
+            [
+               "2770194",
+               "31S pasd"
+            ],
+            [
+               "2770570",
+               "1M8S pasd"
+            ],
+            [
+               "2770569",
+               "35S pasd"
+            ],
+            [
+               "2770279",
+               "1M2S pasd"
+            ],
+            [
+               "2770280",
+               "1M2S pasd"
+            ],
+            [
+               "2770281",
+               "22S pasd"
+            ],
+            [
+               "2770248",
+               "20S pasd"
+            ],
+            [
+               "2770249",
+               "42S pasd"
+            ],
+            [
+               "2770250",
+               "23S pasd"
+            ],
+            [
+               "2770138",
+               "1M8S pasd"
+            ],
+            [
+               "2770380",
+               "1M8S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-7-H-5",
+         "route" : {
+            "name" : "Windsor Station - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-5",
+            "id" : "R_32-674-_-sj2-1-H-5"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-12-TA",
+      "leaves" : "15:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "1M12S pasd"
+            ],
+            [
+               "2770303",
+               "53S pasd"
+            ],
+            [
+               "2770304",
+               "30S pasd"
+            ],
+            [
+               "2770305",
+               "24S pasd"
+            ],
+            [
+               "2770376",
+               "21S pasd"
+            ],
+            [
+               "2770309",
+               "23S pasd"
+            ],
+            [
+               "2770310",
+               "22S pasd"
+            ],
+            [
+               "2770311",
+               "31S pasd"
+            ],
+            [
+               "2770312",
+               "24S pasd"
+            ],
+            [
+               "2770307",
+               "59S pasd"
+            ],
+            [
+               "2770308",
+               "37S pasd"
+            ],
+            [
+               "2760286",
+               "1M22S pasd"
+            ],
+            [
+               "2760285",
+               "1M2S pasd"
+            ],
+            [
+               "2760284",
+               "59S pasd"
+            ],
+            [
+               "2760246",
+               "1M1S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "1M12S pasd"
+            ],
+            [
+               "2756117",
+               "53S pasd"
+            ],
+            [
+               "2756118",
+               "1M10S pasd"
+            ],
+            [
+               "275646",
+               "1M14S pasd"
+            ],
+            [
+               "275647",
+               "31S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Windsor Station",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-4",
+            "id" : "R_32-674-_-sj2-1-R-4"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-3-TA",
+      "leaves" : "12:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "30S pasd"
+            ],
+            [
+               "2756415",
+               "41S pasd"
+            ],
+            [
+               "2753658",
+               "4M49S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "10S pasd"
+            ],
+            [
+               "2770374",
+               "24S pasd"
+            ],
+            [
+               "2770375",
+               "17S pasd"
+            ],
+            [
+               "2770272",
+               "13S pasd"
+            ],
+            [
+               "2770273",
+               "34S pasd"
+            ],
+            [
+               "2770274",
+               "23S pasd"
+            ],
+            [
+               "2770275",
+               "24S pasd"
+            ],
+            [
+               "2770193",
+               "35S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-1-TA",
+      "leaves" : "09:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "30S pasd"
+            ],
+            [
+               "2756415",
+               "41S pasd"
+            ],
+            [
+               "2753658",
+               "4M49S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "10S pasd"
+            ],
+            [
+               "2770374",
+               "24S pasd"
+            ],
+            [
+               "2770375",
+               "17S pasd"
+            ],
+            [
+               "2770272",
+               "13S pasd"
+            ],
+            [
+               "2770273",
+               "34S pasd"
+            ],
+            [
+               "2770274",
+               "23S pasd"
+            ],
+            [
+               "2770275",
+               "24S pasd"
+            ],
+            [
+               "2770193",
+               "35S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-19-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-19-TA",
+      "leaves" : "09:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "30S pasd"
+            ],
+            [
+               "2756415",
+               "41S pasd"
+            ],
+            [
+               "2753658",
+               "4M49S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "10S pasd"
+            ],
+            [
+               "2770374",
+               "24S pasd"
+            ],
+            [
+               "2770375",
+               "17S pasd"
+            ],
+            [
+               "2770272",
+               "13S pasd"
+            ],
+            [
+               "2770273",
+               "34S pasd"
+            ],
+            [
+               "2770274",
+               "23S pasd"
+            ],
+            [
+               "2770275",
+               "24S pasd"
+            ],
+            [
+               "2770193",
+               "35S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-13-TA",
+      "leaves" : "16:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "1M12S pasd"
+            ],
+            [
+               "2770303",
+               "53S pasd"
+            ],
+            [
+               "2770304",
+               "30S pasd"
+            ],
+            [
+               "2770305",
+               "24S pasd"
+            ],
+            [
+               "2770376",
+               "21S pasd"
+            ],
+            [
+               "2770309",
+               "23S pasd"
+            ],
+            [
+               "2770310",
+               "22S pasd"
+            ],
+            [
+               "2770311",
+               "31S pasd"
+            ],
+            [
+               "2770312",
+               "24S pasd"
+            ],
+            [
+               "2770307",
+               "59S pasd"
+            ],
+            [
+               "2770308",
+               "37S pasd"
+            ],
+            [
+               "2760286",
+               "1M22S pasd"
+            ],
+            [
+               "2760285",
+               "1M2S pasd"
+            ],
+            [
+               "2760284",
+               "59S pasd"
+            ],
+            [
+               "2760246",
+               "1M1S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "1M12S pasd"
+            ],
+            [
+               "2756117",
+               "53S pasd"
+            ],
+            [
+               "2756118",
+               "1M10S pasd"
+            ],
+            [
+               "275646",
+               "1M14S pasd"
+            ],
+            [
+               "275647",
+               "31S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Windsor Station",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-4",
+            "id" : "R_32-674-_-sj2-1-R-4"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-17-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-17-TA",
+      "leaves" : "16:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756123",
+               null
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "40S pasd"
+            ],
+            [
+               "2756415",
+               "55S pasd"
+            ],
+            [
+               "2753658",
+               "6M25S pasd"
+            ],
+            [
+               "2756210",
+               "10M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "16S pasd"
+            ],
+            [
+               "2770374",
+               "41S pasd"
+            ],
+            [
+               "2770375",
+               "29S pasd"
+            ],
+            [
+               "2770272",
+               "21S pasd"
+            ],
+            [
+               "2770273",
+               "57S pasd"
+            ],
+            [
+               "2770274",
+               "39S pasd"
+            ],
+            [
+               "2770275",
+               "41S pasd"
+            ],
+            [
+               "2770193",
+               "56S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "32S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M7S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770248",
+               "1M43S pasd"
+            ],
+            [
+               "2770249",
+               "45S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Windsor Station - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-6",
+            "id" : "R_32-674-_-sj2-1-H-6"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-10-TA",
+      "leaves" : "16:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "57S pasd"
+            ],
+            [
+               "2756117",
+               "42S pasd"
+            ],
+            [
+               "2756118",
+               "56S pasd"
+            ],
+            [
+               "275646",
+               "59S pasd"
+            ],
+            [
+               "275647",
+               "26S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "1M36S pasd"
+            ],
+            [
+               "2756420",
+               "3M5S pasd"
+            ],
+            [
+               "2756127",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Cable and Windsor Town Centre",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-2",
+            "id" : "R_32-674-_-sj2-1-R-2"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-14-TA",
+      "leaves" : "17:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "1M12S pasd"
+            ],
+            [
+               "2770303",
+               "53S pasd"
+            ],
+            [
+               "2770304",
+               "30S pasd"
+            ],
+            [
+               "2770305",
+               "24S pasd"
+            ],
+            [
+               "2770376",
+               "21S pasd"
+            ],
+            [
+               "2770309",
+               "23S pasd"
+            ],
+            [
+               "2770310",
+               "22S pasd"
+            ],
+            [
+               "2770311",
+               "31S pasd"
+            ],
+            [
+               "2770312",
+               "24S pasd"
+            ],
+            [
+               "2770307",
+               "59S pasd"
+            ],
+            [
+               "2770308",
+               "37S pasd"
+            ],
+            [
+               "2760286",
+               "1M22S pasd"
+            ],
+            [
+               "2760285",
+               "1M2S pasd"
+            ],
+            [
+               "2760284",
+               "59S pasd"
+            ],
+            [
+               "2760246",
+               "1M1S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "1M12S pasd"
+            ],
+            [
+               "2756117",
+               "53S pasd"
+            ],
+            [
+               "2756118",
+               "1M10S pasd"
+            ],
+            [
+               "275646",
+               "1M14S pasd"
+            ],
+            [
+               "275647",
+               "31S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Windsor Station",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-4",
+            "id" : "R_32-674-_-sj2-1-R-4"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-9-TA",
+      "leaves" : "14:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "57S pasd"
+            ],
+            [
+               "2756117",
+               "42S pasd"
+            ],
+            [
+               "2756118",
+               "56S pasd"
+            ],
+            [
+               "275646",
+               "59S pasd"
+            ],
+            [
+               "275647",
+               "26S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "1M36S pasd"
+            ],
+            [
+               "2756420",
+               "3M5S pasd"
+            ],
+            [
+               "2756127",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Cable and Windsor Town Centre",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-2",
+            "id" : "R_32-674-_-sj2-1-R-2"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-18-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-18-TA",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M40S pasd"
+            ],
+            [
+               "2756123",
+               "2M20S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "35S pasd"
+            ],
+            [
+               "2756415",
+               "48S pasd"
+            ],
+            [
+               "2753658",
+               "5M37S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "55S pasd"
+            ],
+            [
+               "2770577",
+               "31S pasd"
+            ],
+            [
+               "2770578",
+               "13S pasd"
+            ],
+            [
+               "2770579",
+               "44S pasd"
+            ],
+            [
+               "277090",
+               "1M15S pasd"
+            ],
+            [
+               "277091",
+               "35S pasd"
+            ],
+            [
+               "2770372",
+               "47S pasd"
+            ],
+            [
+               "2770373",
+               "13S pasd"
+            ],
+            [
+               "2770374",
+               "33S pasd"
+            ],
+            [
+               "2770375",
+               "23S pasd"
+            ],
+            [
+               "2770272",
+               "17S pasd"
+            ],
+            [
+               "2770273",
+               "46S pasd"
+            ],
+            [
+               "2770274",
+               "31S pasd"
+            ],
+            [
+               "2770275",
+               "33S pasd"
+            ],
+            [
+               "2770193",
+               "44S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-10-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-11-TA",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "27S pasd"
+            ],
+            [
+               "2770141",
+               "43S pasd"
+            ],
+            [
+               "2770142",
+               "28S pasd"
+            ],
+            [
+               "2770143",
+               "29S pasd"
+            ],
+            [
+               "2770295",
+               "13S pasd"
+            ],
+            [
+               "2770296",
+               "36S pasd"
+            ],
+            [
+               "2770297",
+               "33S pasd"
+            ],
+            [
+               "2770567",
+               "1M1S pasd"
+            ],
+            [
+               "2770568",
+               "22S pasd"
+            ],
+            [
+               "2770171",
+               "37S pasd"
+            ],
+            [
+               "2770172",
+               "31S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "1M3S pasd"
+            ],
+            [
+               "2765258",
+               "4M57S pasd"
+            ],
+            [
+               "276588",
+               "5M pasd"
+            ],
+            [
+               "2765267",
+               "36S pasd"
+            ],
+            [
+               "276580",
+               "3M1S pasd"
+            ],
+            [
+               "2756296",
+               "2M23S pasd"
+            ],
+            [
+               "276581",
+               "4M pasd"
+            ],
+            [
+               "275316",
+               "2M15S pasd"
+            ],
+            [
+               "2756148",
+               "47S pasd"
+            ],
+            [
+               "2756149",
+               "10S pasd"
+            ],
+            [
+               "2756150",
+               "12S pasd"
+            ],
+            [
+               "2756151",
+               "16S pasd"
+            ],
+            [
+               "2756152",
+               "20S pasd"
+            ],
+            [
+               "2756412",
+               "1M48S pasd"
+            ],
+            [
+               "2756170",
+               "1M39S pasd"
+            ],
+            [
+               "2756171",
+               "33S pasd"
+            ],
+            [
+               "2756116",
+               "43S pasd"
+            ],
+            [
+               "2756117",
+               "32S pasd"
+            ],
+            [
+               "2756118",
+               "42S pasd"
+            ],
+            [
+               "275646",
+               "44S pasd"
+            ],
+            [
+               "275647",
+               "19S pasd"
+            ],
+            [
+               "275648",
+               "44S pasd"
+            ],
+            [
+               "275649",
+               "44S pasd"
+            ],
+            [
+               "275650",
+               "20S pasd"
+            ],
+            [
+               "2756124",
+               "1M12S pasd"
+            ],
+            [
+               "2756125",
+               "1M41S pasd"
+            ],
+            [
+               "2756218",
+               "41S pasd"
+            ],
+            [
+               "2756337",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - St Matthews Catholic PS_ Tebbutt St",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-3",
+            "id" : "R_32-674-_-sj2-1-R-3"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-4-TA",
+      "leaves" : "15:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "30S pasd"
+            ],
+            [
+               "2756415",
+               "41S pasd"
+            ],
+            [
+               "2753658",
+               "4M49S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "10S pasd"
+            ],
+            [
+               "2770374",
+               "24S pasd"
+            ],
+            [
+               "2770375",
+               "17S pasd"
+            ],
+            [
+               "2770272",
+               "13S pasd"
+            ],
+            [
+               "2770273",
+               "34S pasd"
+            ],
+            [
+               "2770274",
+               "23S pasd"
+            ],
+            [
+               "2770275",
+               "24S pasd"
+            ],
+            [
+               "2770193",
+               "35S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-6-TA",
+      "leaves" : "09:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "38S pasd"
+            ],
+            [
+               "2770141",
+               "1M1S pasd"
+            ],
+            [
+               "2770142",
+               "40S pasd"
+            ],
+            [
+               "2770143",
+               "42S pasd"
+            ],
+            [
+               "2770295",
+               "19S pasd"
+            ],
+            [
+               "2770296",
+               "51S pasd"
+            ],
+            [
+               "2770565",
+               "38S pasd"
+            ],
+            [
+               "2770563",
+               "48S pasd"
+            ],
+            [
+               "2770561",
+               "56S pasd"
+            ],
+            [
+               "2770559",
+               "22S pasd"
+            ],
+            [
+               "2770580",
+               "35S pasd"
+            ],
+            [
+               "2770299",
+               "32S pasd"
+            ],
+            [
+               "2770300",
+               "56S pasd"
+            ],
+            [
+               "2770171",
+               "19S pasd"
+            ],
+            [
+               "2770172",
+               "43S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "57S pasd"
+            ],
+            [
+               "2756117",
+               "42S pasd"
+            ],
+            [
+               "2756118",
+               "56S pasd"
+            ],
+            [
+               "275646",
+               "59S pasd"
+            ],
+            [
+               "275647",
+               "26S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "1M36S pasd"
+            ],
+            [
+               "2756420",
+               "3M5S pasd"
+            ],
+            [
+               "2756127",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Cable and Windsor Town Centre",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-2",
+            "id" : "R_32-674-_-sj2-1-R-2"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-16-TA",
+      "leaves" : "06:36:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756123",
+               null
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "35S pasd"
+            ],
+            [
+               "2756415",
+               "48S pasd"
+            ],
+            [
+               "2753658",
+               "5M37S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "55S pasd"
+            ],
+            [
+               "2770577",
+               "31S pasd"
+            ],
+            [
+               "2770578",
+               "13S pasd"
+            ],
+            [
+               "2770579",
+               "44S pasd"
+            ],
+            [
+               "277090",
+               "1M15S pasd"
+            ],
+            [
+               "277091",
+               "35S pasd"
+            ],
+            [
+               "2770372",
+               "47S pasd"
+            ],
+            [
+               "2770373",
+               "13S pasd"
+            ],
+            [
+               "2770374",
+               "33S pasd"
+            ],
+            [
+               "2770375",
+               "23S pasd"
+            ],
+            [
+               "2770272",
+               "17S pasd"
+            ],
+            [
+               "2770273",
+               "46S pasd"
+            ],
+            [
+               "2770274",
+               "31S pasd"
+            ],
+            [
+               "2770275",
+               "33S pasd"
+            ],
+            [
+               "2770193",
+               "44S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "32S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M7S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770248",
+               "1M43S pasd"
+            ],
+            [
+               "2770249",
+               "45S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-8-H-6",
+         "route" : {
+            "name" : "Windsor Station - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-6",
+            "id" : "R_32-674-_-sj2-1-H-6"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-8-TA",
+      "leaves" : "13:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "34S pasd"
+            ],
+            [
+               "2770141",
+               "55S pasd"
+            ],
+            [
+               "2770142",
+               "36S pasd"
+            ],
+            [
+               "2770143",
+               "37S pasd"
+            ],
+            [
+               "2770295",
+               "17S pasd"
+            ],
+            [
+               "2770296",
+               "46S pasd"
+            ],
+            [
+               "2770565",
+               "34S pasd"
+            ],
+            [
+               "2770563",
+               "43S pasd"
+            ],
+            [
+               "2770561",
+               "50S pasd"
+            ],
+            [
+               "2770559",
+               "20S pasd"
+            ],
+            [
+               "2770580",
+               "31S pasd"
+            ],
+            [
+               "2770299",
+               "29S pasd"
+            ],
+            [
+               "2770300",
+               "50S pasd"
+            ],
+            [
+               "2770171",
+               "17S pasd"
+            ],
+            [
+               "2770172",
+               "41S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "57S pasd"
+            ],
+            [
+               "2756117",
+               "42S pasd"
+            ],
+            [
+               "2756118",
+               "56S pasd"
+            ],
+            [
+               "275646",
+               "59S pasd"
+            ],
+            [
+               "275647",
+               "26S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "1M36S pasd"
+            ],
+            [
+               "2756420",
+               "3M5S pasd"
+            ],
+            [
+               "2756127",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Cable and Windsor Town Centre",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-2",
+            "id" : "R_32-674-_-sj2-1-R-2"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-7-TA",
+      "leaves" : "10:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2770507",
+               null
+            ],
+            [
+               "2770140",
+               "34S pasd"
+            ],
+            [
+               "2770141",
+               "55S pasd"
+            ],
+            [
+               "2770142",
+               "36S pasd"
+            ],
+            [
+               "2770143",
+               "37S pasd"
+            ],
+            [
+               "2770295",
+               "17S pasd"
+            ],
+            [
+               "2770296",
+               "46S pasd"
+            ],
+            [
+               "2770565",
+               "34S pasd"
+            ],
+            [
+               "2770563",
+               "43S pasd"
+            ],
+            [
+               "2770561",
+               "50S pasd"
+            ],
+            [
+               "2770559",
+               "20S pasd"
+            ],
+            [
+               "2770580",
+               "31S pasd"
+            ],
+            [
+               "2770299",
+               "29S pasd"
+            ],
+            [
+               "2770300",
+               "50S pasd"
+            ],
+            [
+               "2770171",
+               "17S pasd"
+            ],
+            [
+               "2770172",
+               "41S pasd"
+            ],
+            [
+               "2770302",
+               "58S pasd"
+            ],
+            [
+               "2770303",
+               "42S pasd"
+            ],
+            [
+               "2770304",
+               "24S pasd"
+            ],
+            [
+               "2770305",
+               "19S pasd"
+            ],
+            [
+               "2770376",
+               "17S pasd"
+            ],
+            [
+               "2770309",
+               "18S pasd"
+            ],
+            [
+               "2770310",
+               "18S pasd"
+            ],
+            [
+               "2770311",
+               "25S pasd"
+            ],
+            [
+               "2770312",
+               "19S pasd"
+            ],
+            [
+               "2770307",
+               "49S pasd"
+            ],
+            [
+               "2770308",
+               "30S pasd"
+            ],
+            [
+               "2760286",
+               "1M9S pasd"
+            ],
+            [
+               "2760285",
+               "52S pasd"
+            ],
+            [
+               "2760284",
+               "49S pasd"
+            ],
+            [
+               "2760246",
+               "51S pasd"
+            ],
+            [
+               "2747354",
+               "53S pasd"
+            ],
+            [
+               "276587",
+               "4M33S pasd"
+            ],
+            [
+               "276581",
+               "5M34S pasd"
+            ],
+            [
+               "2753658",
+               "5M pasd"
+            ],
+            [
+               "275316",
+               "1M38S pasd"
+            ],
+            [
+               "2756154",
+               "2M16S pasd"
+            ],
+            [
+               "2756155",
+               "29S pasd"
+            ],
+            [
+               "2756156",
+               "22S pasd"
+            ],
+            [
+               "2756157",
+               "21S pasd"
+            ],
+            [
+               "2756168",
+               "18S pasd"
+            ],
+            [
+               "2756169",
+               "41S pasd"
+            ],
+            [
+               "2756170",
+               "27S pasd"
+            ],
+            [
+               "2756171",
+               "28S pasd"
+            ],
+            [
+               "2756116",
+               "57S pasd"
+            ],
+            [
+               "2756117",
+               "42S pasd"
+            ],
+            [
+               "2756118",
+               "56S pasd"
+            ],
+            [
+               "275646",
+               "59S pasd"
+            ],
+            [
+               "275647",
+               "26S pasd"
+            ],
+            [
+               "275648",
+               "58S pasd"
+            ],
+            [
+               "275649",
+               "59S pasd"
+            ],
+            [
+               "275650",
+               "27S pasd"
+            ],
+            [
+               "2756124",
+               "1M36S pasd"
+            ],
+            [
+               "2756420",
+               "3M5S pasd"
+            ],
+            [
+               "2756127",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Mount Druitt Bus Interchange - Cable and Windsor Town Centre",
+            "rs_ref" : "RS_32-674-_-sj2-1-R-2",
+            "id" : "R_32-674-_-sj2-1-R-2"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-5-TA",
+      "leaves" : "16:56:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "40S pasd"
+            ],
+            [
+               "2756415",
+               "55S pasd"
+            ],
+            [
+               "2753658",
+               "6M25S pasd"
+            ],
+            [
+               "2756210",
+               "10M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "16S pasd"
+            ],
+            [
+               "2770374",
+               "41S pasd"
+            ],
+            [
+               "2770375",
+               "29S pasd"
+            ],
+            [
+               "2770272",
+               "21S pasd"
+            ],
+            [
+               "2770273",
+               "57S pasd"
+            ],
+            [
+               "2770274",
+               "39S pasd"
+            ],
+            [
+               "2770275",
+               "41S pasd"
+            ],
+            [
+               "2770193",
+               "56S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_32-674-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_32-674-_-sj2-1-2-TA",
+      "leaves" : "08:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2756127",
+               null
+            ],
+            [
+               "2756130",
+               "2M8S pasd"
+            ],
+            [
+               "2756123",
+               "1M52S pasd"
+            ],
+            [
+               "2756132",
+               "2M16S pasd"
+            ],
+            [
+               "2756133",
+               "59S pasd"
+            ],
+            [
+               "2756134",
+               "45S pasd"
+            ],
+            [
+               "2756411",
+               "43S pasd"
+            ],
+            [
+               "2756183",
+               "58S pasd"
+            ],
+            [
+               "2756184",
+               "45S pasd"
+            ],
+            [
+               "2756185",
+               "17S pasd"
+            ],
+            [
+               "2756186",
+               "36S pasd"
+            ],
+            [
+               "2756142",
+               "41S pasd"
+            ],
+            [
+               "2756143",
+               "30S pasd"
+            ],
+            [
+               "2756415",
+               "41S pasd"
+            ],
+            [
+               "2753658",
+               "4M49S pasd"
+            ],
+            [
+               "2756210",
+               "8M pasd"
+            ],
+            [
+               "276585",
+               "1M41S pasd"
+            ],
+            [
+               "276586",
+               "1M48S pasd"
+            ],
+            [
+               "276587",
+               "1M30S pasd"
+            ],
+            [
+               "2747355",
+               "3M25S pasd"
+            ],
+            [
+               "2760249",
+               "36S pasd"
+            ],
+            [
+               "2770576",
+               "44S pasd"
+            ],
+            [
+               "2770577",
+               "25S pasd"
+            ],
+            [
+               "2770578",
+               "11S pasd"
+            ],
+            [
+               "2770579",
+               "35S pasd"
+            ],
+            [
+               "277090",
+               "1M pasd"
+            ],
+            [
+               "277091",
+               "28S pasd"
+            ],
+            [
+               "2770372",
+               "37S pasd"
+            ],
+            [
+               "2770373",
+               "10S pasd"
+            ],
+            [
+               "2770374",
+               "24S pasd"
+            ],
+            [
+               "2770375",
+               "17S pasd"
+            ],
+            [
+               "2770272",
+               "13S pasd"
+            ],
+            [
+               "2770273",
+               "34S pasd"
+            ],
+            [
+               "2770274",
+               "23S pasd"
+            ],
+            [
+               "2770275",
+               "24S pasd"
+            ],
+            [
+               "2770193",
+               "35S pasd"
+            ],
+            [
+               "2770194",
+               "33S pasd"
+            ],
+            [
+               "2770276",
+               "31S pasd"
+            ],
+            [
+               "2770277",
+               "53S pasd"
+            ],
+            [
+               "2770558",
+               "1M6S pasd"
+            ],
+            [
+               "2770560",
+               "24S pasd"
+            ],
+            [
+               "2770562",
+               "48S pasd"
+            ],
+            [
+               "2770564",
+               "51S pasd"
+            ],
+            [
+               "2770280",
+               "1M1S pasd"
+            ],
+            [
+               "2770281",
+               "23S pasd"
+            ],
+            [
+               "2770248",
+               "21S pasd"
+            ],
+            [
+               "2770249",
+               "44S pasd"
+            ],
+            [
+               "2770250",
+               "25S pasd"
+            ],
+            [
+               "2770138",
+               "1M11S pasd"
+            ],
+            [
+               "2770380",
+               "1M11S pasd"
+            ]
+         ],
+         "id" : "JP_32-674-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cable and Windsor Town Centre - Mount Druitt Bus Interchange",
+            "rs_ref" : "RS_32-674-_-sj2-1-H-1",
+            "id" : "R_32-674-_-sj2-1-H-1"
+         }
+      },
+      "service" : "32-674-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "674"
+   }
+}
+;
+

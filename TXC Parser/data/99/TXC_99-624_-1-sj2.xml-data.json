@@ -1,0 +1,2141 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-624-_-sj2-1" : "624"
+}
+;
+
+var stations = {
+   "204211" : "King St nr Newtown Station",
+   "204216" : "King St Nr Mary St",
+   "220474" : "Victoria Rd Nr Cook Rd",
+   "204240" : "Enmore Rd Nr Edgeware Rd",
+   "200816" : "City Rd Nr Cleveland St",
+   "2208107" : "Kingsgrove Rd Nr Oatley St",
+   "203722" : "Glebe Point Rd Nr Toxteth Rd",
+   "220454" : "Illawarra Rd Nr Warren Rd",
+   "203715" : "Glebe Point Rd Nr Toxteth Rd",
+   "220698" : "William St Nr Westfield St",
+   "220834" : "Kingsgrove Rd Nr Omnibus Rd",
+   "220699" : "William St Nr Woolcott St",
+   "220455" : "Illawarra Rd Nr Cary St",
+   "220869" : "William St Nr Kingsgrove Rd",
+   "204212" : "Enmore Rd Nr Stanmore Rd",
+   "203729" : "Glebe Point Rd Nr Parramatta Rd",
+   "203732" : "Glebe Point Rd Nr St Johns Rd",
+   "204220" : "King St Nr Carillon Av",
+   "220442" : "Enmore Rd Nr Enmore Park",
+   "2206109" : "Homer St Nr Bayview Av",
+   "2204102" : "Illawarra Rd Nr Warburton St",
+   "220418" : "Victoria Rd Nr Marrickville Rd",
+   "204217" : "King St Nr Horden St",
+   "220461" : "Illawarra Rd Nr Hill St",
+   "2206110" : "Homer St Nr Wellington Rd",
+   "220653" : "Homer St Nr View St",
+   "204214" : "Enmore Rd Nr St",
+   "203734" : "Glebe Point Rd Nr Hereford St",
+   "2206104" : "Homer St Nr Riverwiew Rd",
+   "204224" : "King St Nr Erskineville Rd",
+   "220419" : "Marrickville Rd Nr Gladstone St",
+   "2204100" : "Enmore Rd Nr Addison Rd",
+   "2206101" : "Homer St Nr Watkin Av",
+   "220872" : "William St Nr Ferrier Pde",
+   "203723" : "Glebe Point Rd Nr Palmerston Av",
+   "2206107" : "Homer St Nr Undercliffe Rd",
+   "2206100" : "William St Nr Cameron Av",
+   "203727" : "Glebe Point Rd Nr Cowper St",
+   "203731" : "Glebe Point Rd Nr Mitchell St",
+   "220462" : "Illawarra Rd Nr Cary St",
+   "220467" : "Victoria Rd Nr Sydenham Rd",
+   "200817" : "City Rd nr Butlin Av",
+   "2206102" : "Homer St Nr Wellington Rd",
+   "220458" : "Illawarra Rd Nr Wharf St",
+   "204221" : "King St Nr Queen St",
+   "204239" : "Enmore Rd Nr Simmons St",
+   "220460" : "Illawarra Rd Nr Wallace St",
+   "2206106" : "Illawarra Rd Nr Undercliffe Rd",
+   "2204101" : "Illawarra Rd Nr Schwebel St",
+   "220440" : "Enmore Rd Nr Scouller St",
+   "220459" : "Illawarra Rd Nr Wharf St",
+   "2206103" : "Homer St Nr Bayview Av",
+   "204243" : "Enmore Rd nr King St",
+   "220623" : "Homer St Nr William St",
+   "203724" : "Glebe Point Rd Nr Bridge Rd",
+   "220456" : "Illawarra Rd Nr Thornley St",
+   "203735" : "Glebe Point Rd Nr Wigram Rd",
+   "220696" : "William St Nr Bexley Rd",
+   "203733" : "Glebe Point Rd Nr Bridge Rd",
+   "203728" : "Glebe Point Rd Nr Parramatta Rd",
+   "204222" : "King St Nr Watkin St",
+   "204218" : "King St Nr Missenden Rd",
+   "220871" : "William St Nr Tasker Av",
+   "203726" : "Glebe Point Rd Nr Mitchell St",
+   "204213" : "Enmore Rd Nr Phillip St",
+   "220438" : "Enmore Rd Nr Newington Rd",
+   "220473" : "Victoria Rd Nr Chapel St",
+   "220447" : "Enmore Rd Nr Victoria Rd",
+   "220465" : "Marrickville Rd Nr Garners Av",
+   "220457" : "Illawarra Rd Nr Wallace St",
+   "2206108" : "Homer St Nr Riverwiew Rd",
+   "220624" : "Homer St Nr Collingwood Av",
+   "220448" : "Victoria Rd Nr Chapel St",
+   "220870" : "William St Nr Hillside Av",
+   "2206105" : "Homer St Nr Illawara Rd",
+   "203725" : "Glebe Point Rd Nr St Johns Rd",
+   "205039" : "City Rd Nr Cleveland St",
+   "2206111" : "Homer St Nr Minnamorra Av",
+   "220655" : "Homer St Nr Joy Av",
+   "220862" : "Kingsgrove Rd Nr Kingsgrove North High",
+   "220625" : "Homer St Nr Wardell Rd",
+   "200818" : "King St Opp Carillon Av",
+   "203716" : "Glebe Point Rd Nr Pendrill St",
+   "220449" : "Victoria Rd Nr Sydenham Rd",
+   "203721" : "Maxwell Rd Nr St Scholasticas College",
+   "220697" : "William St Nr Warburton St",
+   "203730" : "Glebe Point Nr Derby Pl",
+   "205038" : "City Rd nr Butlin Av",
+   "204219" : "King St Nr Georgina St",
+   "220420" : "Marrickville Rd Nr Illawarra Rd",
+   "205040" : "City Rd Nr Parramatta Rd",
+   "220654" : "Homer Nr St James",
+   "220466" : "Marrickville Rd Nr Victoria Rd",
+   "204215" : "Enmore Rd Nr St",
+   "220463" : "Illawarra Rd Nr Church St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-624-_-sj2-1-5-b009m" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-5-b009m",
+      "leaves" : "07:34:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220834",
+               null
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "0S pasd"
+            ],
+            [
+               "220869",
+               "1M pasd"
+            ],
+            [
+               "220870",
+               "1M pasd"
+            ],
+            [
+               "220871",
+               "1M pasd"
+            ],
+            [
+               "220872",
+               "0S pasd"
+            ],
+            [
+               "220696",
+               "1M pasd"
+            ],
+            [
+               "220697",
+               "1M pasd"
+            ],
+            [
+               "220698",
+               "0S pasd"
+            ],
+            [
+               "220699",
+               "1M pasd"
+            ],
+            [
+               "2206100",
+               "1M pasd"
+            ],
+            [
+               "220623",
+               "1M pasd"
+            ],
+            [
+               "220624",
+               "1M pasd"
+            ],
+            [
+               "220625",
+               "1M pasd"
+            ],
+            [
+               "2206101",
+               "0S pasd"
+            ],
+            [
+               "2206102",
+               "1M pasd"
+            ],
+            [
+               "2206103",
+               "2M pasd"
+            ],
+            [
+               "2206104",
+               "1M pasd"
+            ],
+            [
+               "2206105",
+               "1M pasd"
+            ],
+            [
+               "220459",
+               "1M pasd"
+            ],
+            [
+               "220460",
+               "0S pasd"
+            ],
+            [
+               "220461",
+               "1M pasd"
+            ],
+            [
+               "220462",
+               "1M pasd"
+            ],
+            [
+               "220463",
+               "0S pasd"
+            ],
+            [
+               "2204102",
+               "1M pasd"
+            ],
+            [
+               "220465",
+               "2M pasd"
+            ],
+            [
+               "220466",
+               "1M pasd"
+            ],
+            [
+               "220467",
+               "1M pasd"
+            ],
+            [
+               "220473",
+               "1M pasd"
+            ],
+            [
+               "220474",
+               "1M pasd"
+            ],
+            [
+               "2204100",
+               "1M pasd"
+            ],
+            [
+               "220438",
+               "1M pasd"
+            ],
+            [
+               "204212",
+               "2M pasd"
+            ],
+            [
+               "204213",
+               "1M pasd"
+            ],
+            [
+               "204215",
+               "1M pasd"
+            ],
+            [
+               "204243",
+               "1M pasd"
+            ],
+            [
+               "204216",
+               "1M pasd"
+            ],
+            [
+               "204217",
+               "0S pasd"
+            ],
+            [
+               "204218",
+               "1M pasd"
+            ],
+            [
+               "204219",
+               "1M pasd"
+            ],
+            [
+               "204220",
+               "0S pasd"
+            ],
+            [
+               "205038",
+               "1M pasd"
+            ],
+            [
+               "205039",
+               "1M pasd"
+            ],
+            [
+               "203729",
+               "2M pasd"
+            ],
+            [
+               "203730",
+               "0S pasd"
+            ],
+            [
+               "203731",
+               "1M pasd"
+            ],
+            [
+               "203732",
+               "1M pasd"
+            ],
+            [
+               "203733",
+               "0S pasd"
+            ],
+            [
+               "203734",
+               "1M pasd"
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203715",
+               "1M pasd"
+            ],
+            [
+               "203716",
+               "1M pasd"
+            ],
+            [
+               "203721",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Kingsgrove Rd Nr Omnibus Rd - Maxwell Rd Nr St Scholasticas College",
+            "rs_ref" : "RS_99-624-_-sj2-1-H-2",
+            "id" : "R_99-624-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-8-b009m" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-8-b009m",
+      "leaves" : "07:38:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220623",
+               null
+            ],
+            [
+               "220624",
+               "1M pasd"
+            ],
+            [
+               "220625",
+               "1M pasd"
+            ],
+            [
+               "2206101",
+               "0S pasd"
+            ],
+            [
+               "2206102",
+               "1M pasd"
+            ],
+            [
+               "2206103",
+               "2M pasd"
+            ],
+            [
+               "2206104",
+               "1M pasd"
+            ],
+            [
+               "2206105",
+               "1M pasd"
+            ],
+            [
+               "220459",
+               "1M pasd"
+            ],
+            [
+               "220460",
+               "0S pasd"
+            ],
+            [
+               "220461",
+               "1M pasd"
+            ],
+            [
+               "220462",
+               "1M pasd"
+            ],
+            [
+               "220463",
+               "0S pasd"
+            ],
+            [
+               "2204102",
+               "1M pasd"
+            ],
+            [
+               "220465",
+               "2M pasd"
+            ],
+            [
+               "220466",
+               "1M pasd"
+            ],
+            [
+               "220467",
+               "1M pasd"
+            ],
+            [
+               "220473",
+               "1M pasd"
+            ],
+            [
+               "220474",
+               "1M pasd"
+            ],
+            [
+               "2204100",
+               "1M pasd"
+            ],
+            [
+               "220438",
+               "1M pasd"
+            ],
+            [
+               "204212",
+               "2M pasd"
+            ],
+            [
+               "204213",
+               "1M pasd"
+            ],
+            [
+               "204215",
+               "1M pasd"
+            ],
+            [
+               "204243",
+               "1M pasd"
+            ],
+            [
+               "204216",
+               "1M pasd"
+            ],
+            [
+               "204217",
+               "0S pasd"
+            ],
+            [
+               "204218",
+               "1M pasd"
+            ],
+            [
+               "204219",
+               "1M pasd"
+            ],
+            [
+               "204220",
+               "0S pasd"
+            ],
+            [
+               "205038",
+               "1M pasd"
+            ],
+            [
+               "205039",
+               "1M pasd"
+            ],
+            [
+               "203729",
+               "2M pasd"
+            ],
+            [
+               "203730",
+               "0S pasd"
+            ],
+            [
+               "203731",
+               "1M pasd"
+            ],
+            [
+               "203732",
+               "1M pasd"
+            ],
+            [
+               "203733",
+               "0S pasd"
+            ],
+            [
+               "203734",
+               "1M pasd"
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203715",
+               "1M pasd"
+            ],
+            [
+               "203716",
+               "1M pasd"
+            ],
+            [
+               "203721",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Homer St Nr William St - Maxwell Rd Nr St Scholasticas College",
+            "rs_ref" : "RS_99-624-_-sj2-1-H-3",
+            "id" : "R_99-624-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-10-b00a0" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-10-b00a0",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-1-b009x" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-1-b009x",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-9-b009t" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-9-b009t",
+      "leaves" : "07:38:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220623",
+               null
+            ],
+            [
+               "220624",
+               "1M pasd"
+            ],
+            [
+               "220625",
+               "1M pasd"
+            ],
+            [
+               "2206101",
+               "0S pasd"
+            ],
+            [
+               "2206102",
+               "1M pasd"
+            ],
+            [
+               "2206103",
+               "2M pasd"
+            ],
+            [
+               "2206104",
+               "1M pasd"
+            ],
+            [
+               "2206105",
+               "1M pasd"
+            ],
+            [
+               "220459",
+               "1M pasd"
+            ],
+            [
+               "220460",
+               "0S pasd"
+            ],
+            [
+               "220461",
+               "1M pasd"
+            ],
+            [
+               "220462",
+               "1M pasd"
+            ],
+            [
+               "220463",
+               "0S pasd"
+            ],
+            [
+               "2204102",
+               "1M pasd"
+            ],
+            [
+               "220465",
+               "2M pasd"
+            ],
+            [
+               "220466",
+               "1M pasd"
+            ],
+            [
+               "220467",
+               "1M pasd"
+            ],
+            [
+               "220473",
+               "1M pasd"
+            ],
+            [
+               "220474",
+               "1M pasd"
+            ],
+            [
+               "2204100",
+               "1M pasd"
+            ],
+            [
+               "220438",
+               "1M pasd"
+            ],
+            [
+               "204212",
+               "2M pasd"
+            ],
+            [
+               "204213",
+               "1M pasd"
+            ],
+            [
+               "204215",
+               "1M pasd"
+            ],
+            [
+               "204243",
+               "1M pasd"
+            ],
+            [
+               "204216",
+               "1M pasd"
+            ],
+            [
+               "204217",
+               "0S pasd"
+            ],
+            [
+               "204218",
+               "1M pasd"
+            ],
+            [
+               "204219",
+               "1M pasd"
+            ],
+            [
+               "204220",
+               "0S pasd"
+            ],
+            [
+               "205038",
+               "1M pasd"
+            ],
+            [
+               "205039",
+               "1M pasd"
+            ],
+            [
+               "203729",
+               "2M pasd"
+            ],
+            [
+               "203730",
+               "0S pasd"
+            ],
+            [
+               "203731",
+               "1M pasd"
+            ],
+            [
+               "203732",
+               "1M pasd"
+            ],
+            [
+               "203733",
+               "0S pasd"
+            ],
+            [
+               "203734",
+               "1M pasd"
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203715",
+               "1M pasd"
+            ],
+            [
+               "203716",
+               "1M pasd"
+            ],
+            [
+               "203721",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Homer St Nr William St - Maxwell Rd Nr St Scholasticas College",
+            "rs_ref" : "RS_99-624-_-sj2-1-H-3",
+            "id" : "R_99-624-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-3-b009x" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-3-b009x",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-2-b009x" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-2-b009x",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-6-b00a0" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-6-b00a0",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-4-b00a0" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-4-b00a0",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203721",
+               null
+            ],
+            [
+               "203721",
+               "5M pasd"
+            ],
+            [
+               "203722",
+               "3M pasd"
+            ],
+            [
+               "203723",
+               "1M pasd"
+            ],
+            [
+               "203724",
+               "1M pasd"
+            ],
+            [
+               "203725",
+               "1M pasd"
+            ],
+            [
+               "203726",
+               "1M pasd"
+            ],
+            [
+               "203727",
+               "1M pasd"
+            ],
+            [
+               "203728",
+               "1M pasd"
+            ],
+            [
+               "205040",
+               "1M pasd"
+            ],
+            [
+               "200816",
+               "1M pasd"
+            ],
+            [
+               "200817",
+               "0S pasd"
+            ],
+            [
+               "200818",
+               "1M pasd"
+            ],
+            [
+               "204221",
+               "1M pasd"
+            ],
+            [
+               "204222",
+               "1M pasd"
+            ],
+            [
+               "204224",
+               "1M pasd"
+            ],
+            [
+               "204211",
+               "0S pasd"
+            ],
+            [
+               "204214",
+               "1M pasd"
+            ],
+            [
+               "204239",
+               "1M pasd"
+            ],
+            [
+               "204240",
+               "1M pasd"
+            ],
+            [
+               "220440",
+               "1M pasd"
+            ],
+            [
+               "220442",
+               "1M pasd"
+            ],
+            [
+               "220447",
+               "1M pasd"
+            ],
+            [
+               "220448",
+               "1M pasd"
+            ],
+            [
+               "220449",
+               "1M pasd"
+            ],
+            [
+               "220418",
+               "1M pasd"
+            ],
+            [
+               "220419",
+               "1M pasd"
+            ],
+            [
+               "220420",
+               "0S pasd"
+            ],
+            [
+               "2204101",
+               "2M pasd"
+            ],
+            [
+               "220454",
+               "1M pasd"
+            ],
+            [
+               "220455",
+               "0S pasd"
+            ],
+            [
+               "220456",
+               "1M pasd"
+            ],
+            [
+               "220457",
+               "1M pasd"
+            ],
+            [
+               "220458",
+               "0S pasd"
+            ],
+            [
+               "2206106",
+               "1M pasd"
+            ],
+            [
+               "2206107",
+               "1M pasd"
+            ],
+            [
+               "2206108",
+               "0S pasd"
+            ],
+            [
+               "2206109",
+               "1M pasd"
+            ],
+            [
+               "2206110",
+               "1M pasd"
+            ],
+            [
+               "2206111",
+               "1M pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "220655",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Maxwell Rd Nr St Scholasticas College - Homer St Nr Joy Av",
+            "rs_ref" : "RS_99-624-_-sj2-1-R-1",
+            "id" : "R_99-624-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-_-sj2-1-7-b009t" : {
+      "vjcode" : "VJ_99-624-_-sj2-1-7-b009t",
+      "leaves" : "07:34:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220834",
+               null
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "0S pasd"
+            ],
+            [
+               "220869",
+               "1M pasd"
+            ],
+            [
+               "220870",
+               "1M pasd"
+            ],
+            [
+               "220871",
+               "1M pasd"
+            ],
+            [
+               "220872",
+               "0S pasd"
+            ],
+            [
+               "220696",
+               "1M pasd"
+            ],
+            [
+               "220697",
+               "1M pasd"
+            ],
+            [
+               "220698",
+               "0S pasd"
+            ],
+            [
+               "220699",
+               "1M pasd"
+            ],
+            [
+               "2206100",
+               "1M pasd"
+            ],
+            [
+               "220623",
+               "1M pasd"
+            ],
+            [
+               "220624",
+               "1M pasd"
+            ],
+            [
+               "220625",
+               "1M pasd"
+            ],
+            [
+               "2206101",
+               "0S pasd"
+            ],
+            [
+               "2206102",
+               "1M pasd"
+            ],
+            [
+               "2206103",
+               "2M pasd"
+            ],
+            [
+               "2206104",
+               "1M pasd"
+            ],
+            [
+               "2206105",
+               "1M pasd"
+            ],
+            [
+               "220459",
+               "1M pasd"
+            ],
+            [
+               "220460",
+               "0S pasd"
+            ],
+            [
+               "220461",
+               "1M pasd"
+            ],
+            [
+               "220462",
+               "1M pasd"
+            ],
+            [
+               "220463",
+               "0S pasd"
+            ],
+            [
+               "2204102",
+               "1M pasd"
+            ],
+            [
+               "220465",
+               "2M pasd"
+            ],
+            [
+               "220466",
+               "1M pasd"
+            ],
+            [
+               "220467",
+               "1M pasd"
+            ],
+            [
+               "220473",
+               "1M pasd"
+            ],
+            [
+               "220474",
+               "1M pasd"
+            ],
+            [
+               "2204100",
+               "1M pasd"
+            ],
+            [
+               "220438",
+               "1M pasd"
+            ],
+            [
+               "204212",
+               "2M pasd"
+            ],
+            [
+               "204213",
+               "1M pasd"
+            ],
+            [
+               "204215",
+               "1M pasd"
+            ],
+            [
+               "204243",
+               "1M pasd"
+            ],
+            [
+               "204216",
+               "1M pasd"
+            ],
+            [
+               "204217",
+               "0S pasd"
+            ],
+            [
+               "204218",
+               "1M pasd"
+            ],
+            [
+               "204219",
+               "1M pasd"
+            ],
+            [
+               "204220",
+               "0S pasd"
+            ],
+            [
+               "205038",
+               "1M pasd"
+            ],
+            [
+               "205039",
+               "1M pasd"
+            ],
+            [
+               "203729",
+               "2M pasd"
+            ],
+            [
+               "203730",
+               "0S pasd"
+            ],
+            [
+               "203731",
+               "1M pasd"
+            ],
+            [
+               "203732",
+               "1M pasd"
+            ],
+            [
+               "203733",
+               "0S pasd"
+            ],
+            [
+               "203734",
+               "1M pasd"
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203715",
+               "1M pasd"
+            ],
+            [
+               "203716",
+               "1M pasd"
+            ],
+            [
+               "203721",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-624-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Kingsgrove Rd Nr Omnibus Rd - Maxwell Rd Nr St Scholasticas College",
+            "rs_ref" : "RS_99-624-_-sj2-1-H-2",
+            "id" : "R_99-624-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-624-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   }
+}
+;
+

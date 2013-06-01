@@ -1,0 +1,691 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-602-c-sj2-1" : "602"
+}
+;
+
+var stations = {
+   "206347" : "Harden Av Nr Tenilba Rd",
+   "206891" : "Mcclelland St Nr First Av",
+   "206827" : "Eastern Valley Wy Nr Sugarloaf Cr",
+   "206821" : "Rembrandt Rd Nr Harbour Lane",
+   "206352" : "Strathallen Av Nr Sailors Bay Rd",
+   "206330" : "Sailors Bay Rd Nr Woonona Rd",
+   "206337" : "Sailors Bay Rd Nr Bligh St",
+   "206823" : "Rembrandt Dr Nr Cawarrah Rd",
+   "206344" : "Kameruka Rd Nr Narooma Rd",
+   "206840" : "Edinburgh Rd Nr The Parapet",
+   "206355" : "Strathallen Av Nr Cliff Av",
+   "206833" : "Edinburgh Rd Nr Sunnyside Av",
+   "206328" : "Sailors Bay Rd Nr Neeworra Rd",
+   "206834" : "Edinburgh Rd Nr Edinburgh Reserve",
+   "2068101" : "High St Nr Robert St",
+   "206212" : "Miller St Nr Pine St",
+   "2068115" : "Greenfield Av Nr Glenroy Av",
+   "206345" : "Kameruka Rd Nr The Outpost",
+   "206828" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "208947" : "Military Rd Nr Watson St",
+   "206326" : "Sailors Bay Rd Nr Weetalibah Rd",
+   "206311" : "Eastern Valley Wy Nr Tenilba Rd",
+   "206325" : "Sailors Bay Rd Nr Aubrey Rd",
+   "206211" : "Miller St Nr The Boulevarde",
+   "206354" : "Strathallen Av nr Marana Rd",
+   "206350" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206346" : "Kameruka Rd Nr Kyogle Rd",
+   "206338" : "Sailors Bay Rd Nr Tunks St",
+   "206825" : "Cawarrah Rd Nr Covelee Cct",
+   "206215" : "Miller St nr Ernest St",
+   "206822" : "Rembrandt Rd Nr Harold Reid Reserve",
+   "206874" : "Edinburgh Rd Nr Alpha Rd",
+   "206329" : "Sailors Bay Rd Nr Narooma Rd",
+   "206873" : "Edinburgh Rd Nr Windsor Rd",
+   "2068103" : "High St Nr Forsyth St",
+   "206831" : "Edinburgh Rd Nr Charles St",
+   "206075" : "Falcon St nr Moodie St",
+   "206830" : "Edinburgh Rd Nr Raeburn Av",
+   "206893" : "Mcclelland St Nr Eastern Valley Wy",
+   "206322" : "Sailors Bay Rd Nr Tycannah Rd",
+   "206842" : "Eastern Valley Wy Nr Morotai Cr",
+   "206319" : "Sailors Bay Rd Nr Weetawaa Rd",
+   "206837" : "Edinburgh Rd Nr Sunnyside Av",
+   "206320" : "Sailors Bay Rd Nr Dalmeny Rd",
+   "206832" : "Edinburgh Rd Nr Edith St",
+   "206835" : "Edinburgh Rd Terminus",
+   "206839" : "Edinburgh Rd Opp Edith St",
+   "206826" : "Eastern Valley Wy Nr Mcclelland St",
+   "206892" : "Mccelland St Nr Warrane Rd",
+   "206841" : "Edinburgh Rd Nr Eastern Valley Wy",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "206359" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206824" : "Cawarrah Rd Nr Rembrandt Dr",
+   "206339" : "Sailors Bay Rd Nr Woonona Rd",
+   "206340" : "Sailors Bay Rd Nr Narooma Rd",
+   "206341" : "Sailors Bay Rd Nr Kameruka Rd",
+   "206321" : "Sailors Bay Rd Nr Bourmac Av",
+   "206843" : "Eastern Valley Wy Nr Warners Av",
+   "206351" : "Sailors Bay Rd nr Eastern Valley Wy",
+   "206323" : "Sailors Bay Rd Nr Clive Park",
+   "206820" : "Rembrandt Rd Nr North Arm Rd",
+   "206213" : "Miller St nr Cammeray Shops",
+   "206829" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "206836" : "Edinburgh Rd Opp Edinburgh Reserve",
+   "206324" : "Sailors Bay Rd Nr Bourmac Av",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "206353" : "Strathallen Av Nr Baroona Rd",
+   "206838" : "Edinburgh Rd Nr Sortie Port",
+   "206872" : "Edinburgh Rd Nr Eastern Valley Wy",
+   "206360" : "Eastern Valley Wy Nr Tenilba Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-602-c-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-602-c-sj2-1-2-b00a4",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206337",
+               null
+            ],
+            [
+               "206338",
+               "0S pasd"
+            ],
+            [
+               "206339",
+               "0S pasd"
+            ],
+            [
+               "206340",
+               "1M pasd"
+            ],
+            [
+               "206341",
+               "0S pasd"
+            ],
+            [
+               "206319",
+               "1M pasd"
+            ],
+            [
+               "206320",
+               "0S pasd"
+            ],
+            [
+               "206321",
+               "0S pasd"
+            ],
+            [
+               "206322",
+               "1M pasd"
+            ],
+            [
+               "206323",
+               "0S pasd"
+            ],
+            [
+               "206324",
+               "0S pasd"
+            ],
+            [
+               "206325",
+               "1M pasd"
+            ],
+            [
+               "206326",
+               "0S pasd"
+            ],
+            [
+               "206328",
+               "0S pasd"
+            ],
+            [
+               "206329",
+               "1M pasd"
+            ],
+            [
+               "206330",
+               "0S pasd"
+            ],
+            [
+               "206344",
+               "4M pasd"
+            ],
+            [
+               "206345",
+               "0S pasd"
+            ],
+            [
+               "206346",
+               "1M pasd"
+            ],
+            [
+               "206347",
+               "0S pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "1M pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "2M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "1M pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206872",
+               "1M pasd"
+            ],
+            [
+               "206873",
+               "0S pasd"
+            ],
+            [
+               "206874",
+               "1M pasd"
+            ],
+            [
+               "2068101",
+               "2M pasd"
+            ],
+            [
+               "2068103",
+               "1M pasd"
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "2068115",
+               "2M pasd"
+            ],
+            [
+               "206820",
+               "1M pasd"
+            ],
+            [
+               "206821",
+               "1M pasd"
+            ],
+            [
+               "206822",
+               "1M pasd"
+            ],
+            [
+               "206823",
+               "1M pasd"
+            ],
+            [
+               "206824",
+               "0S pasd"
+            ],
+            [
+               "206825",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "0S pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "1M pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "1M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-602-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sailors Bay Rd Nr Bligh St - Neutral Bay Junction",
+            "rs_ref" : "RS_99-602-c-sj2-1-R-1",
+            "id" : "R_99-602-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-602-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "602"
+   },
+   "VJ_99-602-c-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_99-602-c-sj2-1-1-b00a5",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206337",
+               null
+            ],
+            [
+               "206338",
+               "0S pasd"
+            ],
+            [
+               "206339",
+               "0S pasd"
+            ],
+            [
+               "206340",
+               "1M pasd"
+            ],
+            [
+               "206341",
+               "0S pasd"
+            ],
+            [
+               "206319",
+               "1M pasd"
+            ],
+            [
+               "206320",
+               "0S pasd"
+            ],
+            [
+               "206321",
+               "0S pasd"
+            ],
+            [
+               "206322",
+               "1M pasd"
+            ],
+            [
+               "206323",
+               "0S pasd"
+            ],
+            [
+               "206324",
+               "0S pasd"
+            ],
+            [
+               "206325",
+               "1M pasd"
+            ],
+            [
+               "206326",
+               "0S pasd"
+            ],
+            [
+               "206328",
+               "0S pasd"
+            ],
+            [
+               "206329",
+               "1M pasd"
+            ],
+            [
+               "206330",
+               "0S pasd"
+            ],
+            [
+               "206344",
+               "4M pasd"
+            ],
+            [
+               "206345",
+               "0S pasd"
+            ],
+            [
+               "206346",
+               "1M pasd"
+            ],
+            [
+               "206347",
+               "0S pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "1M pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "2M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "1M pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206872",
+               "1M pasd"
+            ],
+            [
+               "206873",
+               "0S pasd"
+            ],
+            [
+               "206874",
+               "1M pasd"
+            ],
+            [
+               "2068101",
+               "2M pasd"
+            ],
+            [
+               "2068103",
+               "1M pasd"
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "2068115",
+               "2M pasd"
+            ],
+            [
+               "206820",
+               "1M pasd"
+            ],
+            [
+               "206821",
+               "1M pasd"
+            ],
+            [
+               "206822",
+               "1M pasd"
+            ],
+            [
+               "206823",
+               "1M pasd"
+            ],
+            [
+               "206824",
+               "0S pasd"
+            ],
+            [
+               "206825",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "0S pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "1M pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "1M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-602-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sailors Bay Rd Nr Bligh St - Neutral Bay Junction",
+            "rs_ref" : "RS_99-602-c-sj2-1-R-1",
+            "id" : "R_99-602-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-602-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "602"
+   }
+}
+;
+

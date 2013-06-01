@@ -1,0 +1,8627 @@
+var OPERATOR = "Red Bus Service";
+
+
+var LINES = {
+   "29-24-_-sj2-1" : "24"
+}
+;
+
+var stations = {
+   "2261338" : "Lakedge Av at Blenheim Av",
+   "2261148" : "Robertson Rd opp Mort St",
+   "2261279" : "Lakedge Av opp Blenheim Av",
+   "225944" : "Pacific Hwy near North Rd",
+   "2261262" : "Chittaway Rd at Moloki Av",
+   "2261145" : "Robertson Rd at Mort St",
+   "2261311" : "Berkeley Rd opp Tlsc Berkeley Vale",
+   "226121" : "The Entrance Rd at LAKESIDE PLAZA",
+   "2261105" : "Mingara Recreation Club",
+   "2261236" : "Bundilla Pde near Keren Av",
+   "2261210" : "Wyong Rd at Kathleen White Cr",
+   "2261327" : "Tumbi Creek Rd at Gregory St",
+   "2261167" : "Wyong Rd at Norton Av",
+   "2259685" : "Bryant Dr at Wyong Rd",
+   "2261331" : "Kerry Cr at Kurraba Pde",
+   "2259514" : "Woodbury Park Dr at Woolmers Cr",
+   "2261103" : "Tumbi Rd opp Mackay Dr",
+   "2261341" : "Tumbi Creek Rd opp Clare-Mace Cr",
+   "2261151" : "Brooke Av at BROOKE AV PS",
+   "2259516" : "Woodbury Park Dr at Richard Av",
+   "2261290" : "Kerry Cr at Emerald Pl",
+   "226157" : "The Entrance Rd at Ashton Av",
+   "2261212" : "Wyong Rd opp Norton Av",
+   "226135" : "Bateau Bay Square BAY VILLAGE",
+   "225946" : "Alison Rd at WYONG HS",
+   "2261323" : "Bundeena Rd at Bomaderry Cr",
+   "2261239" : "Bundeena Rd at Bemboka Cr",
+   "2261146" : "South St before East St",
+   "2259512" : "Woodbury Park Dr opp Bell Cl",
+   "2261168" : "Wyong Rd at Armstrong Av",
+   "2259504" : "Woodbury Park Dr at Freemans Glen",
+   "2261143" : "Robertson Rd opp Dampier Blvd",
+   "2261453" : "Watkins St at Thelma St",
+   "2261320" : "Jeannie Cr at Roger Cr",
+   "2261128" : "Toowoon Bay Rd at Watkins St",
+   "225969" : "Margaret St opp Wyong PLAZA",
+   "225936" : "Pacific Hwy before  Figtree Bvd",
+   "2259505" : "Woodbury Park Dr at Brickendon Av",
+   "226190" : "Nirvana St at Elsiemer St",
+   "226194" : "Lindsay St at Oaks Av",
+   "226185" : "Bay Rd at Orana Av",
+   "2261133" : "Bay Rd at Toowoon Bay Rd",
+   "2261334" : "Jeannie Cr opp Audie Pde",
+   "225933" : "Pacific Hwy opp Wyong Hospital",
+   "226186" : "Bay Rd at Toowoon Bay Rd",
+   "2261260" : "Chittaway Rd opp Chittaway Shopping Centre",
+   "2259360" : "Pacific Hwy at Wyong Golf Club",
+   "2259871" : "Westfield Tuggerah Stand Redbus",
+   "225922" : "Wyong Station",
+   "2259318" : "Pacific Hwy after Brittania Dr",
+   "226184" : "Bay Rd opp Yethonga Av",
+   "225947" : "Porter St at Wyong TAFE",
+   "2261382" : "Chittaway PS",
+   "2261147" : "South St at East St",
+   "2261258" : "Chitaway Rd near Oberton Rd",
+   "226195" : "Lindsay St at McLachlan Av",
+   "2259509" : "Woodbury Park Dr at Monica Gr",
+   "2259534" : "Wyong Rd at Bryant Dr",
+   "2261211" : "Wyong Rd at Tasman Av",
+   "2259503" : "Woodbury Park Dr opp Richard Av",
+   "226134" : "CC Hwy at Tlsc The Entrance",
+   "2259510" : "Woodbury Park Dr at Monica Gr",
+   "2261214" : "Wyong Rd opp Davidson Av",
+   "2261319" : "Jeannie Cr at Audie Pde",
+   "225949" : "North Rd after Chapman Av",
+   "2261467" : "Tumbi Creek  Rd at Clare Mace Cl",
+   "2261131" : "Stella St at Eloora Rd",
+   "2261291" : "Tumbi Creek Rd at Gregory St",
+   "2261315" : "Jubilee Pd at Pindarri Av",
+   "2261134" : "Bay Rd at Moorah Av",
+   "2261126" : "Watkins St opp Thelma St",
+   "2261183" : "Eastern Rd at Northumberland Way",
+   "2261156" : "Tumbi Rd at Tesoriero Tce",
+   "2259507" : "Woodbury Park Dr at Bell Cl",
+   "2261165" : "Wyong Rd at Davidson Av",
+   "2259588" : "Wyong Hospital",
+   "225911" : "Tuggerah EAST",
+   "2261314" : "Berkeley Rd at Tlsc BERKELEY VALE",
+   "2261306" : "Wyong Rd after Lees Bridge Chittaway Bay",
+   "226158" : "Fairview Av at Torrens Av",
+   "2261455" : "Swadling St opp Lindsay St",
+   "2261284" : "Jeannie Cr at The Glen",
+   "2261166" : "Wyong Rd at Boorana Cl",
+   "2261328" : "Kerry Cr at Gregory St",
+   "226191" : "Toowoon Bay Rd at Nirvana St",
+   "2261286" : "Jubilee Pde  at Kerry Cr",
+   "2261318" : "Jeannie Cr opp Roger Cr",
+   "2261140" : "Eastern Rd at Gwydir St",
+   "226189" : "Stella St at Eloora Rd",
+   "2261373" : "Shelly Beach Rd near Lindsay St",
+   "2259591" : "No 587 Pacific Hwy after Louisiana Rd",
+   "226197" : "Shelly Bch Rd at OLR SHELLY BCH SCHOOL",
+   "2261238" : "Bundeena Rd at Berkeley Rd",
+   "2261324" : "Bundeena Rd before Berkeley Rd",
+   "2261288" : "Kerry Cr at Jean Av",
+   "2261132" : "Stella St at Bay Rd",
+   "225939" : "Pacific Hwy opp Lucca Rd",
+   "2261362" : "The Entrance Rd (Stockland Bay Village)",
+   "2261127" : "Watkins St at Stella St",
+   "2261104" : "Wyong Rd before Mingara Dr",
+   "2261136" : "Warrigal St opp Park Rd",
+   "226193" : "Swadling St at Bellevue St",
+   "2261144" : "Robertson Rd opp Cunningham Rd",
+   "2261130" : "Nirvana St at Stella St",
+   "2261332" : "No 94 Kerry Cr Berkeley Vale",
+   "2261263" : "Chittaway Rd at Oberon Rd",
+   "2261149" : "Robertson Rd at Cunningham Rd",
+   "2259513" : "Woodbury Park Dr opp Wagners Pl",
+   "2261356" : "Lakedge Av at Albatross Rd",
+   "226192" : "Watkins St at Toowoon Bay Rd",
+   "2261142" : "Brooke Av opp Brooke Av  PS",
+   "2261215" : "Wyong Rd at South St",
+   "2261237" : "Lorraine Av Berkeley Vale Retirement Village",
+   "2261125" : "Lindsay St at Oaks Av",
+   "2259319" : "Pacific Hwy opp No 156 Watanobbi",
+   "2261150" : "Robertson Rd at Dampier Blvd",
+   "2261337" : "Lakedge Av at Kingford Smith Dr",
+   "2259517" : "Bryant Dr Near Lake Rd",
+   "226120" : "Fairview Av at Torrens Av",
+   "226187" : "Bay Rd after Charlton St",
+   "2261322" : "Bundeena Rd at Hakea Pl",
+   "2261330" : "Kerry Cr at Erin Av",
+   "225945" : "Margaret St at Wyong PLAZA",
+   "2261129" : "Toowoon Bay Rd at Archbold Rd",
+   "2259869" : "Pac Hwy after South Tacoma Rd",
+   "2261426" : "Nirvana St at Toowoon Bay Rd",
+   "225934" : "Pacific Hwy before Louisiana Rd",
+   "2261346" : "Lakedge Av opp Albatross Rd",
+   "2261483" : "CC Hwy opp THE ENTRANCE LEAGUES CLUB",
+   "226188" : "Stella St at Bay Rd",
+   "225943" : "Pacific Hwy opp Cutler Dr",
+   "2261135" : "Bay Rd at Yethonga Av",
+   "2261326" : "Tumbi Creek Rd near Culwalla St",
+   "2261155" : "Eastern Rd at Sherry St",
+   "2259511" : "Woodbury Park Dr opp Green Cl",
+   "2261123" : "Lindsay St at Bloomfield St",
+   "226119" : "Torrens Av at Coral St",
+   "2261292" : "Tumbi Creek Rd opp Bon Mace Cl",
+   "2261285" : "Jubilee & Kilkenny Pdes",
+   "2261270" : "Lakedge Av opp Aston Wilde Av",
+   "2261363" : "CC Hwy opp TLSC The Entrance",
+   "2261213" : "Wyong Rd at Shortland Av",
+   "2261124" : "Lindsay St at Mclachlan Av",
+   "2261240" : "Bundeena Rd opp Hakea Pl",
+   "226183" : "Bay Rd at Boondilla Rd",
+   "2259533" : "Bryant Dr opp Supercentre",
+   "2261154" : "Eastern Rd at Grandis Pl",
+   "2261402" : "Wyong Rd after Bundilla Pde",
+   "2259508" : "Woodbury Park Dr at Green Cl",
+   "2261395" : "Wyong Rd near Central Coast Hwy",
+   "2259749" : "Pacific Hwy - No.539",
+   "226122" : "The Entrance Rd at  Warrigal St",
+   "2261259" : "Chitaway Rd opp Moloki Av",
+   "2261317" : "Jeannie Cr opp The Glen",
+   "2259506" : "Woodbury Park Dr at Wagners Pl",
+   "226159" : "Torrens Av at Coral St",
+   "2259585" : "Wyong Rd at Reliance Dr",
+   "2261329" : "Kerry Cr at Emerald Pl",
+   "2261316" : "Rear Kilkenny Pde Jubilee Pde",
+   "2261182" : "Eastern Rd after Tumbi Rd",
+   "2261381" : "Chittaway PS",
+   "2259515" : "Woodbury Park Dr at Coachmans Pl",
+   "225937" : "Pacific Hwy opp London Dr",
+   "2261325" : "Tumbi Creek Rd at Bon Mace Cl",
+   "2261466" : "Tumbi Rd at Mackay Dr",
+   "2261141" : "Eastern Rd at Promenade Av",
+   "2259686" : "Bryant Dr at Supercentre",
+   "2261283" : "Bundilla Pd opp Lorraine Av",
+   "2261289" : "Kerry Cr near Erin Av",
+   "2261261" : "Chittaway Rd at Chittaway Shopping Centre",
+   "226182" : "Warrigal St at Park Rd",
+   "2261257" : "Chitaway Rd opp Oberton Rd",
+   "2261456" : "Swadling St opp Bellevue St",
+   "2261287" : "No 137 Kerry Cr Berkeley Vale",
+   "2261343" : "Wyong Rd at Lees Bridge Chittaway Bay",
+   "2259888" : "Woodbury Park Dr near Wyong Rd",
+   "226196" : "Shelly Beach Dr opp Mayfair St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_29-24-_-sj2-1-22-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-22-TA",
+      "leaves" : "06:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "4M9S pasd"
+            ],
+            [
+               "2259504",
+               "54S pasd"
+            ],
+            [
+               "2259505",
+               "57S pasd"
+            ],
+            [
+               "2259506",
+               "41S pasd"
+            ],
+            [
+               "2259507",
+               "34S pasd"
+            ],
+            [
+               "2259508",
+               "33S pasd"
+            ],
+            [
+               "2259509",
+               "19S pasd"
+            ],
+            [
+               "2259686",
+               "2M1S pasd"
+            ],
+            [
+               "2259517",
+               "16S pasd"
+            ],
+            [
+               "225911",
+               "36S pasd"
+            ],
+            [
+               "2259533",
+               "31S pasd"
+            ],
+            [
+               "2259685",
+               "23S pasd"
+            ],
+            [
+               "2259534",
+               "24S pasd"
+            ],
+            [
+               "2261306",
+               "2M20S pasd"
+            ],
+            [
+               "2261261",
+               "22S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "26S pasd"
+            ],
+            [
+               "2261287",
+               "29S pasd"
+            ],
+            [
+               "2261288",
+               "23S pasd"
+            ],
+            [
+               "2261289",
+               "19S pasd"
+            ],
+            [
+               "2261290",
+               "25S pasd"
+            ],
+            [
+               "2261291",
+               "48S pasd"
+            ],
+            [
+               "2261292",
+               "22S pasd"
+            ],
+            [
+               "2261341",
+               "16S pasd"
+            ],
+            [
+               "2261466",
+               "48S pasd"
+            ],
+            [
+               "2261182",
+               "1M16S pasd"
+            ],
+            [
+               "2261183",
+               "1M28S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "51S pasd"
+            ],
+            [
+               "2261167",
+               "1M3S pasd"
+            ],
+            [
+               "2261168",
+               "54S pasd"
+            ],
+            [
+               "226134",
+               "1M21S pasd"
+            ],
+            [
+               "226135",
+               "51S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261123",
+               "1M57S pasd"
+            ],
+            [
+               "2261124",
+               "1M20S pasd"
+            ],
+            [
+               "2261125",
+               "34S pasd"
+            ],
+            [
+               "2261455",
+               "16S pasd"
+            ],
+            [
+               "2261456",
+               "35S pasd"
+            ],
+            [
+               "2261126",
+               "30S pasd"
+            ],
+            [
+               "2261127",
+               "23S pasd"
+            ],
+            [
+               "2261128",
+               "1M18S pasd"
+            ],
+            [
+               "2261129",
+               "41S pasd"
+            ],
+            [
+               "2261426",
+               "11S pasd"
+            ],
+            [
+               "2261130",
+               "58S pasd"
+            ],
+            [
+               "2261131",
+               "43S pasd"
+            ],
+            [
+               "2261132",
+               "43S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-14-H-6",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-6",
+            "id" : "R_29-24-_-sj2-1-H-6"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-13-TA",
+      "leaves" : "19:54:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "46S pasd"
+            ],
+            [
+               "2261326",
+               "11S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "24S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "27S pasd"
+            ],
+            [
+               "2261315",
+               "26S pasd"
+            ],
+            [
+               "2261316",
+               "28S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-8-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-11-TA",
+      "leaves" : "19:09:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "46S pasd"
+            ],
+            [
+               "2261326",
+               "11S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "24S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "27S pasd"
+            ],
+            [
+               "2261315",
+               "26S pasd"
+            ],
+            [
+               "2261316",
+               "28S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-8-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-9-TA",
+      "leaves" : "06:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "19S pasd"
+            ],
+            [
+               "226190",
+               "31S pasd"
+            ],
+            [
+               "226191",
+               "38S pasd"
+            ],
+            [
+               "226192",
+               "30S pasd"
+            ],
+            [
+               "226193",
+               "1M9S pasd"
+            ],
+            [
+               "2261453",
+               "20S pasd"
+            ],
+            [
+               "226194",
+               "47S pasd"
+            ],
+            [
+               "226195",
+               "22S pasd"
+            ],
+            [
+               "226196",
+               "1M18S pasd"
+            ],
+            [
+               "226197",
+               "15S pasd"
+            ],
+            [
+               "2261210",
+               "44S pasd"
+            ],
+            [
+               "2261211",
+               "21S pasd"
+            ],
+            [
+               "2261212",
+               "25S pasd"
+            ],
+            [
+               "2261213",
+               "33S pasd"
+            ],
+            [
+               "2261214",
+               "19S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M7S pasd"
+            ],
+            [
+               "2261103",
+               "55S pasd"
+            ],
+            [
+               "2261104",
+               "36S pasd"
+            ],
+            [
+               "2261325",
+               "35S pasd"
+            ],
+            [
+               "2261326",
+               "13S pasd"
+            ],
+            [
+               "2261327",
+               "23S pasd"
+            ],
+            [
+               "2261328",
+               "15S pasd"
+            ],
+            [
+               "2261329",
+               "32S pasd"
+            ],
+            [
+               "2261330",
+               "28S pasd"
+            ],
+            [
+               "2261331",
+               "20S pasd"
+            ],
+            [
+               "2261332",
+               "32S pasd"
+            ],
+            [
+               "2261315",
+               "31S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "12S pasd"
+            ],
+            [
+               "2261318",
+               "27S pasd"
+            ],
+            [
+               "2261334",
+               "32S pasd"
+            ],
+            [
+               "2261283",
+               "26S pasd"
+            ],
+            [
+               "2261311",
+               "1M23S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-6-R-3",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-3",
+            "id" : "R_29-24-_-sj2-1-R-3"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-23-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-23-TA",
+      "leaves" : "21:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2259871",
+               null
+            ],
+            [
+               "2259686",
+               "2M45S pasd"
+            ],
+            [
+               "225911",
+               "1M15S pasd"
+            ],
+            [
+               "2259533",
+               "31S pasd"
+            ],
+            [
+               "2259685",
+               "23S pasd"
+            ],
+            [
+               "2259534",
+               "24S pasd"
+            ],
+            [
+               "2261306",
+               "2M20S pasd"
+            ],
+            [
+               "2261261",
+               "22S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "32S pasd"
+            ],
+            [
+               "2261322",
+               "2M32S pasd"
+            ],
+            [
+               "2261323",
+               "25S pasd"
+            ],
+            [
+               "2261324",
+               "31S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "30S pasd"
+            ],
+            [
+               "2261287",
+               "33S pasd"
+            ],
+            [
+               "2261288",
+               "26S pasd"
+            ],
+            [
+               "2261289",
+               "21S pasd"
+            ],
+            [
+               "2261290",
+               "29S pasd"
+            ],
+            [
+               "2261291",
+               "55S pasd"
+            ],
+            [
+               "2261292",
+               "26S pasd"
+            ],
+            [
+               "2261341",
+               "19S pasd"
+            ],
+            [
+               "2261466",
+               "55S pasd"
+            ],
+            [
+               "2261182",
+               "1M27S pasd"
+            ],
+            [
+               "2261183",
+               "1M39S pasd"
+            ],
+            [
+               "2261142",
+               "1M42S pasd"
+            ],
+            [
+               "2261143",
+               "44S pasd"
+            ],
+            [
+               "2261144",
+               "27S pasd"
+            ],
+            [
+               "2261145",
+               "47S pasd"
+            ],
+            [
+               "2261146",
+               "39S pasd"
+            ],
+            [
+               "2261165",
+               "41S pasd"
+            ],
+            [
+               "2261166",
+               "2M13S pasd"
+            ],
+            [
+               "2261167",
+               "2M44S pasd"
+            ],
+            [
+               "2261168",
+               "2M20S pasd"
+            ],
+            [
+               "226134",
+               "3M31S pasd"
+            ],
+            [
+               "226135",
+               "2M12S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261123",
+               "1M57S pasd"
+            ],
+            [
+               "2261124",
+               "1M20S pasd"
+            ],
+            [
+               "2261125",
+               "34S pasd"
+            ],
+            [
+               "2261455",
+               "16S pasd"
+            ],
+            [
+               "2261456",
+               "35S pasd"
+            ],
+            [
+               "2261126",
+               "30S pasd"
+            ],
+            [
+               "2261127",
+               "23S pasd"
+            ],
+            [
+               "2261128",
+               "1M18S pasd"
+            ],
+            [
+               "2261129",
+               "41S pasd"
+            ],
+            [
+               "2261426",
+               "11S pasd"
+            ],
+            [
+               "2261130",
+               "58S pasd"
+            ],
+            [
+               "2261131",
+               "43S pasd"
+            ],
+            [
+               "2261132",
+               "43S pasd"
+            ],
+            [
+               "2261133",
+               "53S pasd"
+            ],
+            [
+               "2261134",
+               "38S pasd"
+            ],
+            [
+               "2261135",
+               "37S pasd"
+            ],
+            [
+               "2261136",
+               "1M22S pasd"
+            ],
+            [
+               "226157",
+               "26S pasd"
+            ],
+            [
+               "226158",
+               "23S pasd"
+            ],
+            [
+               "226159",
+               "23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-15-H-7",
+         "route" : {
+            "name" : "Westfield Tuggerah - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-7",
+            "id" : "R_29-24-_-sj2-1-H-7"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Thursday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-20-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-20-TA",
+      "leaves" : "05:46:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "19S pasd"
+            ],
+            [
+               "226190",
+               "31S pasd"
+            ],
+            [
+               "226191",
+               "38S pasd"
+            ],
+            [
+               "226192",
+               "30S pasd"
+            ],
+            [
+               "226193",
+               "1M9S pasd"
+            ],
+            [
+               "2261453",
+               "20S pasd"
+            ],
+            [
+               "226194",
+               "47S pasd"
+            ],
+            [
+               "226195",
+               "22S pasd"
+            ],
+            [
+               "226196",
+               "1M18S pasd"
+            ],
+            [
+               "226197",
+               "15S pasd"
+            ],
+            [
+               "2261210",
+               "44S pasd"
+            ],
+            [
+               "2261211",
+               "21S pasd"
+            ],
+            [
+               "2261212",
+               "25S pasd"
+            ],
+            [
+               "2261213",
+               "33S pasd"
+            ],
+            [
+               "2261214",
+               "19S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "1M51S pasd"
+            ],
+            [
+               "2261103",
+               "48S pasd"
+            ],
+            [
+               "2261104",
+               "32S pasd"
+            ],
+            [
+               "2261467",
+               "17S pasd"
+            ],
+            [
+               "2261325",
+               "13S pasd"
+            ],
+            [
+               "2261326",
+               "12S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "25S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "28S pasd"
+            ],
+            [
+               "2261315",
+               "27S pasd"
+            ],
+            [
+               "2261316",
+               "29S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "54S pasd"
+            ],
+            [
+               "2259510",
+               "2M4S pasd"
+            ],
+            [
+               "2259511",
+               "16S pasd"
+            ],
+            [
+               "2259512",
+               "31S pasd"
+            ],
+            [
+               "2259513",
+               "30S pasd"
+            ],
+            [
+               "2259514",
+               "45S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-10-R-5",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-5",
+            "id" : "R_29-24-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-16-TA",
+      "leaves" : "21:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "46S pasd"
+            ],
+            [
+               "2261326",
+               "11S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "24S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "27S pasd"
+            ],
+            [
+               "2261315",
+               "26S pasd"
+            ],
+            [
+               "2261316",
+               "28S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-8-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-24-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-24-TA",
+      "leaves" : "06:46:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "22S pasd"
+            ],
+            [
+               "226190",
+               "35S pasd"
+            ],
+            [
+               "226191",
+               "42S pasd"
+            ],
+            [
+               "226192",
+               "34S pasd"
+            ],
+            [
+               "226193",
+               "1M17S pasd"
+            ],
+            [
+               "2261453",
+               "22S pasd"
+            ],
+            [
+               "226194",
+               "52S pasd"
+            ],
+            [
+               "226195",
+               "25S pasd"
+            ],
+            [
+               "226196",
+               "1M27S pasd"
+            ],
+            [
+               "226197",
+               "16S pasd"
+            ],
+            [
+               "2261210",
+               "49S pasd"
+            ],
+            [
+               "2261211",
+               "24S pasd"
+            ],
+            [
+               "2261212",
+               "27S pasd"
+            ],
+            [
+               "2261213",
+               "36S pasd"
+            ],
+            [
+               "2261214",
+               "21S pasd"
+            ],
+            [
+               "2261215",
+               "31S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M7S pasd"
+            ],
+            [
+               "2261103",
+               "55S pasd"
+            ],
+            [
+               "2261104",
+               "36S pasd"
+            ],
+            [
+               "2261325",
+               "35S pasd"
+            ],
+            [
+               "2261326",
+               "13S pasd"
+            ],
+            [
+               "2261327",
+               "23S pasd"
+            ],
+            [
+               "2261328",
+               "15S pasd"
+            ],
+            [
+               "2261329",
+               "32S pasd"
+            ],
+            [
+               "2261330",
+               "28S pasd"
+            ],
+            [
+               "2261331",
+               "20S pasd"
+            ],
+            [
+               "2261332",
+               "32S pasd"
+            ],
+            [
+               "2261315",
+               "31S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "12S pasd"
+            ],
+            [
+               "2261318",
+               "27S pasd"
+            ],
+            [
+               "2261334",
+               "32S pasd"
+            ],
+            [
+               "2261283",
+               "26S pasd"
+            ],
+            [
+               "2261311",
+               "1M23S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "1M56S pasd"
+            ],
+            [
+               "225945",
+               "42S pasd"
+            ],
+            [
+               "225946",
+               "42S pasd"
+            ],
+            [
+               "225947",
+               "40S pasd"
+            ],
+            [
+               "225949",
+               "47S pasd"
+            ],
+            [
+               "225969",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-16-R-8",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Margaret St opp Wyong PLAZA",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-8",
+            "id" : "R_29-24-_-sj2-1-R-8"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-21-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-21-TA",
+      "leaves" : "05:47:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "19S pasd"
+            ],
+            [
+               "226190",
+               "31S pasd"
+            ],
+            [
+               "226191",
+               "38S pasd"
+            ],
+            [
+               "226192",
+               "30S pasd"
+            ],
+            [
+               "226193",
+               "1M9S pasd"
+            ],
+            [
+               "2261453",
+               "20S pasd"
+            ],
+            [
+               "226194",
+               "47S pasd"
+            ],
+            [
+               "226195",
+               "22S pasd"
+            ],
+            [
+               "226196",
+               "1M18S pasd"
+            ],
+            [
+               "226197",
+               "15S pasd"
+            ],
+            [
+               "2261210",
+               "44S pasd"
+            ],
+            [
+               "2261211",
+               "21S pasd"
+            ],
+            [
+               "2261212",
+               "25S pasd"
+            ],
+            [
+               "2261213",
+               "33S pasd"
+            ],
+            [
+               "2261214",
+               "19S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M7S pasd"
+            ],
+            [
+               "2261103",
+               "55S pasd"
+            ],
+            [
+               "2261104",
+               "36S pasd"
+            ],
+            [
+               "2261467",
+               "20S pasd"
+            ],
+            [
+               "2261325",
+               "15S pasd"
+            ],
+            [
+               "2261326",
+               "13S pasd"
+            ],
+            [
+               "2261327",
+               "23S pasd"
+            ],
+            [
+               "2261328",
+               "15S pasd"
+            ],
+            [
+               "2261329",
+               "32S pasd"
+            ],
+            [
+               "2261330",
+               "28S pasd"
+            ],
+            [
+               "2261331",
+               "20S pasd"
+            ],
+            [
+               "2261332",
+               "32S pasd"
+            ],
+            [
+               "2261315",
+               "31S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "12S pasd"
+            ],
+            [
+               "2261318",
+               "27S pasd"
+            ],
+            [
+               "2261334",
+               "32S pasd"
+            ],
+            [
+               "2261283",
+               "26S pasd"
+            ],
+            [
+               "2261311",
+               "1M23S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "54S pasd"
+            ],
+            [
+               "2259510",
+               "2M4S pasd"
+            ],
+            [
+               "2259511",
+               "16S pasd"
+            ],
+            [
+               "2259512",
+               "31S pasd"
+            ],
+            [
+               "2259513",
+               "30S pasd"
+            ],
+            [
+               "2259514",
+               "45S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-13-R-5",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-5",
+            "id" : "R_29-24-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-15-TA",
+      "leaves" : "20:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "58S pasd"
+            ],
+            [
+               "2261326",
+               "14S pasd"
+            ],
+            [
+               "2261327",
+               "25S pasd"
+            ],
+            [
+               "2261328",
+               "16S pasd"
+            ],
+            [
+               "2261329",
+               "35S pasd"
+            ],
+            [
+               "2261330",
+               "31S pasd"
+            ],
+            [
+               "2261331",
+               "21S pasd"
+            ],
+            [
+               "2261332",
+               "34S pasd"
+            ],
+            [
+               "2261315",
+               "33S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-7-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-7-TA",
+      "leaves" : "21:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "2M40S pasd"
+            ],
+            [
+               "2259517",
+               "25S pasd"
+            ],
+            [
+               "225911",
+               "55S pasd"
+            ],
+            [
+               "2259533",
+               "31S pasd"
+            ],
+            [
+               "2259685",
+               "23S pasd"
+            ],
+            [
+               "2259534",
+               "24S pasd"
+            ],
+            [
+               "2261306",
+               "2M20S pasd"
+            ],
+            [
+               "2261261",
+               "22S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "32S pasd"
+            ],
+            [
+               "2261322",
+               "2M32S pasd"
+            ],
+            [
+               "2261323",
+               "25S pasd"
+            ],
+            [
+               "2261324",
+               "31S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-5-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-10-TA",
+      "leaves" : "18:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "58S pasd"
+            ],
+            [
+               "2261326",
+               "14S pasd"
+            ],
+            [
+               "2261327",
+               "25S pasd"
+            ],
+            [
+               "2261328",
+               "16S pasd"
+            ],
+            [
+               "2261329",
+               "35S pasd"
+            ],
+            [
+               "2261330",
+               "31S pasd"
+            ],
+            [
+               "2261331",
+               "21S pasd"
+            ],
+            [
+               "2261332",
+               "34S pasd"
+            ],
+            [
+               "2261315",
+               "33S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-7-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-26-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-26-TA",
+      "leaves" : "05:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "4M9S pasd"
+            ],
+            [
+               "2259504",
+               "54S pasd"
+            ],
+            [
+               "2259505",
+               "57S pasd"
+            ],
+            [
+               "2259506",
+               "42S pasd"
+            ],
+            [
+               "2259507",
+               "34S pasd"
+            ],
+            [
+               "2259508",
+               "34S pasd"
+            ],
+            [
+               "2259509",
+               "19S pasd"
+            ],
+            [
+               "2259686",
+               "2M2S pasd"
+            ],
+            [
+               "225911",
+               "49S pasd"
+            ],
+            [
+               "2259533",
+               "31S pasd"
+            ],
+            [
+               "2259685",
+               "23S pasd"
+            ],
+            [
+               "2259534",
+               "24S pasd"
+            ],
+            [
+               "2261306",
+               "2M20S pasd"
+            ],
+            [
+               "2261261",
+               "22S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "26S pasd"
+            ],
+            [
+               "2261287",
+               "29S pasd"
+            ],
+            [
+               "2261288",
+               "23S pasd"
+            ],
+            [
+               "2261289",
+               "19S pasd"
+            ],
+            [
+               "2261290",
+               "25S pasd"
+            ],
+            [
+               "2261291",
+               "48S pasd"
+            ],
+            [
+               "2261292",
+               "22S pasd"
+            ],
+            [
+               "2261341",
+               "16S pasd"
+            ],
+            [
+               "2261466",
+               "48S pasd"
+            ],
+            [
+               "2261182",
+               "1M16S pasd"
+            ],
+            [
+               "2261183",
+               "1M28S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "33S pasd"
+            ],
+            [
+               "2261167",
+               "41S pasd"
+            ],
+            [
+               "2261168",
+               "35S pasd"
+            ],
+            [
+               "2261123",
+               "1M42S pasd"
+            ],
+            [
+               "2261124",
+               "53S pasd"
+            ],
+            [
+               "2261125",
+               "22S pasd"
+            ],
+            [
+               "2261455",
+               "10S pasd"
+            ],
+            [
+               "2261456",
+               "23S pasd"
+            ],
+            [
+               "2261126",
+               "20S pasd"
+            ],
+            [
+               "2261127",
+               "15S pasd"
+            ],
+            [
+               "2261128",
+               "51S pasd"
+            ],
+            [
+               "2261129",
+               "27S pasd"
+            ],
+            [
+               "2261426",
+               "7S pasd"
+            ],
+            [
+               "2261130",
+               "39S pasd"
+            ],
+            [
+               "2261131",
+               "28S pasd"
+            ],
+            [
+               "2261132",
+               "34S pasd"
+            ],
+            [
+               "2261133",
+               "53S pasd"
+            ],
+            [
+               "2261134",
+               "38S pasd"
+            ],
+            [
+               "2261135",
+               "37S pasd"
+            ],
+            [
+               "2261136",
+               "1M22S pasd"
+            ],
+            [
+               "226157",
+               "26S pasd"
+            ],
+            [
+               "226158",
+               "23S pasd"
+            ],
+            [
+               "226159",
+               "23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-18-H-10",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-10",
+            "id" : "R_29-24-_-sj2-1-H-10"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-5-TA",
+      "leaves" : "21:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "3M21S pasd"
+            ],
+            [
+               "2259517",
+               "31S pasd"
+            ],
+            [
+               "225911",
+               "1M8S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-14-TA",
+      "leaves" : "20:24:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "27S pasd"
+            ],
+            [
+               "226190",
+               "43S pasd"
+            ],
+            [
+               "226191",
+               "52S pasd"
+            ],
+            [
+               "226192",
+               "42S pasd"
+            ],
+            [
+               "226193",
+               "1M35S pasd"
+            ],
+            [
+               "2261453",
+               "27S pasd"
+            ],
+            [
+               "226194",
+               "1M4S pasd"
+            ],
+            [
+               "226195",
+               "30S pasd"
+            ],
+            [
+               "226196",
+               "1M46S pasd"
+            ],
+            [
+               "226197",
+               "20S pasd"
+            ],
+            [
+               "226134",
+               "46S pasd"
+            ],
+            [
+               "226135",
+               "48S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "46S pasd"
+            ],
+            [
+               "2261326",
+               "11S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "24S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "27S pasd"
+            ],
+            [
+               "2261315",
+               "26S pasd"
+            ],
+            [
+               "2261316",
+               "28S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-8-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-4-TA",
+      "leaves" : "20:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "2M40S pasd"
+            ],
+            [
+               "2259517",
+               "25S pasd"
+            ],
+            [
+               "225911",
+               "55S pasd"
+            ],
+            [
+               "2259533",
+               "31S pasd"
+            ],
+            [
+               "2259685",
+               "23S pasd"
+            ],
+            [
+               "2259534",
+               "24S pasd"
+            ],
+            [
+               "2261306",
+               "2M20S pasd"
+            ],
+            [
+               "2261261",
+               "22S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "32S pasd"
+            ],
+            [
+               "2261322",
+               "2M32S pasd"
+            ],
+            [
+               "2261323",
+               "25S pasd"
+            ],
+            [
+               "2261324",
+               "31S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "2M3S pasd"
+            ],
+            [
+               "2261143",
+               "52S pasd"
+            ],
+            [
+               "2261144",
+               "33S pasd"
+            ],
+            [
+               "2261145",
+               "57S pasd"
+            ],
+            [
+               "2261146",
+               "46S pasd"
+            ],
+            [
+               "2261165",
+               "49S pasd"
+            ],
+            [
+               "2261166",
+               "29S pasd"
+            ],
+            [
+               "2261167",
+               "35S pasd"
+            ],
+            [
+               "2261168",
+               "30S pasd"
+            ],
+            [
+               "2261395",
+               "25S pasd"
+            ],
+            [
+               "226134",
+               "30S pasd"
+            ],
+            [
+               "226135",
+               "31S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-4-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-8-TA",
+      "leaves" : "23:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "3M21S pasd"
+            ],
+            [
+               "2259517",
+               "31S pasd"
+            ],
+            [
+               "225911",
+               "1M8S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-19-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-19-TA",
+      "leaves" : "05:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "17S pasd"
+            ],
+            [
+               "226190",
+               "28S pasd"
+            ],
+            [
+               "226191",
+               "34S pasd"
+            ],
+            [
+               "226192",
+               "27S pasd"
+            ],
+            [
+               "226193",
+               "1M1S pasd"
+            ],
+            [
+               "2261453",
+               "18S pasd"
+            ],
+            [
+               "226194",
+               "42S pasd"
+            ],
+            [
+               "226195",
+               "20S pasd"
+            ],
+            [
+               "226196",
+               "1M9S pasd"
+            ],
+            [
+               "226197",
+               "13S pasd"
+            ],
+            [
+               "2261210",
+               "39S pasd"
+            ],
+            [
+               "2261211",
+               "19S pasd"
+            ],
+            [
+               "2261212",
+               "22S pasd"
+            ],
+            [
+               "2261213",
+               "29S pasd"
+            ],
+            [
+               "2261214",
+               "17S pasd"
+            ],
+            [
+               "2261215",
+               "25S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M7S pasd"
+            ],
+            [
+               "2261103",
+               "55S pasd"
+            ],
+            [
+               "2261104",
+               "36S pasd"
+            ],
+            [
+               "2261467",
+               "20S pasd"
+            ],
+            [
+               "2261325",
+               "15S pasd"
+            ],
+            [
+               "2261326",
+               "13S pasd"
+            ],
+            [
+               "2261327",
+               "23S pasd"
+            ],
+            [
+               "2261328",
+               "15S pasd"
+            ],
+            [
+               "2261329",
+               "32S pasd"
+            ],
+            [
+               "2261330",
+               "28S pasd"
+            ],
+            [
+               "2261331",
+               "20S pasd"
+            ],
+            [
+               "2261332",
+               "32S pasd"
+            ],
+            [
+               "2261315",
+               "31S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "12S pasd"
+            ],
+            [
+               "2261318",
+               "27S pasd"
+            ],
+            [
+               "2261334",
+               "32S pasd"
+            ],
+            [
+               "2261283",
+               "26S pasd"
+            ],
+            [
+               "2261311",
+               "1M23S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "54S pasd"
+            ],
+            [
+               "2259510",
+               "2M4S pasd"
+            ],
+            [
+               "2259511",
+               "16S pasd"
+            ],
+            [
+               "2259512",
+               "31S pasd"
+            ],
+            [
+               "2259513",
+               "30S pasd"
+            ],
+            [
+               "2259514",
+               "45S pasd"
+            ],
+            [
+               "2259515",
+               "45S pasd"
+            ],
+            [
+               "2259516",
+               "39S pasd"
+            ],
+            [
+               "2259869",
+               "1M59S pasd"
+            ],
+            [
+               "225922",
+               "1M59S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-12-R-5",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-5",
+            "id" : "R_29-24-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-17-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-17-TA",
+      "leaves" : "04:46:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "19S pasd"
+            ],
+            [
+               "226190",
+               "31S pasd"
+            ],
+            [
+               "226191",
+               "38S pasd"
+            ],
+            [
+               "226192",
+               "30S pasd"
+            ],
+            [
+               "226193",
+               "1M9S pasd"
+            ],
+            [
+               "2261453",
+               "20S pasd"
+            ],
+            [
+               "226194",
+               "47S pasd"
+            ],
+            [
+               "226195",
+               "22S pasd"
+            ],
+            [
+               "226196",
+               "1M18S pasd"
+            ],
+            [
+               "226197",
+               "15S pasd"
+            ],
+            [
+               "2261210",
+               "44S pasd"
+            ],
+            [
+               "2261211",
+               "21S pasd"
+            ],
+            [
+               "2261212",
+               "25S pasd"
+            ],
+            [
+               "2261213",
+               "33S pasd"
+            ],
+            [
+               "2261214",
+               "19S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "1M51S pasd"
+            ],
+            [
+               "2261103",
+               "48S pasd"
+            ],
+            [
+               "2261104",
+               "32S pasd"
+            ],
+            [
+               "2261467",
+               "17S pasd"
+            ],
+            [
+               "2261325",
+               "13S pasd"
+            ],
+            [
+               "2261326",
+               "12S pasd"
+            ],
+            [
+               "2261327",
+               "20S pasd"
+            ],
+            [
+               "2261328",
+               "13S pasd"
+            ],
+            [
+               "2261329",
+               "28S pasd"
+            ],
+            [
+               "2261330",
+               "25S pasd"
+            ],
+            [
+               "2261331",
+               "17S pasd"
+            ],
+            [
+               "2261332",
+               "28S pasd"
+            ],
+            [
+               "2261315",
+               "27S pasd"
+            ],
+            [
+               "2261316",
+               "29S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "54S pasd"
+            ],
+            [
+               "2259510",
+               "2M4S pasd"
+            ],
+            [
+               "2259511",
+               "16S pasd"
+            ],
+            [
+               "2259512",
+               "31S pasd"
+            ],
+            [
+               "2259513",
+               "30S pasd"
+            ],
+            [
+               "2259514",
+               "45S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-10-R-5",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-5",
+            "id" : "R_29-24-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-18-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-18-TA",
+      "leaves" : "04:49:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "17S pasd"
+            ],
+            [
+               "226190",
+               "28S pasd"
+            ],
+            [
+               "226191",
+               "34S pasd"
+            ],
+            [
+               "226192",
+               "27S pasd"
+            ],
+            [
+               "226193",
+               "1M1S pasd"
+            ],
+            [
+               "2261453",
+               "18S pasd"
+            ],
+            [
+               "226194",
+               "42S pasd"
+            ],
+            [
+               "226195",
+               "20S pasd"
+            ],
+            [
+               "226196",
+               "1M9S pasd"
+            ],
+            [
+               "226197",
+               "13S pasd"
+            ],
+            [
+               "2261210",
+               "39S pasd"
+            ],
+            [
+               "2261211",
+               "19S pasd"
+            ],
+            [
+               "2261212",
+               "22S pasd"
+            ],
+            [
+               "2261213",
+               "29S pasd"
+            ],
+            [
+               "2261214",
+               "17S pasd"
+            ],
+            [
+               "2261215",
+               "25S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M7S pasd"
+            ],
+            [
+               "2261103",
+               "55S pasd"
+            ],
+            [
+               "2261104",
+               "36S pasd"
+            ],
+            [
+               "2261467",
+               "20S pasd"
+            ],
+            [
+               "2261325",
+               "15S pasd"
+            ],
+            [
+               "2261326",
+               "13S pasd"
+            ],
+            [
+               "2261327",
+               "23S pasd"
+            ],
+            [
+               "2261328",
+               "15S pasd"
+            ],
+            [
+               "2261329",
+               "32S pasd"
+            ],
+            [
+               "2261330",
+               "28S pasd"
+            ],
+            [
+               "2261331",
+               "20S pasd"
+            ],
+            [
+               "2261332",
+               "32S pasd"
+            ],
+            [
+               "2261315",
+               "31S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "12S pasd"
+            ],
+            [
+               "2261318",
+               "27S pasd"
+            ],
+            [
+               "2261334",
+               "32S pasd"
+            ],
+            [
+               "2261283",
+               "26S pasd"
+            ],
+            [
+               "2261311",
+               "1M23S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "22S pasd"
+            ],
+            [
+               "2261240",
+               "46S pasd"
+            ],
+            [
+               "2261337",
+               "2M51S pasd"
+            ],
+            [
+               "2261338",
+               "24S pasd"
+            ],
+            [
+               "2261356",
+               "37S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "30S pasd"
+            ],
+            [
+               "2259585",
+               "2M54S pasd"
+            ],
+            [
+               "2259686",
+               "44S pasd"
+            ],
+            [
+               "225911",
+               "52S pasd"
+            ],
+            [
+               "2259685",
+               "54S pasd"
+            ],
+            [
+               "2259510",
+               "2M4S pasd"
+            ],
+            [
+               "2259511",
+               "16S pasd"
+            ],
+            [
+               "2259512",
+               "31S pasd"
+            ],
+            [
+               "2259513",
+               "30S pasd"
+            ],
+            [
+               "2259514",
+               "45S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-11-R-5",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-5",
+            "id" : "R_29-24-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-6-TA",
+      "leaves" : "21:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "3M21S pasd"
+            ],
+            [
+               "2259517",
+               "31S pasd"
+            ],
+            [
+               "225911",
+               "1M8S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-3-TA",
+      "leaves" : "20:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "3M21S pasd"
+            ],
+            [
+               "2259517",
+               "31S pasd"
+            ],
+            [
+               "225911",
+               "1M8S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "40S pasd"
+            ],
+            [
+               "2261322",
+               "3M10S pasd"
+            ],
+            [
+               "2261323",
+               "31S pasd"
+            ],
+            [
+               "2261324",
+               "39S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "1M22S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "22S pasd"
+            ],
+            [
+               "2261145",
+               "38S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261165",
+               "32S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-12-TA",
+      "leaves" : "19:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226182",
+               "26S pasd"
+            ],
+            [
+               "226183",
+               "1M17S pasd"
+            ],
+            [
+               "226184",
+               "19S pasd"
+            ],
+            [
+               "226185",
+               "38S pasd"
+            ],
+            [
+               "226186",
+               "43S pasd"
+            ],
+            [
+               "226187",
+               "56S pasd"
+            ],
+            [
+               "226188",
+               "17S pasd"
+            ],
+            [
+               "226189",
+               "24S pasd"
+            ],
+            [
+               "226190",
+               "39S pasd"
+            ],
+            [
+               "226191",
+               "47S pasd"
+            ],
+            [
+               "226192",
+               "37S pasd"
+            ],
+            [
+               "226193",
+               "1M25S pasd"
+            ],
+            [
+               "2261453",
+               "24S pasd"
+            ],
+            [
+               "226194",
+               "58S pasd"
+            ],
+            [
+               "226195",
+               "27S pasd"
+            ],
+            [
+               "226196",
+               "1M36S pasd"
+            ],
+            [
+               "226197",
+               "18S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "44S pasd"
+            ],
+            [
+               "2261363",
+               "51S pasd"
+            ],
+            [
+               "2261210",
+               "58S pasd"
+            ],
+            [
+               "2261211",
+               "34S pasd"
+            ],
+            [
+               "2261212",
+               "39S pasd"
+            ],
+            [
+               "2261213",
+               "52S pasd"
+            ],
+            [
+               "2261214",
+               "31S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261156",
+               "2M27S pasd"
+            ],
+            [
+               "2261103",
+               "1M3S pasd"
+            ],
+            [
+               "2261104",
+               "42S pasd"
+            ],
+            [
+               "2261105",
+               "48S pasd"
+            ],
+            [
+               "2261325",
+               "58S pasd"
+            ],
+            [
+               "2261326",
+               "14S pasd"
+            ],
+            [
+               "2261327",
+               "25S pasd"
+            ],
+            [
+               "2261328",
+               "16S pasd"
+            ],
+            [
+               "2261329",
+               "35S pasd"
+            ],
+            [
+               "2261330",
+               "31S pasd"
+            ],
+            [
+               "2261331",
+               "21S pasd"
+            ],
+            [
+               "2261332",
+               "34S pasd"
+            ],
+            [
+               "2261315",
+               "33S pasd"
+            ],
+            [
+               "2261316",
+               "33S pasd"
+            ],
+            [
+               "2261317",
+               "16S pasd"
+            ],
+            [
+               "2261318",
+               "37S pasd"
+            ],
+            [
+               "2261334",
+               "42S pasd"
+            ],
+            [
+               "2261283",
+               "35S pasd"
+            ],
+            [
+               "2261311",
+               "1M50S pasd"
+            ],
+            [
+               "2261238",
+               "1M pasd"
+            ],
+            [
+               "2261239",
+               "17S pasd"
+            ],
+            [
+               "2261240",
+               "37S pasd"
+            ],
+            [
+               "2261337",
+               "2M17S pasd"
+            ],
+            [
+               "2261338",
+               "19S pasd"
+            ],
+            [
+               "2261356",
+               "30S pasd"
+            ],
+            [
+               "2261257",
+               "1M1S pasd"
+            ],
+            [
+               "2261258",
+               "23S pasd"
+            ],
+            [
+               "2261259",
+               "26S pasd"
+            ],
+            [
+               "2261382",
+               "44S pasd"
+            ],
+            [
+               "2261260",
+               "26S pasd"
+            ],
+            [
+               "2261343",
+               "24S pasd"
+            ],
+            [
+               "2259585",
+               "2M19S pasd"
+            ],
+            [
+               "2259686",
+               "35S pasd"
+            ],
+            [
+               "225911",
+               "42S pasd"
+            ],
+            [
+               "2259685",
+               "1M44S pasd"
+            ],
+            [
+               "2259871",
+               "3M16S pasd"
+            ],
+            [
+               "2259510",
+               "1M18S pasd"
+            ],
+            [
+               "2259511",
+               "30S pasd"
+            ],
+            [
+               "2259512",
+               "57S pasd"
+            ],
+            [
+               "2259513",
+               "55S pasd"
+            ],
+            [
+               "2259514",
+               "1M20S pasd"
+            ],
+            [
+               "2259515",
+               "54S pasd"
+            ],
+            [
+               "2259516",
+               "47S pasd"
+            ],
+            [
+               "2259869",
+               "2M23S pasd"
+            ],
+            [
+               "225922",
+               "2M23S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-9-R-4",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Wyong Station",
+            "rs_ref" : "RS_29-24-_-sj2-1-R-4",
+            "id" : "R_29-24-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-1-TA",
+      "leaves" : "19:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "2M40S pasd"
+            ],
+            [
+               "2259517",
+               "25S pasd"
+            ],
+            [
+               "225911",
+               "55S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "32S pasd"
+            ],
+            [
+               "2261322",
+               "2M32S pasd"
+            ],
+            [
+               "2261323",
+               "25S pasd"
+            ],
+            [
+               "2261324",
+               "31S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "2M3S pasd"
+            ],
+            [
+               "2261143",
+               "52S pasd"
+            ],
+            [
+               "2261144",
+               "33S pasd"
+            ],
+            [
+               "2261145",
+               "57S pasd"
+            ],
+            [
+               "2261146",
+               "46S pasd"
+            ],
+            [
+               "2261165",
+               "49S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   },
+   "VJ_29-24-_-sj2-1-39-TA" : {
+      "vjcode" : "VJ_29-24-_-sj2-1-39-TA",
+      "leaves" : "19:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259503",
+               "3M28S pasd"
+            ],
+            [
+               "2259504",
+               "45S pasd"
+            ],
+            [
+               "2259505",
+               "47S pasd"
+            ],
+            [
+               "2259506",
+               "1M8S pasd"
+            ],
+            [
+               "2259507",
+               "56S pasd"
+            ],
+            [
+               "2259508",
+               "55S pasd"
+            ],
+            [
+               "2259509",
+               "31S pasd"
+            ],
+            [
+               "2259888",
+               "53S pasd"
+            ],
+            [
+               "2259871",
+               "1M37S pasd"
+            ],
+            [
+               "2259686",
+               "2M40S pasd"
+            ],
+            [
+               "2259517",
+               "25S pasd"
+            ],
+            [
+               "225911",
+               "55S pasd"
+            ],
+            [
+               "2259533",
+               "39S pasd"
+            ],
+            [
+               "2259685",
+               "29S pasd"
+            ],
+            [
+               "2259534",
+               "30S pasd"
+            ],
+            [
+               "2261306",
+               "2M55S pasd"
+            ],
+            [
+               "2261261",
+               "27S pasd"
+            ],
+            [
+               "2261381",
+               "19S pasd"
+            ],
+            [
+               "2261262",
+               "44S pasd"
+            ],
+            [
+               "2261263",
+               "51S pasd"
+            ],
+            [
+               "2261270",
+               "18S pasd"
+            ],
+            [
+               "2261346",
+               "48S pasd"
+            ],
+            [
+               "2261279",
+               "32S pasd"
+            ],
+            [
+               "2261322",
+               "2M32S pasd"
+            ],
+            [
+               "2261323",
+               "25S pasd"
+            ],
+            [
+               "2261324",
+               "31S pasd"
+            ],
+            [
+               "2261314",
+               "22S pasd"
+            ],
+            [
+               "2261402",
+               "27S pasd"
+            ],
+            [
+               "2261236",
+               "11S pasd"
+            ],
+            [
+               "2261319",
+               "1M30S pasd"
+            ],
+            [
+               "2261320",
+               "1M5S pasd"
+            ],
+            [
+               "2261284",
+               "55S pasd"
+            ],
+            [
+               "2261285",
+               "30S pasd"
+            ],
+            [
+               "2261286",
+               "38S pasd"
+            ],
+            [
+               "2261287",
+               "42S pasd"
+            ],
+            [
+               "2261288",
+               "33S pasd"
+            ],
+            [
+               "2261289",
+               "27S pasd"
+            ],
+            [
+               "2261290",
+               "36S pasd"
+            ],
+            [
+               "2261291",
+               "1M8S pasd"
+            ],
+            [
+               "2261292",
+               "32S pasd"
+            ],
+            [
+               "2261341",
+               "24S pasd"
+            ],
+            [
+               "2261105",
+               "1M pasd"
+            ],
+            [
+               "2261182",
+               "3M36S pasd"
+            ],
+            [
+               "2261183",
+               "2M24S pasd"
+            ],
+            [
+               "2261142",
+               "2M3S pasd"
+            ],
+            [
+               "2261143",
+               "52S pasd"
+            ],
+            [
+               "2261144",
+               "33S pasd"
+            ],
+            [
+               "2261145",
+               "57S pasd"
+            ],
+            [
+               "2261146",
+               "46S pasd"
+            ],
+            [
+               "2261165",
+               "49S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "49S pasd"
+            ],
+            [
+               "2261363",
+               "46S pasd"
+            ],
+            [
+               "2261373",
+               "1M22S pasd"
+            ],
+            [
+               "2261123",
+               "25S pasd"
+            ],
+            [
+               "2261124",
+               "1M12S pasd"
+            ],
+            [
+               "2261125",
+               "31S pasd"
+            ],
+            [
+               "2261455",
+               "14S pasd"
+            ],
+            [
+               "2261456",
+               "32S pasd"
+            ],
+            [
+               "2261126",
+               "27S pasd"
+            ],
+            [
+               "2261127",
+               "21S pasd"
+            ],
+            [
+               "2261128",
+               "1M10S pasd"
+            ],
+            [
+               "2261129",
+               "37S pasd"
+            ],
+            [
+               "2261426",
+               "10S pasd"
+            ],
+            [
+               "2261130",
+               "53S pasd"
+            ],
+            [
+               "2261131",
+               "39S pasd"
+            ],
+            [
+               "2261132",
+               "41S pasd"
+            ],
+            [
+               "2261133",
+               "1M3S pasd"
+            ],
+            [
+               "2261134",
+               "45S pasd"
+            ],
+            [
+               "2261135",
+               "45S pasd"
+            ],
+            [
+               "2261136",
+               "1M38S pasd"
+            ],
+            [
+               "226157",
+               "32S pasd"
+            ],
+            [
+               "226158",
+               "27S pasd"
+            ],
+            [
+               "226159",
+               "27S pasd"
+            ]
+         ],
+         "id" : "JP_29-24-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wyong Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-24-_-sj2-1-H-1",
+            "id" : "R_29-24-_-sj2-1-H-1"
+         }
+      },
+      "service" : "29-24-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "24"
+   }
+}
+;
+

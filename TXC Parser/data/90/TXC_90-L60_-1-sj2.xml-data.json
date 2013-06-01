@@ -1,0 +1,3090 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-L60-_-sj2-1" : "L60"
+}
+;
+
+var stations = {
+   "206788" : "Victoria Av nr Anderson St",
+   "208642" : "French Forest Rd Nr Patanga Rd",
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "2100128" : "McIntosh Rd nr Parr Pde",
+   "210322" : "Pittwater Rd Nr Vineyard St",
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "208644" : "Frenchs Forest Rd Nr Skyline Pl",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "209726" : "Pittwater Rd nr Hay St",
+   "2100121" : "Iris St Nr Jones St",
+   "2099115" : "Mcintosh Rd Nr Mundara Pl",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "210118" : "Pittwater Rd Nr Lake Park Rd",
+   "206733" : "Victoria Av nr Macquarie St",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "2099205" : "St Davids Av nr Pittwater Rd",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "210380" : "Pittwater Rd Nr Coronation St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "209919" : "Pittwater Rd nr South Creek Rd",
+   "2103105" : "Pittwater Rd Nr Jenkins St",
+   "2068117" : "Victoria Av Nr Eastern Valley Wy",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "206730" : "Victoria Av opp Spring St",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "210378" : "Pittwater Rd Nr Rowan St",
+   "206731" : "Victoria Av nr Archer St",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210379" : "Pittwater Rd Nr Jenkins St",
+   "206722" : "Chatswood Transport Interchange Stand C",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "210112" : "Pittwater Rd Nr Goodwin St",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210119" : "Pittwater Rd Nr Namona St",
+   "208621" : "Patanga Rd Nr Dareen St",
+   "206723" : "Victoria Av nr Penshurst St",
+   "210320" : "Pittwater Rd Nr Coronation St",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av",
+   "206719" : "Anderson St Near Endeavour St",
+   "206748" : "High St nr Victoria Av",
+   "209920" : "Pittwater Rd Nr Lismore Av",
+   "210115" : "Pittwater Rd Nr Waterloo St",
+   "206750" : "Smith St nr Alleyne St",
+   "206726" : "Victoria Av nr Oscar St",
+   "210117" : "Pittwater Rd nr Garden St",
+   "208664" : "Warrringah Rd Nr Bantry Bay Rd",
+   "208639" : "Frenchs Forest Rd Nr Skyline Pl",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "206724" : "Victoria Av nr Jacques St",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "210113" : "Pittwater Rd Nr Devitt St",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "206755" : "High St nr Haig St",
+   "206795" : "Victoria Av nr High St",
+   "206720" : "Chatswood Transport Interchange Stand D",
+   "210319" : "Pittwater Rd Nr Elimatta Rd",
+   "210211" : "Pittwater Rd Nr Warriewood Rd",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "206756" : "High St nr Harwood Av",
+   "210256" : "Pittwater Rd Nr Arnott Cr",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210116" : "Pittwater Rd nr Nareen Pde",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "206732" : "Victoria Av nr Baldry St",
+   "208674" : "Warrringah Rd Nr Bantry Bay Rd",
+   "208637" : "Wakehurst Pwy nr Frenchs Forest Rd",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "206759" : "Victoria Av nr Gibbes St",
+   "206749" : "High St nr Smith St",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "2100125" : "Tristram Rd Nr Willandra Rd",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "206751" : "Smith St nr Gibbes St",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "209729" : "Pittwater Rd Nr Westmoreland Av",
+   "210114" : "Pittwater Rd nr Narrabeen St",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "209725" : "Pittwater Rd Nr Anzac Av",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "210120" : "Pittwater Rd Nr Jackson Rd",
+   "2099100" : "Mcintosh Rd Nr Mundara Pl",
+   "206752" : "High St nr Orara St",
+   "2100120" : "Iris St Nr Jones St",
+   "206734" : "Victoria Av nr Penshurst St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-L60-_-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-2-b00b7",
+      "leaves" : "17:48:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "0S pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "1M pasd"
+            ],
+            [
+               "210120",
+               "0S pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "1M pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-12-b009g" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-12-b009g",
+      "leaves" : "17:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-6-b00b7" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-6-b00b7",
+      "leaves" : "07:08:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "19M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "2M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "2M pasd"
+            ],
+            [
+               "206726",
+               "2M pasd"
+            ],
+            [
+               "206788",
+               "2M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-10-b009g" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-10-b009g",
+      "leaves" : "07:41:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "19M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "2M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "2M pasd"
+            ],
+            [
+               "206726",
+               "2M pasd"
+            ],
+            [
+               "206788",
+               "2M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-11-b009h" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-11-b009h",
+      "leaves" : "16:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-9-b009h" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-9-b009h",
+      "leaves" : "07:41:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "19M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "2M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "2M pasd"
+            ],
+            [
+               "206726",
+               "2M pasd"
+            ],
+            [
+               "206788",
+               "2M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-3-b00b2" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-3-b00b2",
+      "leaves" : "06:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "11M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "1M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-14-b00b7" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-14-b00b7",
+      "leaves" : "15:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "1M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "2M pasd"
+            ],
+            [
+               "206759",
+               "2M pasd"
+            ],
+            [
+               "2068117",
+               "3M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-1",
+            "id" : "R_90-L60-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-8-b00b7" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-8-b00b7",
+      "leaves" : "06:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "11M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "1M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-5-b00b2" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-5-b00b2",
+      "leaves" : "07:08:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210318",
+               null
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "2M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "2099100",
+               "4M pasd"
+            ],
+            [
+               "2100136",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "2M pasd"
+            ],
+            [
+               "2100120",
+               "2M pasd"
+            ],
+            [
+               "208642",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "206750",
+               "19M pasd"
+            ],
+            [
+               "206749",
+               "1M pasd"
+            ],
+            [
+               "206748",
+               "2M pasd"
+            ],
+            [
+               "206795",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "1M pasd"
+            ],
+            [
+               "206724",
+               "2M pasd"
+            ],
+            [
+               "206726",
+               "2M pasd"
+            ],
+            [
+               "206788",
+               "2M setDown"
+            ],
+            [
+               "206719",
+               "1M pasd"
+            ],
+            [
+               "206722",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Pittwater Rd - Chatswood Station",
+            "rs_ref" : "RS_90-L60-_-sj2-1-H-3",
+            "id" : "R_90-L60-_-sj2-1-H-3"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-1-b00b2",
+      "leaves" : "15:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "1M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "2M pasd"
+            ],
+            [
+               "206759",
+               "2M pasd"
+            ],
+            [
+               "2068117",
+               "3M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-1",
+            "id" : "R_90-L60-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-4-b00b2",
+      "leaves" : "16:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-13-b009g" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-13-b009g",
+      "leaves" : "17:48:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "0S pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "1M pasd"
+            ],
+            [
+               "210120",
+               "0S pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "1M pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   },
+   "VJ_90-L60-_-sj2-1-7-b009h" : {
+      "vjcode" : "VJ_90-L60-_-sj2-1-7-b009h",
+      "leaves" : "17:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206720",
+               null
+            ],
+            [
+               "206730",
+               "2M pasd"
+            ],
+            [
+               "206731",
+               "1M pasd"
+            ],
+            [
+               "206732",
+               "2M pasd"
+            ],
+            [
+               "206733",
+               "1M pasd"
+            ],
+            [
+               "206734",
+               "1M pasd"
+            ],
+            [
+               "206756",
+               "2M pasd"
+            ],
+            [
+               "206755",
+               "1M pasd"
+            ],
+            [
+               "206752",
+               "1M pasd"
+            ],
+            [
+               "206751",
+               "1M pasd"
+            ],
+            [
+               "208664",
+               "11M pasd"
+            ],
+            [
+               "208639",
+               "3M pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "2M pasd"
+            ],
+            [
+               "2100125",
+               "3M pasd"
+            ],
+            [
+               "2100128",
+               "2M pasd"
+            ],
+            [
+               "2099115",
+               "2M pasd"
+            ],
+            [
+               "2099205",
+               "4M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "1M pasd"
+            ],
+            [
+               "210117",
+               "1M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "0S pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-L60-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Chatswood Station - Pittwater Rd Nr Waratah St",
+            "rs_ref" : "RS_90-L60-_-sj2-1-R-2",
+            "id" : "R_90-L60-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-L60-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "L60"
+   }
+}
+;
+

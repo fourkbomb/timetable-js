@@ -1,0 +1,718 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-605-a-sj2-1" : "605"
+}
+;
+
+var stations = {
+   "206788" : "Victoria Av nr Anderson St",
+   "206830" : "Edinburgh Rd Nr Raeburn Av",
+   "206725" : "Victoria Av nr Olga St",
+   "206121" : "Alfred St near Glen St",
+   "206848" : "Victoria Av Nr Eastern Valley Wy",
+   "206719" : "Anderson St Near Endeavour St",
+   "206048" : "Miller St near Ridge St",
+   "206847" : "Eastern Valley Wy Nr Mcclelland",
+   "206837" : "Edinburgh Rd Nr Sunnyside Av",
+   "206726" : "Victoria Av nr Oscar St",
+   "206127" : "Fitzroy St nr Alfred St",
+   "206218" : "Miller St Nr Abbott St",
+   "206832" : "Edinburgh Rd Nr Edith St",
+   "206217" : "Miller St Nr Rosalind St",
+   "206835" : "Edinburgh Rd Terminus",
+   "206092" : "Blue St Stand C",
+   "206049" : "Miller St Nr Carlow St",
+   "206840" : "Edinburgh Rd Nr The Parapet",
+   "206839" : "Edinburgh Rd Opp Edith St",
+   "206833" : "Edinburgh Rd Nr Sunnyside Av",
+   "206724" : "Victoria Av nr Jacques St",
+   "206834" : "Edinburgh Rd Nr Edinburgh Reserve",
+   "206216" : "Miller St nr Ernest St",
+   "206845" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "206219" : "Miller St Nr Vale St",
+   "206757" : "Victoria Av nr Neville St",
+   "206047" : "Miller St nr McLaren St",
+   "206844" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "206356" : "Strathallen Av nr Marana Rd",
+   "206849" : "Victoria Rd Nr Tyneside Av",
+   "206050" : "Miller St nr Falcon St",
+   "206841" : "Edinburgh Rd Nr Eastern Valley Wy",
+   "206359" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206358" : "Strathallen Av Nr Sailors Bay Rd",
+   "206357" : "Strathallen Av Nr Baroona Rd",
+   "206220" : "Miller St Nr The Boulevarde",
+   "206045" : "Miller St near Pacific Hwy",
+   "206843" : "Eastern Valley Wy Nr Warners Av",
+   "206811" : "Eastern Valley Wy Nr Victoria Av",
+   "206722" : "Chatswood Transport Interchange Stand C",
+   "206846" : "Eastern Valley Wy Nr Robert St",
+   "206723" : "Victoria Av nr Penshurst St",
+   "206836" : "Edinburgh Rd Opp Edinburgh Reserve",
+   "206831" : "Edinburgh Rd Nr Charles St",
+   "206838" : "Edinburgh Rd Nr Sortie Port",
+   "206360" : "Eastern Valley Wy Nr Tenilba Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-605-a-sj2-1-1-b00a4" : {
+      "vjcode" : "VJ_99-605-a-sj2-1-1-b00a4",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206127",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "2M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "0S pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "0S pasd"
+            ],
+            [
+               "206220",
+               "1M pasd"
+            ],
+            [
+               "206356",
+               "1M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "1M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "2M pasd"
+            ],
+            [
+               "206832",
+               "1M pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "1M pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206848",
+               "0S pasd"
+            ],
+            [
+               "206849",
+               "1M pasd"
+            ],
+            [
+               "206757",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "2M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206725",
+               "0S pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "0S pasd"
+            ],
+            [
+               "206722",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fitzroy St nr Alfred St - Chatswood Station",
+            "rs_ref" : "RS_99-605-a-sj2-1-R-1",
+            "id" : "R_99-605-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-a-sj2-1",
+      "days" : [
+         "Thursday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-a-sj2-1-3-b00a5" : {
+      "vjcode" : "VJ_99-605-a-sj2-1-3-b00a5",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206832",
+               null
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "1M pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206848",
+               "0S pasd"
+            ],
+            [
+               "206849",
+               "1M pasd"
+            ],
+            [
+               "206757",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "2M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206725",
+               "0S pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "0S pasd"
+            ],
+            [
+               "206722",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Edinburgh Rd Nr Edith St - Chatswood Station",
+            "rs_ref" : "RS_99-605-a-sj2-1-R-2",
+            "id" : "R_99-605-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-605-a-sj2-1",
+      "days" : [
+         "Friday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-a-sj2-1-4-b00a4" : {
+      "vjcode" : "VJ_99-605-a-sj2-1-4-b00a4",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206832",
+               null
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "1M pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206848",
+               "0S pasd"
+            ],
+            [
+               "206849",
+               "1M pasd"
+            ],
+            [
+               "206757",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "2M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206725",
+               "0S pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "0S pasd"
+            ],
+            [
+               "206722",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Edinburgh Rd Nr Edith St - Chatswood Station",
+            "rs_ref" : "RS_99-605-a-sj2-1-R-2",
+            "id" : "R_99-605-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-605-a-sj2-1",
+      "days" : [
+         "Friday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-a-sj2-1-2-b00a5" : {
+      "vjcode" : "VJ_99-605-a-sj2-1-2-b00a5",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206127",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "2M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "0S pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "0S pasd"
+            ],
+            [
+               "206220",
+               "1M pasd"
+            ],
+            [
+               "206356",
+               "1M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "1M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "2M pasd"
+            ],
+            [
+               "206832",
+               "1M pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "1M pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206848",
+               "0S pasd"
+            ],
+            [
+               "206849",
+               "1M pasd"
+            ],
+            [
+               "206757",
+               "1M pasd"
+            ],
+            [
+               "206723",
+               "2M pasd"
+            ],
+            [
+               "206724",
+               "1M pasd"
+            ],
+            [
+               "206725",
+               "0S pasd"
+            ],
+            [
+               "206726",
+               "1M pasd"
+            ],
+            [
+               "206788",
+               "1M setDown"
+            ],
+            [
+               "206719",
+               "0S pasd"
+            ],
+            [
+               "206722",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fitzroy St nr Alfred St - Chatswood Station",
+            "rs_ref" : "RS_99-605-a-sj2-1-R-1",
+            "id" : "R_99-605-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday"
+      ],
+      "line" : "605"
+   }
+}
+;
+

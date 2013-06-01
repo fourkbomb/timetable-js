@@ -1,0 +1,493 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-715-_-sj2-1" : "715"
+}
+;
+
+var stations = {
+   "209218" : "Salisbury Sq Nr Ponsonby Pde",
+   "206121" : "Alfred St near Glen St",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "206048" : "Miller St near Ridge St",
+   "209236" : "Frenchs Forest Rd nr Baringa Av",
+   "2088181" : "Spit Rd Nr Awaba St",
+   "209261" : "Edgecliffe Esp Nr Ashton Av",
+   "209224" : "Frenchs Forest Rd nr Ellery Pde",
+   "209213" : "Battle Bvde Nr Manly Rd",
+   "209058" : "Military Rd Nr Cabramatta Rd",
+   "206046" : "Miller St nr Berry St",
+   "206049" : "Miller St Nr Carlow St",
+   "209021" : "Military Rd Nr Hampden Av",
+   "209241" : "Wakehurst Pwy Nr Armstrong St",
+   "209221" : "Princes Prm Nr Edgecliffe Esp",
+   "209219" : "Seaforth Cr Nr Ponsonby Pde",
+   "209220" : "Seaforth Cr Nr Princes Prm",
+   "2088177" : "Military Rd Nr Lang St",
+   "206047" : "Miller St nr McLaren St",
+   "209217" : "Alan Av Nr Palmerston Pl",
+   "208947" : "Military Rd Nr Watson St",
+   "2088178" : "Military Rd Nr Bond St",
+   "209225" : "Frenchs Forest Rd Nr Macmillan St",
+   "209243" : "Wakehurst Pwy Nr Judith St",
+   "209242" : "Wakehurst Pwy Nr Burnt St",
+   "209262" : "Edgecliffe Esp Nr Palmerston Pl",
+   "209265" : "Princes Prm Nr Alan Av",
+   "2088176" : "Military Rd Nr Prince St",
+   "2088179" : "Military Rd Nr Cowles Rd",
+   "209240" : "Wakehurst Pwy Nr Lister Av",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "208811" : "Spit Rd Nr Parriwi Rd",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "206124" : "Broughton St Nr Fitzroy St",
+   "209222" : "Ponsonby Pde Nr Panorama Pde",
+   "2088180" : "Spit Junction_ Spit Rd.",
+   "209238" : "Clontarf St Nr Montauban Av",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "209239" : "Wakehurst Pwy Nr Castle Cct",
+   "2088185" : "Spit Rd Nr Pearl Bay Av",
+   "209223" : "Ponsonby Pde Nr Sydney Rd",
+   "209216" : "Ponsonby Pde Nr Palmerston Pl",
+   "209215" : "Palmerston Pl Nr Alan Av",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "206014" : "Blue St Stand D",
+   "209237" : "Frenchs Forest Rd Nr Redman St",
+   "206075" : "Falcon St nr Moodie St",
+   "209214" : "Battle Bvd Nr Seaforth Cr"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-715-_-sj2-1-1-b00aa" : {
+      "vjcode" : "VJ_99-715-_-sj2-1-1-b00aa",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206124",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206014",
+               "4M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "0S pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209213",
+               "1M pasd"
+            ],
+            [
+               "209214",
+               "1M pasd"
+            ],
+            [
+               "209217",
+               "0S pasd"
+            ],
+            [
+               "209218",
+               "1M pasd"
+            ],
+            [
+               "209219",
+               "0S pasd"
+            ],
+            [
+               "209220",
+               "0S pasd"
+            ],
+            [
+               "209265",
+               "1M pasd"
+            ],
+            [
+               "209221",
+               "0S pasd"
+            ],
+            [
+               "209261",
+               "0S pasd"
+            ],
+            [
+               "209262",
+               "1M pasd"
+            ],
+            [
+               "209215",
+               "0S pasd"
+            ],
+            [
+               "209216",
+               "1M pasd"
+            ],
+            [
+               "209222",
+               "1M pasd"
+            ],
+            [
+               "209223",
+               "1M pasd"
+            ],
+            [
+               "209224",
+               "1M pasd"
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "0S pasd"
+            ],
+            [
+               "209237",
+               "1M pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "0S pasd"
+            ],
+            [
+               "209241",
+               "1M pasd"
+            ],
+            [
+               "209242",
+               "0S pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-715-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Broughton St Nr Fitzroy St - Wakehurst Pwy Nr Judith St",
+            "rs_ref" : "RS_99-715-_-sj2-1-R-1",
+            "id" : "R_99-715-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-715-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   },
+   "VJ_99-715-_-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-715-_-sj2-1-2-b009h",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206124",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206014",
+               "4M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "0S pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209213",
+               "1M pasd"
+            ],
+            [
+               "209214",
+               "1M pasd"
+            ],
+            [
+               "209217",
+               "0S pasd"
+            ],
+            [
+               "209218",
+               "1M pasd"
+            ],
+            [
+               "209219",
+               "0S pasd"
+            ],
+            [
+               "209220",
+               "0S pasd"
+            ],
+            [
+               "209265",
+               "1M pasd"
+            ],
+            [
+               "209221",
+               "0S pasd"
+            ],
+            [
+               "209261",
+               "0S pasd"
+            ],
+            [
+               "209262",
+               "1M pasd"
+            ],
+            [
+               "209215",
+               "0S pasd"
+            ],
+            [
+               "209216",
+               "1M pasd"
+            ],
+            [
+               "209222",
+               "1M pasd"
+            ],
+            [
+               "209223",
+               "1M pasd"
+            ],
+            [
+               "209224",
+               "1M pasd"
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "0S pasd"
+            ],
+            [
+               "209237",
+               "1M pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "0S pasd"
+            ],
+            [
+               "209241",
+               "1M pasd"
+            ],
+            [
+               "209242",
+               "0S pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-715-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Broughton St Nr Fitzroy St - Wakehurst Pwy Nr Judith St",
+            "rs_ref" : "RS_99-715-_-sj2-1-R-1",
+            "id" : "R_99-715-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-715-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   }
+}
+;
+

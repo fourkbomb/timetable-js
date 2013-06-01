@@ -1,0 +1,327 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-833-_-sj2-1" : "833"
+}
+;
+
+var stations = {
+   "229256" : "Pokolbin St Nr Merewether High",
+   "230574" : "Lambton Rd Nr Greta Rd",
+   "2287299" : "Croudace Rd opp Grandview Rd",
+   "2287294" : "McCaffrey Dr nr Rosedale Cr",
+   "2287293" : "McCaffrey Dr nr Orana St",
+   "229220" : "Hunter School Of Performing Arts",
+   "2287250" : "Cardiff Rd Nr Croudace Rd",
+   "229212" : "Lambton Rd nr Bavin St",
+   "230576" : "Alma Rd Nr Cromwell St",
+   "2287290" : "McCaffrey Dr opp Elbrook Dr",
+   "2287289" : "Mccaffrey Dr Nr Marshall St",
+   "230570" : "Alma Rd Nr Regent St",
+   "230568" : "Russell Rd Nr Baker St",
+   "2287298" : "Croudace Rd nr Grandview Rd",
+   "229255" : "Chatham Rd nr Merewether High",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "228740" : "Cardiff Rd opp Watkins Rd",
+   "230566" : "Russell Rd Opp Brett St",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "228741" : "Cardiff Rd nr Smith Rd",
+   "2287278" : "Smith Rd Nr Cardiff Rd",
+   "2287203" : "Croudace Rd nr Garsdale Av",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "2287279" : "Smith Rd nr Grandview Rd",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "230565" : "Russell Rd Nr Croudace St",
+   "2287291" : "Mccaffrey Dr Nr Marshall St",
+   "228733" : "Cardiff Rd nr Watkins Rd",
+   "230578" : "Russell Rd Opp Baker St",
+   "2287300" : "Croudace Rd nr Alida Cl",
+   "228732" : "Cardiff Rd opp Smith Rd",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "230573" : "Lambton Rd Nr Turton Rd",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "230575" : "Lambton Rd Nr Wallarah Rd",
+   "229250" : "Lambton Rd nr Market St",
+   "2287292" : "McCaffrey Dr opp Dean Pde",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "230580" : "Russell Rd Nr Brett St",
+   "2287273" : "Smith Rd nr Dianne St",
+   "229264" : "Lambton Rd nr Lang Rd",
+   "2287274" : "Smith Rd Nr Cardiff Rd",
+   "229265" : "Lambton Rd nr Bronte Rd",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2287251" : "Cardiff Rd Nr Croudace Rd",
+   "230571" : "Lambton Rd Nr Wallarah Rd",
+   "2287272" : "McCaffrey Dr nr Spencer St",
+   "2287301" : "Croudace Rd opp Alida Cl",
+   "229217" : "Brunker Rd nr Heddon Rd",
+   "230572" : "Lambton Rd Nr Greta Rd",
+   "2287238" : "Croudace Rd opp Garsdale Av",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "229260" : "Lambton Rd nr Australia Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-833-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-833-_-sj2-1-2-b0096",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229255",
+               null
+            ],
+            [
+               "229217",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "2M pasd"
+            ],
+            [
+               "229220",
+               "1M pasd"
+            ],
+            [
+               "229264",
+               "1M pasd"
+            ],
+            [
+               "230574",
+               "0S pasd"
+            ],
+            [
+               "230575",
+               "1M pasd"
+            ],
+            [
+               "230576",
+               "0S pasd"
+            ],
+            [
+               "230577",
+               "1M pasd"
+            ],
+            [
+               "230578",
+               "0S pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "1M pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2287289",
+               "2M pasd"
+            ],
+            [
+               "2287292",
+               "1M pasd"
+            ],
+            [
+               "2287293",
+               "0S pasd"
+            ],
+            [
+               "2287294",
+               "1M pasd"
+            ],
+            [
+               "2287272",
+               "1M pasd"
+            ],
+            [
+               "2287298",
+               "0S pasd"
+            ],
+            [
+               "2287300",
+               "1M pasd"
+            ],
+            [
+               "2287238",
+               "1M pasd"
+            ],
+            [
+               "2287250",
+               "0S pasd"
+            ],
+            [
+               "228740",
+               "1M pasd"
+            ],
+            [
+               "228741",
+               "1M pasd"
+            ],
+            [
+               "2287278",
+               "0S pasd"
+            ],
+            [
+               "2287279",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-833-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Chatham Rd nr Merewether High - Smith Rd nr Grandview Rd",
+            "rs_ref" : "RS_94-833-_-sj2-1-R-2",
+            "id" : "R_94-833-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-833-_-sj2-1",
+      "line" : "833"
+   },
+   "VJ_94-833-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-833-_-sj2-1-1-b0096",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2287273",
+               null
+            ],
+            [
+               "2287274",
+               "1M pasd"
+            ],
+            [
+               "228732",
+               "0S pasd"
+            ],
+            [
+               "228733",
+               "0S pasd"
+            ],
+            [
+               "2287251",
+               "1M pasd"
+            ],
+            [
+               "2287203",
+               "1M pasd"
+            ],
+            [
+               "2287301",
+               "0S pasd"
+            ],
+            [
+               "2287299",
+               "1M pasd"
+            ],
+            [
+               "2287295",
+               "0S pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "1M pasd"
+            ],
+            [
+               "2287290",
+               "1M pasd"
+            ],
+            [
+               "2287291",
+               "0S pasd"
+            ],
+            [
+               "2305171",
+               "2M pasd"
+            ],
+            [
+               "2305172",
+               "2M pasd"
+            ],
+            [
+               "230565",
+               "1M pasd"
+            ],
+            [
+               "230566",
+               "0S pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "230571",
+               "1M pasd"
+            ],
+            [
+               "230572",
+               "0S pasd"
+            ],
+            [
+               "230573",
+               "1M pasd"
+            ],
+            [
+               "229265",
+               "1M pasd"
+            ],
+            [
+               "229212",
+               "0S pasd"
+            ],
+            [
+               "229266",
+               "1M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229256",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-833-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Smith Rd nr Dianne St - Pokolbin St Nr Merewether High",
+            "rs_ref" : "RS_94-833-_-sj2-1-H-1",
+            "id" : "R_94-833-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-833-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "833"
+   }
+}
+;
+

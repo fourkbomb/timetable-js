@@ -1,0 +1,377 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-770-_-sj2-1" : "770"
+}
+;
+
+var stations = {
+   "228717" : "Newcastle Rd nr Illoura St",
+   "229961" : "Hill St Nr Dent St",
+   "2287197" : "Metcalfe St nr Martindale St",
+   "2287218" : "Cressington Wy nr Elermore Pde",
+   "229923" : "Newcastle Rd Nr Nerong Rd",
+   "2287207" : "Metcalfe St nr Whitton St",
+   "2299123" : "Newcastle Rd Nr Morehead St",
+   "229939" : "Seventh St Nr Arthur St",
+   "2287336" : "Birchgrove Dr nr Sakonia Cl",
+   "2287210" : "Cressington Wy opp Craignair Cl",
+   "229958" : "George St Nr Notley St",
+   "2287263" : "Murnin St nr Cowper St",
+   "2287333" : "Birchgrove Dr nr Coweambah Cl",
+   "229972" : "Young Rd Nr Orlando Rd",
+   "228715" : "Victory Pde opp Chalmers Rd",
+   "2287339" : "Birchgrove Dr nr Coorong Cl",
+   "229934" : "Janet St Nr Blue Gum Rd",
+   "2287334" : "Birchgrove Dr nr Duckerfield Pl",
+   "2287217" : "Cressington Wy nr Craignair Cl",
+   "2287337" : "Birchgrove Dr nr Corio Cl",
+   "2299122" : "Newcastle Rd Nr Young Rd",
+   "228742" : "Newcastle Rd nr Victory Pde",
+   "229937" : "Janet St Nr Sunset Bvd",
+   "2287244" : "Metcalfe St Nr Brown St",
+   "2287335" : "Birchgrove Dr nr Bellinger Cl",
+   "228714" : "Plaza Bunn St near Kokera St",
+   "228720" : "Bunn St nr Wallsend Plaza",
+   "229973" : "Young Rd Nr Elder St",
+   "229925" : "Newcastle Rd Nr Croudace St",
+   "2287209" : "Cressington Wy nr Murnin St",
+   "229926" : "Newcastle Rd Opp Steel St",
+   "2287350" : "Tyrrell St nr Council St",
+   "229911" : "Blue Gum Rd nr Stockland Shopping Centre",
+   "2287216" : "Cressington Wy nr Kadina Cl",
+   "229940" : "Seventh St Nr George St",
+   "229966" : "Womboin Rd Nr Lambton High School",
+   "2287208" : "Metcalfe St nr Perks St",
+   "228796" : "Tyrrell St nr Nelson St",
+   "2287140" : "Newcastle Rd opp Crest Rd",
+   "2287331" : "Birchgrove Dr Nr Victory Pde",
+   "2287265" : "Metcalfe St Nr Brown St",
+   "2287340" : "Birchgrove Dr nr Wootton Cl",
+   "229977" : "Young Rd Nr Orlando Rd",
+   "229922" : "Newcastle Rd Nr Dent St",
+   "229963" : "Newcastle Rd Nr Grainger St",
+   "2287211" : "Cressington Wy opp Seladon Av",
+   "228719" : "Victory Pde nr Chalmers Rd",
+   "229975" : "Young Rd Nr Tathra Rd",
+   "2299106" : "Newcastle Rd Nr Albert St",
+   "2287262" : "Campbell St nr Metcalfe St",
+   "229974" : "Young Rd Nr Tathra Rd",
+   "230533" : "Young Rd Nr Lambton High",
+   "229935" : "Janet St Nr Jesmond High",
+   "2287342" : "Birchgrove Dr nr Iranda Gr",
+   "2287332" : "Birchgrove Dr Nr Victory Pde",
+   "229927" : "Newcastle Rd Nr Jesmond Park",
+   "2287341" : "Birchgrove Dr nr Douglas St",
+   "229976" : "Young Rd Nr Bindera Rd",
+   "2299124" : "Newcastle Rd Nr Grainger St",
+   "229938" : "Seventh St Nr Henry St",
+   "2287206" : "Elermore Pde nr Perks St",
+   "229959" : "George St Nr Hill St",
+   "2287338" : "Birchgrove Dr opp Corio Cl",
+   "229971" : "Young Rd Nr Wallarah Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-770-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-770-_-sj2-1-1-b0096",
+      "leaves" : "15:31:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "230533",
+               null
+            ],
+            [
+               "229971",
+               "1M pasd"
+            ],
+            [
+               "229972",
+               "0S pasd"
+            ],
+            [
+               "229973",
+               "0S pasd"
+            ],
+            [
+               "229974",
+               "1M pasd"
+            ],
+            [
+               "2299122",
+               "1M pasd"
+            ],
+            [
+               "2299123",
+               "0S pasd"
+            ],
+            [
+               "2299124",
+               "0S pasd"
+            ],
+            [
+               "229925",
+               "1M pasd"
+            ],
+            [
+               "2299106",
+               "1M pasd"
+            ],
+            [
+               "229926",
+               "0S pasd"
+            ],
+            [
+               "229927",
+               "1M pasd"
+            ],
+            [
+               "228717",
+               "1M pasd"
+            ],
+            [
+               "228742",
+               "1M pasd"
+            ],
+            [
+               "228719",
+               "1M pasd"
+            ],
+            [
+               "2287331",
+               "0S pasd"
+            ],
+            [
+               "2287333",
+               "1M pasd"
+            ],
+            [
+               "2287335",
+               "1M pasd"
+            ],
+            [
+               "2287337",
+               "1M pasd"
+            ],
+            [
+               "2287340",
+               "1M pasd"
+            ],
+            [
+               "2287341",
+               "1M pasd"
+            ],
+            [
+               "2287216",
+               "1M pasd"
+            ],
+            [
+               "2287217",
+               "0S pasd"
+            ],
+            [
+               "2287218",
+               "1M pasd"
+            ],
+            [
+               "2287206",
+               "0S pasd"
+            ],
+            [
+               "2287207",
+               "1M pasd"
+            ],
+            [
+               "2287244",
+               "1M pasd"
+            ],
+            [
+               "2287262",
+               "1M pasd"
+            ],
+            [
+               "2287263",
+               "0S pasd"
+            ],
+            [
+               "228796",
+               "1M pasd"
+            ],
+            [
+               "228720",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-770-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Young Rd Nr Lambton High - Bunn St nr Wallsend Plaza",
+            "rs_ref" : "RS_94-770-_-sj2-1-R-1",
+            "id" : "R_94-770-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-770-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "770"
+   },
+   "VJ_94-770-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-770-_-sj2-1-2-b0096",
+      "leaves" : "07:59:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228714",
+               null
+            ],
+            [
+               "2287350",
+               "1M pasd"
+            ],
+            [
+               "2287265",
+               "1M pasd"
+            ],
+            [
+               "2287197",
+               "1M pasd"
+            ],
+            [
+               "2287208",
+               "1M pasd"
+            ],
+            [
+               "2287209",
+               "1M pasd"
+            ],
+            [
+               "2287210",
+               "0S pasd"
+            ],
+            [
+               "2287211",
+               "1M pasd"
+            ],
+            [
+               "2287342",
+               "1M pasd"
+            ],
+            [
+               "2287339",
+               "1M pasd"
+            ],
+            [
+               "2287338",
+               "1M pasd"
+            ],
+            [
+               "2287336",
+               "0S pasd"
+            ],
+            [
+               "2287334",
+               "1M pasd"
+            ],
+            [
+               "2287332",
+               "1M pasd"
+            ],
+            [
+               "228715",
+               "0S pasd"
+            ],
+            [
+               "2287140",
+               "2M pasd"
+            ],
+            [
+               "229911",
+               "1M pasd"
+            ],
+            [
+               "229934",
+               "1M pasd"
+            ],
+            [
+               "229935",
+               "1M pasd"
+            ],
+            [
+               "229937",
+               "1M pasd"
+            ],
+            [
+               "229938",
+               "0S pasd"
+            ],
+            [
+               "229939",
+               "0S pasd"
+            ],
+            [
+               "229940",
+               "0S pasd"
+            ],
+            [
+               "229958",
+               "1M pasd"
+            ],
+            [
+               "229959",
+               "0S pasd"
+            ],
+            [
+               "229961",
+               "1M pasd"
+            ],
+            [
+               "229922",
+               "0S pasd"
+            ],
+            [
+               "229963",
+               "0S pasd"
+            ],
+            [
+               "229923",
+               "1M pasd"
+            ],
+            [
+               "229975",
+               "0S pasd"
+            ],
+            [
+               "229976",
+               "1M pasd"
+            ],
+            [
+               "229977",
+               "0S pasd"
+            ],
+            [
+               "229966",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-770-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Plaza Bunn St near Kokera St - Womboin Rd Nr Lambton High School",
+            "rs_ref" : "RS_94-770-_-sj2-1-H-2",
+            "id" : "R_94-770-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-770-_-sj2-1",
+      "line" : "770"
+   }
+}
+;
+

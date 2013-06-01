@@ -1,0 +1,637 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-779-a-sj2-1" : "779"
+}
+;
+
+var stations = {
+   "211856" : "North Rocks Rd near Jenkins Rd",
+   "2118151" : "Balaka Dr near Pridis Av",
+   "2125138" : "Stanton Dr near Moolanda Av",
+   "211848" : "Pennant Hills Rd near Tintern Av",
+   "2118147" : "Balaka Dr 230m W of Rosewood Av",
+   "2117142" : "Pennant Hills Rd nr Bettington Rd",
+   "2125137" : "Eaton Rd opp Stanton Dr",
+   "211867" : "Baker St near James Ruse High School",
+   "2118116" : "Oakes Rd Nr Dryden Av",
+   "2118113" : "Oakes Rd near Carmen Dr",
+   "2125157" : "Eaton Rd opp Westmore Dr",
+   "211872" : "Baker St opp Lynch Cl",
+   "2150296" : "Smith St Nr Phillip St",
+   "2118103" : "Pennant Hills Rd near Charles St",
+   "2118114" : "Oakes Rd near Coral Tree Dr",
+   "2118118" : "Oakes Rd near Murray Farm Rd",
+   "2118145" : "Farnell Av near North Rocks Rd",
+   "2118176" : "Dunmore Av near Cumberland High School",
+   "2118146" : "Balaka Dr near John Wearn Reserve",
+   "2117145" : "Pennant Hills Rd nr Gollan Av",
+   "211876" : "Jenkins Rd near Post Office St",
+   "211846" : "Pennant Hills Rd near Martins La",
+   "2118171" : "Farnell Av near Lime Gr",
+   "215138" : "Pennant Hills Rd Nr Sutherland",
+   "2125154" : "Eaton Rd near Range Rd",
+   "211849" : "Pennant Hills Rd opp Westminster Av",
+   "2118148" : "Balaka Dr near Hibiscus Av",
+   "2118104" : "Jenkins Rd near James St",
+   "215141" : "Pennant Hills Rd nr Gladstone St",
+   "211857" : "North Rocks Rd near Lanceley Av",
+   "2150146" : "Church St Nr Grose St",
+   "215140" : "Pennant Hills Rd Nr Bellevue St",
+   "2118172" : "Lindisfarne Cr near Lemongrove Av",
+   "2150142" : "Smith St Nr George St",
+   "2117143" : "Pennant Hills Rd nr Hunterford Cr",
+   "211875" : "Jenkins Rd Nr Moseley St",
+   "2125136" : "Eaton Rd near Betts Pl",
+   "2125139" : "Range Rd near Stanton Dr",
+   "211847" : "Pennant Hills Rd Nr Baker St",
+   "2125155" : "Eaton Rd opp Dickson Av",
+   "2118149" : "Balaka Dr near Manildra Av",
+   "211866" : "Moseley St opp Baker St",
+   "2125140" : "Range Rd near Heidi Pl",
+   "211870" : "Baker St near Felton Rd",
+   "215139" : "Pennant Hills Rd Nr Sutherland",
+   "211873" : "Moseley St near Baker St",
+   "2118150" : "Balaka Dr near Lesley Av",
+   "211858" : "North Rocks Rd near North Rocks Park",
+   "2118115" : "Oakes Rd near Murray Farm Rd",
+   "2118154" : "Parkland Rd near Jenkins Rd",
+   "215137" : "Pennant Hills Rd nr Glencoe Av",
+   "2117144" : "Pennant Hills Rd nr Vista St",
+   "2125156" : "Eaton Rd near Stanton Dr",
+   "2150145" : "Church St near Fennell St",
+   "2118112" : "Oakes Rd near Hillside La",
+   "2125134" : "Oakes Rd near Eaton Rd",
+   "211869" : "Baker St near Dunmore Av",
+   "2125141" : "Range Rd near Eaton Rd",
+   "2125135" : "Eaton Rd near Riley Av",
+   "2150119" : "Parramatta Interchange Stand B3",
+   "211871" : "Baker St opp James Ruse School",
+   "2118111" : "Oakes Rd near Murray Farm Rd",
+   "2118193" : "Dryden St near Murray Farm School",
+   "2118152" : "Balaka Dr near Cherry Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-779-a-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-779-a-sj2-1-2-b00bj",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118193",
+               null
+            ],
+            [
+               "2118111",
+               "2M pasd"
+            ],
+            [
+               "2118112",
+               "0S pasd"
+            ],
+            [
+               "2118113",
+               "1M pasd"
+            ],
+            [
+               "2125134",
+               "0S pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "1M pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "1M pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "1M pasd"
+            ],
+            [
+               "2118115",
+               "1M pasd"
+            ],
+            [
+               "2118118",
+               "0S pasd"
+            ],
+            [
+               "2118116",
+               "1M pasd"
+            ],
+            [
+               "211856",
+               "1M pasd"
+            ],
+            [
+               "211857",
+               "0S pasd"
+            ],
+            [
+               "211858",
+               "1M pasd"
+            ],
+            [
+               "2118145",
+               "1M pasd"
+            ],
+            [
+               "2118146",
+               "0S pasd"
+            ],
+            [
+               "2118147",
+               "1M pasd"
+            ],
+            [
+               "2118148",
+               "0S pasd"
+            ],
+            [
+               "2118149",
+               "1M pasd"
+            ],
+            [
+               "2118150",
+               "0S pasd"
+            ],
+            [
+               "2118151",
+               "1M pasd"
+            ],
+            [
+               "2118152",
+               "0S pasd"
+            ],
+            [
+               "2118171",
+               "1M pasd"
+            ],
+            [
+               "2118172",
+               "0S pasd"
+            ],
+            [
+               "2118154",
+               "1M pasd"
+            ],
+            [
+               "211866",
+               "1M pasd"
+            ],
+            [
+               "211867",
+               "1M pasd"
+            ],
+            [
+               "2118176",
+               "2M pasd"
+            ],
+            [
+               "211869",
+               "1M pasd"
+            ],
+            [
+               "211870",
+               "0S pasd"
+            ],
+            [
+               "211871",
+               "1M pasd"
+            ],
+            [
+               "211872",
+               "0S pasd"
+            ],
+            [
+               "211873",
+               "1M pasd"
+            ],
+            [
+               "211875",
+               "0S pasd"
+            ],
+            [
+               "211876",
+               "1M pasd"
+            ],
+            [
+               "2118104",
+               "0S pasd"
+            ],
+            [
+               "2118103",
+               "2M pasd"
+            ],
+            [
+               "211846",
+               "0S pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "1M pasd"
+            ],
+            [
+               "2117142",
+               "0S pasd"
+            ],
+            [
+               "2117143",
+               "2M pasd"
+            ],
+            [
+               "2117144",
+               "1M pasd"
+            ],
+            [
+               "2117145",
+               "1M pasd"
+            ],
+            [
+               "215137",
+               "0S pasd"
+            ],
+            [
+               "215138",
+               "1M pasd"
+            ],
+            [
+               "215139",
+               "1M pasd"
+            ],
+            [
+               "215140",
+               "0S pasd"
+            ],
+            [
+               "215141",
+               "1M pasd"
+            ],
+            [
+               "2150145",
+               "1M pasd"
+            ],
+            [
+               "2150146",
+               "1M pasd"
+            ],
+            [
+               "2150296",
+               "2M pasd"
+            ],
+            [
+               "2150142",
+               "0S pasd"
+            ],
+            [
+               "2150119",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-779-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Dryden St near Murray Farm School - Parramatta Interchange",
+            "rs_ref" : "RS_99-779-a-sj2-1-R-1",
+            "id" : "R_99-779-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-779-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "779"
+   },
+   "VJ_99-779-a-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-779-a-sj2-1-1-b00bk",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118193",
+               null
+            ],
+            [
+               "2118111",
+               "2M pasd"
+            ],
+            [
+               "2118112",
+               "0S pasd"
+            ],
+            [
+               "2118113",
+               "1M pasd"
+            ],
+            [
+               "2125134",
+               "0S pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "1M pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "1M pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "1M pasd"
+            ],
+            [
+               "2118115",
+               "1M pasd"
+            ],
+            [
+               "2118118",
+               "0S pasd"
+            ],
+            [
+               "2118116",
+               "1M pasd"
+            ],
+            [
+               "211856",
+               "1M pasd"
+            ],
+            [
+               "211857",
+               "0S pasd"
+            ],
+            [
+               "211858",
+               "1M pasd"
+            ],
+            [
+               "2118145",
+               "1M pasd"
+            ],
+            [
+               "2118146",
+               "0S pasd"
+            ],
+            [
+               "2118147",
+               "1M pasd"
+            ],
+            [
+               "2118148",
+               "0S pasd"
+            ],
+            [
+               "2118149",
+               "1M pasd"
+            ],
+            [
+               "2118150",
+               "0S pasd"
+            ],
+            [
+               "2118151",
+               "1M pasd"
+            ],
+            [
+               "2118152",
+               "0S pasd"
+            ],
+            [
+               "2118171",
+               "1M pasd"
+            ],
+            [
+               "2118172",
+               "0S pasd"
+            ],
+            [
+               "2118154",
+               "1M pasd"
+            ],
+            [
+               "211866",
+               "1M pasd"
+            ],
+            [
+               "211867",
+               "1M pasd"
+            ],
+            [
+               "2118176",
+               "2M pasd"
+            ],
+            [
+               "211869",
+               "1M pasd"
+            ],
+            [
+               "211870",
+               "0S pasd"
+            ],
+            [
+               "211871",
+               "1M pasd"
+            ],
+            [
+               "211872",
+               "0S pasd"
+            ],
+            [
+               "211873",
+               "1M pasd"
+            ],
+            [
+               "211875",
+               "0S pasd"
+            ],
+            [
+               "211876",
+               "1M pasd"
+            ],
+            [
+               "2118104",
+               "0S pasd"
+            ],
+            [
+               "2118103",
+               "2M pasd"
+            ],
+            [
+               "211846",
+               "0S pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "1M pasd"
+            ],
+            [
+               "2117142",
+               "0S pasd"
+            ],
+            [
+               "2117143",
+               "2M pasd"
+            ],
+            [
+               "2117144",
+               "1M pasd"
+            ],
+            [
+               "2117145",
+               "1M pasd"
+            ],
+            [
+               "215137",
+               "0S pasd"
+            ],
+            [
+               "215138",
+               "1M pasd"
+            ],
+            [
+               "215139",
+               "1M pasd"
+            ],
+            [
+               "215140",
+               "0S pasd"
+            ],
+            [
+               "215141",
+               "1M pasd"
+            ],
+            [
+               "2150145",
+               "1M pasd"
+            ],
+            [
+               "2150146",
+               "1M pasd"
+            ],
+            [
+               "2150296",
+               "2M pasd"
+            ],
+            [
+               "2150142",
+               "0S pasd"
+            ],
+            [
+               "2150119",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-779-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Dryden St near Murray Farm School - Parramatta Interchange",
+            "rs_ref" : "RS_99-779-a-sj2-1-R-1",
+            "id" : "R_99-779-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-779-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "779"
+   }
+}
+;
+

@@ -1,0 +1,757 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-744-b-sj2-1" : "744"
+}
+;
+
+var stations = {
+   "2112171" : "Gardener Av Nr Bidgee St",
+   "2112153" : "Quarry Rd Nr Stephen Av",
+   "2122173" : "North Rd Nr Woorang St",
+   "212248" : "Tallwood Av Nr Bridge Rd",
+   "2112162" : "Quarry Rd Opp Arthur St",
+   "2112157" : "Quarry Rd Nr Smalls Rd",
+   "2112150" : "Quarry Rd Nr North Rd",
+   "212244" : "Lovell Rd Nr Colvin Cr",
+   "212270" : "Gordon St Nr Welby St",
+   "212275" : "Lansdowne St Nr Edgar St",
+   "2112165" : "Quarry Rd Nr Dobson Cr",
+   "2112160" : "Quarry Rd Nr Aeolus Av",
+   "2122171" : "North Rd Nr Donovan St",
+   "2122166" : "Lovell Rd Nr Waratah St",
+   "2112167" : "Quarry Rd Nr Boyce St",
+   "2112168" : "Quarry Rd Nr Jones St",
+   "212289" : "May St Nr Blaxland Rd",
+   "212272" : "Gordon St Nr Lansdowne St",
+   "2112245" : "Quarry Rd Nr Lane Cove Rd",
+   "2122168" : "Lovell Rd Nr Colvin Cr",
+   "2122167" : "Lovell Rd Nr Denistone East Public",
+   "2112169" : "Gardener Av Nr Quarry Rd",
+   "212277" : "Lansdowne St Nr Blaxland Rd",
+   "2112250" : "Forrest Rd Nr Aitchandar Rd",
+   "212243" : "North Rd Nr Watts Rd",
+   "2122181" : "Abuklea Rd Nr Wilga Pl",
+   "212269" : "Gordon St Nr Welby St",
+   "2121176" : "Lovell Rd Nr Orange St",
+   "2112151" : "Quarry Rd Nr Olive St",
+   "212245" : "Lovell Rd Nr North Rd",
+   "212260" : "Lovell Rd Opp Grove St",
+   "212273" : "Gordon St Nr Lansdowne St",
+   "2122210" : "Pickford Av Nr Lovell Rd",
+   "2112170" : "Gardener Av Nr Quarry Rd",
+   "212262" : "Lovell Rd Nr Orange St",
+   "2122154" : "North Rd Nr Fonti St",
+   "2112158" : "Quarry Rd Nr Smalls Rd",
+   "2112237" : "Aitchandar Rd Nr Bidgee Rd",
+   "212276" : "Lansdowne St Opp Edgar St",
+   "2122155" : "North Rd Nr Threlfall St",
+   "2122177" : "Threlfall St Nr North Rd",
+   "2112154" : "Quarry Rd Nr Stephen Av",
+   "2112152" : "Quarry Rd Nr Olive St",
+   "212246" : "North Rd Nr Watts Rd",
+   "2122184" : "Abuklea Rd Nr Donovan St",
+   "212247" : "Tallwood Av Opp Watts Park",
+   "2112199" : "Malvina Rd nr Ryde Secondary College",
+   "212261" : "Lovell Rd Nr Grove St",
+   "211211" : "North Rd Nr Lovell Rd",
+   "2112238" : "Aitchandar Rd Nr Bidgee Rd",
+   "2112159" : "Quarry Rd Nr Lavarack St",
+   "2122175" : "North Rd Nr Alison St",
+   "2112236" : "Bidgee St Nr Gardener Av",
+   "2122209" : "Threlfall St nr Abuklea Rd",
+   "212268" : "Welby St Nr Alexandria Av",
+   "2112164" : "Quarry Rd Nr Woodbine Cr",
+   "212212" : "Railway Pde Nr Ethel St",
+   "2112161" : "Quarry Rd Nr Arthur St",
+   "212263" : "Lovell Rd Nr Russell St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-744-b-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-744-b-sj2-1-4-b00bj",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212277",
+               null
+            ],
+            [
+               "212276",
+               "0S pasd"
+            ],
+            [
+               "212273",
+               "1M pasd"
+            ],
+            [
+               "212270",
+               "2M pasd"
+            ],
+            [
+               "2122210",
+               "1M pasd"
+            ],
+            [
+               "212262",
+               "1M pasd"
+            ],
+            [
+               "212261",
+               "0S pasd"
+            ],
+            [
+               "2122166",
+               "1M pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "2122184",
+               "0S pasd"
+            ],
+            [
+               "2122181",
+               "1M pasd"
+            ],
+            [
+               "2122209",
+               "0S pasd"
+            ],
+            [
+               "2122177",
+               "1M pasd"
+            ],
+            [
+               "2122155",
+               "0S pasd"
+            ],
+            [
+               "2122154",
+               "1M pasd"
+            ],
+            [
+               "2122175",
+               "0S pasd"
+            ],
+            [
+               "2122173",
+               "1M pasd"
+            ],
+            [
+               "2122171",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "2112152",
+               "1M pasd"
+            ],
+            [
+               "2112153",
+               "0S pasd"
+            ],
+            [
+               "2112157",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "0S pasd"
+            ],
+            [
+               "2112161",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "0S pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "2112169",
+               "0S pasd"
+            ],
+            [
+               "2112236",
+               "1M pasd"
+            ],
+            [
+               "2112237",
+               "0S pasd"
+            ],
+            [
+               "2112250",
+               "0S pasd"
+            ],
+            [
+               "2112199",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-744-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Lansdowne St Nr Blaxland Rd - Malvina Rd nr Ryde Secondary College",
+            "rs_ref" : "RS_99-744-b-sj2-1-H-1",
+            "id" : "R_99-744-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-744-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "744"
+   },
+   "VJ_99-744-b-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-744-b-sj2-1-2-b00bj",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2112199",
+               null
+            ],
+            [
+               "2112238",
+               "2M pasd"
+            ],
+            [
+               "2112171",
+               "1M pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "2M pasd"
+            ],
+            [
+               "2112160",
+               "2M pasd"
+            ],
+            [
+               "2112158",
+               "2M pasd"
+            ],
+            [
+               "2112154",
+               "2M pasd"
+            ],
+            [
+               "2112151",
+               "1M pasd"
+            ],
+            [
+               "2112150",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "2122184",
+               "0S pasd"
+            ],
+            [
+               "2122181",
+               "1M pasd"
+            ],
+            [
+               "2122209",
+               "0S pasd"
+            ],
+            [
+               "2122177",
+               "0S pasd"
+            ],
+            [
+               "2122155",
+               "0S pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ],
+            [
+               "2122167",
+               "0S pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "0S pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212268",
+               "0S pasd"
+            ],
+            [
+               "212269",
+               "1M pasd"
+            ],
+            [
+               "212272",
+               "0S pasd"
+            ],
+            [
+               "212275",
+               "0S pasd"
+            ],
+            [
+               "212289",
+               "1M pasd"
+            ],
+            [
+               "212212",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-744-b-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Malvina Rd nr Ryde Secondary College - Eastwood Station",
+            "rs_ref" : "RS_99-744-b-sj2-1-R-2",
+            "id" : "R_99-744-b-sj2-1-R-2"
+         }
+      },
+      "service" : "99-744-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "744"
+   },
+   "VJ_99-744-b-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-744-b-sj2-1-1-b00bk",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212277",
+               null
+            ],
+            [
+               "212276",
+               "0S pasd"
+            ],
+            [
+               "212273",
+               "1M pasd"
+            ],
+            [
+               "212270",
+               "2M pasd"
+            ],
+            [
+               "2122210",
+               "1M pasd"
+            ],
+            [
+               "212262",
+               "1M pasd"
+            ],
+            [
+               "212261",
+               "0S pasd"
+            ],
+            [
+               "2122166",
+               "1M pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "2122184",
+               "0S pasd"
+            ],
+            [
+               "2122181",
+               "1M pasd"
+            ],
+            [
+               "2122209",
+               "0S pasd"
+            ],
+            [
+               "2122177",
+               "1M pasd"
+            ],
+            [
+               "2122155",
+               "0S pasd"
+            ],
+            [
+               "2122154",
+               "1M pasd"
+            ],
+            [
+               "2122175",
+               "0S pasd"
+            ],
+            [
+               "2122173",
+               "1M pasd"
+            ],
+            [
+               "2122171",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "2112152",
+               "1M pasd"
+            ],
+            [
+               "2112153",
+               "0S pasd"
+            ],
+            [
+               "2112157",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "0S pasd"
+            ],
+            [
+               "2112161",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "0S pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "2112169",
+               "0S pasd"
+            ],
+            [
+               "2112236",
+               "1M pasd"
+            ],
+            [
+               "2112237",
+               "0S pasd"
+            ],
+            [
+               "2112250",
+               "0S pasd"
+            ],
+            [
+               "2112199",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-744-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Lansdowne St Nr Blaxland Rd - Malvina Rd nr Ryde Secondary College",
+            "rs_ref" : "RS_99-744-b-sj2-1-H-1",
+            "id" : "R_99-744-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-744-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "744"
+   },
+   "VJ_99-744-b-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-744-b-sj2-1-3-b00bk",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2112199",
+               null
+            ],
+            [
+               "2112238",
+               "2M pasd"
+            ],
+            [
+               "2112171",
+               "1M pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "2M pasd"
+            ],
+            [
+               "2112160",
+               "2M pasd"
+            ],
+            [
+               "2112158",
+               "2M pasd"
+            ],
+            [
+               "2112154",
+               "2M pasd"
+            ],
+            [
+               "2112151",
+               "1M pasd"
+            ],
+            [
+               "2112150",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "2122184",
+               "0S pasd"
+            ],
+            [
+               "2122181",
+               "1M pasd"
+            ],
+            [
+               "2122209",
+               "0S pasd"
+            ],
+            [
+               "2122177",
+               "0S pasd"
+            ],
+            [
+               "2122155",
+               "0S pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ],
+            [
+               "2122167",
+               "0S pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "0S pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212268",
+               "0S pasd"
+            ],
+            [
+               "212269",
+               "1M pasd"
+            ],
+            [
+               "212272",
+               "0S pasd"
+            ],
+            [
+               "212275",
+               "0S pasd"
+            ],
+            [
+               "212289",
+               "1M pasd"
+            ],
+            [
+               "212212",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-744-b-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Malvina Rd nr Ryde Secondary College - Eastwood Station",
+            "rs_ref" : "RS_99-744-b-sj2-1-R-2",
+            "id" : "R_99-744-b-sj2-1-R-2"
+         }
+      },
+      "service" : "99-744-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "744"
+   }
+}
+;
+

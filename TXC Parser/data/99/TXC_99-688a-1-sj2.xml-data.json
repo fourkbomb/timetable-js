@@ -1,0 +1,484 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-688-a-sj2-1" : "688"
+}
+;
+
+var stations = {
+   "206048" : "Miller St near Ridge St",
+   "2065137" : "Pacific Hwy Nr Alexander St",
+   "2113234" : "Epping Rd Nr Sabraon Rd",
+   "206515" : "Pacific Hwy Nr Hume St",
+   "2113302" : "Epping Rd Nr Ryrie St",
+   "212292" : "Epping Rd Nr Lucknow Park",
+   "206049" : "Miller St Nr Carlow St",
+   "206617" : "Epping Rd Nr Wingadee St",
+   "212123" : "Pembroke St Nr Norfolk Rd",
+   "2066247" : "Epping Rd Nr Fraser St",
+   "2066249" : "Epping Rd Nr Centennial Av",
+   "2066246" : "Epping Rd Nr Johnston Cr",
+   "2066250" : "Epping Rd Nr Cox Lane",
+   "206025" : "Pacific Hwy nr West St",
+   "212124" : "Epping Rd Nr Pembroke St",
+   "206514" : "Pacific Hwy nr Albany St",
+   "2066230" : "Epping Rd Nr Sam Johnson Way",
+   "206430" : "Pacific Hwy nr Westbourne St",
+   "2113203" : "Epping Rd nr Wicks Rd",
+   "2113238" : "Epping Rd Nr Balaclava Rd",
+   "212291" : "Epping Rd Nr Vimiera Rd",
+   "206047" : "Miller St nr McLaren St",
+   "206435" : "Pacific Hwy nr Alto Pl",
+   "2113241" : "Epping Rd Nr Pedestrian Overpass",
+   "211321" : "Epping Rd Nr Pittwater Rd",
+   "211322" : "Epping Rd Nr Rivett Rd",
+   "2113242" : "Epping Rd Nr Lane Cove Rd",
+   "206050" : "Miller St nr Falcon St",
+   "2113239" : "Epping Rd Nr Herring Rd",
+   "212290" : "Epping Rd Nr Culloden Rd",
+   "2066251" : "Lane Cove Interchange Stand B",
+   "2066240" : "Epping Rd Nr Tantallon Rd",
+   "206525" : "Pacific Hwy Nr Reserve Rd",
+   "206523" : "St Leonards Station_ Pacific Hwy - Stand A",
+   "2065138" : "Pacific Hwy Nr Myrtle St",
+   "206045" : "Miller St near Pacific Hwy",
+   "2113243" : "Epping Rd Nr Lane Cove Rd",
+   "206594" : "Pacific Hwy nr Greenwich Rd",
+   "206427" : "Pacific Hwy nr Dickson Av",
+   "212183" : "Cambridge St Nr Epping Station",
+   "2066245" : "Epping Rd nr Cumberland Av",
+   "206415" : "Pacific Hwy nr Campbell St",
+   "206429" : "Pacific Hwy opp Innes Rd",
+   "206426" : "Pacific Hwy nr Hotham Pde",
+   "2066222" : "Epping Rd Nr Mowbray Rd West",
+   "2113240" : "Epping Rd Opp Booth Reserve",
+   "212122" : "Pembroke St Nr Essex St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-688-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-688-a-sj2-1-1-b00bj",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212183",
+               null
+            ],
+            [
+               "212122",
+               "1M pasd"
+            ],
+            [
+               "212123",
+               "1M pasd"
+            ],
+            [
+               "212124",
+               "0S pasd"
+            ],
+            [
+               "212292",
+               "2M pasd"
+            ],
+            [
+               "212291",
+               "1M pasd"
+            ],
+            [
+               "212290",
+               "1M pasd"
+            ],
+            [
+               "2113238",
+               "2M pasd"
+            ],
+            [
+               "2113234",
+               "0S pasd"
+            ],
+            [
+               "2113239",
+               "1M pasd"
+            ],
+            [
+               "2113240",
+               "2M pasd"
+            ],
+            [
+               "2113241",
+               "2M pasd"
+            ],
+            [
+               "2113242",
+               "1M pasd"
+            ],
+            [
+               "2113243",
+               "1M pasd"
+            ],
+            [
+               "2113203",
+               "2M pasd"
+            ],
+            [
+               "2113302",
+               "1M pasd"
+            ],
+            [
+               "211321",
+               "2M pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "1M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206045",
+               "3M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-688-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cambridge St Nr Epping Station - Miller St nr Falcon St",
+            "rs_ref" : "RS_99-688-a-sj2-1-H-1",
+            "id" : "R_99-688-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-688-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "688"
+   },
+   "VJ_99-688-a-sj2-1-2-b00a5" : {
+      "vjcode" : "VJ_99-688-a-sj2-1-2-b00a5",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212183",
+               null
+            ],
+            [
+               "212122",
+               "1M pasd"
+            ],
+            [
+               "212123",
+               "1M pasd"
+            ],
+            [
+               "212124",
+               "0S pasd"
+            ],
+            [
+               "212292",
+               "2M pasd"
+            ],
+            [
+               "212291",
+               "1M pasd"
+            ],
+            [
+               "212290",
+               "1M pasd"
+            ],
+            [
+               "2113238",
+               "2M pasd"
+            ],
+            [
+               "2113234",
+               "0S pasd"
+            ],
+            [
+               "2113239",
+               "1M pasd"
+            ],
+            [
+               "2113240",
+               "2M pasd"
+            ],
+            [
+               "2113241",
+               "2M pasd"
+            ],
+            [
+               "2113242",
+               "1M pasd"
+            ],
+            [
+               "2113243",
+               "1M pasd"
+            ],
+            [
+               "2113203",
+               "2M pasd"
+            ],
+            [
+               "2113302",
+               "1M pasd"
+            ],
+            [
+               "211321",
+               "2M pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "1M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206045",
+               "3M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-688-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cambridge St Nr Epping Station - Miller St nr Falcon St",
+            "rs_ref" : "RS_99-688-a-sj2-1-H-1",
+            "id" : "R_99-688-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-688-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "688"
+   }
+}
+;
+

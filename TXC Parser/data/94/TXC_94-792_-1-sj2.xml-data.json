@@ -1,0 +1,454 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-792-_-sj2-1" : "792"
+}
+;
+
+var stations = {
+   "2282138" : "Rothbury St Nr Tyrrells Cl",
+   "2282172" : "Glad Gunson Dr Nr Yalumba Cl",
+   "228261" : "King St Nr Pring St",
+   "2282156" : "Glad Gunson Dr Nr Leasingham Cl",
+   "228294" : "Mills St Opp Warners Bay Primary",
+   "228296" : "Mills St 250m S Of Bayview St",
+   "2282137" : "Glad Gunson Dr Opp Pindimar Cl",
+   "228262" : "King St Nr Charles St",
+   "2282126" : "Jonathan St Opp Janice St",
+   "2282150" : "Lindeman Cl Nr Minchinbury Cl",
+   "2282128" : "Cherry Rd 300 E Of Linden Av",
+   "228287" : "Warners Bay Rd Nr Augusta St",
+   "2282103" : "The Esplanade Nr James St",
+   "2282173" : "Glad Gunson Dr Nr Bundarra Cl",
+   "2282120" : "Linden Av Nr Morris St",
+   "2282153" : "Seaview Cl Nr Huntington Cl",
+   "2282127" : "Jonathan St Nr Cherry Rd",
+   "228293" : "Jones St Nr Warners Bay Primary",
+   "2282119" : "Linden Av Nr Cherry Rd",
+   "228292" : "Queen St Nr James St",
+   "2282125" : "Jonathan St Nr Janice St",
+   "2290177" : "Burton Rd nr Glad Gunson Dr",
+   "2282130" : "Glad Gunson Dr Nr Lynn Av",
+   "2290178" : "Burton Rd opp Casson Av",
+   "2282154" : "Lindeman Cl Nr Glad Gunson Dr",
+   "228291" : "Warner St Nr Bayview St",
+   "228295" : "Mills St Nr Bucklee Cr",
+   "2290183" : "Dunkley Pde nr Progress Rd",
+   "2290180" : "Warners Bay Rd 220m E of Burton Rd",
+   "228251" : "East St Nr Bonarius St",
+   "2282113" : "Ian St At Eleebana Primary School",
+   "2282104" : "The Esplanade Nr Warners Bay Rd",
+   "228253" : "Vennard St Nr East St",
+   "2282152" : "Woodley St Nr Seaview Cl",
+   "2282155" : "Glad Gunson Dr Nr Lindeman Cl",
+   "228298" : "Bayview St Nr Barbara St",
+   "2290181" : "Warners Bay Rd nr Old Warners Bay Rd",
+   "228288" : "Jonathan St Nr Warners Bay Rd",
+   "2282133" : "Murray St Nr Mulimbah St",
+   "2290182" : "Warners Bay Rd nr Cowmeadow Rd",
+   "2282157" : "Glad Gunson Dr Nr Wyndham Wy",
+   "228249" : "Yorston St Opp Holt St",
+   "2282141" : "Ian St Nr Elizabeth St",
+   "2282140" : "Ian St Nr Buring Cl",
+   "2290179" : "Burton Rd opp Lamington Dr",
+   "228252" : "East St Nr Wellings St",
+   "2282114" : "Glad Gunson Dr Nr Eleebana Primary",
+   "228260" : "Myles Av Nr Warners Bay High School",
+   "228255" : "Myles Av Nr Vennard St",
+   "228250" : "Yorston St Nr Pring St",
+   "2282121" : "Linden Av Nr Glad Gunson Dr",
+   "228299" : "Bayview St Opp Carwood Cl",
+   "2282158" : "Glad Gunson Dr Nr Rothbury St",
+   "228257" : "Myles Av Nr Bonarius St",
+   "2282123" : "Cherry Rd 250m E Of Linden Av",
+   "228297" : "Mills St Nr Bayview St",
+   "2282102" : "King St Nr Howard St",
+   "2282100" : "Bayview St Nr St Marys Primary",
+   "2282124" : "Jonathan St Nr Cherry St",
+   "228254" : "Vennard St Nr Myles Av",
+   "2282171" : "Glad Gunson Dr Opp Wyndham Wy",
+   "2282122" : "Linden Av Nr Cherry Rd",
+   "2282134" : "Murray St Nr Tulloch Cl",
+   "2282151" : "Lindeman Cl Nr Woodley St",
+   "2282139" : "Ian St Nr Penfold Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-792-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-792-_-sj2-1-1-b0096",
+      "leaves" : "15:02:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2282100",
+               null
+            ],
+            [
+               "228291",
+               "0S pasd"
+            ],
+            [
+               "228292",
+               "1M pasd"
+            ],
+            [
+               "228294",
+               "2M pasd"
+            ],
+            [
+               "228295",
+               "1M pasd"
+            ],
+            [
+               "228296",
+               "0S pasd"
+            ],
+            [
+               "228297",
+               "1M pasd"
+            ],
+            [
+               "228298",
+               "0S pasd"
+            ],
+            [
+               "228299",
+               "0S pasd"
+            ],
+            [
+               "2282100",
+               "1M pasd"
+            ],
+            [
+               "228249",
+               "0S pasd"
+            ],
+            [
+               "228250",
+               "1M pasd"
+            ],
+            [
+               "228251",
+               "1M pasd"
+            ],
+            [
+               "228252",
+               "0S pasd"
+            ],
+            [
+               "228253",
+               "0S pasd"
+            ],
+            [
+               "228254",
+               "1M pasd"
+            ],
+            [
+               "228255",
+               "0S pasd"
+            ],
+            [
+               "228257",
+               "1M pasd"
+            ],
+            [
+               "228260",
+               "0S pasd"
+            ],
+            [
+               "228261",
+               "1M pasd"
+            ],
+            [
+               "228262",
+               "1M pasd"
+            ],
+            [
+               "2282102",
+               "0S pasd"
+            ],
+            [
+               "2282103",
+               "1M pasd"
+            ],
+            [
+               "2282104",
+               "1M pasd"
+            ],
+            [
+               "228287",
+               "1M pasd"
+            ],
+            [
+               "2282126",
+               "0S pasd"
+            ],
+            [
+               "2282127",
+               "1M pasd"
+            ],
+            [
+               "2282128",
+               "1M pasd"
+            ],
+            [
+               "2282119",
+               "1M pasd"
+            ],
+            [
+               "2282120",
+               "0S pasd"
+            ],
+            [
+               "2282130",
+               "1M pasd"
+            ],
+            [
+               "2282137",
+               "0S pasd"
+            ],
+            [
+               "2282138",
+               "0S pasd"
+            ],
+            [
+               "2282139",
+               "1M pasd"
+            ],
+            [
+               "2282140",
+               "0S pasd"
+            ],
+            [
+               "2282141",
+               "0S pasd"
+            ],
+            [
+               "2282133",
+               "0S pasd"
+            ],
+            [
+               "2282134",
+               "1M pasd"
+            ],
+            [
+               "2282113",
+               "0S pasd"
+            ],
+            [
+               "2282137",
+               "0S pasd"
+            ],
+            [
+               "2282171",
+               "0S pasd"
+            ],
+            [
+               "2282172",
+               "1M pasd"
+            ],
+            [
+               "2282173",
+               "0S pasd"
+            ],
+            [
+               "2282150",
+               "0S pasd"
+            ],
+            [
+               "2282151",
+               "0S pasd"
+            ],
+            [
+               "2282152",
+               "1M pasd"
+            ],
+            [
+               "2282153",
+               "0S pasd"
+            ],
+            [
+               "2282154",
+               "0S pasd"
+            ],
+            [
+               "2290177",
+               "0S pasd"
+            ],
+            [
+               "2290178",
+               "0S pasd"
+            ],
+            [
+               "2290179",
+               "1M pasd"
+            ],
+            [
+               "2290180",
+               "0S pasd"
+            ],
+            [
+               "2290181",
+               "0S pasd"
+            ],
+            [
+               "2290182",
+               "1M pasd"
+            ],
+            [
+               "2290183",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-792-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bayview St Nr St Marys Primary - Dunkley Pde nr Progress Rd",
+            "rs_ref" : "RS_94-792-_-sj2-1-R-1",
+            "id" : "R_94-792-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-792-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "792"
+   },
+   "VJ_94-792-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-792-_-sj2-1-2-b0096",
+      "leaves" : "08:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2282171",
+               null
+            ],
+            [
+               "2282172",
+               "1M pasd"
+            ],
+            [
+               "2282173",
+               "1M pasd"
+            ],
+            [
+               "2282150",
+               "1M pasd"
+            ],
+            [
+               "2282151",
+               "0S pasd"
+            ],
+            [
+               "2282152",
+               "0S pasd"
+            ],
+            [
+               "2282153",
+               "1M pasd"
+            ],
+            [
+               "2282154",
+               "0S pasd"
+            ],
+            [
+               "2282155",
+               "0S pasd"
+            ],
+            [
+               "2282156",
+               "1M pasd"
+            ],
+            [
+               "2282157",
+               "1M pasd"
+            ],
+            [
+               "2282158",
+               "0S pasd"
+            ],
+            [
+               "2282114",
+               "1M pasd"
+            ],
+            [
+               "2282121",
+               "1M pasd"
+            ],
+            [
+               "2282122",
+               "0S pasd"
+            ],
+            [
+               "2282123",
+               "1M pasd"
+            ],
+            [
+               "2282124",
+               "1M pasd"
+            ],
+            [
+               "2282125",
+               "0S pasd"
+            ],
+            [
+               "228288",
+               "1M pasd"
+            ],
+            [
+               "228295",
+               "1M pasd"
+            ],
+            [
+               "228296",
+               "0S pasd"
+            ],
+            [
+               "228297",
+               "1M pasd"
+            ],
+            [
+               "228298",
+               "0S pasd"
+            ],
+            [
+               "228299",
+               "0S pasd"
+            ],
+            [
+               "2282100",
+               "1M pasd"
+            ],
+            [
+               "228291",
+               "1M pasd"
+            ],
+            [
+               "228292",
+               "0S pasd"
+            ],
+            [
+               "228293",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-792-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Glad Gunson Dr Opp Wyndham Wy - Jones St Nr Warners Bay Primary",
+            "rs_ref" : "RS_94-792-_-sj2-1-H-2",
+            "id" : "R_94-792-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-792-_-sj2-1",
+      "line" : "792"
+   }
+}
+;
+

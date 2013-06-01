@@ -1,0 +1,853 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-789-c-sj2-1" : "789"
+}
+;
+
+var stations = {
+   "2107111" : "Avalon Pde Nr Gunjulla Pl",
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "210322" : "Pittwater Rd Nr Vineyard St",
+   "209136" : "Harbord St Nr Freshwater High",
+   "209927" : "Quirk St Nr St Lukes",
+   "209931" : "Quirk St nr Tango Av",
+   "2107109" : "Hudson Pde nr Avalon Pde",
+   "210612" : "Barrenjoey Rd Nr Karloo Pde",
+   "2107115" : "Old Barrenjoey Rd nr Avalon Pde",
+   "210776" : "Lower Plateau Rd nr Stromboli Pl",
+   "210775" : "Bilwara Av nr Bilambee Av",
+   "209977" : "Pacific Pde Nr The Crescent",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "210774" : "Bilambee Av opp Bilga Av",
+   "209978" : "Pacific Pde Nr Avon Rd",
+   "210734" : "Plateau Rd nr Barrenjoey Rd",
+   "210118" : "Pittwater Rd Nr Lake Park Rd",
+   "210785" : "Hudson Rd nr Old Wharf Reserve",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "210627" : "Beaconsfield St Nr Crescent Rd",
+   "210617" : "Barrenjoey Rd Nr The Serpentine",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "2107110" : "Avalon Pde Nr Katandra Cl",
+   "2103105" : "Pittwater Rd Nr Jenkins St",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "210311" : "Barrenjoey Rd Nr Darley St",
+   "209937" : "Pitt Rd Nr Playfair Rd",
+   "210779" : "Wandeen Rd Nr Hudson Pde",
+   "210773" : "Plateau Rd nr The Outlook",
+   "210626" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210112" : "Pittwater Rd Nr Goodwin St",
+   "209932" : "Harbord Rd nr West St",
+   "209979" : "Avon Rd nr Howard Av",
+   "210119" : "Pittwater Rd Nr Namona St",
+   "210320" : "Pittwater Rd Nr Coronation St",
+   "210324" : "Barrenjoey Rd Nr Park St",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av",
+   "209968" : "Headland Rd nr Wheeler Pde",
+   "210777" : "Lower Plateau Rd nr Wandeen Rd",
+   "210778" : "Wandeen Rd 400m E of Hudson Pde",
+   "209641" : "Harbord St nr Freshwater High",
+   "210313" : "Barrenjoey Rd Nr Waterview St",
+   "210115" : "Pittwater Rd Nr Waterloo St",
+   "209929" : "Quirk St Nr St Lukes Stand 6",
+   "209934" : "Abbott Rd Nr Burilla Av",
+   "209967" : "Parr Av nr Headland Rd",
+   "210737" : "Plateau Rd opp Weetawaa Rd",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "210113" : "Pittwater Rd Nr Devitt St",
+   "210616" : "Barrenjoey Rd Nr Neptune Rd",
+   "210782" : "Hudson Pde Nr Delecta Av",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "210319" : "Pittwater Rd Nr Elimatta Rd",
+   "210211" : "Pittwater Rd Nr Warriewood Rd",
+   "210312" : "Barrenjoey Rd Nr Bassett St",
+   "210116" : "Pittwater Rd nr Nareen Pde",
+   "210631" : "Gladstone Rd Nr Woolcott St",
+   "210780" : "Hudson Pde nr Taylors Point Wharf",
+   "209969" : "Wheeler Pde Nr The Crescent",
+   "209936" : "Pitt Rd Nr Fairport St",
+   "210735" : "Plateau Rd Nr Palmgrove Rd",
+   "210786" : "Hudson Pde Nr Hilltop Rd",
+   "209935" : "Abbott Rd Nr Fay St",
+   "210615" : "Barrenjoey Rd nr Robertson Rd",
+   "2107113" : "Avalon Pde opp Police Station",
+   "210784" : "Hudson Pde 500m S Of Hilltop Rd",
+   "210630" : "Gladstone Rd Nr King St",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210736" : "Plateau Rd Nr Palmgrove Rd",
+   "2107114" : "Avalon Pde opp Bellevue Av",
+   "210114" : "Pittwater Rd nr Narrabeen St",
+   "210629" : "Kalinya St Nr Gladstone Rd",
+   "209966" : "Parr Av Nr Playfair Rd",
+   "210632" : "Gladstone Rd Nr Barrenjoey Rd",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "210611" : "Barrenjoey Rd Nr Phillip Rd",
+   "210781" : "Hudson Pde 200m E Of Taylors Point Rd",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "210120" : "Pittwater Rd Nr Jackson Rd",
+   "2107112" : "Avalon Pde Nr Ruskin Rowe",
+   "210783" : "Hudson Pde Nr Delecta Av",
+   "210628" : "Beaconsfield St Nr Kalinya St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-789-c-sj2-1-1-b009g" : {
+      "vjcode" : "VJ_99-789-c-sj2-1-1-b009g",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209927",
+               null
+            ],
+            [
+               "209931",
+               "1M pasd"
+            ],
+            [
+               "209929",
+               "3M pasd"
+            ],
+            [
+               "209932",
+               "2M pasd"
+            ],
+            [
+               "209136",
+               "2M pasd"
+            ],
+            [
+               "209641",
+               "0S pasd"
+            ],
+            [
+               "209934",
+               "3M pasd"
+            ],
+            [
+               "209935",
+               "0S pasd"
+            ],
+            [
+               "209936",
+               "1M pasd"
+            ],
+            [
+               "209937",
+               "0S pasd"
+            ],
+            [
+               "209966",
+               "1M pasd"
+            ],
+            [
+               "209967",
+               "0S pasd"
+            ],
+            [
+               "209968",
+               "1M pasd"
+            ],
+            [
+               "209969",
+               "1M pasd"
+            ],
+            [
+               "209977",
+               "1M pasd"
+            ],
+            [
+               "209978",
+               "0S pasd"
+            ],
+            [
+               "209979",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "1M pasd"
+            ],
+            [
+               "209916",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "2M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "1M pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "1M pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "0S pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210626",
+               "1M pasd"
+            ],
+            [
+               "210627",
+               "0S pasd"
+            ],
+            [
+               "210628",
+               "1M pasd"
+            ],
+            [
+               "210629",
+               "0S pasd"
+            ],
+            [
+               "210630",
+               "1M pasd"
+            ],
+            [
+               "210631",
+               "0S pasd"
+            ],
+            [
+               "210632",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "0S pasd"
+            ],
+            [
+               "210777",
+               "1M pasd"
+            ],
+            [
+               "210778",
+               "0S pasd"
+            ],
+            [
+               "210779",
+               "1M pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "0S pasd"
+            ],
+            [
+               "210782",
+               "1M pasd"
+            ],
+            [
+               "210783",
+               "0S pasd"
+            ],
+            [
+               "210784",
+               "1M pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "0S pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "1M pasd"
+            ],
+            [
+               "2107111",
+               "0S pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-789-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Quirk St Nr St Lukes - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_99-789-c-sj2-1-R-1",
+            "id" : "R_99-789-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-789-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   },
+   "VJ_99-789-c-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-789-c-sj2-1-2-b009h",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209927",
+               null
+            ],
+            [
+               "209931",
+               "1M pasd"
+            ],
+            [
+               "209929",
+               "3M pasd"
+            ],
+            [
+               "209932",
+               "2M pasd"
+            ],
+            [
+               "209136",
+               "2M pasd"
+            ],
+            [
+               "209641",
+               "0S pasd"
+            ],
+            [
+               "209934",
+               "3M pasd"
+            ],
+            [
+               "209935",
+               "0S pasd"
+            ],
+            [
+               "209936",
+               "1M pasd"
+            ],
+            [
+               "209937",
+               "0S pasd"
+            ],
+            [
+               "209966",
+               "1M pasd"
+            ],
+            [
+               "209967",
+               "0S pasd"
+            ],
+            [
+               "209968",
+               "1M pasd"
+            ],
+            [
+               "209969",
+               "1M pasd"
+            ],
+            [
+               "209977",
+               "1M pasd"
+            ],
+            [
+               "209978",
+               "0S pasd"
+            ],
+            [
+               "209979",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "1M pasd"
+            ],
+            [
+               "209916",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "2M pasd"
+            ],
+            [
+               "210118",
+               "1M pasd"
+            ],
+            [
+               "210119",
+               "1M pasd"
+            ],
+            [
+               "210120",
+               "1M pasd"
+            ],
+            [
+               "210211",
+               "1M pasd"
+            ],
+            [
+               "210319",
+               "1M pasd"
+            ],
+            [
+               "210320",
+               "1M pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210322",
+               "1M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "0S pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210626",
+               "1M pasd"
+            ],
+            [
+               "210627",
+               "0S pasd"
+            ],
+            [
+               "210628",
+               "1M pasd"
+            ],
+            [
+               "210629",
+               "0S pasd"
+            ],
+            [
+               "210630",
+               "1M pasd"
+            ],
+            [
+               "210631",
+               "0S pasd"
+            ],
+            [
+               "210632",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "0S pasd"
+            ],
+            [
+               "210777",
+               "1M pasd"
+            ],
+            [
+               "210778",
+               "0S pasd"
+            ],
+            [
+               "210779",
+               "1M pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "0S pasd"
+            ],
+            [
+               "210782",
+               "1M pasd"
+            ],
+            [
+               "210783",
+               "0S pasd"
+            ],
+            [
+               "210784",
+               "1M pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "0S pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "1M pasd"
+            ],
+            [
+               "2107111",
+               "0S pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-789-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Quirk St Nr St Lukes - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_99-789-c-sj2-1-R-1",
+            "id" : "R_99-789-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-789-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   }
+}
+;
+

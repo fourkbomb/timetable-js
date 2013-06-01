@@ -1,0 +1,1571 @@
+var OPERATOR = "Port Stephens Coach";
+
+
+var LINES = {
+   "75-131-_-sj2-1" : "131"
+}
+;
+
+var stations = {
+   "2315101" : "Sandy Point Rd Near Carrool Av",
+   "231565" : "Government Rd Near Karuah Cl",
+   "230428" : "Industrial Dr near Woodstock St",
+   "2318176" : "Salt Ash Public School Oakfield Lane",
+   "231641" : "Nelson Bay Rd near Port Stephens Dr",
+   "230218" : "Hunter St opp Union St",
+   "230452" : "Vine St near Industrial Dr",
+   "231642" : "Nelson Bay Rd",
+   "231713" : "Bagnalls Beach Rd Near Sandy Point Rd",
+   "2318142" : "Nelson Bay Rd near Boyces Trk",
+   "231768" : "Port Stephens Dr Near Kanimbla Dr",
+   "230213" : "Wickham Hunter St near Yeoman Tce",
+   "229713" : "Maitland Rd nr Tighes Tce",
+   "231720" : "Country Comfort Motel Sandy Point Rd",
+   "229714" : "Maitland Rd nr Institute of Technology",
+   "2318141" : "Nelson Bay Rd",
+   "230036" : "Hunter St near Civic Theatre",
+   "231571" : "Shoal Bay Rd Near Hardy St",
+   "231655" : "Nelson Bay Rd",
+   "231574" : "Shoal Bay Rd Near Harwood Av",
+   "229616" : "Maitland Rd opp Coal St",
+   "229552" : "Bayway village Nelson Bay Rd",
+   "231526" : "Shoal Bay Rd Near Harwood Av",
+   "230026" : "Hunter St near Darby St",
+   "2318147" : "Nelson Bay Rd",
+   "229620" : "Maitland Rd nr Coal St",
+   "231739" : "Salamander Wy",
+   "229515" : "Fern Bay Fullerton Rd near Taylor Rd",
+   "230432" : "Maitland Rd nr Church St",
+   "231688" : "Bobs Farm Shop Nelson Bay Rd",
+   "231736" : "Salamander Wy",
+   "2318173" : "Banksia Grove Mobile Home Village",
+   "2304234" : "Hanbury St near Regent St",
+   "230445" : "Cormorant Rd Cormorant Rd near Egret St",
+   "229619" : "Maitland Rd Nr May St",
+   "230222" : "Hunter St opp Steel St",
+   "231568" : "Nelson Bay Shops Donald St",
+   "2318171" : "Nelson Bay Rd near Slades Rd",
+   "231741" : "Salamander Wy Near Sandpiper Reserve",
+   "231811" : "Bayway Caravan Park Sayway Village Caravan Park",
+   "231711" : "Sandy Point Rd Near Worimi Dr",
+   "230447" : "Barton St Nr Maitland Rd",
+   "229711" : "Maitland Rd nr Elizabeth St",
+   "231514" : "Rocky Point Rd Near Coral St",
+   "2318178" : "Tilligerry Ck Nelson Bay Rd",
+   "231567" : "Dalton Adult Education Government Rd",
+   "231528" : "Nesson Bay Rsl Shoal Bay Rd",
+   "231538" : "Government Rd Near Taree St",
+   "231512" : "Boulder Bay Rd Near Bent St",
+   "2315108" : "Sandy Point Rd Near Carrool Av",
+   "230454" : "Tourle St",
+   "231654" : "Nelson Bay Rd",
+   "231523" : "Shoal Bay Country Club Shoal Bay Rd",
+   "230211" : "Hunter St nr Tudor St",
+   "2318179" : "Nelson Bay Rd near Marsh Rd",
+   "2315110" : "Corlette Fire Sandy Point Rd",
+   "2318159" : "Nelson Bay Rd",
+   "230438" : "Pacific Hwy nr Corona St",
+   "229617" : "Maitland Rd nr George St",
+   "231719" : "Keel St Bagnalls Beach Rd",
+   "231576" : "Shoal Bay Shops Shoal Bay Rd",
+   "230453" : "Tourle St",
+   "2318143" : "Midway Service Nelson Bay Rd",
+   "231597" : "Corlette Shops Sandy Point Rd",
+   "2315100" : "Sandy Point Rd Near Judith St",
+   "231569" : "Marina Resort Magnus St Near Donald St",
+   "230022" : "Newcastle Interchange_ Stand 3",
+   "230029" : "Scott St opp Perkins St",
+   "231535" : "Nelson Bay Donald St near Stockton St",
+   "231519" : "Tomaree Rd Near Rigney St",
+   "231511" : "Fingal Bay Shops Market St",
+   "2318174" : "Nelson Bay Rd Near Sansom Rd",
+   "2318155" : "Nelson Bay Rd",
+   "231653" : "Nelson Bay Rd",
+   "231697" : "Port Stephens Dr before Taylors Beach Rd",
+   "231747" : "Salamander Wy",
+   "231750" : "Salamander Wy",
+   "230437" : "Pacfic Hwy nr Silsoe St",
+   "230419" : "Maitland Rd nr Valencia St",
+   "229513" : "Fern Bay Fullerton Rd near Taylor Rd",
+   "231765" : "Port Stephens Dr Near Estate Dr",
+   "2315103" : "Sandy Point Rd Near Spinnaker Wy",
+   "229517" : "Fullerton St Nelson Bay Rd",
+   "231742" : "Salamander Wy",
+   "231737" : "Salamander Wy",
+   "2315107" : "Sandy Point Rd Near Foreshore Dr",
+   "230047" : "Hunter St near Perkins St",
+   "229521" : "Fullerton Rd near Fullerton St",
+   "2318157" : "Nelson Bay Rd",
+   "231643" : "Fenninghams Island Turn Off Nelson Bay Rd",
+   "2315112" : "Corlette Shops Sandy Point Rd",
+   "230220" : "Hunter St nr Railway St",
+   "231745" : "Salamander Wy Near Sandpiper Reserve",
+   "231744" : "Salamander Wy",
+   "229613" : "Maitland Rd nr Beaumont St",
+   "230417" : "Maitland Rd Nr Hanbury St",
+   "230455" : "Cormorant Rd near Egret St",
+   "231656" : "Nelson Bay Rd",
+   "2318161" : "Nelson Bay Rd",
+   "229615" : "Maitland Rd opp Islington St",
+   "231596" : "Marine Dr Near",
+   "230050" : "Hunter St near Auckland St",
+   "231570" : "Fingal St Near Trafalgar St",
+   "2315109" : "Sandy Point Rd Near Judith St",
+   "230435" : "Maitland Rd nr Ingall St",
+   "231651" : "Nelson Bay Rd",
+   "231712" : "Oaks Pacific Blue_ Sandy Point Rd",
+   "231543" : "Sandy Point Rd Near Bagnalls Beach Rd",
+   "2318146" : "Salt Ash Public School Oakfield Lane",
+   "231721" : "Sandy Point Rd Near Worimi Dr",
+   "230456" : "Teal St near Sandpiper Cl",
+   "230431" : "Hanbury St near Dora St",
+   "229618" : "Maitland Rd nr Ivy St",
+   "230221" : "Hunter St nr Selma St",
+   "2315111" : "Sandy Point Rd",
+   "230034" : "Hunter St opp Darby St",
+   "2304233" : "Maitland Rd Nr Hanbury St",
+   "2318172" : "Nelson Bay Rd Near Medowie Rd",
+   "2318177" : "Nelson Bay Rd",
+   "2315113" : "Sandy Point Rd Near Pantowora St",
+   "231537" : "Government Rd Near Seaham St",
+   "2304255" : "Vine St opp Wye St",
+   "231517" : "Workers Club Fingal Bay Surf Club",
+   "231520" : "Tomaree Rd Near Garden Pl",
+   "2318150" : "Nelson Bay Rd Near Medowie Rd",
+   "231692" : "Anna Bay (Depot)",
+   "230439" : "Pacific Hwy nr Nile St",
+   "229621" : "Maitland Rd Nr Hubbard St",
+   "230215" : "Spotlight Hunter St near Yeoman Tce",
+   "231740" : "Salamander Wy Near",
+   "230446" : "Tourle St Bridge Tourle St",
+   "229553" : "Bayway village Nelson Bay Rd",
+   "231525" : "Harbour Side Haven Retirement Village",
+   "2315102" : "Sandy Point Rd Near Foreshore Dr",
+   "231566" : "Government Rd Near Seaham St",
+   "230017" : "Scott St near Wolfe St",
+   "229514" : "Nelson Bay Rd Near Fullerton St",
+   "231521" : "Tomaree Rd Near Verona Rd",
+   "2315106" : "Sandy Point Rd Near Spinnaker Wy",
+   "2318148" : "Nelson Bay Rd Near Sansom Rd",
+   "230434" : "Pacfic Hwy nr Carrington St",
+   "229311" : "Maitland Rd nr Albert St",
+   "231513" : "Rocky Point Rd Near Creswell Pl",
+   "2318158" : "Nelson Bay Rd",
+   "231718" : "Salamander Shopping Centre Town Centre Cct",
+   "2300103" : "Newcastle Terminus",
+   "230429" : "Vine St nr Wye St",
+   "231564" : "Government Rd Near Irambang St",
+   "231748" : "Salamander Wy",
+   "231749" : "Salamander Wy",
+   "229712" : "Maitland Rd nr Henry St",
+   "231515" : "Fingal Bay Sport And Recreation Club",
+   "229612" : "Maitland Rd nr Mary St",
+   "230219" : "Hunter St opp Selma St",
+   "231536" : "Dalton Centre Government Rd Near Church St",
+   "231539" : "Government Rd Near Sandy Point Rd",
+   "230448" : "Barton St nr Crebert St",
+   "231657" : "Nelson Bay Rd",
+   "2318152" : "Newcastle Airport near Williamtown",
+   "231599" : "Corlette Fire Sandy Point Rd",
+   "2318170" : "William Town Public School Nelson Bay Rd",
+   "2304269" : "Vine St Nr Industrial Dr",
+   "231534" : "Marina Resort Near Donald St",
+   "231746" : "Salamander Wy Near",
+   "231691" : "Anna Bay Oval Nelson Bay Rd",
+   "231540" : "Bagnalls Beach Sandy Point Rd",
+   "2318160" : "Nelson Bay Rd",
+   "231524" : "Shoal Bay Caravan Park Shoal Bay Rd",
+   "230433" : "Maitland Rd nr Havelock St",
+   "230011" : "Civic Train Hunter St",
+   "2318149" : "Banksia Grove Nelson Bay Rd",
+   "230028" : "Hunter St near Union St",
+   "231769" : "Port Stephens Dr Near Estate Dr",
+   "231699" : "Taylors Beach Taylor Beach Rd",
+   "231690" : "Nelson Bay Rd",
+   "231527" : "Shoal Bay Rd Near Gowrie Av",
+   "231573" : "Peninsular Motel Shoal Bay Rd",
+   "2318153" : "Nelson Bay Rd near Cabbage Tree Rd",
+   "230033" : "Scott St opp Wolfe St",
+   "231652" : "Nelson Bay Rd",
+   "230216" : "Museum Hunter St Near Cooper St",
+   "231522" : "Tomaree Rd Near Messines St",
+   "2318145" : "Lemontree Passage Turn Off Nelson Bay Rd",
+   "231595" : "Rocky Point Rd Near Whitesands Rd",
+   "231682" : "Taylor Beach Rd near Albert St",
+   "229516" : "Fern Bay Shops",
+   "229512" : "Nelson Bay Rd near Vardon Rd",
+   "231598" : "Sandy Point Rd",
+   "229511" : "Fullerton St Nelson Bay Rd",
+   "2318156" : "Nelson Bay Rd",
+   "231766" : "Port Stephens Dr near Soldiers Point Rd",
+   "231516" : "Rocky Point Rd Near Lentara St",
+   "230212" : "The Store Hunter St Near Wood St",
+   "231693" : "Anna Bay (Depot)",
+   "231738" : "Salamander Wy",
+   "230444" : "Teal St Sandpiper Cl near Teal St",
+   "230436" : "Pacific Hwy opp Selwyn St",
+   "231767" : "Port Stephens Dr near Diere Point Rd",
+   "2318151" : "Williamtown Nelson Bay Rd near Slades Rd",
+   "230214" : "Hunter St nr Steel St",
+   "231529" : "Fingal St Near Magnus St",
+   "231518" : "Marine Dr Near Lentara St",
+   "231650" : "Nelson Bay Rd",
+   "2318144" : "Tilligerry Ck Nelson Bay Rd",
+   "231689" : "Fenninghams Island Turn Off Nelson Bay Rd",
+   "2318175" : "Nelson Bay Rd",
+   "231698" : "Diere Point Rd near Taylor Beach Rd",
+   "231575" : "Harbourside Haven Retirement Village Shoal Bay",
+   "2318154" : "Nelson Bay Rd near Fullerton Cove Rd",
+   "231572" : "Nelson Bay Rsl Shoal Bay Rd",
+   "230418" : "Maitland Rd opp Valencia St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_75-131-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_75-131-_-sj2-1-1-TA",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231511",
+               null
+            ],
+            [
+               "231512",
+               "42S pasd"
+            ],
+            [
+               "231513",
+               "43S pasd"
+            ],
+            [
+               "231514",
+               "43S pasd"
+            ],
+            [
+               "231515",
+               "47S pasd"
+            ],
+            [
+               "231595",
+               "30S pasd"
+            ],
+            [
+               "231516",
+               "39S pasd"
+            ],
+            [
+               "231517",
+               "30S pasd"
+            ],
+            [
+               "231518",
+               "43S pasd"
+            ],
+            [
+               "231596",
+               "1M pasd"
+            ],
+            [
+               "231519",
+               "54S pasd"
+            ],
+            [
+               "231520",
+               "25S pasd"
+            ],
+            [
+               "231521",
+               "58S pasd"
+            ],
+            [
+               "231522",
+               "41S pasd"
+            ],
+            [
+               "231523",
+               "45S pasd"
+            ],
+            [
+               "231524",
+               "1M21S pasd"
+            ],
+            [
+               "231525",
+               "1M10S pasd"
+            ],
+            [
+               "231526",
+               "47S pasd"
+            ],
+            [
+               "231527",
+               "1M8S pasd"
+            ],
+            [
+               "231528",
+               "1M52S pasd"
+            ],
+            [
+               "231529",
+               "1M11S pasd"
+            ],
+            [
+               "231534",
+               "1M10S pasd"
+            ],
+            [
+               "231535",
+               "1M21S pasd"
+            ],
+            [
+               "231536",
+               "34S pasd"
+            ],
+            [
+               "231537",
+               "1M13S pasd"
+            ],
+            [
+               "231538",
+               "44S pasd"
+            ],
+            [
+               "231539",
+               "38S pasd"
+            ],
+            [
+               "231540",
+               "30S pasd"
+            ],
+            [
+               "231597",
+               "2M21S pasd"
+            ],
+            [
+               "231598",
+               "45S pasd"
+            ],
+            [
+               "231599",
+               "51S pasd"
+            ],
+            [
+               "2315100",
+               "42S pasd"
+            ],
+            [
+               "2315101",
+               "51S pasd"
+            ],
+            [
+               "2315102",
+               "1M33S pasd"
+            ],
+            [
+               "2315103",
+               "47S pasd"
+            ],
+            [
+               "231711",
+               "47S pasd"
+            ],
+            [
+               "231712",
+               "58S pasd"
+            ],
+            [
+               "231713",
+               "34S pasd"
+            ],
+            [
+               "231718",
+               "1M12S pasd"
+            ],
+            [
+               "231744",
+               "19S pasd"
+            ],
+            [
+               "231745",
+               "21S pasd"
+            ],
+            [
+               "231746",
+               "21S pasd"
+            ],
+            [
+               "231747",
+               "22S pasd"
+            ],
+            [
+               "231748",
+               "19S pasd"
+            ],
+            [
+               "231749",
+               "21S pasd"
+            ],
+            [
+               "231750",
+               "21S pasd"
+            ],
+            [
+               "231765",
+               "21S pasd"
+            ],
+            [
+               "231766",
+               "32S pasd"
+            ],
+            [
+               "231697",
+               "1M40S pasd"
+            ],
+            [
+               "231682",
+               "2M3S pasd"
+            ],
+            [
+               "231699",
+               "11S pasd"
+            ],
+            [
+               "231693",
+               "1M56S pasd"
+            ],
+            [
+               "231641",
+               "24S pasd"
+            ],
+            [
+               "231642",
+               "21S pasd"
+            ],
+            [
+               "231643",
+               "49S pasd"
+            ],
+            [
+               "231653",
+               "2M6S pasd"
+            ],
+            [
+               "231655",
+               "1M4S pasd"
+            ],
+            [
+               "231656",
+               "1M10S pasd"
+            ],
+            [
+               "231657",
+               "1M3S pasd"
+            ],
+            [
+               "2318142",
+               "1M4S pasd"
+            ],
+            [
+               "2318143",
+               "58S pasd"
+            ],
+            [
+               "2318144",
+               "44S pasd"
+            ],
+            [
+               "2318145",
+               "42S pasd"
+            ],
+            [
+               "2318146",
+               "28S pasd"
+            ],
+            [
+               "2318147",
+               "2M22S pasd"
+            ],
+            [
+               "2318148",
+               "1M42S pasd"
+            ],
+            [
+               "2318149",
+               "2M27S pasd"
+            ],
+            [
+               "2318150",
+               "1M46S pasd"
+            ],
+            [
+               "2318151",
+               "28S pasd"
+            ],
+            [
+               "2318152",
+               "1M15S pasd"
+            ],
+            [
+               "2318153",
+               "1M30S pasd"
+            ],
+            [
+               "2318154",
+               "1M33S pasd"
+            ],
+            [
+               "2318155",
+               "1M15S pasd"
+            ],
+            [
+               "2318156",
+               "1M51S pasd"
+            ],
+            [
+               "2318157",
+               "2M3S pasd"
+            ],
+            [
+               "229552",
+               "1M48S pasd"
+            ],
+            [
+               "229511",
+               "53S pasd"
+            ],
+            [
+               "229512",
+               "49S pasd"
+            ],
+            [
+               "229513",
+               "25S pasd"
+            ],
+            [
+               "229521",
+               "52S pasd"
+            ],
+            [
+               "230444",
+               "3M22S pasd"
+            ],
+            [
+               "230445",
+               "1M50S pasd"
+            ],
+            [
+               "230446",
+               "3M42S pasd"
+            ],
+            [
+               "230428",
+               "1M11S pasd"
+            ],
+            [
+               "2304269",
+               "53S pasd"
+            ],
+            [
+               "230429",
+               "11S setDown"
+            ],
+            [
+               "2304234",
+               "38S setDown"
+            ],
+            [
+               "230431",
+               "13S setDown"
+            ],
+            [
+               "230417",
+               "5S setDown"
+            ],
+            [
+               "230418",
+               "23S setDown"
+            ],
+            [
+               "230432",
+               "16S setDown"
+            ],
+            [
+               "230433",
+               "22S setDown"
+            ],
+            [
+               "230434",
+               "20S setDown"
+            ],
+            [
+               "230435",
+               "23S setDown"
+            ],
+            [
+               "229711",
+               "28S setDown"
+            ],
+            [
+               "229713",
+               "21S setDown"
+            ],
+            [
+               "229615",
+               "26S setDown"
+            ],
+            [
+               "229616",
+               "19S setDown"
+            ],
+            [
+               "229617",
+               "24S setDown"
+            ],
+            [
+               "229612",
+               "27S setDown"
+            ],
+            [
+               "229311",
+               "15S setDown"
+            ],
+            [
+               "230219",
+               "41S setDown"
+            ],
+            [
+               "230220",
+               "17S setDown"
+            ],
+            [
+               "230212",
+               "27S setDown"
+            ],
+            [
+               "230213",
+               "28S setDown"
+            ],
+            [
+               "230222",
+               "27S setDown"
+            ],
+            [
+               "230218",
+               "21S setDown"
+            ],
+            [
+               "230011",
+               "45S setDown"
+            ],
+            [
+               "230034",
+               "26S setDown"
+            ],
+            [
+               "230029",
+               "38S setDown"
+            ],
+            [
+               "230033",
+               "10S setDown"
+            ],
+            [
+               "2300103",
+               "10S setDown"
+            ]
+         ],
+         "id" : "JP_75-131-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Fingal Bay Shops Market St - Newcastle Station Terminus",
+            "rs_ref" : "RS_75-131-_-sj2-1-H-1",
+            "id" : "R_75-131-_-sj2-1-H-1"
+         }
+      },
+      "service" : "75-131-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "131"
+   },
+   "VJ_75-131-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_75-131-_-sj2-1-3-TA",
+      "leaves" : "10:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "230022",
+               null
+            ],
+            [
+               "230017",
+               "57S pickUp"
+            ],
+            [
+               "230047",
+               "38S pickUp"
+            ],
+            [
+               "230026",
+               "53S pickUp"
+            ],
+            [
+               "230036",
+               "32S pickUp"
+            ],
+            [
+               "230050",
+               "37S pickUp"
+            ],
+            [
+               "230028",
+               "54S pickUp"
+            ],
+            [
+               "230214",
+               "55S pickUp"
+            ],
+            [
+               "230215",
+               "56S pickUp"
+            ],
+            [
+               "230216",
+               "44S pickUp"
+            ],
+            [
+               "230211",
+               "39S pickUp"
+            ],
+            [
+               "230221",
+               "55S pickUp"
+            ],
+            [
+               "229618",
+               "1M22S pickUp"
+            ],
+            [
+               "229613",
+               "35S pickUp"
+            ],
+            [
+               "229619",
+               "50S pickUp"
+            ],
+            [
+               "229620",
+               "39S pickUp"
+            ],
+            [
+               "229621",
+               "49S pickUp"
+            ],
+            [
+               "229714",
+               "43S pickUp"
+            ],
+            [
+               "229712",
+               "51S pickUp"
+            ],
+            [
+               "230436",
+               "31S pickUp"
+            ],
+            [
+               "230437",
+               "55S pickUp"
+            ],
+            [
+               "230438",
+               "37S pickUp"
+            ],
+            [
+               "230439",
+               "37S pickUp"
+            ],
+            [
+               "230419",
+               "51S pickUp"
+            ],
+            [
+               "2304233",
+               "18S pickUp"
+            ],
+            [
+               "230447",
+               "13S pickUp"
+            ],
+            [
+               "230448",
+               "13S pickUp"
+            ],
+            [
+               "2304255",
+               "26S pickUp"
+            ],
+            [
+               "230452",
+               "12S pickUp"
+            ],
+            [
+               "230453",
+               "1M12S pasd"
+            ],
+            [
+               "230454",
+               "25S pasd"
+            ],
+            [
+               "230455",
+               "2M45S pasd"
+            ],
+            [
+               "230456",
+               "1M19S pasd"
+            ],
+            [
+               "229514",
+               "2M21S pasd"
+            ],
+            [
+               "229515",
+               "58S pasd"
+            ],
+            [
+               "229516",
+               "11S pasd"
+            ],
+            [
+               "229517",
+               "37S pasd"
+            ],
+            [
+               "231811",
+               "50S pasd"
+            ],
+            [
+               "229553",
+               "9S pasd"
+            ],
+            [
+               "2318158",
+               "1M50S pasd"
+            ],
+            [
+               "2318159",
+               "1M54S pasd"
+            ],
+            [
+               "2318160",
+               "1M50S pasd"
+            ],
+            [
+               "2318161",
+               "1M27S pasd"
+            ],
+            [
+               "2318170",
+               "1M17S pasd"
+            ],
+            [
+               "2318152",
+               "1M33S pasd"
+            ],
+            [
+               "2318171",
+               "1M9S pasd"
+            ],
+            [
+               "2318172",
+               "27S pasd"
+            ],
+            [
+               "2318173",
+               "1M53S pasd"
+            ],
+            [
+               "2318174",
+               "2M19S pasd"
+            ],
+            [
+               "2318175",
+               "1M40S pasd"
+            ],
+            [
+               "2318176",
+               "2M32S pasd"
+            ],
+            [
+               "2318177",
+               "30S pasd"
+            ],
+            [
+               "2318178",
+               "55S pasd"
+            ],
+            [
+               "2318179",
+               "52S pasd"
+            ],
+            [
+               "2318141",
+               "1M20S pasd"
+            ],
+            [
+               "231650",
+               "1M26S pasd"
+            ],
+            [
+               "231651",
+               "1M19S pasd"
+            ],
+            [
+               "231652",
+               "1M32S pasd"
+            ],
+            [
+               "231654",
+               "1M27S pasd"
+            ],
+            [
+               "231688",
+               "1M12S pasd"
+            ],
+            [
+               "231689",
+               "1M36S pasd"
+            ],
+            [
+               "231690",
+               "1M3S pasd"
+            ],
+            [
+               "231691",
+               "30S pasd"
+            ],
+            [
+               "231692",
+               "31S pasd"
+            ],
+            [
+               "231682",
+               "2M47S pasd"
+            ],
+            [
+               "231699",
+               "22S pasd"
+            ],
+            [
+               "231698",
+               "1M54S pasd"
+            ],
+            [
+               "231767",
+               "1M51S pasd"
+            ],
+            [
+               "231768",
+               "24S pasd"
+            ],
+            [
+               "231769",
+               "15S pasd"
+            ],
+            [
+               "231736",
+               "27S pasd"
+            ],
+            [
+               "231737",
+               "28S pasd"
+            ],
+            [
+               "231738",
+               "21S pasd"
+            ],
+            [
+               "231739",
+               "25S pasd"
+            ],
+            [
+               "231740",
+               "19S pasd"
+            ],
+            [
+               "231741",
+               "23S pasd"
+            ],
+            [
+               "231742",
+               "13S pasd"
+            ],
+            [
+               "231718",
+               "38S pasd"
+            ],
+            [
+               "231719",
+               "28S pasd"
+            ],
+            [
+               "231720",
+               "13S pasd"
+            ],
+            [
+               "231721",
+               "22S pasd"
+            ],
+            [
+               "2315106",
+               "25S pasd"
+            ],
+            [
+               "2315107",
+               "23S pasd"
+            ],
+            [
+               "2315108",
+               "33S pasd"
+            ],
+            [
+               "2315109",
+               "25S pasd"
+            ],
+            [
+               "2315110",
+               "24S pasd"
+            ],
+            [
+               "2315111",
+               "18S pasd"
+            ],
+            [
+               "2315112",
+               "29S pasd"
+            ],
+            [
+               "2315113",
+               "30S pasd"
+            ],
+            [
+               "231543",
+               "2M33S pasd"
+            ],
+            [
+               "231564",
+               "45S pasd"
+            ],
+            [
+               "231565",
+               "1M pasd"
+            ],
+            [
+               "231566",
+               "56S pasd"
+            ],
+            [
+               "231567",
+               "1M31S pasd"
+            ],
+            [
+               "231568",
+               "45S pasd"
+            ],
+            [
+               "231569",
+               "1M7S pasd"
+            ],
+            [
+               "231570",
+               "1M3S pasd"
+            ],
+            [
+               "231571",
+               "59S pasd"
+            ],
+            [
+               "231572",
+               "27S pasd"
+            ],
+            [
+               "231573",
+               "54S pasd"
+            ],
+            [
+               "231574",
+               "49S pasd"
+            ],
+            [
+               "231575",
+               "41S pasd"
+            ],
+            [
+               "231576",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_75-131-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Newcastle Station - Shoal Bay Country Club Shoal Bay Rd",
+            "rs_ref" : "RS_75-131-_-sj2-1-R-2",
+            "id" : "R_75-131-_-sj2-1-R-2"
+         }
+      },
+      "service" : "75-131-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "131"
+   },
+   "VJ_75-131-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_75-131-_-sj2-1-2-TA",
+      "leaves" : "16:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "230022",
+               null
+            ],
+            [
+               "230017",
+               "57S pickUp"
+            ],
+            [
+               "230047",
+               "38S pickUp"
+            ],
+            [
+               "230026",
+               "53S pickUp"
+            ],
+            [
+               "230036",
+               "32S pickUp"
+            ],
+            [
+               "230050",
+               "37S pickUp"
+            ],
+            [
+               "230028",
+               "54S pickUp"
+            ],
+            [
+               "230214",
+               "55S pickUp"
+            ],
+            [
+               "230215",
+               "56S pickUp"
+            ],
+            [
+               "230216",
+               "44S pickUp"
+            ],
+            [
+               "230211",
+               "39S pickUp"
+            ],
+            [
+               "230221",
+               "55S pickUp"
+            ],
+            [
+               "229618",
+               "1M22S pickUp"
+            ],
+            [
+               "229613",
+               "35S pickUp"
+            ],
+            [
+               "229619",
+               "50S pickUp"
+            ],
+            [
+               "229620",
+               "39S pickUp"
+            ],
+            [
+               "229621",
+               "49S pickUp"
+            ],
+            [
+               "229714",
+               "43S pickUp"
+            ],
+            [
+               "229712",
+               "51S pickUp"
+            ],
+            [
+               "230436",
+               "31S pickUp"
+            ],
+            [
+               "230437",
+               "55S pickUp"
+            ],
+            [
+               "230438",
+               "37S pickUp"
+            ],
+            [
+               "230439",
+               "37S pickUp"
+            ],
+            [
+               "230419",
+               "51S pickUp"
+            ],
+            [
+               "2304233",
+               "18S pickUp"
+            ],
+            [
+               "230447",
+               "13S pickUp"
+            ],
+            [
+               "230448",
+               "13S pickUp"
+            ],
+            [
+               "2304255",
+               "26S pickUp"
+            ],
+            [
+               "230452",
+               "12S pickUp"
+            ],
+            [
+               "230453",
+               "1M12S pasd"
+            ],
+            [
+               "230454",
+               "25S pasd"
+            ],
+            [
+               "230455",
+               "2M45S pasd"
+            ],
+            [
+               "230456",
+               "1M19S pasd"
+            ],
+            [
+               "229514",
+               "2M21S pasd"
+            ],
+            [
+               "229515",
+               "58S pasd"
+            ],
+            [
+               "229516",
+               "11S pasd"
+            ],
+            [
+               "229517",
+               "37S pasd"
+            ],
+            [
+               "231811",
+               "50S pasd"
+            ],
+            [
+               "229553",
+               "9S pasd"
+            ],
+            [
+               "2318158",
+               "1M50S pasd"
+            ],
+            [
+               "2318159",
+               "1M54S pasd"
+            ],
+            [
+               "2318160",
+               "1M50S pasd"
+            ],
+            [
+               "2318161",
+               "1M27S pasd"
+            ],
+            [
+               "2318170",
+               "1M17S pasd"
+            ],
+            [
+               "2318152",
+               "1M33S pasd"
+            ],
+            [
+               "2318171",
+               "1M9S pasd"
+            ],
+            [
+               "2318172",
+               "27S pasd"
+            ],
+            [
+               "2318173",
+               "1M53S pasd"
+            ],
+            [
+               "2318174",
+               "2M19S pasd"
+            ],
+            [
+               "2318175",
+               "1M40S pasd"
+            ],
+            [
+               "2318176",
+               "2M32S pasd"
+            ],
+            [
+               "2318177",
+               "26S pasd"
+            ],
+            [
+               "2318178",
+               "49S pasd"
+            ],
+            [
+               "2318179",
+               "46S pasd"
+            ],
+            [
+               "2318141",
+               "1M11S pasd"
+            ],
+            [
+               "231650",
+               "1M16S pasd"
+            ],
+            [
+               "231651",
+               "1M10S pasd"
+            ],
+            [
+               "231652",
+               "1M21S pasd"
+            ],
+            [
+               "231654",
+               "1M17S pasd"
+            ],
+            [
+               "231688",
+               "1M3S pasd"
+            ],
+            [
+               "231689",
+               "1M25S pasd"
+            ],
+            [
+               "231690",
+               "55S pasd"
+            ],
+            [
+               "231691",
+               "26S pasd"
+            ],
+            [
+               "231692",
+               "27S pasd"
+            ],
+            [
+               "231682",
+               "2M28S pasd"
+            ],
+            [
+               "231699",
+               "19S pasd"
+            ],
+            [
+               "231698",
+               "1M39S pasd"
+            ],
+            [
+               "231767",
+               "1M37S pasd"
+            ],
+            [
+               "231768",
+               "21S pasd"
+            ],
+            [
+               "231769",
+               "13S pasd"
+            ],
+            [
+               "231736",
+               "24S pasd"
+            ],
+            [
+               "231737",
+               "24S pasd"
+            ],
+            [
+               "231738",
+               "18S pasd"
+            ],
+            [
+               "231739",
+               "21S pasd"
+            ],
+            [
+               "231740",
+               "17S pasd"
+            ],
+            [
+               "231741",
+               "20S pasd"
+            ],
+            [
+               "231742",
+               "12S pasd"
+            ],
+            [
+               "231718",
+               "35S pasd"
+            ],
+            [
+               "231719",
+               "35S pasd"
+            ],
+            [
+               "231720",
+               "16S pasd"
+            ],
+            [
+               "231721",
+               "28S pasd"
+            ],
+            [
+               "2315106",
+               "31S pasd"
+            ],
+            [
+               "2315107",
+               "29S pasd"
+            ],
+            [
+               "2315108",
+               "42S pasd"
+            ],
+            [
+               "2315109",
+               "31S pasd"
+            ],
+            [
+               "2315110",
+               "31S pasd"
+            ],
+            [
+               "2315111",
+               "22S pasd"
+            ],
+            [
+               "2315112",
+               "35S pasd"
+            ],
+            [
+               "2315113",
+               "30S pasd"
+            ],
+            [
+               "231543",
+               "2M33S pasd"
+            ],
+            [
+               "231564",
+               "45S pasd"
+            ],
+            [
+               "231565",
+               "1M pasd"
+            ],
+            [
+               "231566",
+               "56S pasd"
+            ],
+            [
+               "231567",
+               "1M31S pasd"
+            ],
+            [
+               "231568",
+               "45S pasd"
+            ],
+            [
+               "231569",
+               "1M7S pasd"
+            ],
+            [
+               "231570",
+               "1M3S pasd"
+            ],
+            [
+               "231571",
+               "59S pasd"
+            ],
+            [
+               "231572",
+               "27S pasd"
+            ],
+            [
+               "231573",
+               "54S pasd"
+            ],
+            [
+               "231574",
+               "49S pasd"
+            ],
+            [
+               "231575",
+               "41S pasd"
+            ],
+            [
+               "231576",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_75-131-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Newcastle Station - Shoal Bay Country Club Shoal Bay Rd",
+            "rs_ref" : "RS_75-131-_-sj2-1-R-2",
+            "id" : "R_75-131-_-sj2-1-R-2"
+         }
+      },
+      "service" : "75-131-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "131"
+   }
+}
+;
+

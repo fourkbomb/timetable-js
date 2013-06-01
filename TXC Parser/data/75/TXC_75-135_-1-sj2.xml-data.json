@@ -1,0 +1,964 @@
+var OPERATOR = "Port Stephens Coach";
+
+
+var LINES = {
+   "75-135-_-sj2-1" : "135"
+}
+;
+
+var stations = {
+   "2315101" : "Sandy Point Rd Near Carrool Av",
+   "231612" : "Frosts Rd near Nelson Bay Rd",
+   "2318176" : "Salt Ash Public School Oakfield Lane",
+   "231644" : "Bobs Farm Shop Nelson Bay Rd",
+   "231641" : "Nelson Bay Rd near Port Stephens Dr",
+   "231651" : "Nelson Bay Rd",
+   "231712" : "Oaks Pacific Blue_ Sandy Point Rd",
+   "2324118" : "Masonite Boundry Masonite Rd",
+   "231627" : "Anna Bay School Gan Gan Rd",
+   "231642" : "Nelson Bay Rd",
+   "231713" : "Bagnalls Beach Rd Near Sandy Point Rd",
+   "2318142" : "Nelson Bay Rd near Boyces Trk",
+   "231615" : "Frosts Rd Near Gan Gan Rd",
+   "2318146" : "Salt Ash Public School Oakfield Lane",
+   "231659" : "Gan Gan Rd Near James Paterson St",
+   "232413" : "Bp Service Pacific Hwy",
+   "231646" : "Marsh Rd",
+   "2318141" : "Nelson Bay Rd",
+   "2318177" : "Nelson Bay Rd",
+   "2318172" : "Nelson Bay Rd Near Medowie Rd",
+   "231645" : "Bobs Farm School Marsh Rd",
+   "231637" : "Gan Gan Rd near Old Main Rd",
+   "232428" : "Kiora St Pacific Hwy",
+   "232411" : "Bp Service Pacific Hwy",
+   "231640" : "Fire Nelson Bay Rd",
+   "232499" : "Opposite Bi Lo Car Park Pacific Hwy",
+   "231537" : "Government Rd Near Seaham St",
+   "2318163" : "Hothouse Cabbage Tree Rd",
+   "231655" : "Nelson Bay Rd",
+   "231647" : "Marsh Rd",
+   "231715" : "Salamander Way near Leisure Dr",
+   "2318150" : "Nelson Bay Rd Near Medowie Rd",
+   "2318147" : "Nelson Bay Rd",
+   "231625" : "Gan Gan Rd Near Blanch St",
+   "2318165" : "Legend Cranes Cabbage Tree Rd",
+   "232412" : "Raymond Terrace Shopping Centre_ Sturgeon St",
+   "231614" : "Frosts Rd",
+   "231688" : "Bobs Farm Shop Nelson Bay Rd",
+   "2318173" : "Banksia Grove Mobile Home Village",
+   "2315102" : "Sandy Point Rd Near Foreshore Dr",
+   "2324123" : "Coonanbarra St and Pacific Hwy",
+   "2318148" : "Nelson Bay Rd Near Sansom Rd",
+   "232495" : "Pacific Hwy near Coonanbarra St",
+   "2318171" : "Nelson Bay Rd near Slades Rd",
+   "231711" : "Sandy Point Rd Near Worimi Dr",
+   "231694" : "Fire Nelson Bay Rd",
+   "231718" : "Salamander Shopping Centre Town Centre Cct",
+   "232415" : "Masonite Boundry Masonite Rd",
+   "2318178" : "Tilligerry Ck Nelson Bay Rd",
+   "232414" : "Masonite Gate Masonite Rd",
+   "231748" : "Salamander Wy",
+   "231683" : "Marsh Rd Near",
+   "231749" : "Salamander Wy",
+   "231538" : "Government Rd Near Taree St",
+   "231636" : "Gan Gan Rd Near James Paterson St",
+   "231536" : "Dalton Centre Government Rd Near Church St",
+   "231539" : "Government Rd Near Sandy Point Rd",
+   "231611" : "Nelson Bay Rd",
+   "231618" : "One Mile Beach Caravan Park",
+   "231654" : "Nelson Bay Rd",
+   "231657" : "Nelson Bay Rd",
+   "231685" : "Marsh Rd",
+   "2318179" : "Nelson Bay Rd near Marsh Rd",
+   "2318170" : "William Town Public School Nelson Bay Rd",
+   "231599" : "Corlette Fire Sandy Point Rd",
+   "2315104" : "Gan Gan Army Camp Nelson Bay Rd",
+   "2318162" : "Cabbage Tree Rd",
+   "231746" : "Salamander Wy Near",
+   "231691" : "Anna Bay Oval Nelson Bay Rd",
+   "231617" : "Eucalyptus Drive Gan Gan Rd",
+   "231540" : "Bagnalls Beach Sandy Point Rd",
+   "2318169" : "Cabbage Tree Rd",
+   "2318149" : "Banksia Grove Nelson Bay Rd",
+   "231658" : "Gan Gan Rd",
+   "2322128" : "80 Sign Masonite Rd",
+   "231597" : "Corlette Shops Sandy Point Rd",
+   "2318143" : "Midway Service Nelson Bay Rd",
+   "231690" : "Nelson Bay Rd",
+   "231687" : "Bobs Farm Public School Marsh Rd",
+   "2315100" : "Sandy Point Rd Near Judith St",
+   "2324119" : "Masonite Office Block Masonite Rd",
+   "231638" : "Gan Gan Rd Near Nelson Bay Rd",
+   "231695" : "David Grahams Golf Complex",
+   "232226" : "Koala Sign Masonite Rd",
+   "231535" : "Nelson Bay Donald St near Stockton St",
+   "2318167" : "642 Cabbage Tree Rd",
+   "2318153" : "Nelson Bay Rd near Cabbage Tree Rd",
+   "2318174" : "Nelson Bay Rd Near Sansom Rd",
+   "231613" : "Robert Connell Close Frosts Rd",
+   "231652" : "Nelson Bay Rd",
+   "231653" : "Nelson Bay Rd",
+   "231747" : "Salamander Wy",
+   "231697" : "Port Stephens Dr before Taylors Beach Rd",
+   "2318164" : "647 Cabbage Tree Rd near Barrie Cl",
+   "2318145" : "Lemontree Passage Turn Off Nelson Bay Rd",
+   "231750" : "Salamander Wy",
+   "2318168" : "Cabbage Tree Rd",
+   "231682" : "Taylor Beach Rd near Albert St",
+   "231619" : "Boat Harbour Turn Off Gan Gan Rd",
+   "231598" : "Sandy Point Rd",
+   "231765" : "Port Stephens Dr Near Estate Dr",
+   "231686" : "Marsh Rd",
+   "231639" : "Bay Village Retreat",
+   "231616" : "Middlerock Caravan Park Gan Gan Rd",
+   "2315103" : "Sandy Point Rd Near Spinnaker Wy",
+   "231766" : "Port Stephens Dr near Soldiers Point Rd",
+   "231660" : "Anna Bay Shops Gan Gan Rd",
+   "231693" : "Anna Bay (Depot)",
+   "231643" : "Fenninghams Island Turn Off Nelson Bay Rd",
+   "231696" : "Gan Gan Rd Near Nelson Bay Rd",
+   "231744" : "Salamander Wy",
+   "231745" : "Salamander Wy Near Sandpiper Reserve",
+   "231626" : "Gan Gan Rd Near Old Main Rd",
+   "2318151" : "Williamtown Nelson Bay Rd near Slades Rd",
+   "231650" : "Nelson Bay Rd",
+   "231656" : "Nelson Bay Rd",
+   "231689" : "Fenninghams Island Turn Off Nelson Bay Rd",
+   "231684" : "Marsh Rd",
+   "2318144" : "Tilligerry Ck Nelson Bay Rd",
+   "2318175" : "Nelson Bay Rd",
+   "2318166" : "Legends Crane Cabbage Tree Rd",
+   "231649" : "Marsh Rd Near",
+   "231648" : "Marsh Rd",
+   "231635" : "Anna Bay Shops Gan Gan Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_75-135-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_75-135-_-sj2-1-2-TA",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "232412",
+               null
+            ],
+            [
+               "232499",
+               "12S pasd"
+            ],
+            [
+               "2324123",
+               "44S pasd"
+            ],
+            [
+               "232428",
+               "9S pasd"
+            ],
+            [
+               "232413",
+               "23S pasd"
+            ],
+            [
+               "232414",
+               "1M51S pasd"
+            ],
+            [
+               "232415",
+               "2M32S pasd"
+            ],
+            [
+               "2322128",
+               "2M11S pasd"
+            ],
+            [
+               "2318166",
+               "1M37S pasd"
+            ],
+            [
+               "2318167",
+               "2M34S pasd"
+            ],
+            [
+               "2318168",
+               "2M5S pasd"
+            ],
+            [
+               "2318169",
+               "2M16S pasd"
+            ],
+            [
+               "2318170",
+               "1M54S pasd"
+            ],
+            [
+               "2318171",
+               "1M2S pasd"
+            ],
+            [
+               "2318172",
+               "26S pasd"
+            ],
+            [
+               "2318173",
+               "1M47S pasd"
+            ],
+            [
+               "2318174",
+               "2M12S pasd"
+            ],
+            [
+               "2318175",
+               "1M35S pasd"
+            ],
+            [
+               "2318176",
+               "2M30S pasd"
+            ],
+            [
+               "2318177",
+               "23S pasd"
+            ],
+            [
+               "2318178",
+               "43S pasd"
+            ],
+            [
+               "2318179",
+               "40S pasd"
+            ],
+            [
+               "231683",
+               "1M3S pasd"
+            ],
+            [
+               "231684",
+               "1M3S pasd"
+            ],
+            [
+               "231685",
+               "1M9S pasd"
+            ],
+            [
+               "231686",
+               "1M7S pasd"
+            ],
+            [
+               "231687",
+               "52S pasd"
+            ],
+            [
+               "231688",
+               "2M59S pasd"
+            ],
+            [
+               "231689",
+               "3M50S pasd"
+            ],
+            [
+               "231690",
+               "2M31S pasd"
+            ],
+            [
+               "231691",
+               "1M11S pasd"
+            ],
+            [
+               "231694",
+               "36S pasd"
+            ],
+            [
+               "231695",
+               "39S pasd"
+            ],
+            [
+               "231696",
+               "1M4S pasd"
+            ],
+            [
+               "231658",
+               "43S pasd"
+            ],
+            [
+               "231659",
+               "47S pasd"
+            ],
+            [
+               "231660",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_75-135-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Raymond Terrace Shopping Centre Sturgeon St - Anna Bay Shops Gan Gan Rd",
+            "rs_ref" : "RS_75-135-_-sj2-1-R-2",
+            "id" : "R_75-135-_-sj2-1-R-2"
+         }
+      },
+      "service" : "75-135-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "135"
+   },
+   "VJ_75-135-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_75-135-_-sj2-1-4-TA",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231718",
+               null
+            ],
+            [
+               "231744",
+               "19S pasd"
+            ],
+            [
+               "231745",
+               "21S pasd"
+            ],
+            [
+               "231746",
+               "21S pasd"
+            ],
+            [
+               "231747",
+               "22S pasd"
+            ],
+            [
+               "231748",
+               "19S pasd"
+            ],
+            [
+               "231749",
+               "21S pasd"
+            ],
+            [
+               "231750",
+               "21S pasd"
+            ],
+            [
+               "231765",
+               "21S pasd"
+            ],
+            [
+               "231766",
+               "32S pasd"
+            ],
+            [
+               "231697",
+               "1M43S pasd"
+            ],
+            [
+               "231682",
+               "1M37S pasd"
+            ],
+            [
+               "231693",
+               "2M54S pasd"
+            ],
+            [
+               "231641",
+               "34S pasd"
+            ],
+            [
+               "231642",
+               "30S pasd"
+            ],
+            [
+               "231643",
+               "1M9S pasd"
+            ],
+            [
+               "231644",
+               "1M45S pasd"
+            ],
+            [
+               "231653",
+               "1M15S pasd"
+            ],
+            [
+               "231655",
+               "1M31S pasd"
+            ],
+            [
+               "231656",
+               "1M39S pasd"
+            ],
+            [
+               "231657",
+               "1M30S pasd"
+            ],
+            [
+               "2318142",
+               "1M32S pasd"
+            ],
+            [
+               "2318143",
+               "1M23S pasd"
+            ],
+            [
+               "2318144",
+               "1M2S pasd"
+            ],
+            [
+               "2318145",
+               "1M pasd"
+            ],
+            [
+               "2318146",
+               "39S pasd"
+            ],
+            [
+               "2318147",
+               "1M37S pasd"
+            ],
+            [
+               "2318148",
+               "1M10S pasd"
+            ],
+            [
+               "2318149",
+               "1M41S pasd"
+            ],
+            [
+               "2318150",
+               "1M12S pasd"
+            ],
+            [
+               "2318151",
+               "19S pasd"
+            ],
+            [
+               "2318153",
+               "40S pasd"
+            ],
+            [
+               "2318162",
+               "1M26S pasd"
+            ],
+            [
+               "2318163",
+               "1M37S pasd"
+            ],
+            [
+               "2318164",
+               "1M43S pasd"
+            ],
+            [
+               "2318165",
+               "1M33S pasd"
+            ],
+            [
+               "232226",
+               "1M14S pasd"
+            ],
+            [
+               "2324118",
+               "1M31S pasd"
+            ],
+            [
+               "2324119",
+               "1M45S pasd"
+            ],
+            [
+               "232411",
+               "1M29S pasd"
+            ],
+            [
+               "232495",
+               "16S pasd"
+            ],
+            [
+               "232412",
+               "16S pasd"
+            ]
+         ],
+         "id" : "JP_75-135-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Salamnder Centre Town Centre Cct - Raymond Terrace Shopping Centre Sturgeon St",
+            "rs_ref" : "RS_75-135-_-sj2-1-H-4",
+            "id" : "R_75-135-_-sj2-1-H-4"
+         }
+      },
+      "service" : "75-135-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "135"
+   },
+   "VJ_75-135-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_75-135-_-sj2-1-3-TA",
+      "leaves" : "08:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "232412",
+               null
+            ],
+            [
+               "232499",
+               "13S pasd"
+            ],
+            [
+               "2324123",
+               "47S pasd"
+            ],
+            [
+               "232428",
+               "9S pasd"
+            ],
+            [
+               "232413",
+               "24S pasd"
+            ],
+            [
+               "232414",
+               "1M59S pasd"
+            ],
+            [
+               "232415",
+               "2M43S pasd"
+            ],
+            [
+               "2322128",
+               "2M20S pasd"
+            ],
+            [
+               "2318166",
+               "1M44S pasd"
+            ],
+            [
+               "2318167",
+               "2M45S pasd"
+            ],
+            [
+               "2318168",
+               "2M14S pasd"
+            ],
+            [
+               "2318169",
+               "2M25S pasd"
+            ],
+            [
+               "2318170",
+               "2M2S pasd"
+            ],
+            [
+               "2318171",
+               "1M6S pasd"
+            ],
+            [
+               "2318172",
+               "28S pasd"
+            ],
+            [
+               "2318173",
+               "1M55S pasd"
+            ],
+            [
+               "2318174",
+               "2M22S pasd"
+            ],
+            [
+               "2318175",
+               "1M42S pasd"
+            ],
+            [
+               "2318176",
+               "2M42S pasd"
+            ],
+            [
+               "2318177",
+               "29S pasd"
+            ],
+            [
+               "2318178",
+               "53S pasd"
+            ],
+            [
+               "2318179",
+               "50S pasd"
+            ],
+            [
+               "2318141",
+               "1M17S pasd"
+            ],
+            [
+               "231650",
+               "1M22S pasd"
+            ],
+            [
+               "231651",
+               "1M16S pasd"
+            ],
+            [
+               "231652",
+               "1M28S pasd"
+            ],
+            [
+               "231654",
+               "1M23S pasd"
+            ],
+            [
+               "231688",
+               "1M9S pasd"
+            ],
+            [
+               "231689",
+               "1M32S pasd"
+            ],
+            [
+               "231690",
+               "1M pasd"
+            ],
+            [
+               "231691",
+               "28S pasd"
+            ],
+            [
+               "231694",
+               "14S pasd"
+            ],
+            [
+               "231695",
+               "15S pasd"
+            ],
+            [
+               "231696",
+               "25S pasd"
+            ],
+            [
+               "231658",
+               "17S pasd"
+            ],
+            [
+               "231659",
+               "19S pasd"
+            ],
+            [
+               "231660",
+               "19S pasd"
+            ]
+         ],
+         "id" : "JP_75-135-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Raymond Terrace Shopping Centre Sturgeon St - Anna Bay Shops Gan Gan Rd",
+            "rs_ref" : "RS_75-135-_-sj2-1-R-3",
+            "id" : "R_75-135-_-sj2-1-R-3"
+         }
+      },
+      "service" : "75-135-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "135"
+   },
+   "VJ_75-135-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_75-135-_-sj2-1-1-TA",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231535",
+               null
+            ],
+            [
+               "231536",
+               "28S pasd"
+            ],
+            [
+               "231537",
+               "1M pasd"
+            ],
+            [
+               "231538",
+               "36S pasd"
+            ],
+            [
+               "231539",
+               "31S pasd"
+            ],
+            [
+               "231540",
+               "25S pasd"
+            ],
+            [
+               "231597",
+               "1M52S pasd"
+            ],
+            [
+               "231598",
+               "25S pasd"
+            ],
+            [
+               "231599",
+               "29S pasd"
+            ],
+            [
+               "2315100",
+               "24S pasd"
+            ],
+            [
+               "2315101",
+               "29S pasd"
+            ],
+            [
+               "2315102",
+               "52S pasd"
+            ],
+            [
+               "2315103",
+               "26S pasd"
+            ],
+            [
+               "231711",
+               "27S pasd"
+            ],
+            [
+               "231712",
+               "32S pasd"
+            ],
+            [
+               "231713",
+               "19S pasd"
+            ],
+            [
+               "231718",
+               "45S pasd"
+            ],
+            [
+               "231715",
+               "53S pasd"
+            ],
+            [
+               "2315104",
+               "31S pasd"
+            ],
+            [
+               "231611",
+               "1M7S pasd"
+            ],
+            [
+               "231612",
+               "59S pasd"
+            ],
+            [
+               "231613",
+               "40S pasd"
+            ],
+            [
+               "231614",
+               "27S pasd"
+            ],
+            [
+               "231615",
+               "22S pasd"
+            ],
+            [
+               "231616",
+               "25S pasd"
+            ],
+            [
+               "231617",
+               "34S pasd"
+            ],
+            [
+               "231618",
+               "46S pasd"
+            ],
+            [
+               "231619",
+               "16S pasd"
+            ],
+            [
+               "231625",
+               "29S pasd"
+            ],
+            [
+               "231626",
+               "49S pasd"
+            ],
+            [
+               "231627",
+               "47S pasd"
+            ],
+            [
+               "231635",
+               "55S pasd"
+            ],
+            [
+               "231636",
+               "18S pasd"
+            ],
+            [
+               "231637",
+               "32S pasd"
+            ],
+            [
+               "231638",
+               "28S pasd"
+            ],
+            [
+               "231639",
+               "47S pasd"
+            ],
+            [
+               "231640",
+               "22S pasd"
+            ],
+            [
+               "231641",
+               "23S pasd"
+            ],
+            [
+               "231642",
+               "45S pasd"
+            ],
+            [
+               "231643",
+               "1M44S pasd"
+            ],
+            [
+               "231644",
+               "2M37S pasd"
+            ],
+            [
+               "231645",
+               "2M4S pasd"
+            ],
+            [
+               "231646",
+               "54S pasd"
+            ],
+            [
+               "231647",
+               "1M18S pasd"
+            ],
+            [
+               "231648",
+               "1M18S pasd"
+            ],
+            [
+               "231649",
+               "1M12S pasd"
+            ],
+            [
+               "2318143",
+               "1M10S pasd"
+            ],
+            [
+               "2318144",
+               "51S pasd"
+            ],
+            [
+               "2318145",
+               "49S pasd"
+            ],
+            [
+               "2318146",
+               "28S pasd"
+            ],
+            [
+               "2318147",
+               "2M11S pasd"
+            ],
+            [
+               "2318148",
+               "1M34S pasd"
+            ],
+            [
+               "2318149",
+               "2M16S pasd"
+            ],
+            [
+               "2318150",
+               "1M38S pasd"
+            ],
+            [
+               "2318151",
+               "26S pasd"
+            ],
+            [
+               "2318153",
+               "55S pasd"
+            ],
+            [
+               "2318162",
+               "1M57S pasd"
+            ],
+            [
+               "2318163",
+               "2M11S pasd"
+            ],
+            [
+               "2318164",
+               "2M20S pasd"
+            ],
+            [
+               "2318165",
+               "2M5S pasd"
+            ],
+            [
+               "232226",
+               "1M40S pasd"
+            ],
+            [
+               "2324118",
+               "2M3S pasd"
+            ],
+            [
+               "2324119",
+               "2M22S pasd"
+            ],
+            [
+               "232411",
+               "2M pasd"
+            ],
+            [
+               "232495",
+               "22S pasd"
+            ],
+            [
+               "232412",
+               "22S pasd"
+            ]
+         ],
+         "id" : "JP_75-135-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Nelson Bay Donald St near Stockton St - Raymond Terrace Shopping Centre Sturgeon St",
+            "rs_ref" : "RS_75-135-_-sj2-1-H-1",
+            "id" : "R_75-135-_-sj2-1-H-1"
+         }
+      },
+      "service" : "75-135-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "135"
+   }
+}
+;
+

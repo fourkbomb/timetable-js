@@ -1,0 +1,455 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-706-_-sj2-1" : "706"
+}
+;
+
+var stations = {
+   "229256" : "Pokolbin St Nr Merewether High",
+   "230496" : "Angophora Dr Nr Warabrook Bvd",
+   "2304213" : "Silsoe St nr Nevill St",
+   "229827" : "Bridge St Nr Coolamin Rd",
+   "230524" : "Turton Rd Opp Rex Av",
+   "229212" : "Lambton Rd nr Bavin St",
+   "230494" : "Casuarina Cct nr Substation",
+   "229826" : "High St Nr Bridge St",
+   "2304208" : "Watson St Nr Braye St",
+   "2304215" : "Silsoe St nr Myola St",
+   "2304233" : "Maitland Rd Nr Hanbury St",
+   "230473" : "Maitland Rd nr Werribi St",
+   "2298102" : "Turton Rd Nr Kahibah Rd",
+   "230476" : "Maitland Rd nr Gamack St",
+   "230439" : "Pacific Hwy nr Nile St",
+   "230432" : "Maitland Rd nr Church St",
+   "229221" : "Hunter School Of Performing Arts",
+   "229818" : "Turton Rd Nr Tinonee Rd",
+   "230477" : "Maitland Rd nr Elizabeth St",
+   "230530" : "Turton Rd Nr Hobart Rd",
+   "230459" : "Maitland Rd nr Denison St",
+   "229834" : "Turton Rd Nr Christo Rd",
+   "230525" : "Turton Rd Opp Young Rd",
+   "229814" : "Turton Rd Nr Dawson St",
+   "2304212" : "Nelson St nr Murray Sq",
+   "229265" : "Lambton Rd nr Bronte Rd",
+   "2304100" : "Angophora Dr Nr Warabrook Bvd",
+   "2304218" : "Scholey St nr Griffiths St",
+   "230523" : "Turton Rd opp Monash Rd",
+   "230460" : "Maitland Rd nr Fitzroy St",
+   "230499" : "Angophora Dr Opp Floribunda Cl",
+   "230438" : "Pacific Hwy nr Corona St",
+   "2304101" : "Warabrook Bvd nr Angophora Dr",
+   "2304210" : "Scholey St nr Hart St",
+   "230433" : "Maitland Rd nr Havelock St",
+   "2304211" : "Scholey St nr Nelson St",
+   "230464" : "Maitland Rd nr Carandotta St",
+   "2304220" : "Scholey St nr Rawson St",
+   "229255" : "Chatham Rd nr Merewether High",
+   "230461" : "Maitland Rd nr Frith St",
+   "230497" : "Angophora Dr opp Viola Wy",
+   "2304216" : "Silsoe St nr Ackeron St",
+   "230419" : "Maitland Rd nr Valencia St",
+   "230531" : "Turton Rd Nr Monash Rd",
+   "2304214" : "Silsoe St nr Maitland Rd",
+   "230475" : "Maitland Rd nr Tourle St",
+   "230491" : "Casuarina Cct nr Retirement Village",
+   "230492" : "Casuarina Cct opp Melaleuca Pl",
+   "2304209" : "Scholey St nr Roe St",
+   "229845" : "Turton Rd Nr High St",
+   "230463" : "Maitland Rd nr Stedman St",
+   "2304122" : "Maitland Rd nr Norris Av",
+   "2304219" : "Scholey St nr Hughes St",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "230474" : "Maitland Rd opp Burnett St",
+   "229811" : "Platt St nr Waratah Station",
+   "229250" : "Lambton Rd nr Market St",
+   "230495" : "Casuarina Cct nr Callistemon Cl",
+   "2304221" : "Watson St Nr Braye St",
+   "230417" : "Maitland Rd Nr Hanbury St",
+   "230515" : "Turton Rd Nr Young Rd",
+   "229817" : "Turton Rd opp Crescent Rd",
+   "230498" : "Angophora Dr Opp Floribunda Cl",
+   "230493" : "Casuarina Cct opp Viminaria Pl",
+   "229217" : "Brunker Rd nr Heddon Rd",
+   "2304272" : "Angophora Dr nr Bakeri Cct",
+   "230418" : "Maitland Rd opp Valencia St",
+   "230490" : "Warabrook Bvd nr Casuarina Cct",
+   "229260" : "Lambton Rd nr Australia Rd",
+   "2304217" : "Nelson St opp Murray Sq"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-706-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-706-_-sj2-1-2-b0096",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "230490",
+               null
+            ],
+            [
+               "230491",
+               "0S pasd"
+            ],
+            [
+               "230492",
+               "1M pasd"
+            ],
+            [
+               "230493",
+               "1M pasd"
+            ],
+            [
+               "230494",
+               "0S pasd"
+            ],
+            [
+               "230495",
+               "1M pasd"
+            ],
+            [
+               "230496",
+               "0S pasd"
+            ],
+            [
+               "230497",
+               "1M pasd"
+            ],
+            [
+               "230498",
+               "1M pasd"
+            ],
+            [
+               "230499",
+               "0S pasd"
+            ],
+            [
+               "2304272",
+               "0S pasd"
+            ],
+            [
+               "2304100",
+               "2M pasd"
+            ],
+            [
+               "2304101",
+               "1M pasd"
+            ],
+            [
+               "2304122",
+               "1M pasd"
+            ],
+            [
+               "230473",
+               "0S pasd"
+            ],
+            [
+               "230474",
+               "1M pasd"
+            ],
+            [
+               "230475",
+               "0S pasd"
+            ],
+            [
+               "230476",
+               "1M pasd"
+            ],
+            [
+               "230477",
+               "0S pasd"
+            ],
+            [
+               "230417",
+               "1M pasd"
+            ],
+            [
+               "230418",
+               "1M pasd"
+            ],
+            [
+               "230432",
+               "0S pasd"
+            ],
+            [
+               "230433",
+               "1M pasd"
+            ],
+            [
+               "2304215",
+               "1M pasd"
+            ],
+            [
+               "2304216",
+               "1M pasd"
+            ],
+            [
+               "2304217",
+               "0S pasd"
+            ],
+            [
+               "2304218",
+               "1M pasd"
+            ],
+            [
+               "2304219",
+               "1M pasd"
+            ],
+            [
+               "2304220",
+               "0S pasd"
+            ],
+            [
+               "2304221",
+               "1M pasd"
+            ],
+            [
+               "229814",
+               "2M pasd"
+            ],
+            [
+               "229826",
+               "2M pasd"
+            ],
+            [
+               "229827",
+               "0S pasd"
+            ],
+            [
+               "229834",
+               "3M pasd"
+            ],
+            [
+               "229817",
+               "0S pasd"
+            ],
+            [
+               "230525",
+               "2M pasd"
+            ],
+            [
+               "230523",
+               "1M pasd"
+            ],
+            [
+               "230524",
+               "0S pasd"
+            ],
+            [
+               "229265",
+               "1M pasd"
+            ],
+            [
+               "229212",
+               "1M pasd"
+            ],
+            [
+               "229266",
+               "1M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229256",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-706-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Warabrook Bvd nr Casuarina Cct - Pokolbin St Nr Merewether High",
+            "rs_ref" : "RS_94-706-_-sj2-1-H-2",
+            "id" : "R_94-706-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-706-_-sj2-1",
+      "line" : "706"
+   },
+   "VJ_94-706-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-706-_-sj2-1-1-b0096",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229255",
+               null
+            ],
+            [
+               "229217",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "2M pasd"
+            ],
+            [
+               "229221",
+               "1M pasd"
+            ],
+            [
+               "230530",
+               "1M pasd"
+            ],
+            [
+               "230531",
+               "1M pasd"
+            ],
+            [
+               "230515",
+               "0S pasd"
+            ],
+            [
+               "2298102",
+               "2M pasd"
+            ],
+            [
+               "229818",
+               "1M pasd"
+            ],
+            [
+               "229845",
+               "1M pasd"
+            ],
+            [
+               "229811",
+               "1M pasd"
+            ],
+            [
+               "2304208",
+               "1M pasd"
+            ],
+            [
+               "2304209",
+               "1M pasd"
+            ],
+            [
+               "2304210",
+               "1M pasd"
+            ],
+            [
+               "2304211",
+               "0S pasd"
+            ],
+            [
+               "2304212",
+               "1M pasd"
+            ],
+            [
+               "2304213",
+               "1M pasd"
+            ],
+            [
+               "2304214",
+               "1M pasd"
+            ],
+            [
+               "230438",
+               "1M pasd"
+            ],
+            [
+               "230439",
+               "0S pasd"
+            ],
+            [
+               "230419",
+               "1M pasd"
+            ],
+            [
+               "2304233",
+               "1M pasd"
+            ],
+            [
+               "230459",
+               "1M pasd"
+            ],
+            [
+               "230460",
+               "0S pasd"
+            ],
+            [
+               "230461",
+               "1M pasd"
+            ],
+            [
+               "230463",
+               "1M pasd"
+            ],
+            [
+               "230464",
+               "1M pasd"
+            ],
+            [
+               "230490",
+               "0S pasd"
+            ],
+            [
+               "230496",
+               "1M pasd"
+            ],
+            [
+               "230497",
+               "1M pasd"
+            ],
+            [
+               "230498",
+               "0S pasd"
+            ],
+            [
+               "230499",
+               "1M pasd"
+            ],
+            [
+               "2304272",
+               "0S pasd"
+            ],
+            [
+               "2304100",
+               "2M pasd"
+            ],
+            [
+               "230491",
+               "1M pasd"
+            ],
+            [
+               "230492",
+               "0S pasd"
+            ],
+            [
+               "230493",
+               "1M pasd"
+            ],
+            [
+               "230494",
+               "1M pasd"
+            ],
+            [
+               "230495",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-706-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatham Rd nr Merewether High - Casuarina Cct nr Callistemon Cl",
+            "rs_ref" : "RS_94-706-_-sj2-1-R-1",
+            "id" : "R_94-706-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-706-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "706"
+   }
+}
+;
+

@@ -1,0 +1,539 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-845-_-sj2-1" : "845"
+}
+;
+
+var stations = {
+   "2298118" : "Turton Rd nr High St",
+   "2287237" : "Cambronne Pde nr Andretta Av",
+   "2287230" : "Dangerfield Dr nr Cambronne Pde",
+   "230574" : "Lambton Rd Nr Greta Rd",
+   "230449" : "Hanbury St nr Wilkinson St",
+   "230524" : "Turton Rd Opp Rex Av",
+   "2287281" : "Grandview Rd nr Cranbrook Pde",
+   "2287290" : "McCaffrey Dr opp Elbrook Dr",
+   "2287289" : "Mccaffrey Dr Nr Marshall St",
+   "2287298" : "Croudace Rd nr Grandview Rd",
+   "2305157" : "Grandview Rd Nr Clepham St",
+   "2305156" : "Grandview Rd Opp Elbrook Dr",
+   "229824" : "Georgetown Rd Nr Glenda St",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "2287282" : "Grandview Rd nr Meldon Pl",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "2289271" : "Charlestown Rd Nr Park",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "2298102" : "Turton Rd Nr Kahibah Rd",
+   "2305162" : "Grandview Rd Nr Elbrook Dr",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "2287291" : "Mccaffrey Dr Nr Marshall St",
+   "229818" : "Turton Rd Nr Tinonee Rd",
+   "230578" : "Russell Rd Opp Baker St",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "230530" : "Turton Rd Nr Hobart Rd",
+   "2289270" : "Charlestown Rd Nr Kimbarra Cl",
+   "229850" : "Bridge St Nr High St",
+   "229842" : "Platt St opp Waratah Station",
+   "229834" : "Turton Rd Nr Christo Rd",
+   "2287268" : "Grandview Rd nr Justin Pde",
+   "2287292" : "McCaffrey Dr opp Dean Pde",
+   "230525" : "Turton Rd Opp Young Rd",
+   "230447" : "Barton St Nr Maitland Rd",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "2287271" : "Grandview Rd nr Spencer St",
+   "2287229" : "Dangerfield Dr nr Isabella Cl",
+   "230429" : "Vine St nr Wye St",
+   "230580" : "Russell Rd Nr Brett St",
+   "229851" : "High St Nr Harriet St",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2287272" : "McCaffrey Dr nr Spencer St",
+   "2287267" : "Grandview Rd opp Meldon Cl",
+   "230523" : "Turton Rd opp Monash Rd",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "230448" : "Barton St nr Crebert St",
+   "2305165" : "Grandview Rd Nr Marshall St",
+   "2287299" : "Croudace Rd opp Grandview Rd",
+   "2304269" : "Vine St Nr Industrial Dr",
+   "2287294" : "McCaffrey Dr nr Rosedale Cr",
+   "2287293" : "McCaffrey Dr nr Orana St",
+   "230576" : "Alma Rd Nr Cromwell St",
+   "2304223" : "Hanbury St nr Macquarie Rd",
+   "2305167" : "Charlestown Rd Nr Hurn St",
+   "2305108" : "Grandview Rd Opp Clepham St",
+   "2305154" : "Grandview Rd Nr Marshall St",
+   "230570" : "Alma Rd Nr Regent St",
+   "230568" : "Russell Rd Nr Baker St",
+   "2305153" : "Grandview Rd Nr Marshall St",
+   "2304264" : "Hanbury St nr Dora St",
+   "2287270" : "Grandview Rd nr Wallsend South Prim",
+   "2305155" : "Grandview Rd Nr Arkana Cl",
+   "230566" : "Russell Rd Opp Brett St",
+   "229853" : "Turton Rd Nr Young St",
+   "2305164" : "Grandview Rd Nr Marshall St",
+   "230531" : "Turton Rd Nr Monash Rd",
+   "2305152" : "Grandview Rd Nr Lookout Rd",
+   "2287221" : "Cambronne Pde nr Rialto Cl",
+   "230565" : "Russell Rd Nr Croudace St",
+   "229845" : "Turton Rd Nr High St",
+   "229847" : "Platt St Nr Grove St",
+   "2287300" : "Croudace Rd nr Alida Cl",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "230573" : "Lambton Rd Nr Turton Rd",
+   "229849" : "Bridge St Nr Platt St",
+   "229811" : "Platt St nr Waratah Station",
+   "229829" : "Lambton Rd Nr Harriet St",
+   "230575" : "Lambton Rd Nr Wallarah Rd",
+   "229852" : "High St Nr Tighe St",
+   "230451" : "Hanbury St opp Sunderland St",
+   "2305174" : "Cardiff Rd Opp Beverley Cr",
+   "230450" : "Hanbury St nr Railway Tce",
+   "229837" : "Platt St Nr Corpus Christi School",
+   "229846" : "Platt St Nr Dulling St",
+   "2304143" : "Hunter Christian School",
+   "230515" : "Turton Rd Nr Young Rd",
+   "230571" : "Lambton Rd Nr Wallarah Rd",
+   "229817" : "Turton Rd opp Crescent Rd",
+   "2304131" : "Barton St nr Bull St",
+   "2287301" : "Croudace Rd opp Alida Cl",
+   "2304130" : "Barton St Nr Charles St",
+   "230572" : "Lambton Rd Nr Greta Rd",
+   "2298114" : "Coolamin Rd Nr Lambton Rd",
+   "2305163" : "Grandview Rd Nr Arkana Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-845-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-845-_-sj2-1-1-b0096",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2304143",
+               null
+            ],
+            [
+               "2304269",
+               "1M pasd"
+            ],
+            [
+               "230429",
+               "1M pasd"
+            ],
+            [
+               "2304264",
+               "2M pasd"
+            ],
+            [
+               "230449",
+               "1M pasd"
+            ],
+            [
+               "230450",
+               "1M pasd"
+            ],
+            [
+               "229842",
+               "2M pasd"
+            ],
+            [
+               "229846",
+               "1M pasd"
+            ],
+            [
+               "229847",
+               "1M pasd"
+            ],
+            [
+               "229837",
+               "1M pasd"
+            ],
+            [
+               "229849",
+               "0S pasd"
+            ],
+            [
+               "229850",
+               "1M pasd"
+            ],
+            [
+               "229851",
+               "1M pasd"
+            ],
+            [
+               "229852",
+               "0S pasd"
+            ],
+            [
+               "2298118",
+               "1M pasd"
+            ],
+            [
+               "229853",
+               "0S pasd"
+            ],
+            [
+               "229834",
+               "1M pasd"
+            ],
+            [
+               "229817",
+               "1M pasd"
+            ],
+            [
+               "230525",
+               "2M pasd"
+            ],
+            [
+               "230523",
+               "0S pasd"
+            ],
+            [
+               "230524",
+               "1M pasd"
+            ],
+            [
+               "230574",
+               "1M pasd"
+            ],
+            [
+               "230575",
+               "0S pasd"
+            ],
+            [
+               "230576",
+               "1M pasd"
+            ],
+            [
+               "230577",
+               "1M pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "1M pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2287289",
+               "3M pasd"
+            ],
+            [
+               "2287292",
+               "1M pasd"
+            ],
+            [
+               "2287293",
+               "0S pasd"
+            ],
+            [
+               "2287294",
+               "1M pasd"
+            ],
+            [
+               "2287272",
+               "1M pasd"
+            ],
+            [
+               "2287229",
+               "0S pasd"
+            ],
+            [
+               "2287230",
+               "0S pasd"
+            ],
+            [
+               "2287237",
+               "2M pasd"
+            ],
+            [
+               "2287301",
+               "0S pasd"
+            ],
+            [
+               "2287299",
+               "0S pasd"
+            ],
+            [
+               "2287271",
+               "1M pasd"
+            ],
+            [
+               "2287281",
+               "0S pasd"
+            ],
+            [
+               "2287282",
+               "1M pasd"
+            ],
+            [
+               "2305108",
+               "0S pasd"
+            ],
+            [
+               "2305162",
+               "1M pasd"
+            ],
+            [
+               "2305163",
+               "0S pasd"
+            ],
+            [
+               "2305164",
+               "1M pasd"
+            ],
+            [
+               "2305165",
+               "0S pasd"
+            ],
+            [
+               "2305174",
+               "1M pasd"
+            ],
+            [
+               "2305167",
+               "1M pasd"
+            ],
+            [
+               "2289270",
+               "1M pasd"
+            ],
+            [
+               "2289271",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-845-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Hunter Christian School - Charlestown Rd Nr Park",
+            "rs_ref" : "RS_94-845-_-sj2-1-R-1",
+            "id" : "R_94-845-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-845-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "845"
+   },
+   "VJ_94-845-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-845-_-sj2-1-2-b0096",
+      "leaves" : "07:38:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2305152",
+               null
+            ],
+            [
+               "2305153",
+               "0S pasd"
+            ],
+            [
+               "2305154",
+               "1M pasd"
+            ],
+            [
+               "2305155",
+               "0S pasd"
+            ],
+            [
+               "2305156",
+               "1M pasd"
+            ],
+            [
+               "2305157",
+               "1M pasd"
+            ],
+            [
+               "2287267",
+               "0S pasd"
+            ],
+            [
+               "2287268",
+               "1M pasd"
+            ],
+            [
+               "2287270",
+               "0S pasd"
+            ],
+            [
+               "2287298",
+               "1M pasd"
+            ],
+            [
+               "2287300",
+               "0S pasd"
+            ],
+            [
+               "2287221",
+               "1M pasd"
+            ],
+            [
+               "2287295",
+               "1M pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "1M pasd"
+            ],
+            [
+               "2287290",
+               "0S pasd"
+            ],
+            [
+               "2287291",
+               "0S pasd"
+            ],
+            [
+               "2305171",
+               "2M pasd"
+            ],
+            [
+               "2305172",
+               "1M pasd"
+            ],
+            [
+               "230565",
+               "1M pasd"
+            ],
+            [
+               "230566",
+               "0S pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "230571",
+               "0S pasd"
+            ],
+            [
+               "230572",
+               "1M pasd"
+            ],
+            [
+               "230573",
+               "0S pasd"
+            ],
+            [
+               "230530",
+               "0S pasd"
+            ],
+            [
+               "230531",
+               "1M pasd"
+            ],
+            [
+               "230515",
+               "0S pasd"
+            ],
+            [
+               "2298102",
+               "1M pasd"
+            ],
+            [
+               "229818",
+               "1M pasd"
+            ],
+            [
+               "229824",
+               "0S pasd"
+            ],
+            [
+               "229829",
+               "1M pasd"
+            ],
+            [
+               "2298114",
+               "0S pasd"
+            ],
+            [
+               "229851",
+               "1M pasd"
+            ],
+            [
+               "229852",
+               "1M pasd"
+            ],
+            [
+               "229845",
+               "1M pasd"
+            ],
+            [
+               "229811",
+               "1M pasd"
+            ],
+            [
+               "230451",
+               "1M pasd"
+            ],
+            [
+               "2304223",
+               "1M pasd"
+            ],
+            [
+               "230447",
+               "1M pasd"
+            ],
+            [
+               "230448",
+               "1M pasd"
+            ],
+            [
+               "2304130",
+               "1M pasd"
+            ],
+            [
+               "2304131",
+               "0S pasd"
+            ],
+            [
+               "2304143",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-845-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Grandview Rd Nr Lookout Rd - Hunter Christian School",
+            "rs_ref" : "RS_94-845-_-sj2-1-H-2",
+            "id" : "R_94-845-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-845-_-sj2-1",
+      "line" : "845"
+   }
+}
+;
+

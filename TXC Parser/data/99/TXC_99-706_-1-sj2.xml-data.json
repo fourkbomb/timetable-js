@@ -1,0 +1,484 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-706-_-sj2-1" : "706"
+}
+;
+
+var stations = {
+   "211243" : "Badajoz Rd Nr Meldrum St",
+   "2113118" : "Badajoz Rd Nr Coxs Rd",
+   "2113207" : "Lane Cove Rd Nr Talavera Rd",
+   "211386" : "Elliott Av Nr Moncrieff Dr",
+   "211030" : "Park Rd nr Princes St",
+   "2113215" : "Khartoum Rd Nr Waterloo Rd",
+   "2113233" : "Lane Cove Rd Nr Coxs Rd",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "211383" : "Moncrieff Dr Nr Cressy Rd",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "211246" : "Twin Rd Nr John Miller St",
+   "211029" : "Park Rd Nr Ryde Rd",
+   "211372" : "Talavera Rd Nr Lane Cove Rd",
+   "2113232" : "Macquarie Centre_ Stand A",
+   "211382" : "Twin Rd nr John Miller St",
+   "211373" : "Talavera Rd W Of Lane Cove Rd",
+   "2113221" : "Waterloo Rd Nr Byfield St",
+   "2113211" : "Waterloo Rd Nr Khartoum Rd",
+   "211032" : "Princes St Nr Pittwater Rd",
+   "211252" : "Higginbotham Rd Nr Cressy Rd",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "211385" : "Sager Pl Nr Elliott Av",
+   "211242" : "Quarry Rd Nr Badajoz Rd",
+   "211156" : "Thompson St Nr Monash Rd",
+   "211155" : "Thompson St Nr Westminster Rd",
+   "211244" : "Badajoz Rd Nr Nerang St",
+   "2113231" : "Badajoz Rd Nr Macquarie Hospital",
+   "211028" : "Ryde Rd Nr Abigail St",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "211374" : "Talavera Rd Nr Khartoum Rd",
+   "211031" : "Princes St Nr Blaxland St",
+   "211154" : "Thompson St nr Atkinson Reserve",
+   "2113206" : "Lane Cove Rd Nr Waterloo Rd",
+   "211157" : "Higginbotham Rd nr Lyndhurst St",
+   "211027" : "Ryde Rd nr Luke St",
+   "211370" : "Coxs Rd Nr Lane Cove Rd",
+   "2113213" : "Waterloo Rd Nr Cottonwood Cr",
+   "211023" : "The Avenue nr Hunters Hill High",
+   "2113171" : "Lane Cove Rd Nr Paul St",
+   "211384" : "Moncrieff Dr Nr Cilento Cr",
+   "2113116" : "Badajoz Rd Nr Twin Rd",
+   "211245" : "Twin Rd nr Badajoz Rd",
+   "211025" : "Gladesville Rd nr Pitt St",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "211275" : "Higginbotham Rd Nr Nelson St",
+   "2113167" : "Lane Cove Rd Nr Trevitt Rd",
+   "211375" : "Khartoum Rd Nr Talavera Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-706-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-706-_-sj2-1-2-b00bk",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211023",
+               null
+            ],
+            [
+               "211025",
+               "2M pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211029",
+               "1M pasd"
+            ],
+            [
+               "211030",
+               "0S pasd"
+            ],
+            [
+               "211031",
+               "1M pasd"
+            ],
+            [
+               "211032",
+               "0S pasd"
+            ],
+            [
+               "211154",
+               "1M pasd"
+            ],
+            [
+               "211155",
+               "0S pasd"
+            ],
+            [
+               "211156",
+               "1M pasd"
+            ],
+            [
+               "211157",
+               "0S pasd"
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "1M pasd"
+            ],
+            [
+               "211242",
+               "2M pasd"
+            ],
+            [
+               "211243",
+               "0S pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "211245",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "1M pasd"
+            ],
+            [
+               "211383",
+               "0S pasd"
+            ],
+            [
+               "211384",
+               "1M pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "211386",
+               "1M pasd"
+            ],
+            [
+               "211246",
+               "0S pasd"
+            ],
+            [
+               "2113116",
+               "1M pasd"
+            ],
+            [
+               "2113231",
+               "1M pasd"
+            ],
+            [
+               "2113118",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "0S pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "0S pasd"
+            ],
+            [
+               "2113233",
+               "0S pasd"
+            ],
+            [
+               "2113167",
+               "1M pasd"
+            ],
+            [
+               "2113171",
+               "1M pasd"
+            ],
+            [
+               "2113206",
+               "1M pasd"
+            ],
+            [
+               "2113207",
+               "1M pasd"
+            ],
+            [
+               "211372",
+               "0S pasd"
+            ],
+            [
+               "211373",
+               "1M pasd"
+            ],
+            [
+               "211374",
+               "0S pasd"
+            ],
+            [
+               "211375",
+               "1M pasd"
+            ],
+            [
+               "2113215",
+               "0S pasd"
+            ],
+            [
+               "2113211",
+               "1M pasd"
+            ],
+            [
+               "2113221",
+               "0S pasd"
+            ],
+            [
+               "2113213",
+               "0S pasd"
+            ],
+            [
+               "2113232",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-706-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "The Avenue nr Hunters Hill High - Macquarie Centre",
+            "rs_ref" : "RS_99-706-_-sj2-1-R-1",
+            "id" : "R_99-706-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-706-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "706"
+   },
+   "VJ_99-706-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-706-_-sj2-1-1-b00bj",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211023",
+               null
+            ],
+            [
+               "211025",
+               "2M pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211029",
+               "1M pasd"
+            ],
+            [
+               "211030",
+               "0S pasd"
+            ],
+            [
+               "211031",
+               "1M pasd"
+            ],
+            [
+               "211032",
+               "0S pasd"
+            ],
+            [
+               "211154",
+               "1M pasd"
+            ],
+            [
+               "211155",
+               "0S pasd"
+            ],
+            [
+               "211156",
+               "1M pasd"
+            ],
+            [
+               "211157",
+               "0S pasd"
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "1M pasd"
+            ],
+            [
+               "211242",
+               "2M pasd"
+            ],
+            [
+               "211243",
+               "0S pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "211245",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "1M pasd"
+            ],
+            [
+               "211383",
+               "0S pasd"
+            ],
+            [
+               "211384",
+               "1M pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "211386",
+               "1M pasd"
+            ],
+            [
+               "211246",
+               "0S pasd"
+            ],
+            [
+               "2113116",
+               "1M pasd"
+            ],
+            [
+               "2113231",
+               "1M pasd"
+            ],
+            [
+               "2113118",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "0S pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "0S pasd"
+            ],
+            [
+               "2113233",
+               "0S pasd"
+            ],
+            [
+               "2113167",
+               "1M pasd"
+            ],
+            [
+               "2113171",
+               "1M pasd"
+            ],
+            [
+               "2113206",
+               "1M pasd"
+            ],
+            [
+               "2113207",
+               "1M pasd"
+            ],
+            [
+               "211372",
+               "0S pasd"
+            ],
+            [
+               "211373",
+               "1M pasd"
+            ],
+            [
+               "211374",
+               "0S pasd"
+            ],
+            [
+               "211375",
+               "1M pasd"
+            ],
+            [
+               "2113215",
+               "0S pasd"
+            ],
+            [
+               "2113211",
+               "1M pasd"
+            ],
+            [
+               "2113221",
+               "0S pasd"
+            ],
+            [
+               "2113213",
+               "0S pasd"
+            ],
+            [
+               "2113232",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-706-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "The Avenue nr Hunters Hill High - Macquarie Centre",
+            "rs_ref" : "RS_99-706-_-sj2-1-R-1",
+            "id" : "R_99-706-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-706-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "706"
+   }
+}
+;
+

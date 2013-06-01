@@ -1,0 +1,862 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-637-g-sj2-1" : "637"
+}
+;
+
+var stations = {
+   "203623" : "Anzac Pde nr Endeavour Av",
+   "203655" : "Mirrabooka Cr Nr Little Bay Rd",
+   "203517" : "Bunnerong Rd Nr Wark Av",
+   "203684" : "Franklin St nr Waterton Av",
+   "203212" : "Bunnerong Rd Nr Sergeant Larkin Cr",
+   "2036124" : "Anzac Pde Nr Jennifer St",
+   "203639" : "Bunnerong Rd nr Fitzgerald Rd",
+   "203657" : "Mirrabooka Cr Nr Alkoo Av",
+   "2036123" : "Anzac Pde Nr Budd Av",
+   "203622" : "Anzac Pde Terminus",
+   "203519" : "Bunnerong Rd Opp Snape St",
+   "203664" : "Woomera Rd Nr Bega Av",
+   "203624" : "Anzac Pde nr Canara Av",
+   "203516" : "Bunnerong Rd Nr Boyce Rd",
+   "203665" : "Woomera Rd Nr Woonah St",
+   "203518" : "Bunnerong Rd Nr Keysor Rd",
+   "2036125" : "Anzac Pde Nr Little Bay Rd",
+   "203680" : "Wassell St nr Franklin St",
+   "203672" : "Little Bay Rd nr Nurla Av",
+   "203675" : "Hastings Av nr Macquarie St",
+   "203674" : "Hastings Av Nr Hall St",
+   "203673" : "Hastings Av Nr Little Bay Rd",
+   "203640" : "Bunnerong Rd nr Smith St",
+   "203637" : "Bunnerong Rd nr Devitt Pl",
+   "203636" : "Bunnerong Rd Nr Beauchamp Rd",
+   "203211" : "Bunnerong Rd Nr Joffre Cr",
+   "203313" : "Anzac Pde Stand B opp UNSW",
+   "203679" : "Wassell St nr Burke St",
+   "203525" : "Bunnerong Rd Nr Wentworth Av",
+   "203220" : "Anzac Pde Nr Barker St",
+   "203330" : "Kensington Rd Nr O.L.S.H.",
+   "203678" : "Dampier St nr Wassell St",
+   "203635" : "Bunnerong Rd opp Daunt Av",
+   "203346" : "Anzac Pde Nr Addison St",
+   "203350" : "Anzac Pde Opp High St",
+   "203658" : "Mirrabooka Cr nr Bega Av",
+   "203214" : "Anzac Pde Stand B nr Gardeners Rd",
+   "203520" : "Bunnerong Rd Nr Prince Edward Cr",
+   "203676" : "Macquarie St nr Forest St",
+   "203638" : "Bunnerong Rd nr Flint St",
+   "203656" : "Mirrabooka Cr Nr Woonah St",
+   "203215" : "Anzac Pde Nr Strachan St",
+   "203677" : "Dampier St Nr Eyre Av",
+   "203683" : "Franklin St nr Wassell St",
+   "203515" : "Bunnerong Rd Nr Heffron Rd",
+   "2036193" : "Anzac Pde nr Elaroo Av",
+   "203634" : "Bunnerong Rd nr Perry St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-637-g-sj2-1-4-b00ag" : {
+      "vjcode" : "VJ_99-637-g-sj2-1-4-b00ag",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203622",
+               null
+            ],
+            [
+               "203623",
+               "1M pasd"
+            ],
+            [
+               "2036193",
+               "1M pasd"
+            ],
+            [
+               "203624",
+               "1M pasd"
+            ],
+            [
+               "2036123",
+               "1M pasd"
+            ],
+            [
+               "2036124",
+               "1M pasd"
+            ],
+            [
+               "2036125",
+               "1M pasd"
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203515",
+               "1M pasd"
+            ],
+            [
+               "203516",
+               "1M pasd"
+            ],
+            [
+               "203517",
+               "0S pasd"
+            ],
+            [
+               "203518",
+               "0S pasd"
+            ],
+            [
+               "203519",
+               "1M pasd"
+            ],
+            [
+               "203520",
+               "0S pasd"
+            ],
+            [
+               "203211",
+               "1M pasd"
+            ],
+            [
+               "203212",
+               "0S pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203215",
+               "0S pasd"
+            ],
+            [
+               "203220",
+               "1M pasd"
+            ],
+            [
+               "203313",
+               "0S pasd"
+            ],
+            [
+               "203350",
+               "1M pasd"
+            ],
+            [
+               "203346",
+               "0S pasd"
+            ],
+            [
+               "203330",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-637-g-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Anzac Pde Terminus - Kensington Rd Nr O.L.S.H.",
+            "rs_ref" : "RS_99-637-g-sj2-1-H-2",
+            "id" : "R_99-637-g-sj2-1-H-2"
+         }
+      },
+      "service" : "99-637-g-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "637"
+   },
+   "VJ_99-637-g-sj2-1-3-b00af" : {
+      "vjcode" : "VJ_99-637-g-sj2-1-3-b00af",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203622",
+               null
+            ],
+            [
+               "203623",
+               "1M pasd"
+            ],
+            [
+               "2036193",
+               "1M pasd"
+            ],
+            [
+               "203624",
+               "1M pasd"
+            ],
+            [
+               "2036123",
+               "1M pasd"
+            ],
+            [
+               "2036124",
+               "1M pasd"
+            ],
+            [
+               "2036125",
+               "1M pasd"
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203515",
+               "1M pasd"
+            ],
+            [
+               "203516",
+               "1M pasd"
+            ],
+            [
+               "203517",
+               "0S pasd"
+            ],
+            [
+               "203518",
+               "0S pasd"
+            ],
+            [
+               "203519",
+               "1M pasd"
+            ],
+            [
+               "203520",
+               "0S pasd"
+            ],
+            [
+               "203211",
+               "1M pasd"
+            ],
+            [
+               "203212",
+               "0S pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203215",
+               "0S pasd"
+            ],
+            [
+               "203220",
+               "1M pasd"
+            ],
+            [
+               "203313",
+               "0S pasd"
+            ],
+            [
+               "203350",
+               "1M pasd"
+            ],
+            [
+               "203346",
+               "0S pasd"
+            ],
+            [
+               "203330",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-637-g-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Anzac Pde Terminus - Kensington Rd Nr O.L.S.H.",
+            "rs_ref" : "RS_99-637-g-sj2-1-H-2",
+            "id" : "R_99-637-g-sj2-1-H-2"
+         }
+      },
+      "service" : "99-637-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "637"
+   },
+   "VJ_99-637-g-sj2-1-2-b00af" : {
+      "vjcode" : "VJ_99-637-g-sj2-1-2-b00af",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203515",
+               "1M pasd"
+            ],
+            [
+               "203516",
+               "1M pasd"
+            ],
+            [
+               "203517",
+               "0S pasd"
+            ],
+            [
+               "203518",
+               "0S pasd"
+            ],
+            [
+               "203519",
+               "1M pasd"
+            ],
+            [
+               "203520",
+               "0S pasd"
+            ],
+            [
+               "203211",
+               "1M pasd"
+            ],
+            [
+               "203212",
+               "0S pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203215",
+               "0S pasd"
+            ],
+            [
+               "203220",
+               "1M pasd"
+            ],
+            [
+               "203313",
+               "0S pasd"
+            ],
+            [
+               "203350",
+               "1M pasd"
+            ],
+            [
+               "203346",
+               "0S pasd"
+            ],
+            [
+               "203330",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-637-g-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Kensington Rd Nr O.L.S.H.",
+            "rs_ref" : "RS_99-637-g-sj2-1-H-1",
+            "id" : "R_99-637-g-sj2-1-H-1"
+         }
+      },
+      "service" : "99-637-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "637"
+   },
+   "VJ_99-637-g-sj2-1-1-b00ag" : {
+      "vjcode" : "VJ_99-637-g-sj2-1-1-b00ag",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203515",
+               "1M pasd"
+            ],
+            [
+               "203516",
+               "1M pasd"
+            ],
+            [
+               "203517",
+               "0S pasd"
+            ],
+            [
+               "203518",
+               "0S pasd"
+            ],
+            [
+               "203519",
+               "1M pasd"
+            ],
+            [
+               "203520",
+               "0S pasd"
+            ],
+            [
+               "203211",
+               "1M pasd"
+            ],
+            [
+               "203212",
+               "0S pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203215",
+               "0S pasd"
+            ],
+            [
+               "203220",
+               "1M pasd"
+            ],
+            [
+               "203313",
+               "0S pasd"
+            ],
+            [
+               "203350",
+               "1M pasd"
+            ],
+            [
+               "203346",
+               "0S pasd"
+            ],
+            [
+               "203330",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-637-g-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Kensington Rd Nr O.L.S.H.",
+            "rs_ref" : "RS_99-637-g-sj2-1-H-1",
+            "id" : "R_99-637-g-sj2-1-H-1"
+         }
+      },
+      "service" : "99-637-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "637"
+   }
+}
+;
+

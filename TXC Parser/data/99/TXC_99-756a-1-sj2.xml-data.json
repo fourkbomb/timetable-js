@@ -1,0 +1,788 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-756-a-sj2-1" : "756"
+}
+;
+
+var stations = {
+   "210214" : "Warriewood Rd Nr Brands Lane",
+   "210429" : "Annam Rd nr Utingu Pl",
+   "210425" : "Pittwater Rd opp Gerroa Av",
+   "210422" : "Pittwater Rd Nr Loquat Valley Rd",
+   "210424" : "Pittwater Rd opp King Edward Av",
+   "210419" : "Pittwater Rd 300m N Of Kananook Av",
+   "210396" : "Mona Vale Rd Nr Foley St",
+   "210531" : "McCarrs Creek Rd 400m S of Marina",
+   "210249" : "Sydney Rd Nr Narrabeen Park Pde",
+   "210236" : "Macpherson St Nr Brands Lane",
+   "210365" : "Keenan St Nr Park St",
+   "210218" : "Macpherson St Nr Boondah Rd",
+   "210237" : "Macpherson St Nr Boondah Rd",
+   "210350" : "Samuel St Nr Whitney St",
+   "210528" : "McCarrs Creek Rd nr No 96",
+   "210431" : "Annam Rd Terminus",
+   "210423" : "Pittwater Rd Nr Marina",
+   "210220" : "Macpherson St Nr Garden St",
+   "210342" : "Waratah St Nr Mona Vale Primary",
+   "210421" : "Pittwater Rd nr Sunnyridge Pl",
+   "210235" : "Garden St Nr Macpherson St",
+   "210217" : "Warriewood Rd Nr Hill St",
+   "210340" : "Mona Vale Rd Nr Bungan St",
+   "210529" : "McCarrs Creek Rd nr No 92",
+   "210536" : "Pittwater Rd Nr Ferry Wharf",
+   "210349" : "Samuel St Nr Cabbage Tree Rd",
+   "210212" : "Warriewood Rd Nr Vineyard St",
+   "210535" : "Pittwater Rd nr Church Point Reserve",
+   "210526" : "Mccarrs Creek Rd 150m S Of Walker Pl",
+   "210527" : "Mccarrs Creek Rd Nr Walker Pl",
+   "210241" : "Warriewood Rd Nr Moriac St",
+   "210534" : "McCarrs Creek Rd nr Commuter Wharf",
+   "210537" : "Pittwater Rd Nr Eastview Rd",
+   "210388" : "Macpherson St Nr Forest Rd",
+   "210430" : "Annam Rd nr Konda Cl",
+   "210352" : "Samuel St Nr Mona Vale Rd",
+   "210341" : "Waratah St Nr Bungan St",
+   "210347" : "Parkland Rd Nr Peita Cr",
+   "210351" : "Samuel St Nr Minmai Rd",
+   "210215" : "Warriewood Rd Nr Manooka Pl",
+   "210524" : "McCarrs Creek Terminus",
+   "210538" : "Pittwater Rd Nr Bakers Rd",
+   "210248" : "Sydney Rd 400m S Of Arnott Cr",
+   "210319" : "Pittwater Rd Nr Elimatta Rd",
+   "210246" : "Narrabeen Park Pde Nr Sydney St",
+   "210382" : "Narrabeen Park Pde Nr Cook Tce",
+   "210221" : "Mater Maria School",
+   "210525" : "McCarrs Creek Rd nr No 180",
+   "210427" : "Cabbage Tree Rd nr Binnowee Pl",
+   "210383" : "Narrabeen Park Pde Nr Melbourne Av",
+   "210222" : "Macpherson St Nr Forrest Rd",
+   "210391" : "Foley St Nr Vineyard St",
+   "210219" : "Macpherson St Nr Brands Lane",
+   "210369" : "Mona Vale Rd Nr Bungan St",
+   "210532" : "Mccarrs Creek Rd Nr Marina",
+   "210387" : "Mona Vale Rd Nr Oliver Wy",
+   "210426" : "Cabbage Tree Rd op Beaumont Cr",
+   "21051" : "Mccarrs Creek Rd Nr Cargo Wharf",
+   "210420" : "Pittwater Rd opp Kananook Av",
+   "210223" : "Macpherson St nr Garden St",
+   "210530" : "McCarrs Creek Rd nr No 76",
+   "210247" : "Sydney Rd Nr Arnott Cr",
+   "210381" : "Coronation St Nr Mona Vale Hospital",
+   "210428" : "Annam Rd nr Cabbage Tree Rd",
+   "210348" : "Parkland Rd Nr Whitney St",
+   "210216" : "Warriewood Rd Nr Alameda Wy"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-756-a-sj2-1-3-b009h" : {
+      "vjcode" : "VJ_99-756-a-sj2-1-3-b009h",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210342",
+               null
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210347",
+               "3M pasd"
+            ],
+            [
+               "210348",
+               "0S pasd"
+            ],
+            [
+               "210428",
+               "3M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210349",
+               "2M pasd"
+            ],
+            [
+               "210350",
+               "1M pasd"
+            ],
+            [
+               "210351",
+               "0S pasd"
+            ],
+            [
+               "210352",
+               "1M pasd"
+            ],
+            [
+               "210388",
+               "2M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210319",
+               "3M pasd"
+            ],
+            [
+               "210381",
+               "1M pasd"
+            ],
+            [
+               "210382",
+               "1M pasd"
+            ],
+            [
+               "210383",
+               "1M pasd"
+            ],
+            [
+               "210246",
+               "1M pasd"
+            ],
+            [
+               "210247",
+               "0S pasd"
+            ],
+            [
+               "210248",
+               "1M pasd"
+            ],
+            [
+               "210249",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Waratah St Nr Mona Vale Primary - Sydney Rd Nr Narrabeen Park Pde",
+            "rs_ref" : "RS_99-756-a-sj2-1-R-2",
+            "id" : "R_99-756-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-756-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   },
+   "VJ_99-756-a-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-756-a-sj2-1-1-b009h",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210524",
+               null
+            ],
+            [
+               "210525",
+               "1M pasd"
+            ],
+            [
+               "210526",
+               "1M pasd"
+            ],
+            [
+               "210527",
+               "0S pasd"
+            ],
+            [
+               "210528",
+               "1M pasd"
+            ],
+            [
+               "210529",
+               "0S pasd"
+            ],
+            [
+               "210530",
+               "0S pasd"
+            ],
+            [
+               "210531",
+               "1M pasd"
+            ],
+            [
+               "210532",
+               "1M pasd"
+            ],
+            [
+               "21051",
+               "0S pasd"
+            ],
+            [
+               "210534",
+               "1M pasd"
+            ],
+            [
+               "210535",
+               "0S pasd"
+            ],
+            [
+               "210536",
+               "0S pasd"
+            ],
+            [
+               "210537",
+               "2M pasd"
+            ],
+            [
+               "210538",
+               "1M pasd"
+            ],
+            [
+               "210419",
+               "0S pasd"
+            ],
+            [
+               "210420",
+               "1M pasd"
+            ],
+            [
+               "210421",
+               "1M pasd"
+            ],
+            [
+               "210422",
+               "0S pasd"
+            ],
+            [
+               "210423",
+               "1M pasd"
+            ],
+            [
+               "210424",
+               "1M pasd"
+            ],
+            [
+               "210425",
+               "1M pasd"
+            ],
+            [
+               "210426",
+               "1M pasd"
+            ],
+            [
+               "210427",
+               "0S pasd"
+            ],
+            [
+               "210428",
+               "1M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210349",
+               "2M pasd"
+            ],
+            [
+               "210350",
+               "1M pasd"
+            ],
+            [
+               "210351",
+               "0S pasd"
+            ],
+            [
+               "210352",
+               "1M pasd"
+            ],
+            [
+               "210396",
+               "1M pasd"
+            ],
+            [
+               "210340",
+               "1M pasd"
+            ],
+            [
+               "210341",
+               "1M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210369",
+               "2M pasd"
+            ],
+            [
+               "210387",
+               "1M pasd"
+            ],
+            [
+               "210391",
+               "1M pasd"
+            ],
+            [
+               "210212",
+               "0S pasd"
+            ],
+            [
+               "210241",
+               "2M pasd"
+            ],
+            [
+               "210214",
+               "0S pasd"
+            ],
+            [
+               "210215",
+               "1M pasd"
+            ],
+            [
+               "210216",
+               "0S pasd"
+            ],
+            [
+               "210217",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "2M pasd"
+            ],
+            [
+               "210219",
+               "0S pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "McCarrs Creek Terminus - Mater Maria School",
+            "rs_ref" : "RS_99-756-a-sj2-1-H-1",
+            "id" : "R_99-756-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-756-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   },
+   "VJ_99-756-a-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-756-a-sj2-1-2-b009g",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210524",
+               null
+            ],
+            [
+               "210525",
+               "1M pasd"
+            ],
+            [
+               "210526",
+               "1M pasd"
+            ],
+            [
+               "210527",
+               "0S pasd"
+            ],
+            [
+               "210528",
+               "1M pasd"
+            ],
+            [
+               "210529",
+               "0S pasd"
+            ],
+            [
+               "210530",
+               "0S pasd"
+            ],
+            [
+               "210531",
+               "1M pasd"
+            ],
+            [
+               "210532",
+               "1M pasd"
+            ],
+            [
+               "21051",
+               "0S pasd"
+            ],
+            [
+               "210534",
+               "1M pasd"
+            ],
+            [
+               "210535",
+               "0S pasd"
+            ],
+            [
+               "210536",
+               "0S pasd"
+            ],
+            [
+               "210537",
+               "2M pasd"
+            ],
+            [
+               "210538",
+               "1M pasd"
+            ],
+            [
+               "210419",
+               "0S pasd"
+            ],
+            [
+               "210420",
+               "1M pasd"
+            ],
+            [
+               "210421",
+               "1M pasd"
+            ],
+            [
+               "210422",
+               "0S pasd"
+            ],
+            [
+               "210423",
+               "1M pasd"
+            ],
+            [
+               "210424",
+               "1M pasd"
+            ],
+            [
+               "210425",
+               "1M pasd"
+            ],
+            [
+               "210426",
+               "1M pasd"
+            ],
+            [
+               "210427",
+               "0S pasd"
+            ],
+            [
+               "210428",
+               "1M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210349",
+               "2M pasd"
+            ],
+            [
+               "210350",
+               "1M pasd"
+            ],
+            [
+               "210351",
+               "0S pasd"
+            ],
+            [
+               "210352",
+               "1M pasd"
+            ],
+            [
+               "210396",
+               "1M pasd"
+            ],
+            [
+               "210340",
+               "1M pasd"
+            ],
+            [
+               "210341",
+               "1M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210369",
+               "2M pasd"
+            ],
+            [
+               "210387",
+               "1M pasd"
+            ],
+            [
+               "210391",
+               "1M pasd"
+            ],
+            [
+               "210212",
+               "0S pasd"
+            ],
+            [
+               "210241",
+               "2M pasd"
+            ],
+            [
+               "210214",
+               "0S pasd"
+            ],
+            [
+               "210215",
+               "1M pasd"
+            ],
+            [
+               "210216",
+               "0S pasd"
+            ],
+            [
+               "210217",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "2M pasd"
+            ],
+            [
+               "210219",
+               "0S pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "McCarrs Creek Terminus - Mater Maria School",
+            "rs_ref" : "RS_99-756-a-sj2-1-H-1",
+            "id" : "R_99-756-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-756-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   },
+   "VJ_99-756-a-sj2-1-4-b009g" : {
+      "vjcode" : "VJ_99-756-a-sj2-1-4-b009g",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210342",
+               null
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210347",
+               "3M pasd"
+            ],
+            [
+               "210348",
+               "0S pasd"
+            ],
+            [
+               "210428",
+               "3M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210349",
+               "2M pasd"
+            ],
+            [
+               "210350",
+               "1M pasd"
+            ],
+            [
+               "210351",
+               "0S pasd"
+            ],
+            [
+               "210352",
+               "1M pasd"
+            ],
+            [
+               "210388",
+               "2M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210319",
+               "3M pasd"
+            ],
+            [
+               "210381",
+               "1M pasd"
+            ],
+            [
+               "210382",
+               "1M pasd"
+            ],
+            [
+               "210383",
+               "1M pasd"
+            ],
+            [
+               "210246",
+               "1M pasd"
+            ],
+            [
+               "210247",
+               "0S pasd"
+            ],
+            [
+               "210248",
+               "1M pasd"
+            ],
+            [
+               "210249",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Waratah St Nr Mona Vale Primary - Sydney Rd Nr Narrabeen Park Pde",
+            "rs_ref" : "RS_99-756-a-sj2-1-R-2",
+            "id" : "R_99-756-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-756-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   }
+}
+;
+

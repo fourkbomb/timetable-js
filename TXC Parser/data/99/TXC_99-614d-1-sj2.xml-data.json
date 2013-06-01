@@ -1,0 +1,642 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-614-d-sj2-1" : "614"
+}
+;
+
+var stations = {
+   "2031117" : "Avoca St Nr Frances St",
+   "203573" : "Anzac Pde Nr Gale Rd",
+   "203655" : "Mirrabooka Cr Nr Little Bay Rd",
+   "202419" : "Albion St Nr Macpherson St",
+   "203684" : "Franklin St nr Waterton Av",
+   "202264" : "Birrell St Nr Goldie Av",
+   "2031126" : "Albion St Nr Hooper St",
+   "203253" : "Anzac Pde Nr Botany St",
+   "203575" : "Anzac Pde Nr Maroubra Junction Schools",
+   "203639" : "Bunnerong Rd nr Fitzgerald Rd",
+   "203657" : "Mirrabooka Cr Nr Alkoo Av",
+   "2031124" : "Frenchmans Rd Nr Barrett Pl",
+   "203664" : "Woomera Rd Nr Bega Av",
+   "2031115" : "Alison Rd Nr Belmore Rd",
+   "203665" : "Woomera Rd Nr Woonah St",
+   "2036125" : "Anzac Pde Nr Little Bay Rd",
+   "203672" : "Little Bay Rd nr Nurla Av",
+   "203680" : "Wassell St nr Franklin St",
+   "203675" : "Hastings Av nr Macquarie St",
+   "202421" : "Albion St Nr Bronte Rd",
+   "203583" : "Maroubra Rd Nr Hannan St",
+   "203581" : "Maroubra Rd nr Bunnerong Rd",
+   "202233" : "Bronte Rd Nr Birrell St",
+   "203674" : "Hastings Av Nr Hall St",
+   "203673" : "Hastings Av Nr Little Bay Rd",
+   "202422" : "Bronte Rd Nr Carrington Rd",
+   "2031170" : "Rainbow St Nr Botany St",
+   "203640" : "Bunnerong Rd nr Smith St",
+   "203637" : "Bunnerong Rd nr Devitt Pl",
+   "203636" : "Bunnerong Rd Nr Beauchamp Rd",
+   "203574" : "Anzac Pde Nr Storey St",
+   "203271" : "Meeks St Nr Forsyth St",
+   "203679" : "Wassell St nr Burke St",
+   "2031119" : "Avoca St Nr Frenchmans Rd",
+   "203525" : "Bunnerong Rd Nr Wentworth Av",
+   "203270" : "Meeks St Nr Anzac Pde",
+   "203678" : "Dampier St nr Wassell St",
+   "203635" : "Bunnerong Rd opp Daunt Av",
+   "2031145" : "Avoca St Nr Randwick Boys High",
+   "203135" : "Belmore Rd Nr Arthur St",
+   "202263" : "Birrell St Nr Council St",
+   "203272" : "Meeks St Nr Kennedy St",
+   "2031116" : "Alison Rd Nr Avoca St",
+   "203582" : "Maroubra Rd R Royal St",
+   "203136" : "Belmore Rd Nr Alison Rd",
+   "203658" : "Mirrabooka Cr nr Bega Av",
+   "203214" : "Anzac Pde Stand B nr Gardeners Rd",
+   "203676" : "Macquarie St nr Forest St",
+   "203576" : "Anzac Pde Nr Snape St",
+   "2031172" : "Rainbow St Nr Avoca St",
+   "203157" : "Frenchmans Rd Nr Clovelly Rd",
+   "203638" : "Bunnerong Rd nr Flint St",
+   "203254" : "Anzac Pde Nr Hayward St",
+   "203656" : "Mirrabooka Cr Nr Woonah St",
+   "203251" : "Anzac Pde Nr Fischer St",
+   "203677" : "Dampier St Nr Eyre Av",
+   "2031148" : "Avoca St Nr Randwick Girls High",
+   "2031125" : "Frenchmans Rd Nr Gilderthorpe Av",
+   "203683" : "Franklin St nr Wassell St",
+   "203252" : "Anzac Pde Nr Broadbent St",
+   "2031171" : "Rainbow St Nr Rainbow St Primary",
+   "202423" : "Bronte Rd Nr Waverley Court House",
+   "203584" : "Maroubra Rd nr Anzac Pde",
+   "203634" : "Bunnerong Rd nr Perry St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-614-d-sj2-1-1-b00ag" : {
+      "vjcode" : "VJ_99-614-d-sj2-1-1-b00ag",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "0S pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "1M pasd"
+            ],
+            [
+               "203525",
+               "0S pasd"
+            ],
+            [
+               "203581",
+               "2M pasd"
+            ],
+            [
+               "203582",
+               "1M pasd"
+            ],
+            [
+               "203583",
+               "1M pasd"
+            ],
+            [
+               "203584",
+               "2M pasd"
+            ],
+            [
+               "203573",
+               "1M pasd"
+            ],
+            [
+               "203574",
+               "1M pasd"
+            ],
+            [
+               "203575",
+               "0S pasd"
+            ],
+            [
+               "203576",
+               "0S pasd"
+            ],
+            [
+               "203251",
+               "1M pasd"
+            ],
+            [
+               "203252",
+               "0S pasd"
+            ],
+            [
+               "203253",
+               "2M pasd"
+            ],
+            [
+               "203254",
+               "1M pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203270",
+               "0S pasd"
+            ],
+            [
+               "203271",
+               "1M pasd"
+            ],
+            [
+               "203272",
+               "1M pasd"
+            ],
+            [
+               "2031170",
+               "1M pasd"
+            ],
+            [
+               "2031171",
+               "0S pasd"
+            ],
+            [
+               "2031172",
+               "0S pasd"
+            ],
+            [
+               "2031145",
+               "1M pasd"
+            ],
+            [
+               "2031148",
+               "0S pasd"
+            ],
+            [
+               "203135",
+               "2M pasd"
+            ],
+            [
+               "203136",
+               "1M pasd"
+            ],
+            [
+               "2031115",
+               "1M pasd"
+            ],
+            [
+               "2031116",
+               "0S pasd"
+            ],
+            [
+               "2031117",
+               "2M pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "0S pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "0S pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "0S pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202263",
+               "1M pasd"
+            ],
+            [
+               "202264",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-614-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Birrell St Nr Goldie Av",
+            "rs_ref" : "RS_99-614-d-sj2-1-H-1",
+            "id" : "R_99-614-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-614-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "614"
+   },
+   "VJ_99-614-d-sj2-1-2-b00af" : {
+      "vjcode" : "VJ_99-614-d-sj2-1-2-b00af",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "1M pasd"
+            ],
+            [
+               "203664",
+               "0S pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "1M pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "1M pasd"
+            ],
+            [
+               "203683",
+               "0S pasd"
+            ],
+            [
+               "203684",
+               "1M pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "0S pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "1M pasd"
+            ],
+            [
+               "203525",
+               "0S pasd"
+            ],
+            [
+               "203581",
+               "2M pasd"
+            ],
+            [
+               "203582",
+               "1M pasd"
+            ],
+            [
+               "203583",
+               "1M pasd"
+            ],
+            [
+               "203584",
+               "2M pasd"
+            ],
+            [
+               "203573",
+               "1M pasd"
+            ],
+            [
+               "203574",
+               "1M pasd"
+            ],
+            [
+               "203575",
+               "0S pasd"
+            ],
+            [
+               "203576",
+               "0S pasd"
+            ],
+            [
+               "203251",
+               "1M pasd"
+            ],
+            [
+               "203252",
+               "0S pasd"
+            ],
+            [
+               "203253",
+               "2M pasd"
+            ],
+            [
+               "203254",
+               "1M pasd"
+            ],
+            [
+               "203214",
+               "1M pasd"
+            ],
+            [
+               "203270",
+               "0S pasd"
+            ],
+            [
+               "203271",
+               "1M pasd"
+            ],
+            [
+               "203272",
+               "1M pasd"
+            ],
+            [
+               "2031170",
+               "1M pasd"
+            ],
+            [
+               "2031171",
+               "0S pasd"
+            ],
+            [
+               "2031172",
+               "0S pasd"
+            ],
+            [
+               "2031145",
+               "1M pasd"
+            ],
+            [
+               "2031148",
+               "0S pasd"
+            ],
+            [
+               "203135",
+               "2M pasd"
+            ],
+            [
+               "203136",
+               "1M pasd"
+            ],
+            [
+               "2031115",
+               "1M pasd"
+            ],
+            [
+               "2031116",
+               "0S pasd"
+            ],
+            [
+               "2031117",
+               "2M pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "0S pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "0S pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "0S pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202263",
+               "1M pasd"
+            ],
+            [
+               "202264",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-614-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Birrell St Nr Goldie Av",
+            "rs_ref" : "RS_99-614-d-sj2-1-H-1",
+            "id" : "R_99-614-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-614-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "614"
+   }
+}
+;
+

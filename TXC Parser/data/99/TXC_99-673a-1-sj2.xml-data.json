@@ -1,0 +1,691 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-673-a-sj2-1" : "673"
+}
+;
+
+var stations = {
+   "220687" : "Thompson St Nr Flers Av",
+   "219345" : "Canterbury Rd Nr Berna St",
+   "220795" : "Dunmore St Nr Gladstone St",
+   "2207229" : "Connemarra St Nr Seaforth St",
+   "220689" : "Cameron Av Nr Larkhall Av",
+   "220671" : "Wolli Av Nr Frost St",
+   "2207177" : "Bexley Rd Nr Miller Av",
+   "220781" : "Caledonian St Nr Dunmore St",
+   "2207231" : "Dunmore St Nr Monomeeth St",
+   "2206124" : "Homer St Nr Earlwood Primary",
+   "219368" : "Jeffrey St Nr Canterbury Rd",
+   "2207167" : "Bexley Rd Opp Canonbury Gr",
+   "219321" : "Canterbury Rd Nr Canterbury Station",
+   "220673" : "Wolli Av Nr Charleston Av",
+   "220686" : "Caroline St Nr River St",
+   "2207175" : "Bexley Rd Nr Kingsland Rd South",
+   "220681" : "Caroline St Nr Bedford St",
+   "220672" : "Wolli Av Nr Woodlawn Av",
+   "220676" : "Morgan St Nr Singleton St",
+   "219391" : "Fore St Nr Ivy St",
+   "2206123" : "Homer St Opp Morgan St",
+   "220623" : "Homer St Nr William St",
+   "219393" : "Fore St Nr High St",
+   "219390" : "Fore St Nr Woolcott St",
+   "2207121" : "Bexley Rd Nr Slade Rd",
+   "2207199" : "Bexley Rd Nr Smith St",
+   "2207184" : "Bexley Rd nr Bexley North Station",
+   "2207168" : "Bexley Rd Opp Kingsland Rd South",
+   "2207230" : "Seaforth St Nr Beaconsfield St",
+   "2207113" : "Marist Brothers",
+   "220674" : "Wolli Av Nr Shaw Av",
+   "2193105" : "Canterbury Rd nr Close St",
+   "2206128" : "Homer St Nr Earlwood Primary",
+   "220690" : "Morgan St Nr Bardwell Cr",
+   "2206129" : "Homer St Nr Morgan St",
+   "220669" : "Clarke St Nr Lewins St",
+   "2207170" : "Bexley Rd nr Godwin St",
+   "2206126" : "Clarke St Nr Earlwood Av",
+   "220695" : "Wolli Av Nr Johnston St",
+   "220675" : "Wolli Av Nr Leonora St",
+   "220685" : "Woolcott St Nr Caroline St",
+   "2207183" : "Bexley Rd Nr Barnsbury Gr",
+   "219392" : "Fore St Nr Ivy St",
+   "220694" : "Wolli Av Nr Woodlawn Av",
+   "2207204" : "Bexley Rd Nr Barnsbury Gr",
+   "2207169" : "Bexley Rd Nr Reginald St",
+   "220783" : "Caledonian St Nr Seaforth St",
+   "2207166" : "Bexley Rd nr Godwin St",
+   "220678" : "Cameron Av Nr Dawson Av",
+   "220798" : "Connemarra St Nr Dunmore St",
+   "220680" : "Thompson St Nr Caroline St",
+   "2207232" : "Dunmore St Nr Forest Rd",
+   "220679" : "Thompson St Nr Fricourt Av",
+   "220797" : "Seaforth St Nr Beaconsfield St",
+   "220691" : "Wolli Av Nr Bray Av",
+   "220692" : "Wolli Av Nr Shaw Av",
+   "220682" : "Woolcott St Nr Barnes Av",
+   "2206127" : "Homer St Nr Hartill Law Av",
+   "220693" : "Wolli Av Nr Charleston Av",
+   "220688" : "Thompson St Nr Kitchener Av",
+   "220684" : "Woolcott St Nr Ann St",
+   "2207242" : "Marist Brothers",
+   "220728" : "Forest Rd Opp Stoney Creek Rd",
+   "219351" : "Canterbury Rd Nr Berna St",
+   "2207233" : "Forest Rd Nr Oriental St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-673-a-sj2-1-1-b00ax" : {
+      "vjcode" : "VJ_99-673-a-sj2-1-1-b00ax",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2207113",
+               null
+            ],
+            [
+               "2207229",
+               "1M pasd"
+            ],
+            [
+               "2207230",
+               "1M pasd"
+            ],
+            [
+               "220781",
+               "0S pasd"
+            ],
+            [
+               "2207231",
+               "1M pasd"
+            ],
+            [
+               "2207232",
+               "0S pasd"
+            ],
+            [
+               "2207233",
+               "1M pasd"
+            ],
+            [
+               "2207166",
+               "1M pasd"
+            ],
+            [
+               "2207199",
+               "0S pasd"
+            ],
+            [
+               "2207175",
+               "1M pasd"
+            ],
+            [
+               "2207177",
+               "1M pasd"
+            ],
+            [
+               "2207183",
+               "1M pasd"
+            ],
+            [
+               "2207184",
+               "1M pasd"
+            ],
+            [
+               "220671",
+               "2M pasd"
+            ],
+            [
+               "220672",
+               "0S pasd"
+            ],
+            [
+               "220673",
+               "1M pasd"
+            ],
+            [
+               "220674",
+               "0S pasd"
+            ],
+            [
+               "220675",
+               "1M pasd"
+            ],
+            [
+               "220676",
+               "1M pasd"
+            ],
+            [
+               "2206123",
+               "1M pasd"
+            ],
+            [
+               "2206124",
+               "0S pasd"
+            ],
+            [
+               "220623",
+               "1M pasd"
+            ],
+            [
+               "220669",
+               "1M pasd"
+            ],
+            [
+               "220678",
+               "1M pasd"
+            ],
+            [
+               "220679",
+               "1M pasd"
+            ],
+            [
+               "220680",
+               "0S pasd"
+            ],
+            [
+               "220681",
+               "1M pasd"
+            ],
+            [
+               "220682",
+               "1M pasd"
+            ],
+            [
+               "219390",
+               "0S pasd"
+            ],
+            [
+               "219391",
+               "2M pasd"
+            ],
+            [
+               "219345",
+               "0S pasd"
+            ],
+            [
+               "219321",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-673-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Marist Brothers - Canterbury Rd Nr Canterbury Station",
+            "rs_ref" : "RS_99-673-a-sj2-1-R-1",
+            "id" : "R_99-673-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-673-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "673"
+   },
+   "VJ_99-673-a-sj2-1-3-b009t" : {
+      "vjcode" : "VJ_99-673-a-sj2-1-3-b009t",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "219368",
+               null
+            ],
+            [
+               "2193105",
+               "1M pasd"
+            ],
+            [
+               "219351",
+               "0S pasd"
+            ],
+            [
+               "219392",
+               "1M pasd"
+            ],
+            [
+               "219393",
+               "1M pasd"
+            ],
+            [
+               "220684",
+               "1M pasd"
+            ],
+            [
+               "220685",
+               "0S pasd"
+            ],
+            [
+               "220686",
+               "1M pasd"
+            ],
+            [
+               "220687",
+               "1M pasd"
+            ],
+            [
+               "220688",
+               "1M pasd"
+            ],
+            [
+               "220689",
+               "1M pasd"
+            ],
+            [
+               "2206126",
+               "1M pasd"
+            ],
+            [
+               "2206127",
+               "1M pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "220690",
+               "1M pasd"
+            ],
+            [
+               "220691",
+               "1M pasd"
+            ],
+            [
+               "220692",
+               "1M pasd"
+            ],
+            [
+               "220693",
+               "0S pasd"
+            ],
+            [
+               "220694",
+               "1M pasd"
+            ],
+            [
+               "220695",
+               "0S pasd"
+            ],
+            [
+               "2207121",
+               "2M pasd"
+            ],
+            [
+               "2207204",
+               "1M pasd"
+            ],
+            [
+               "2207167",
+               "1M pasd"
+            ],
+            [
+               "2207168",
+               "1M pasd"
+            ],
+            [
+               "2207169",
+               "1M pasd"
+            ],
+            [
+               "2207170",
+               "1M pasd"
+            ],
+            [
+               "220728",
+               "0S pasd"
+            ],
+            [
+               "220795",
+               "1M pasd"
+            ],
+            [
+               "220783",
+               "1M pasd"
+            ],
+            [
+               "220797",
+               "0S pasd"
+            ],
+            [
+               "220798",
+               "1M pasd"
+            ],
+            [
+               "2207242",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-673-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Jeffrey St Nr Canterbury Rd - Marist Brothers",
+            "rs_ref" : "RS_99-673-a-sj2-1-H-2",
+            "id" : "R_99-673-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-673-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "673"
+   },
+   "VJ_99-673-a-sj2-1-2-b009m" : {
+      "vjcode" : "VJ_99-673-a-sj2-1-2-b009m",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2207113",
+               null
+            ],
+            [
+               "2207229",
+               "1M pasd"
+            ],
+            [
+               "2207230",
+               "1M pasd"
+            ],
+            [
+               "220781",
+               "0S pasd"
+            ],
+            [
+               "2207231",
+               "1M pasd"
+            ],
+            [
+               "2207232",
+               "0S pasd"
+            ],
+            [
+               "2207233",
+               "1M pasd"
+            ],
+            [
+               "2207166",
+               "1M pasd"
+            ],
+            [
+               "2207199",
+               "0S pasd"
+            ],
+            [
+               "2207175",
+               "1M pasd"
+            ],
+            [
+               "2207177",
+               "1M pasd"
+            ],
+            [
+               "2207183",
+               "1M pasd"
+            ],
+            [
+               "2207184",
+               "1M pasd"
+            ],
+            [
+               "220671",
+               "2M pasd"
+            ],
+            [
+               "220672",
+               "0S pasd"
+            ],
+            [
+               "220673",
+               "1M pasd"
+            ],
+            [
+               "220674",
+               "0S pasd"
+            ],
+            [
+               "220675",
+               "1M pasd"
+            ],
+            [
+               "220676",
+               "1M pasd"
+            ],
+            [
+               "2206123",
+               "1M pasd"
+            ],
+            [
+               "2206124",
+               "0S pasd"
+            ],
+            [
+               "220623",
+               "1M pasd"
+            ],
+            [
+               "220669",
+               "1M pasd"
+            ],
+            [
+               "220678",
+               "1M pasd"
+            ],
+            [
+               "220679",
+               "1M pasd"
+            ],
+            [
+               "220680",
+               "0S pasd"
+            ],
+            [
+               "220681",
+               "1M pasd"
+            ],
+            [
+               "220682",
+               "1M pasd"
+            ],
+            [
+               "219390",
+               "0S pasd"
+            ],
+            [
+               "219391",
+               "2M pasd"
+            ],
+            [
+               "219345",
+               "0S pasd"
+            ],
+            [
+               "219321",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-673-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Marist Brothers - Canterbury Rd Nr Canterbury Station",
+            "rs_ref" : "RS_99-673-a-sj2-1-R-1",
+            "id" : "R_99-673-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-673-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "673"
+   },
+   "VJ_99-673-a-sj2-1-4-b009m" : {
+      "vjcode" : "VJ_99-673-a-sj2-1-4-b009m",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "219368",
+               null
+            ],
+            [
+               "2193105",
+               "1M pasd"
+            ],
+            [
+               "219351",
+               "0S pasd"
+            ],
+            [
+               "219392",
+               "1M pasd"
+            ],
+            [
+               "219393",
+               "1M pasd"
+            ],
+            [
+               "220684",
+               "1M pasd"
+            ],
+            [
+               "220685",
+               "0S pasd"
+            ],
+            [
+               "220686",
+               "1M pasd"
+            ],
+            [
+               "220687",
+               "1M pasd"
+            ],
+            [
+               "220688",
+               "1M pasd"
+            ],
+            [
+               "220689",
+               "1M pasd"
+            ],
+            [
+               "2206126",
+               "1M pasd"
+            ],
+            [
+               "2206127",
+               "1M pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "220690",
+               "1M pasd"
+            ],
+            [
+               "220691",
+               "1M pasd"
+            ],
+            [
+               "220692",
+               "1M pasd"
+            ],
+            [
+               "220693",
+               "0S pasd"
+            ],
+            [
+               "220694",
+               "1M pasd"
+            ],
+            [
+               "220695",
+               "0S pasd"
+            ],
+            [
+               "2207121",
+               "2M pasd"
+            ],
+            [
+               "2207204",
+               "1M pasd"
+            ],
+            [
+               "2207167",
+               "1M pasd"
+            ],
+            [
+               "2207168",
+               "1M pasd"
+            ],
+            [
+               "2207169",
+               "1M pasd"
+            ],
+            [
+               "2207170",
+               "1M pasd"
+            ],
+            [
+               "220728",
+               "0S pasd"
+            ],
+            [
+               "220795",
+               "1M pasd"
+            ],
+            [
+               "220783",
+               "1M pasd"
+            ],
+            [
+               "220797",
+               "0S pasd"
+            ],
+            [
+               "220798",
+               "1M pasd"
+            ],
+            [
+               "2207242",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-673-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Jeffrey St Nr Canterbury Rd - Marist Brothers",
+            "rs_ref" : "RS_99-673-a-sj2-1-H-2",
+            "id" : "R_99-673-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-673-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "673"
+   }
+}
+;
+

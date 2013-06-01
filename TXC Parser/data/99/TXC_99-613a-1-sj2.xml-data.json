@@ -1,0 +1,597 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-613-a-sj2-1" : "613"
+}
+;
+
+var stations = {
+   "203247" : "Anzac Pde Nr Botany St",
+   "203246" : "Anzac Pde Nr Sturt St",
+   "203557" : "Anzac Pde Nr Green St",
+   "202952" : "New South Head Rd Nr Rawson Rd",
+   "203324" : "Anzac Pde Nr Darling St",
+   "202334" : "Victoria Rd Nr Old South Head Rd",
+   "2030142" : "New South Head Rd Nr Towns Rd",
+   "203274" : "Anzac Pde Nr Middle St",
+   "203142" : "Alison Rd nr ATC Main Entrance",
+   "2031127" : "Albion St Nr Carrington Rd",
+   "202428" : "Albion St Nr Macpherson St",
+   "203082" : "New South Head Nr Vaucluse",
+   "202326" : "Victoria Rd Nr Rose Bay Av",
+   "203555" : "Anzac Pde Nr Storey St",
+   "203327" : "Anzac Pde Nr Doncaster Av",
+   "2031129" : "Frenchmans Rd Nr Clovelly Rd",
+   "202427" : "St Catherines School",
+   "2023100" : "Victoria Rd Opp Rivers St",
+   "202331" : "Victoria Rd Opp Mansion Rd",
+   "202953" : "New South Head Rd Nr Fernleigh Gdns",
+   "203143" : "Alison Rd Nr Doncaster Av",
+   "203311" : "Anzac Pde Stand D at UNSW",
+   "202328" : "Victoria Rd Opp Ginahgulla Rd",
+   "203245" : "Anzac Pde Nr Wallace St",
+   "202425" : "Bronte Rd Nr Carrington Rd",
+   "202261" : "Old South Head Rd Nr Bon Accord Av",
+   "202329" : "Victoria Rd Nr Cranbrook Rd",
+   "203556" : "Anzac Pde Nr Alma Rd",
+   "203139" : "Cowper St Opp Mulwarree Av",
+   "202961" : "New South Head Rd Nr Cranbrook Rd",
+   "203249" : "Anzac Pde Nr Burbong St",
+   "203218" : "Anzac Pde Stand D nr Rainbow St",
+   "202327" : "Victoria Rd Nr Aston Gdn",
+   "202426" : "Bronte Rd Nr Albion St",
+   "203140" : "Alison Rd Nr Darley Rd",
+   "202381" : "New South Head Rd Nr Rose Bay Av",
+   "2030141" : "New South Head Rd Nr Clairvaux Rd",
+   "202955" : "New South Head Rd Nr Newcastle St",
+   "203320" : "Anzac Pde Nr Todman Av",
+   "202257" : "Oxford St Nr Bronte Rd",
+   "202954" : "New South Head Rd Nr Dover Rd",
+   "202382" : "New South Head Rd Opp Wolseley Rd",
+   "203248" : "Anzac Pde nr Paton St",
+   "202235" : "Bronte Rd Nr Birrell St",
+   "202262" : "Old South Head Rd Nr Paul St",
+   "2031130" : "Frenchmans Rd Nr Avoca St",
+   "202959" : "New South Head Rd Nr O'sullivan Rd",
+   "202960" : "New South Head Rd Nr Salisbury Rd",
+   "202330" : "Victoria Rd Nr Drumalbyn Rd",
+   "202956" : "New South Head Rd Nr Norwich Rd",
+   "202227" : "Bronte Rd Nr Gray St",
+   "203250" : "Anzac Pde Nr Avoca St",
+   "202957" : "New South Head Rd Nr Kent Rd",
+   "202332" : "Victoria Rd Nr Bellevue Hill Prim",
+   "203138" : "Cowper St Nr Church St",
+   "203319" : "Anzac Pde Nr Ascot St",
+   "2031128" : "Frenchmans Rd Nr Kemmis St",
+   "202958" : "New South Head Rd Nr Elanora St",
+   "202424" : "Bronte Rd Nr Church St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-613-a-sj2-1-2-b00as" : {
+      "vjcode" : "VJ_99-613-a-sj2-1-2-b00as",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203082",
+               null
+            ],
+            [
+               "2030141",
+               "1M pasd"
+            ],
+            [
+               "2030142",
+               "1M pasd"
+            ],
+            [
+               "202952",
+               "0S pasd"
+            ],
+            [
+               "202953",
+               "1M pasd"
+            ],
+            [
+               "202954",
+               "0S pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "1M pasd"
+            ],
+            [
+               "202957",
+               "0S pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "0S pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "0S pasd"
+            ],
+            [
+               "202326",
+               "1M pasd"
+            ],
+            [
+               "202327",
+               "1M pasd"
+            ],
+            [
+               "202328",
+               "0S pasd"
+            ],
+            [
+               "202329",
+               "1M pasd"
+            ],
+            [
+               "202330",
+               "0S pasd"
+            ],
+            [
+               "202331",
+               "0S pasd"
+            ],
+            [
+               "2023100",
+               "1M pasd"
+            ],
+            [
+               "202332",
+               "1M pasd"
+            ],
+            [
+               "202334",
+               "1M pasd"
+            ],
+            [
+               "202261",
+               "1M pasd"
+            ],
+            [
+               "202262",
+               "1M pasd"
+            ],
+            [
+               "202257",
+               "2M setDown"
+            ],
+            [
+               "202227",
+               "1M pasd"
+            ],
+            [
+               "202235",
+               "2M pasd"
+            ],
+            [
+               "202424",
+               "1M pasd"
+            ],
+            [
+               "202425",
+               "1M pasd"
+            ],
+            [
+               "202426",
+               "2M pasd"
+            ],
+            [
+               "202427",
+               "1M pasd"
+            ],
+            [
+               "202428",
+               "0S pasd"
+            ],
+            [
+               "2031127",
+               "1M pasd"
+            ],
+            [
+               "2031128",
+               "1M pasd"
+            ],
+            [
+               "2031129",
+               "0S pasd"
+            ],
+            [
+               "2031130",
+               "1M pasd"
+            ],
+            [
+               "203138",
+               "1M pasd"
+            ],
+            [
+               "203139",
+               "1M pasd"
+            ],
+            [
+               "203140",
+               "1M pasd"
+            ],
+            [
+               "203142",
+               "1M pasd"
+            ],
+            [
+               "203143",
+               "0S pasd"
+            ],
+            [
+               "203319",
+               "2M pasd"
+            ],
+            [
+               "203320",
+               "0S pasd"
+            ],
+            [
+               "203324",
+               "1M pasd"
+            ],
+            [
+               "203327",
+               "0S pasd"
+            ],
+            [
+               "203311",
+               "1M pasd"
+            ],
+            [
+               "203274",
+               "1M pasd"
+            ],
+            [
+               "203218",
+               "1M pasd"
+            ],
+            [
+               "203245",
+               "1M pasd"
+            ],
+            [
+               "203246",
+               "0S pasd"
+            ],
+            [
+               "203247",
+               "1M pasd"
+            ],
+            [
+               "203248",
+               "1M pasd"
+            ],
+            [
+               "203249",
+               "0S pasd"
+            ],
+            [
+               "203250",
+               "1M pasd"
+            ],
+            [
+               "203555",
+               "1M pasd"
+            ],
+            [
+               "203556",
+               "1M pasd"
+            ],
+            [
+               "203557",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-613-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "New South Head Nr Vaucluse - Anzac Pde Nr Green St",
+            "rs_ref" : "RS_99-613-a-sj2-1-R-1",
+            "id" : "R_99-613-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-613-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "613"
+   },
+   "VJ_99-613-a-sj2-1-1-b00ar" : {
+      "vjcode" : "VJ_99-613-a-sj2-1-1-b00ar",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203082",
+               null
+            ],
+            [
+               "2030141",
+               "1M pasd"
+            ],
+            [
+               "2030142",
+               "1M pasd"
+            ],
+            [
+               "202952",
+               "0S pasd"
+            ],
+            [
+               "202953",
+               "1M pasd"
+            ],
+            [
+               "202954",
+               "0S pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "1M pasd"
+            ],
+            [
+               "202957",
+               "0S pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "0S pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "0S pasd"
+            ],
+            [
+               "202326",
+               "1M pasd"
+            ],
+            [
+               "202327",
+               "1M pasd"
+            ],
+            [
+               "202328",
+               "0S pasd"
+            ],
+            [
+               "202329",
+               "1M pasd"
+            ],
+            [
+               "202330",
+               "0S pasd"
+            ],
+            [
+               "202331",
+               "0S pasd"
+            ],
+            [
+               "2023100",
+               "1M pasd"
+            ],
+            [
+               "202332",
+               "1M pasd"
+            ],
+            [
+               "202334",
+               "1M pasd"
+            ],
+            [
+               "202261",
+               "1M pasd"
+            ],
+            [
+               "202262",
+               "1M pasd"
+            ],
+            [
+               "202257",
+               "2M setDown"
+            ],
+            [
+               "202227",
+               "1M pasd"
+            ],
+            [
+               "202235",
+               "2M pasd"
+            ],
+            [
+               "202424",
+               "1M pasd"
+            ],
+            [
+               "202425",
+               "1M pasd"
+            ],
+            [
+               "202426",
+               "2M pasd"
+            ],
+            [
+               "202427",
+               "1M pasd"
+            ],
+            [
+               "202428",
+               "0S pasd"
+            ],
+            [
+               "2031127",
+               "1M pasd"
+            ],
+            [
+               "2031128",
+               "1M pasd"
+            ],
+            [
+               "2031129",
+               "0S pasd"
+            ],
+            [
+               "2031130",
+               "1M pasd"
+            ],
+            [
+               "203138",
+               "1M pasd"
+            ],
+            [
+               "203139",
+               "1M pasd"
+            ],
+            [
+               "203140",
+               "1M pasd"
+            ],
+            [
+               "203142",
+               "1M pasd"
+            ],
+            [
+               "203143",
+               "0S pasd"
+            ],
+            [
+               "203319",
+               "2M pasd"
+            ],
+            [
+               "203320",
+               "0S pasd"
+            ],
+            [
+               "203324",
+               "1M pasd"
+            ],
+            [
+               "203327",
+               "0S pasd"
+            ],
+            [
+               "203311",
+               "1M pasd"
+            ],
+            [
+               "203274",
+               "1M pasd"
+            ],
+            [
+               "203218",
+               "1M pasd"
+            ],
+            [
+               "203245",
+               "1M pasd"
+            ],
+            [
+               "203246",
+               "0S pasd"
+            ],
+            [
+               "203247",
+               "1M pasd"
+            ],
+            [
+               "203248",
+               "1M pasd"
+            ],
+            [
+               "203249",
+               "0S pasd"
+            ],
+            [
+               "203250",
+               "1M pasd"
+            ],
+            [
+               "203555",
+               "1M pasd"
+            ],
+            [
+               "203556",
+               "1M pasd"
+            ],
+            [
+               "203557",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-613-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "New South Head Nr Vaucluse - Anzac Pde Nr Green St",
+            "rs_ref" : "RS_99-613-a-sj2-1-R-1",
+            "id" : "R_99-613-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-613-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "613"
+   }
+}
+;
+

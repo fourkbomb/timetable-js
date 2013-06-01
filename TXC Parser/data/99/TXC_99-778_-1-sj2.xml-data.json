@@ -1,0 +1,457 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-778-_-sj2-1" : "778"
+}
+;
+
+var stations = {
+   "209566" : "Eurobin St Nr Stella Maris Stand 4",
+   "209759" : "Edgecliffe Bvd nr Hilma St",
+   "209758" : "Telopea St nr Hilma St",
+   "210036" : "Pittwater Rd nr Kentwell Rd",
+   "209763" : "Edgecliffe Bvd nr Fuller St",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "209741" : "Hall Av nr Heather St",
+   "209546" : "Pittwater Rd Nr Eurobin Av",
+   "210030" : "Pittwater Rd nr Queencliff Rd",
+   "209751" : "Parkes Rd nr South Creek Rd",
+   "209754" : "Anzac Av nr Kangaroo Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "210017" : "Pittwater Rd nr Pine Av",
+   "209738" : "Veterans Pde nr Ettalong St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "209765" : "Veterans Pde nr Acacia St",
+   "209739" : "Telopea St nr Fuller St",
+   "209764" : "Veterans Pde Nr Edgecliffe Bvd",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "210034" : "Pittwater Rd Nr Western Av",
+   "209740" : "Fuller St nr Hall Av",
+   "209756" : "Plateau Rd nr David Rd",
+   "209762" : "Edgecliffe Bvd nr Blandford St",
+   "209752" : "Parkes Rd Nr Westmoreland Av",
+   "209761" : "Edgecliffe Bvd Nr Aubreen St",
+   "209760" : "Edgecliffe Bvd Nr Acacia St",
+   "210032" : "Pittwater Rd Nr Oliver St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209912" : "Pittwater Rd Nr Pacific Pde",
+   "210033" : "Pittwater Rd Nr Riverview Pde",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "209785" : "South Creek Rd opp Pittwater House School",
+   "209911" : "Pittwater Rd nr May Rd",
+   "209757" : "Aubreen St nr Telopea St",
+   "209913" : "Pittwater Rd nr St Davids Av",
+   "210037" : "Pittwater Rd Nr Sterland Av",
+   "209755" : "Plateau Rd Nr Hilma St",
+   "209766" : "Veterans Pde Nr Rose Av",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2099217" : "South Creek Rd nr Pittwater Rd",
+   "209737" : "Veterans Pde nr Grevillea St",
+   "210035" : "Pittwater Rd Nr Wakefield St",
+   "209753" : "Parkes Rd Nr Orlando Rd",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-778-_-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-778-_-sj2-1-2-b00b7",
+      "leaves" : "15:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "1M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "2099217",
+               "0S pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "1M pasd"
+            ],
+            [
+               "209752",
+               "0S pasd"
+            ],
+            [
+               "209753",
+               "1M pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "0S pasd"
+            ],
+            [
+               "209756",
+               "1M pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-778-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-778-_-sj2-1-R-1",
+            "id" : "R_99-778-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-778-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "778"
+   },
+   "VJ_99-778-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-778-_-sj2-1-1-b00b2",
+      "leaves" : "15:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "1M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "2099217",
+               "0S pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "1M pasd"
+            ],
+            [
+               "209752",
+               "0S pasd"
+            ],
+            [
+               "209753",
+               "1M pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "0S pasd"
+            ],
+            [
+               "209756",
+               "1M pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-778-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-778-_-sj2-1-R-1",
+            "id" : "R_99-778-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-778-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "778"
+   }
+}
+;
+

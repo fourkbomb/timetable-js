@@ -1,0 +1,408 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-804-_-sj2-1" : "804"
+}
+;
+
+var stations = {
+   "2282116" : "Macquarie Dr Opp Glad Gunson Dr",
+   "2282138" : "Rothbury St Nr Tyrrells Cl",
+   "2282164" : "Wyndham Wy Nr Tingira Dr",
+   "2280305" : "Tingira Dr opp Cassegrain Cl",
+   "2282155" : "Glad Gunson Dr Nr Lindeman Cl",
+   "2282172" : "Glad Gunson Dr Nr Yalumba Cl",
+   "2282181" : "Bareki Rd 200m S Of Harkins St",
+   "2282156" : "Glad Gunson Dr Nr Leasingham Cl",
+   "2282157" : "Glad Gunson Dr Nr Wyndham Wy",
+   "2282182" : "Bareki Rd 250m S Of Harkins St",
+   "2282162" : "Wyndham Wy Opp Woodside Dr",
+   "2282141" : "Ian St Nr Elizabeth St",
+   "2282112" : "Ian St Opp Penfold Cl",
+   "2282185" : "Bareki Rd Nr Moani St",
+   "2280130" : "Tingira Dr nr Wyndham Wy",
+   "2282170" : "Wyndham Wy Nr Glad Gunson Dr",
+   "2282140" : "Ian St Nr Buring Cl",
+   "2282163" : "Wyndham Wy Nr Desreaux Cl",
+   "2290179" : "Burton Rd opp Lamington Dr",
+   "2282159" : "Wyndham Wy Nr Glad Gunson Dr",
+   "2282160" : "Wyndham Wy Nr Dalwood Cl",
+   "2282114" : "Glad Gunson Dr Nr Eleebana Primary",
+   "2282179" : "Bareki Rd Opp Yerambla Cl",
+   "228236" : "Myles Av Nr Warners Bay High School",
+   "2282137" : "Glad Gunson Dr Opp Pindimar Cl",
+   "2282142" : "Elizabeth St Nr Macquarie Dr",
+   "2282150" : "Lindeman Cl Nr Minchinbury Cl",
+   "2282173" : "Glad Gunson Dr Nr Bundarra Cl",
+   "2282161" : "Wyndham Wy Nr Clearbrook Cl",
+   "2282145" : "The Esplanade Opp James St",
+   "2282153" : "Seaview Cl Nr Huntington Cl",
+   "2282166" : "Wyndham Wy Opp Desreaux Cl",
+   "2290176" : "Burton Rd opp Glad Gunson Dr",
+   "2282144" : "The Esplanade Opp Warners Bay Rd",
+   "2290175" : "Burton Rd nr Casson Av",
+   "228267" : "King St Nr Albert St",
+   "2280304" : "Tingira Dr nr Cassegrain Cl",
+   "2290177" : "Burton Rd nr Glad Gunson Dr",
+   "2282184" : "Bareki Rd Nr Yerambla Cl",
+   "2282109" : "Harkins St Nr Elizabeth St",
+   "2282110" : "Ian St Nr Murray St",
+   "2290178" : "Burton Rd opp Casson Av",
+   "2282115" : "Glad Gunson Dr Nr Linden Av",
+   "2282154" : "Lindeman Cl Nr Glad Gunson Dr",
+   "2282169" : "Wyndham Wy Nr Mateus Cl",
+   "2282165" : "Wyndham Wy Nr Stenhouse Dr",
+   "2282167" : "Wyndham Wy Nr Woodside Dr",
+   "2282113" : "Ian St At Eleebana Primary School",
+   "2282168" : "Wyndham Wy Opp Ridgewood Cr",
+   "2282111" : "Ian St Nr Mulimbah St",
+   "2282183" : "Bareki Rd Nr Birubi Cl",
+   "2282177" : "Macquarie Rd Nr Bareki Rd",
+   "2282180" : "Bareki Rd Nr Eleebana Rd",
+   "2282171" : "Glad Gunson Dr Opp Wyndham Wy",
+   "2280131" : "Tingira Dr opp Wyndham Wy",
+   "2290174" : "Burton Rd nr Warners Bay Rd",
+   "2282118" : "Macquarie Rd Nr South Creek",
+   "2282152" : "Woodley St Nr Seaview Cl",
+   "2282186" : "Macquarie Dr Nr Bareki Rd",
+   "2282117" : "Macquarie Rd Opp Cherry Rd",
+   "2282151" : "Lindeman Cl Nr Woodley St",
+   "2282139" : "Ian St Nr Penfold Cl",
+   "2282178" : "Bareki Rd Opp Moani St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-804-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-804-_-sj2-1-1-b0096",
+      "leaves" : "08:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2290174",
+               null
+            ],
+            [
+               "2290175",
+               "0S pasd"
+            ],
+            [
+               "2290176",
+               "1M pasd"
+            ],
+            [
+               "2282150",
+               "0S pasd"
+            ],
+            [
+               "2282151",
+               "0S pasd"
+            ],
+            [
+               "2282152",
+               "0S pasd"
+            ],
+            [
+               "2282153",
+               "1M pasd"
+            ],
+            [
+               "2282154",
+               "0S pasd"
+            ],
+            [
+               "2282155",
+               "0S pasd"
+            ],
+            [
+               "2282156",
+               "1M pasd"
+            ],
+            [
+               "2282157",
+               "2M pasd"
+            ],
+            [
+               "2282159",
+               "1M pasd"
+            ],
+            [
+               "2282160",
+               "1M pasd"
+            ],
+            [
+               "2282161",
+               "1M pasd"
+            ],
+            [
+               "2282162",
+               "1M pasd"
+            ],
+            [
+               "2282163",
+               "0S pasd"
+            ],
+            [
+               "2282164",
+               "1M pasd"
+            ],
+            [
+               "2280130",
+               "0S pasd"
+            ],
+            [
+               "2280304",
+               "2M pasd"
+            ],
+            [
+               "2280305",
+               "2M pasd"
+            ],
+            [
+               "2280131",
+               "2M pasd"
+            ],
+            [
+               "2282177",
+               "1M pasd"
+            ],
+            [
+               "2282178",
+               "1M pasd"
+            ],
+            [
+               "2282179",
+               "0S pasd"
+            ],
+            [
+               "2282180",
+               "1M pasd"
+            ],
+            [
+               "2282181",
+               "1M pasd"
+            ],
+            [
+               "2282109",
+               "0S pasd"
+            ],
+            [
+               "2282110",
+               "1M pasd"
+            ],
+            [
+               "2282111",
+               "0S pasd"
+            ],
+            [
+               "2282112",
+               "1M pasd"
+            ],
+            [
+               "2282113",
+               "0S pasd"
+            ],
+            [
+               "2282114",
+               "0S pasd"
+            ],
+            [
+               "2282115",
+               "1M pasd"
+            ],
+            [
+               "2282116",
+               "0S pasd"
+            ],
+            [
+               "2282117",
+               "1M pasd"
+            ],
+            [
+               "2282118",
+               "0S pasd"
+            ],
+            [
+               "2282144",
+               "1M pasd"
+            ],
+            [
+               "2282145",
+               "0S pasd"
+            ],
+            [
+               "228267",
+               "1M pasd"
+            ],
+            [
+               "228236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-804-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Burton Rd nr Warners Bay Rd - Myles Av Nr Warners Bay High School",
+            "rs_ref" : "RS_94-804-_-sj2-1-H-1",
+            "id" : "R_94-804-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-804-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "804"
+   },
+   "VJ_94-804-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-804-_-sj2-1-2-b0096",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2282113",
+               null
+            ],
+            [
+               "2282137",
+               "0S pasd"
+            ],
+            [
+               "2282138",
+               "1M pasd"
+            ],
+            [
+               "2282139",
+               "0S pasd"
+            ],
+            [
+               "2282140",
+               "1M pasd"
+            ],
+            [
+               "2282141",
+               "0S pasd"
+            ],
+            [
+               "2282142",
+               "1M pasd"
+            ],
+            [
+               "2282182",
+               "0S pasd"
+            ],
+            [
+               "2282183",
+               "1M pasd"
+            ],
+            [
+               "2282184",
+               "0S pasd"
+            ],
+            [
+               "2282185",
+               "1M pasd"
+            ],
+            [
+               "2282186",
+               "1M pasd"
+            ],
+            [
+               "2280130",
+               "1M pasd"
+            ],
+            [
+               "2280304",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "3M pasd"
+            ],
+            [
+               "2282165",
+               "1M pasd"
+            ],
+            [
+               "2282166",
+               "1M pasd"
+            ],
+            [
+               "2282167",
+               "0S pasd"
+            ],
+            [
+               "2282168",
+               "1M pasd"
+            ],
+            [
+               "2282169",
+               "1M pasd"
+            ],
+            [
+               "2282170",
+               "1M pasd"
+            ],
+            [
+               "2282171",
+               "1M pasd"
+            ],
+            [
+               "2282172",
+               "1M pasd"
+            ],
+            [
+               "2282173",
+               "2M pasd"
+            ],
+            [
+               "2282150",
+               "0S pasd"
+            ],
+            [
+               "2282151",
+               "0S pasd"
+            ],
+            [
+               "2282152",
+               "1M pasd"
+            ],
+            [
+               "2282153",
+               "0S pasd"
+            ],
+            [
+               "2282154",
+               "0S pasd"
+            ],
+            [
+               "2290177",
+               "0S pasd"
+            ],
+            [
+               "2290178",
+               "1M pasd"
+            ],
+            [
+               "2290179",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-804-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Ian St At Eleebana Primary School - Burton Rd opp Lamington Dr",
+            "rs_ref" : "RS_94-804-_-sj2-1-R-2",
+            "id" : "R_94-804-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-804-_-sj2-1",
+      "line" : "804"
+   }
+}
+;
+

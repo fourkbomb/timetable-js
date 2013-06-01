@@ -1,0 +1,574 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-783-b-sj2-1" : "783"
+}
+;
+
+var stations = {
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "209445" : "Sydney Rd Nr Cohen St",
+   "2093187" : "Balgowlah Boys High Stand 3",
+   "210115" : "Pittwater Rd Nr Waterloo St",
+   "210036" : "Pittwater Rd nr Kentwell Rd",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "209543" : "Pittwater Rd Nr Pine St",
+   "209540" : "Sydney Rd Nr Ivanhoe Park",
+   "209313" : "Sydney Rd nr Rickard St",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "209444" : "Sydney Rd Nr Brisbane St",
+   "210030" : "Pittwater Rd nr Queencliff Rd",
+   "209546" : "Pittwater Rd Nr Eurobin Av",
+   "210137" : "Ocean St Nr Octavia St",
+   "210015" : "Pittwater Rd nr Roger St",
+   "210138" : "Ocean St nr Emerald St",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "210113" : "Pittwater Rd Nr Devitt St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "209315" : "Sydney Rd Nr Condamine St",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "210034" : "Pittwater Rd Nr Western Av",
+   "210135" : "Waterloo St Nr Ocean St",
+   "209312" : "Sydney Rd nr Pickworth Av",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "209542" : "Pittwater Rd Nr Steinton St",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210032" : "Pittwater Rd Nr Oliver St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209446" : "Sydney Rd Nr Thornton St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "209568" : "Eurobin St Nr Stella Maris Stand 5",
+   "209912" : "Pittwater Rd Nr Pacific Pde",
+   "209314" : "Sydney Rd Nr Woodland St",
+   "209539" : "Sydney Rd Nr Birkley Rd",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "210033" : "Pittwater Rd Nr Riverview Pde",
+   "2100170" : "St Augustines School",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "209911" : "Pittwater Rd nr May Rd",
+   "209913" : "Pittwater Rd nr St Davids Av",
+   "209541" : "Belgrave St Nr Raglan St",
+   "210112" : "Pittwater Rd Nr Goodwin St",
+   "210037" : "Pittwater Rd Nr Sterland Av",
+   "210139" : "Ocean St Nr Malcolm St",
+   "210114" : "Pittwater Rd nr Narrabeen St",
+   "209443" : "Sydney Rd Nr Austin St",
+   "210140" : "Narrabeen Park Pde Nr Walsh St",
+   "210136" : "Ocean St Nr Albemarle St",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2093144" : "Sydney Rd Nr Hill St",
+   "210035" : "Pittwater Rd Nr Wakefield St",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-783-b-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-783-b-sj2-1-2-b00b2",
+      "leaves" : "15:27:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093187",
+               null
+            ],
+            [
+               "209312",
+               "1M pasd"
+            ],
+            [
+               "209313",
+               "1M pasd"
+            ],
+            [
+               "209314",
+               "0S pasd"
+            ],
+            [
+               "209315",
+               "1M pasd"
+            ],
+            [
+               "2093144",
+               "1M pasd"
+            ],
+            [
+               "209443",
+               "1M pasd"
+            ],
+            [
+               "209444",
+               "0S pasd"
+            ],
+            [
+               "209445",
+               "1M pasd"
+            ],
+            [
+               "209446",
+               "0S pasd"
+            ],
+            [
+               "209539",
+               "1M pasd"
+            ],
+            [
+               "209540",
+               "0S pasd"
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209543",
+               "2M pasd"
+            ],
+            [
+               "209568",
+               "3M pasd"
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "0S pasd"
+            ],
+            [
+               "210033",
+               "1M pasd"
+            ],
+            [
+               "210034",
+               "0S pasd"
+            ],
+            [
+               "210035",
+               "1M pasd"
+            ],
+            [
+               "210036",
+               "0S pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "3M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "1M pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "1M pasd"
+            ],
+            [
+               "209719",
+               "0S pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "1M pasd"
+            ],
+            [
+               "210113",
+               "0S pasd"
+            ],
+            [
+               "210114",
+               "1M pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210135",
+               "1M pasd"
+            ],
+            [
+               "210136",
+               "1M pasd"
+            ],
+            [
+               "210137",
+               "0S pasd"
+            ],
+            [
+               "210138",
+               "1M pasd"
+            ],
+            [
+               "210139",
+               "1M pasd"
+            ],
+            [
+               "210140",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Balgowlah Boys High - Pittwater Rd nr Walsh St",
+            "rs_ref" : "RS_99-783-b-sj2-1-R-1",
+            "id" : "R_99-783-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-783-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   },
+   "VJ_99-783-b-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-783-b-sj2-1-1-b00b7",
+      "leaves" : "15:27:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093187",
+               null
+            ],
+            [
+               "209312",
+               "1M pasd"
+            ],
+            [
+               "209313",
+               "1M pasd"
+            ],
+            [
+               "209314",
+               "0S pasd"
+            ],
+            [
+               "209315",
+               "1M pasd"
+            ],
+            [
+               "2093144",
+               "1M pasd"
+            ],
+            [
+               "209443",
+               "1M pasd"
+            ],
+            [
+               "209444",
+               "0S pasd"
+            ],
+            [
+               "209445",
+               "1M pasd"
+            ],
+            [
+               "209446",
+               "0S pasd"
+            ],
+            [
+               "209539",
+               "1M pasd"
+            ],
+            [
+               "209540",
+               "0S pasd"
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209543",
+               "2M pasd"
+            ],
+            [
+               "209568",
+               "3M pasd"
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "0S pasd"
+            ],
+            [
+               "210033",
+               "1M pasd"
+            ],
+            [
+               "210034",
+               "0S pasd"
+            ],
+            [
+               "210035",
+               "1M pasd"
+            ],
+            [
+               "210036",
+               "0S pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "3M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "1M pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "1M pasd"
+            ],
+            [
+               "209719",
+               "0S pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "1M pasd"
+            ],
+            [
+               "210113",
+               "0S pasd"
+            ],
+            [
+               "210114",
+               "1M pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210135",
+               "1M pasd"
+            ],
+            [
+               "210136",
+               "1M pasd"
+            ],
+            [
+               "210137",
+               "0S pasd"
+            ],
+            [
+               "210138",
+               "1M pasd"
+            ],
+            [
+               "210139",
+               "1M pasd"
+            ],
+            [
+               "210140",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Balgowlah Boys High - Pittwater Rd nr Walsh St",
+            "rs_ref" : "RS_99-783-b-sj2-1-R-1",
+            "id" : "R_99-783-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-783-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   }
+}
+;
+

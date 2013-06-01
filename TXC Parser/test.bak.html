@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Titled Document</title>
+
+<script src="scripts.json"></script>
+<!--<script id="stations" src="TXC_2-AIRP-1-sj2.xml-stations.json"></script>
+<script id="vjdata" src="TXC_2-AIRP-1-sj2.xml-vjdata.json"></script>-->
+
+<script>
+function numToDay(day) {
+	switch(day) {
+		case 0:
+		return "Sunday";
+		case 1:
+		return "Monday";
+		case 2:
+		return "Tuesday";
+		case 3:
+		return "Wednesday";
+		case 4:
+		return "Thursday";
+		case 5:
+		return "Friday";
+		case 6:
+		return "Saturday";
+	}
+}
+
+function changeJavascript() {
+	var file1 = SCRIPTS[document.getElementById("line-choose").value];
+	//var file2 = document.getElementById("filename2").value;
+	
+	var tag1 = document.createElement("script");
+	tag1.src = file1;
+	//var tag2 = document.createElement("script");
+	//tag2.src = file2;
+	
+	var head = ((document.getElementsByTagName("head"))[0]);
+	head.appendChild(tag1);
+	//head.appendChild(tag2);
+	//document.getElementById("stations").src = file1;
+	//document.getElementById("vjdata").src = file2;
+	html = "";
+	loaded();	
+}
+
+var stops = [];
+var stations = {};
+var TRIP_DATA = {};
+var stationplatform = {};
+var orderedRouteList = [];
+var times = {};
+var LatestTrain;
+
+for (z in SCRIPTS) {
+	orderedRouteList.push(z);
+}
+
+orderedRouteList = orderedRouteList.sort();
+/*if (TRIP_DATA) {
+	for (j in TRIP_DATA) {
+		times[TRIP_DATA[j]["leaves"]] = j;	
+	}
+}*/
+var html = "";
+
+
+
+var CURRENT_STATION;
+var ALREADY_LOADED;
+
+function clockUpdate() {
+	document.getElementById("clock").innerHTML = getHoursAndMinutes();
+}
+
+function onBitChange() {
+	LatestTrain = null;
+	if (stationplatform != null) {
+		if (document.getElementById("list1").value != CURRENT_STATION) {
+			var curplat = document.getElementById("list2").value;
+			var curplat_exists = false;
+			var curplatindex = 0;
+			var z = stationplatform[document.getElementById("list1").value];
+			var html = "";
+			// populate list2.
+			for (i in z) {
+				if (z[i] == curplat) {
+					curplat_exists = true;
+					//curplatindex++;
+				}
+				html += '<option value="' + z[i] + '">' + z[i] + '</option>';
+				if (!curplat_exists) {
+					curplatindex++;
+				}
+			}
+			
+			if (document.getElementById("list2").innerHTML != html) {
+				document.getElementById("list2").innerHTML = html;
+				var j = document.getElementById("list2");
+				j.selectedIndex = curplatindex;
+				if (j.selectedIndex < 0 || j.selectedIndex >= j.options.length) {
+					j.selectedIndex = 0;
+				}
+			}
+			
+		}
+	}
+	CURRENT_STATION = document.getElementById("list1").value;
+	if (stationplatform != null) {
+		document.getElementById("list2").style.display = "inline";
+		var CURPLAT = document.getElementById("list2").value;
+		CURRENT_STATION += " (" + CURPLAT + ")";
+	}
+	else {
+		document.getElementById("list2").style.display = "none";
+	}
+	
+	CURRENT_STATION = CURRENT_STATION.replace("_", "");
+	//document.getElementById("from").innerHTML = CURRENT_STATION;
+	// HEAR THAT IE?
+	//times = null;
+	
+	times = {};
+	
+	
+	for (j in TRIP_DATA) {
+		var min_offset = 0;
+		var sec_offset = 0;
+		var leaves = TRIP_DATA[j]["leaves"];
+		var now = new Date();
+		if (TRIP_DATA[j]["days"].indexOf(numToDay(now.getDay())) == -1) {
+			continue;
+		}
+		var o = leaves.split(/:/);//, leaves);
+		leaves = new Date();
+		leaves.setHours(new Number(o[0]));
+		leaves.setMinutes(new Number(o[1]));
+		leaves.setSeconds(new Number(o[2]));
+		var ok = false;
+		var jps = TRIP_DATA[j]["jpref"]["jpatsect"];
+		for (z in jps) {
+			jps[z][0] = jps[z][0].replace("_", "");
+			if (jps[z][1] == null) {
+				if (jps[z].indexOf(CURRENT_STATION) != -1) {
+					ok = true;
+					break;
+				}
+				continue;
+			}
+			
+
+			
+			if (jps[z].indexOf(CURRENT_STATION) != -1) {
+				ok = true;
+				//window.console.log(jps[z][0] + " == " + CURRENT_STATION + " index " + z);
+				break;
+			}	
+			o = jps[z][1].split(/M/);//, jps[z][1]);
+			if (jps[z][1].search("M") >= 0) {
+				if (min_offset != Number.NaN) {
+					min_offset += new Number(o[0]);
+				}
+				if (jps[z][1].search("S") && o[1] != null) {
+					//window.console.log(o[1]);
+					o[1] = o[1].replace(/S/, "");
+				
+				
+					var sec = new Number(o[1]);
+					if (sec != Number.NaN) {
+						sec_offset += sec;
+					}
+				}
+			}
+			else {
+				o = jps[z][1].split(/S/);
+				var sec = new Number(o[0]);
+				if (sec != Number.NaN) {
+					sec_offset += sec;
+				}
+			}
+			
+			
+		}
+		if (!ok) {
+			continue;
+		}
+		min_offset++;
+		leaves.setMinutes(leaves.getMinutes() + min_offset);
+		if (LatestTrain == null) {
+			LatestTrain = leaves;
+		}
+		else {
+			if (LatestTrain.valueOf() < leaves.valueOf()) {
+				LatestTrain = leaves;
+			}
+		}
+		
+		if (sec_offset != Number.NaN && sec_offset.constructor == Number && sec_offset.toString().search("N") == -1) {
+			//window.console.log(sec_offset + " != NaN");
+			leaves.setSeconds(leaves.getSeconds() + sec_offset);
+			//window.console.log("Skipping seconds.");
+		}
+		else {
+			window.console.log("secs skipped!");
+		}
+		var now = new Date();
+		leaves.setDate(now.getDate());
+		leaves.setYear(now.getFullYear());
+		leaves.setMonth(now.getMonth());
+		var left = getHoursAndMinutesWithDate(leaves);
+		window.console.log(left + " " + leaves + " (mo: " + min_offset + " so: " + sec_offset + ")");
+		/*if (getHoursAndMinutesWithDate(leaves).search("NaN") != -1) {
+			alert("BEGIN DEBUG...");
+			var onemin = new Date();
+			onemin.setMinutes(onemin.getSeconds() + 10);
+			while ((new Date()).valueOf() < onemin.valueOf()) {}	
+		}*/
+		times[left] = j;
+	}
+	updateTimeLeft();
+}
+//times.sort();
+function getHoursAndMinutes() {
+	var NOW = new Date();
+	return getHoursAndMinutesWithDate(NOW);
+
+}
+function getHoursAndMinutesWithDate(NOW) {
+	var withsecs;
+	if (withsecs == null)
+		withsecs = true;
+	var hours = NOW.getHours().toString();
+	if (hours.length == 1) {
+		hours = "0" + hours;
+	}
+	var minutes = NOW.getMinutes().toString();
+	if (minutes.length == 1) {
+		minutes = "0" + minutes;
+	}
+	var seconds = NOW.getSeconds().toString();
+	if (seconds.length == 1 && withsecs != false) {
+		seconds = "0" + seconds;
+	}
+	return hours + ":" + minutes + ":" + seconds;
+}
+var current_entry = null;
+function loaded() {
+	if (!ALREADY_LOADED) {
+		var linechoose = document.getElementById("line-choose");
+		linechoose.onchange = changeJavascript;
+		var text = "";
+		for (i in orderedRouteList) {
+			text += "<option value=\"" + orderedRouteList[i] + '">' + orderedRouteList[i] + "</option>";
+		}
+		linechoose.innerHTML = text;
+	}
+	ALREADY_LOADED = true;
+	stops = [];
+	stationplatform = {};
+	
+	//changeJavascript();  
+	for (s in stations) {
+		stops.push(stations[s].replace("_", ""));
+	}
+	stops = stops.sort()
+	for (s in stops) {
+		var j = stops[s].split("(Platform");
+		if (j[1] != null) {
+			j[0] = j[0].replace(/ $/, "");
+			j[1] = "(Platform" + j[1];
+			if (stationplatform == null || stationplatform[j[0]] == null) {
+				stationplatform[j[0]] = [j[1].replace("(", "").replace(")", "")];
+			}
+			else {
+				stationplatform[j[0]].push(j[1].replace("(", "").replace(")", ""));
+			}
+			stationplatform[j[0]] = stationplatform[j[0]].sort();
+		}
+		else {
+			stationplatform = null;
+		}
+	}
+	if (stationplatform != null) {
+		for (s in stationplatform) {
+			
+			html += "<option value=\"" + s + "\">" + s + "</option>\n";	
+		}
+	}
+	else {
+		for (s in stops) {
+			html += "<option value=\"" + stops[s] + "\">" + stops[s] + "</option>\n";	
+		}
+	}
+	clockUpdate();
+	document.getElementById("list1").innerHTML = html;
+	onBitChange();
+	updateTimeLeft();
+	setInterval(updateTimeLeft, 1000);
+	setInterval(clockUpdate, 1000);
+}
+
+var SKIPS = false;
+function updateTimeLeft() {
+	SKIPS = false;
+	var NOW = new Date();	
+	var test = new Date();
+	var first = false;
+	if (LatestTrain == null || NOW.valueOf() > LatestTrain.valueOf()) {
+		first = true;
+	}
+	//LatestTrain = null;
+	var best_shot;
+	for (i in times) {
+		if (TRIP_DATA[times[i]] == null) {
+			changeJavascript();
+			return;	
+		}
+		var hms = i.split(":");
+		if (i.search("NaN") != -1) {
+			hms = TRIP_DATA[times[i]]["leaves"].split(":");	
+		}
+		test.setHours(new Number(hms[0]));
+		test.setMinutes(new Number(hms[1]));
+		var pos = TRIP_DATA[times[i]]["jpref"]["jpatsect"];
+		var skip = false;
+		for (j in pos) {
+			if (pos[j][0] != CURRENT_STATION) {
+				continue;
+			}
+			
+			if (pos[j][1] != null && pos[j][1].search("pass") != -1) {
+				skip = true;
+				
+			}
+		}
+		
+		if (skip) {
+			continue;
+		}
+			
+		if (!first) {
+			if (TRIP_DATA[times[i]]["days"].indexOf(numToDay(NOW.getDay())) == -1) {
+				continue;
+			}
+			if (test.valueOf() < NOW.valueOf()) {
+				continue;	
+			}
+			test.setSeconds(0);
+			/*var tsecs = Math.floor(test.valueOf() / 1000);
+			var nsecs = Math.floor(NOW.valueOf() / 1000);
+			if ((nsecs % 60) - (tsecs % 60) < 30 && test.getHours() == NOW.getHours() && test.getMinutes() == NOW.getMinutes()) {
+				continue;
+			}*/
+			
+		}
+		else {
+			var newDay = NOW.getDay() + 1;
+			if (newDay == 7) {
+				newDay = 0;
+			}
+			if (skip) { SKIPS = true; continue; }
+			else {SKIPS = false; }
+			if (TRIP_DATA[times[i]]["days"].indexOf(numToDay(newDay)) == -1) {
+				continue;
+			}
+		}
+		if (best_shot == null) {
+			best_shot = [times[i], new Date(test.valueOf())];
+		}
+		else {
+			var time2 = best_shot[1];
+			if (time2.valueOf() < test.valueOf()) {
+				continue;
+			}
+			else {
+				best_shot = [times[i], new Date(test.valueOf())];
+				continue;
+			}
+		}
+		
+	}
+	if (best_shot == null && LatestTrain != null) {
+		var now = new Date();
+		now.setDate(now.getDate() + 1);
+		best_shot = [times[getHoursAndMinutesWithDate(LatestTrain)], LatestTrain];
+		if (TRIP_DATA[best_shot[0]]["days"].indexOf(numToDay(now.getDay())) == -1) {
+			best_shot = null;
+		}
+	}
+	if (best_shot == null) {
+		// STILL!
+		document.getElementById("stops").innerHTML = "(no trains stopping here in the next twenty-four hours)";
+		document.getElementById("time-left").innerHTML = "in a long time";
+		return;
+	}
+	
+	/*if (SKIPS) {
+		document.getElementById("skips").innerHTML = " does not stop, but the next stopping train is due ";
+	}*/
+	
+	var next = TRIP_DATA[best_shot[0]];
+	var time_left = best_shot[1].valueOf() - NOW.valueOf();
+	time_left /= 1000;
+	time_left /= 60;
+	if (time_left < 0) {
+		time_left /= 60;
+		time_left += 24;
+		time_left *= 60;
+	}
+	time_left = Math.round(time_left);
+	time_left += 2;
+	var time = new Date(best_shot[1].valueOf());
+	time.setSeconds(0);
+	/*
+	      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "Revesby (Platform 2)",
+               "4M"
+            ],
+	*/
+	var text = " in <span class=\"big\">" + time_left + "</span> minutes";
+	if (time_left == 1) {
+		text = " in <span class=\"big\">" + time_left + "</span> minute";
+	}
+	else if (time_left  <= 0) {
+		text = " <span class=\"big\">now</span>";
+	}
+	else if (time_left >= 120) {
+		text = " <span class=\"big\">" + Math.floor(time_left / 60) + 
+		"</span>" + " hours and <span id=\"big\">" + time_left % 60 + "</span>" + " minutes";
+	}
+	
+	document.getElementById("time-left").innerHTML = text;
+	//document.getElementById("stationlist").innerHTML = next["jpref"]["jpatsect"][0][0];
+	var txt = "<table>";
+	var stops = next["jpref"]["jpatsect"];
+	var MinDiff = 2;
+	var SecDiff = 0;
+	var found_current_station = false;
+//	window.console.log(" ");
+//	window.console.log(" ");
+	for (i = 0; i < stops.length; i++) {
+		//window.console.log(stops[i][0]);
+		//window.console.log(stops[i]);
+		var nt = false;
+		stops[i][0] = stops[i][0].replace("_", "");
+		if (stops[i][0] == CURRENT_STATION) {
+			//window.console.log(stops[i][0] + "==" + CURRENT_STATION);
+			nt = true;
+			found_current_station = true;
+		}
+		else if (!found_current_station) {
+			//window.console.log(stops[i][0] + "!=" + CURRENT_STATION);
+			continue;
+		}
+		else {
+			//window.console.log(stops[i][0] + " after " + CURRENT_STATION);
+		}
+		if (stops[i][1] != null) {
+			var z = stops[i][1].split(" ");
+			
+			if (z[0].search("M") != -1) {
+				if (!nt) {
+					var minsec = z[0].split("M");	
+					if (minsec.length == 2 && minsec[1].search(/S/) >= 0) {
+						
+						minsec[1] = minsec[1].replace(/S/, "");
+						SecDiff += new Number(minsec[1]);
+							
+					}
+					if ((SecDiff / 60) >= 1) {
+						MinDiff += Math.floor(SecDiff / 60);
+						SecDiff = SecDiff % 60;
+					}
+					MinDiff += new Number(minsec[0]);
+				}
+			}
+			else {
+				if (!nt) {
+					var minsec = z[0].split("S");
+					SecDiff += new Number(minsec[0]);
+					if ((SecDiff / 60) >= 1) {
+						MinDiff += Math.floor(SecDiff / 60);
+						SecDiff = SecDiff % 60;
+					}
+				}
+			}
+			if (z[1] == "pass") {
+			
+				continue;
+			}
+		}
+		txt += "<tr>";
+		if (i != 0) {
+			time.setMinutes(time.getMinutes() + MinDiff);
+			time.setSeconds(time.getSeconds() + SecDiff);
+			var text = "";
+			var ary = stops[i][0].split("(Platform");
+			ary[0] = ary[0].replace("_", "");
+			txt += "<td class=\"bolder\">" + ary[0] + "&nbsp;&nbsp;</td>";
+			if (ary[1] != null) {
+				txt += "<td>Platform" + ary[1].replace(")", "") + "&nbsp;&nbsp;</td>";
+			}
+			//text = ary[0] + ary[1];
+			txt += "<td class=\"bolder\">" + getHoursAndMinutesWithDate(time) + "</td></tr>";
+		}
+		else {
+			
+			var ary = stops[i][0].split("(Platform");
+			ary[0] = ary[0].replace("_", "");
+			txt += "<td class=\"bolder\">" + ary[0] + "&nbsp;&nbsp;</td>";
+			if (ary[1] != null) {
+				txt += "<td>Platform" + ary[1].replace(")", "") + "&nbsp;&nbsp;</td>";
+			}
+			txt += "<td class=\"bolder\">" + getHoursAndMinutesWithDate(time) + "</td class=\"bolder\"></tr>";
+		}
+		MinDiff = 0;
+		SecDiff = 0;
+	}
+	if (found_current_station == false) {
+		txt = "(something screwed up)";
+	}
+	else {
+		txt += "</table>";
+	}
+	document.getElementById("stops").innerHTML = txt;
+	
+}
+</script>
+
+<style>
+body {
+	background-color: rgb(32,103,178);
+	color: white;
+	font-family: "Cantarell";
+	
+	
+}
+#footer {
+	position:fixed;
+	width:95%;
+	bottom:0;
+	text-align: left;
+	background-color: rgb(32,103,178);
+	opacity: 100%;
+	padding-bottom: 0px;
+	
+	height: 60px;
+	font-size: 24px;
+	
+}
+
+.bolder {
+	font-family: 'Cantarell Bold';
+	font-size: 25px;	
+}
+@font-face {
+	src:local('Cantarell Regular'), local('Cantarell-Regular'), url(font/Cantarell-Regular.ttf);
+	font-family: 'Cantarell';
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	src:local('Cantarell Bold'), local('Cantarell-Bold'), url(font/Cantarell-Bold.ttf);
+	font-family: 'Cantarell Bold';
+	font-style: normal;
+	font-weight: 700;
+}
+
+.list {
+	font-family: "Cantarell";
+	/*background-color: black;*/
+	background-color: rgb(32,103,178);
+	color: white;
+	padding-bottom: 0px;
+	opacity: 100%;
+	font-size: inherit;
+	border: 0;
+	padding-left: 5px;
+	overflow: hidden;
+	
+	
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 30px;
+	background-color: rgb(32,103,178);
+	padding-bottom: 0px;
+	
+	
+}
+#content-left {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	float:left;
+	width: 60%;
+	overflow: hidden;
+
+}
+#content-right {
+	/*padding-left: 55%;*/
+	left: 45%;
+	padding-left: 5px;
+	width: auto;
+	float: left;
+	text-align: left;
+	padding-top: 80px;
+	position: fixed;
+	height: 100%;
+	
+	
+}
+.big {
+	font-size: 35px;
+	font-weight: bold;
+}
+
+	
+</style>
+</head>
+
+<body  onload="loaded(); changeJavascript()">
+<div id="header">
+<table style="border: 0; width: 99%; background-color: inherit"><tr><td style="">
+<h1>Next service from: <select id="list1" class="list" onchange="onBitChange()">
+<option value="">Something screwed up!</option>
+</select>
+
+<select id="list2" class="list" onchange="onBitChange()">
+</select></h1></td><!--<td  style="text-align:left">Time now:</td>--><td style="font-weight:bold; text-align: right; font-size: 50px;" id="clock"></td></tr></table></div>
+<div id="content-left">
+	<h2 id="skips">Is due <span id="time-left"></span></h2>
+	<div style="font-size: 20px">
+		<b>Stopping at:</b><br />
+		<div id="stops">
+		</div>
+	</div>
+</div>
+<div id="content-right"> <!--onmouseover="document.getElementById('hidden-panel').style.display = 'inline'" onmouseout="document.getElementById('hidden-panel').style.display = 'none'"-->
+<!--	<div id="hidden-panel" style="height: 90%" >
+	Had enough of this line/route? Enter the path to another!<br/>
+	<input type="file" id="filename" placeholder= "data file" /><input type="button" style="background-color: inherit; font-family: inherit;" value="Go!" onclick="changeJavascript()" />
+	</div>-->
+	
+</div>
+<div id="footer" >
+Pick a line: <select class="list" id="line-choose" style="font-size: inerhit; "contenteditable="true"></select>
+</div>
+</body>
+</html>

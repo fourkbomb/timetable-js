@@ -1,0 +1,754 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-770-a-sj2-1" : "770"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "2093109" : "Beatrice St Nr Moore St",
+   "206819" : "Greenfield Av Nr Glenroy Av",
+   "206048" : "Miller St near Ridge St",
+   "209376" : "White St nr Woodland St",
+   "206847" : "Eastern Valley Wy Nr Mcclelland",
+   "206218" : "Miller St Nr Abbott St",
+   "206217" : "Miller St Nr Rosalind St",
+   "206049" : "Miller St Nr Carlow St",
+   "206840" : "Edinburgh Rd Nr The Parapet",
+   "206833" : "Edinburgh Rd Nr Sunnyside Av",
+   "206834" : "Edinburgh Rd Nr Edinburgh Reserve",
+   "206216" : "Miller St nr Ernest St",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "206845" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "2093100" : "Woodland St nr Bareena Dr",
+   "206219" : "Miller St Nr Vale St",
+   "206047" : "Miller St nr McLaren St",
+   "2093142" : "Sydney Rd Nr Condamine St",
+   "2093136" : "Maretimo St nr Sydney Rd",
+   "206356" : "Strathallen Av nr Marana Rd",
+   "209399" : "Woodland St Nr Ernest St",
+   "206050" : "Miller St nr Falcon St",
+   "209538" : "Sydney Rd Nr James St",
+   "209334" : "Sydney Rd nr Coral St",
+   "209335" : "Manly Rd nr Heaton Av",
+   "2093115" : "Upper Beach St nr Kareema St",
+   "209019" : "Military Rd Nr Hampden Av",
+   "2093114" : "Seaview St nr Upper Beach St",
+   "206220" : "Miller St Nr The Boulevarde",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "209379" : "Woodland St nr Lower Beach St",
+   "209442" : "Sydney Rd Nr Austin St",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "206831" : "Edinburgh Rd Nr Charles St",
+   "209537" : "Sydney Rd Opp Ivanhoe Park",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "2093105" : "Alma St nr Alder St",
+   "206830" : "Edinburgh Rd Nr Raeburn Av",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "2093141" : "Sydney Rd Nr Hill St",
+   "206837" : "Edinburgh Rd Nr Sunnyside Av",
+   "209441" : "Sydney Rd Nr Bellevue St",
+   "2093104" : "Woodland St Nr Alma St",
+   "206832" : "Edinburgh Rd Nr Edith St",
+   "206835" : "Edinburgh Rd Terminus",
+   "206839" : "Edinburgh Rd Opp Edith St",
+   "209438" : "Sydney Rd Nr Thornton St",
+   "209511" : "Belgrave St Stand F",
+   "2093112" : "Beatrice St Nr The Walk",
+   "208911" : "Military Rd Nr Watson St",
+   "206073" : "Falcon St nr Miller St",
+   "206844" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "2093113" : "Beatrice St nr New St",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "208944" : "Military Rd nr Rangers Rd",
+   "206841" : "Edinburgh Rd Nr Eastern Valley Wy",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "206359" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206358" : "Strathallen Av Nr Sailors Bay Rd",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "206357" : "Strathallen Av Nr Baroona Rd",
+   "2088193" : "Military Rd Nr Lang St",
+   "2065108" : "Falcon St Nr West St",
+   "206045" : "Miller St near Pacific Hwy",
+   "206843" : "Eastern Valley Wy Nr Warners Av",
+   "2093111" : "Beatrice St Nr Ernest St",
+   "206846" : "Eastern Valley Wy Nr Robert St",
+   "209382" : "Bungaloe Av Nr Lower Beach St",
+   "209375" : "White St nr Jackson St",
+   "206836" : "Edinburgh Rd Opp Edinburgh Reserve",
+   "206838" : "Edinburgh Rd Nr Sortie Port",
+   "2093110" : "Beatrice St nr Gordon St",
+   "206360" : "Eastern Valley Wy Nr Tenilba Rd",
+   "2088188" : "Spit Rd Nr Stanton Rd",
+   "209440" : "Sydney Rd Nr Cohen St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-770-a-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-770-a-sj2-1-2-b00a4",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209511",
+               null
+            ],
+            [
+               "209537",
+               "1M pasd"
+            ],
+            [
+               "209538",
+               "1M pasd"
+            ],
+            [
+               "209438",
+               "0S pasd"
+            ],
+            [
+               "209440",
+               "1M pasd"
+            ],
+            [
+               "209441",
+               "1M pasd"
+            ],
+            [
+               "209442",
+               "1M pasd"
+            ],
+            [
+               "2093141",
+               "0S pasd"
+            ],
+            [
+               "2093142",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "2M pasd"
+            ],
+            [
+               "209376",
+               "0S pasd"
+            ],
+            [
+               "209379",
+               "1M pasd"
+            ],
+            [
+               "209382",
+               "1M pasd"
+            ],
+            [
+               "209399",
+               "2M pasd"
+            ],
+            [
+               "2093100",
+               "0S pasd"
+            ],
+            [
+               "2093104",
+               "0S pasd"
+            ],
+            [
+               "2093105",
+               "0S pasd"
+            ],
+            [
+               "2093109",
+               "1M pasd"
+            ],
+            [
+               "2093110",
+               "0S pasd"
+            ],
+            [
+               "2093111",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "1M pasd"
+            ],
+            [
+               "2093113",
+               "0S pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093136",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "2M pasd"
+            ],
+            [
+               "209212",
+               "0S pasd"
+            ],
+            [
+               "208812",
+               "3M pasd"
+            ],
+            [
+               "2088186",
+               "3M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ],
+            [
+               "208911",
+               "1M pasd"
+            ],
+            [
+               "206073",
+               "3M pasd"
+            ],
+            [
+               "2065108",
+               "1M pasd"
+            ],
+            [
+               "206045",
+               "5M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "1M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "0S pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "0S pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "0S pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "0S pasd"
+            ],
+            [
+               "206819",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-770-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Greenfield Av Nr Glenroy Av",
+            "rs_ref" : "RS_99-770-a-sj2-1-H-1",
+            "id" : "R_99-770-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-770-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "770"
+   },
+   "VJ_99-770-a-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_99-770-a-sj2-1-1-b00a5",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209511",
+               null
+            ],
+            [
+               "209537",
+               "1M pasd"
+            ],
+            [
+               "209538",
+               "1M pasd"
+            ],
+            [
+               "209438",
+               "0S pasd"
+            ],
+            [
+               "209440",
+               "1M pasd"
+            ],
+            [
+               "209441",
+               "1M pasd"
+            ],
+            [
+               "209442",
+               "1M pasd"
+            ],
+            [
+               "2093141",
+               "0S pasd"
+            ],
+            [
+               "2093142",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "2M pasd"
+            ],
+            [
+               "209376",
+               "0S pasd"
+            ],
+            [
+               "209379",
+               "1M pasd"
+            ],
+            [
+               "209382",
+               "1M pasd"
+            ],
+            [
+               "209399",
+               "2M pasd"
+            ],
+            [
+               "2093100",
+               "0S pasd"
+            ],
+            [
+               "2093104",
+               "0S pasd"
+            ],
+            [
+               "2093105",
+               "0S pasd"
+            ],
+            [
+               "2093109",
+               "1M pasd"
+            ],
+            [
+               "2093110",
+               "0S pasd"
+            ],
+            [
+               "2093111",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "1M pasd"
+            ],
+            [
+               "2093113",
+               "0S pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093136",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "2M pasd"
+            ],
+            [
+               "209212",
+               "0S pasd"
+            ],
+            [
+               "208812",
+               "3M pasd"
+            ],
+            [
+               "2088186",
+               "3M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ],
+            [
+               "208911",
+               "1M pasd"
+            ],
+            [
+               "206073",
+               "3M pasd"
+            ],
+            [
+               "2065108",
+               "1M pasd"
+            ],
+            [
+               "206045",
+               "5M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "1M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "0S pasd"
+            ],
+            [
+               "206830",
+               "1M pasd"
+            ],
+            [
+               "206831",
+               "0S pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "0S pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "0S pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "0S pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "0S pasd"
+            ],
+            [
+               "206845",
+               "0S pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "0S pasd"
+            ],
+            [
+               "206819",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-770-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Greenfield Av Nr Glenroy Av",
+            "rs_ref" : "RS_99-770-a-sj2-1-H-1",
+            "id" : "R_99-770-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-770-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "770"
+   }
+}
+;
+

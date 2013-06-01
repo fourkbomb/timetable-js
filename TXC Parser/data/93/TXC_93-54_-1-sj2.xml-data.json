@@ -1,0 +1,6886 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-54-_-sj2-1" : "54"
+}
+;
+
+var stations = {
+   "225735" : "Brisbane Av Near Greenhaven Dr",
+   "225731" : "Greenhaven Dr & The Rampart",
+   "225665" : "Cogra Rd Near Dunban Rd",
+   "225770" : "Trafalgar Av Near Harold St",
+   "225769" : "Trafalgar Av near Alexandra St",
+   "2256148" : "2 Patonga Dr General Store",
+   "225723" : "Greenhaven Dr Near Brisbane Av",
+   "225726" : "Greenhaven Dr & The Rampart",
+   "2256102" : "Trafalgar Av Near Gallipoli Av",
+   "2256100" : "Trafalgar Av Near Waterloo Av",
+   "2257338" : "Mt Ettalong Rd (Opp.Umina PS)",
+   "225733" : "Greenhaven Dr Near The Bartizan",
+   "225638" : "Railway St near Melba Rd",
+   "2256110" : "Dunban Rd Near Moana St",
+   "2256131" : "104 Diamond Rd Before Beryl Bvd",
+   "2256112" : "Ocean Beach Rd Near Railway St",
+   "225754" : "Trafalgar Av Near Harold St",
+   "2256123" : "Ocean Beach Rd Near Balaclava Av",
+   "2256128" : "Ocean Beach Rd near Victoria Rd",
+   "225737" : "Brisbane Av Near Melbourne Av",
+   "2257336" : "Mt Ettalong Rd - No.55",
+   "2256146" : "Jacaranda Av near Patonga St",
+   "225774" : "Ocean Beach Rd Near Ryans Rd",
+   "225756" : "Trafalgar Av near Britannia St",
+   "225728" : "Castle Cct near The Postern",
+   "2256141" : "Bay St near Brisk St",
+   "2257169" : "Ocean Beach Hotel Trafalgar Av",
+   "2256108" : "Dunban Rd Near Ocean Beach Rd",
+   "2256133" : "Coral Cr near Beryl Bvd",
+   "2256118" : "Ocean Beach Rd Near Balaclava Av",
+   "225798" : "Mt Ettalong Rd near Etta Rd",
+   "225776" : "Ocean Beach Rd Near Poziers Av",
+   "225739" : "West St Opp Oscar St Opp Coles",
+   "225684" : "Macarthur Pde near Railway St",
+   "225752" : "Trafalgar Av Near Gwendolen Av",
+   "2256145" : "Patonga St near Jacaranda Av",
+   "225797" : "Mt Ettalong Rd Near Calypta Rd",
+   "2256124" : "Ocean Beach Rd Near Erina Av",
+   "225766" : "Dunban Rd near Pratley St Trafalgar Av",
+   "2256136" : "Pearl Beach Shops",
+   "225742" : "Rabaul Av near Mcevoy Av",
+   "225779" : "Ocean Beach Rd near Cambridge St",
+   "225724" : "Greenhaven Dr Near The Bartizan",
+   "2256129" : "Ocean Beach Rd Near Railway St",
+   "2256475" : "Meroo Av before Patonga St",
+   "225784" : "Ocean Beach Rd near Pioneer Rd",
+   "2256107" : "Macmasters Rd near Ocean Beach Rd",
+   "2256126" : "Opposite Woy Woy Hospital Ocean Beach Rd",
+   "225768" : "Trafalgar Av near Neptune St",
+   "2256138" : "Pearl Beach Dr near Diamond Rd",
+   "2256149" : "Patonga Dr near Eve Williams Memorial Oval",
+   "2256111" : "Dunban Rd near Cogra Rd",
+   "225698" : "Trafalgar Av Near Mcmasters Rd",
+   "225616" : "Woy Woy Stand 5",
+   "225767" : "Dunban Rd near Hillview St Trafalgar Av",
+   "2256143" : "Patonga St Near Brisk St",
+   "225637" : "Railway St near St",
+   "225661" : "Railway St Near Rawson Rd",
+   "2256104" : "Trafalgar Av Near Balaclava Av",
+   "225773" : "Ocean Beach Rd near Pioneer Rd",
+   "2256115" : "Woy Woy Hospital Ocean Beach Rd",
+   "225658" : "Railway St near Rawson Rd",
+   "225794" : "Mount Ettalong Rd Near Sylvania Rd",
+   "225771" : "Trafalgar Av & Bourke Rd",
+   "225695" : "Ocean Beach Rd Near Dunban Rd",
+   "225693" : "Dunban Rd Near Angler St",
+   "2256113" : "Ocean Beach Rd near Mutu St",
+   "225662" : "Railway St near Macarthur Pde",
+   "2257337" : "Mt Ettalong Rd - Opp.No.10 (After Calypta Rd)",
+   "225730" : "Castle Cct near The Bastion",
+   "225699" : "Trafalgar Av Near Balaclava Av",
+   "225799" : "Mt Ettalong Rd near Cowper Rd",
+   "2256122" : "Ocean Beach Rd Near Waterloo Av",
+   "2257342" : "Mt Ettalong Rd (Opp.Berrima Cr - UminaBchSthEnd",
+   "225736" : "Brisbane Av near Rabaul Av",
+   "225729" : "Castle Cct near Knights Cl",
+   "2256116" : "Ocean Beach Rd near Kathleen St",
+   "225762" : "Ocean Beach Rd near Wellington St",
+   "225780" : "Ocean Beach Rd near Australia Av",
+   "225732" : "Greenhaven Dr Near The Bartizan",
+   "2256147" : "Jacaranda Av near Bay St",
+   "2257263" : "Hobart Av - No.34",
+   "2257324" : "Mount Ettalong Rd - No.105 (Before Sylvania Rd)",
+   "2256101" : "Trafalgar Av Near Gallipoli Av",
+   "225777" : "Ocean Beach Rd near Birdwood Av",
+   "2256473" : "3 Pearl Beach Dr before Diamond Rd",
+   "225639" : "Railway St near Melba Rd",
+   "225664" : "Cogra Rd Near Walford St",
+   "225778" : "Ocean Beach Rd near Priestman Av",
+   "2256130" : "Diamond Rd near Agate Av",
+   "225682" : "Cogra Rd Near Dunban Rd",
+   "225796" : "Hobart Av near Melbourne Av",
+   "225734" : "Greenhaven Dr Near Brisbane Av",
+   "225685" : "Railway St near Rawson Rd",
+   "225755" : "Trafalgar Av near Paul St",
+   "2256132" : "2 Beryl Bvd Before Coral Cr",
+   "2256127" : "Ocean Beach Rd near Waratah Av",
+   "2257109" : "West St Before Oscar St Coles",
+   "225692" : "Dunban Rd Near Moana St",
+   "2256474" : "82 Diamond Rd after Silex Pl",
+   "225683" : "Cogra Rd Near Walford St",
+   "2257110" : "West St near South St",
+   "2256109" : "Dunban Rd Near Angler St",
+   "2256214" : "George St near Victoria Rd",
+   "2256137" : "Pearl Beach Shops",
+   "225686" : "Railway St Near Rawson Rd",
+   "225738" : "West St Opp Bullion St Opp Woolworths",
+   "2256140" : "Opposite Patonga General Store Patonga Dr",
+   "2256114" : "Ocean Beach Rd near Rawson Rd",
+   "225781" : "Ocean Beach Rd Near Poziers Av",
+   "225696" : "Mcmasters Rd near Ross St",
+   "225636" : "Kmart Railway St near George St",
+   "225757" : "Trafalgar Av near Oxford St",
+   "2256139" : "Pearl Beach Dr near Jade Pl",
+   "225740" : "Brisbane Av Near Melbourne Av",
+   "2256120" : "Ocean Beach Rd near Gallipoli Av",
+   "225694" : "Dunban Rd Near Ocean Beach Rd",
+   "2256134" : "Coral Cr Near Agate Av",
+   "225691" : "Dunban Rd near Everglades Cr",
+   "225659" : "Railway St near Melba Rd",
+   "225741" : "Rabaul Av Near Osbourne Av",
+   "225727" : "The Rampart near",
+   "2256135" : "Coral Cr Near Agate Av",
+   "225725" : "Greenhaven Dr Near The Bartizan",
+   "225722" : "Brisbane Av Near Greenhaven Dr",
+   "2257257" : "Ocean Beach Rd - No.261 (Before Veron Rd)",
+   "2256144" : "Patonga St Near Brisk St",
+   "225758" : "Trafalgar Av near Nelson St",
+   "2256103" : "Trafalgar Av Near Waterloo Av",
+   "2256106" : "Macmasters Rd near Carrington Av",
+   "225795" : "Sydney Av near Adelaide Av",
+   "225721" : "Brisbane Av near Bathurst St",
+   "225663" : "Macarthur Pde near Walford St",
+   "225772" : "Trafalgar Av Near Gwendolen Av",
+   "2256105" : "Trafalgar Av Near Mcmasters Rd",
+   "2257341" : "Mt Ettalong Rd (After Berrima Cr - UminaBchSthE",
+   "2256125" : "Ocean Beach Rd Near Dunban Rd",
+   "2256117" : "Ocean Beach Rd Near Erina Av",
+   "225697" : "Mcmasters Rd near Carrington Av",
+   "2256142" : "Bay St near Meroo Av",
+   "225753" : "Trafalgar Av & Bourke Rd",
+   "225783" : "Ocean Beach Rd Near Ryans Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-54-_-sj2-1-28-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-28-b0191",
+      "leaves" : "11:01:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-16-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-16-b0191",
+      "leaves" : "09:01:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-41-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-41-b0195",
+      "leaves" : "13:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-19-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-19-b0191",
+      "leaves" : "08:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-17-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-17-b0191",
+      "leaves" : "13:06:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "1M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "1M pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "11M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-12-R-9",
+         "route" : {
+            "name" : "Woy Woy Station - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-9",
+            "id" : "R_93-54-_-sj2-1-R-9"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-53-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-53-b0195",
+      "leaves" : "09:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225727",
+               null
+            ],
+            [
+               "225728",
+               "0S pasd"
+            ],
+            [
+               "225729",
+               "1M pasd"
+            ],
+            [
+               "225730",
+               "0S pasd"
+            ],
+            [
+               "225731",
+               "3M pasd"
+            ],
+            [
+               "225732",
+               "1M pasd"
+            ],
+            [
+               "225733",
+               "0S pasd"
+            ],
+            [
+               "225734",
+               "0S pasd"
+            ],
+            [
+               "225735",
+               "1M pasd"
+            ],
+            [
+               "225736",
+               "1M pasd"
+            ],
+            [
+               "225737",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "0S pasd"
+            ],
+            [
+               "2257110",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-17-R-13",
+         "route" : {
+            "name" : "The Rampart near - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-13",
+            "id" : "R_93-54-_-sj2-1-R-13"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-27-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-27-b0195",
+      "leaves" : "14:27:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-10-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-10-b0191",
+      "leaves" : "12:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-15-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-15-b0191",
+      "leaves" : "07:02:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "0S pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "2256112",
+               "1M pasd"
+            ],
+            [
+               "2256113",
+               "0S pasd"
+            ],
+            [
+               "2256114",
+               "0S pasd"
+            ],
+            [
+               "2256115",
+               "0S pasd"
+            ],
+            [
+               "2256116",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "2256117",
+               "1M pasd"
+            ],
+            [
+               "2256118",
+               "0S pasd"
+            ],
+            [
+               "2256120",
+               "0S pasd"
+            ],
+            [
+               "225773",
+               "1M pasd"
+            ],
+            [
+               "225774",
+               "1M pasd"
+            ],
+            [
+               "225776",
+               "1M pasd"
+            ],
+            [
+               "225777",
+               "0S pasd"
+            ],
+            [
+               "225778",
+               "1M pasd"
+            ],
+            [
+               "225762",
+               "0S pasd"
+            ],
+            [
+               "225795",
+               "1M pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "0S pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256473",
+               "7M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "1M pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "2M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "225779",
+               "2M pasd"
+            ],
+            [
+               "225780",
+               "1M pasd"
+            ],
+            [
+               "225781",
+               "1M pasd"
+            ],
+            [
+               "225783",
+               "1M pasd"
+            ],
+            [
+               "225784",
+               "1M pasd"
+            ],
+            [
+               "2257257",
+               "0S pasd"
+            ],
+            [
+               "2256122",
+               "1M pasd"
+            ],
+            [
+               "2256123",
+               "1M pasd"
+            ],
+            [
+               "2256124",
+               "0S pasd"
+            ],
+            [
+               "2256125",
+               "1M pasd"
+            ],
+            [
+               "2256126",
+               "1M pasd"
+            ],
+            [
+               "2256127",
+               "1M pasd"
+            ],
+            [
+               "2256128",
+               "1M pasd"
+            ],
+            [
+               "2256129",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-11-R-8",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-8",
+            "id" : "R_93-54-_-sj2-1-R-8"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-20-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-20-b0195",
+      "leaves" : "12:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225738",
+               null
+            ],
+            [
+               "225740",
+               "2M pasd"
+            ],
+            [
+               "225721",
+               "0S pasd"
+            ],
+            [
+               "225722",
+               "1M pasd"
+            ],
+            [
+               "225723",
+               "1M pasd"
+            ],
+            [
+               "225724",
+               "0S pasd"
+            ],
+            [
+               "225725",
+               "0S pasd"
+            ],
+            [
+               "225726",
+               "1M pasd"
+            ],
+            [
+               "225727",
+               "5M pasd"
+            ],
+            [
+               "225728",
+               "0S pasd"
+            ],
+            [
+               "225729",
+               "1M pasd"
+            ],
+            [
+               "225730",
+               "0S pasd"
+            ],
+            [
+               "225731",
+               "3M pasd"
+            ],
+            [
+               "225732",
+               "1M pasd"
+            ],
+            [
+               "225733",
+               "0S pasd"
+            ],
+            [
+               "225734",
+               "0S pasd"
+            ],
+            [
+               "225735",
+               "1M pasd"
+            ],
+            [
+               "225736",
+               "1M pasd"
+            ],
+            [
+               "225737",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "0S pasd"
+            ],
+            [
+               "2257110",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-4-R-4",
+         "route" : {
+            "name" : "West St Opp Bullion St Opp Woolworths - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-4",
+            "id" : "R_93-54-_-sj2-1-R-4"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-29-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-29-b0195",
+      "leaves" : "11:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225738",
+               null
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "1M pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "11M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-10-R-7",
+         "route" : {
+            "name" : "West St Opp Bullion St Opp Woolworths - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-7",
+            "id" : "R_93-54-_-sj2-1-R-7"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-30-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-30-b0195",
+      "leaves" : "09:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-5-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-5-b0195",
+      "leaves" : "10:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225738",
+               null
+            ],
+            [
+               "225740",
+               "2M pasd"
+            ],
+            [
+               "225721",
+               "0S pasd"
+            ],
+            [
+               "225722",
+               "1M pasd"
+            ],
+            [
+               "225723",
+               "1M pasd"
+            ],
+            [
+               "225724",
+               "0S pasd"
+            ],
+            [
+               "225725",
+               "0S pasd"
+            ],
+            [
+               "225726",
+               "1M pasd"
+            ],
+            [
+               "225727",
+               "5M pasd"
+            ],
+            [
+               "225728",
+               "0S pasd"
+            ],
+            [
+               "225729",
+               "1M pasd"
+            ],
+            [
+               "225730",
+               "0S pasd"
+            ],
+            [
+               "225731",
+               "3M pasd"
+            ],
+            [
+               "225732",
+               "1M pasd"
+            ],
+            [
+               "225733",
+               "0S pasd"
+            ],
+            [
+               "225734",
+               "0S pasd"
+            ],
+            [
+               "225735",
+               "1M pasd"
+            ],
+            [
+               "225736",
+               "1M pasd"
+            ],
+            [
+               "225737",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "0S pasd"
+            ],
+            [
+               "2257110",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-4-R-4",
+         "route" : {
+            "name" : "West St Opp Bullion St Opp Woolworths - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-4",
+            "id" : "R_93-54-_-sj2-1-R-4"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-11-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-11-b0191",
+      "leaves" : "14:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-4-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-4-b0195",
+      "leaves" : "10:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-32-b019a" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-32-b019a",
+      "leaves" : "09:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "1M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256473",
+               "6M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "1M pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "0S pasd"
+            ],
+            [
+               "225659",
+               "1M pasd"
+            ],
+            [
+               "225616",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-15-R-6",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-6",
+            "id" : "R_93-54-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-33-b019a" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-33-b019a",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "1M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "1M pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "11M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "1M pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "0S pasd"
+            ],
+            [
+               "225659",
+               "1M pasd"
+            ],
+            [
+               "225616",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-16-R-12",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-12",
+            "id" : "R_93-54-_-sj2-1-R-12"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-14-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-14-b0191",
+      "leaves" : "10:02:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225738",
+               null
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "1M pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "11M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-10-R-7",
+         "route" : {
+            "name" : "West St Opp Bullion St Opp Woolworths - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-7",
+            "id" : "R_93-54-_-sj2-1-R-7"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-24-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-24-b0195",
+      "leaves" : "07:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256125",
+               "0S pasd"
+            ],
+            [
+               "2256126",
+               "1M pasd"
+            ],
+            [
+               "2256127",
+               "0S pasd"
+            ],
+            [
+               "2256214",
+               "6M pasd"
+            ],
+            [
+               "225616",
+               "6M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-13-R-10",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-10",
+            "id" : "R_93-54-_-sj2-1-R-10"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-31-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-31-b0195",
+      "leaves" : "09:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-6-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-6-b0195",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "2256112",
+               "0S pasd"
+            ],
+            [
+               "2256113",
+               "1M pasd"
+            ],
+            [
+               "2256114",
+               "0S pasd"
+            ],
+            [
+               "2256115",
+               "0S pasd"
+            ],
+            [
+               "2256116",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "2256117",
+               "0S pasd"
+            ],
+            [
+               "2256118",
+               "0S pasd"
+            ],
+            [
+               "2256120",
+               "1M pasd"
+            ],
+            [
+               "225773",
+               "1M pasd"
+            ],
+            [
+               "225774",
+               "0S pasd"
+            ],
+            [
+               "225776",
+               "1M pasd"
+            ],
+            [
+               "225777",
+               "0S pasd"
+            ],
+            [
+               "225778",
+               "0S pasd"
+            ],
+            [
+               "225762",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "1M pasd"
+            ],
+            [
+               "225796",
+               "0S pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "0S pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "0S pasd"
+            ],
+            [
+               "2256148",
+               "1M pasd"
+            ],
+            [
+               "2256149",
+               "1M pasd"
+            ],
+            [
+               "2256473",
+               "10M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "1M pasd"
+            ],
+            [
+               "2256131",
+               "0S pasd"
+            ],
+            [
+               "2256132",
+               "1M pasd"
+            ],
+            [
+               "2256133",
+               "0S pasd"
+            ],
+            [
+               "2256134",
+               "1M pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "0S pasd"
+            ],
+            [
+               "2257342",
+               "6M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "2M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "5M pasd"
+            ],
+            [
+               "2257110",
+               "5M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-5-R-5",
+         "route" : {
+            "name" : "Woy Woy Station - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-5",
+            "id" : "R_93-54-_-sj2-1-R-5"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-13-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-13-b0191",
+      "leaves" : "17:06:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "1M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "0S pasd"
+            ],
+            [
+               "225795",
+               "1M pasd"
+            ],
+            [
+               "225796",
+               "0S pasd"
+            ],
+            [
+               "2257263",
+               "1M pasd"
+            ],
+            [
+               "225797",
+               "0S pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256473",
+               "7M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "1M pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "0S pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-9-R-6",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-6",
+            "id" : "R_93-54-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-26-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-26-b0195",
+      "leaves" : "14:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225738",
+               null
+            ],
+            [
+               "225740",
+               "2M pasd"
+            ],
+            [
+               "225721",
+               "0S pasd"
+            ],
+            [
+               "225722",
+               "1M pasd"
+            ],
+            [
+               "225723",
+               "1M pasd"
+            ],
+            [
+               "225724",
+               "0S pasd"
+            ],
+            [
+               "225725",
+               "0S pasd"
+            ],
+            [
+               "225726",
+               "1M pasd"
+            ],
+            [
+               "225727",
+               "5M pasd"
+            ],
+            [
+               "225728",
+               "0S pasd"
+            ],
+            [
+               "225729",
+               "1M pasd"
+            ],
+            [
+               "225730",
+               "0S pasd"
+            ],
+            [
+               "225731",
+               "3M pasd"
+            ],
+            [
+               "225732",
+               "1M pasd"
+            ],
+            [
+               "225733",
+               "0S pasd"
+            ],
+            [
+               "225734",
+               "0S pasd"
+            ],
+            [
+               "225735",
+               "1M pasd"
+            ],
+            [
+               "225736",
+               "1M pasd"
+            ],
+            [
+               "225737",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "0S pasd"
+            ],
+            [
+               "2257110",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-4-R-4",
+         "route" : {
+            "name" : "West St Opp Bullion St Opp Woolworths - West St near South St",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-4",
+            "id" : "R_93-54-_-sj2-1-R-4"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-52-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-52-b0195",
+      "leaves" : "16:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "0S pasd"
+            ],
+            [
+               "225697",
+               "1M pasd"
+            ],
+            [
+               "225698",
+               "0S pasd"
+            ],
+            [
+               "225699",
+               "1M pasd"
+            ],
+            [
+               "2256100",
+               "0S pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "2M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "1M pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "1M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "0S pasd"
+            ],
+            [
+               "2256142",
+               "1M pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "0S pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "1M pasd"
+            ],
+            [
+               "2256147",
+               "0S pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "8M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "0S pasd"
+            ],
+            [
+               "2256132",
+               "1M pasd"
+            ],
+            [
+               "2256133",
+               "0S pasd"
+            ],
+            [
+               "2256134",
+               "1M pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "0S pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "3M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "0S pasd"
+            ],
+            [
+               "225768",
+               "1M pasd"
+            ],
+            [
+               "225769",
+               "0S pasd"
+            ],
+            [
+               "225770",
+               "1M pasd"
+            ],
+            [
+               "225771",
+               "0S pasd"
+            ],
+            [
+               "225772",
+               "0S pasd"
+            ],
+            [
+               "2256102",
+               "1M pasd"
+            ],
+            [
+               "2256103",
+               "0S pasd"
+            ],
+            [
+               "2256104",
+               "1M pasd"
+            ],
+            [
+               "2256105",
+               "0S pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256125",
+               "0S pasd"
+            ],
+            [
+               "2256126",
+               "1M pasd"
+            ],
+            [
+               "2256127",
+               "0S pasd"
+            ],
+            [
+               "2256128",
+               "1M pasd"
+            ],
+            [
+               "2256129",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-18-R-1",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-1",
+            "id" : "R_93-54-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-18-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-18-b0191",
+      "leaves" : "15:01:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-3-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-3-b0195",
+      "leaves" : "13:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-1-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-1-b0195",
+      "leaves" : "18:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225695",
+               "1M pasd"
+            ],
+            [
+               "225696",
+               "0S pasd"
+            ],
+            [
+               "225697",
+               "1M pasd"
+            ],
+            [
+               "225698",
+               "0S pasd"
+            ],
+            [
+               "225699",
+               "1M pasd"
+            ],
+            [
+               "2256100",
+               "0S pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "2M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "0S pasd"
+            ],
+            [
+               "225795",
+               "1M pasd"
+            ],
+            [
+               "225796",
+               "0S pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "0S pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "0S pasd"
+            ],
+            [
+               "2256142",
+               "1M pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "0S pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "1M pasd"
+            ],
+            [
+               "2256147",
+               "0S pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "8M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "0S pasd"
+            ],
+            [
+               "2256132",
+               "1M pasd"
+            ],
+            [
+               "2256133",
+               "0S pasd"
+            ],
+            [
+               "2256134",
+               "1M pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "0S pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "3M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "0S pasd"
+            ],
+            [
+               "225768",
+               "1M pasd"
+            ],
+            [
+               "225769",
+               "0S pasd"
+            ],
+            [
+               "225770",
+               "1M pasd"
+            ],
+            [
+               "225771",
+               "0S pasd"
+            ],
+            [
+               "225772",
+               "0S pasd"
+            ],
+            [
+               "2256102",
+               "1M pasd"
+            ],
+            [
+               "2256103",
+               "0S pasd"
+            ],
+            [
+               "2256104",
+               "1M pasd"
+            ],
+            [
+               "2256105",
+               "0S pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256125",
+               "0S pasd"
+            ],
+            [
+               "2256126",
+               "1M pasd"
+            ],
+            [
+               "2256127",
+               "0S pasd"
+            ],
+            [
+               "2256128",
+               "1M pasd"
+            ],
+            [
+               "2256129",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-1",
+            "id" : "R_93-54-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-12-b0191" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-12-b0191",
+      "leaves" : "16:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-25-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-25-b0195",
+      "leaves" : "07:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "2256112",
+               "0S pasd"
+            ],
+            [
+               "2256113",
+               "1M pasd"
+            ],
+            [
+               "2256114",
+               "0S pasd"
+            ],
+            [
+               "2256115",
+               "0S pasd"
+            ],
+            [
+               "2256116",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "2256117",
+               "0S pasd"
+            ],
+            [
+               "2256118",
+               "0S pasd"
+            ],
+            [
+               "2256120",
+               "1M pasd"
+            ],
+            [
+               "225773",
+               "1M pasd"
+            ],
+            [
+               "225774",
+               "0S pasd"
+            ],
+            [
+               "225776",
+               "1M pasd"
+            ],
+            [
+               "225777",
+               "0S pasd"
+            ],
+            [
+               "225778",
+               "0S pasd"
+            ],
+            [
+               "225762",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "1M pasd"
+            ],
+            [
+               "225796",
+               "0S pasd"
+            ],
+            [
+               "2257263",
+               "0S pasd"
+            ],
+            [
+               "225797",
+               "1M pasd"
+            ],
+            [
+               "225798",
+               "0S pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "0S pasd"
+            ],
+            [
+               "2256148",
+               "1M pasd"
+            ],
+            [
+               "2256149",
+               "1M pasd"
+            ],
+            [
+               "2256473",
+               "10M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "1M pasd"
+            ],
+            [
+               "2256131",
+               "0S pasd"
+            ],
+            [
+               "2256132",
+               "1M pasd"
+            ],
+            [
+               "2256133",
+               "0S pasd"
+            ],
+            [
+               "2256134",
+               "1M pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "0S pasd"
+            ],
+            [
+               "2257342",
+               "6M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "225741",
+               "3M pasd"
+            ],
+            [
+               "225742",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-14-R-11",
+         "route" : {
+            "name" : "Woy Woy Station - Rabaul Av near Mcevoy Av",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-11",
+            "id" : "R_93-54-_-sj2-1-R-11"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-22-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-22-b0195",
+      "leaves" : "11:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-23-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-23-b0195",
+      "leaves" : "14:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-21-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-21-b0195",
+      "leaves" : "12:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-54-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-54-b0195",
+      "leaves" : "11:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257110",
+               null
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "1M pasd"
+            ],
+            [
+               "225768",
+               "0S pasd"
+            ],
+            [
+               "225769",
+               "1M pasd"
+            ],
+            [
+               "225770",
+               "0S pasd"
+            ],
+            [
+               "225771",
+               "1M pasd"
+            ],
+            [
+               "225772",
+               "1M pasd"
+            ],
+            [
+               "2256102",
+               "0S pasd"
+            ],
+            [
+               "2256103",
+               "1M pasd"
+            ],
+            [
+               "2256104",
+               "0S pasd"
+            ],
+            [
+               "2256105",
+               "1M pasd"
+            ],
+            [
+               "2256106",
+               "0S pasd"
+            ],
+            [
+               "2256107",
+               "1M pasd"
+            ],
+            [
+               "2256108",
+               "0S pasd"
+            ],
+            [
+               "2256109",
+               "1M pasd"
+            ],
+            [
+               "2256110",
+               "0S pasd"
+            ],
+            [
+               "2256111",
+               "1M pasd"
+            ],
+            [
+               "225682",
+               "0S pasd"
+            ],
+            [
+               "225683",
+               "0S pasd"
+            ],
+            [
+               "225684",
+               "1M pasd"
+            ],
+            [
+               "225685",
+               "0S pasd"
+            ],
+            [
+               "225686",
+               "1M pasd"
+            ],
+            [
+               "225658",
+               "1M pasd"
+            ],
+            [
+               "225659",
+               "0S pasd"
+            ],
+            [
+               "225616",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "West St near South St - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-3",
+            "id" : "R_93-54-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-7-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-7-b0195",
+      "leaves" : "15:17:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "1M pasd"
+            ],
+            [
+               "225638",
+               "0S pasd"
+            ],
+            [
+               "225639",
+               "1M pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "1M pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "1M pasd"
+            ],
+            [
+               "225698",
+               "0S pasd"
+            ],
+            [
+               "225699",
+               "1M pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "0S pasd"
+            ],
+            [
+               "225752",
+               "1M pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "1M pasd"
+            ],
+            [
+               "225755",
+               "0S pasd"
+            ],
+            [
+               "225756",
+               "1M pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ],
+            [
+               "225739",
+               "1M pasd"
+            ],
+            [
+               "225795",
+               "0S pasd"
+            ],
+            [
+               "225796",
+               "2M pasd"
+            ],
+            [
+               "2257263",
+               "1M pasd"
+            ],
+            [
+               "225797",
+               "0S pasd"
+            ],
+            [
+               "225798",
+               "2M pasd"
+            ],
+            [
+               "225799",
+               "0S pasd"
+            ],
+            [
+               "225794",
+               "1M pasd"
+            ],
+            [
+               "2257341",
+               "1M pasd"
+            ],
+            [
+               "2256140",
+               "12M pasd"
+            ],
+            [
+               "2256141",
+               "1M pasd"
+            ],
+            [
+               "2256142",
+               "0S pasd"
+            ],
+            [
+               "2256475",
+               "0S pasd"
+            ],
+            [
+               "2256143",
+               "0S pasd"
+            ],
+            [
+               "2256144",
+               "1M pasd"
+            ],
+            [
+               "2256145",
+               "0S pasd"
+            ],
+            [
+               "2256146",
+               "0S pasd"
+            ],
+            [
+               "2256147",
+               "1M pasd"
+            ],
+            [
+               "2256148",
+               "0S pasd"
+            ],
+            [
+               "2256149",
+               "0S pasd"
+            ],
+            [
+               "2256473",
+               "11M pasd"
+            ],
+            [
+               "2256136",
+               "1M pasd"
+            ],
+            [
+               "2256137",
+               "0S pasd"
+            ],
+            [
+               "2256130",
+               "1M pasd"
+            ],
+            [
+               "2256474",
+               "0S pasd"
+            ],
+            [
+               "2256131",
+               "1M pasd"
+            ],
+            [
+               "2256132",
+               "0S pasd"
+            ],
+            [
+               "2256133",
+               "1M pasd"
+            ],
+            [
+               "2256134",
+               "0S pasd"
+            ],
+            [
+               "2256135",
+               "0S pasd"
+            ],
+            [
+               "2256138",
+               "1M pasd"
+            ],
+            [
+               "2256139",
+               "1M pasd"
+            ],
+            [
+               "2257342",
+               "4M pasd"
+            ],
+            [
+               "2257324",
+               "1M pasd"
+            ],
+            [
+               "2257336",
+               "1M pasd"
+            ],
+            [
+               "2257337",
+               "1M pasd"
+            ],
+            [
+               "2257338",
+               "1M pasd"
+            ],
+            [
+               "2257109",
+               "1M pasd"
+            ],
+            [
+               "2257110",
+               "1M pasd"
+            ],
+            [
+               "225766",
+               "1M pasd"
+            ],
+            [
+               "225767",
+               "0S pasd"
+            ],
+            [
+               "225768",
+               "1M pasd"
+            ],
+            [
+               "225769",
+               "0S pasd"
+            ],
+            [
+               "225770",
+               "1M pasd"
+            ],
+            [
+               "225771",
+               "0S pasd"
+            ],
+            [
+               "225772",
+               "0S pasd"
+            ],
+            [
+               "2256102",
+               "1M pasd"
+            ],
+            [
+               "2256103",
+               "0S pasd"
+            ],
+            [
+               "2256104",
+               "1M pasd"
+            ],
+            [
+               "2256105",
+               "0S pasd"
+            ],
+            [
+               "2256106",
+               "1M pasd"
+            ],
+            [
+               "2256107",
+               "0S pasd"
+            ],
+            [
+               "2256125",
+               "1M pasd"
+            ],
+            [
+               "2256126",
+               "0S pasd"
+            ],
+            [
+               "2256127",
+               "1M pasd"
+            ],
+            [
+               "2256128",
+               "0S pasd"
+            ],
+            [
+               "2256129",
+               "1M pasd"
+            ],
+            [
+               "225616",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-6-R-1",
+         "route" : {
+            "name" : "Woy Woy Station - Woy Woy Station",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-1",
+            "id" : "R_93-54-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   },
+   "VJ_93-54-_-sj2-1-2-b0195" : {
+      "vjcode" : "VJ_93-54-_-sj2-1-2-b0195",
+      "leaves" : "10:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225616",
+               null
+            ],
+            [
+               "225636",
+               "1M pasd"
+            ],
+            [
+               "225637",
+               "0S pasd"
+            ],
+            [
+               "225638",
+               "1M pasd"
+            ],
+            [
+               "225639",
+               "0S pasd"
+            ],
+            [
+               "225661",
+               "0S pasd"
+            ],
+            [
+               "225662",
+               "1M pasd"
+            ],
+            [
+               "225663",
+               "0S pasd"
+            ],
+            [
+               "225664",
+               "0S pasd"
+            ],
+            [
+               "225665",
+               "1M pasd"
+            ],
+            [
+               "225691",
+               "0S pasd"
+            ],
+            [
+               "225692",
+               "0S pasd"
+            ],
+            [
+               "225693",
+               "0S pasd"
+            ],
+            [
+               "225694",
+               "1M pasd"
+            ],
+            [
+               "225695",
+               "0S pasd"
+            ],
+            [
+               "225696",
+               "1M pasd"
+            ],
+            [
+               "225697",
+               "0S pasd"
+            ],
+            [
+               "225698",
+               "1M pasd"
+            ],
+            [
+               "225699",
+               "0S pasd"
+            ],
+            [
+               "2256100",
+               "1M pasd"
+            ],
+            [
+               "2256101",
+               "1M pasd"
+            ],
+            [
+               "225752",
+               "0S pasd"
+            ],
+            [
+               "225753",
+               "1M pasd"
+            ],
+            [
+               "225754",
+               "0S pasd"
+            ],
+            [
+               "225755",
+               "1M pasd"
+            ],
+            [
+               "225756",
+               "0S pasd"
+            ],
+            [
+               "225757",
+               "1M pasd"
+            ],
+            [
+               "225758",
+               "1M pasd"
+            ],
+            [
+               "2257169",
+               "1M pasd"
+            ],
+            [
+               "225738",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-54-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Woy Woy Station - West St Opp Bullion St Opp Woolworths",
+            "rs_ref" : "RS_93-54-_-sj2-1-R-2",
+            "id" : "R_93-54-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-54-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "54"
+   }
+}
+;
+

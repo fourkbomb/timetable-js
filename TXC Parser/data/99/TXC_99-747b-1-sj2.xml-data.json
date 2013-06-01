@@ -1,0 +1,511 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-747-b-sj2-1" : "747"
+}
+;
+
+var stations = {
+   "209547" : "Pittwater Rd Nr Eurobin Av",
+   "210046" : "Pittwater Rd Nr Oliver St",
+   "2099177" : "Fisher Rd North Nr Grover Av",
+   "2099153" : "Truman Av nr Badcoe Rd",
+   "2099150" : "Carrington Av Nr Toronto Av",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "209550" : "Pittwater Rd Nr Pine St",
+   "2099193" : "Fisher Rd nr Regent St",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "210044" : "Pittwater Rd Nr Western Av",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "2099179" : "Fisher Rd North Nr Carawa Rd",
+   "2099118" : "Fisher Rd nr St David Av",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210043" : "Pittwater Rd Nr Wakefield St",
+   "210024" : "Pittwater Rd nr Mitchell Av",
+   "209549" : "Pittwater Rd Nr Collingwood St",
+   "2100131" : "Pittwater Rd nr Warringah Mall Stand A",
+   "2099149" : "Carrington Av Nr Washington Av",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "2099127" : "Alfred St nr Carawa Rd",
+   "2099152" : "Toronto Av nr Kenna Pl",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "2099128" : "Carawa Rd nr Davison St",
+   "209551" : "Pittwater Rd Nr Carlton St",
+   "210047" : "Pittwater Rd nr Aitken Av",
+   "209552" : "Pittwater Rd Nr Raglan St",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "209553" : "Belgrave St Nr Sydney Rd",
+   "209571" : "Darley Rd Nr St Pauls College",
+   "2099178" : "Fisher Rd North Nr Ryrie Av",
+   "210022" : "Pittwater Rd nr Carter Rd",
+   "2099148" : "Grover Av nr Carcoola Av",
+   "2099146" : "Carcoola Rd Nr Carawa Rd",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "209519" : "Gilbert St Nr Belgrave St",
+   "2099151" : "Toronto Av Nr Cromer Rd",
+   "2099147" : "Carcoola Rd nr Pinta Pl",
+   "2099209" : "Truman Av nr Howse Cr",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "210021" : "Pittwater Rd nr Harbord Rd",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "210042" : "Pittwater Rd nr Corrie Rd",
+   "210041" : "Pittwater Rd Nr Sterland Av",
+   "210026" : "Pittwater Rd nr Orchard Rd",
+   "2099154" : "Howse Cr nr Truman Av",
+   "2099180" : "Fisher Rd North Nr Tennyson Rd",
+   "210045" : "Pittwater Rd Nr Riverview Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-747-b-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-747-b-sj2-1-2-b00b2",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099127",
+               null
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "0S pasd"
+            ],
+            [
+               "2099148",
+               "1M pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "0S pasd"
+            ],
+            [
+               "2099156",
+               "1M pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "0S pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "2099118",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100131",
+               "1M pasd"
+            ],
+            [
+               "210041",
+               "1M pasd"
+            ],
+            [
+               "210042",
+               "1M pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "1M pasd"
+            ],
+            [
+               "210047",
+               "0S pasd"
+            ],
+            [
+               "209547",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "1M setDown"
+            ],
+            [
+               "209571",
+               "1M setDown"
+            ]
+         ],
+         "id" : "JP_99-747-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Alfred St nr Carawa Rd - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-747-b-sj2-1-H-1",
+            "id" : "R_99-747-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-747-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "747"
+   },
+   "VJ_99-747-b-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-747-b-sj2-1-1-b00b7",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099127",
+               null
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "0S pasd"
+            ],
+            [
+               "2099148",
+               "1M pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "0S pasd"
+            ],
+            [
+               "2099156",
+               "1M pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "0S pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "2099118",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100131",
+               "1M pasd"
+            ],
+            [
+               "210041",
+               "1M pasd"
+            ],
+            [
+               "210042",
+               "1M pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "1M pasd"
+            ],
+            [
+               "210047",
+               "0S pasd"
+            ],
+            [
+               "209547",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "1M setDown"
+            ],
+            [
+               "209571",
+               "1M setDown"
+            ]
+         ],
+         "id" : "JP_99-747-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Alfred St nr Carawa Rd - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-747-b-sj2-1-H-1",
+            "id" : "R_99-747-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-747-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "747"
+   }
+}
+;
+

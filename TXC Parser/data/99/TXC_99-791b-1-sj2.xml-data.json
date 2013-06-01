@@ -1,0 +1,565 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-791-b-sj2-1" : "791"
+}
+;
+
+var stations = {
+   "210816" : "Barrenjoey Rd nr Nabilla Rd",
+   "210430" : "Annam Rd nr Konda Cl",
+   "210751" : "Old Barrenjoey Rd Nr Avalon Primary",
+   "210822" : "Ocean Rd Nr Palm Beach Rd",
+   "210812" : "Barrenjoey Rd nr Thyra Rd",
+   "210612" : "Barrenjoey Rd Nr Karloo Pde",
+   "210823" : "Florida Rd nr Ocean Pl",
+   "210715" : "Barrenjoey Rd Nr Wollstonecraft Av",
+   "2107115" : "Old Barrenjoey Rd nr Avalon Pde",
+   "210429" : "Annam Rd nr Utingu Pl",
+   "210422" : "Pittwater Rd Nr Loquat Valley Rd",
+   "210425" : "Pittwater Rd opp Gerroa Av",
+   "210424" : "Pittwater Rd opp King Edward Av",
+   "210371" : "Waterview St Nr Edwin Ward Pl",
+   "210616" : "Barrenjoey Rd Nr Neptune Rd",
+   "210327" : "Pittwater Rd Nr Darley St West",
+   "2107122" : "Carreel Head Rd nr Burrawong Rd",
+   "2107144" : "Catalina Cr Nr Coonanga Rd",
+   "210753" : "Old Barrenjoey Rd Nr Avalon Primary",
+   "210423" : "Pittwater Rd Nr Marina",
+   "210431" : "Annam Rd Terminus",
+   "210825" : "Ocean Pl nr Ocean Rd",
+   "210720" : "Barrenjoey Rd nr Etival St",
+   "2107143" : "Coonanga Rd nr Barrenjoey High School",
+   "210749" : "Old Barrenjoey Rd Nr Dress Circle Rd",
+   "210815" : "Barrenjoey Rd Nr Iluka Rd",
+   "210627" : "Beaconsfield St Nr Crescent Rd",
+   "210811" : "Barrenjoey Rd Nr Currawong Av",
+   "210617" : "Barrenjoey Rd Nr The Serpentine",
+   "210821" : "Beach Rd nr Governer Phillip Park",
+   "210427" : "Cabbage Tree Rd nr Binnowee Pl",
+   "210631" : "Gladstone Rd Nr Woolcott St",
+   "210818" : "Barrenjoey Rd Nr Illuka Rd",
+   "210615" : "Barrenjoey Rd nr Robertson Rd",
+   "210813" : "Barrenjoey Rd 500m N Of Thyra Rd",
+   "210432" : "Parkland Rd Nr Whitney St",
+   "210630" : "Gladstone Rd Nr King St",
+   "210820" : "Barrenjoey Rd Nr Beach Rd",
+   "210370" : "Waterview St Nr Mona St",
+   "210426" : "Cabbage Tree Rd op Beaumont Cr",
+   "210373" : "Waterview St Nr Barrenjoey Rd",
+   "210819" : "Barrenjoey Rd nr Palm Beach Wharf",
+   "210366" : "Mona St Nr Pittwater Rd",
+   "210626" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210714" : "Barrenjoey Rd Nr Central Rd",
+   "2107138" : "Binburra Av nr North Avalon Rd",
+   "210629" : "Kalinya St Nr Gladstone Rd",
+   "210632" : "Gladstone Rd Nr Barrenjoey Rd",
+   "210611" : "Barrenjoey Rd Nr Phillip Rd",
+   "210814" : "Barrenjoey Rd 400m S of Iluka Rd",
+   "210716" : "Barrenjoey Rd nr George St",
+   "210817" : "Barrenjoey Rd nr Palm Beach RSL",
+   "210360" : "Parkland Rd Nr Peita Cr",
+   "210428" : "Annam Rd nr Cabbage Tree Rd",
+   "210628" : "Beaconsfield St Nr Kalinya St",
+   "210372" : "Waterview St Nr Crescent Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-791-b-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-791-b-sj2-1-2-b009g",
+      "leaves" : "15:03:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210422",
+               null
+            ],
+            [
+               "210423",
+               "1M pasd"
+            ],
+            [
+               "210424",
+               "1M pasd"
+            ],
+            [
+               "210425",
+               "1M pasd"
+            ],
+            [
+               "210426",
+               "1M pasd"
+            ],
+            [
+               "210427",
+               "1M pasd"
+            ],
+            [
+               "210428",
+               "1M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210432",
+               "2M pasd"
+            ],
+            [
+               "210360",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "3M pasd"
+            ],
+            [
+               "210366",
+               "0S pasd"
+            ],
+            [
+               "210370",
+               "3M pasd"
+            ],
+            [
+               "210371",
+               "1M pasd"
+            ],
+            [
+               "210372",
+               "1M pasd"
+            ],
+            [
+               "210373",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210626",
+               "1M pasd"
+            ],
+            [
+               "210627",
+               "0S pasd"
+            ],
+            [
+               "210628",
+               "1M pasd"
+            ],
+            [
+               "210629",
+               "0S pasd"
+            ],
+            [
+               "210630",
+               "1M pasd"
+            ],
+            [
+               "210631",
+               "0S pasd"
+            ],
+            [
+               "210632",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210749",
+               "2M pasd"
+            ],
+            [
+               "210751",
+               "2M pasd"
+            ],
+            [
+               "210753",
+               "0S pasd"
+            ],
+            [
+               "2107115",
+               "2M pasd"
+            ],
+            [
+               "210714",
+               "1M pasd"
+            ],
+            [
+               "210715",
+               "1M pasd"
+            ],
+            [
+               "210716",
+               "0S pasd"
+            ],
+            [
+               "2107143",
+               "3M pasd"
+            ],
+            [
+               "2107144",
+               "1M pasd"
+            ],
+            [
+               "2107138",
+               "0S pasd"
+            ],
+            [
+               "2107122",
+               "3M pasd"
+            ],
+            [
+               "210720",
+               "1M pasd"
+            ],
+            [
+               "210811",
+               "1M pasd"
+            ],
+            [
+               "210812",
+               "1M pasd"
+            ],
+            [
+               "210813",
+               "1M pasd"
+            ],
+            [
+               "210814",
+               "1M pasd"
+            ],
+            [
+               "210815",
+               "1M pasd"
+            ],
+            [
+               "210816",
+               "0S pasd"
+            ],
+            [
+               "210817",
+               "0S pasd"
+            ],
+            [
+               "210818",
+               "1M pasd"
+            ],
+            [
+               "210819",
+               "0S pasd"
+            ],
+            [
+               "210820",
+               "1M pasd"
+            ],
+            [
+               "210821",
+               "1M pasd"
+            ],
+            [
+               "210822",
+               "1M pasd"
+            ],
+            [
+               "210823",
+               "1M pasd"
+            ],
+            [
+               "210825",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-791-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Pittwater Rd Nr Loquat Valley Rd - Ocean Pl nr Ocean Rd",
+            "rs_ref" : "RS_99-791-b-sj2-1-R-1",
+            "id" : "R_99-791-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-791-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "791"
+   },
+   "VJ_99-791-b-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-791-b-sj2-1-1-b009h",
+      "leaves" : "15:03:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210422",
+               null
+            ],
+            [
+               "210423",
+               "1M pasd"
+            ],
+            [
+               "210424",
+               "1M pasd"
+            ],
+            [
+               "210425",
+               "1M pasd"
+            ],
+            [
+               "210426",
+               "1M pasd"
+            ],
+            [
+               "210427",
+               "1M pasd"
+            ],
+            [
+               "210428",
+               "1M pasd"
+            ],
+            [
+               "210429",
+               "0S pasd"
+            ],
+            [
+               "210430",
+               "2M pasd"
+            ],
+            [
+               "210431",
+               "0S pasd"
+            ],
+            [
+               "210432",
+               "2M pasd"
+            ],
+            [
+               "210360",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "3M pasd"
+            ],
+            [
+               "210366",
+               "0S pasd"
+            ],
+            [
+               "210370",
+               "3M pasd"
+            ],
+            [
+               "210371",
+               "1M pasd"
+            ],
+            [
+               "210372",
+               "1M pasd"
+            ],
+            [
+               "210373",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210626",
+               "1M pasd"
+            ],
+            [
+               "210627",
+               "0S pasd"
+            ],
+            [
+               "210628",
+               "1M pasd"
+            ],
+            [
+               "210629",
+               "0S pasd"
+            ],
+            [
+               "210630",
+               "1M pasd"
+            ],
+            [
+               "210631",
+               "0S pasd"
+            ],
+            [
+               "210632",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210749",
+               "2M pasd"
+            ],
+            [
+               "210751",
+               "2M pasd"
+            ],
+            [
+               "210753",
+               "0S pasd"
+            ],
+            [
+               "2107115",
+               "2M pasd"
+            ],
+            [
+               "210714",
+               "1M pasd"
+            ],
+            [
+               "210715",
+               "1M pasd"
+            ],
+            [
+               "210716",
+               "0S pasd"
+            ],
+            [
+               "2107143",
+               "3M pasd"
+            ],
+            [
+               "2107144",
+               "1M pasd"
+            ],
+            [
+               "2107138",
+               "0S pasd"
+            ],
+            [
+               "2107122",
+               "3M pasd"
+            ],
+            [
+               "210720",
+               "1M pasd"
+            ],
+            [
+               "210811",
+               "1M pasd"
+            ],
+            [
+               "210812",
+               "1M pasd"
+            ],
+            [
+               "210813",
+               "1M pasd"
+            ],
+            [
+               "210814",
+               "1M pasd"
+            ],
+            [
+               "210815",
+               "1M pasd"
+            ],
+            [
+               "210816",
+               "0S pasd"
+            ],
+            [
+               "210817",
+               "0S pasd"
+            ],
+            [
+               "210818",
+               "1M pasd"
+            ],
+            [
+               "210819",
+               "0S pasd"
+            ],
+            [
+               "210820",
+               "1M pasd"
+            ],
+            [
+               "210821",
+               "1M pasd"
+            ],
+            [
+               "210822",
+               "1M pasd"
+            ],
+            [
+               "210823",
+               "1M pasd"
+            ],
+            [
+               "210825",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-791-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Pittwater Rd Nr Loquat Valley Rd - Ocean Pl nr Ocean Rd",
+            "rs_ref" : "RS_99-791-b-sj2-1-R-1",
+            "id" : "R_99-791-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-791-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "791"
+   }
+}
+;
+

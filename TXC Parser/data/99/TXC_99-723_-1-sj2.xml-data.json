@@ -1,0 +1,904 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-723-_-sj2-1" : "723"
+}
+;
+
+var stations = {
+   "2100102" : "Allambie Rd nr Flers St",
+   "210072" : "Warringah Rd Nr Jones St",
+   "2099174" : "Fisher Rd North Nr Grover Av",
+   "2100142" : "Warringah Rd Nr Jones St",
+   "210096" : "Allambie Rd opp Arnhem Rd",
+   "2099140" : "Alfred Nr Rowena",
+   "2100109" : "Condamine St nr Fishbourne Rd",
+   "2100113" : "Warringah Rd nr Cornish Av",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "209918" : "Alfred St Nr Warringah Rd",
+   "2099170" : "Fisher Rd North Nr Tennyson Rd",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "208615" : "Allambie Rd nr Warringah Rd",
+   "210071" : "Warringah Rd nr Goverment Rd",
+   "2099127" : "Alfred St nr Carawa Rd",
+   "210067" : "Warringah Rd opp McKillop Rd",
+   "2100110" : "Condamine St nr Pozieres Pde",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "2100135" : "Kentwell Rd Nr Allambie Rd",
+   "210074" : "Allambie Rd nr Aquatic Dr",
+   "210070" : "Warringah Rd nr O'Connors Rd",
+   "2099187" : "South Creeek Rd Nr Campbell Pde",
+   "2100143" : "Warringah Rd nr Ellis Rd",
+   "2100140" : "Warringah Rd nr McKillop Rd",
+   "2099186" : "South Creek Rd nr Inman Rd",
+   "2100145" : "Pittwater Rd nr Warringah Mall Stand B",
+   "2100141" : "Warringah Rd nr Earl St",
+   "2099194" : "Fisher Rd North nr Lynwood Av",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "209917" : "Alfred St nr Oceania St",
+   "210011" : "Condamine St nr James St",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "210068" : "Warringah Rd nr Beacon Hill Rd",
+   "2100144" : "Warringah Rd nr Oxford Falls Rd",
+   "210069" : "Warringah Rd nr Willandra Rd",
+   "210087" : "Allambie Rd nr Nargong Rd",
+   "2100114" : "Warringah Rd nr Willandra Rd",
+   "2099123" : "Alfred St Nr Parr Pde",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "2099122" : "Alfred St nr McIntosh Rd",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "2100133" : "Kentwell Rd Nr Condamine St",
+   "2100134" : "Kentwell Rd nr Cornwell Rd",
+   "210088" : "Allambie Rd nr Monserra Rd",
+   "2099175" : "South Creek Rd Nr Thew Pde",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2099168" : "Carawa Rd nr Tennyson Rd",
+   "2099188" : "Campbell Pde nr Heron Pl",
+   "210090" : "Allambie Rd opp Inglebar Av",
+   "2099171" : "Fisher Rd North Nr Carawa Rd",
+   "2100139" : "Warringah Rd opp Beacon Hill Rd",
+   "2099106" : "Warringah Rd nr Princess Mary St",
+   "209993" : "Warringah Rd nr Northcliffe Av",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "2099107" : "Warringah Rd nr Waratah Pde",
+   "2099145" : "Alfred St nr Alamein Av",
+   "210093" : "Allambie Rd nr Martin Luther Pl",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "210089" : "Allambie Rd nr Roosevelt Av",
+   "2099124" : "Narraweena_ Alfred nr Karoola",
+   "2099142" : "Alfred St Nr Greenwood Av",
+   "2099108" : "Warringah Rd nr Alfred St",
+   "210094" : "Allambie Rd opp Mortain Av",
+   "210091" : "Allambie Rd nr Grigor Pl",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "2099125" : "Alfred Nr Rowena",
+   "209992" : "Warringah Rd nr Consul Rd",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "2099119" : "Alfred St Nr Warringah Rd",
+   "208617" : "Frenchs Forest Rd nr Patanga Rd",
+   "2099139" : "Alfred St Nr Maas St",
+   "2099204" : "South Creek Rd nr Cromer High",
+   "2099126" : "Alfred St Nr Maas St",
+   "210092" : "Allambie Rd opp Darmour Av",
+   "2099183" : "Carawa Rd Nr Alfred St",
+   "2099141" : "Narraweena_ Alfred nr Raynor",
+   "210095" : "Allambie Rd opp Sunlea Pl",
+   "2099120" : "Alfred St nr Amaral St",
+   "210086" : "Allambie Rd opp Corkery Cr",
+   "2099144" : "Alfred St Nr Parr Pde",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "210085" : "Allambie Rd nr Eerawy Rd",
+   "2099173" : "Fisher Rd North Nr Ryrie Av",
+   "2099143" : "Alfred St Nr Greenwood Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-723-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-723-_-sj2-1-4-b00b2",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2099204",
+               null
+            ],
+            [
+               "2099186",
+               "0S pasd"
+            ],
+            [
+               "2099187",
+               "1M pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099183",
+               "1M pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "0S pasd"
+            ],
+            [
+               "2099142",
+               "1M pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "209917",
+               "1M pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "1M pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "0S pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "0S pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-723-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "South Creek Rd nr Cromer High - Pittwater Rd nr Warringah Mall",
+            "rs_ref" : "RS_99-723-_-sj2-1-R-2",
+            "id" : "R_99-723-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-723-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "723"
+   },
+   "VJ_99-723-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-723-_-sj2-1-1-b00b2",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100145",
+               null
+            ],
+            [
+               "2100133",
+               "3M pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "0S pasd"
+            ],
+            [
+               "210085",
+               "0S pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "1M pasd"
+            ],
+            [
+               "210088",
+               "0S pasd"
+            ],
+            [
+               "210089",
+               "1M pasd"
+            ],
+            [
+               "210090",
+               "0S pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "0S pasd"
+            ],
+            [
+               "210095",
+               "1M pasd"
+            ],
+            [
+               "210096",
+               "1M pasd"
+            ],
+            [
+               "208615",
+               "1M pasd"
+            ],
+            [
+               "208617",
+               "1M pasd"
+            ],
+            [
+               "2100142",
+               "1M pasd"
+            ],
+            [
+               "2100143",
+               "1M pasd"
+            ],
+            [
+               "2100144",
+               "1M pasd"
+            ],
+            [
+               "2100113",
+               "0S pasd"
+            ],
+            [
+               "2100114",
+               "1M pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "0S pasd"
+            ],
+            [
+               "2099108",
+               "1M pasd"
+            ],
+            [
+               "2099119",
+               "0S pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "0S pasd"
+            ],
+            [
+               "2099125",
+               "1M pasd"
+            ],
+            [
+               "2099126",
+               "0S pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099168",
+               "0S pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "2099175",
+               "0S pasd"
+            ],
+            [
+               "2099204",
+               "1M pasd"
+            ],
+            [
+               "2099186",
+               "1M pasd"
+            ],
+            [
+               "2099187",
+               "0S pasd"
+            ],
+            [
+               "2099201",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-723-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pittwater Rd nr Warringah Mall - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-723-_-sj2-1-H-1",
+            "id" : "R_99-723-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-723-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "723"
+   },
+   "VJ_99-723-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-723-_-sj2-1-3-b00b7",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100145",
+               null
+            ],
+            [
+               "2100133",
+               "3M pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "0S pasd"
+            ],
+            [
+               "210085",
+               "0S pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "1M pasd"
+            ],
+            [
+               "210088",
+               "0S pasd"
+            ],
+            [
+               "210089",
+               "1M pasd"
+            ],
+            [
+               "210090",
+               "0S pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "0S pasd"
+            ],
+            [
+               "210095",
+               "1M pasd"
+            ],
+            [
+               "210096",
+               "1M pasd"
+            ],
+            [
+               "208615",
+               "1M pasd"
+            ],
+            [
+               "208617",
+               "1M pasd"
+            ],
+            [
+               "2100142",
+               "1M pasd"
+            ],
+            [
+               "2100143",
+               "1M pasd"
+            ],
+            [
+               "2100144",
+               "1M pasd"
+            ],
+            [
+               "2100113",
+               "0S pasd"
+            ],
+            [
+               "2100114",
+               "1M pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "0S pasd"
+            ],
+            [
+               "2099108",
+               "1M pasd"
+            ],
+            [
+               "2099119",
+               "0S pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "0S pasd"
+            ],
+            [
+               "2099125",
+               "1M pasd"
+            ],
+            [
+               "2099126",
+               "0S pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099168",
+               "0S pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "2099175",
+               "0S pasd"
+            ],
+            [
+               "2099204",
+               "1M pasd"
+            ],
+            [
+               "2099186",
+               "1M pasd"
+            ],
+            [
+               "2099187",
+               "0S pasd"
+            ],
+            [
+               "2099201",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-723-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pittwater Rd nr Warringah Mall - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-723-_-sj2-1-H-1",
+            "id" : "R_99-723-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-723-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "723"
+   },
+   "VJ_99-723-_-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-723-_-sj2-1-2-b00b7",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2099204",
+               null
+            ],
+            [
+               "2099186",
+               "0S pasd"
+            ],
+            [
+               "2099187",
+               "1M pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099183",
+               "1M pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "0S pasd"
+            ],
+            [
+               "2099142",
+               "1M pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "209917",
+               "1M pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "1M pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "0S pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "0S pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-723-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "South Creek Rd nr Cromer High - Pittwater Rd nr Warringah Mall",
+            "rs_ref" : "RS_99-723-_-sj2-1-R-2",
+            "id" : "R_99-723-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-723-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "723"
+   }
+}
+;
+

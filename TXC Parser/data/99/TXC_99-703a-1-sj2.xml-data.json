@@ -1,0 +1,439 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-703-a-sj2-1" : "703"
+}
+;
+
+var stations = {
+   "2113170" : "Lane Cove Rd Nr Lorna Av",
+   "2113101" : "Elliott Av Nr Rudd St",
+   "211243" : "Badajoz Rd Nr Meldrum St",
+   "2112171" : "Gardener Av Nr Bidgee St",
+   "2113126" : "Magdala Rd Nr Pittwater Rd",
+   "211383" : "Moncrieff Dr Nr Cressy Rd",
+   "2113145" : "Edmonson St near Sturdee St",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "211398" : "Lane Cove Rd Nr Ford St",
+   "2113139" : "Coxs Rd Nr Jopling St",
+   "211382" : "Twin Rd nr John Miller St",
+   "2113114" : "Pittwater Rd Nr Bronhill Av",
+   "2113110" : "Rene St Nr Mccallum Av",
+   "2113205" : "Epping Rd nr Wicks Rd",
+   "2113104" : "Lumsdaine Av Nr Elliott Av",
+   "211259" : "Goulding Rd Nr Byron Av",
+   "211326" : "Epping Rd Nr Ryrie St",
+   "211385" : "Sager Pl Nr Elliott Av",
+   "211242" : "Quarry Rd Nr Badajoz Rd",
+   "2113144" : "Edmonson St Nr Cutler Pde",
+   "2112170" : "Gardener Av Nr Quarry Rd",
+   "211244" : "Badajoz Rd Nr Nerang St",
+   "211360" : "Blenheim Rd Nr Cutler Pde",
+   "2113131" : "Cressy Rd Nr Coxs Rd",
+   "211227" : "Victoria Rd nr Beazley St",
+   "2113149" : "Ryrie St Nr Morshead St",
+   "211260" : "Goulding Rd Nr Twin Rd",
+   "2113112" : "Pittwater Rd 190m S Of Bronhill Av",
+   "2113141" : "Edmonson St Nr Kokoda St",
+   "2112223" : "Princes St Nr Crescent Av",
+   "2113147" : "Edmonson St Nr Ryrie St",
+   "2112195" : "Gardener Av Nr Buffalo Rd",
+   "2113129" : "Cressy Rd Nr Magdala Rd",
+   "2112197" : "Gardener Av Nr Jones St",
+   "2112205" : "Lane Cove Rd Nr Bryon Park",
+   "211328" : "Epping Rd Off Ramp",
+   "2112218" : "Princes St Nr Turner Av",
+   "211384" : "Moncrieff Dr Nr Cilento Cr",
+   "2112199" : "Malvina Rd nr Ryde Secondary College",
+   "2113218" : "Lane Cove Rd Nr Twin Rd",
+   "211245" : "Twin Rd nr Badajoz Rd",
+   "2113109" : "Lane Cove Rd Nr Coxs Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-703-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-703-a-sj2-1-2-b00bk",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2112199",
+               null
+            ],
+            [
+               "211238",
+               "5M pasd"
+            ],
+            [
+               "211227",
+               "1M pasd"
+            ],
+            [
+               "2112218",
+               "2M pasd"
+            ],
+            [
+               "2112223",
+               "0S pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "0S pasd"
+            ],
+            [
+               "2112171",
+               "1M pasd"
+            ],
+            [
+               "2112170",
+               "0S pasd"
+            ],
+            [
+               "211242",
+               "1M pasd"
+            ],
+            [
+               "211243",
+               "1M pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "211245",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "1M pasd"
+            ],
+            [
+               "211383",
+               "0S pasd"
+            ],
+            [
+               "211384",
+               "1M pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "2113101",
+               "0S pasd"
+            ],
+            [
+               "2113104",
+               "1M pasd"
+            ],
+            [
+               "2113110",
+               "1M pasd"
+            ],
+            [
+               "2113112",
+               "1M pasd"
+            ],
+            [
+               "2113114",
+               "0S pasd"
+            ],
+            [
+               "2113126",
+               "2M pasd"
+            ],
+            [
+               "2113129",
+               "0S pasd"
+            ],
+            [
+               "2113131",
+               "0S pasd"
+            ],
+            [
+               "2113139",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "211326",
+               "1M pasd"
+            ],
+            [
+               "2113205",
+               "0S pasd"
+            ],
+            [
+               "211328",
+               "1M pasd"
+            ],
+            [
+               "2113170",
+               "1M pasd"
+            ],
+            [
+               "2113109",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "1M pasd"
+            ],
+            [
+               "2112205",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-703-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Malvina Rd nr Ryde Secondary College - Goulding Rd Nr Twin Rd",
+            "rs_ref" : "RS_99-703-a-sj2-1-R-1",
+            "id" : "R_99-703-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-703-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "703"
+   },
+   "VJ_99-703-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-703-a-sj2-1-1-b00bj",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2112199",
+               null
+            ],
+            [
+               "211238",
+               "5M pasd"
+            ],
+            [
+               "211227",
+               "1M pasd"
+            ],
+            [
+               "2112218",
+               "2M pasd"
+            ],
+            [
+               "2112223",
+               "0S pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "0S pasd"
+            ],
+            [
+               "2112171",
+               "1M pasd"
+            ],
+            [
+               "2112170",
+               "0S pasd"
+            ],
+            [
+               "211242",
+               "1M pasd"
+            ],
+            [
+               "211243",
+               "1M pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "211245",
+               "1M pasd"
+            ],
+            [
+               "211382",
+               "1M pasd"
+            ],
+            [
+               "211383",
+               "0S pasd"
+            ],
+            [
+               "211384",
+               "1M pasd"
+            ],
+            [
+               "211385",
+               "0S pasd"
+            ],
+            [
+               "2113101",
+               "0S pasd"
+            ],
+            [
+               "2113104",
+               "1M pasd"
+            ],
+            [
+               "2113110",
+               "1M pasd"
+            ],
+            [
+               "2113112",
+               "1M pasd"
+            ],
+            [
+               "2113114",
+               "0S pasd"
+            ],
+            [
+               "2113126",
+               "2M pasd"
+            ],
+            [
+               "2113129",
+               "0S pasd"
+            ],
+            [
+               "2113131",
+               "0S pasd"
+            ],
+            [
+               "2113139",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "211326",
+               "1M pasd"
+            ],
+            [
+               "2113205",
+               "0S pasd"
+            ],
+            [
+               "211328",
+               "1M pasd"
+            ],
+            [
+               "2113170",
+               "1M pasd"
+            ],
+            [
+               "2113109",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "1M pasd"
+            ],
+            [
+               "2112205",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-703-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Malvina Rd nr Ryde Secondary College - Goulding Rd Nr Twin Rd",
+            "rs_ref" : "RS_99-703-a-sj2-1-R-1",
+            "id" : "R_99-703-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-703-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "703"
+   }
+}
+;
+

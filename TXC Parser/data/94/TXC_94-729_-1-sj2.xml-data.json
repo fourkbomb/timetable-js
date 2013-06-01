@@ -1,0 +1,391 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-729-_-sj2-1" : "729"
+}
+;
+
+var stations = {
+   "229970" : "Wallarah Rd Nr Young Rd",
+   "230583" : "Bridges Rd Opp Penman St",
+   "229943" : "Seventh St Nr Pilkington St",
+   "230590" : "Orchardtown Rd Nr Jean St",
+   "230537" : "Wallarah Rd Opp Monash Rd",
+   "229934" : "Janet St Nr Blue Gum Rd",
+   "229931" : "Janet St Nr Henry St",
+   "229937" : "Janet St Nr Sunset Bvd",
+   "230589" : "Orchardtown Rd Nr Blamey Av",
+   "230542" : "Hobart Rd Nr Tauranga Rd",
+   "228945" : "Park Av Nr Brisbane Water Rd",
+   "229956" : "George St Nr John St",
+   "228935" : "Park Av Nr Fletcher St",
+   "229911" : "Blue Gum Rd nr Stockland Shopping Centre",
+   "229940" : "Seventh St Nr George St",
+   "2305135" : "Queens Rd Nr Orchardtown Rd",
+   "2305139" : "Carnley Av Nr Birdwood St",
+   "2305136" : "Orchardtown Rd Nr Jean St",
+   "229922" : "Newcastle Rd Nr Dent St",
+   "230559" : "Hobart Rd Nr Harker Oval",
+   "230591" : "Queens Rd Nr High St",
+   "229974" : "Young Rd Nr Tathra Rd",
+   "229957" : "George St Nr Percy St",
+   "230585" : "Carnley Av Nr Birdwood St",
+   "2289183" : "Northcott  Dr Opp Kullaiba Rd",
+   "229959" : "George St Nr Hill St",
+   "2289110" : "St Pius X High School",
+   "230592" : "Queens Rd Nr Evescourt Rd",
+   "229961" : "Hill St Nr Dent St",
+   "2299123" : "Newcastle Rd Nr Morehead St",
+   "229923" : "Newcastle Rd Nr Nerong Rd",
+   "229960" : "Hill St Nr George St",
+   "229939" : "Seventh St Nr Arthur St",
+   "229972" : "Young Rd Nr Orlando Rd",
+   "229958" : "George St Nr Notley St",
+   "229933" : "Janet St Opp Heaton St",
+   "230599" : "Regent St Nr Alma Rd",
+   "229932" : "Janet St Nr Algie St",
+   "2289182" : "Northcott Dr Nr Bradford Cl",
+   "2299122" : "Newcastle Rd Nr Young Rd",
+   "230593" : "Evescourt Rd Nr St James Rd",
+   "229973" : "Young Rd Nr Elder St",
+   "230594" : "Evescourt Rd Nr Portland Pl",
+   "230536" : "Wallarah Rd Nr Monash Rd",
+   "2305132" : "Portland Pl Nr Evescourt Rd",
+   "2299134" : "Dent St Nr Newcastle Rd",
+   "2305138" : "Carnley Av Nr Orchardtown Rd",
+   "2305134" : "Evescourt Rd Nr Queens Rd",
+   "229941" : "Seventh St Nr George St",
+   "229977" : "Young Rd Nr Orlando Rd",
+   "230558" : "Rugby Rd Nr Hobart Rd",
+   "2305133" : "Evescourt Rd Nr St James Rd",
+   "229968" : "Wallarah Rd Nr Womboin Rd",
+   "229963" : "Newcastle Rd Nr Grainger St",
+   "229975" : "Young Rd Nr Tathra Rd",
+   "2305137" : "Orchardtown Rd Nr Freyburg St",
+   "229935" : "Janet St Nr Jesmond High",
+   "229936" : "Janet St Nr Jesmond High",
+   "230596" : "Regent St Nr New Lambton Primary",
+   "229912" : "Blue Gum Rd nr William St",
+   "229976" : "Young Rd Nr Bindera Rd",
+   "228947" : "Park Av Nr Dibbs St",
+   "229969" : "Wallarah Rd Nr Womboin Rd",
+   "229938" : "Seventh St Nr Henry St",
+   "230543" : "Rugby Rd Nr Lambton Rd",
+   "229942" : "Seventh St Nr Arthur St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-729-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-729-_-sj2-1-2-b0096",
+      "leaves" : "07:47:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "229911",
+               null
+            ],
+            [
+               "229934",
+               "0S pasd"
+            ],
+            [
+               "229935",
+               "1M pasd"
+            ],
+            [
+               "229936",
+               "0S pasd"
+            ],
+            [
+               "229937",
+               "0S pasd"
+            ],
+            [
+               "229938",
+               "0S pasd"
+            ],
+            [
+               "229939",
+               "1M pasd"
+            ],
+            [
+               "229940",
+               "0S pasd"
+            ],
+            [
+               "229958",
+               "0S pasd"
+            ],
+            [
+               "229959",
+               "0S pasd"
+            ],
+            [
+               "229961",
+               "1M pasd"
+            ],
+            [
+               "229922",
+               "0S pasd"
+            ],
+            [
+               "229963",
+               "1M pasd"
+            ],
+            [
+               "229923",
+               "1M pasd"
+            ],
+            [
+               "229975",
+               "2M pasd"
+            ],
+            [
+               "229976",
+               "1M pasd"
+            ],
+            [
+               "229977",
+               "1M pasd"
+            ],
+            [
+               "229968",
+               "1M pasd"
+            ],
+            [
+               "230536",
+               "1M pasd"
+            ],
+            [
+               "230542",
+               "2M pasd"
+            ],
+            [
+               "230543",
+               "0S pasd"
+            ],
+            [
+               "230599",
+               "1M pasd"
+            ],
+            [
+               "2305132",
+               "1M pasd"
+            ],
+            [
+               "2305133",
+               "0S pasd"
+            ],
+            [
+               "2305134",
+               "1M pasd"
+            ],
+            [
+               "2305135",
+               "0S pasd"
+            ],
+            [
+               "2305136",
+               "1M pasd"
+            ],
+            [
+               "2305137",
+               "0S pasd"
+            ],
+            [
+               "2305138",
+               "1M pasd"
+            ],
+            [
+               "2305139",
+               "0S pasd"
+            ],
+            [
+               "2289183",
+               "1M pasd"
+            ],
+            [
+               "228947",
+               "1M pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-729-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Blue Gum Rd nr Stockland Shopping Centre - St Pius X High School",
+            "rs_ref" : "RS_94-729-_-sj2-1-H-2",
+            "id" : "R_94-729-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-729-_-sj2-1",
+      "line" : "729"
+   },
+   "VJ_94-729-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-729-_-sj2-1-1-b0096",
+      "leaves" : "15:46:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289110",
+               null
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "2289182",
+               "1M pasd"
+            ],
+            [
+               "230583",
+               "1M pasd"
+            ],
+            [
+               "230585",
+               "0S pasd"
+            ],
+            [
+               "230589",
+               "1M pasd"
+            ],
+            [
+               "230590",
+               "1M pasd"
+            ],
+            [
+               "230591",
+               "1M pasd"
+            ],
+            [
+               "230592",
+               "0S pasd"
+            ],
+            [
+               "230593",
+               "0S pasd"
+            ],
+            [
+               "230594",
+               "1M pasd"
+            ],
+            [
+               "230596",
+               "1M pasd"
+            ],
+            [
+               "230558",
+               "1M pasd"
+            ],
+            [
+               "230559",
+               "1M pasd"
+            ],
+            [
+               "230537",
+               "1M pasd"
+            ],
+            [
+               "229969",
+               "1M pasd"
+            ],
+            [
+               "229970",
+               "1M pasd"
+            ],
+            [
+               "229972",
+               "1M pasd"
+            ],
+            [
+               "229973",
+               "1M pasd"
+            ],
+            [
+               "229974",
+               "0S pasd"
+            ],
+            [
+               "2299122",
+               "2M pasd"
+            ],
+            [
+               "2299123",
+               "1M pasd"
+            ],
+            [
+               "2299134",
+               "0S pasd"
+            ],
+            [
+               "229960",
+               "0S pasd"
+            ],
+            [
+               "229956",
+               "0S pasd"
+            ],
+            [
+               "229957",
+               "1M pasd"
+            ],
+            [
+               "229941",
+               "0S pasd"
+            ],
+            [
+               "229942",
+               "0S pasd"
+            ],
+            [
+               "229943",
+               "1M pasd"
+            ],
+            [
+               "229931",
+               "0S pasd"
+            ],
+            [
+               "229932",
+               "0S pasd"
+            ],
+            [
+               "229933",
+               "1M pasd"
+            ],
+            [
+               "229912",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-729-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Pius X High School - Blue Gum Rd nr William St",
+            "rs_ref" : "RS_94-729-_-sj2-1-R-1",
+            "id" : "R_94-729-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-729-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "729"
+   }
+}
+;
+

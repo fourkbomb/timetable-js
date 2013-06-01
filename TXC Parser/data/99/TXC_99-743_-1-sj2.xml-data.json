@@ -1,0 +1,1630 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-743-_-sj2-1" : "743"
+}
+;
+
+var stations = {
+   "208618" : "Iris St Nr Karabah Pl",
+   "209576" : "North Steyne Nr Denison St",
+   "209321" : "Condamine St Nr Gordon St",
+   "209418" : "Balgowlah Rd nr Harland Rd",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "2100102" : "Allambie Rd nr Flers St",
+   "208619" : "Iris St Nr Patanga Rd",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "210096" : "Allambie Rd opp Arnhem Rd",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "208615" : "Allambie Rd nr Warringah Rd",
+   "209412" : "Balgowlah Rd nr Harland Rd",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "209419" : "Balgowlah Rd Nr Hill St",
+   "209364" : "Balgowlah Rd nr Marjory Thomas Pl",
+   "209323" : "Condamine St Nr Gordon St",
+   "210067" : "Warringah Rd opp McKillop Rd",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "209989" : "Warringah Rd nr Victor Rd",
+   "2100135" : "Kentwell Rd Nr Allambie Rd",
+   "210074" : "Allambie Rd nr Aquatic Dr",
+   "209413" : "Balgowlah Rd Nr Suwarrow St",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209563" : "Collingwood St Nr Stella Maris Stand 1",
+   "209571" : "Darley Rd Nr St Pauls College",
+   "209564" : "Collingwood St Nr Stella Maris Stand 2",
+   "2093162" : "Campbell Pde Nr Condamine St",
+   "209411" : "Balgowlah Rd Nr Hill St",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "209363" : "Balgowlah Rd nr Quirk Rd",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "210068" : "Warringah Rd nr Beacon Hill Rd",
+   "2100115" : "Willandra Rd nr Tristram Rd",
+   "210087" : "Allambie Rd nr Nargong Rd",
+   "209522" : "Victoria Pde Nr Manly School",
+   "209322" : "Condamine St nr Sloane Cr",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "210088" : "Allambie Rd nr Monserra Rd",
+   "2100134" : "Kentwell Rd nr Cornwell Rd",
+   "2100133" : "Kentwell Rd Nr Condamine St",
+   "209990" : "Warringah Rd nr Pine Av",
+   "2100118" : "Tristram Rd nr Boyer Rd",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "210090" : "Allambie Rd opp Inglebar Av",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "209993" : "Warringah Rd nr Northcliffe Av",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "210093" : "Allambie Rd nr Martin Luther Pl",
+   "209991" : "Warringah Rd nr Alfred St",
+   "208620" : "Allambie Rd Nr Warringah Rd",
+   "209559" : "North Steyne Nr Pacific St",
+   "2093163" : "Campbell Pde Nr Mackellar Ghs Stand 13",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "210089" : "Allambie Rd nr Roosevelt Av",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "210017" : "Pittwater Rd nr Pine Av",
+   "210094" : "Allambie Rd opp Mortain Av",
+   "210091" : "Allambie Rd nr Grigor Pl",
+   "2100137" : "Willandra Rd nr Anthony Cl",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "2093177" : "Campbell Pde Nr Condamine St",
+   "209992" : "Warringah Rd nr Consul Rd",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "209318" : "Condamine St Nr Balgowlah Rd",
+   "2100119" : "Oxford Falls Rd nr Brooker Av",
+   "210092" : "Allambie Rd opp Darmour Av",
+   "209326" : "Condamine St Nr Kenneth Rd",
+   "208616" : "Allambie Rd Nr Frenchs Forest Rd",
+   "209319" : "Condamine St nr King St",
+   "209536" : "Balgowlah Rd Nr Francis St",
+   "209417" : "Balgowlah Rd Nr Suwarrow St",
+   "209560" : "North Steyne Nr Pine St",
+   "210095" : "Allambie Rd opp Sunlea Pl",
+   "210086" : "Allambie Rd opp Corkery Cr",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "209324" : "Condamine St nr Innes Rd",
+   "210085" : "Allambie Rd nr Eerawy Rd",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "209554" : "North Steyne Nr Carlton St",
+   "2099100" : "Mcintosh Rd Nr Mundara Pl",
+   "2100120" : "Iris St Nr Jones St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-743-_-sj2-1-6-b00b2" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-6-b00b2",
+      "leaves" : "07:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099100",
+               null
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "0S pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "0S pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Mcintosh Rd Nr Mundara Pl - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-4",
+            "id" : "R_99-743-_-sj2-1-H-4"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-2-b00b7",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209564",
+               null
+            ],
+            [
+               "209417",
+               "4M pasd"
+            ],
+            [
+               "209418",
+               "1M pasd"
+            ],
+            [
+               "209419",
+               "1M pasd"
+            ],
+            [
+               "209364",
+               "0S pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "2M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209321",
+               "0S pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "2100133",
+               "1M pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "0S pasd"
+            ],
+            [
+               "210085",
+               "1M pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "0S pasd"
+            ],
+            [
+               "210088",
+               "1M pasd"
+            ],
+            [
+               "210089",
+               "0S pasd"
+            ],
+            [
+               "210090",
+               "1M pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "0S pasd"
+            ],
+            [
+               "210095",
+               "1M pasd"
+            ],
+            [
+               "210096",
+               "0S pasd"
+            ],
+            [
+               "208615",
+               "2M pasd"
+            ],
+            [
+               "208616",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Collingwood St Nr Stella Maris - Allambie Rd Nr Frenchs Forest Rd",
+            "rs_ref" : "RS_99-743-_-sj2-1-R-2",
+            "id" : "R_99-743-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-4-b00b2",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208620",
+               null
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Allambie Rd Nr Frenchs Forest Rd - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-3",
+            "id" : "R_99-743-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-1-b00b2",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210015",
+               null
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "0S pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "1M pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "1M pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "2100115",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "1M pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pittwater Rd nr Roger St - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-1",
+            "id" : "R_99-743-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-5-b00b7" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-5-b00b7",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210015",
+               null
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "0S pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "1M pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "1M pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "2100115",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "1M pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pittwater Rd nr Roger St - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-1",
+            "id" : "R_99-743-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-3-b00b7",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208620",
+               null
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Allambie Rd Nr Frenchs Forest Rd - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-3",
+            "id" : "R_99-743-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-8-b00b7" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-8-b00b7",
+      "leaves" : "07:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099100",
+               null
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "2M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "0S pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "2093162",
+               "2M pasd"
+            ],
+            [
+               "2093163",
+               "2M pasd"
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "0S pasd"
+            ],
+            [
+               "209536",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "0S pasd"
+            ],
+            [
+               "209554",
+               "1M pasd"
+            ],
+            [
+               "209576",
+               "1M pasd"
+            ],
+            [
+               "209522",
+               "1M pasd"
+            ],
+            [
+               "209571",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Mcintosh Rd Nr Mundara Pl - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-743-_-sj2-1-H-4",
+            "id" : "R_99-743-_-sj2-1-H-4"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   },
+   "VJ_99-743-_-sj2-1-7-b00b2" : {
+      "vjcode" : "VJ_99-743-_-sj2-1-7-b00b2",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209564",
+               null
+            ],
+            [
+               "209417",
+               "4M pasd"
+            ],
+            [
+               "209418",
+               "1M pasd"
+            ],
+            [
+               "209419",
+               "1M pasd"
+            ],
+            [
+               "209364",
+               "0S pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "2M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209321",
+               "0S pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "2100133",
+               "1M pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "0S pasd"
+            ],
+            [
+               "210085",
+               "1M pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "0S pasd"
+            ],
+            [
+               "210088",
+               "1M pasd"
+            ],
+            [
+               "210089",
+               "0S pasd"
+            ],
+            [
+               "210090",
+               "1M pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "0S pasd"
+            ],
+            [
+               "210095",
+               "1M pasd"
+            ],
+            [
+               "210096",
+               "0S pasd"
+            ],
+            [
+               "208615",
+               "2M pasd"
+            ],
+            [
+               "208616",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-743-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Collingwood St Nr Stella Maris - Allambie Rd Nr Frenchs Forest Rd",
+            "rs_ref" : "RS_99-743-_-sj2-1-R-2",
+            "id" : "R_99-743-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-743-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "743"
+   }
+}
+;
+

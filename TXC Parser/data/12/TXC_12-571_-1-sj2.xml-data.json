@@ -1,0 +1,3238 @@
+var OPERATOR = "Shorelink";
+
+
+var LINES = {
+   "12-571-_-sj2-1" : "571"
+}
+;
+
+var stations = {
+   "2074136" : "Kissing Point Rd near Boronia Av",
+   "2074111" : "Turramurra High School Maxwell St",
+   "207498" : "Kissing Point Rd nr Niobe Ln",
+   "2074158" : "Waratah Rd and Taylor Av",
+   "2074125" : "Carina Rd near Mimosa Rd",
+   "2074105" : "Barwon Av near Kingsford Av",
+   "2074155" : "Barwon Av near Hinkler Av",
+   "207499" : "Kissing Point Rd near Wattle Pl",
+   "2074171" : "Kissing Point Rd (Nr. 248)",
+   "2074156" : "Vernon St and Kissing Point Rd",
+   "207496" : "Kissing Point Rd Near Monteith St",
+   "2074139" : "37 Kissing Point Rd",
+   "2074115" : "Kissing Point Rd near Buller St",
+   "2074109" : "Vernon St Oval Vernon St",
+   "2074122" : "Ravenhill Rd near Nimbrin St",
+   "2074140" : "Turramurra Shops Kissing Point Rd",
+   "2074107" : "Barwon Av near Chisholm St",
+   "207493" : "Kissing Point Rd nr Boyd St",
+   "2074110" : "Maxwell St near Buller St",
+   "207494" : "40 Kissing Point Rd",
+   "2074108" : "St andrews Uniting Church Chisholm St",
+   "2074101" : "Kissing Point Rd near Gipps Cl",
+   "2074102" : "Canoon Rd near Kissing Point Rd",
+   "2074179" : "Catalpa Cr nr Godfrey  Ave",
+   "2074117" : "South Turramurra Shops Kissing Point Rd",
+   "2074124" : "Carina Rd near Kuruk Pl",
+   "2074104" : "Canoon Rd near Barwon Av",
+   "2074161" : "Wattle Pl and Kissing Point Rd",
+   "2074113" : "Kissing Point Rd near Benning Av",
+   "2074128" : "Waratah Rd near Tamboon Av",
+   "2074121" : "Comenarra Playing Field The Comenarra Pkwy",
+   "2074137" : "Kissing Point Rd Near Monteith St",
+   "2074100" : "Turramurra Public School Kissing Point Rd",
+   "2074103" : "Canoon Rd near Chisholm St",
+   "2074106" : "Barwon Av near Cove St",
+   "2074123" : "Nimbrin St near Carina Rd",
+   "207495" : "Kissing Point Rd before Catalpa Cr",
+   "2074135" : "Kissing Point Rd near Niobe L",
+   "2074126" : "Mimosa Rd near Carina Rd",
+   "207497" : "Kissing Point Rd near Boronia Av",
+   "2074141" : "Turramurra Railway Pacific Hwy",
+   "2074114" : "Kissing Point Rd near Geoffrey St",
+   "2074119" : "The Comenarra Pkwy near Nimbrin St",
+   "2074118" : "Kissing Point Rd near Canoon Rd",
+   "207414" : "Pacific Hwy near William St",
+   "2074157" : "Maxwell St and Geoffrey St",
+   "2074138" : "Kissing Point Rd opp Catalpa Cr",
+   "207468" : "Turramurra (Stand B)",
+   "2074170" : "Kissing Point Rd (Nr. 222)",
+   "2074112" : "Koombalah Av near Kissing Point Rd",
+   "2074120" : "The Comenarra Pkwy Near Hudson Cl",
+   "2074134" : "Turramurra Public School Kissing Point Rd",
+   "2074127" : "Mimosa Rd near Waratah Rd",
+   "2074116" : "Kissing Point Rd near Havelock St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_12-571-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-15-TA",
+      "leaves" : "16:29:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "28S pasd"
+            ],
+            [
+               "2074105",
+               "21S pasd"
+            ],
+            [
+               "2074106",
+               "27S pasd"
+            ],
+            [
+               "2074107",
+               "16S pasd"
+            ],
+            [
+               "2074108",
+               "14S pasd"
+            ],
+            [
+               "2074109",
+               "12S pasd"
+            ],
+            [
+               "2074156",
+               "18S pasd"
+            ],
+            [
+               "2074115",
+               "16S pasd"
+            ],
+            [
+               "2074110",
+               "20S pasd"
+            ],
+            [
+               "2074157",
+               "31S pasd"
+            ],
+            [
+               "2074111",
+               "37S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "59S pasd"
+            ],
+            [
+               "2074126",
+               "37S pasd"
+            ],
+            [
+               "2074127",
+               "1M6S pasd"
+            ],
+            [
+               "2074158",
+               "43S pasd"
+            ],
+            [
+               "2074128",
+               "1M7S pasd"
+            ],
+            [
+               "2074136",
+               "1M28S pasd"
+            ],
+            [
+               "2074137",
+               "51S pasd"
+            ],
+            [
+               "2074138",
+               "1M11S pasd"
+            ],
+            [
+               "2074139",
+               "1M23S pasd"
+            ],
+            [
+               "2074140",
+               "2M11S pasd"
+            ],
+            [
+               "2074141",
+               "42S pasd"
+            ],
+            [
+               "207468",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-13-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-3-TA",
+      "leaves" : "18:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "59S pasd"
+            ],
+            [
+               "2074126",
+               "37S pasd"
+            ],
+            [
+               "2074127",
+               "1M6S pasd"
+            ],
+            [
+               "2074158",
+               "43S pasd"
+            ],
+            [
+               "2074128",
+               "1M7S pasd"
+            ],
+            [
+               "2074136",
+               "1M28S pasd"
+            ],
+            [
+               "2074137",
+               "51S pasd"
+            ],
+            [
+               "2074138",
+               "1M11S pasd"
+            ],
+            [
+               "2074139",
+               "1M23S pasd"
+            ],
+            [
+               "2074140",
+               "2M11S pasd"
+            ],
+            [
+               "2074141",
+               "42S pasd"
+            ],
+            [
+               "207468",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-11-TA",
+      "leaves" : "06:48:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "19S pasd"
+            ],
+            [
+               "207493",
+               "19S pasd"
+            ],
+            [
+               "207494",
+               "51S pasd"
+            ],
+            [
+               "207495",
+               "29S pasd"
+            ],
+            [
+               "207496",
+               "31S pasd"
+            ],
+            [
+               "207497",
+               "31S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "36S pasd"
+            ],
+            [
+               "2074105",
+               "27S pasd"
+            ],
+            [
+               "2074106",
+               "34S pasd"
+            ],
+            [
+               "2074107",
+               "20S pasd"
+            ],
+            [
+               "2074108",
+               "18S pasd"
+            ],
+            [
+               "2074109",
+               "15S pasd"
+            ],
+            [
+               "2074156",
+               "22S pasd"
+            ],
+            [
+               "2074115",
+               "20S pasd"
+            ],
+            [
+               "2074110",
+               "26S pasd"
+            ],
+            [
+               "2074157",
+               "39S pasd"
+            ],
+            [
+               "2074111",
+               "43S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "40S pasd"
+            ],
+            [
+               "2074119",
+               "29S pasd"
+            ],
+            [
+               "2074120",
+               "33S pasd"
+            ],
+            [
+               "2074121",
+               "38S pasd"
+            ],
+            [
+               "2074122",
+               "43S pasd"
+            ],
+            [
+               "2074123",
+               "18S pasd"
+            ],
+            [
+               "2074124",
+               "39S pasd"
+            ],
+            [
+               "2074125",
+               "29S pasd"
+            ],
+            [
+               "2074126",
+               "18S pasd"
+            ],
+            [
+               "2074127",
+               "33S pasd"
+            ],
+            [
+               "2074158",
+               "21S pasd"
+            ],
+            [
+               "2074128",
+               "33S pasd"
+            ],
+            [
+               "2074136",
+               "46S pasd"
+            ],
+            [
+               "2074137",
+               "51S pasd"
+            ],
+            [
+               "2074138",
+               "1M11S pasd"
+            ],
+            [
+               "2074139",
+               "1M23S pasd"
+            ],
+            [
+               "2074140",
+               "2M11S pasd"
+            ],
+            [
+               "2074141",
+               "42S pasd"
+            ],
+            [
+               "207468",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-9-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-9-TA",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "19S pasd"
+            ],
+            [
+               "207493",
+               "19S pasd"
+            ],
+            [
+               "207494",
+               "51S pasd"
+            ],
+            [
+               "207495",
+               "29S pasd"
+            ],
+            [
+               "207496",
+               "31S pasd"
+            ],
+            [
+               "207497",
+               "31S pasd"
+            ],
+            [
+               "207498",
+               "35S pasd"
+            ],
+            [
+               "207499",
+               "36S pasd"
+            ],
+            [
+               "2074100",
+               "1M16S pasd"
+            ],
+            [
+               "2074101",
+               "27S pasd"
+            ],
+            [
+               "2074170",
+               "1M3S pasd"
+            ],
+            [
+               "2074171",
+               "45S pasd"
+            ],
+            [
+               "2074110",
+               "52S pasd"
+            ],
+            [
+               "2074157",
+               "42S pasd"
+            ],
+            [
+               "2074111",
+               "44S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "38S pasd"
+            ],
+            [
+               "2074134",
+               "35S pasd"
+            ],
+            [
+               "2074161",
+               "42S pasd"
+            ],
+            [
+               "2074135",
+               "29S pasd"
+            ],
+            [
+               "2074136",
+               "36S pasd"
+            ],
+            [
+               "2074137",
+               "53S pasd"
+            ],
+            [
+               "2074179",
+               "2M35S pasd"
+            ],
+            [
+               "2074140",
+               "3M5S pasd"
+            ],
+            [
+               "2074141",
+               "44S pasd"
+            ],
+            [
+               "207468",
+               "44S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-5",
+            "id" : "R_12-571-_-sj2-1-R-5"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-8-TA",
+      "leaves" : "15:29:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2074104",
+               null
+            ],
+            [
+               "2074155",
+               "36S pasd"
+            ],
+            [
+               "2074105",
+               "27S pasd"
+            ],
+            [
+               "2074106",
+               "34S pasd"
+            ],
+            [
+               "2074107",
+               "20S pasd"
+            ],
+            [
+               "2074108",
+               "18S pasd"
+            ],
+            [
+               "2074109",
+               "15S pasd"
+            ],
+            [
+               "2074156",
+               "22S pasd"
+            ],
+            [
+               "2074115",
+               "20S pasd"
+            ],
+            [
+               "2074110",
+               "26S pasd"
+            ],
+            [
+               "2074157",
+               "39S pasd"
+            ],
+            [
+               "2074111",
+               "43S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "38S pasd"
+            ],
+            [
+               "2074134",
+               "35S pasd"
+            ],
+            [
+               "2074161",
+               "42S pasd"
+            ],
+            [
+               "2074135",
+               "29S pasd"
+            ],
+            [
+               "2074136",
+               "36S pasd"
+            ],
+            [
+               "2074137",
+               "1M5S pasd"
+            ],
+            [
+               "2074138",
+               "1M31S pasd"
+            ],
+            [
+               "2074139",
+               "1M47S pasd"
+            ],
+            [
+               "2074140",
+               "2M48S pasd"
+            ],
+            [
+               "2074141",
+               "54S pasd"
+            ],
+            [
+               "207468",
+               "54S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "Canoon Rd near Barwon Av - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-4",
+            "id" : "R_12-571-_-sj2-1-R-4"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-7-TA",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "19S pasd"
+            ],
+            [
+               "207493",
+               "19S pasd"
+            ],
+            [
+               "207494",
+               "51S pasd"
+            ],
+            [
+               "207495",
+               "29S pasd"
+            ],
+            [
+               "207496",
+               "31S pasd"
+            ],
+            [
+               "207497",
+               "31S pasd"
+            ],
+            [
+               "207498",
+               "35S pasd"
+            ],
+            [
+               "207499",
+               "36S pasd"
+            ],
+            [
+               "2074100",
+               "1M16S pasd"
+            ],
+            [
+               "2074101",
+               "27S pasd"
+            ],
+            [
+               "2074170",
+               "1M3S pasd"
+            ],
+            [
+               "2074171",
+               "45S pasd"
+            ],
+            [
+               "2074110",
+               "52S pasd"
+            ],
+            [
+               "2074157",
+               "42S pasd"
+            ],
+            [
+               "2074111",
+               "44S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "38S pasd"
+            ],
+            [
+               "2074134",
+               "35S pasd"
+            ],
+            [
+               "2074161",
+               "42S pasd"
+            ],
+            [
+               "2074135",
+               "29S pasd"
+            ],
+            [
+               "2074136",
+               "36S pasd"
+            ],
+            [
+               "2074137",
+               "58S pasd"
+            ],
+            [
+               "2074138",
+               "1M21S pasd"
+            ],
+            [
+               "2074139",
+               "1M35S pasd"
+            ],
+            [
+               "2074140",
+               "2M30S pasd"
+            ],
+            [
+               "2074141",
+               "48S pasd"
+            ],
+            [
+               "207468",
+               "48S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-3",
+            "id" : "R_12-571-_-sj2-1-R-3"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-10-TA",
+      "leaves" : "06:19:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "19S pasd"
+            ],
+            [
+               "207493",
+               "19S pasd"
+            ],
+            [
+               "207494",
+               "51S pasd"
+            ],
+            [
+               "207495",
+               "29S pasd"
+            ],
+            [
+               "207496",
+               "31S pasd"
+            ],
+            [
+               "207497",
+               "31S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "40S pasd"
+            ],
+            [
+               "2074119",
+               "29S pasd"
+            ],
+            [
+               "2074120",
+               "33S pasd"
+            ],
+            [
+               "2074121",
+               "38S pasd"
+            ],
+            [
+               "2074122",
+               "43S pasd"
+            ],
+            [
+               "2074123",
+               "18S pasd"
+            ],
+            [
+               "2074124",
+               "39S pasd"
+            ],
+            [
+               "2074125",
+               "29S pasd"
+            ],
+            [
+               "2074126",
+               "18S pasd"
+            ],
+            [
+               "2074127",
+               "33S pasd"
+            ],
+            [
+               "2074158",
+               "21S pasd"
+            ],
+            [
+               "2074128",
+               "33S pasd"
+            ],
+            [
+               "2074136",
+               "46S pasd"
+            ],
+            [
+               "2074137",
+               "43S pasd"
+            ],
+            [
+               "2074138",
+               "1M1S pasd"
+            ],
+            [
+               "2074139",
+               "1M11S pasd"
+            ],
+            [
+               "2074140",
+               "1M52S pasd"
+            ],
+            [
+               "2074141",
+               "36S pasd"
+            ],
+            [
+               "207468",
+               "36S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-8-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-6-TA",
+      "leaves" : "08:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2074111",
+               null
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "49S pasd"
+            ],
+            [
+               "2074126",
+               "31S pasd"
+            ],
+            [
+               "2074127",
+               "55S pasd"
+            ],
+            [
+               "2074158",
+               "36S pasd"
+            ],
+            [
+               "2074128",
+               "56S pasd"
+            ],
+            [
+               "2074136",
+               "1M13S pasd"
+            ],
+            [
+               "2074137",
+               "58S pasd"
+            ],
+            [
+               "2074138",
+               "1M21S pasd"
+            ],
+            [
+               "2074139",
+               "1M35S pasd"
+            ],
+            [
+               "2074140",
+               "2M30S pasd"
+            ],
+            [
+               "2074141",
+               "48S pasd"
+            ],
+            [
+               "207468",
+               "48S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Turramurra High School Maxwell St - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-2",
+            "id" : "R_12-571-_-sj2-1-R-2"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-1-TA",
+      "leaves" : "17:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "59S pasd"
+            ],
+            [
+               "2074126",
+               "37S pasd"
+            ],
+            [
+               "2074127",
+               "1M6S pasd"
+            ],
+            [
+               "2074158",
+               "43S pasd"
+            ],
+            [
+               "2074128",
+               "1M7S pasd"
+            ],
+            [
+               "2074136",
+               "1M28S pasd"
+            ],
+            [
+               "2074137",
+               "58S pasd"
+            ],
+            [
+               "2074138",
+               "1M21S pasd"
+            ],
+            [
+               "2074139",
+               "1M35S pasd"
+            ],
+            [
+               "2074140",
+               "2M30S pasd"
+            ],
+            [
+               "2074141",
+               "48S pasd"
+            ],
+            [
+               "207468",
+               "48S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-16-TA",
+      "leaves" : "18:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "59S pasd"
+            ],
+            [
+               "2074126",
+               "37S pasd"
+            ],
+            [
+               "2074127",
+               "1M6S pasd"
+            ],
+            [
+               "2074158",
+               "43S pasd"
+            ],
+            [
+               "2074128",
+               "1M7S pasd"
+            ],
+            [
+               "2074136",
+               "1M28S pasd"
+            ],
+            [
+               "2074137",
+               "51S pasd"
+            ],
+            [
+               "2074138",
+               "1M11S pasd"
+            ],
+            [
+               "2074139",
+               "1M23S pasd"
+            ],
+            [
+               "2074140",
+               "2M11S pasd"
+            ],
+            [
+               "2074141",
+               "42S pasd"
+            ],
+            [
+               "207468",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-14-TA",
+      "leaves" : "15:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "28S pasd"
+            ],
+            [
+               "2074105",
+               "21S pasd"
+            ],
+            [
+               "2074106",
+               "27S pasd"
+            ],
+            [
+               "2074107",
+               "16S pasd"
+            ],
+            [
+               "2074108",
+               "14S pasd"
+            ],
+            [
+               "2074109",
+               "12S pasd"
+            ],
+            [
+               "2074156",
+               "18S pasd"
+            ],
+            [
+               "2074115",
+               "16S pasd"
+            ],
+            [
+               "2074110",
+               "20S pasd"
+            ],
+            [
+               "2074157",
+               "31S pasd"
+            ],
+            [
+               "2074111",
+               "37S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "29S pasd"
+            ],
+            [
+               "2074126",
+               "18S pasd"
+            ],
+            [
+               "2074127",
+               "33S pasd"
+            ],
+            [
+               "2074158",
+               "21S pasd"
+            ],
+            [
+               "2074128",
+               "33S pasd"
+            ],
+            [
+               "2074136",
+               "46S pasd"
+            ],
+            [
+               "2074137",
+               "51S pasd"
+            ],
+            [
+               "2074138",
+               "1M11S pasd"
+            ],
+            [
+               "2074139",
+               "1M23S pasd"
+            ],
+            [
+               "2074140",
+               "2M11S pasd"
+            ],
+            [
+               "2074141",
+               "42S pasd"
+            ],
+            [
+               "207468",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-12-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-5-TA",
+      "leaves" : "08:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2074111",
+               null
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "49S pasd"
+            ],
+            [
+               "2074126",
+               "31S pasd"
+            ],
+            [
+               "2074127",
+               "55S pasd"
+            ],
+            [
+               "2074158",
+               "36S pasd"
+            ],
+            [
+               "2074128",
+               "56S pasd"
+            ],
+            [
+               "2074136",
+               "1M13S pasd"
+            ],
+            [
+               "2074137",
+               "58S pasd"
+            ],
+            [
+               "2074138",
+               "1M21S pasd"
+            ],
+            [
+               "2074139",
+               "1M35S pasd"
+            ],
+            [
+               "2074140",
+               "2M30S pasd"
+            ],
+            [
+               "2074141",
+               "48S pasd"
+            ],
+            [
+               "207468",
+               "48S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Turramurra High School Maxwell St - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-2",
+            "id" : "R_12-571-_-sj2-1-R-2"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-2-TA",
+      "leaves" : "16:58:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "59S pasd"
+            ],
+            [
+               "2074126",
+               "37S pasd"
+            ],
+            [
+               "2074127",
+               "1M6S pasd"
+            ],
+            [
+               "2074158",
+               "43S pasd"
+            ],
+            [
+               "2074128",
+               "1M7S pasd"
+            ],
+            [
+               "2074136",
+               "1M28S pasd"
+            ],
+            [
+               "2074137",
+               "58S pasd"
+            ],
+            [
+               "2074138",
+               "1M21S pasd"
+            ],
+            [
+               "2074139",
+               "1M35S pasd"
+            ],
+            [
+               "2074140",
+               "2M30S pasd"
+            ],
+            [
+               "2074141",
+               "48S pasd"
+            ],
+            [
+               "207468",
+               "48S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-13-TA",
+      "leaves" : "14:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "25S pasd"
+            ],
+            [
+               "207499",
+               "25S pasd"
+            ],
+            [
+               "2074100",
+               "54S pasd"
+            ],
+            [
+               "2074101",
+               "19S pasd"
+            ],
+            [
+               "2074102",
+               "22S pasd"
+            ],
+            [
+               "2074103",
+               "44S pasd"
+            ],
+            [
+               "2074104",
+               "51S pasd"
+            ],
+            [
+               "2074155",
+               "28S pasd"
+            ],
+            [
+               "2074105",
+               "21S pasd"
+            ],
+            [
+               "2074106",
+               "27S pasd"
+            ],
+            [
+               "2074107",
+               "16S pasd"
+            ],
+            [
+               "2074108",
+               "14S pasd"
+            ],
+            [
+               "2074109",
+               "12S pasd"
+            ],
+            [
+               "2074156",
+               "18S pasd"
+            ],
+            [
+               "2074115",
+               "16S pasd"
+            ],
+            [
+               "2074110",
+               "20S pasd"
+            ],
+            [
+               "2074157",
+               "31S pasd"
+            ],
+            [
+               "2074111",
+               "37S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "40S pasd"
+            ],
+            [
+               "2074119",
+               "29S pasd"
+            ],
+            [
+               "2074120",
+               "33S pasd"
+            ],
+            [
+               "2074121",
+               "38S pasd"
+            ],
+            [
+               "2074122",
+               "43S pasd"
+            ],
+            [
+               "2074123",
+               "18S pasd"
+            ],
+            [
+               "2074124",
+               "39S pasd"
+            ],
+            [
+               "2074125",
+               "19S pasd"
+            ],
+            [
+               "2074126",
+               "12S pasd"
+            ],
+            [
+               "2074127",
+               "22S pasd"
+            ],
+            [
+               "2074158",
+               "14S pasd"
+            ],
+            [
+               "2074128",
+               "22S pasd"
+            ],
+            [
+               "2074136",
+               "31S pasd"
+            ],
+            [
+               "2074137",
+               "43S pasd"
+            ],
+            [
+               "2074138",
+               "1M1S pasd"
+            ],
+            [
+               "2074139",
+               "1M11S pasd"
+            ],
+            [
+               "2074140",
+               "1M52S pasd"
+            ],
+            [
+               "2074141",
+               "36S pasd"
+            ],
+            [
+               "207468",
+               "36S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-11-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-4-TA",
+      "leaves" : "19:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "26S pasd"
+            ],
+            [
+               "207493",
+               "25S pasd"
+            ],
+            [
+               "207494",
+               "1M8S pasd"
+            ],
+            [
+               "207495",
+               "39S pasd"
+            ],
+            [
+               "207496",
+               "41S pasd"
+            ],
+            [
+               "207497",
+               "41S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "40S pasd"
+            ],
+            [
+               "2074113",
+               "11S pasd"
+            ],
+            [
+               "2074114",
+               "40S pasd"
+            ],
+            [
+               "2074115",
+               "30S pasd"
+            ],
+            [
+               "2074116",
+               "29S pasd"
+            ],
+            [
+               "2074117",
+               "30S pasd"
+            ],
+            [
+               "2074118",
+               "30S pasd"
+            ],
+            [
+               "2074119",
+               "22S pasd"
+            ],
+            [
+               "2074120",
+               "24S pasd"
+            ],
+            [
+               "2074121",
+               "28S pasd"
+            ],
+            [
+               "2074122",
+               "32S pasd"
+            ],
+            [
+               "2074123",
+               "13S pasd"
+            ],
+            [
+               "2074124",
+               "31S pasd"
+            ],
+            [
+               "2074125",
+               "39S pasd"
+            ],
+            [
+               "2074126",
+               "25S pasd"
+            ],
+            [
+               "2074127",
+               "44S pasd"
+            ],
+            [
+               "2074158",
+               "29S pasd"
+            ],
+            [
+               "2074128",
+               "45S pasd"
+            ],
+            [
+               "2074136",
+               "58S pasd"
+            ],
+            [
+               "2074137",
+               "1M5S pasd"
+            ],
+            [
+               "2074138",
+               "1M31S pasd"
+            ],
+            [
+               "2074139",
+               "1M47S pasd"
+            ],
+            [
+               "2074140",
+               "2M48S pasd"
+            ],
+            [
+               "2074141",
+               "54S pasd"
+            ],
+            [
+               "207468",
+               "54S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   },
+   "VJ_12-571-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_12-571-_-sj2-1-12-TA",
+      "leaves" : "07:16:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207468",
+               null
+            ],
+            [
+               "207414",
+               "19S pasd"
+            ],
+            [
+               "207493",
+               "19S pasd"
+            ],
+            [
+               "207494",
+               "51S pasd"
+            ],
+            [
+               "207495",
+               "29S pasd"
+            ],
+            [
+               "207496",
+               "31S pasd"
+            ],
+            [
+               "207497",
+               "31S pasd"
+            ],
+            [
+               "207498",
+               "31S pasd"
+            ],
+            [
+               "207499",
+               "31S pasd"
+            ],
+            [
+               "2074100",
+               "1M7S pasd"
+            ],
+            [
+               "2074101",
+               "24S pasd"
+            ],
+            [
+               "2074102",
+               "27S pasd"
+            ],
+            [
+               "2074103",
+               "55S pasd"
+            ],
+            [
+               "2074104",
+               "1M5S pasd"
+            ],
+            [
+               "2074155",
+               "21S pasd"
+            ],
+            [
+               "2074105",
+               "16S pasd"
+            ],
+            [
+               "2074106",
+               "20S pasd"
+            ],
+            [
+               "2074107",
+               "12S pasd"
+            ],
+            [
+               "2074108",
+               "11S pasd"
+            ],
+            [
+               "2074109",
+               "9S pasd"
+            ],
+            [
+               "2074156",
+               "13S pasd"
+            ],
+            [
+               "2074115",
+               "12S pasd"
+            ],
+            [
+               "2074110",
+               "15S pasd"
+            ],
+            [
+               "2074157",
+               "23S pasd"
+            ],
+            [
+               "2074111",
+               "28S pasd"
+            ],
+            [
+               "2074112",
+               "54S pasd"
+            ],
+            [
+               "2074113",
+               "15S pasd"
+            ],
+            [
+               "2074114",
+               "53S pasd"
+            ],
+            [
+               "2074115",
+               "40S pasd"
+            ],
+            [
+               "2074116",
+               "39S pasd"
+            ],
+            [
+               "2074117",
+               "39S pasd"
+            ],
+            [
+               "2074118",
+               "40S pasd"
+            ],
+            [
+               "2074119",
+               "29S pasd"
+            ],
+            [
+               "2074120",
+               "33S pasd"
+            ],
+            [
+               "2074121",
+               "38S pasd"
+            ],
+            [
+               "2074122",
+               "43S pasd"
+            ],
+            [
+               "2074123",
+               "18S pasd"
+            ],
+            [
+               "2074124",
+               "39S pasd"
+            ],
+            [
+               "2074125",
+               "39S pasd"
+            ],
+            [
+               "2074126",
+               "25S pasd"
+            ],
+            [
+               "2074127",
+               "44S pasd"
+            ],
+            [
+               "2074158",
+               "29S pasd"
+            ],
+            [
+               "2074128",
+               "45S pasd"
+            ],
+            [
+               "2074136",
+               "58S pasd"
+            ],
+            [
+               "2074137",
+               "1M5S pasd"
+            ],
+            [
+               "2074138",
+               "1M31S pasd"
+            ],
+            [
+               "2074139",
+               "1M47S pasd"
+            ],
+            [
+               "2074140",
+               "2M48S pasd"
+            ],
+            [
+               "2074141",
+               "54S pasd"
+            ],
+            [
+               "207468",
+               "54S pasd"
+            ]
+         ],
+         "id" : "JP_12-571-_-sj2-1-10-R-1",
+         "route" : {
+            "name" : "Turramurra Station - Turramurra Station",
+            "rs_ref" : "RS_12-571-_-sj2-1-R-1",
+            "id" : "R_12-571-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-571-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "571"
+   }
+}
+;
+

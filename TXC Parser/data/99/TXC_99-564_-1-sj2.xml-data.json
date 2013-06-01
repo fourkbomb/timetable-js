@@ -1,0 +1,439 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-564-_-sj2-1" : "564"
+}
+;
+
+var stations = {
+   "203815" : "The Crescent Nr Trafalgar St",
+   "203922" : "Victoria Rd Nr Evans St",
+   "204013" : "Balmain Rd Nr Grove St",
+   "2111100" : "Monash Rd Nr Victoria Rd",
+   "204014" : "Balmain Rd Nr Carrington St",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "203735" : "Glebe Point Rd Nr Wigram Rd",
+   "204661" : "Lyons Rd Nr Mons St",
+   "203738" : "Minogue Cr Nr Wigram Rd",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "203940" : "Darling St Nr Denison St",
+   "204659" : "Lyons Rd Nr Ingham Av",
+   "203920" : "Victoria Rd Nr Hornsey St",
+   "211138" : "Victoria Rd Nr Salter St",
+   "203737" : "Wigram Rd Nr Ross St",
+   "203814" : "The Crescent Nr Nelson St",
+   "203921" : "Victoria Rd Nr Robert St",
+   "211139" : "Victoria Rd nr Prince Edward St",
+   "211137" : "Victoria Rd nr Crown St",
+   "204662" : "Lyons Rd nr Tait Lane",
+   "204751" : "Lyons Rd Nr Dempsey Pl",
+   "203816" : "The Crescent Nr City West Link",
+   "203939" : "Darling St Nr Victoria Rd",
+   "211149" : "Buffalo Rd Nr Nelson St",
+   "211144" : "Victoria Rd nr Osgathorpe Rd",
+   "204749" : "Lyons Rd Nr Gipps St",
+   "211142" : "Victoria Rd nr Linsley St",
+   "203734" : "Glebe Point Rd Nr Hereford St",
+   "211148" : "Buffalo Rd nr Owen St",
+   "211126" : "Victoria Nr Huntleys Point",
+   "204750" : "Lyons Rd Nr Thompson St",
+   "211136" : "Victoria Rd nr Crown St",
+   "2046112" : "Ingham Av Nr First Av",
+   "203739" : "Minogue Cr Nr The Crescent",
+   "204015" : "Balmain Rd Nr Helena St",
+   "204660" : "Lyons Rd Opp Lamrock Av",
+   "204012" : "Balmain Rd Nr Cecily St",
+   "203736" : "Wigram Rd Nr Mansfield St",
+   "211143" : "Victoria Rd nr Hepburn Av",
+   "204664" : "Lyons Rd Nr Hampden Rd",
+   "203923" : "Victoria Rd Nr Darling St",
+   "211140" : "Victoria Rd nr Pearson St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-564-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-564-_-sj2-1-1-b00bj",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203734",
+               null
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203736",
+               "1M pasd"
+            ],
+            [
+               "203737",
+               "0S pasd"
+            ],
+            [
+               "203738",
+               "1M pasd"
+            ],
+            [
+               "203739",
+               "0S pasd"
+            ],
+            [
+               "203814",
+               "0S pasd"
+            ],
+            [
+               "203815",
+               "1M pasd"
+            ],
+            [
+               "203816",
+               "1M pasd"
+            ],
+            [
+               "203920",
+               "1M pasd"
+            ],
+            [
+               "203921",
+               "1M pasd"
+            ],
+            [
+               "203922",
+               "0S pasd"
+            ],
+            [
+               "203923",
+               "1M pasd"
+            ],
+            [
+               "203939",
+               "0S pasd"
+            ],
+            [
+               "203940",
+               "1M pasd"
+            ],
+            [
+               "204012",
+               "1M pasd"
+            ],
+            [
+               "204013",
+               "1M pasd"
+            ],
+            [
+               "204014",
+               "0S pasd"
+            ],
+            [
+               "204015",
+               "1M pasd"
+            ],
+            [
+               "2046112",
+               "12M pasd"
+            ],
+            [
+               "204659",
+               "2M pasd"
+            ],
+            [
+               "204660",
+               "1M pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "0S pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "0S pasd"
+            ],
+            [
+               "204750",
+               "0S pasd"
+            ],
+            [
+               "204751",
+               "1M pasd"
+            ],
+            [
+               "211126",
+               "4M pasd"
+            ],
+            [
+               "211136",
+               "0S pasd"
+            ],
+            [
+               "211137",
+               "1M pasd"
+            ],
+            [
+               "211138",
+               "0S pasd"
+            ],
+            [
+               "211139",
+               "1M pasd"
+            ],
+            [
+               "211140",
+               "0S pasd"
+            ],
+            [
+               "211142",
+               "1M pasd"
+            ],
+            [
+               "211143",
+               "0S pasd"
+            ],
+            [
+               "211144",
+               "1M pasd"
+            ],
+            [
+               "2111100",
+               "0S pasd"
+            ],
+            [
+               "211148",
+               "1M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211238",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-564-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Glebe Point Rd Nr Hereford St - Cressy Rd Nr Victoria Rd",
+            "rs_ref" : "RS_99-564-_-sj2-1-H-1",
+            "id" : "R_99-564-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-564-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "564"
+   },
+   "VJ_99-564-_-sj2-1-2-b009a" : {
+      "vjcode" : "VJ_99-564-_-sj2-1-2-b009a",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203734",
+               null
+            ],
+            [
+               "203735",
+               "0S pasd"
+            ],
+            [
+               "203736",
+               "1M pasd"
+            ],
+            [
+               "203737",
+               "0S pasd"
+            ],
+            [
+               "203738",
+               "1M pasd"
+            ],
+            [
+               "203739",
+               "0S pasd"
+            ],
+            [
+               "203814",
+               "0S pasd"
+            ],
+            [
+               "203815",
+               "1M pasd"
+            ],
+            [
+               "203816",
+               "1M pasd"
+            ],
+            [
+               "203920",
+               "1M pasd"
+            ],
+            [
+               "203921",
+               "1M pasd"
+            ],
+            [
+               "203922",
+               "0S pasd"
+            ],
+            [
+               "203923",
+               "1M pasd"
+            ],
+            [
+               "203939",
+               "0S pasd"
+            ],
+            [
+               "203940",
+               "1M pasd"
+            ],
+            [
+               "204012",
+               "1M pasd"
+            ],
+            [
+               "204013",
+               "1M pasd"
+            ],
+            [
+               "204014",
+               "0S pasd"
+            ],
+            [
+               "204015",
+               "1M pasd"
+            ],
+            [
+               "2046112",
+               "12M pasd"
+            ],
+            [
+               "204659",
+               "2M pasd"
+            ],
+            [
+               "204660",
+               "1M pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "0S pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "0S pasd"
+            ],
+            [
+               "204750",
+               "0S pasd"
+            ],
+            [
+               "204751",
+               "1M pasd"
+            ],
+            [
+               "211126",
+               "4M pasd"
+            ],
+            [
+               "211136",
+               "0S pasd"
+            ],
+            [
+               "211137",
+               "1M pasd"
+            ],
+            [
+               "211138",
+               "0S pasd"
+            ],
+            [
+               "211139",
+               "1M pasd"
+            ],
+            [
+               "211140",
+               "0S pasd"
+            ],
+            [
+               "211142",
+               "1M pasd"
+            ],
+            [
+               "211143",
+               "0S pasd"
+            ],
+            [
+               "211144",
+               "1M pasd"
+            ],
+            [
+               "2111100",
+               "0S pasd"
+            ],
+            [
+               "211148",
+               "1M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211238",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-564-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Glebe Point Rd Nr Hereford St - Cressy Rd Nr Victoria Rd",
+            "rs_ref" : "RS_99-564-_-sj2-1-H-1",
+            "id" : "R_99-564-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-564-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "564"
+   }
+}
+;
+

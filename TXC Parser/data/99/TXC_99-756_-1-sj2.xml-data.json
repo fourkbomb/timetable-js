@@ -1,0 +1,519 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-756-_-sj2-1" : "756"
+}
+;
+
+var stations = {
+   "2125138" : "Stanton Dr near Moolanda Av",
+   "211848" : "Pennant Hills Rd near Tintern Av",
+   "2117142" : "Pennant Hills Rd nr Bettington Rd",
+   "2125137" : "Eaton Rd opp Stanton Dr",
+   "2117160" : "Bettington Rd nr Nioka Cl",
+   "2118109" : "Oakes Rd Nr Dryden Av",
+   "211766" : "Kissing Point Rd nr Leamington Rd",
+   "211854" : "North Rocks Rd near Hollister Pl",
+   "2118113" : "Oakes Rd near Carmen Dr",
+   "215170" : "North Rocks Rd opp Westfields",
+   "2125157" : "Eaton Rd opp Westmore Dr",
+   "211767" : "Kissing Point Rd nr Railway Overbridge",
+   "2118103" : "Pennant Hills Rd near Charles St",
+   "211772" : "Kissing Point Rd nr Bettington Rd",
+   "2118114" : "Oakes Rd near Coral Tree Dr",
+   "2118145" : "Farnell Av near North Rocks Rd",
+   "2118169" : "Farnell Av near Parklands Rd",
+   "2118153" : "Parkland Rd near Robbie Cr",
+   "2117162" : "Bettington Rd nr York St",
+   "2117124" : "Kissing Point Rd nr Bells Rd",
+   "211876" : "Jenkins Rd near Post Office St",
+   "211846" : "Pennant Hills Rd near Martins La",
+   "2125154" : "Eaton Rd near Range Rd",
+   "211849" : "Pennant Hills Rd opp Westminster Av",
+   "2118104" : "Jenkins Rd near James St",
+   "211764" : "Kissing Point Rd Nr Park Rd",
+   "211851" : "North Rocks Rd Nr Bellevue Dr",
+   "2118110" : "Oakes Rd near Murray Farm Rd",
+   "2117163" : "Bettington Rd nr Lind Av",
+   "2118192" : "Tracey St near Murray Farm School",
+   "2125136" : "Eaton Rd near Betts Pl",
+   "211875" : "Jenkins Rd Nr Moseley St",
+   "211850" : "North Rocks Rd near New North Rocks Rd",
+   "2125139" : "Range Rd near Stanton Dr",
+   "211847" : "Pennant Hills Rd Nr Baker St",
+   "2125155" : "Eaton Rd opp Dickson Av",
+   "2125140" : "Range Rd near Heidi Pl",
+   "211852" : "North Rocks Rd opp Farnell Av",
+   "2117125" : "Kirby St Nr St Patrick's",
+   "211761" : "Kissing Point Rd Nr Burke St",
+   "2118115" : "Oakes Rd near Murray Farm Rd",
+   "2118154" : "Parkland Rd near Jenkins Rd",
+   "2125156" : "Eaton Rd near Stanton Dr",
+   "211722" : "Kissing Point Rd nr Bells Rd",
+   "2125134" : "Oakes Rd near Eaton Rd",
+   "2118112" : "Oakes Rd near Hillside La",
+   "2125135" : "Eaton Rd near Riley Av",
+   "2125141" : "Range Rd near Eaton Rd",
+   "2118111" : "Oakes Rd near Murray Farm Rd",
+   "211853" : "North Rocks Rd near Alkira Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-756-_-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-756-_-sj2-1-1-b00bk",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "215170",
+               null
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "0S pasd"
+            ],
+            [
+               "211854",
+               "1M pasd"
+            ],
+            [
+               "2118109",
+               "1M pasd"
+            ],
+            [
+               "2118110",
+               "0S pasd"
+            ],
+            [
+               "2118111",
+               "1M pasd"
+            ],
+            [
+               "2118112",
+               "0S pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "1M pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "0S pasd"
+            ],
+            [
+               "2118115",
+               "1M pasd"
+            ],
+            [
+               "2118192",
+               "2M pasd"
+            ],
+            [
+               "211852",
+               "2M pasd"
+            ],
+            [
+               "2118145",
+               "1M pasd"
+            ],
+            [
+               "2118169",
+               "0S pasd"
+            ],
+            [
+               "2118153",
+               "1M pasd"
+            ],
+            [
+               "2118154",
+               "1M pasd"
+            ],
+            [
+               "211875",
+               "2M pasd"
+            ],
+            [
+               "211876",
+               "0S pasd"
+            ],
+            [
+               "2118104",
+               "1M pasd"
+            ],
+            [
+               "2118103",
+               "1M pasd"
+            ],
+            [
+               "211846",
+               "0S pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "0S pasd"
+            ],
+            [
+               "2117142",
+               "1M pasd"
+            ],
+            [
+               "2117160",
+               "0S pasd"
+            ],
+            [
+               "2117162",
+               "1M pasd"
+            ],
+            [
+               "2117163",
+               "1M pasd"
+            ],
+            [
+               "211772",
+               "3M pasd"
+            ],
+            [
+               "2117124",
+               "1M pasd"
+            ],
+            [
+               "211722",
+               "0S pasd"
+            ],
+            [
+               "211767",
+               "1M pasd"
+            ],
+            [
+               "211766",
+               "0S pasd"
+            ],
+            [
+               "211764",
+               "1M pasd"
+            ],
+            [
+               "211761",
+               "1M pasd"
+            ],
+            [
+               "2117125",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "North Rocks Rd opp Westfields - Kirby St Nr St Patrick's",
+            "rs_ref" : "RS_99-756-_-sj2-1-H-1",
+            "id" : "R_99-756-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-756-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   },
+   "VJ_99-756-_-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-756-_-sj2-1-2-b00bj",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "215170",
+               null
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "0S pasd"
+            ],
+            [
+               "211854",
+               "1M pasd"
+            ],
+            [
+               "2118109",
+               "1M pasd"
+            ],
+            [
+               "2118110",
+               "0S pasd"
+            ],
+            [
+               "2118111",
+               "1M pasd"
+            ],
+            [
+               "2118112",
+               "0S pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "1M pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "0S pasd"
+            ],
+            [
+               "2118115",
+               "1M pasd"
+            ],
+            [
+               "2118192",
+               "2M pasd"
+            ],
+            [
+               "211852",
+               "2M pasd"
+            ],
+            [
+               "2118145",
+               "1M pasd"
+            ],
+            [
+               "2118169",
+               "0S pasd"
+            ],
+            [
+               "2118153",
+               "1M pasd"
+            ],
+            [
+               "2118154",
+               "1M pasd"
+            ],
+            [
+               "211875",
+               "2M pasd"
+            ],
+            [
+               "211876",
+               "0S pasd"
+            ],
+            [
+               "2118104",
+               "1M pasd"
+            ],
+            [
+               "2118103",
+               "1M pasd"
+            ],
+            [
+               "211846",
+               "0S pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "0S pasd"
+            ],
+            [
+               "2117142",
+               "1M pasd"
+            ],
+            [
+               "2117160",
+               "0S pasd"
+            ],
+            [
+               "2117162",
+               "1M pasd"
+            ],
+            [
+               "2117163",
+               "1M pasd"
+            ],
+            [
+               "211772",
+               "3M pasd"
+            ],
+            [
+               "2117124",
+               "1M pasd"
+            ],
+            [
+               "211722",
+               "0S pasd"
+            ],
+            [
+               "211767",
+               "1M pasd"
+            ],
+            [
+               "211766",
+               "0S pasd"
+            ],
+            [
+               "211764",
+               "1M pasd"
+            ],
+            [
+               "211761",
+               "1M pasd"
+            ],
+            [
+               "2117125",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-756-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "North Rocks Rd opp Westfields - Kirby St Nr St Patrick's",
+            "rs_ref" : "RS_99-756-_-sj2-1-H-1",
+            "id" : "R_99-756-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-756-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "756"
+   }
+}
+;
+

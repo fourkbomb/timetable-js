@@ -1,0 +1,4013 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-59-_-sj2-1" : "59"
+}
+;
+
+var stations = {
+   "2256160" : "Orange Grove Rd near Cedar Cr",
+   "2257229" : "Empire Bay Dr Near Greenfield Rd",
+   "2257129" : "Booker Bay Rd Near Guyra St",
+   "2256176" : "Blackwall Rd Near Alpha Rd",
+   "2257209" : "Gordon Rd near Sorrento Rd",
+   "2256162" : "Orange Grove Rd Near Mullbong Rd",
+   "2256204" : "Burge Rd near Park Rd",
+   "2257329" : "Heath Rd - No.21 (Before Araluen Dr)",
+   "2257199" : "Helmsman Bvd near Salacia Cl",
+   "2256200" : "Blackwall Rd Near Victoria Rd",
+   "2256194" : "Blackwall Rd near Bowden Rd",
+   "2257232" : "Empire Bay Dr near Helsman Bvd",
+   "2257211" : "Rickard Rd near Rosella Rd",
+   "2257262" : "Empire Bay Dr (Before Awinya Cl)",
+   "2256165" : "The Boulevarde near Brick Wharf Rd",
+   "2256207" : "Brick Wharf near North Burge Rd",
+   "2256197" : "Blackwall Rd Near Victoria Rd",
+   "2257219" : "Empire Bay Dr near Wards Hill Rd",
+   "2256193" : "Blackwall Rd Near Allfield Rd",
+   "2257202" : "Empire Bay Dr Near Peridon Av",
+   "2256198" : "Woy Woy Court House Blackwall Rd",
+   "2257131" : "Booker Bay Rd near Davis St",
+   "2257234" : "Picnic Pde Near Bream Rd",
+   "2257231" : "Empire Bay Dr Near Peridon Av",
+   "2256154" : "Orange Grove Rd Near Koonora Av",
+   "2257236" : "Wards Hill Rd Near Poole Cl",
+   "2257121" : "Ettalong Centrelink Ocean View Rd",
+   "2256166" : "Brick Wharf Rd near The Boulevarde",
+   "2256206" : "North Burge Rd Near Brick Wharf Rd",
+   "2256199" : "Blackwall Rd Near Victoria Rd",
+   "2257252" : "Manly View Rd Near Hats St",
+   "2257204" : "Empire Bay Dr near Rosella Rd",
+   "2257216" : "Empire Bay Dr near Awinya Cl",
+   "2256191" : "Blackwall Rd Near Alpha Rd",
+   "2257184" : "Picnic Pde Near Ocean View Rd",
+   "2257143" : "Ocean View Rd near Whiting Rd",
+   "2257242" : "Pretty Beach Rd near Oroo St",
+   "2256202" : "Blackwall Rd near Farnell Rd",
+   "2257133" : "Booker Bay Rd near Flathead Rd",
+   "2256168" : "Brick Wharf Rd near North Bridge Rd",
+   "2257194" : "Discovery St near Weatherly Pde",
+   "2257127" : "Booker Bay Rd Near Bogan Rd",
+   "2257240" : "Heath Rd - No.58 (Near Opp.Otella Av)",
+   "2257244" : "Pretty Beach Rd near Heath Rd",
+   "2257187" : "Daley Av near Ulami Av",
+   "2257217" : "Empire Bay Dr (Opp.Empire Bay PS)",
+   "2256156" : "Orange Grove Rd near Blackwall Rd",
+   "2257210" : "Gordon Rd near Boongala Av",
+   "2257260" : "Greenfield Rd - No.60",
+   "2256215" : "Maitland Bay Dr Before The Rip Bridge",
+   "2257192" : "Helsman Bvd near Nautilus Cr",
+   "2257128" : "Booker Bay Rd Near Mareela Av",
+   "2257138" : "Booker Bay Rd Near Bogan Rd",
+   "2257340" : "Uligandi St - No.41 (After Barrenjoey Rd)",
+   "2257213" : "Rickard Rd near Echuca Rd Rickard Rd",
+   "2256163" : "Orange Grove Rd Near Mullbong Rd",
+   "2257189" : "Helsman Bvd near Daley Av",
+   "2257215" : "Greenfield Rd near Empire Bay Dr",
+   "2257136" : "Booker Bay Rd Near Guyra St",
+   "2256161" : "Orange Grove Rd near Cedar Cr",
+   "2257125" : "Booker Bay Rd Near Davis St",
+   "2257227" : "Empire Bay Dr near Awinya Cl",
+   "2257124" : "Booker Bay Rd near Murray St",
+   "225611" : "Woy Woy Newsagency Brisbane Water Dr",
+   "2257198" : "Helmsman Bvd near Nautilus Cr",
+   "2257159" : "Ocean View Rd near Memorial Av",
+   "2257200" : "Helmsman Bvd near Barracouta Av",
+   "2257328" : "Pretty Beach Rd (Opp.Oroo St)",
+   "2257247" : "Killcare Rd near Araluen Dr",
+   "2257140" : "Booker Bay Rd Near Davis St",
+   "2257142" : "Ocean View Rd (Ferry Rd)",
+   "2257196" : "Helmsman Bvd near Skiff Pl",
+   "2256158" : "Blackwall Rd (Before Plane St)",
+   "2257249" : "Wards Hill Rd Near Poole Cl",
+   "2256195" : "Blackwall Rd near Park Rd",
+   "2257122" : "Ocean View Rd near Whiting Rd",
+   "2256203" : "Blackwall Rd Near Allfield Rd",
+   "2257224" : "Poole Cl near Wards Hill Rd.",
+   "2256153" : "Orange Grove Rd Near Koonora Av",
+   "2256216" : "Maitland Bay Dr After Rip Bridge",
+   "2257206" : "Greenfield Rd Near Rickard Rd",
+   "2256172" : "Burge Rd near Bowden Rd",
+   "2257253" : "Manly View Rd Near Hats St",
+   "2257233" : "Empire Bay Dr near Tulami Av",
+   "2256208" : "Brick Wharf near Sonter Av",
+   "2257251" : "Hats St Near The Scenic Rd",
+   "2257230" : "Empire Bay Dr near Yugari Cr",
+   "2257137" : "Booker Bay Rd Near Mareela Av",
+   "2256447" : "Burge Rd - No.247 (After Allfield Rd)",
+   "2256155" : "Orange Grove Rd near Uralla La",
+   "2256151" : "Booker Bay Rd Near Mullbong Rd",
+   "2257139" : "Booker Bay Rd Near Telopea St",
+   "2257208" : "Sorrento Rd near Boongala Av",
+   "2256177" : "Blackwall Rd Near Mcmasters Rd",
+   "2257132" : "Booker Bay Rd near Webb Rd",
+   "2256174" : "Burge Rd near Allfield Rd",
+   "2257203" : "Empire Bay Dr near Hillcrest Rd",
+   "2257239" : "Heath Rd near Araluen Dr",
+   "2256164" : "Booker Bay Rd near Mullbomg Rd",
+   "2257185" : "Picnic Pde Near Bream Rd",
+   "2256167" : "Brick Wharf Rd near Sonter Av",
+   "2257193" : "Helmsman Bvd near Marina View Pde",
+   "2257241" : "Pretty Beach Rd (Pretty Beach PS)",
+   "2257205" : "Greenfield Rd - No.57",
+   "2256169" : "North Burge Rd Near Brick Wharf Rd",
+   "2257218" : "Empire Bay Dr",
+   "2257237" : "The Scenic Rd near Beach Dr",
+   "2257144" : "Ocean View Rd near Picnic Pde",
+   "2256175" : "Blackwall Rd near Burge Rd",
+   "2257145" : "Ocean View Rd near Memorial Av",
+   "2256205" : "North Burge Rd near Robin Cr North",
+   "2257126" : "Booker Bay Rd Near Telopea St",
+   "2256190" : "Blackwall Rd Near Mcmasters Rd",
+   "2256214" : "George St near Victoria Rd",
+   "2257190" : "Helsman Bvd near Barracouta Av",
+   "2256152" : "Orange Grove Rd Near Koonora Av",
+   "2257243" : "Wagstaff Av near Mulhall St",
+   "2257214" : "Greenfield Rd Near Rickard Rd",
+   "2256170" : "North Burge Rd Near Brick Wharf Rd",
+   "2257134" : "Booker Bay Rd - No.108 (After Karu Av)",
+   "2257197" : "Marina View Pde near Helsman Bvd",
+   "2257191" : "Helmsman Bvd near Marina View Pde",
+   "2256201" : "Woy Woy Public School Blackwall Rd",
+   "2256192" : "Blackwall Rd near Terry Av",
+   "2257119" : "Ettalong Public School Uligandi St",
+   "2257212" : "Rickard Rd near Myrtle St",
+   "2257261" : "Greenfield Rd - No.33",
+   "2256221" : "Memorial Av - Opp.No.57",
+   "2257238" : "Kildare Rd near The Scenic Rd",
+   "2257135" : "Booker Bay Rd Near Guyra St",
+   "2256157" : "Blackwall Rd near Bay View Cr",
+   "2256150" : "Booker Bay Rd Near Mullbong Rd",
+   "2257188" : "Daley Av near Helmsman Bvd",
+   "2257226" : "Empire Bay Dr",
+   "2257245" : "Heath Rd Near Otella Av",
+   "2256209" : "Brick Wharf near The Boulevarde",
+   "2257235" : "Picnic Pde Near Ocean View Rd",
+   "2256178" : "Blackwall Rd Near Lalina Av",
+   "2257201" : "Helmsman Bvd near Empire Bay Dr",
+   "2257228" : "Empire Bay Dr near Greenfield Rd",
+   "2257186" : "Picnic Pde Near Flathead Rd",
+   "2257246" : "Araluen Dr near Killcare Rd",
+   "225615" : "Woy Woy Stand 4",
+   "2257207" : "Kendall Rd near Sorrento Rd",
+   "2257264" : "Empire Bay Dr - No.145",
+   "2256171" : "North Burge Rd near Park Rd North",
+   "2257195" : "Discovery St near Beachfront Pde",
+   "2257254" : "Hats St Near The Scenic Rd",
+   "2256159" : "Orange Grove Rd near Koonora Av",
+   "2257225" : "Empire Bay Dr",
+   "2257248" : "Killcare Rd near The Scenic Rd",
+   "2257120" : "Ettalong Memorial Club Ocean View Rd",
+   "2256196" : "Blackwall Rd Near Victoria Rd",
+   "2257130" : "Booker Bay Rd Near Guyra St",
+   "2256189" : "Blackwall Rd Near Lalina Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-59-_-sj2-1-9-b0191" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-9-b0191",
+      "leaves" : "16:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225615",
+               null
+            ],
+            [
+               "2256165",
+               "1M pasd"
+            ],
+            [
+               "2256166",
+               "0S pasd"
+            ],
+            [
+               "2256167",
+               "1M pasd"
+            ],
+            [
+               "2256168",
+               "0S pasd"
+            ],
+            [
+               "2256169",
+               "1M pasd"
+            ],
+            [
+               "2256170",
+               "0S pasd"
+            ],
+            [
+               "2256171",
+               "1M pasd"
+            ],
+            [
+               "2256172",
+               "0S pasd"
+            ],
+            [
+               "2256174",
+               "1M pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "0S pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256178",
+               "0S pasd"
+            ],
+            [
+               "2256158",
+               "1M pasd"
+            ],
+            [
+               "2256159",
+               "1M pasd"
+            ],
+            [
+               "2256160",
+               "0S pasd"
+            ],
+            [
+               "2256161",
+               "1M pasd"
+            ],
+            [
+               "2256162",
+               "0S pasd"
+            ],
+            [
+               "2256163",
+               "1M pasd"
+            ],
+            [
+               "2256164",
+               "0S pasd"
+            ],
+            [
+               "2257133",
+               "1M pasd"
+            ],
+            [
+               "2257134",
+               "0S pasd"
+            ],
+            [
+               "2257135",
+               "1M pasd"
+            ],
+            [
+               "2257136",
+               "1M pasd"
+            ],
+            [
+               "2257137",
+               "0S pasd"
+            ],
+            [
+               "2257138",
+               "0S pasd"
+            ],
+            [
+               "2257139",
+               "1M pasd"
+            ],
+            [
+               "2257140",
+               "0S pasd"
+            ],
+            [
+               "2257142",
+               "1M pasd"
+            ],
+            [
+               "2257143",
+               "1M pasd"
+            ],
+            [
+               "2257144",
+               "0S pasd"
+            ],
+            [
+               "2257159",
+               "2M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "0S pasd"
+            ],
+            [
+               "2256215",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257202",
+               "1M pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "1M pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "0S pasd"
+            ],
+            [
+               "2257210",
+               "1M pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "0S pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257216",
+               "0S pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ],
+            [
+               "2257218",
+               "1M pasd"
+            ],
+            [
+               "2257219",
+               "0S pasd"
+            ],
+            [
+               "2257236",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "2M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "1M pasd"
+            ],
+            [
+               "2257238",
+               "1M pasd"
+            ],
+            [
+               "2257239",
+               "1M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-6-R-6",
+         "route" : {
+            "name" : "Woy Woy Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-6",
+            "id" : "R_93-59-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-16-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-16-b0195",
+      "leaves" : "13:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "4M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "1M pasd"
+            ],
+            [
+               "2257262",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "1M pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257228",
+               "0S pasd"
+            ],
+            [
+               "2257229",
+               "1M pasd"
+            ],
+            [
+               "2257230",
+               "1M pasd"
+            ],
+            [
+               "2257231",
+               "0S pasd"
+            ],
+            [
+               "2257232",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257233",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2256216",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "2M pasd"
+            ],
+            [
+               "2257234",
+               "0S pasd"
+            ],
+            [
+               "2257235",
+               "1M pasd"
+            ],
+            [
+               "2257159",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "0S pasd"
+            ],
+            [
+               "2257122",
+               "1M pasd"
+            ],
+            [
+               "2257124",
+               "0S pasd"
+            ],
+            [
+               "2257125",
+               "1M pasd"
+            ],
+            [
+               "2257126",
+               "0S pasd"
+            ],
+            [
+               "2257127",
+               "1M pasd"
+            ],
+            [
+               "2257128",
+               "0S pasd"
+            ],
+            [
+               "2257129",
+               "0S pasd"
+            ],
+            [
+               "2257130",
+               "1M pasd"
+            ],
+            [
+               "2257131",
+               "0S pasd"
+            ],
+            [
+               "2257132",
+               "0S pasd"
+            ],
+            [
+               "2256150",
+               "1M pasd"
+            ],
+            [
+               "2256151",
+               "1M pasd"
+            ],
+            [
+               "2256152",
+               "0S pasd"
+            ],
+            [
+               "2256153",
+               "0S pasd"
+            ],
+            [
+               "2256154",
+               "1M pasd"
+            ],
+            [
+               "2256155",
+               "0S pasd"
+            ],
+            [
+               "2256156",
+               "0S pasd"
+            ],
+            [
+               "2256157",
+               "2M pasd"
+            ],
+            [
+               "2256189",
+               "0S pasd"
+            ],
+            [
+               "2256190",
+               "1M pasd"
+            ],
+            [
+               "2256191",
+               "1M pasd"
+            ],
+            [
+               "2256192",
+               "0S pasd"
+            ],
+            [
+               "2256447",
+               "1M pasd"
+            ],
+            [
+               "2256204",
+               "1M pasd"
+            ],
+            [
+               "2256205",
+               "0S pasd"
+            ],
+            [
+               "2256206",
+               "1M pasd"
+            ],
+            [
+               "2256207",
+               "1M pasd"
+            ],
+            [
+               "2256208",
+               "1M pasd"
+            ],
+            [
+               "2256209",
+               "1M pasd"
+            ],
+            [
+               "225611",
+               "2M pasd"
+            ],
+            [
+               "225615",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-8-H-7",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Woy Woy Station",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-7",
+            "id" : "R_93-59-_-sj2-1-H-7"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-11-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-11-b0195",
+      "leaves" : "09:12:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "4M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "1M pasd"
+            ],
+            [
+               "2257262",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "1M pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257228",
+               "0S pasd"
+            ],
+            [
+               "2257229",
+               "1M pasd"
+            ],
+            [
+               "2257230",
+               "1M pasd"
+            ],
+            [
+               "2257231",
+               "0S pasd"
+            ],
+            [
+               "2257232",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257233",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2256216",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "2M pasd"
+            ],
+            [
+               "2257234",
+               "0S pasd"
+            ],
+            [
+               "2257235",
+               "1M pasd"
+            ],
+            [
+               "2257159",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "0S pasd"
+            ],
+            [
+               "2257122",
+               "1M pasd"
+            ],
+            [
+               "2257124",
+               "0S pasd"
+            ],
+            [
+               "2257125",
+               "1M pasd"
+            ],
+            [
+               "2257126",
+               "0S pasd"
+            ],
+            [
+               "2257127",
+               "1M pasd"
+            ],
+            [
+               "2257128",
+               "0S pasd"
+            ],
+            [
+               "2257129",
+               "0S pasd"
+            ],
+            [
+               "2257130",
+               "1M pasd"
+            ],
+            [
+               "2257131",
+               "0S pasd"
+            ],
+            [
+               "2257132",
+               "0S pasd"
+            ],
+            [
+               "2256150",
+               "1M pasd"
+            ],
+            [
+               "2256151",
+               "1M pasd"
+            ],
+            [
+               "2256152",
+               "0S pasd"
+            ],
+            [
+               "2256153",
+               "0S pasd"
+            ],
+            [
+               "2256154",
+               "1M pasd"
+            ],
+            [
+               "2256155",
+               "0S pasd"
+            ],
+            [
+               "2256156",
+               "0S pasd"
+            ],
+            [
+               "2256157",
+               "2M pasd"
+            ],
+            [
+               "2256189",
+               "0S pasd"
+            ],
+            [
+               "2256190",
+               "1M pasd"
+            ],
+            [
+               "2256191",
+               "1M pasd"
+            ],
+            [
+               "2256192",
+               "0S pasd"
+            ],
+            [
+               "2256447",
+               "1M pasd"
+            ],
+            [
+               "2256204",
+               "1M pasd"
+            ],
+            [
+               "2256205",
+               "0S pasd"
+            ],
+            [
+               "2256206",
+               "1M pasd"
+            ],
+            [
+               "2256207",
+               "1M pasd"
+            ],
+            [
+               "2256208",
+               "1M pasd"
+            ],
+            [
+               "2256209",
+               "1M pasd"
+            ],
+            [
+               "225611",
+               "2M pasd"
+            ],
+            [
+               "225615",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-8-H-7",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Woy Woy Station",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-7",
+            "id" : "R_93-59-_-sj2-1-H-7"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-15-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-15-b0195",
+      "leaves" : "05:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "0S pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "1M pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "1M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "4M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "1M pasd"
+            ],
+            [
+               "2257262",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "1M pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257228",
+               "0S pasd"
+            ],
+            [
+               "2257229",
+               "1M pasd"
+            ],
+            [
+               "2257230",
+               "1M pasd"
+            ],
+            [
+               "2257231",
+               "0S pasd"
+            ],
+            [
+               "2257232",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "0S pasd"
+            ],
+            [
+               "2257197",
+               "1M pasd"
+            ],
+            [
+               "2257198",
+               "0S pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257233",
+               "0S pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2256216",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "1M pasd"
+            ],
+            [
+               "2257234",
+               "0S pasd"
+            ],
+            [
+               "2257235",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "0S pasd"
+            ],
+            [
+               "2257122",
+               "0S pasd"
+            ],
+            [
+               "2257124",
+               "1M pasd"
+            ],
+            [
+               "2257125",
+               "0S pasd"
+            ],
+            [
+               "2257126",
+               "0S pasd"
+            ],
+            [
+               "2257127",
+               "1M pasd"
+            ],
+            [
+               "2257128",
+               "0S pasd"
+            ],
+            [
+               "2257129",
+               "0S pasd"
+            ],
+            [
+               "2257130",
+               "0S pasd"
+            ],
+            [
+               "2257131",
+               "0S pasd"
+            ],
+            [
+               "2257132",
+               "1M pasd"
+            ],
+            [
+               "2256150",
+               "0S pasd"
+            ],
+            [
+               "2256151",
+               "0S pasd"
+            ],
+            [
+               "2256152",
+               "1M pasd"
+            ],
+            [
+               "2256153",
+               "0S pasd"
+            ],
+            [
+               "2256154",
+               "0S pasd"
+            ],
+            [
+               "2256155",
+               "1M pasd"
+            ],
+            [
+               "2256156",
+               "0S pasd"
+            ],
+            [
+               "2256157",
+               "1M pasd"
+            ],
+            [
+               "2256189",
+               "1M pasd"
+            ],
+            [
+               "2256190",
+               "0S pasd"
+            ],
+            [
+               "2256191",
+               "1M pasd"
+            ],
+            [
+               "2256192",
+               "0S pasd"
+            ],
+            [
+               "2256447",
+               "1M pasd"
+            ],
+            [
+               "2256204",
+               "0S pasd"
+            ],
+            [
+               "2256205",
+               "1M pasd"
+            ],
+            [
+               "2256206",
+               "0S pasd"
+            ],
+            [
+               "2256207",
+               "1M pasd"
+            ],
+            [
+               "2256208",
+               "1M pasd"
+            ],
+            [
+               "2256209",
+               "1M pasd"
+            ],
+            [
+               "225611",
+               "2M pasd"
+            ],
+            [
+               "225615",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-12-H-10",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Woy Woy Station",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-10",
+            "id" : "R_93-59-_-sj2-1-H-10"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-8-b0191" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-8-b0191",
+      "leaves" : "12:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225615",
+               null
+            ],
+            [
+               "2256165",
+               "1M pasd"
+            ],
+            [
+               "2256166",
+               "0S pasd"
+            ],
+            [
+               "2256167",
+               "1M pasd"
+            ],
+            [
+               "2256168",
+               "0S pasd"
+            ],
+            [
+               "2256169",
+               "1M pasd"
+            ],
+            [
+               "2256170",
+               "0S pasd"
+            ],
+            [
+               "2256171",
+               "1M pasd"
+            ],
+            [
+               "2256172",
+               "0S pasd"
+            ],
+            [
+               "2256174",
+               "1M pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "0S pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256178",
+               "0S pasd"
+            ],
+            [
+               "2256158",
+               "1M pasd"
+            ],
+            [
+               "2256159",
+               "1M pasd"
+            ],
+            [
+               "2256160",
+               "0S pasd"
+            ],
+            [
+               "2256161",
+               "1M pasd"
+            ],
+            [
+               "2256162",
+               "0S pasd"
+            ],
+            [
+               "2256163",
+               "1M pasd"
+            ],
+            [
+               "2256164",
+               "0S pasd"
+            ],
+            [
+               "2257133",
+               "1M pasd"
+            ],
+            [
+               "2257134",
+               "0S pasd"
+            ],
+            [
+               "2257135",
+               "1M pasd"
+            ],
+            [
+               "2257136",
+               "1M pasd"
+            ],
+            [
+               "2257137",
+               "0S pasd"
+            ],
+            [
+               "2257138",
+               "0S pasd"
+            ],
+            [
+               "2257139",
+               "1M pasd"
+            ],
+            [
+               "2257140",
+               "0S pasd"
+            ],
+            [
+               "2257142",
+               "1M pasd"
+            ],
+            [
+               "2257143",
+               "1M pasd"
+            ],
+            [
+               "2257144",
+               "0S pasd"
+            ],
+            [
+               "2257159",
+               "2M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "0S pasd"
+            ],
+            [
+               "2256215",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257202",
+               "1M pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "1M pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "0S pasd"
+            ],
+            [
+               "2257210",
+               "1M pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "0S pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257216",
+               "0S pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ],
+            [
+               "2257218",
+               "1M pasd"
+            ],
+            [
+               "2257219",
+               "0S pasd"
+            ],
+            [
+               "2257236",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "2M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "1M pasd"
+            ],
+            [
+               "2257238",
+               "1M pasd"
+            ],
+            [
+               "2257239",
+               "1M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-6-R-6",
+         "route" : {
+            "name" : "Woy Woy Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-6",
+            "id" : "R_93-59-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Saturday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-14-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-14-b0195",
+      "leaves" : "12:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257217",
+               null
+            ],
+            [
+               "2257218",
+               "0S pasd"
+            ],
+            [
+               "2257219",
+               "1M pasd"
+            ],
+            [
+               "2257236",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "3M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "0S pasd"
+            ],
+            [
+               "2257239",
+               "2M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-11-R-9",
+         "route" : {
+            "name" : "Empire Bay Dr (Opp.Empire Bay PS) - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-9",
+            "id" : "R_93-59-_-sj2-1-R-9"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-18-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-18-b0195",
+      "leaves" : "08:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225615",
+               null
+            ],
+            [
+               "2256165",
+               "1M pasd"
+            ],
+            [
+               "2256166",
+               "0S pasd"
+            ],
+            [
+               "2256167",
+               "1M pasd"
+            ],
+            [
+               "2256168",
+               "0S pasd"
+            ],
+            [
+               "2256169",
+               "1M pasd"
+            ],
+            [
+               "2256170",
+               "0S pasd"
+            ],
+            [
+               "2256171",
+               "1M pasd"
+            ],
+            [
+               "2256172",
+               "0S pasd"
+            ],
+            [
+               "2256174",
+               "1M pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "0S pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256178",
+               "0S pasd"
+            ],
+            [
+               "2256158",
+               "1M pasd"
+            ],
+            [
+               "2256159",
+               "1M pasd"
+            ],
+            [
+               "2256160",
+               "0S pasd"
+            ],
+            [
+               "2256161",
+               "1M pasd"
+            ],
+            [
+               "2256162",
+               "0S pasd"
+            ],
+            [
+               "2256163",
+               "1M pasd"
+            ],
+            [
+               "2256164",
+               "0S pasd"
+            ],
+            [
+               "2257133",
+               "1M pasd"
+            ],
+            [
+               "2257134",
+               "0S pasd"
+            ],
+            [
+               "2257135",
+               "1M pasd"
+            ],
+            [
+               "2257136",
+               "0S pasd"
+            ],
+            [
+               "2257137",
+               "0S pasd"
+            ],
+            [
+               "2257138",
+               "1M pasd"
+            ],
+            [
+               "2257139",
+               "0S pasd"
+            ],
+            [
+               "2257140",
+               "0S pasd"
+            ],
+            [
+               "2257142",
+               "1M pasd"
+            ],
+            [
+               "2257143",
+               "0S pasd"
+            ],
+            [
+               "2257144",
+               "1M pasd"
+            ],
+            [
+               "2257145",
+               "0S pasd"
+            ],
+            [
+               "2257340",
+               "2M pasd"
+            ],
+            [
+               "2257119",
+               "0S pasd"
+            ],
+            [
+               "2257120",
+               "3M pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "0S pasd"
+            ],
+            [
+               "2256215",
+               "2M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "1M pasd"
+            ],
+            [
+               "2257190",
+               "0S pasd"
+            ],
+            [
+               "2257191",
+               "1M pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "0S pasd"
+            ],
+            [
+               "2257194",
+               "1M pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257202",
+               "1M pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "1M pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "1M pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "0S pasd"
+            ],
+            [
+               "2257260",
+               "1M pasd"
+            ],
+            [
+               "2257216",
+               "0S pasd"
+            ],
+            [
+               "2257217",
+               "1M pasd"
+            ],
+            [
+               "2257218",
+               "0S pasd"
+            ],
+            [
+               "2257219",
+               "1M pasd"
+            ],
+            [
+               "2257236",
+               "0S pasd"
+            ],
+            [
+               "2257251",
+               "4M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "0S pasd"
+            ],
+            [
+               "2257239",
+               "2M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-14-R-12",
+         "route" : {
+            "name" : "Woy Woy Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-12",
+            "id" : "R_93-59-_-sj2-1-R-12"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-6-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-6-b0195",
+      "leaves" : "15:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "6M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Empire Bay Dr near Awinya Cl",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-1",
+            "id" : "R_93-59-_-sj2-1-H-1"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-20-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-20-b0195",
+      "leaves" : "15:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225615",
+               null
+            ],
+            [
+               "2256198",
+               "1M pasd"
+            ],
+            [
+               "2256199",
+               "0S pasd"
+            ],
+            [
+               "2256200",
+               "1M pasd"
+            ],
+            [
+               "2256201",
+               "0S pasd"
+            ],
+            [
+               "2256202",
+               "1M pasd"
+            ],
+            [
+               "2256203",
+               "0S pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "1M pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256178",
+               "0S pasd"
+            ],
+            [
+               "2256221",
+               "3M pasd"
+            ],
+            [
+               "2257120",
+               "4M pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "0S pasd"
+            ],
+            [
+               "2257186",
+               "1M pasd"
+            ],
+            [
+               "2256215",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "0S pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257202",
+               "0S pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "0S pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257216",
+               "1M pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ],
+            [
+               "2257218",
+               "1M pasd"
+            ],
+            [
+               "2257219",
+               "0S pasd"
+            ],
+            [
+               "2257236",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "3M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "0S pasd"
+            ],
+            [
+               "2257239",
+               "2M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-15-R-13",
+         "route" : {
+            "name" : "Woy Woy Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-13",
+            "id" : "R_93-59-_-sj2-1-R-13"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-7-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-7-b0195",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2257251",
+               null
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "0S pasd"
+            ],
+            [
+               "2257239",
+               "2M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-5-R-5",
+         "route" : {
+            "name" : "Hats St Near The Scenic Rd - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-5",
+            "id" : "R_93-59-_-sj2-1-R-5"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-12-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-12-b0195",
+      "leaves" : "18:52:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225615",
+               null
+            ],
+            [
+               "2256165",
+               "1M pasd"
+            ],
+            [
+               "2256166",
+               "0S pasd"
+            ],
+            [
+               "2256167",
+               "1M pasd"
+            ],
+            [
+               "2256168",
+               "0S pasd"
+            ],
+            [
+               "2256169",
+               "0S pasd"
+            ],
+            [
+               "2256170",
+               "1M pasd"
+            ],
+            [
+               "2256171",
+               "0S pasd"
+            ],
+            [
+               "2256172",
+               "1M pasd"
+            ],
+            [
+               "2256174",
+               "0S pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "0S pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256178",
+               "1M pasd"
+            ],
+            [
+               "2256158",
+               "0S pasd"
+            ],
+            [
+               "2256159",
+               "2M pasd"
+            ],
+            [
+               "2256160",
+               "0S pasd"
+            ],
+            [
+               "2256161",
+               "1M pasd"
+            ],
+            [
+               "2256162",
+               "0S pasd"
+            ],
+            [
+               "2256163",
+               "1M pasd"
+            ],
+            [
+               "2256164",
+               "0S pasd"
+            ],
+            [
+               "2257133",
+               "1M pasd"
+            ],
+            [
+               "2257134",
+               "0S pasd"
+            ],
+            [
+               "2257135",
+               "0S pasd"
+            ],
+            [
+               "2257136",
+               "1M pasd"
+            ],
+            [
+               "2257137",
+               "0S pasd"
+            ],
+            [
+               "2257138",
+               "1M pasd"
+            ],
+            [
+               "2257139",
+               "0S pasd"
+            ],
+            [
+               "2257140",
+               "0S pasd"
+            ],
+            [
+               "2257142",
+               "1M pasd"
+            ],
+            [
+               "2257143",
+               "0S pasd"
+            ],
+            [
+               "2257144",
+               "1M pasd"
+            ],
+            [
+               "2257159",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "0S pasd"
+            ],
+            [
+               "2256215",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "0S pasd"
+            ],
+            [
+               "2257199",
+               "1M pasd"
+            ],
+            [
+               "2257200",
+               "0S pasd"
+            ],
+            [
+               "2257201",
+               "1M pasd"
+            ],
+            [
+               "2257202",
+               "1M pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "0S pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "1M pasd"
+            ],
+            [
+               "2257212",
+               "0S pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257216",
+               "1M pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ],
+            [
+               "2257218",
+               "1M pasd"
+            ],
+            [
+               "2257219",
+               "0S pasd"
+            ],
+            [
+               "2257236",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "4M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "0S pasd"
+            ],
+            [
+               "2257239",
+               "2M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-9-R-6",
+         "route" : {
+            "name" : "Woy Woy Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-59-_-sj2-1-R-6",
+            "id" : "R_93-59-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-10-b0191" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-10-b0191",
+      "leaves" : "13:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "5M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "0S pasd"
+            ],
+            [
+               "2257226",
+               "1M pasd"
+            ],
+            [
+               "2257227",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Empire Bay Dr near Awinya Cl",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-1",
+            "id" : "R_93-59-_-sj2-1-H-1"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-17-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-17-b0195",
+      "leaves" : "06:56:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "5M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "0S pasd"
+            ],
+            [
+               "2257262",
+               "1M pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "1M pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257228",
+               "0S pasd"
+            ],
+            [
+               "2257229",
+               "1M pasd"
+            ],
+            [
+               "2257230",
+               "1M pasd"
+            ],
+            [
+               "2257231",
+               "0S pasd"
+            ],
+            [
+               "2257232",
+               "1M pasd"
+            ],
+            [
+               "2257189",
+               "0S pasd"
+            ],
+            [
+               "2257190",
+               "1M pasd"
+            ],
+            [
+               "2257191",
+               "0S pasd"
+            ],
+            [
+               "2257192",
+               "0S pasd"
+            ],
+            [
+               "2257193",
+               "1M pasd"
+            ],
+            [
+               "2257194",
+               "0S pasd"
+            ],
+            [
+               "2257195",
+               "0S pasd"
+            ],
+            [
+               "2257196",
+               "1M pasd"
+            ],
+            [
+               "2257197",
+               "0S pasd"
+            ],
+            [
+               "2257198",
+               "1M pasd"
+            ],
+            [
+               "2257199",
+               "0S pasd"
+            ],
+            [
+               "2257200",
+               "1M pasd"
+            ],
+            [
+               "2257201",
+               "0S pasd"
+            ],
+            [
+               "2257233",
+               "1M pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2256216",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "2M pasd"
+            ],
+            [
+               "2257234",
+               "0S pasd"
+            ],
+            [
+               "2257235",
+               "1M pasd"
+            ],
+            [
+               "2257159",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "0S pasd"
+            ],
+            [
+               "2257122",
+               "1M pasd"
+            ],
+            [
+               "2257124",
+               "0S pasd"
+            ],
+            [
+               "2257125",
+               "1M pasd"
+            ],
+            [
+               "2257126",
+               "0S pasd"
+            ],
+            [
+               "2257127",
+               "0S pasd"
+            ],
+            [
+               "2257128",
+               "0S pasd"
+            ],
+            [
+               "2257129",
+               "1M pasd"
+            ],
+            [
+               "2257130",
+               "0S pasd"
+            ],
+            [
+               "2257131",
+               "0S pasd"
+            ],
+            [
+               "2257132",
+               "0S pasd"
+            ],
+            [
+               "2256150",
+               "1M pasd"
+            ],
+            [
+               "2256151",
+               "0S pasd"
+            ],
+            [
+               "2256152",
+               "1M pasd"
+            ],
+            [
+               "2256153",
+               "0S pasd"
+            ],
+            [
+               "2256154",
+               "0S pasd"
+            ],
+            [
+               "2256155",
+               "1M pasd"
+            ],
+            [
+               "2256156",
+               "0S pasd"
+            ],
+            [
+               "2256157",
+               "1M pasd"
+            ],
+            [
+               "2256189",
+               "1M pasd"
+            ],
+            [
+               "2256190",
+               "0S pasd"
+            ],
+            [
+               "2256191",
+               "1M pasd"
+            ],
+            [
+               "2256192",
+               "0S pasd"
+            ],
+            [
+               "2256214",
+               "6M pasd"
+            ],
+            [
+               "225615",
+               "6M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-13-H-11",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Woy Woy Station",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-11",
+            "id" : "R_93-59-_-sj2-1-H-11"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-13-b0191" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-13-b0191",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "4M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "1M pasd"
+            ],
+            [
+               "2257262",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "1M pasd"
+            ],
+            [
+               "2257210",
+               "0S pasd"
+            ],
+            [
+               "2257211",
+               "1M pasd"
+            ],
+            [
+               "2257212",
+               "0S pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257228",
+               "0S pasd"
+            ],
+            [
+               "2257229",
+               "1M pasd"
+            ],
+            [
+               "2257230",
+               "1M pasd"
+            ],
+            [
+               "2257231",
+               "0S pasd"
+            ],
+            [
+               "2257232",
+               "1M pasd"
+            ],
+            [
+               "2257233",
+               "0S pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2256216",
+               "1M pasd"
+            ],
+            [
+               "2257186",
+               "1M pasd"
+            ],
+            [
+               "2257234",
+               "1M pasd"
+            ],
+            [
+               "2257235",
+               "0S pasd"
+            ],
+            [
+               "2257159",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "0S pasd"
+            ],
+            [
+               "2257122",
+               "1M pasd"
+            ],
+            [
+               "2257124",
+               "0S pasd"
+            ],
+            [
+               "2257125",
+               "1M pasd"
+            ],
+            [
+               "2257126",
+               "0S pasd"
+            ],
+            [
+               "2257127",
+               "0S pasd"
+            ],
+            [
+               "2257128",
+               "0S pasd"
+            ],
+            [
+               "2257129",
+               "1M pasd"
+            ],
+            [
+               "2257130",
+               "0S pasd"
+            ],
+            [
+               "2257131",
+               "0S pasd"
+            ],
+            [
+               "2257132",
+               "0S pasd"
+            ],
+            [
+               "2256150",
+               "1M pasd"
+            ],
+            [
+               "2256151",
+               "0S pasd"
+            ],
+            [
+               "2256152",
+               "1M pasd"
+            ],
+            [
+               "2256153",
+               "0S pasd"
+            ],
+            [
+               "2256154",
+               "0S pasd"
+            ],
+            [
+               "2256155",
+               "1M pasd"
+            ],
+            [
+               "2256156",
+               "0S pasd"
+            ],
+            [
+               "2256157",
+               "1M pasd"
+            ],
+            [
+               "2256189",
+               "1M pasd"
+            ],
+            [
+               "2256190",
+               "0S pasd"
+            ],
+            [
+               "2256191",
+               "1M pasd"
+            ],
+            [
+               "2256192",
+               "0S pasd"
+            ],
+            [
+               "2256447",
+               "1M pasd"
+            ],
+            [
+               "2256204",
+               "1M pasd"
+            ],
+            [
+               "2256205",
+               "0S pasd"
+            ],
+            [
+               "2256206",
+               "1M pasd"
+            ],
+            [
+               "2256207",
+               "1M pasd"
+            ],
+            [
+               "2256208",
+               "1M pasd"
+            ],
+            [
+               "2256209",
+               "1M pasd"
+            ],
+            [
+               "225611",
+               "2M pasd"
+            ],
+            [
+               "225615",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-10-H-8",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Woy Woy Station",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-8",
+            "id" : "R_93-59-_-sj2-1-H-8"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-21-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-21-b0195",
+      "leaves" : "16:41:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "5M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "1M pasd"
+            ],
+            [
+               "2257227",
+               "0S pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Empire Bay Dr (Opp.Empire Bay PS)",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-4",
+            "id" : "R_93-59-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   },
+   "VJ_93-59-_-sj2-1-19-b0195" : {
+      "vjcode" : "VJ_93-59-_-sj2-1-19-b0195",
+      "leaves" : "08:36:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "2M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257249",
+               "6M pasd"
+            ],
+            [
+               "2257224",
+               "1M pasd"
+            ],
+            [
+               "2257225",
+               "1M pasd"
+            ],
+            [
+               "2257226",
+               "0S pasd"
+            ],
+            [
+               "2257227",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-59-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Empire Bay Dr near Awinya Cl",
+            "rs_ref" : "RS_93-59-_-sj2-1-H-1",
+            "id" : "R_93-59-_-sj2-1-H-1"
+         }
+      },
+      "service" : "93-59-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "59"
+   }
+}
+;
+

@@ -1,0 +1,8079 @@
+var OPERATOR = "Westbus Region 3";
+
+
+var LINES = {
+   "23-810-X-sj2-1" : "810X"
+}
+;
+
+var stations = {
+   "2160144" : "Merrylands Rd near Holdsworth St",
+   "2160132" : "Bruce St near Josephine St",
+   "2145291" : "Gardenia Pde near Dahlia St",
+   "2145358" : "Jonathan St near Braeside Rd",
+   "2160164" : "Duffy St near Cameron Ct",
+   "2145267" : "Carnation St near Gardenia Pde",
+   "2145369" : "Gozo Rd near Old Prospect Rd",
+   "2145274" : "Dahlia St near Azalea St",
+   "2145510" : "Old Prospect Rd near Lance Cr",
+   "2145461" : "Old Prospect Rd near Boronia St",
+   "2145441" : "Old Prospect Rd near Grafton St",
+   "2145272" : "Gardenia Pde near Dahlia St",
+   "2145294" : "Gardenia Pde near Hyacinth St",
+   "2145448" : "Whalans Rd near Kippax St",
+   "2145443" : "Gozo Rd near Old Prospect Rd",
+   "2145270" : "47 Gardenia Pde",
+   "2145261" : "Cumberland Rd near Rosewall St",
+   "214541" : "Merrylands Rd near Carter St",
+   "2160117" : "Merrylands Rd at Clarence St",
+   "2145312" : "Macquarie Rd near Gipps Rd",
+   "2145367" : "Gozo Rd near Deborah St",
+   "216084" : "Kenyons Rd Near Rupert St",
+   "2150302" : "Pitt Street T-Way - To Parramatta",
+   "2145332" : "Braeside Rd near Hedley St",
+   "2145361" : "Braeside Rd near Lance Cr",
+   "2145458" : "Old Prospect Rd near Damien Av",
+   "2145268" : "Gardenia Pde near Carnation St",
+   "2145375" : "Beresford Rd near Bathurst St",
+   "2145265" : "36 Tulip St",
+   "216089" : "Kenyons Rd near Torrens St",
+   "2145356" : "Jonathan St near Virgil St",
+   "2145336" : "Jonathan St near Dwight St",
+   "2160163" : "Bruce St near Josephine St",
+   "2145316" : "Kippax St near Rowe Pl",
+   "214538" : "Merrylands Rd near Carter St",
+   "2145444" : "Gozo Rd near Elvina St",
+   "2145459" : "Old Prospect Rd after Jersey Rd",
+   "2145395" : "Old Prospect Rd near Boronia St",
+   "2145365" : "Gozo Rd near Whalans Rd",
+   "2160252" : "St Margaret Marys_ Davies St",
+   "2145320" : "Macquarie Rd near Gipps Rd",
+   "2145260" : "Cumberland Hwy near Paton St",
+   "2145288" : "Alpha Par Dahlia St near Hibiscus St",
+   "2145624" : "Cumberland Rd near Merrylands Rd",
+   "2145520" : "Finlayson T-Way - to Liverpool",
+   "2160134" : "Bruce St after Valda St",
+   "2145271" : "17 Gardenia Pde",
+   "2145376" : "Beresford Rd near Namoi St",
+   "2160149" : "Stockland Mcfarlane St near Finns L",
+   "2145462" : "Allen St near Finlayson St",
+   "2145456" : "Old Prospect Rd near Lance Cr",
+   "2145296" : "Tulip St Near Carnation St",
+   "2145445" : "Gozo Rd near Deborah St",
+   "2145526" : "Coleman T-way Station",
+   "2145363" : "Braeside Rd near Merrylands Rd",
+   "2145511" : "Old Prospect Rd near Walnut St",
+   "2145293" : "22 Gardenia Pde",
+   "2145524" : "Mays Hill T-Way - To Parramatta",
+   "2145341" : "Cumberland Rd near Whalans Rd",
+   "2145360" : "Braeside Rd near Dean St",
+   "2160105" : "Cerdon College Bus Bay Kenyons Rd",
+   "216091" : "Kenyons Rd Near Rupert St",
+   "2145371" : "Old Prospect Rd near Grafton St",
+   "2145318" : "Greystanes Rd near Birriwa St",
+   "2160146" : "Merrylands Rd at Clarence St",
+   "2148436" : "Butu Wargun Dr near Greystanes Rd",
+   "2150107" : "Parramatta Interchange Stand B2",
+   "2145298" : "Macquarie Rd near Daffodil St",
+   "2160119" : "Merrylands Rd near Mason St",
+   "216031" : "Merrylands Rd near Miller St",
+   "2160160" : "Bruce St near Eddy St",
+   "2145446" : "Gozo Rd near Enid St",
+   "2145340" : "Cumberland Rd near Patrick St",
+   "2145450" : "Old Prospect Rd near Brighton St",
+   "214527" : "Merrylands Rd Near Ringrose Av",
+   "2145487" : "Old Prospect Rd near Ringrose Av",
+   "2145377" : "Beresford Rd near Old Prospect Rd",
+   "214540" : "Merrylands Rd Near Greystanes Rd",
+   "2145334" : "Braeside Rd near Dean St",
+   "2145314" : "Gipps Rd near Greystanes Rd",
+   "2145592" : "Dahlia St near Jasmine Pl",
+   "2145295" : "Gardenia Pde near Carnation St",
+   "2145357" : "Jonathan St near Dwight St",
+   "216090" : "Cardinal Gilroy Village Kenyons Rd",
+   "216083" : "Fowler Rd near Kenyons Rd",
+   "214529" : "Merrylands Rd Near Ringrose Av",
+   "2145273" : "48 Dahlia St",
+   "2145452" : "Old Prospect Rd near Cumberland Rd",
+   "2145455" : "Old Prospect Rd near Walnut St",
+   "2145433" : "Old Prospect Rd near Brighton St",
+   "2145525" : "Coleman T-way Station",
+   "2145264" : "Macquarie Rd near Tulip St",
+   "2145337" : "Jonathan St near Virgil St",
+   "2160113" : "Merrylands Interchange Terminal Pl_ Stand 2",
+   "2145359" : "Braeside Rd near Jonathan St",
+   "2145300" : "Bayfield Rd near Milton Pl",
+   "214542" : "Merrylands Rd near Bambil St",
+   "2145519" : "Merrylands Rd near Hilton St",
+   "2145436" : "Beresford Rd near Namoi St",
+   "2145460" : "Old Prospect Rd near Hampden Rd",
+   "2145538" : "Old Prospect Rd near Grafton St",
+   "2145522" : "Finlayson T-Way - to Parramatta",
+   "2145335" : "Braeside Rd near Jonathan St",
+   "2145451" : "Old Prospect Rd near Paroo St",
+   "2145435" : "Beresford Rd near Old Prospect Rd",
+   "2145266" : "Tulip St Near Carnation St",
+   "2145523" : "Mays Hill T-Way - To Liverpool",
+   "2145355" : "Jonathan St near Montague St",
+   "2145297" : "29 Tulip St",
+   "2145449" : "Old Prospect Rd near Beresford Rd",
+   "2145577" : "Cumberland Rd and Terry St",
+   "2145368" : "Gozo Rd near Elvina St",
+   "216088" : "Kenyons Rd after Sherwood Rd",
+   "2150114" : "Parramatta Interchange Stand A1",
+   "2145301" : "Cumberland Rd near Rosewall St",
+   "2145290" : "51 Dahlia St",
+   "2145623" : "Cumberland Rd near Merrylands Rd",
+   "2145353" : "Cumberland Rd near Patrick St",
+   "2145457" : "Old Prospect Rd near Ringrose Av",
+   "2145331" : "Braeside Rd near Merrylands Rd",
+   "2145366" : "Gozo Rd near Thelma St",
+   "2145319" : "Gipps Rd near Macquarie Rd",
+   "2145262" : "Bayfield Rd near Milton Pl",
+   "2145396" : "Old Prospect Rd near Hampden Rd",
+   "214539" : "Merrylands Rd Near Greystanes Rd",
+   "2160115" : "Merryland Merrylands Rd near Addlestone Rd",
+   "216085" : "Kenyons Rd opp Binda St",
+   "2160162" : "Bruce St after Valda St",
+   "2145263" : "Macquarie Rd near Bayfield Rd",
+   "2145486" : "Old Prospect Rd before Jersey Rd",
+   "2145432" : "Old Prospect Rd near Paroo St",
+   "2145352" : "Cumberland Rd near Whalans Rd",
+   "2145315" : "Kippax St near Bradman St",
+   "2145354" : "Cumberland Rd near Vernon St",
+   "2160148" : "Hoyts Cinema Mcfarlane St near Treves St",
+   "2145434" : "Old Prospect Rd near Beresford Rd",
+   "2145581" : "Alpha Rd and Dahlia St",
+   "2160161" : "Bruce St before Valda St",
+   "2145269" : "Gardenia Pde near Hyacinth St",
+   "214528" : "Cumberland Hwy near Bruce St",
+   "2145333" : "Braeside Rd near Lance Cr",
+   "2160116" : "Merrylands Rd near Warwick Rd",
+   "2160133" : "Bruce St before Valda St",
+   "2145447" : "Gozo Rd near Whalans Rd",
+   "214537" : "Merrylands Rd near Bambil St",
+   "2145437" : "Beresford Rd near Bathurst St",
+   "2145512" : "Old Prospect Rd near Ettalong Rd",
+   "216073" : "Cumberland Hwy near Bruce St",
+   "2145338" : "Jonathan St near Montague St",
+   "2145364" : "Whalans Rd near Kippax St",
+   "2145275" : "Dahlia St near Hibiscus St",
+   "2145289" : "Dahlia St near Azalea St",
+   "2150304" : "Pitt Street T-Way - To Liverpool",
+   "216086" : "Kenyons Rd near Arcadia St",
+   "2145339" : "Cumberland Rd near Vernon St",
+   "2145313" : "Gipps Rd near Bilpin St",
+   "2145513" : "Old Prospect Rd near Cumberland Rd",
+   "2160229" : "Merrylands Rd and Cambridge St",
+   "2145362" : "Braeside Rd near Hedley St",
+   "2160135" : "Bruce St near Eddy St",
+   "2145442" : "Old Prospect Rd near Tania St",
+   "2145453" : "St Pauls Old Prospect Rd",
+   "216092" : "Fowler Rd near Kenyons Rd",
+   "2145594" : "Greystanes High School near Beresford Rd",
+   "214548" : "Merrylands Rd near Hilton St",
+   "2160131" : "Duffy St near Bruce St",
+   "2145541" : "Old Prospect Rd near Beresford Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_23-810-X-sj2-1-10-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-10-TA",
+      "leaves" : "15:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M19S pasd"
+            ],
+            [
+               "2160146",
+               "1M46S pasd"
+            ],
+            [
+               "2160229",
+               "1M29S pasd"
+            ],
+            [
+               "2160148",
+               "1M20S pasd"
+            ],
+            [
+               "2160149",
+               "1M33S pasd"
+            ],
+            [
+               "2160113",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-6-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-6-TA",
+      "leaves" : "06:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M57S pasd"
+            ],
+            [
+               "2145523",
+               "1M38S pasd"
+            ],
+            [
+               "2145526",
+               "2M52S pasd"
+            ],
+            [
+               "2145520",
+               "2M43S pasd"
+            ],
+            [
+               "2145395",
+               "1M50S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M1S pasd"
+            ],
+            [
+               "2160146",
+               "1M22S pasd"
+            ],
+            [
+               "2160229",
+               "1M9S pasd"
+            ],
+            [
+               "2160148",
+               "1M2S pasd"
+            ],
+            [
+               "2160149",
+               "1M12S pasd"
+            ],
+            [
+               "2160113",
+               "1M12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-5-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-5-TA",
+      "leaves" : "18:47:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Parramatta Interchange - Butu Wargun Dr near Greystanes Rd",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-3",
+            "id" : "R_23-810-X-sj2-1-H-3"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-22-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-22-TA",
+      "leaves" : "16:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-18-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-18-TA",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "42S pasd"
+            ],
+            [
+               "2145263",
+               "35S pasd"
+            ],
+            [
+               "2145264",
+               "37S pasd"
+            ],
+            [
+               "2145265",
+               "42S pasd"
+            ],
+            [
+               "2145266",
+               "33S pasd"
+            ],
+            [
+               "2145267",
+               "15S pasd"
+            ],
+            [
+               "2145268",
+               "24S pasd"
+            ],
+            [
+               "2145269",
+               "33S pasd"
+            ],
+            [
+               "2145270",
+               "32S pasd"
+            ],
+            [
+               "2145271",
+               "36S pasd"
+            ],
+            [
+               "2145272",
+               "30S pasd"
+            ],
+            [
+               "2145273",
+               "28S pasd"
+            ],
+            [
+               "2145274",
+               "32S pasd"
+            ],
+            [
+               "2145275",
+               "29S pasd"
+            ],
+            [
+               "2145592",
+               "20S pasd"
+            ],
+            [
+               "2145312",
+               "1M12S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "29S pasd"
+            ],
+            [
+               "2145442",
+               "42S pasd"
+            ],
+            [
+               "2145449",
+               "2M17S pasd"
+            ],
+            [
+               "2145450",
+               "52S pasd"
+            ],
+            [
+               "2145451",
+               "1M20S pasd"
+            ],
+            [
+               "2145452",
+               "1M12S pasd"
+            ],
+            [
+               "2145453",
+               "1M29S pasd"
+            ],
+            [
+               "2145455",
+               "1M7S pasd"
+            ],
+            [
+               "2145456",
+               "55S pasd"
+            ],
+            [
+               "2145457",
+               "50S pasd"
+            ],
+            [
+               "2145458",
+               "46S pasd"
+            ],
+            [
+               "2145459",
+               "1M7S pasd"
+            ],
+            [
+               "2145460",
+               "40S pasd"
+            ],
+            [
+               "2145461",
+               "1M14S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-10-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-20-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-20-TA",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-19-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-19-TA",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-16-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-16-TA",
+      "leaves" : "06:16:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-2-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-2-TA",
+      "leaves" : "07:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M57S pasd"
+            ],
+            [
+               "2145523",
+               "1M38S pasd"
+            ],
+            [
+               "2145526",
+               "2M52S pasd"
+            ],
+            [
+               "2145520",
+               "2M43S pasd"
+            ],
+            [
+               "2145395",
+               "1M50S pasd"
+            ],
+            [
+               "2145396",
+               "36S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M2S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "31S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145435",
+               "14S pasd"
+            ],
+            [
+               "2145436",
+               "25S pasd"
+            ],
+            [
+               "2145437",
+               "40S pasd"
+            ],
+            [
+               "2145594",
+               "46S pasd"
+            ],
+            [
+               "2145375",
+               "47S pasd"
+            ],
+            [
+               "2145376",
+               "43S pasd"
+            ],
+            [
+               "2145377",
+               "14S pasd"
+            ],
+            [
+               "2145541",
+               "26S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "27S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "56S pasd"
+            ],
+            [
+               "2145288",
+               "27S pasd"
+            ],
+            [
+               "2145289",
+               "42S pasd"
+            ],
+            [
+               "2145290",
+               "26S pasd"
+            ],
+            [
+               "2145291",
+               "35S pasd"
+            ],
+            [
+               "2145293",
+               "33S pasd"
+            ],
+            [
+               "2145294",
+               "46S pasd"
+            ],
+            [
+               "2145295",
+               "43S pasd"
+            ],
+            [
+               "2145296",
+               "39S pasd"
+            ],
+            [
+               "2145297",
+               "40S pasd"
+            ],
+            [
+               "2145298",
+               "42S pasd"
+            ],
+            [
+               "2145300",
+               "1M8S pasd"
+            ],
+            [
+               "2145301",
+               "43S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M1S pasd"
+            ],
+            [
+               "2160146",
+               "1M22S pasd"
+            ],
+            [
+               "2160229",
+               "1M9S pasd"
+            ],
+            [
+               "2160148",
+               "1M2S pasd"
+            ],
+            [
+               "2160149",
+               "1M12S pasd"
+            ],
+            [
+               "2160113",
+               "1M12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-2",
+            "id" : "R_23-810-X-sj2-1-H-2"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-8-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-8-TA",
+      "leaves" : "07:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M57S pasd"
+            ],
+            [
+               "2145523",
+               "1M38S pasd"
+            ],
+            [
+               "2145526",
+               "2M52S pasd"
+            ],
+            [
+               "2145520",
+               "2M43S pasd"
+            ],
+            [
+               "2145395",
+               "1M50S pasd"
+            ],
+            [
+               "2145396",
+               "51S pasd"
+            ],
+            [
+               "2145486",
+               "32S pasd"
+            ],
+            [
+               "2145487",
+               "1M29S pasd"
+            ],
+            [
+               "2145510",
+               "1M6S pasd"
+            ],
+            [
+               "2145511",
+               "49S pasd"
+            ],
+            [
+               "2145512",
+               "44S pasd"
+            ],
+            [
+               "2145513",
+               "1M23S pasd"
+            ],
+            [
+               "2145432",
+               "1M2S pasd"
+            ],
+            [
+               "2145433",
+               "1M28S pasd"
+            ],
+            [
+               "2145434",
+               "27S pasd"
+            ],
+            [
+               "2145541",
+               "34S pasd"
+            ],
+            [
+               "2145538",
+               "1M47S pasd"
+            ],
+            [
+               "2145371",
+               "17S pasd"
+            ],
+            [
+               "2148436",
+               "31S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "56S pasd"
+            ],
+            [
+               "2145288",
+               "27S pasd"
+            ],
+            [
+               "2145289",
+               "42S pasd"
+            ],
+            [
+               "2145290",
+               "26S pasd"
+            ],
+            [
+               "2145291",
+               "35S pasd"
+            ],
+            [
+               "2145293",
+               "33S pasd"
+            ],
+            [
+               "2145294",
+               "46S pasd"
+            ],
+            [
+               "2145295",
+               "43S pasd"
+            ],
+            [
+               "2145296",
+               "39S pasd"
+            ],
+            [
+               "2145297",
+               "40S pasd"
+            ],
+            [
+               "2145298",
+               "42S pasd"
+            ],
+            [
+               "2145300",
+               "1M8S pasd"
+            ],
+            [
+               "2145301",
+               "43S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M1S pasd"
+            ],
+            [
+               "2160146",
+               "1M22S pasd"
+            ],
+            [
+               "2160229",
+               "1M9S pasd"
+            ],
+            [
+               "2160148",
+               "1M2S pasd"
+            ],
+            [
+               "2160149",
+               "1M12S pasd"
+            ],
+            [
+               "2160113",
+               "1M12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-15-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-15-TA",
+      "leaves" : "05:46:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-14-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-14-TA",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "42S pasd"
+            ],
+            [
+               "2145263",
+               "35S pasd"
+            ],
+            [
+               "2145264",
+               "37S pasd"
+            ],
+            [
+               "2145265",
+               "42S pasd"
+            ],
+            [
+               "2145266",
+               "33S pasd"
+            ],
+            [
+               "2145267",
+               "15S pasd"
+            ],
+            [
+               "2145268",
+               "24S pasd"
+            ],
+            [
+               "2145269",
+               "33S pasd"
+            ],
+            [
+               "2145270",
+               "32S pasd"
+            ],
+            [
+               "2145271",
+               "36S pasd"
+            ],
+            [
+               "2145272",
+               "30S pasd"
+            ],
+            [
+               "2145273",
+               "28S pasd"
+            ],
+            [
+               "2145274",
+               "32S pasd"
+            ],
+            [
+               "2145275",
+               "29S pasd"
+            ],
+            [
+               "2145592",
+               "20S pasd"
+            ],
+            [
+               "2145312",
+               "1M12S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "30S pasd"
+            ],
+            [
+               "2145435",
+               "1M26S pasd"
+            ],
+            [
+               "2145436",
+               "30S pasd"
+            ],
+            [
+               "2145437",
+               "46S pasd"
+            ],
+            [
+               "2145594",
+               "53S pasd"
+            ],
+            [
+               "2145375",
+               "55S pasd"
+            ],
+            [
+               "2145376",
+               "50S pasd"
+            ],
+            [
+               "2145377",
+               "16S pasd"
+            ],
+            [
+               "2145449",
+               "18S pasd"
+            ],
+            [
+               "2145450",
+               "37S pasd"
+            ],
+            [
+               "2145451",
+               "57S pasd"
+            ],
+            [
+               "2145452",
+               "51S pasd"
+            ],
+            [
+               "2145453",
+               "1M3S pasd"
+            ],
+            [
+               "2145455",
+               "47S pasd"
+            ],
+            [
+               "2145456",
+               "39S pasd"
+            ],
+            [
+               "2145457",
+               "35S pasd"
+            ],
+            [
+               "2145458",
+               "32S pasd"
+            ],
+            [
+               "2145459",
+               "48S pasd"
+            ],
+            [
+               "2145460",
+               "28S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-5",
+            "id" : "R_23-810-X-sj2-1-R-5"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-17-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-17-TA",
+      "leaves" : "06:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "42S pasd"
+            ],
+            [
+               "2145263",
+               "35S pasd"
+            ],
+            [
+               "2145264",
+               "37S pasd"
+            ],
+            [
+               "2145265",
+               "42S pasd"
+            ],
+            [
+               "2145266",
+               "33S pasd"
+            ],
+            [
+               "2145267",
+               "15S pasd"
+            ],
+            [
+               "2145268",
+               "24S pasd"
+            ],
+            [
+               "2145269",
+               "33S pasd"
+            ],
+            [
+               "2145270",
+               "32S pasd"
+            ],
+            [
+               "2145271",
+               "36S pasd"
+            ],
+            [
+               "2145272",
+               "30S pasd"
+            ],
+            [
+               "2145273",
+               "28S pasd"
+            ],
+            [
+               "2145274",
+               "32S pasd"
+            ],
+            [
+               "2145275",
+               "29S pasd"
+            ],
+            [
+               "2145592",
+               "20S pasd"
+            ],
+            [
+               "2145312",
+               "1M12S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "23S pasd"
+            ],
+            [
+               "2145442",
+               "33S pasd"
+            ],
+            [
+               "2145449",
+               "1M49S pasd"
+            ],
+            [
+               "2145450",
+               "41S pasd"
+            ],
+            [
+               "2145451",
+               "1M4S pasd"
+            ],
+            [
+               "2145452",
+               "57S pasd"
+            ],
+            [
+               "2145453",
+               "1M11S pasd"
+            ],
+            [
+               "2145455",
+               "53S pasd"
+            ],
+            [
+               "2145456",
+               "44S pasd"
+            ],
+            [
+               "2145457",
+               "40S pasd"
+            ],
+            [
+               "2145458",
+               "36S pasd"
+            ],
+            [
+               "2145459",
+               "54S pasd"
+            ],
+            [
+               "2145460",
+               "32S pasd"
+            ],
+            [
+               "2145461",
+               "1M3S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-9-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-7-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-7-TA",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M57S pasd"
+            ],
+            [
+               "2145523",
+               "1M38S pasd"
+            ],
+            [
+               "2145526",
+               "2M52S pasd"
+            ],
+            [
+               "2145520",
+               "2M43S pasd"
+            ],
+            [
+               "2145395",
+               "1M50S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M1S pasd"
+            ],
+            [
+               "2160146",
+               "1M22S pasd"
+            ],
+            [
+               "2160229",
+               "1M9S pasd"
+            ],
+            [
+               "2160148",
+               "1M2S pasd"
+            ],
+            [
+               "2160149",
+               "1M12S pasd"
+            ],
+            [
+               "2160113",
+               "1M12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-12-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-12-TA",
+      "leaves" : "16:47:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M19S pasd"
+            ],
+            [
+               "2160146",
+               "1M46S pasd"
+            ],
+            [
+               "2160229",
+               "1M29S pasd"
+            ],
+            [
+               "2160148",
+               "1M20S pasd"
+            ],
+            [
+               "2160149",
+               "1M33S pasd"
+            ],
+            [
+               "2160113",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-24-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-24-TA",
+      "leaves" : "17:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-4-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-4-TA",
+      "leaves" : "18:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Parramatta Interchange - Butu Wargun Dr near Greystanes Rd",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-3",
+            "id" : "R_23-810-X-sj2-1-H-3"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-9-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-9-TA",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M19S pasd"
+            ],
+            [
+               "2160146",
+               "1M46S pasd"
+            ],
+            [
+               "2160229",
+               "1M29S pasd"
+            ],
+            [
+               "2160148",
+               "1M20S pasd"
+            ],
+            [
+               "2160149",
+               "1M33S pasd"
+            ],
+            [
+               "2160113",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-21-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-21-TA",
+      "leaves" : "16:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-3-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-3-TA",
+      "leaves" : "17:47:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Parramatta Interchange - Butu Wargun Dr near Greystanes Rd",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-3",
+            "id" : "R_23-810-X-sj2-1-H-3"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-13-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-13-TA",
+      "leaves" : "17:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M19S pasd"
+            ],
+            [
+               "2160146",
+               "1M46S pasd"
+            ],
+            [
+               "2160229",
+               "1M29S pasd"
+            ],
+            [
+               "2160148",
+               "1M20S pasd"
+            ],
+            [
+               "2160149",
+               "1M33S pasd"
+            ],
+            [
+               "2160113",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-1-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-1-TA",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M40S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160252",
+               "28S pasd"
+            ],
+            [
+               "2160119",
+               "1M7S pasd"
+            ],
+            [
+               "216083",
+               "49S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145339",
+               "20S pasd"
+            ],
+            [
+               "2145340",
+               "24S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-1",
+            "id" : "R_23-810-X-sj2-1-R-1"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-11-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-11-TA",
+      "leaves" : "16:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M42S pasd"
+            ],
+            [
+               "2145523",
+               "1M30S pasd"
+            ],
+            [
+               "2145526",
+               "2M38S pasd"
+            ],
+            [
+               "2145520",
+               "2M29S pasd"
+            ],
+            [
+               "2145395",
+               "1M41S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "22S pasd"
+            ],
+            [
+               "2145441",
+               "33S pasd"
+            ],
+            [
+               "2145442",
+               "47S pasd"
+            ],
+            [
+               "2145443",
+               "1M7S pasd"
+            ],
+            [
+               "2145444",
+               "35S pasd"
+            ],
+            [
+               "2145445",
+               "47S pasd"
+            ],
+            [
+               "2145446",
+               "1M15S pasd"
+            ],
+            [
+               "2145447",
+               "56S pasd"
+            ],
+            [
+               "2145448",
+               "15S pasd"
+            ],
+            [
+               "2145316",
+               "12S pasd"
+            ],
+            [
+               "214537",
+               "16S pasd"
+            ],
+            [
+               "214538",
+               "14S pasd"
+            ],
+            [
+               "214539",
+               "18S pasd"
+            ],
+            [
+               "2145318",
+               "9S pasd"
+            ],
+            [
+               "2145319",
+               "24S pasd"
+            ],
+            [
+               "2145320",
+               "12S pasd"
+            ],
+            [
+               "2145581",
+               "43S pasd"
+            ],
+            [
+               "2145288",
+               "21S pasd"
+            ],
+            [
+               "2145289",
+               "32S pasd"
+            ],
+            [
+               "2145290",
+               "20S pasd"
+            ],
+            [
+               "2145291",
+               "27S pasd"
+            ],
+            [
+               "2145293",
+               "25S pasd"
+            ],
+            [
+               "2145294",
+               "36S pasd"
+            ],
+            [
+               "2145295",
+               "33S pasd"
+            ],
+            [
+               "2145296",
+               "31S pasd"
+            ],
+            [
+               "2145297",
+               "31S pasd"
+            ],
+            [
+               "2145298",
+               "32S pasd"
+            ],
+            [
+               "2145300",
+               "52S pasd"
+            ],
+            [
+               "2145301",
+               "37S pasd"
+            ],
+            [
+               "2145624",
+               "25S pasd"
+            ],
+            [
+               "2145352",
+               "42S pasd"
+            ],
+            [
+               "2145353",
+               "26S pasd"
+            ],
+            [
+               "2145354",
+               "27S pasd"
+            ],
+            [
+               "2145355",
+               "22S pasd"
+            ],
+            [
+               "2145356",
+               "18S pasd"
+            ],
+            [
+               "2145357",
+               "26S pasd"
+            ],
+            [
+               "2145358",
+               "23S pasd"
+            ],
+            [
+               "2145359",
+               "17S pasd"
+            ],
+            [
+               "2145360",
+               "17S pasd"
+            ],
+            [
+               "2145361",
+               "26S pasd"
+            ],
+            [
+               "2145362",
+               "33S pasd"
+            ],
+            [
+               "2145363",
+               "28S pasd"
+            ],
+            [
+               "214548",
+               "36S pasd"
+            ],
+            [
+               "214527",
+               "54S pasd"
+            ],
+            [
+               "216073",
+               "1M35S pasd"
+            ],
+            [
+               "2160160",
+               "28S pasd"
+            ],
+            [
+               "2160161",
+               "37S pasd"
+            ],
+            [
+               "2160162",
+               "22S pasd"
+            ],
+            [
+               "2160163",
+               "22S pasd"
+            ],
+            [
+               "2160164",
+               "20S pasd"
+            ],
+            [
+               "216088",
+               "45S pasd"
+            ],
+            [
+               "216089",
+               "34S pasd"
+            ],
+            [
+               "216090",
+               "34S pasd"
+            ],
+            [
+               "216091",
+               "32S pasd"
+            ],
+            [
+               "216092",
+               "51S pasd"
+            ],
+            [
+               "2160144",
+               "1M19S pasd"
+            ],
+            [
+               "2160146",
+               "1M46S pasd"
+            ],
+            [
+               "2160229",
+               "1M29S pasd"
+            ],
+            [
+               "2160148",
+               "1M20S pasd"
+            ],
+            [
+               "2160149",
+               "1M33S pasd"
+            ],
+            [
+               "2160113",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Parramatta Interchange - Merrylands Station",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-4",
+            "id" : "R_23-810-X-sj2-1-H-4"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-25-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-25-TA",
+      "leaves" : "08:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2150107",
+               null
+            ],
+            [
+               "2150304",
+               "2M57S pasd"
+            ],
+            [
+               "2145523",
+               "1M38S pasd"
+            ],
+            [
+               "2145526",
+               "2M52S pasd"
+            ],
+            [
+               "2145520",
+               "2M43S pasd"
+            ],
+            [
+               "2145395",
+               "1M50S pasd"
+            ],
+            [
+               "2145396",
+               "35S pasd"
+            ],
+            [
+               "2145486",
+               "22S pasd"
+            ],
+            [
+               "2145487",
+               "1M1S pasd"
+            ],
+            [
+               "2145510",
+               "46S pasd"
+            ],
+            [
+               "2145511",
+               "34S pasd"
+            ],
+            [
+               "2145512",
+               "30S pasd"
+            ],
+            [
+               "2145513",
+               "58S pasd"
+            ],
+            [
+               "2145432",
+               "43S pasd"
+            ],
+            [
+               "2145433",
+               "1M1S pasd"
+            ],
+            [
+               "2145434",
+               "19S pasd"
+            ],
+            [
+               "2145541",
+               "23S pasd"
+            ],
+            [
+               "2145538",
+               "1M14S pasd"
+            ],
+            [
+               "2145371",
+               "12S pasd"
+            ],
+            [
+               "2148436",
+               "12S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-11-H-3",
+         "route" : {
+            "name" : "Parramatta Interchange - Butu Wargun Dr near Greystanes Rd",
+            "rs_ref" : "RS_23-810-X-sj2-1-H-3",
+            "id" : "R_23-810-X-sj2-1-H-3"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   },
+   "VJ_23-810-X-sj2-1-23-TA" : {
+      "vjcode" : "VJ_23-810-X-sj2-1-23-TA",
+      "leaves" : "17:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2160113",
+               null
+            ],
+            [
+               "216031",
+               "1M6S pasd"
+            ],
+            [
+               "2160115",
+               "1M10S pasd"
+            ],
+            [
+               "2160116",
+               "1M42S pasd"
+            ],
+            [
+               "2160117",
+               "40S pasd"
+            ],
+            [
+               "2160119",
+               "1M32S pasd"
+            ],
+            [
+               "216083",
+               "50S pasd"
+            ],
+            [
+               "216084",
+               "56S pasd"
+            ],
+            [
+               "216085",
+               "45S pasd"
+            ],
+            [
+               "216086",
+               "22S pasd"
+            ],
+            [
+               "2160105",
+               "43S pasd"
+            ],
+            [
+               "2160131",
+               "57S pasd"
+            ],
+            [
+               "2160132",
+               "22S pasd"
+            ],
+            [
+               "2160133",
+               "23S pasd"
+            ],
+            [
+               "2160134",
+               "26S pasd"
+            ],
+            [
+               "2160135",
+               "44S pasd"
+            ],
+            [
+               "214528",
+               "35S pasd"
+            ],
+            [
+               "2145260",
+               "8S pasd"
+            ],
+            [
+               "214529",
+               "1M39S pasd"
+            ],
+            [
+               "2145519",
+               "50S pasd"
+            ],
+            [
+               "2145331",
+               "36S pasd"
+            ],
+            [
+               "2145332",
+               "23S pasd"
+            ],
+            [
+               "2145333",
+               "36S pasd"
+            ],
+            [
+               "2145334",
+               "25S pasd"
+            ],
+            [
+               "2145335",
+               "26S pasd"
+            ],
+            [
+               "2145336",
+               "25S pasd"
+            ],
+            [
+               "2145337",
+               "27S pasd"
+            ],
+            [
+               "2145338",
+               "23S pasd"
+            ],
+            [
+               "2145340",
+               "44S pasd"
+            ],
+            [
+               "2145341",
+               "28S pasd"
+            ],
+            [
+               "2145577",
+               "24S pasd"
+            ],
+            [
+               "2145623",
+               "14S pasd"
+            ],
+            [
+               "2145261",
+               "39S pasd"
+            ],
+            [
+               "2145262",
+               "37S pasd"
+            ],
+            [
+               "2145263",
+               "31S pasd"
+            ],
+            [
+               "2145264",
+               "32S pasd"
+            ],
+            [
+               "2145265",
+               "37S pasd"
+            ],
+            [
+               "2145266",
+               "29S pasd"
+            ],
+            [
+               "2145267",
+               "14S pasd"
+            ],
+            [
+               "2145268",
+               "21S pasd"
+            ],
+            [
+               "2145269",
+               "29S pasd"
+            ],
+            [
+               "2145270",
+               "29S pasd"
+            ],
+            [
+               "2145271",
+               "32S pasd"
+            ],
+            [
+               "2145272",
+               "26S pasd"
+            ],
+            [
+               "2145273",
+               "25S pasd"
+            ],
+            [
+               "2145274",
+               "28S pasd"
+            ],
+            [
+               "2145275",
+               "26S pasd"
+            ],
+            [
+               "2145592",
+               "17S pasd"
+            ],
+            [
+               "2145312",
+               "1M7S pasd"
+            ],
+            [
+               "2145313",
+               "12S pasd"
+            ],
+            [
+               "2145314",
+               "14S pasd"
+            ],
+            [
+               "214540",
+               "13S pasd"
+            ],
+            [
+               "214541",
+               "18S pasd"
+            ],
+            [
+               "214542",
+               "21S pasd"
+            ],
+            [
+               "2145315",
+               "9S pasd"
+            ],
+            [
+               "2145364",
+               "12S pasd"
+            ],
+            [
+               "2145365",
+               "21S pasd"
+            ],
+            [
+               "2145366",
+               "56S pasd"
+            ],
+            [
+               "2145367",
+               "1M10S pasd"
+            ],
+            [
+               "2145368",
+               "50S pasd"
+            ],
+            [
+               "2145369",
+               "32S pasd"
+            ],
+            [
+               "2145538",
+               "1M33S pasd"
+            ],
+            [
+               "2145371",
+               "23S pasd"
+            ],
+            [
+               "2148436",
+               "36S pasd"
+            ],
+            [
+               "2145441",
+               "21S pasd"
+            ],
+            [
+               "2145442",
+               "31S pasd"
+            ],
+            [
+               "2145449",
+               "1M40S pasd"
+            ],
+            [
+               "2145450",
+               "38S pasd"
+            ],
+            [
+               "2145451",
+               "58S pasd"
+            ],
+            [
+               "2145452",
+               "53S pasd"
+            ],
+            [
+               "2145453",
+               "1M5S pasd"
+            ],
+            [
+               "2145455",
+               "49S pasd"
+            ],
+            [
+               "2145456",
+               "40S pasd"
+            ],
+            [
+               "2145457",
+               "36S pasd"
+            ],
+            [
+               "2145458",
+               "33S pasd"
+            ],
+            [
+               "2145459",
+               "49S pasd"
+            ],
+            [
+               "2145460",
+               "29S pasd"
+            ],
+            [
+               "2145461",
+               "58S pasd"
+            ],
+            [
+               "2145462",
+               "1M21S pasd"
+            ],
+            [
+               "2145522",
+               "1M16S pasd"
+            ],
+            [
+               "2145525",
+               "4M45S pasd"
+            ],
+            [
+               "2145524",
+               "3M19S pasd"
+            ],
+            [
+               "2150302",
+               "3M5S pasd"
+            ],
+            [
+               "2150114",
+               "3M5S pasd"
+            ]
+         ],
+         "id" : "JP_23-810-X-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Merrylands Station - Parramatta Interchange",
+            "rs_ref" : "RS_23-810-X-sj2-1-R-6",
+            "id" : "R_23-810-X-sj2-1-R-6"
+         }
+      },
+      "service" : "23-810-X-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "810X"
+   }
+}
+;
+

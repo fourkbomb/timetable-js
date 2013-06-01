@@ -1,0 +1,626 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-757-b-sj2-1" : "757"
+}
+;
+
+var stations = {
+   "210341" : "Waratah St Nr Bungan St",
+   "210414" : "Pittwater Rd Nr Marina",
+   "210516" : "Mccarrs Creek Rd Nr Marina",
+   "210520" : "McCarrs Creek Rd nr No 167",
+   "210242" : "Warriewood Rd Nr Moriac St",
+   "210239" : "Warriewood Rd Nr Alameda Wy",
+   "210523" : "McCarrs Creek Rd nr No 223",
+   "210240" : "Warriewood Rd Nr Manooka Pl",
+   "210512" : "Pittwater Rd 100m N of Bakers Rd",
+   "210539" : "Pittwater Rd Opp Church Point Wharf",
+   "210531" : "McCarrs Creek Rd 400m S of Marina",
+   "210524" : "McCarrs Creek Terminus",
+   "210517" : "McCarrs Creek Rd 400m S of Marina",
+   "210236" : "Macpherson St Nr Brands Lane",
+   "210365" : "Keenan St Nr Park St",
+   "210327" : "Pittwater Rd Nr Darley St West",
+   "210359" : "Samuel St Nr Cabbage Tree Rd",
+   "210519" : "McCarrs Creek Rd nr No 147",
+   "210237" : "Macpherson St Nr Boondah Rd",
+   "210528" : "McCarrs Creek Rd nr No 96",
+   "210238" : "Warriewood Rd Nr Macpherson St",
+   "210358" : "Samuel St Nr Whitney St",
+   "210511" : "Pittwater Rd Nr Bakers Rd",
+   "210342" : "Waratah St Nr Mona Vale Primary",
+   "210521" : "Mccarrs Creek Rd Nr Walker Pl",
+   "210243" : "Warriewood Rd Nr Valley View Cct",
+   "210221" : "Mater Maria School",
+   "210235" : "Garden St Nr Macpherson St",
+   "210525" : "McCarrs Creek Rd nr No 180",
+   "210417" : "Pittwater Rd nr Kananook Av",
+   "210513" : "Pittwater Rd Nr Eastview Rd",
+   "210432" : "Parkland Rd Nr Whitney St",
+   "210514" : "Pittwater Rd Nr Ferry Wharf",
+   "210328" : "Pittwater Rd Nr Mona St",
+   "210411" : "Pittwater Rd nr Cabbage Tree Rd",
+   "210418" : "Pittwater Rd 300m N Of Kananook Av",
+   "210529" : "McCarrs Creek Rd nr No 92",
+   "210532" : "Mccarrs Creek Rd Nr Marina",
+   "210518" : "McCarrs Creek Rd nr No 109",
+   "210357" : "Samuel St Nr Minmai Rd",
+   "210356" : "Samuel St Nr Mona Vale Rd",
+   "210535" : "Pittwater Rd nr Church Point Reserve",
+   "21051" : "Mccarrs Creek Rd Nr Cargo Wharf",
+   "210244" : "Warriewood Rd Nr Harris St",
+   "210526" : "Mccarrs Creek Rd 150m S Of Walker Pl",
+   "210416" : "Pittwater Rd nr Jendi Av",
+   "210527" : "Mccarrs Creek Rd Nr Walker Pl",
+   "210223" : "Macpherson St nr Garden St",
+   "210530" : "McCarrs Creek Rd nr No 76",
+   "210515" : "Mccarrs Creek Rd Nr Cargo Wharf",
+   "210412" : "Pittwater Rd nr Gerroa Av",
+   "210413" : "Pittwater Rd nr King Edward Av",
+   "210534" : "McCarrs Creek Rd nr Commuter Wharf",
+   "210522" : "Mccarrs Creek Rd 150m S Of Walker Pl",
+   "210360" : "Parkland Rd Nr Peita Cr",
+   "210415" : "Pittwater Rd Nr Loquat Valley Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-757-b-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-757-b-sj2-1-2-b009h",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210342",
+               null
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "2M pasd"
+            ],
+            [
+               "210328",
+               "0S pasd"
+            ],
+            [
+               "210411",
+               "1M pasd"
+            ],
+            [
+               "210412",
+               "1M pasd"
+            ],
+            [
+               "210413",
+               "0S pasd"
+            ],
+            [
+               "210414",
+               "1M pasd"
+            ],
+            [
+               "210415",
+               "1M pasd"
+            ],
+            [
+               "210416",
+               "0S pasd"
+            ],
+            [
+               "210417",
+               "1M pasd"
+            ],
+            [
+               "210418",
+               "1M pasd"
+            ],
+            [
+               "210511",
+               "0S pasd"
+            ],
+            [
+               "210512",
+               "1M pasd"
+            ],
+            [
+               "210513",
+               "1M pasd"
+            ],
+            [
+               "210514",
+               "1M pasd"
+            ],
+            [
+               "210539",
+               "0S pasd"
+            ],
+            [
+               "210515",
+               "1M pasd"
+            ],
+            [
+               "210516",
+               "0S pasd"
+            ],
+            [
+               "210517",
+               "1M pasd"
+            ],
+            [
+               "210518",
+               "0S pasd"
+            ],
+            [
+               "210519",
+               "1M pasd"
+            ],
+            [
+               "210520",
+               "0S pasd"
+            ],
+            [
+               "210521",
+               "0S pasd"
+            ],
+            [
+               "210522",
+               "1M pasd"
+            ],
+            [
+               "210523",
+               "0S pasd"
+            ],
+            [
+               "210524",
+               "1M pasd"
+            ],
+            [
+               "210525",
+               "1M pasd"
+            ],
+            [
+               "210526",
+               "0S pasd"
+            ],
+            [
+               "210527",
+               "1M pasd"
+            ],
+            [
+               "210528",
+               "0S pasd"
+            ],
+            [
+               "210529",
+               "0S pasd"
+            ],
+            [
+               "210530",
+               "1M pasd"
+            ],
+            [
+               "210531",
+               "0S pasd"
+            ],
+            [
+               "210532",
+               "1M pasd"
+            ],
+            [
+               "21051",
+               "0S pasd"
+            ],
+            [
+               "210534",
+               "1M pasd"
+            ],
+            [
+               "210535",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-757-b-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Waratah St Nr Mona Vale Primary - Pittwater Rd Nr Church Point Wharf",
+            "rs_ref" : "RS_99-757-b-sj2-1-R-2",
+            "id" : "R_99-757-b-sj2-1-R-2"
+         }
+      },
+      "service" : "99-757-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   },
+   "VJ_99-757-b-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-757-b-sj2-1-1-b009h",
+      "leaves" : "08:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210238",
+               "1M pasd"
+            ],
+            [
+               "210239",
+               "0S pasd"
+            ],
+            [
+               "210240",
+               "1M pasd"
+            ],
+            [
+               "210242",
+               "1M pasd"
+            ],
+            [
+               "210243",
+               "0S pasd"
+            ],
+            [
+               "210244",
+               "1M pasd"
+            ],
+            [
+               "210356",
+               "1M pasd"
+            ],
+            [
+               "210357",
+               "1M pasd"
+            ],
+            [
+               "210358",
+               "0S pasd"
+            ],
+            [
+               "210359",
+               "0S pasd"
+            ],
+            [
+               "210432",
+               "1M pasd"
+            ],
+            [
+               "210360",
+               "0S pasd"
+            ],
+            [
+               "210341",
+               "3M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-757-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Mater Maria School - Keenan St Nr Park St",
+            "rs_ref" : "RS_99-757-b-sj2-1-H-1",
+            "id" : "R_99-757-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-757-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   },
+   "VJ_99-757-b-sj2-1-3-b009g" : {
+      "vjcode" : "VJ_99-757-b-sj2-1-3-b009g",
+      "leaves" : "08:26:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210238",
+               "1M pasd"
+            ],
+            [
+               "210239",
+               "0S pasd"
+            ],
+            [
+               "210240",
+               "1M pasd"
+            ],
+            [
+               "210242",
+               "1M pasd"
+            ],
+            [
+               "210243",
+               "0S pasd"
+            ],
+            [
+               "210244",
+               "1M pasd"
+            ],
+            [
+               "210356",
+               "1M pasd"
+            ],
+            [
+               "210357",
+               "1M pasd"
+            ],
+            [
+               "210358",
+               "0S pasd"
+            ],
+            [
+               "210359",
+               "0S pasd"
+            ],
+            [
+               "210432",
+               "1M pasd"
+            ],
+            [
+               "210360",
+               "0S pasd"
+            ],
+            [
+               "210341",
+               "3M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-757-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Mater Maria School - Keenan St Nr Park St",
+            "rs_ref" : "RS_99-757-b-sj2-1-H-1",
+            "id" : "R_99-757-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-757-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   },
+   "VJ_99-757-b-sj2-1-4-b009g" : {
+      "vjcode" : "VJ_99-757-b-sj2-1-4-b009g",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210342",
+               null
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "2M pasd"
+            ],
+            [
+               "210328",
+               "0S pasd"
+            ],
+            [
+               "210411",
+               "1M pasd"
+            ],
+            [
+               "210412",
+               "1M pasd"
+            ],
+            [
+               "210413",
+               "0S pasd"
+            ],
+            [
+               "210414",
+               "1M pasd"
+            ],
+            [
+               "210415",
+               "1M pasd"
+            ],
+            [
+               "210416",
+               "0S pasd"
+            ],
+            [
+               "210417",
+               "1M pasd"
+            ],
+            [
+               "210418",
+               "1M pasd"
+            ],
+            [
+               "210511",
+               "0S pasd"
+            ],
+            [
+               "210512",
+               "1M pasd"
+            ],
+            [
+               "210513",
+               "1M pasd"
+            ],
+            [
+               "210514",
+               "1M pasd"
+            ],
+            [
+               "210539",
+               "0S pasd"
+            ],
+            [
+               "210515",
+               "1M pasd"
+            ],
+            [
+               "210516",
+               "0S pasd"
+            ],
+            [
+               "210517",
+               "1M pasd"
+            ],
+            [
+               "210518",
+               "0S pasd"
+            ],
+            [
+               "210519",
+               "1M pasd"
+            ],
+            [
+               "210520",
+               "0S pasd"
+            ],
+            [
+               "210521",
+               "0S pasd"
+            ],
+            [
+               "210522",
+               "1M pasd"
+            ],
+            [
+               "210523",
+               "0S pasd"
+            ],
+            [
+               "210524",
+               "1M pasd"
+            ],
+            [
+               "210525",
+               "1M pasd"
+            ],
+            [
+               "210526",
+               "0S pasd"
+            ],
+            [
+               "210527",
+               "1M pasd"
+            ],
+            [
+               "210528",
+               "0S pasd"
+            ],
+            [
+               "210529",
+               "0S pasd"
+            ],
+            [
+               "210530",
+               "1M pasd"
+            ],
+            [
+               "210531",
+               "0S pasd"
+            ],
+            [
+               "210532",
+               "1M pasd"
+            ],
+            [
+               "21051",
+               "0S pasd"
+            ],
+            [
+               "210534",
+               "1M pasd"
+            ],
+            [
+               "210535",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-757-b-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Waratah St Nr Mona Vale Primary - Pittwater Rd Nr Church Point Wharf",
+            "rs_ref" : "RS_99-757-b-sj2-1-R-2",
+            "id" : "R_99-757-b-sj2-1-R-2"
+         }
+      },
+      "service" : "99-757-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   }
+}
+;
+

@@ -1,0 +1,489 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-614-c-sj2-1" : "614"
+}
+;
+
+var stations = {
+   "2031117" : "Avoca St Nr Frances St",
+   "202419" : "Albion St Nr Macpherson St",
+   "203420" : "Malabar Rd Nr Nymboida St",
+   "2035160" : "Torrington Rd Nr Malabar Rd",
+   "202264" : "Birrell St Nr Goldie Av",
+   "2031126" : "Albion St Nr Hooper St",
+   "203125" : "Oberon St Nr Canberra St",
+   "203559" : "Anzac Pde Nr Byng St",
+   "2035143" : "Marine Pde nr Maroubra Rd",
+   "2031124" : "Frenchmans Rd Nr Barrett Pl",
+   "203424" : "Oberon St Nr Mount St",
+   "203422" : "Arden St Nr Malabar Rd",
+   "2031115" : "Alison Rd Nr Belmore Rd",
+   "203418" : "Malabar Rd Opp Mermaid Av",
+   "2035121" : "Yorktown Pde Nr New Orleans Cr",
+   "202421" : "Albion St Nr Bronte Rd",
+   "2035156" : "Marine Pde Nr Bond St",
+   "2035141" : "Mckeon St Nr Hereward St",
+   "202233" : "Bronte Rd Nr Birrell St",
+   "2035140" : "Duncan St Nr Maroubra Bay Primary",
+   "202422" : "Bronte Rd Nr Carrington Rd",
+   "203425" : "Oberon St Nr Hendy St",
+   "203558" : "Anzac Pde Nr Maroubra Rd",
+   "2035108" : "Malabar Rd Nr Fitzgerald Av",
+   "203126" : "Canberra St Nr Howard St",
+   "2031119" : "Avoca St Nr Frenchmans Rd",
+   "2035193" : "Torrington Rd nr Wilson St",
+   "203135" : "Belmore Rd Nr Arthur St",
+   "202263" : "Birrell St Nr Council St",
+   "203419" : "Malabar Rd Opp Liguria St",
+   "2031116" : "Alison Rd Nr Avoca St",
+   "203136" : "Belmore Rd Nr Alison Rd",
+   "2035159" : "Torrington Rd Nr Inman St",
+   "203561" : "Anzac Pde nr Fitzgerald Av",
+   "203421" : "Malabar Rd Nr Moverly Rd",
+   "203423" : "Oberon St Nr Arden St",
+   "203157" : "Frenchmans Rd Nr Clovelly Rd",
+   "2035137" : "Malabar Rd Nr Mons Av",
+   "203562" : "Anzac Pde Nr Minneapolis Cr",
+   "2035110" : "Minneapolis Cr Nr Chicago Av",
+   "203124" : "Oberon St Opp Henry St",
+   "2035113" : "Minneapolis Cr Nr Midway Dr",
+   "203133" : "Perouse Rd Nr Soudan St",
+   "2031125" : "Frenchmans Rd Nr Gilderthorpe Av",
+   "202423" : "Bronte Rd Nr Waverley Court House",
+   "2035142" : "Marine Pde Nr Mckeon St",
+   "203134" : "Perouse Rd Nr Cuthill St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-614-c-sj2-1-1-b00ar" : {
+      "vjcode" : "VJ_99-614-c-sj2-1-1-b00ar",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203558",
+               null
+            ],
+            [
+               "203559",
+               "1M pasd"
+            ],
+            [
+               "203561",
+               "0S pasd"
+            ],
+            [
+               "203562",
+               "1M pasd"
+            ],
+            [
+               "2035110",
+               "0S pasd"
+            ],
+            [
+               "2035113",
+               "1M pasd"
+            ],
+            [
+               "2035121",
+               "1M pasd"
+            ],
+            [
+               "2035108",
+               "1M pasd"
+            ],
+            [
+               "2035137",
+               "0S pasd"
+            ],
+            [
+               "2035140",
+               "1M pasd"
+            ],
+            [
+               "2035141",
+               "1M pasd"
+            ],
+            [
+               "2035142",
+               "0S pasd"
+            ],
+            [
+               "2035143",
+               "0S pasd"
+            ],
+            [
+               "2035156",
+               "1M pasd"
+            ],
+            [
+               "2035193",
+               "1M pasd"
+            ],
+            [
+               "2035159",
+               "1M pasd"
+            ],
+            [
+               "2035160",
+               "1M pasd"
+            ],
+            [
+               "203418",
+               "0S pasd"
+            ],
+            [
+               "203419",
+               "1M pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203423",
+               "1M pasd"
+            ],
+            [
+               "203424",
+               "1M pasd"
+            ],
+            [
+               "203425",
+               "0S pasd"
+            ],
+            [
+               "203124",
+               "1M pasd"
+            ],
+            [
+               "203125",
+               "0S pasd"
+            ],
+            [
+               "203126",
+               "1M pasd"
+            ],
+            [
+               "203133",
+               "1M pasd"
+            ],
+            [
+               "203134",
+               "1M pasd"
+            ],
+            [
+               "203135",
+               "2M pasd"
+            ],
+            [
+               "203136",
+               "1M pasd"
+            ],
+            [
+               "2031115",
+               "1M pasd"
+            ],
+            [
+               "2031116",
+               "0S pasd"
+            ],
+            [
+               "2031117",
+               "2M pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "0S pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "0S pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "0S pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202263",
+               "1M pasd"
+            ],
+            [
+               "202264",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-614-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Maroubra Rd - Birrell St Nr Goldie Av",
+            "rs_ref" : "RS_99-614-c-sj2-1-H-1",
+            "id" : "R_99-614-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-614-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "614"
+   },
+   "VJ_99-614-c-sj2-1-2-b00bd" : {
+      "vjcode" : "VJ_99-614-c-sj2-1-2-b00bd",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203558",
+               null
+            ],
+            [
+               "203559",
+               "1M pasd"
+            ],
+            [
+               "203561",
+               "0S pasd"
+            ],
+            [
+               "203562",
+               "1M pasd"
+            ],
+            [
+               "2035110",
+               "0S pasd"
+            ],
+            [
+               "2035113",
+               "1M pasd"
+            ],
+            [
+               "2035121",
+               "1M pasd"
+            ],
+            [
+               "2035108",
+               "1M pasd"
+            ],
+            [
+               "2035137",
+               "0S pasd"
+            ],
+            [
+               "2035140",
+               "1M pasd"
+            ],
+            [
+               "2035141",
+               "1M pasd"
+            ],
+            [
+               "2035142",
+               "0S pasd"
+            ],
+            [
+               "2035143",
+               "0S pasd"
+            ],
+            [
+               "2035156",
+               "1M pasd"
+            ],
+            [
+               "2035193",
+               "1M pasd"
+            ],
+            [
+               "2035159",
+               "1M pasd"
+            ],
+            [
+               "2035160",
+               "1M pasd"
+            ],
+            [
+               "203418",
+               "0S pasd"
+            ],
+            [
+               "203419",
+               "1M pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203423",
+               "1M pasd"
+            ],
+            [
+               "203424",
+               "1M pasd"
+            ],
+            [
+               "203425",
+               "0S pasd"
+            ],
+            [
+               "203124",
+               "1M pasd"
+            ],
+            [
+               "203125",
+               "0S pasd"
+            ],
+            [
+               "203126",
+               "1M pasd"
+            ],
+            [
+               "203133",
+               "1M pasd"
+            ],
+            [
+               "203134",
+               "1M pasd"
+            ],
+            [
+               "203135",
+               "2M pasd"
+            ],
+            [
+               "203136",
+               "1M pasd"
+            ],
+            [
+               "2031115",
+               "1M pasd"
+            ],
+            [
+               "2031116",
+               "0S pasd"
+            ],
+            [
+               "2031117",
+               "2M pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "0S pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "0S pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "0S pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202263",
+               "1M pasd"
+            ],
+            [
+               "202264",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-614-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Maroubra Rd - Birrell St Nr Goldie Av",
+            "rs_ref" : "RS_99-614-c-sj2-1-H-1",
+            "id" : "R_99-614-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-614-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "614"
+   }
+}
+;
+

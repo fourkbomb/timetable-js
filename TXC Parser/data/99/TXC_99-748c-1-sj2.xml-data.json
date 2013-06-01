@@ -1,0 +1,439 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-748-c-sj2-1" : "748"
+}
+;
+
+var stations = {
+   "209759" : "Edgecliffe Bvd nr Hilma St",
+   "209758" : "Telopea St nr Hilma St",
+   "209763" : "Edgecliffe Bvd nr Fuller St",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "209751" : "Parkes Rd nr South Creek Rd",
+   "2100109" : "Condamine St nr Fishbourne Rd",
+   "209754" : "Anzac Av nr Kangaroo Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "209748" : "Heather St nr Kirkstone Rd",
+   "209749" : "Ambleside St nr Crummock St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "209765" : "Veterans Pde nr Acacia St",
+   "209764" : "Veterans Pde Nr Edgecliffe Bvd",
+   "2093177" : "Campbell Pde Nr Condamine St",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "209756" : "Plateau Rd nr David Rd",
+   "209762" : "Edgecliffe Bvd nr Blandford St",
+   "2100110" : "Condamine St nr Pozieres Pde",
+   "209752" : "Parkes Rd Nr Westmoreland Av",
+   "209761" : "Edgecliffe Bvd Nr Aubreen St",
+   "209760" : "Edgecliffe Bvd Nr Acacia St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209912" : "Pittwater Rd Nr Pacific Pde",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "2100170" : "St Augustines School",
+   "2093164" : "Campbell Pde Nr Mackellar Ghs Stand 12",
+   "209745" : "Rose Av Nr Veterans Pde",
+   "210011" : "Condamine St nr James St",
+   "209785" : "South Creek Rd opp Pittwater House School",
+   "209747" : "Kirkstone Rd Nr Carlisle St",
+   "209911" : "Pittwater Rd nr May Rd",
+   "209757" : "Aubreen St nr Telopea St",
+   "209913" : "Pittwater Rd nr St Davids Av",
+   "209755" : "Plateau Rd Nr Hilma St",
+   "209322" : "Condamine St nr Sloane Cr",
+   "209746" : "Rose Av nr Berith St",
+   "209766" : "Veterans Pde Nr Rose Av",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2099217" : "South Creek Rd nr Pittwater Rd",
+   "209753" : "Parkes Rd Nr Orlando Rd",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-748-c-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-748-c-sj2-1-2-b00b7",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093164",
+               null
+            ],
+            [
+               "2093177",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "1M pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "4M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "2M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "2099217",
+               "0S pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "1M pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "1M pasd"
+            ],
+            [
+               "209754",
+               "0S pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "1M pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "0S pasd"
+            ],
+            [
+               "209765",
+               "1M pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209745",
+               "0S pasd"
+            ],
+            [
+               "209746",
+               "1M pasd"
+            ],
+            [
+               "209747",
+               "1M pasd"
+            ],
+            [
+               "209748",
+               "1M pasd"
+            ],
+            [
+               "209749",
+               "0S pasd"
+            ],
+            [
+               "209750",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-748-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - South Creek Rd nr Penrith Av",
+            "rs_ref" : "RS_99-748-c-sj2-1-R-1",
+            "id" : "R_99-748-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   },
+   "VJ_99-748-c-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-748-c-sj2-1-1-b00b2",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093164",
+               null
+            ],
+            [
+               "2093177",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "1M pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "4M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "2M pasd"
+            ],
+            [
+               "209912",
+               "1M pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "0S pasd"
+            ],
+            [
+               "209916",
+               "1M pasd"
+            ],
+            [
+               "2099217",
+               "0S pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "1M pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "1M pasd"
+            ],
+            [
+               "209754",
+               "0S pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "1M pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "0S pasd"
+            ],
+            [
+               "209765",
+               "1M pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209745",
+               "0S pasd"
+            ],
+            [
+               "209746",
+               "1M pasd"
+            ],
+            [
+               "209747",
+               "1M pasd"
+            ],
+            [
+               "209748",
+               "1M pasd"
+            ],
+            [
+               "209749",
+               "0S pasd"
+            ],
+            [
+               "209750",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-748-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - South Creek Rd nr Penrith Av",
+            "rs_ref" : "RS_99-748-c-sj2-1-R-1",
+            "id" : "R_99-748-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   }
+}
+;
+

@@ -1,0 +1,897 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-863-_-sj2-1" : "863"
+}
+;
+
+var stations = {
+   "228432" : "Lake Rd opp Cockle Creek Station",
+   "2282164" : "Wyndham Wy Nr Tingira Dr",
+   "2284113" : "Speers St opp Quarry Rd",
+   "2285134" : "Newcastle St nr St Kevins Primary",
+   "228598" : "Wallsend Rd opp Rowes Ln",
+   "2285161" : "Rudolph Steiner School",
+   "2284111" : "Thompson Rd nr Speers St",
+   "228026" : "Pacific Hwy nr York Cr",
+   "2282162" : "Wyndham Wy Opp Woodside Dr",
+   "2285140" : "Main Rd nr Hendrick St",
+   "228217" : "Medcalf St Nr Maurie Av",
+   "2282170" : "Wyndham Wy Nr Glad Gunson Dr",
+   "228916" : "Garden Suburbs Scouts Myall Rd",
+   "228294" : "Mills St Opp Warners Bay Primary",
+   "2284119" : "Speers St nr Lakeview St",
+   "228274" : "Bayview St Nr Yorston St",
+   "228519" : "Main Rd nr Frederick St",
+   "2282137" : "Glad Gunson Dr Opp Pindimar Cl",
+   "2282126" : "Jonathan St Opp Janice St",
+   "228579" : "Lowry St Main Rd Near Lowry St",
+   "229016" : "Charlestown Rd nr Powell St",
+   "2282128" : "Cherry Rd 300 E Of Linden Av",
+   "2282120" : "Linden Av Nr Morris St",
+   "228486" : "Lake Rd opp Mine Rescue Station",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "2280232" : "Floraville Rd nr Victoria St",
+   "228061" : "Tingira Dr nr Violet Town Rd",
+   "2282130" : "Glad Gunson Dr Nr Lynn Av",
+   "2284107" : "Thompson Rd Nr Fairfax Rd",
+   "228291" : "Warner St Nr Bayview St",
+   "228218" : "Medcalf St Nr Fairfax Rd",
+   "2280233" : "Floraville Rd nr Harold St",
+   "228434" : "Main Rd Near Fourth St",
+   "2282167" : "Wyndham Wy Nr Woodside Dr",
+   "228523" : "Main Rd opp Wansbeck Valley Rd",
+   "2280238" : "Floraville Rd Nr Floraville Primary",
+   "230580" : "Russell Rd Nr Brett St",
+   "228480" : "Main Rd nr Park Rd",
+   "2305150" : "Lookout Rd 300m N Of Grandview Rd",
+   "228581" : "Main Rd opp Lilian St",
+   "228437" : "Lake Rd nr Princess St",
+   "2280241" : "Floraville Rd nr Maxwell Av",
+   "2280235" : "Floraville Rd nr Violet Town Rd",
+   "2285250" : "Main Rd 200m E of Cockburns Ln",
+   "2284115" : "Speers St nr Main Rd",
+   "228484" : "Main Rd nr First St",
+   "2285139" : "Main Rd nr Curry St",
+   "228442" : "Main Rd Near Fourth St",
+   "2284109" : "Thompson Rd nr Moulden St",
+   "228461" : "Lake Rd nr McLaughlin St",
+   "2284122" : "Speers St Nr Thompson St",
+   "228438" : "Lake Rd opp McLaughlin St",
+   "2285138" : "Main Rd nr Peatties Rd",
+   "228494" : "Lake Rd nr Mine Rescue Station",
+   "229014" : "Charlestown Rd opp Kendall St",
+   "228488" : "Lake Rd opp Waratah St",
+   "228479" : "Main Rd opp Nord St",
+   "228563" : "Main Rd nr Fairleigh St",
+   "228497" : "Main Rd Nr Eighth St",
+   "2282158" : "Glad Gunson Dr Nr Rothbury St",
+   "2282166" : "Wyndham Wy Opp Desreaux Cl",
+   "228068" : "Belmont Christian College",
+   "2285150" : "Reservoir Rd opp Dewrang St",
+   "228272" : "The Esplanade Nr King St",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "2282169" : "Wyndham Wy Nr Mateus Cl",
+   "2285141" : "Main Rd nr Andrew St",
+   "2285167" : "Lake Rd nr Reservoir Rd",
+   "228215" : "Medcalf St Nr Walker St",
+   "2284121" : "Speers St nr Quarry Rd",
+   "2282124" : "Jonathan St Nr Cherry St",
+   "228224" : "Fairfax Rd Nr Vincent St",
+   "228439" : "Lake Rd nr Victoria St",
+   "2282122" : "Linden Av Nr Cherry Rd",
+   "2284124" : "Thompson Rd opp Morse St",
+   "2285136" : "Myall Rd Near Lois Cr",
+   "2280231" : "Floraville Rd Nr Floraville Primary",
+   "228216" : "Medcalf St Nr Albert St",
+   "2284112" : "Speers St Nr Thompson St",
+   "2280305" : "Tingira Dr opp Cassegrain Cl",
+   "2285175" : "Reservoir Rd opp Clarence St",
+   "2285152" : "Reservoir Rd nr Hartford St",
+   "2284110" : "Thompson Rd nr Morse St",
+   "2284126" : "Thompson Rd Nr Fairfax Rd",
+   "228515" : "Main Rd nr Veronica St",
+   "2280234" : "Floraville Rd opp Violet Town Rd",
+   "2280130" : "Tingira Dr nr Wyndham Wy",
+   "228485" : "Lake Rd nr Workers' Club",
+   "2289275" : "Myall Rd Nr Charlestown Rd",
+   "228433" : "Main Rd nr Sixth St",
+   "2282163" : "Wyndham Wy Nr Desreaux Cl",
+   "2280117" : "Wommara Av nr John Fisher Rd",
+   "2282159" : "Wyndham Wy Nr Glad Gunson Dr",
+   "228431" : "Lake Rd nr Cockle Creek Station",
+   "2284125" : "Thompson Rd opp Moulden St",
+   "229013" : "Charlestown Rd nr Kirkdale Dr",
+   "228518" : "Glendale Crossroads",
+   "228027" : "Pacific Hwy",
+   "2282161" : "Wyndham Wy Nr Clearbrook Cl",
+   "2305151" : "Lookout Rd Opp Grandview Rd",
+   "2285162" : "Reservoir Rd opp Valley View Cr",
+   "2282127" : "Jonathan St Nr Cherry Rd",
+   "2282119" : "Linden Av Nr Cherry Rd",
+   "2280122" : "Park St nr Elidge Cr",
+   "228580" : "Main Rd Near Bruce St",
+   "228292" : "Queen St Nr James St",
+   "2290126" : "Charlestown Rd nr Robert St",
+   "2280237" : "Floraville Rd nr Nyanda Av",
+   "2282125" : "Jonathan St Nr Janice St",
+   "228290" : "Queen St Nr Warner St",
+   "230578" : "Russell Rd Opp Baker St",
+   "228285" : "Jonathan St Nr Warners Bay Rd",
+   "2285176" : "Reservoir Rd nr Jubilee Rd",
+   "228499" : "Main Rd nr Nord St",
+   "228289" : "Mills St Nr Warners Bay Primary",
+   "2282168" : "Wyndham Wy Opp Ridgewood Cr",
+   "228517" : "Main Rd Near Glendale Dr",
+   "228443" : "Main Rd nr Sixth St",
+   "2280236" : "Floraville Rd nr Hollway St",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2280120" : "Floraville Rd nr Pacific Hwy",
+   "228578" : "Main Rd opp Taylor St",
+   "2285252" : "Main Rd nr Harrisons Ln",
+   "228219" : "The Esplanade Nr Fairfax Rd",
+   "228269" : "King St Nr Medcalf St",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "228498" : "Main Rd opp Park Rd",
+   "2280240" : "Floraville Rd nr Sampson Av",
+   "2285249" : "Main Rd opp Baptist Church",
+   "228288" : "Jonathan St Nr Warners Bay Rd",
+   "230576" : "Alma Rd Nr Cromwell St",
+   "2280239" : "Floraville Rd nr Griffiths Av",
+   "228582" : "Main Rd opp Poyner Av",
+   "2284114" : "Speers St opp Bradford Cl",
+   "2282160" : "Wyndham Wy Nr Dalwood Cl",
+   "2282114" : "Glad Gunson Dr Nr Eleebana Primary",
+   "2285177" : "Reservoir Rd nr Longworth Av",
+   "2285251" : "Main Rd nr Cockburns Ln",
+   "228462" : "Lake Rd nr Waratah St",
+   "228441" : "Main Rd nr First St",
+   "2282121" : "Linden Av Nr Glad Gunson Dr",
+   "2285135" : "Cardiff High School Myall Rd",
+   "228465" : "Lake Rd opp Workers Club",
+   "228570" : "Myall Rd nr Coronation Av",
+   "228918" : "Charlestown Rd Near Blackbutt Pde",
+   "2280230" : "Floraville Rd nr Park Royal Dr",
+   "2282123" : "Cherry Rd 250m E Of Linden Av",
+   "2280242" : "Floraville Rd nr York Cr",
+   "228577" : "Main Rd nr Newcastle St",
+   "2280304" : "Tingira Dr nr Cassegrain Cl",
+   "228267" : "King St Nr Albert St",
+   "2285153" : "Reservoir Rd nr Wallsend Rd",
+   "2284123" : "Thompson Rd nr Short St",
+   "2285151" : "Reservoir Rd nr Christina St",
+   "2282165" : "Wyndham Wy Nr Stenhouse Dr",
+   "2284120" : "Speers St nr Bradford Cl",
+   "2305175" : "Cardiff Rd Nr Marshall St",
+   "228481" : "Main Rd Nr Eighth St",
+   "228071" : "Wommara Av nr Pacific Hwy",
+   "229015" : "Charlestown Rd nr Willis St",
+   "2282101" : "Bayview St Nr King St",
+   "228489" : "Lake Rd nr Park Av",
+   "2284108" : "Thompson Rd 200m W of Fairfax Rd",
+   "228220" : "The Esplanade Nr Seaman Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-863-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-863-_-sj2-1-2-b0096",
+      "leaves" : "07:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "230576",
+               null
+            ],
+            [
+               "230577",
+               "0S pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "0S pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2305150",
+               "0S pasd"
+            ],
+            [
+               "2305151",
+               "1M pasd"
+            ],
+            [
+               "2305175",
+               "1M pasd"
+            ],
+            [
+               "2285249",
+               "1M pasd"
+            ],
+            [
+               "2285250",
+               "0S pasd"
+            ],
+            [
+               "2285251",
+               "1M pasd"
+            ],
+            [
+               "2285252",
+               "0S pasd"
+            ],
+            [
+               "2285138",
+               "1M pasd"
+            ],
+            [
+               "2285139",
+               "0S pasd"
+            ],
+            [
+               "2285140",
+               "0S pasd"
+            ],
+            [
+               "2285141",
+               "1M pasd"
+            ],
+            [
+               "228577",
+               "0S pasd"
+            ],
+            [
+               "228523",
+               "0S pasd"
+            ],
+            [
+               "228515",
+               "1M pasd"
+            ],
+            [
+               "228578",
+               "1M pasd"
+            ],
+            [
+               "228579",
+               "1M pasd"
+            ],
+            [
+               "228517",
+               "1M pasd"
+            ],
+            [
+               "228580",
+               "0S pasd"
+            ],
+            [
+               "228581",
+               "1M pasd"
+            ],
+            [
+               "228582",
+               "0S pasd"
+            ],
+            [
+               "228518",
+               "1M pasd"
+            ],
+            [
+               "228461",
+               "1M pasd"
+            ],
+            [
+               "228462",
+               "1M pasd"
+            ],
+            [
+               "228439",
+               "1M pasd"
+            ],
+            [
+               "228494",
+               "0S pasd"
+            ],
+            [
+               "228465",
+               "1M pasd"
+            ],
+            [
+               "228432",
+               "1M pasd"
+            ],
+            [
+               "228441",
+               "1M pasd"
+            ],
+            [
+               "228442",
+               "1M pasd"
+            ],
+            [
+               "228443",
+               "0S pasd"
+            ],
+            [
+               "228497",
+               "1M pasd"
+            ],
+            [
+               "228498",
+               "0S pasd"
+            ],
+            [
+               "228499",
+               "0S pasd"
+            ],
+            [
+               "2284119",
+               "1M pasd"
+            ],
+            [
+               "2284120",
+               "0S pasd"
+            ],
+            [
+               "2284121",
+               "1M pasd"
+            ],
+            [
+               "2284122",
+               "1M pasd"
+            ],
+            [
+               "2284123",
+               "0S pasd"
+            ],
+            [
+               "2284124",
+               "0S pasd"
+            ],
+            [
+               "2284125",
+               "1M pasd"
+            ],
+            [
+               "2284126",
+               "0S pasd"
+            ],
+            [
+               "228224",
+               "1M pasd"
+            ],
+            [
+               "228219",
+               "0S pasd"
+            ],
+            [
+               "228220",
+               "0S pasd"
+            ],
+            [
+               "228272",
+               "1M pasd"
+            ],
+            [
+               "228274",
+               "1M pasd"
+            ],
+            [
+               "228291",
+               "0S pasd"
+            ],
+            [
+               "228292",
+               "1M pasd"
+            ],
+            [
+               "228294",
+               "0S pasd"
+            ],
+            [
+               "228285",
+               "1M pasd"
+            ],
+            [
+               "2282126",
+               "1M pasd"
+            ],
+            [
+               "2282127",
+               "0S pasd"
+            ],
+            [
+               "2282128",
+               "1M pasd"
+            ],
+            [
+               "2282119",
+               "1M pasd"
+            ],
+            [
+               "2282120",
+               "0S pasd"
+            ],
+            [
+               "2282130",
+               "1M pasd"
+            ],
+            [
+               "2282137",
+               "0S pasd"
+            ],
+            [
+               "2282159",
+               "1M pasd"
+            ],
+            [
+               "2282160",
+               "0S pasd"
+            ],
+            [
+               "2282161",
+               "1M pasd"
+            ],
+            [
+               "2282162",
+               "0S pasd"
+            ],
+            [
+               "2282163",
+               "1M pasd"
+            ],
+            [
+               "2282164",
+               "0S pasd"
+            ],
+            [
+               "2280130",
+               "0S pasd"
+            ],
+            [
+               "2280304",
+               "2M pasd"
+            ],
+            [
+               "2280235",
+               "2M pasd"
+            ],
+            [
+               "2280236",
+               "0S pasd"
+            ],
+            [
+               "2280237",
+               "1M pasd"
+            ],
+            [
+               "2280238",
+               "1M pasd"
+            ],
+            [
+               "2280239",
+               "0S pasd"
+            ],
+            [
+               "2280240",
+               "0S pasd"
+            ],
+            [
+               "2280241",
+               "1M pasd"
+            ],
+            [
+               "2280242",
+               "0S pasd"
+            ],
+            [
+               "2280120",
+               "1M pasd"
+            ],
+            [
+               "228026",
+               "0S pasd"
+            ],
+            [
+               "228071",
+               "1M pasd"
+            ],
+            [
+               "228068",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-863-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Alma Rd Nr Cromwell St - Belmont Christian College",
+            "rs_ref" : "RS_94-863-_-sj2-1-H-2",
+            "id" : "R_94-863-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-863-_-sj2-1",
+      "line" : "863"
+   },
+   "VJ_94-863-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-863-_-sj2-1-1-b0096",
+      "leaves" : "15:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228068",
+               null
+            ],
+            [
+               "2280117",
+               "2M pasd"
+            ],
+            [
+               "228027",
+               "1M pasd"
+            ],
+            [
+               "2280122",
+               "0S pasd"
+            ],
+            [
+               "2280230",
+               "2M pasd"
+            ],
+            [
+               "2280231",
+               "1M pasd"
+            ],
+            [
+               "2280232",
+               "1M pasd"
+            ],
+            [
+               "2280233",
+               "1M pasd"
+            ],
+            [
+               "2280234",
+               "0S pasd"
+            ],
+            [
+               "228061",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "1M pasd"
+            ],
+            [
+               "2282165",
+               "2M pasd"
+            ],
+            [
+               "2282166",
+               "1M pasd"
+            ],
+            [
+               "2282167",
+               "0S pasd"
+            ],
+            [
+               "2282168",
+               "0S pasd"
+            ],
+            [
+               "2282169",
+               "1M pasd"
+            ],
+            [
+               "2282170",
+               "1M pasd"
+            ],
+            [
+               "2282158",
+               "0S pasd"
+            ],
+            [
+               "2282114",
+               "1M pasd"
+            ],
+            [
+               "2282121",
+               "0S pasd"
+            ],
+            [
+               "2282122",
+               "1M pasd"
+            ],
+            [
+               "2282123",
+               "0S pasd"
+            ],
+            [
+               "2282124",
+               "1M pasd"
+            ],
+            [
+               "2282125",
+               "0S pasd"
+            ],
+            [
+               "228288",
+               "0S pasd"
+            ],
+            [
+               "228289",
+               "1M pasd"
+            ],
+            [
+               "228290",
+               "2M pasd"
+            ],
+            [
+               "2282101",
+               "1M pasd"
+            ],
+            [
+               "228267",
+               "1M pasd"
+            ],
+            [
+               "228269",
+               "3M pasd"
+            ],
+            [
+               "228215",
+               "1M pasd"
+            ],
+            [
+               "228216",
+               "1M pasd"
+            ],
+            [
+               "228217",
+               "1M pasd"
+            ],
+            [
+               "228218",
+               "1M pasd"
+            ],
+            [
+               "2284107",
+               "1M pasd"
+            ],
+            [
+               "2284108",
+               "0S pasd"
+            ],
+            [
+               "2284109",
+               "1M pasd"
+            ],
+            [
+               "2284110",
+               "1M pasd"
+            ],
+            [
+               "2284111",
+               "0S pasd"
+            ],
+            [
+               "2284112",
+               "1M pasd"
+            ],
+            [
+               "2284113",
+               "1M pasd"
+            ],
+            [
+               "2284114",
+               "0S pasd"
+            ],
+            [
+               "2284115",
+               "1M pasd"
+            ],
+            [
+               "228479",
+               "1M pasd"
+            ],
+            [
+               "228480",
+               "0S pasd"
+            ],
+            [
+               "228481",
+               "1M pasd"
+            ],
+            [
+               "228433",
+               "0S pasd"
+            ],
+            [
+               "228434",
+               "1M pasd"
+            ],
+            [
+               "228484",
+               "1M pasd"
+            ],
+            [
+               "228431",
+               "1M pasd"
+            ],
+            [
+               "228485",
+               "1M pasd"
+            ],
+            [
+               "228486",
+               "1M pasd"
+            ],
+            [
+               "228437",
+               "1M pasd"
+            ],
+            [
+               "228488",
+               "0S pasd"
+            ],
+            [
+               "228489",
+               "1M pasd"
+            ],
+            [
+               "228438",
+               "0S pasd"
+            ],
+            [
+               "228519",
+               "2M pasd"
+            ],
+            [
+               "228563",
+               "1M pasd"
+            ],
+            [
+               "2285167",
+               "4M pasd"
+            ],
+            [
+               "2285161",
+               "1M pasd"
+            ],
+            [
+               "2285162",
+               "1M pasd"
+            ],
+            [
+               "2285175",
+               "0S pasd"
+            ],
+            [
+               "2285176",
+               "1M pasd"
+            ],
+            [
+               "2285177",
+               "0S pasd"
+            ],
+            [
+               "2285150",
+               "1M pasd"
+            ],
+            [
+               "2285151",
+               "0S pasd"
+            ],
+            [
+               "2285152",
+               "1M pasd"
+            ],
+            [
+               "2285153",
+               "0S pasd"
+            ],
+            [
+               "228598",
+               "1M pasd"
+            ],
+            [
+               "2285138",
+               "0S pasd"
+            ],
+            [
+               "2285139",
+               "1M pasd"
+            ],
+            [
+               "2285140",
+               "0S pasd"
+            ],
+            [
+               "2285141",
+               "1M pasd"
+            ],
+            [
+               "2285134",
+               "0S pasd"
+            ],
+            [
+               "228570",
+               "1M pasd"
+            ],
+            [
+               "2285135",
+               "1M pasd"
+            ],
+            [
+               "2285136",
+               "0S pasd"
+            ],
+            [
+               "228916",
+               "2M pasd"
+            ],
+            [
+               "2289275",
+               "1M pasd"
+            ],
+            [
+               "228918",
+               "1M pasd"
+            ],
+            [
+               "229013",
+               "1M pasd"
+            ],
+            [
+               "229014",
+               "1M pasd"
+            ],
+            [
+               "229015",
+               "0S pasd"
+            ],
+            [
+               "2290126",
+               "1M pasd"
+            ],
+            [
+               "229016",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-863-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Belmont Christian College - Charlestown Rd nr Powell St",
+            "rs_ref" : "RS_94-863-_-sj2-1-R-1",
+            "id" : "R_94-863-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-863-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "863"
+   }
+}
+;
+

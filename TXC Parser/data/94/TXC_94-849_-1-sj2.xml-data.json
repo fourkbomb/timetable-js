@@ -1,0 +1,375 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-849-_-sj2-1" : "849"
+}
+;
+
+var stations = {
+   "2298118" : "Turton Rd nr High St",
+   "2304270" : "San Clemente School",
+   "2298116" : "St Philips College Nr Bridge St",
+   "229018" : "Smith St nr Smart St",
+   "230583" : "Bridges Rd Opp Penman St",
+   "230449" : "Hanbury St nr Wilkinson St",
+   "2305141" : "Bridges Rd Nr Russell Rd",
+   "228924" : "Northcott Dr Northcott Dr Near Cynthia St",
+   "2305127" : "Bridges Rd Nr Musgrove St",
+   "229831" : "St Phillips College",
+   "229083" : "Smart St nr Milson St",
+   "2304260" : "Crebert St nr Hanbury St",
+   "229070" : "Glebe St nr Burwood St",
+   "228999" : "Pacific Hwy opp Kahibah Rd",
+   "2298102" : "Turton Rd Nr Kahibah Rd",
+   "230476" : "Maitland Rd nr Gamack St",
+   "228928" : "Garden City",
+   "230432" : "Maitland Rd nr Church St",
+   "229818" : "Turton Rd Nr Tinonee Rd",
+   "230477" : "Maitland Rd nr Elizabeth St",
+   "230530" : "Turton Rd Nr Hobart Rd",
+   "2290101" : "Kahibah Rd Nr Kenibea Av",
+   "230434" : "Pacfic Hwy nr Carrington St",
+   "229834" : "Turton Rd Nr Christo Rd",
+   "229814" : "Turton Rd Nr Dawson St",
+   "228922" : "Northcott Dr Northcote Rd Near Kineaross Av",
+   "2289161" : "Kahibah Rd Nr George St",
+   "229089" : "Kahibah Rd opp Cowper Av",
+   "229833" : "Bridge St Opp Smart St",
+   "2290490" : "Pearson St Stand A",
+   "2289162" : "Kahibah Rd Nr Pacific Hwy",
+   "2290103" : "Wallsend St nr Kenibea Av",
+   "229832" : "Bridge St Nr Myall Rd",
+   "229839" : "Platt St Nr Prince St",
+   "230433" : "Maitland Rd nr Havelock St",
+   "229093" : "Kahibah Rd nr Princes Av",
+   "228923" : "Northcott Dr Northcott Dr Near Wade St",
+   "2304223" : "Hanbury St nr Macquarie Rd",
+   "2289182" : "Northcott Dr Nr Bradford Cl",
+   "229836" : "Platt St Nr Alfred St",
+   "229082" : "Smart St Nr Smith St",
+   "2304176" : "Crebert St nr Fawcett St",
+   "229853" : "Turton Rd Nr Young St",
+   "2304139" : "Tourle St nr Abel St",
+   "229838" : "Platt St Nr Grove St",
+   "2305180" : "Bridges Rd Nr Rydal St",
+   "230531" : "Turton Rd Nr Monash Rd",
+   "229845" : "Turton Rd Nr High St",
+   "2304175" : "Ingall St opp Bell Pl",
+   "2290102" : "Kahibah Rd nr Wallsend St",
+   "229811" : "Platt St nr Waratah Station",
+   "230451" : "Hanbury St opp Sunderland St",
+   "230533" : "Young Rd Nr Lambton High",
+   "230450" : "Hanbury St nr Railway Tce",
+   "2289177" : "Northcott Dr Nr Ellerslie Rd",
+   "2304143" : "Hunter Christian School",
+   "230417" : "Maitland Rd Nr Hanbury St",
+   "2290104" : "Kahibah Rd nr Kendella Pde",
+   "2304132" : "Bull St Nr Woodstock St",
+   "229817" : "Turton Rd opp Crescent Rd",
+   "230515" : "Turton Rd Nr Young Rd",
+   "2304131" : "Barton St nr Bull St",
+   "2305126" : "Bridges Rd Nr Carnley Av",
+   "230418" : "Maitland Rd opp Valencia St",
+   "2304174" : "Ingall St nr Hann St",
+   "2304130" : "Barton St Nr Charles St",
+   "2305140" : "Bridges Rd Nr Burke St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-849-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-849-_-sj2-1-1-b0096",
+      "leaves" : "07:38:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2290490",
+               null
+            ],
+            [
+               "229018",
+               "1M pasd"
+            ],
+            [
+               "229082",
+               "0S pasd"
+            ],
+            [
+               "229083",
+               "0S pasd"
+            ],
+            [
+               "229089",
+               "1M pasd"
+            ],
+            [
+               "229093",
+               "1M pasd"
+            ],
+            [
+               "2290101",
+               "1M pasd"
+            ],
+            [
+               "2290102",
+               "0S pasd"
+            ],
+            [
+               "229070",
+               "1M pasd"
+            ],
+            [
+               "2290103",
+               "1M pasd"
+            ],
+            [
+               "2290104",
+               "0S pasd"
+            ],
+            [
+               "2289161",
+               "2M pasd"
+            ],
+            [
+               "2289162",
+               "0S pasd"
+            ],
+            [
+               "228999",
+               "1M pasd"
+            ],
+            [
+               "2289177",
+               "1M pasd"
+            ],
+            [
+               "228922",
+               "1M pasd"
+            ],
+            [
+               "228923",
+               "1M pasd"
+            ],
+            [
+               "228924",
+               "1M pasd"
+            ],
+            [
+               "228928",
+               "0S pasd"
+            ],
+            [
+               "2289182",
+               "1M pasd"
+            ],
+            [
+               "230583",
+               "1M pasd"
+            ],
+            [
+               "2305126",
+               "1M pasd"
+            ],
+            [
+               "2305180",
+               "0S pasd"
+            ],
+            [
+               "2305127",
+               "1M pasd"
+            ],
+            [
+               "2305140",
+               "1M pasd"
+            ],
+            [
+               "2305141",
+               "1M pasd"
+            ],
+            [
+               "230530",
+               "1M pasd"
+            ],
+            [
+               "230531",
+               "1M pasd"
+            ],
+            [
+               "230515",
+               "1M pasd"
+            ],
+            [
+               "2298102",
+               "2M pasd"
+            ],
+            [
+               "229818",
+               "1M pasd"
+            ],
+            [
+               "229845",
+               "1M pasd"
+            ],
+            [
+               "229831",
+               "2M pasd"
+            ],
+            [
+               "2298116",
+               "0S pasd"
+            ],
+            [
+               "229832",
+               "0S pasd"
+            ],
+            [
+               "229833",
+               "1M pasd"
+            ],
+            [
+               "229836",
+               "0S pasd"
+            ],
+            [
+               "229838",
+               "1M pasd"
+            ],
+            [
+               "229839",
+               "0S pasd"
+            ],
+            [
+               "229811",
+               "1M pasd"
+            ],
+            [
+               "230451",
+               "1M pasd"
+            ],
+            [
+               "2304223",
+               "1M pasd"
+            ],
+            [
+               "230417",
+               "1M pasd"
+            ],
+            [
+               "230418",
+               "1M pasd"
+            ],
+            [
+               "230432",
+               "0S pasd"
+            ],
+            [
+               "230433",
+               "1M pasd"
+            ],
+            [
+               "230434",
+               "0S pasd"
+            ],
+            [
+               "2304174",
+               "2M pasd"
+            ],
+            [
+               "2304175",
+               "1M pasd"
+            ],
+            [
+               "2304176",
+               "1M pasd"
+            ],
+            [
+               "2304270",
+               "0S pasd"
+            ],
+            [
+               "2304260",
+               "1M pasd"
+            ],
+            [
+               "2304130",
+               "1M pasd"
+            ],
+            [
+               "2304131",
+               "1M pasd"
+            ],
+            [
+               "2304143",
+               "0S pasd"
+            ],
+            [
+               "2304132",
+               "2M pasd"
+            ],
+            [
+               "2304139",
+               "1M pasd"
+            ],
+            [
+               "230476",
+               "1M pasd"
+            ],
+            [
+               "230477",
+               "1M pasd"
+            ],
+            [
+               "230449",
+               "2M pasd"
+            ],
+            [
+               "230450",
+               "0S pasd"
+            ],
+            [
+               "229814",
+               "2M pasd"
+            ],
+            [
+               "2298118",
+               "1M pasd"
+            ],
+            [
+               "229853",
+               "0S pasd"
+            ],
+            [
+               "229834",
+               "1M pasd"
+            ],
+            [
+               "229817",
+               "1M pasd"
+            ],
+            [
+               "230533",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-849-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pearson St Interchange - Young Rd Nr Lambton High",
+            "rs_ref" : "RS_94-849-_-sj2-1-H-1",
+            "id" : "R_94-849-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-849-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "849"
+   }
+}
+;
+

@@ -1,0 +1,770 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-742-f-sj2-1" : "742"
+}
+;
+
+var stations = {
+   "2113118" : "Badajoz Rd Nr Coxs Rd",
+   "211248" : "Badajoz Rd Nr Callaghan St",
+   "211359" : "Coxs Rd Nr Badajoz Rd",
+   "212244" : "Lovell Rd Nr Colvin Cr",
+   "2113159" : "Wicks Rd Nr Twin Rd",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "2122111" : "Rutledge St Nr Eastwood Public School",
+   "2122123" : "Hillview Rd Nr Marist Bros",
+   "2112145" : "Bridge Rd Nr Ellen St",
+   "2122167" : "Lovell Rd Nr Denistone East Public",
+   "2122212" : "First Av Nr East Pde",
+   "212260" : "Lovell Rd Opp Grove St",
+   "211257" : "Bridge Rd Nr Ellen St",
+   "2113164" : "Wicks Rd Nr Macquarie Hospital",
+   "212266" : "Lovell Rd Nr Blaxland Rd",
+   "211389" : "Bridge Rd Nr Smalls Rd",
+   "2113117" : "Badajoz Rd Nr Twin Rd",
+   "2122124" : "Terry Rd Nr Shaftsbury Rd",
+   "211258" : "Bridge Rd Nr Patricia St",
+   "2113162" : "Wicks Rd Nr Macquarie Hospital",
+   "212265" : "Lovell Rd Nr Hollis Av",
+   "212241" : "Tallwood Av Nr Bridge Rd",
+   "212246" : "North Rd Nr Watts Rd",
+   "212247" : "Tallwood Av Opp Watts Park",
+   "2113116" : "Badajoz Rd Nr Twin Rd",
+   "212261" : "Lovell Rd Nr Grove St",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "2112141" : "Bridge Rd Nr Watts Rd",
+   "211399" : "Twin Rd Nr Lane Cove Rd",
+   "212263" : "Lovell Rd Nr Russell St",
+   "211249" : "Badajoz Rd Nr Quarry Rd",
+   "211256" : "Bridge Rd Nr Dorothy St",
+   "2113160" : "Wicks Rd Nr Macquarie Hospital",
+   "211243" : "Badajoz Rd Nr Meldrum St",
+   "212248" : "Tallwood Av Nr Bridge Rd",
+   "2113100" : "Twin Rd Nr Dempsey St",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "211391" : "Bridge Rd Nr Brendon St",
+   "212264" : "Lovell Rd Nr Pickford Av",
+   "211388" : "Bridge Rd Nr Lavarack St",
+   "2113157" : "Wicks Rd Nr Coxs Rd",
+   "2122166" : "Lovell Rd Nr Waratah St",
+   "2122186" : "Bridge Rd Nr Watts Rd",
+   "211392" : "Bridge Rd Nr Flinders Rd",
+   "2113161" : "Wicks Rd Nr Twin Rd",
+   "212294" : "First Av Nr East Pde",
+   "2113158" : "Wicks Rd Nr Macquarie Hospital",
+   "211393" : "Bridge Rd Nr Eastview Av",
+   "2113163" : "Wicks Rd Nr Coxs Rd",
+   "2122214" : "First Av Nr Ryedale Rd",
+   "2122168" : "Lovell Rd Nr Colvin Cr",
+   "211394" : "Twin Rd Nr Dempsey St",
+   "212243" : "North Rd Nr Watts Rd",
+   "2121176" : "Lovell Rd Nr Orange St",
+   "2112243" : "Badajoz Rd Nr Norfolk Wy",
+   "212245" : "Lovell Rd Nr North Rd",
+   "211242" : "Quarry Rd Nr Badajoz Rd",
+   "212262" : "Lovell Rd Nr Orange St",
+   "211247" : "Badajoz Rd Nr Bygrave St",
+   "211244" : "Badajoz Rd Nr Nerang St",
+   "2113231" : "Badajoz Rd Nr Macquarie Hospital",
+   "211250" : "Pidding Rd Nr Pidding Park",
+   "2122213" : "First Av Nr Ryedale Rd",
+   "211358" : "Coxs Rd Nr Blamey St",
+   "212242" : "Tallwood Av Nr Watts Park",
+   "2113106" : "Bridge Rd Nr Flinders Rd",
+   "211211" : "North Rd Nr Lovell Rd",
+   "211390" : "Bridge Rd Nr Brendon St",
+   "211357" : "Coxs Rd Nr Ryrie St",
+   "2122121" : "Hillview Rd Nr St Kevins"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-742-f-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-742-f-sj2-1-1-b00bj",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2122123",
+               null
+            ],
+            [
+               "2122124",
+               "1M pasd"
+            ],
+            [
+               "2122111",
+               "2M pasd"
+            ],
+            [
+               "2122212",
+               "2M pasd"
+            ],
+            [
+               "2122213",
+               "0S pasd"
+            ],
+            [
+               "212266",
+               "2M pasd"
+            ],
+            [
+               "212264",
+               "1M pasd"
+            ],
+            [
+               "212262",
+               "0S pasd"
+            ],
+            [
+               "212261",
+               "1M pasd"
+            ],
+            [
+               "2122166",
+               "1M pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "2122186",
+               "0S pasd"
+            ],
+            [
+               "2112145",
+               "1M pasd"
+            ],
+            [
+               "211258",
+               "0S pasd"
+            ],
+            [
+               "211391",
+               "1M pasd"
+            ],
+            [
+               "211392",
+               "0S pasd"
+            ],
+            [
+               "211393",
+               "1M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "0S pasd"
+            ],
+            [
+               "2113159",
+               "2M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "0S pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "2112243",
+               "1M pasd"
+            ],
+            [
+               "2113117",
+               "1M pasd"
+            ],
+            [
+               "211247",
+               "1M pasd"
+            ],
+            [
+               "211248",
+               "1M pasd"
+            ],
+            [
+               "211249",
+               "0S pasd"
+            ],
+            [
+               "211250",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-742-f-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Hillview Rd Nr Marist Bros - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-742-f-sj2-1-R-1",
+            "id" : "R_99-742-f-sj2-1-R-1"
+         }
+      },
+      "service" : "99-742-f-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "742"
+   },
+   "VJ_99-742-f-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-742-f-sj2-1-3-b00bk",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2122123",
+               null
+            ],
+            [
+               "2122124",
+               "1M pasd"
+            ],
+            [
+               "2122111",
+               "2M pasd"
+            ],
+            [
+               "2122212",
+               "2M pasd"
+            ],
+            [
+               "2122213",
+               "0S pasd"
+            ],
+            [
+               "212266",
+               "2M pasd"
+            ],
+            [
+               "212264",
+               "1M pasd"
+            ],
+            [
+               "212262",
+               "0S pasd"
+            ],
+            [
+               "212261",
+               "1M pasd"
+            ],
+            [
+               "2122166",
+               "1M pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "2122186",
+               "0S pasd"
+            ],
+            [
+               "2112145",
+               "1M pasd"
+            ],
+            [
+               "211258",
+               "0S pasd"
+            ],
+            [
+               "211391",
+               "1M pasd"
+            ],
+            [
+               "211392",
+               "0S pasd"
+            ],
+            [
+               "211393",
+               "1M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "0S pasd"
+            ],
+            [
+               "2113159",
+               "2M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "0S pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "2112243",
+               "1M pasd"
+            ],
+            [
+               "2113117",
+               "1M pasd"
+            ],
+            [
+               "211247",
+               "1M pasd"
+            ],
+            [
+               "211248",
+               "1M pasd"
+            ],
+            [
+               "211249",
+               "0S pasd"
+            ],
+            [
+               "211250",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-742-f-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Hillview Rd Nr Marist Bros - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-742-f-sj2-1-R-1",
+            "id" : "R_99-742-f-sj2-1-R-1"
+         }
+      },
+      "service" : "99-742-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "742"
+   },
+   "VJ_99-742-f-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-742-f-sj2-1-2-b00bk",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211242",
+               "5M pasd"
+            ],
+            [
+               "211243",
+               "1M pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "2113116",
+               "1M pasd"
+            ],
+            [
+               "2113231",
+               "0S pasd"
+            ],
+            [
+               "2113118",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "2113163",
+               "0S pasd"
+            ],
+            [
+               "2113162",
+               "1M pasd"
+            ],
+            [
+               "2113164",
+               "0S pasd"
+            ],
+            [
+               "2113161",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "1M pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "1M pasd"
+            ],
+            [
+               "2112141",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "2M pasd"
+            ],
+            [
+               "2122167",
+               "1M pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "1M pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212265",
+               "1M pasd"
+            ],
+            [
+               "2122214",
+               "2M pasd"
+            ],
+            [
+               "212294",
+               "1M pasd"
+            ],
+            [
+               "2122121",
+               "2M pasd"
+            ],
+            [
+               "2122123",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-742-f-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Hillview Rd Nr Marist Bros",
+            "rs_ref" : "RS_99-742-f-sj2-1-H-2",
+            "id" : "R_99-742-f-sj2-1-H-2"
+         }
+      },
+      "service" : "99-742-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "742"
+   },
+   "VJ_99-742-f-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-742-f-sj2-1-4-b00bj",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211242",
+               "5M pasd"
+            ],
+            [
+               "211243",
+               "1M pasd"
+            ],
+            [
+               "211244",
+               "0S pasd"
+            ],
+            [
+               "2113116",
+               "1M pasd"
+            ],
+            [
+               "2113231",
+               "0S pasd"
+            ],
+            [
+               "2113118",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "2113163",
+               "0S pasd"
+            ],
+            [
+               "2113162",
+               "1M pasd"
+            ],
+            [
+               "2113164",
+               "0S pasd"
+            ],
+            [
+               "2113161",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "1M pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "1M pasd"
+            ],
+            [
+               "2112141",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "2M pasd"
+            ],
+            [
+               "2122167",
+               "1M pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "1M pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212265",
+               "1M pasd"
+            ],
+            [
+               "2122214",
+               "2M pasd"
+            ],
+            [
+               "212294",
+               "1M pasd"
+            ],
+            [
+               "2122121",
+               "2M pasd"
+            ],
+            [
+               "2122123",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-742-f-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Hillview Rd Nr Marist Bros",
+            "rs_ref" : "RS_99-742-f-sj2-1-H-2",
+            "id" : "R_99-742-f-sj2-1-H-2"
+         }
+      },
+      "service" : "99-742-f-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "742"
+   }
+}
+;
+

@@ -1,0 +1,800 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-617-_-sj2-1" : "617"
+}
+;
+
+var stations = {
+   "213256" : "Queen St Nr Lucas St",
+   "2046105" : "Great North Rd Nr Second Av",
+   "2135111" : "Morwick St nr Wentworth Rd",
+   "2135199" : "Santa Sabina College_ The Boulevarde",
+   "204747" : "Lyons Rd Nr Janet St",
+   "213237" : "Croydon Rd Nr Australia St",
+   "204616" : "Lyons Rd Nr Great North Rd",
+   "204745" : "Lyons Rd Nr Thompson St",
+   "213428" : "Railway Pde nr Burleigh St",
+   "204613" : "Lyons Rd nr Lamrock Av",
+   "213253" : "Queen St Nr Wright St",
+   "2135169" : "Heyde Av nr Albert Rd",
+   "2135114" : "Albyn Rd Nr Homebush Rd",
+   "2046144" : "Great North Rd Nr Murralong Av",
+   "2135173" : "Merley Rd Nr Francis St",
+   "2135113" : "Albyn Rd Nr Parsons Av",
+   "2135172" : "Dickson St nr Merley Rd",
+   "2135115" : "Chalmers Rd nr Barker Rd",
+   "2135116" : "Barker Rd nr Wallis Av",
+   "2046143" : "Great North Rd Nr Fairlight St",
+   "204615" : "Lyons Rd Nr Trevanion St",
+   "213531" : "Oxford Rd Nr Heyde Av",
+   "204742" : "Lyons Rd Nr Victoria Rd",
+   "213250" : "Church St Nr Croydon Rd",
+   "213252" : "Church St Nr Lang St",
+   "2046145" : "Great North Rd Nr Harrabrook Av",
+   "213255" : "Queen St Nr Cheltham Rd",
+   "213473" : "Railway Pde before Oxford St",
+   "2135112" : "Morwick St nr The Boulevarde",
+   "213254" : "Queen St Nr Acton St",
+   "204612" : "Lyons Rd Nr Mons St",
+   "2135148" : "Francis St Nr St Patricks Stand C",
+   "204746" : "Lyons Rd Nr Gipps St",
+   "204614" : "Lyons Rd Nr Ingham Av",
+   "213465" : "Railway Pde near Burwood Plaza",
+   "2135171" : "Dickson St Nr Albert Rd",
+   "204744" : "Lyons Rd Nr Tranmere St",
+   "2046103" : "Great North Rd Nr Lyons Rd",
+   "213424" : "Victoria St nr Boronia Av",
+   "213236" : "Croydon Rd Nr West St",
+   "213251" : "Church St Nr Birriga Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-617-_-sj2-1-1-b009a" : {
+      "vjcode" : "VJ_99-617-_-sj2-1-1-b009a",
+      "leaves" : "07:46:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204744",
+               null
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "3M pasd"
+            ],
+            [
+               "2046143",
+               "1M pasd"
+            ],
+            [
+               "2046144",
+               "1M pasd"
+            ],
+            [
+               "2046145",
+               "1M pasd"
+            ],
+            [
+               "213236",
+               "1M pasd"
+            ],
+            [
+               "213237",
+               "1M pasd"
+            ],
+            [
+               "213250",
+               "0S pasd"
+            ],
+            [
+               "213251",
+               "1M pasd"
+            ],
+            [
+               "213252",
+               "0S pasd"
+            ],
+            [
+               "213253",
+               "1M pasd"
+            ],
+            [
+               "213254",
+               "1M pasd"
+            ],
+            [
+               "213255",
+               "0S pasd"
+            ],
+            [
+               "213256",
+               "1M pasd"
+            ],
+            [
+               "213424",
+               "0S pasd"
+            ],
+            [
+               "213428",
+               "2M pasd"
+            ],
+            [
+               "213465",
+               "1M pasd"
+            ],
+            [
+               "213473",
+               "5M pasd"
+            ],
+            [
+               "2135111",
+               "1M pasd"
+            ],
+            [
+               "2135112",
+               "1M pasd"
+            ],
+            [
+               "2135199",
+               "1M pasd"
+            ],
+            [
+               "2135113",
+               "3M pasd"
+            ],
+            [
+               "2135114",
+               "1M pasd"
+            ],
+            [
+               "2135115",
+               "1M pasd"
+            ],
+            [
+               "2135116",
+               "1M pasd"
+            ],
+            [
+               "213531",
+               "1M pasd"
+            ],
+            [
+               "2135169",
+               "0S pasd"
+            ],
+            [
+               "2135171",
+               "1M pasd"
+            ],
+            [
+               "2135172",
+               "0S pasd"
+            ],
+            [
+               "2135173",
+               "1M pasd"
+            ],
+            [
+               "2135148",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-617-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Lyons Rd Nr Tranmere St - Francis St Nr St Patricks",
+            "rs_ref" : "RS_99-617-_-sj2-1-H-1",
+            "id" : "R_99-617-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-617-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "617"
+   },
+   "VJ_99-617-_-sj2-1-4-b009x" : {
+      "vjcode" : "VJ_99-617-_-sj2-1-4-b009x",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204742",
+               null
+            ],
+            [
+               "204744",
+               "1M pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "3M pasd"
+            ],
+            [
+               "2046143",
+               "1M pasd"
+            ],
+            [
+               "2046144",
+               "1M pasd"
+            ],
+            [
+               "2046145",
+               "1M pasd"
+            ],
+            [
+               "213236",
+               "1M pasd"
+            ],
+            [
+               "213237",
+               "1M pasd"
+            ],
+            [
+               "213250",
+               "0S pasd"
+            ],
+            [
+               "213251",
+               "1M pasd"
+            ],
+            [
+               "213252",
+               "0S pasd"
+            ],
+            [
+               "213253",
+               "1M pasd"
+            ],
+            [
+               "213254",
+               "1M pasd"
+            ],
+            [
+               "213255",
+               "0S pasd"
+            ],
+            [
+               "213256",
+               "1M pasd"
+            ],
+            [
+               "213424",
+               "0S pasd"
+            ],
+            [
+               "213428",
+               "2M pasd"
+            ],
+            [
+               "213465",
+               "1M pasd"
+            ],
+            [
+               "213473",
+               "5M pasd"
+            ],
+            [
+               "2135111",
+               "1M pasd"
+            ],
+            [
+               "2135112",
+               "1M pasd"
+            ],
+            [
+               "2135199",
+               "1M pasd"
+            ],
+            [
+               "2135113",
+               "2M pasd"
+            ],
+            [
+               "2135114",
+               "2M pasd"
+            ],
+            [
+               "2135115",
+               "1M pasd"
+            ],
+            [
+               "2135116",
+               "1M pasd"
+            ],
+            [
+               "213531",
+               "1M pasd"
+            ],
+            [
+               "2135169",
+               "0S pasd"
+            ],
+            [
+               "2135171",
+               "1M pasd"
+            ],
+            [
+               "2135172",
+               "0S pasd"
+            ],
+            [
+               "2135173",
+               "1M pasd"
+            ],
+            [
+               "2135148",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-617-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Lyons Rd Nr Victoria Rd - Francis St Nr St Patricks",
+            "rs_ref" : "RS_99-617-_-sj2-1-H-2",
+            "id" : "R_99-617-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-617-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "617"
+   },
+   "VJ_99-617-_-sj2-1-3-b00a0" : {
+      "vjcode" : "VJ_99-617-_-sj2-1-3-b00a0",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204742",
+               null
+            ],
+            [
+               "204744",
+               "1M pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "3M pasd"
+            ],
+            [
+               "2046143",
+               "1M pasd"
+            ],
+            [
+               "2046144",
+               "1M pasd"
+            ],
+            [
+               "2046145",
+               "1M pasd"
+            ],
+            [
+               "213236",
+               "1M pasd"
+            ],
+            [
+               "213237",
+               "1M pasd"
+            ],
+            [
+               "213250",
+               "0S pasd"
+            ],
+            [
+               "213251",
+               "1M pasd"
+            ],
+            [
+               "213252",
+               "0S pasd"
+            ],
+            [
+               "213253",
+               "1M pasd"
+            ],
+            [
+               "213254",
+               "1M pasd"
+            ],
+            [
+               "213255",
+               "0S pasd"
+            ],
+            [
+               "213256",
+               "1M pasd"
+            ],
+            [
+               "213424",
+               "0S pasd"
+            ],
+            [
+               "213428",
+               "2M pasd"
+            ],
+            [
+               "213465",
+               "1M pasd"
+            ],
+            [
+               "213473",
+               "5M pasd"
+            ],
+            [
+               "2135111",
+               "1M pasd"
+            ],
+            [
+               "2135112",
+               "1M pasd"
+            ],
+            [
+               "2135199",
+               "1M pasd"
+            ],
+            [
+               "2135113",
+               "3M pasd"
+            ],
+            [
+               "2135114",
+               "1M pasd"
+            ],
+            [
+               "2135115",
+               "1M pasd"
+            ],
+            [
+               "2135116",
+               "1M pasd"
+            ],
+            [
+               "213531",
+               "1M pasd"
+            ],
+            [
+               "2135169",
+               "0S pasd"
+            ],
+            [
+               "2135171",
+               "1M pasd"
+            ],
+            [
+               "2135172",
+               "0S pasd"
+            ],
+            [
+               "2135173",
+               "1M pasd"
+            ],
+            [
+               "2135148",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-617-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Lyons Rd Nr Victoria Rd - Francis St Nr St Patricks",
+            "rs_ref" : "RS_99-617-_-sj2-1-H-2",
+            "id" : "R_99-617-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-617-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "617"
+   },
+   "VJ_99-617-_-sj2-1-2-b0099" : {
+      "vjcode" : "VJ_99-617-_-sj2-1-2-b0099",
+      "leaves" : "07:46:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "204744",
+               null
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "1M pasd"
+            ],
+            [
+               "204747",
+               "1M pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "1M pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "204615",
+               "2M pasd"
+            ],
+            [
+               "204616",
+               "0S pasd"
+            ],
+            [
+               "2046103",
+               "1M pasd"
+            ],
+            [
+               "2046105",
+               "3M pasd"
+            ],
+            [
+               "2046143",
+               "1M pasd"
+            ],
+            [
+               "2046144",
+               "1M pasd"
+            ],
+            [
+               "2046145",
+               "1M pasd"
+            ],
+            [
+               "213236",
+               "1M pasd"
+            ],
+            [
+               "213237",
+               "1M pasd"
+            ],
+            [
+               "213250",
+               "0S pasd"
+            ],
+            [
+               "213251",
+               "1M pasd"
+            ],
+            [
+               "213252",
+               "0S pasd"
+            ],
+            [
+               "213253",
+               "1M pasd"
+            ],
+            [
+               "213254",
+               "1M pasd"
+            ],
+            [
+               "213255",
+               "0S pasd"
+            ],
+            [
+               "213256",
+               "1M pasd"
+            ],
+            [
+               "213424",
+               "0S pasd"
+            ],
+            [
+               "213428",
+               "2M pasd"
+            ],
+            [
+               "213465",
+               "1M pasd"
+            ],
+            [
+               "213473",
+               "5M pasd"
+            ],
+            [
+               "2135111",
+               "1M pasd"
+            ],
+            [
+               "2135112",
+               "1M pasd"
+            ],
+            [
+               "2135199",
+               "1M pasd"
+            ],
+            [
+               "2135113",
+               "2M pasd"
+            ],
+            [
+               "2135114",
+               "2M pasd"
+            ],
+            [
+               "2135115",
+               "1M pasd"
+            ],
+            [
+               "2135116",
+               "1M pasd"
+            ],
+            [
+               "213531",
+               "1M pasd"
+            ],
+            [
+               "2135169",
+               "0S pasd"
+            ],
+            [
+               "2135171",
+               "1M pasd"
+            ],
+            [
+               "2135172",
+               "0S pasd"
+            ],
+            [
+               "2135173",
+               "1M pasd"
+            ],
+            [
+               "2135148",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-617-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Lyons Rd Nr Tranmere St - Francis St Nr St Patricks",
+            "rs_ref" : "RS_99-617-_-sj2-1-H-1",
+            "id" : "R_99-617-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-617-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "617"
+   }
+}
+;
+

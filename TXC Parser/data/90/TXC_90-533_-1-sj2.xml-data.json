@@ -1,0 +1,7692 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-533-_-sj2-1" : "533"
+}
+;
+
+var stations = {
+   "2113182" : "Morshead St Nr Wicks Rd",
+   "2066194" : "Mowbray Rd West Nr Roslyn St",
+   "2066180" : "Mowbray Rd West Nr Hatfield St",
+   "2113159" : "Wicks Rd Nr Twin Rd",
+   "2066186" : "Mowbray Rd West Nr Girraween Av",
+   "2066190" : "Mowbray Rd West Nr Centennial Av",
+   "2113145" : "Edmonson St near Sturdee St",
+   "2113154" : "Wicks Rd Nr Barr St",
+   "205724" : "Mowbray Rd Nr Beresford Rd",
+   "212737" : "Australia opp Bicentennial Pk",
+   "213813" : "Concord Rd Nr Llewellyn St",
+   "2113153" : "Wicks Rd Nr Chisholm St",
+   "2113142" : "Edmonson St Nr Kokoda St",
+   "212712" : "Park St Nr Station",
+   "211254" : "Lane Cove Rd Nr Wolger Rd",
+   "211265" : "Lane Cove Rd Nr Myra Av",
+   "213846" : "Concord Rd Nr Ryde Bridge",
+   "2066188" : "Mowbray Rd West Nr Felton Av",
+   "213841" : "Concord Rd Nr Homebush Bay Rd",
+   "2066189" : "Mowbray Rd West Nr Felton Av",
+   "213854" : "Concord Rd Nr Mary St",
+   "211322" : "Epping Rd Nr Rivett Rd",
+   "2066148" : "Mowbray Rd Nr Lynvale Cl",
+   "2113144" : "Edmonson St Nr Cutler Pde",
+   "2113164" : "Wicks Rd Nr Macquarie Hospital",
+   "211268" : "Church St Nr Riverside Av",
+   "206761" : "Chatswood Station_ Stand J Victoria Av West Side",
+   "212722" : "Australia nr Bicentennial Pk",
+   "212727" : "Australia Av nr Figtree Dr",
+   "2066260" : "Mowbray Rd West Nr Mindarie St",
+   "211363" : "Blenhiem Rd Nr Warwick St",
+   "2066191" : "Mowbray Rd West Nr Centennial Av",
+   "211255" : "Lane Cove Rd Nr Hancott St",
+   "2113162" : "Wicks Rd Nr Macquarie Hospital",
+   "211253" : "Lane Cove Rd Nr Price St",
+   "211260" : "Goulding Rd Nr Twin Rd",
+   "2066192" : "Mowbray Rd West Nr Dalrymple Av",
+   "213812" : "Concord Rd Nr Cropley St",
+   "2066187" : "Mowbray Rd West Nr Mooney St",
+   "2066183" : "Mowbray Rd West Nr Hinkler Cr",
+   "2113147" : "Edmonson St Nr Ryrie St",
+   "213845" : "Concord Rd Nr Cavell Av",
+   "2067134" : "Railway St nr Brown St",
+   "2113146" : "Edmonson St Nr Rowell St",
+   "205728" : "Mowbray Rd Nr Pacific Hwy",
+   "2113160" : "Wicks Rd Nr Macquarie Hospital",
+   "206746" : "Pacific Hwy nr Gordon Av",
+   "206762" : "Pacific Hwy nr Ellis St",
+   "211263" : "Lane Cove Rd nr Quarry Rd",
+   "211269" : "Church St Nr Well St",
+   "2066182" : "Mowbray Rd West Nr Willandra St",
+   "2113143" : "Edmonson St near Sturdee St",
+   "2113156" : "Wicks Rd Nr Cooney St",
+   "211264" : "Lane Cove Rd Nr Dobson Cr",
+   "2113183" : "Morshead St Nr Wicks Rd",
+   "2113157" : "Wicks Rd Nr Coxs Rd",
+   "2066184" : "Mowbray Rd West Nr Fitzsimmons Av",
+   "2113165" : "Wicks Rd Nr Farrington Pde",
+   "211272" : "Church St Nr Blaxland Rd",
+   "2113161" : "Wicks Rd Nr Twin Rd",
+   "2112242" : "Lane Cove Rd Nr Buffalo Rd",
+   "211271" : "Church St Nr Morrison Rd",
+   "2066233" : "Mowbray Rd West Nr Cumberland Av",
+   "2113158" : "Wicks Rd Nr Macquarie Hospital",
+   "2113163" : "Wicks Rd Nr Coxs Rd",
+   "2113150" : "Morshead St Nr Ryrie St",
+   "205783" : "Pacific Hwy Nr Sutherland Rd",
+   "211267" : "Church St nr Simpson St",
+   "211259" : "Goulding Rd Nr Byron Av",
+   "2066136" : "Mowbray Rd Nr Ralston St",
+   "2066195" : "Mowbray Rd West Nr Roslyn St",
+   "2112190" : "Church St Nr Victoria Rd",
+   "2066185" : "Mowbray Rd West Nr Fitzsimmons Av",
+   "2113148" : "Ryrie St Nr Edmonson St",
+   "2066149" : "Mowbray Rd Nr Pacific Hwy",
+   "2112208" : "Devlin St nr Blaxland Rd",
+   "211270" : "Church St Nr Junction St",
+   "2113140" : "Edmondson St Nr Blenheim Rd",
+   "2113155" : "Wicks Rd Nr Betty Hendry Pde",
+   "2113149" : "Ryrie St Nr Morshead St",
+   "211323" : "Epping Rd Nr Pittwater Rd",
+   "211361" : "Blenhiem Rd Nr Morshead St",
+   "2113141" : "Edmonson St Nr Kokoda St",
+   "2066179" : "Mowbray Rd West Nr Hatfield St",
+   "212726" : "Australia Av nr Fig Tree Dr",
+   "2066181" : "Mowbray Rd West Nr Willandra St",
+   "211262" : "Goulding Rd Nr Macleay St",
+   "211261" : "Goulding Rd Nr Keppel St",
+   "205727" : "Mowbray Rd Opp Lynvale Cl",
+   "213811" : "Concord Rd Nr Ryde Bridge",
+   "2113152" : "Wicks Rd Nr Betty Hendry Pde",
+   "2066193" : "Mowbray Rd West Nr Gay St",
+   "213855" : "Concord Rd Nr Mary St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-533-_-sj2-1-14-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-14-b00bk",
+      "leaves" : "06:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "6M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-30-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-30-b00bk",
+      "leaves" : "17:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-18-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-18-b00bj",
+      "leaves" : "17:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-24-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-24-b00bj",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-4-b00bj",
+      "leaves" : "17:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-16-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-16-b00bj",
+      "leaves" : "17:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-9-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-6-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-6-b00bj",
+      "leaves" : "16:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "1M pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "5M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "1M pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "2M pasd"
+            ],
+            [
+               "2066189",
+               "1M pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-5-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-11-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-11-b00bk",
+      "leaves" : "07:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-28-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-28-b00bk",
+      "leaves" : "16:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "1M pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "5M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "1M pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "2M pasd"
+            ],
+            [
+               "2066189",
+               "1M pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-5-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-7-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-7-b00bj",
+      "leaves" : "16:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "1M pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "5M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-6-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-23-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-23-b00bj",
+      "leaves" : "06:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "6M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-5-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-5-b00bj",
+      "leaves" : "18:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "4M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "0S pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "0S pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "0S pasd"
+            ],
+            [
+               "2113155",
+               "1M pasd"
+            ],
+            [
+               "2113154",
+               "0S pasd"
+            ],
+            [
+               "2113183",
+               "0S pasd"
+            ],
+            [
+               "2113150",
+               "1M pasd"
+            ],
+            [
+               "2113148",
+               "0S pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066185",
+               "2M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-36-b00a5" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-36-b00a5",
+      "leaves" : "07:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-25-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-25-b00bj",
+      "leaves" : "06:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "6M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-27-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-27-b00bj",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-21-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-21-b00bj",
+      "leaves" : "07:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-13-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-13-b00bk",
+      "leaves" : "06:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-7-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-29-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-29-b00bk",
+      "leaves" : "16:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "1M pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "5M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-6-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-34-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-34-b00bk",
+      "leaves" : "18:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "4M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "0S pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "0S pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "0S pasd"
+            ],
+            [
+               "2113155",
+               "1M pasd"
+            ],
+            [
+               "2113154",
+               "0S pasd"
+            ],
+            [
+               "2113183",
+               "0S pasd"
+            ],
+            [
+               "2113150",
+               "1M pasd"
+            ],
+            [
+               "2113148",
+               "0S pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066185",
+               "2M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-15-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-15-b00bj",
+      "leaves" : "17:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-20-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-20-b00bj",
+      "leaves" : "07:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-26-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-26-b00bj",
+      "leaves" : "06:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-8-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-31-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-31-b00bk",
+      "leaves" : "17:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-35-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-35-b00bk",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-12-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-12-b00bk",
+      "leaves" : "06:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-8-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-19-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-19-b00bj",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-33-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-33-b00bk",
+      "leaves" : "18:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "0S pasd"
+            ],
+            [
+               "2113155",
+               "1M pasd"
+            ],
+            [
+               "2113154",
+               "0S pasd"
+            ],
+            [
+               "2113183",
+               "0S pasd"
+            ],
+            [
+               "2113150",
+               "1M pasd"
+            ],
+            [
+               "2113148",
+               "0S pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066185",
+               "2M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-10-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-32-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-32-b00bk",
+      "leaves" : "17:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-9-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-17-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-17-b00bj",
+      "leaves" : "18:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "0S pasd"
+            ],
+            [
+               "2113155",
+               "1M pasd"
+            ],
+            [
+               "2113154",
+               "0S pasd"
+            ],
+            [
+               "2113183",
+               "0S pasd"
+            ],
+            [
+               "2113150",
+               "1M pasd"
+            ],
+            [
+               "2113148",
+               "0S pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "0S pasd"
+            ],
+            [
+               "2113142",
+               "1M pasd"
+            ],
+            [
+               "2113140",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "1M pasd"
+            ],
+            [
+               "2066185",
+               "2M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "1M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-10-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-3-b00a5" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-3-b00a5",
+      "leaves" : "17:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212712",
+               null
+            ],
+            [
+               "212726",
+               "1M pasd"
+            ],
+            [
+               "212722",
+               "1M pasd"
+            ],
+            [
+               "213841",
+               "5M pasd"
+            ],
+            [
+               "213854",
+               "1M pasd"
+            ],
+            [
+               "213845",
+               "1M pasd"
+            ],
+            [
+               "213846",
+               "1M pasd"
+            ],
+            [
+               "211269",
+               "1M pasd"
+            ],
+            [
+               "211270",
+               "1M pasd"
+            ],
+            [
+               "211271",
+               "1M pasd"
+            ],
+            [
+               "2112190",
+               "1M pasd"
+            ],
+            [
+               "211272",
+               "0S pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "2M pasd"
+            ],
+            [
+               "2113159",
+               "1M pasd"
+            ],
+            [
+               "2113160",
+               "0S pasd"
+            ],
+            [
+               "2113158",
+               "1M pasd"
+            ],
+            [
+               "2113157",
+               "0S pasd"
+            ],
+            [
+               "2113156",
+               "1M pasd"
+            ],
+            [
+               "2113155",
+               "0S pasd"
+            ],
+            [
+               "2113154",
+               "1M pasd"
+            ],
+            [
+               "2113183",
+               "1M pasd"
+            ],
+            [
+               "2113150",
+               "0S pasd"
+            ],
+            [
+               "2113148",
+               "1M pasd"
+            ],
+            [
+               "2113146",
+               "0S pasd"
+            ],
+            [
+               "2113143",
+               "1M pasd"
+            ],
+            [
+               "2113142",
+               "0S pasd"
+            ],
+            [
+               "2113140",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066185",
+               "4M pasd"
+            ],
+            [
+               "2066183",
+               "1M pasd"
+            ],
+            [
+               "2066182",
+               "0S pasd"
+            ],
+            [
+               "2066180",
+               "1M pasd"
+            ],
+            [
+               "2066187",
+               "1M pasd"
+            ],
+            [
+               "2066189",
+               "0S pasd"
+            ],
+            [
+               "2066190",
+               "1M pasd"
+            ],
+            [
+               "2066192",
+               "1M pasd"
+            ],
+            [
+               "2066194",
+               "1M pasd"
+            ],
+            [
+               "205724",
+               "2M pasd"
+            ],
+            [
+               "205727",
+               "1M pasd"
+            ],
+            [
+               "205728",
+               "1M pasd"
+            ],
+            [
+               "205783",
+               "2M pasd"
+            ],
+            [
+               "2067134",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Olympic Park Station - Railway St nr Brown St",
+            "rs_ref" : "RS_90-533-_-sj2-1-H-2",
+            "id" : "R_90-533-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-9-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-9-b00bk",
+      "leaves" : "07:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-2-b00bk",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-22-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-22-b00bj",
+      "leaves" : "07:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-1-b00a5",
+      "leaves" : "06:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "6M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-8-b00bj" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-8-b00bj",
+      "leaves" : "06:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "3M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "2113141",
+               "1M pasd"
+            ],
+            [
+               "2113144",
+               "0S pasd"
+            ],
+            [
+               "2113145",
+               "1M pasd"
+            ],
+            [
+               "2113147",
+               "0S pasd"
+            ],
+            [
+               "2113149",
+               "1M pasd"
+            ],
+            [
+               "2113182",
+               "0S pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "0S pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "1M pasd"
+            ],
+            [
+               "213812",
+               "1M pasd"
+            ],
+            [
+               "213813",
+               "0S pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-7-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   },
+   "VJ_90-533-_-sj2-1-10-b00bk" : {
+      "vjcode" : "VJ_90-533-_-sj2-1-10-b00bk",
+      "leaves" : "07:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206761",
+               null
+            ],
+            [
+               "206762",
+               "1M pasd"
+            ],
+            [
+               "206746",
+               "1M pasd"
+            ],
+            [
+               "2066149",
+               "1M pasd"
+            ],
+            [
+               "2066148",
+               "1M pasd"
+            ],
+            [
+               "2066136",
+               "0S pasd"
+            ],
+            [
+               "2066195",
+               "1M pasd"
+            ],
+            [
+               "2066193",
+               "1M pasd"
+            ],
+            [
+               "2066191",
+               "1M pasd"
+            ],
+            [
+               "2066188",
+               "1M pasd"
+            ],
+            [
+               "2066186",
+               "0S pasd"
+            ],
+            [
+               "2066260",
+               "1M pasd"
+            ],
+            [
+               "2066179",
+               "1M pasd"
+            ],
+            [
+               "2066181",
+               "1M pasd"
+            ],
+            [
+               "2066233",
+               "0S pasd"
+            ],
+            [
+               "2066184",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "4M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "2113141",
+               "0S pasd"
+            ],
+            [
+               "2113144",
+               "1M pasd"
+            ],
+            [
+               "2113145",
+               "0S pasd"
+            ],
+            [
+               "2113147",
+               "1M pasd"
+            ],
+            [
+               "2113149",
+               "0S pasd"
+            ],
+            [
+               "2113182",
+               "1M pasd"
+            ],
+            [
+               "2113153",
+               "0S pasd"
+            ],
+            [
+               "2113152",
+               "1M pasd"
+            ],
+            [
+               "2113165",
+               "0S pasd"
+            ],
+            [
+               "2113163",
+               "1M pasd"
+            ],
+            [
+               "2113162",
+               "0S pasd"
+            ],
+            [
+               "2113164",
+               "1M pasd"
+            ],
+            [
+               "2113161",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "0S pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "0S pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "2112208",
+               "1M pasd"
+            ],
+            [
+               "211267",
+               "2M pasd"
+            ],
+            [
+               "211268",
+               "1M pasd"
+            ],
+            [
+               "213811",
+               "2M pasd"
+            ],
+            [
+               "213812",
+               "0S pasd"
+            ],
+            [
+               "213813",
+               "1M pasd"
+            ],
+            [
+               "213855",
+               "1M pasd"
+            ],
+            [
+               "212737",
+               "8M pasd"
+            ],
+            [
+               "212727",
+               "1M pasd"
+            ],
+            [
+               "212712",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-533-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Chatswood Station - Olympic Park Station",
+            "rs_ref" : "RS_90-533-_-sj2-1-R-1",
+            "id" : "R_90-533-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-533-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "533"
+   }
+}
+;
+

@@ -1,0 +1,645 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-716-a-sj2-1" : "716"
+}
+;
+
+var stations = {
+   "2112187" : "Blaxland Rd Nr Lane Cove Rd",
+   "2122173" : "North Rd Nr Woorang St",
+   "212244" : "Lovell Rd Nr Colvin Cr",
+   "2122199" : "Vimera Rd Nr Rugby Rd",
+   "2122190" : "Blaxland Rd Nr Beattie Av",
+   "2122102" : "Blaxland Rd Nr Florence Av",
+   "2115112" : "Vimiera Rd Opp Rugby Rd",
+   "2121181" : "Vimiera Rd Nr Lincoln St",
+   "212264" : "Lovell Rd Nr Pickford Av",
+   "2114139" : "Blaxland Rd Nr Birdwood St",
+   "2122171" : "North Rd Nr Donovan St",
+   "2122166" : "Lovell Rd Nr Waratah St",
+   "212153" : "Vimera Rd Nr Deborah Pl",
+   "2122208" : "Balaclava Rd Nr Lincoln St",
+   "2122150" : "Lincoln St Nr Eastwood Heights Primary",
+   "2114138" : "Blaxland Rd Nr Cecil St",
+   "2122174" : "North Rd Nr Sheehan St",
+   "2112174" : "Blaxland Rd Nr Rickard St",
+   "2122168" : "Lovell Rd Nr Colvin Cr",
+   "2122167" : "Lovell Rd Nr Denistone East Public",
+   "211230" : "Blaxland Rd Near Church St",
+   "2122188" : "Blaxland Rd Nr Cecil St",
+   "212243" : "North Rd Nr Watts Rd",
+   "2122152" : "North Rd Nr Balaclava Rd",
+   "2121176" : "Lovell Rd Nr Orange St",
+   "2122149" : "Balaclava Rd Opp Irene Park",
+   "211220" : "Blaxland Rd Nr Devlin St",
+   "212245" : "Lovell Rd Nr North Rd",
+   "212260" : "Lovell Rd Opp Grove St",
+   "2122151" : "North Rd Nr Balaclava Rd",
+   "212266" : "Lovell Rd Nr Blaxland Rd",
+   "2122170" : "North Rd Nr Acacia St",
+   "212262" : "Lovell Rd Nr Orange St",
+   "2122154" : "North Rd Nr Fonti St",
+   "2112176" : "Blaxland Rd 120m W Of Melville St",
+   "2122198" : "Vimiera Rd Nr Anembo Pl",
+   "2122189" : "Blaxland Rd Nr Birdwood St",
+   "2122155" : "North Rd Nr Threlfall St",
+   "2114147" : "Blaxland Nr Florence",
+   "2114141" : "Blaxland Rd Nr Anzac Av",
+   "2114140" : "Blaxland Rd Nr Haig Av",
+   "2112185" : "Blaxland Rd Nr Kulgoa Av",
+   "2122153" : "North Rd Nr Fonti St",
+   "2112186" : "Blaxland Rd Nr Kulgoa Av",
+   "2122136" : "North Rd Nr Threlfall St",
+   "2122172" : "North Rd Nr Woorang St",
+   "212265" : "Lovell Rd Nr Hollis Av",
+   "2112175" : "Blaxland Rd 150m W Of Melville St",
+   "212246" : "North Rd Nr Watts Rd",
+   "2122131" : "Vimiera Rd Nr Yangalla St",
+   "211211" : "North Rd Nr Lovell Rd",
+   "212261" : "Lovell Rd Nr Grove St",
+   "2112251" : "Blaxland Rd Nr Lane Cove Rd",
+   "2112184" : "Blaxland Rd Nr North Rd",
+   "2112177" : "Blaxland Rd Nr Melville St",
+   "2122175" : "North Rd Nr Alison St",
+   "212263" : "Lovell Rd Nr Russell St",
+   "2112178" : "Blaxland Rd Nr Melville St",
+   "2122158" : "Epping Boys High Stand A"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-716-a-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-716-a-sj2-1-3-b00bk",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211230",
+               null
+            ],
+            [
+               "2112251",
+               "1M pasd"
+            ],
+            [
+               "2112186",
+               "1M pasd"
+            ],
+            [
+               "2112178",
+               "0S pasd"
+            ],
+            [
+               "2112176",
+               "1M pasd"
+            ],
+            [
+               "2112174",
+               "0S pasd"
+            ],
+            [
+               "2114141",
+               "0S pasd"
+            ],
+            [
+               "2114140",
+               "1M pasd"
+            ],
+            [
+               "2114139",
+               "0S pasd"
+            ],
+            [
+               "2114138",
+               "0S pasd"
+            ],
+            [
+               "2114147",
+               "1M pasd"
+            ],
+            [
+               "212266",
+               "2M pasd"
+            ],
+            [
+               "212264",
+               "0S pasd"
+            ],
+            [
+               "212262",
+               "0S pasd"
+            ],
+            [
+               "212261",
+               "1M pasd"
+            ],
+            [
+               "2122166",
+               "0S pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "2122170",
+               "0S pasd"
+            ],
+            [
+               "2122172",
+               "1M pasd"
+            ],
+            [
+               "2122174",
+               "1M pasd"
+            ],
+            [
+               "2122153",
+               "0S pasd"
+            ],
+            [
+               "2122136",
+               "0S pasd"
+            ],
+            [
+               "2122151",
+               "2M pasd"
+            ],
+            [
+               "2122149",
+               "0S pasd"
+            ],
+            [
+               "2122208",
+               "1M pasd"
+            ],
+            [
+               "2122150",
+               "1M pasd"
+            ],
+            [
+               "2122198",
+               "1M pasd"
+            ],
+            [
+               "2115112",
+               "1M pasd"
+            ],
+            [
+               "2122158",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-716-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Blaxland Rd Near Church St - Epping Boys High",
+            "rs_ref" : "RS_99-716-a-sj2-1-H-1",
+            "id" : "R_99-716-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-716-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "716"
+   },
+   "VJ_99-716-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-716-a-sj2-1-2-b00bk",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2122158",
+               null
+            ],
+            [
+               "2122131",
+               "2M pasd"
+            ],
+            [
+               "2122199",
+               "1M pasd"
+            ],
+            [
+               "2121181",
+               "1M pasd"
+            ],
+            [
+               "212153",
+               "0S pasd"
+            ],
+            [
+               "2122152",
+               "3M pasd"
+            ],
+            [
+               "2122155",
+               "1M pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ],
+            [
+               "2122167",
+               "0S pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "0S pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212265",
+               "1M pasd"
+            ],
+            [
+               "2122102",
+               "1M pasd"
+            ],
+            [
+               "2122188",
+               "1M pasd"
+            ],
+            [
+               "2122189",
+               "0S pasd"
+            ],
+            [
+               "2122190",
+               "1M pasd"
+            ],
+            [
+               "2112175",
+               "1M pasd"
+            ],
+            [
+               "2112177",
+               "0S pasd"
+            ],
+            [
+               "2112184",
+               "0S pasd"
+            ],
+            [
+               "2112185",
+               "0S pasd"
+            ],
+            [
+               "2112187",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-716-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Epping Boys High - Blaxland Rd Nr Devlin St",
+            "rs_ref" : "RS_99-716-a-sj2-1-R-2",
+            "id" : "R_99-716-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-716-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "716"
+   },
+   "VJ_99-716-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-716-a-sj2-1-1-b00bj",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211230",
+               null
+            ],
+            [
+               "2112251",
+               "1M pasd"
+            ],
+            [
+               "2112186",
+               "1M pasd"
+            ],
+            [
+               "2112178",
+               "0S pasd"
+            ],
+            [
+               "2112176",
+               "1M pasd"
+            ],
+            [
+               "2112174",
+               "0S pasd"
+            ],
+            [
+               "2114141",
+               "0S pasd"
+            ],
+            [
+               "2114140",
+               "1M pasd"
+            ],
+            [
+               "2114139",
+               "0S pasd"
+            ],
+            [
+               "2114138",
+               "0S pasd"
+            ],
+            [
+               "2114147",
+               "1M pasd"
+            ],
+            [
+               "212266",
+               "2M pasd"
+            ],
+            [
+               "212264",
+               "0S pasd"
+            ],
+            [
+               "212262",
+               "0S pasd"
+            ],
+            [
+               "212261",
+               "1M pasd"
+            ],
+            [
+               "2122166",
+               "0S pasd"
+            ],
+            [
+               "2122168",
+               "1M pasd"
+            ],
+            [
+               "212245",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "2122170",
+               "0S pasd"
+            ],
+            [
+               "2122172",
+               "1M pasd"
+            ],
+            [
+               "2122174",
+               "1M pasd"
+            ],
+            [
+               "2122153",
+               "0S pasd"
+            ],
+            [
+               "2122136",
+               "0S pasd"
+            ],
+            [
+               "2122151",
+               "2M pasd"
+            ],
+            [
+               "2122149",
+               "0S pasd"
+            ],
+            [
+               "2122208",
+               "1M pasd"
+            ],
+            [
+               "2122150",
+               "1M pasd"
+            ],
+            [
+               "2122198",
+               "1M pasd"
+            ],
+            [
+               "2115112",
+               "1M pasd"
+            ],
+            [
+               "2122158",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-716-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Blaxland Rd Near Church St - Epping Boys High",
+            "rs_ref" : "RS_99-716-a-sj2-1-H-1",
+            "id" : "R_99-716-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-716-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "716"
+   },
+   "VJ_99-716-a-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-716-a-sj2-1-4-b00bj",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2122158",
+               null
+            ],
+            [
+               "2122131",
+               "2M pasd"
+            ],
+            [
+               "2122199",
+               "1M pasd"
+            ],
+            [
+               "2121181",
+               "1M pasd"
+            ],
+            [
+               "212153",
+               "0S pasd"
+            ],
+            [
+               "2122152",
+               "3M pasd"
+            ],
+            [
+               "2122155",
+               "1M pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ],
+            [
+               "2122167",
+               "0S pasd"
+            ],
+            [
+               "212260",
+               "1M pasd"
+            ],
+            [
+               "2121176",
+               "0S pasd"
+            ],
+            [
+               "212263",
+               "0S pasd"
+            ],
+            [
+               "212265",
+               "1M pasd"
+            ],
+            [
+               "2122102",
+               "1M pasd"
+            ],
+            [
+               "2122188",
+               "1M pasd"
+            ],
+            [
+               "2122189",
+               "0S pasd"
+            ],
+            [
+               "2122190",
+               "1M pasd"
+            ],
+            [
+               "2112175",
+               "1M pasd"
+            ],
+            [
+               "2112177",
+               "0S pasd"
+            ],
+            [
+               "2112184",
+               "0S pasd"
+            ],
+            [
+               "2112185",
+               "0S pasd"
+            ],
+            [
+               "2112187",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-716-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Epping Boys High - Blaxland Rd Nr Devlin St",
+            "rs_ref" : "RS_99-716-a-sj2-1-R-2",
+            "id" : "R_99-716-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-716-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "716"
+   }
+}
+;
+

@@ -1,0 +1,786 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-783-_-sj2-1" : "783"
+}
+;
+
+var stations = {
+   "208642" : "French Forest Rd Nr Patanga Rd",
+   "208618" : "Iris St Nr Karabah Pl",
+   "2100128" : "McIntosh Rd nr Parr Pde",
+   "2100102" : "Allambie Rd nr Flers St",
+   "2099193" : "Fisher Rd nr Regent St",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "208619" : "Iris St Nr Patanga Rd",
+   "2100122" : "Oxford Fall Rd nr Brooker Av",
+   "2099197" : "Fisher Rd nr Tor Rd",
+   "208644" : "Frenchs Forest Rd Nr Skyline Pl",
+   "2099111" : "McIntosh Rd nr Creer Pl",
+   "2100121" : "Iris St Nr Jones St",
+   "2099115" : "Mcintosh Rd Nr Mundara Pl",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "2100127" : "Willandra Rd nr Egan Pl",
+   "208643" : "Frenchs Forest Rd Nr Hurdis Av",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "210074" : "Allambie Rd nr Aquatic Dr",
+   "208640" : "Frenchs Forest Rd nr Romford Rd",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "208636" : "Frenchs Forest Rd Nr Bantry Bay Rd",
+   "2099117" : "Mcintosh Rd Nr Vale Av",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "209998" : "Mcintosh Rd Nr Victor Rd",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "2099113" : "Mcintosh Rd Nr Lascelles Rd",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "208656" : "Frenchs Forest Rd Nr Forest High",
+   "208621" : "Patanga Rd Nr Dareen St",
+   "209999" : "McIntosh Rd nr Beverley Job Park",
+   "208671" : "Forest Wy Nr Warringah Rd",
+   "2100118" : "Tristram Rd nr Boyer Rd",
+   "2099188" : "Campbell Pde nr Heron Pl",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "208697" : "Naree Rd Nr Rabbett St",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "2100123" : "Tristram Rd nr Boyer Rd",
+   "208620" : "Allambie Rd Nr Warringah Rd",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "208639" : "Frenchs Forest Rd Nr Skyline Pl",
+   "2100126" : "Tristram Rd nr Beacon Hill Primary",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "209997" : "Mcintosh Rd Nr Vale Av",
+   "2100137" : "Willandra Rd nr Anthony Cl",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "208698" : "Frenchs Forest Rd nr Bluegum Cr",
+   "208641" : "Frenchs Forest Rd nr Inverness Av",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "2099114" : "Mcintosh Rd Nr Alfred St",
+   "208674" : "Warrringah Rd Nr Bantry Bay Rd",
+   "208637" : "Wakehurst Pwy nr Frenchs Forest Rd",
+   "2100119" : "Oxford Falls Rd nr Brooker Av",
+   "2100125" : "Tristram Rd Nr Willandra Rd",
+   "209785" : "South Creek Rd opp Pittwater House School",
+   "208622" : "Patanga Rd Nr Iris St",
+   "2099112" : "Mcintosh Rd Nr Eltham St",
+   "2099199" : "Campbell Pde nr Bruzzano Pl",
+   "208629" : "Iris St Nr Karabah Pl",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "2099198" : "Fisher Rd Nr Ilikai Pl",
+   "2099116" : "Mcintosh Rd Nr Victor Rd",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "2099100" : "Mcintosh Rd Nr Mundara Pl",
+   "2100120" : "Iris St Nr Jones St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-783-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-783-_-sj2-1-1-b00b2",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208656",
+               null
+            ],
+            [
+               "208636",
+               "3M pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "208622",
+               "0S pasd"
+            ],
+            [
+               "208629",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100122",
+               "0S pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "0S pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099115",
+               "1M pasd"
+            ],
+            [
+               "2099116",
+               "1M pasd"
+            ],
+            [
+               "2099117",
+               "0S pasd"
+            ],
+            [
+               "2099197",
+               "2M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099199",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd Nr Forest High - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-783-_-sj2-1-R-1",
+            "id" : "R_99-783-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-783-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   },
+   "VJ_99-783-_-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-783-_-sj2-1-2-b00b2",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209785",
+               null
+            ],
+            [
+               "2099188",
+               "2M pasd"
+            ],
+            [
+               "2099189",
+               "0S pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "209997",
+               "1M pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "0S pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "0S pasd"
+            ],
+            [
+               "208618",
+               "1M pasd"
+            ],
+            [
+               "208619",
+               "0S pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "208671",
+               "3M pasd"
+            ],
+            [
+               "208697",
+               "1M pasd"
+            ],
+            [
+               "208698",
+               "1M pasd"
+            ],
+            [
+               "208636",
+               "0S pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "South Creek Rd opp Pittwater House School - Kentwell Rd Nr Condamine St",
+            "rs_ref" : "RS_99-783-_-sj2-1-R-2",
+            "id" : "R_99-783-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-783-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   },
+   "VJ_99-783-_-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-783-_-sj2-1-4-b00b7",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209785",
+               null
+            ],
+            [
+               "2099188",
+               "2M pasd"
+            ],
+            [
+               "2099189",
+               "0S pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "209997",
+               "1M pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "0S pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "0S pasd"
+            ],
+            [
+               "208618",
+               "1M pasd"
+            ],
+            [
+               "208619",
+               "0S pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208637",
+               "2M pasd"
+            ],
+            [
+               "208674",
+               "1M pasd"
+            ],
+            [
+               "208671",
+               "3M pasd"
+            ],
+            [
+               "208697",
+               "1M pasd"
+            ],
+            [
+               "208698",
+               "1M pasd"
+            ],
+            [
+               "208636",
+               "0S pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "South Creek Rd opp Pittwater House School - Kentwell Rd Nr Condamine St",
+            "rs_ref" : "RS_99-783-_-sj2-1-R-2",
+            "id" : "R_99-783-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-783-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   },
+   "VJ_99-783-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-783-_-sj2-1-3-b00b7",
+      "leaves" : "15:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208656",
+               null
+            ],
+            [
+               "208636",
+               "3M pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208621",
+               "1M pasd"
+            ],
+            [
+               "208622",
+               "0S pasd"
+            ],
+            [
+               "208629",
+               "1M pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100122",
+               "0S pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "0S pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099115",
+               "1M pasd"
+            ],
+            [
+               "2099116",
+               "1M pasd"
+            ],
+            [
+               "2099117",
+               "0S pasd"
+            ],
+            [
+               "2099197",
+               "2M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099199",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-783-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd Nr Forest High - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-783-_-sj2-1-R-1",
+            "id" : "R_99-783-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-783-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "783"
+   }
+}
+;
+

@@ -1,0 +1,457 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-690-a-sj2-1" : "690"
+}
+;
+
+var stations = {
+   "204697" : "Great North Rd Opp Harrabrook Av",
+   "219387" : "Northcote St Nr Cross St",
+   "2206114" : "William St Nr Woolcott St",
+   "219424" : "Beamish St Nr Evaline St",
+   "213350" : "Brighton Av opp Queensborough Rd",
+   "2206125" : "William St Nr Homer St",
+   "219423" : "Beamish St Opp Unara St",
+   "204698" : "Great North Rd Nr Longview St",
+   "219430" : "Brighton Av Opp Browning St",
+   "2206116" : "William St Nr Main St",
+   "213335" : "Greenhills St Nr Arthur St",
+   "213349" : "Brighton Av nr Wentworth St",
+   "213332" : "Georges River Rd nr Bereford Av",
+   "213234" : "Croydon Rd Nr Bay St",
+   "219419" : "Orissa St Nr Fletcher St",
+   "213333" : "Georges River Rd Nr Croydon Av",
+   "219411" : "Beamish St Nr North Pde",
+   "2206126" : "Clarke St Nr Earlwood Av",
+   "219388" : "Northcote St Nr Cressy St",
+   "219413" : "Beamish St nr South Pde",
+   "220664" : "Northcote St Nr Bexley Rd",
+   "213235" : "Croydon Rd Nr Parramatta Rd",
+   "213264" : "Greenhills St Nr Mills St",
+   "219464" : "Canterbury Rd Nr Scahill St",
+   "219483" : "Beamish St Nr Brighton Av",
+   "220663" : "Bexley Rd Nr Calbina Rd",
+   "219431" : "Brighton Av Nr Tennyson St",
+   "2206115" : "William St Nr Hood Av",
+   "219422" : "Beamish St Nr Fletcher St",
+   "213270" : "The Strand nr Paisley Rd",
+   "213233" : "Church St Nr Croydon Rd",
+   "219389" : "Northcote St Nr Canterbury Rd",
+   "219433" : "Brighton Av Nr Byron St",
+   "2206113" : "William St Nr Cameron Av",
+   "220665" : "Northcote St Opp Narani Cr",
+   "204699" : "Great North Rd Nr Kings Rd",
+   "213232" : "Church St Nr Lang St",
+   "213231" : "Lang St Nr Queen St",
+   "213262" : "Greenhills St Nr Liverpool Rd",
+   "213336" : "Greenhills St nr George River Rd",
+   "2206117" : "William St Nr Bexley Rd",
+   "2046116" : "First Av Nr Park Rd",
+   "219432" : "Brighton Av Opp Moore St",
+   "2046115" : "First Av Nr Waterview St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-690-a-sj2-1-2-b009t" : {
+      "vjcode" : "VJ_99-690-a-sj2-1-2-b009t",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2206126",
+               null
+            ],
+            [
+               "2206125",
+               "1M pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "0S pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "1M pasd"
+            ],
+            [
+               "2206117",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "0S pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "1M pasd"
+            ],
+            [
+               "219389",
+               "0S pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "2M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "0S pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "0S pasd"
+            ],
+            [
+               "219483",
+               "1M pasd"
+            ],
+            [
+               "219430",
+               "0S pasd"
+            ],
+            [
+               "219431",
+               "1M pasd"
+            ],
+            [
+               "219432",
+               "0S pasd"
+            ],
+            [
+               "219433",
+               "1M pasd"
+            ],
+            [
+               "213349",
+               "1M pasd"
+            ],
+            [
+               "213350",
+               "0S pasd"
+            ],
+            [
+               "213332",
+               "1M pasd"
+            ],
+            [
+               "213333",
+               "1M pasd"
+            ],
+            [
+               "213336",
+               "0S pasd"
+            ],
+            [
+               "213335",
+               "1M pasd"
+            ],
+            [
+               "213264",
+               "0S pasd"
+            ],
+            [
+               "213262",
+               "1M pasd"
+            ],
+            [
+               "213270",
+               "2M pasd"
+            ],
+            [
+               "213231",
+               "3M pasd"
+            ],
+            [
+               "213232",
+               "0S pasd"
+            ],
+            [
+               "213233",
+               "1M pasd"
+            ],
+            [
+               "213234",
+               "1M pasd"
+            ],
+            [
+               "213235",
+               "0S pasd"
+            ],
+            [
+               "204697",
+               "1M pasd"
+            ],
+            [
+               "204698",
+               "1M pasd"
+            ],
+            [
+               "204699",
+               "0S pasd"
+            ],
+            [
+               "2046115",
+               "1M pasd"
+            ],
+            [
+               "2046116",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-690-a-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Clarke St Nr Earlwood Av - First Av Nr Park Rd",
+            "rs_ref" : "RS_99-690-a-sj2-1-H-1",
+            "id" : "R_99-690-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-690-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "690"
+   },
+   "VJ_99-690-a-sj2-1-1-b009m" : {
+      "vjcode" : "VJ_99-690-a-sj2-1-1-b009m",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2206126",
+               null
+            ],
+            [
+               "2206125",
+               "1M pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "0S pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "1M pasd"
+            ],
+            [
+               "2206117",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "0S pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "1M pasd"
+            ],
+            [
+               "219389",
+               "0S pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "2M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "0S pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "0S pasd"
+            ],
+            [
+               "219483",
+               "1M pasd"
+            ],
+            [
+               "219430",
+               "1M pasd"
+            ],
+            [
+               "219431",
+               "0S pasd"
+            ],
+            [
+               "219432",
+               "1M pasd"
+            ],
+            [
+               "219433",
+               "0S pasd"
+            ],
+            [
+               "213349",
+               "1M pasd"
+            ],
+            [
+               "213350",
+               "1M pasd"
+            ],
+            [
+               "213332",
+               "1M pasd"
+            ],
+            [
+               "213333",
+               "1M pasd"
+            ],
+            [
+               "213336",
+               "0S pasd"
+            ],
+            [
+               "213335",
+               "1M pasd"
+            ],
+            [
+               "213264",
+               "0S pasd"
+            ],
+            [
+               "213262",
+               "1M pasd"
+            ],
+            [
+               "213270",
+               "2M pasd"
+            ],
+            [
+               "213231",
+               "2M pasd"
+            ],
+            [
+               "213232",
+               "1M pasd"
+            ],
+            [
+               "213233",
+               "1M pasd"
+            ],
+            [
+               "213234",
+               "0S pasd"
+            ],
+            [
+               "213235",
+               "0S pasd"
+            ],
+            [
+               "204697",
+               "1M pasd"
+            ],
+            [
+               "204698",
+               "1M pasd"
+            ],
+            [
+               "204699",
+               "0S pasd"
+            ],
+            [
+               "2046115",
+               "1M pasd"
+            ],
+            [
+               "2046116",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-690-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Clarke St Nr Earlwood Av - First Av Nr Park Rd",
+            "rs_ref" : "RS_99-690-a-sj2-1-H-1",
+            "id" : "R_99-690-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-690-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "690"
+   }
+}
+;
+

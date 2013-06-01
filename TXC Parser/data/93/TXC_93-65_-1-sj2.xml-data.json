@@ -1,0 +1,2765 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-65-_-sj2-1" : "65"
+}
+;
+
+var stations = {
+   "2251268" : "Avoca Dr Near Davis St",
+   "225182" : "Koolang Rd Near Beveridge Dr",
+   "2250544" : "Karalta Rd at Ilya Av",
+   "2251185" : "Avoca Dr near Dalgety Cr",
+   "2250534" : "Mann St before Donnison St",
+   "2257329" : "Heath Rd - No.21 (Before Araluen Dr)",
+   "225164" : "Dalgety Cr Near Sunvalley Rd",
+   "2251126" : "Tudibaring Pde Near Three Points Av",
+   "2250546" : "CC Hwy before Avoca Dr",
+   "225029" : "Karalta Rd opp Bronzewing Dr",
+   "2251158" : "Scaysbrook Dr near Waldron Rd",
+   "2251273" : "Melville St near Scaysbrook Dr",
+   "2251264" : "Avoca Dr near Willesee Cr",
+   "2251156" : "Scaysbrook Dr near Pickering Cl",
+   "225169" : "James Sea Dr Near Cooper Rd",
+   "2251313" : "Link Rd (Adj.Bi-Lo)",
+   "225012" : "CC Hwy before Dane Dr",
+   "2257256" : "The Scenic Rd Near Maitland Bay Dr",
+   "225026" : "CC Hwy opp ERINA HS",
+   "2250419" : "CC Hwy at  Adelaide St",
+   "2250542" : "Karalta Rd at Bronzewing Dr",
+   "2251118" : "Lakeside Dr Lakeside Dr",
+   "2257250" : "The Scenic Rd near Manly View Rd",
+   "2251299" : "Link Rd (Opp.Bi-Lo)",
+   "225049" : "Gosford (Stand 9)",
+   "225159" : "Ernest St at ERINA HS",
+   "225019" : "CC Hwy at Albany St",
+   "225014" : "CC Hwy opp White St",
+   "2251162" : "Cullens Rd near The Scenic Rd",
+   "2251124" : "Namatjira Dr & The Scenic Rd",
+   "2257252" : "Manly View Rd Near Hats St",
+   "2251178" : "Avoca Dr near Edgewater Av",
+   "2251176" : "Avoca Dr Near Aroona Rd",
+   "225027" : "Karalta Rd at Karalta Ln",
+   "2251128" : "Lakeside Dr near Newell Rd",
+   "2251179" : "Avoca Dr (After Bayside Dr - Green Point Shops)",
+   "2250440" : "Mann St after Erina St East",
+   "2251166" : "Avoca Dr near Killuna Rd",
+   "2251320" : "Namatjira Dr - No.34 (Before The Scenic Rd)",
+   "2251194" : "Avoca Dr Near Elfin Hill Rd",
+   "225185" : "Koolang Rd Near Beveridge Dr",
+   "2257242" : "Pretty Beach Rd near Oroo St",
+   "2251286" : "Empire Bay Dr Near Sundowner Av",
+   "2251167" : "Avoca Dr Near Davis St",
+   "2257240" : "Heath Rd - No.58 (Near Opp.Otella Av)",
+   "2257244" : "Pretty Beach Rd near Heath Rd",
+   "225183" : "Koolang Rd Near Avoca Dr",
+   "2251317" : "Milpera Rd Opp. No 20",
+   "2250420" : "CC Hwy at Henry Parry Dr",
+   "2251181" : "Avoca Dr near Koolang Rd",
+   "2251132" : "Cullens Rd near Patanga St",
+   "2251114" : "The Scenic Rd near Cullens Rd",
+   "2251174" : "Avoca Dr Near Elfin Hill Rd",
+   "2251119" : "Tudibaring Pde Near Three Points Av",
+   "225171" : "Ernest St at WOODPORT PS",
+   "2251169" : "Kincumber Village Shops",
+   "2251154" : "Scaysbrook Dr near Edmondson Cr",
+   "2251163" : "Cullens Rd near Cochrone St",
+   "2257328" : "Pretty Beach Rd (Opp.Oroo St)",
+   "2250433" : "Erina Fair Stand C",
+   "2251172" : "Avoca Dr Near Kantara House",
+   "2257247" : "Killcare Rd near Araluen Dr",
+   "225024" : "CC Hwy opp Pateman St",
+   "2251160" : "Scaysbrook Dr near Monica St",
+   "2257255" : "The Scenic Rd near Pauline St",
+   "225161" : "James Sea Dr Near Cooper Rd",
+   "2251177" : "Avoca Dr near Kanangrs St",
+   "2251116" : "The Scenic Rd Near Bounty Hill Rd",
+   "225166" : "Dalgety Cr Near Sunvalley Rd",
+   "225018" : "CC Hwy at Masons Pde",
+   "2251265" : "Kincumber Village Shops",
+   "2251263" : "Avoca Dr near Boora Rd",
+   "225089" : "Erina Fair Stand A",
+   "2250548" : "Punt Bridge CC Hwy",
+   "2251175" : "Avoca Dr near Lexington Pde",
+   "2250547" : "Erina Council Depot CC Hwy",
+   "2251170" : "Avoca Dr near Algona Av",
+   "2251155" : "Scaysbrook Dr near Pickering Cl",
+   "225013" : "CC Hwy at Albany St",
+   "2251190" : "Avoca Dr near Bayside Dr",
+   "225011" : "Mann St at  William St Mall",
+   "2251127" : "Lakeside Dr near Three Points Dr",
+   "2257253" : "Manly View Rd Near Hats St",
+   "2250535" : "Mann St at Georgiana Tce",
+   "2251130" : "The Scenic Rd Near Bounty Hill Rd",
+   "2251267" : "Avoca Dr Near Gunya Rd",
+   "2251157" : "Scaysbrook Dr near Waldron Rd",
+   "2251195" : "Avoca Dr Near Davistown Rd",
+   "2251164" : "Empire Bay Dr Near Sundowner Av",
+   "2251129" : "The Scenic Rd near Bounty Hill Rd",
+   "2251270" : "Oberton St Near School St",
+   "2251117" : "The Scenic Rd near Lakeside Dr",
+   "2251171" : "Avoca Dr near Colleena Cl",
+   "2257251" : "Hats St Near The Scenic Rd",
+   "2251180" : "Avoca Dr near Park Cr",
+   "2251187" : "Avoca Dr - No.110",
+   "2251120" : "Warri Cr Near The Scenic Rd",
+   "2257239" : "Heath Rd near Araluen Dr",
+   "2251189" : "Avoca Dr near Koolang Rd",
+   "2251125" : "Warri Cr Near The Scenic Rd",
+   "2251192" : "Avoca Dr near Kanangra St",
+   "225163" : "Dalgety Cr near Dalgety Cr",
+   "2251262" : "Avoca Dr Near Kantara House",
+   "225170" : "Ernest St near Woodport Cl",
+   "2251161" : "Melville St near Cullens Rd",
+   "2257241" : "Pretty Beach Rd (Pretty Beach PS)",
+   "2250543" : "Karalta Rd opp Miranda Av",
+   "2251193" : "Avoca Dr Near Aroona Rd",
+   "2257237" : "The Scenic Rd near Beach Dr",
+   "2250545" : "Erina High School CC Hwy",
+   "2251173" : "Avoca Dr Near Davistown Rd",
+   "2251115" : "The Scenic Rd Near Doyle St",
+   "225017" : "Mann St at Georgiana Tce",
+   "225168" : "James Sea Dr near Dalgety Cr",
+   "225016" : "Mann St at Donnison St",
+   "2251272" : "Oberton St near Kooreal Rd",
+   "225025" : "CC Hwy opp  Avoca Dr",
+   "2251285" : "Empire Bay Dr Near Tora Av",
+   "2250437" : "York St at White St",
+   "2257243" : "Wagstaff Av near Mulhall St",
+   "2251165" : "Empire Bay Dr Near Tora Av",
+   "225167" : "Dalgety Cr near White Cedar Cl",
+   "2251269" : "Kincumber Public School Avoca Dr",
+   "2251191" : "Avoca Dr near Edgewater",
+   "2257259" : "The Scenic Rd Near Maitland Bay St",
+   "2251131" : "The Scenic Rd Near Doyle St",
+   "2257238" : "Kildare Rd near The Scenic Rd",
+   "2251287" : "The Cullens Rd near The Scenic Rd",
+   "2250641" : "CC Hwy at George St",
+   "2251321" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+   "225160" : "Ernest St near James Sea Dr",
+   "2257245" : "Heath Rd Near Otella Av",
+   "225162" : "James Sea Dr Near Cooper Rd",
+   "2257246" : "Araluen Dr near Killcare Rd",
+   "225184" : "Koolang Rd Near Avoca Dr",
+   "225165" : "Sun Valley Rd near Dalgety Cr",
+   "2251182" : "Avoca Dr - Opp.No.110",
+   "225023" : "CC Hwy at Brougham St",
+   "225088" : "CC Hwy at Adelaide St",
+   "2251121" : "Namatjira Dr & The Scenic Rd",
+   "2257254" : "Hats St Near The Scenic Rd",
+   "2251168" : "Avoca Dr Near Gunya Rd",
+   "225028" : "Karalta Rd at Miranda Av",
+   "2251312" : "Milpera Rd - No.8",
+   "2257248" : "Killcare Rd near The Scenic Rd",
+   "2251266" : "Avoca Dr near Carrak Rd",
+   "2251159" : "Scaysbrook Dr Near Woodfield Rd",
+   "2250556" : "Avoca Dr near The Entrance",
+   "2251271" : "Oberton St Near Gurrigal St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-65-_-sj2-1-7-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-7-b0195",
+      "leaves" : "10:39:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2251265",
+               null
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "0S pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "1M pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Kincumber Village Shops - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-2",
+            "id" : "R_93-65-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-13-b0191" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-13-b0191",
+      "leaves" : "08:12:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-17-b0191" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-17-b0191",
+      "leaves" : "17:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2251265",
+               null
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "0S pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "1M pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Kincumber Village Shops - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-2",
+            "id" : "R_93-65-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-10-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-10-b0195",
+      "leaves" : "19:22:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250433",
+               null
+            ],
+            [
+               "2250542",
+               "1M pasd"
+            ],
+            [
+               "2250543",
+               "1M pasd"
+            ],
+            [
+               "2250544",
+               "0S pasd"
+            ],
+            [
+               "2250545",
+               "2M pasd"
+            ],
+            [
+               "225159",
+               "0S pasd"
+            ],
+            [
+               "225160",
+               "1M pasd"
+            ],
+            [
+               "225161",
+               "0S pasd"
+            ],
+            [
+               "225162",
+               "0S pasd"
+            ],
+            [
+               "225163",
+               "1M pasd"
+            ],
+            [
+               "225164",
+               "0S pasd"
+            ],
+            [
+               "2251299",
+               "1M pasd"
+            ],
+            [
+               "2251317",
+               "1M pasd"
+            ],
+            [
+               "225182",
+               "0S pasd"
+            ],
+            [
+               "225183",
+               "1M pasd"
+            ],
+            [
+               "2251189",
+               "0S pasd"
+            ],
+            [
+               "2251190",
+               "1M pasd"
+            ],
+            [
+               "2251191",
+               "0S pasd"
+            ],
+            [
+               "2251192",
+               "1M pasd"
+            ],
+            [
+               "2251193",
+               "0S pasd"
+            ],
+            [
+               "2251194",
+               "1M pasd"
+            ],
+            [
+               "2251195",
+               "0S pasd"
+            ],
+            [
+               "2251262",
+               "1M pasd"
+            ],
+            [
+               "2251263",
+               "1M pasd"
+            ],
+            [
+               "2251264",
+               "1M pasd"
+            ],
+            [
+               "2251265",
+               "0S pasd"
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251270",
+               "1M pasd"
+            ],
+            [
+               "2251271",
+               "1M pasd"
+            ],
+            [
+               "2251272",
+               "0S pasd"
+            ],
+            [
+               "2251273",
+               "0S pasd"
+            ],
+            [
+               "2251154",
+               "0S pasd"
+            ],
+            [
+               "2251155",
+               "1M pasd"
+            ],
+            [
+               "2251156",
+               "0S pasd"
+            ],
+            [
+               "2251157",
+               "0S pasd"
+            ],
+            [
+               "2251158",
+               "1M pasd"
+            ],
+            [
+               "2251159",
+               "0S pasd"
+            ],
+            [
+               "2251160",
+               "0S pasd"
+            ],
+            [
+               "2251161",
+               "1M pasd"
+            ],
+            [
+               "2251162",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "0S pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-7-R-6",
+         "route" : {
+            "name" : "Erina Fair - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-6",
+            "id" : "R_93-65-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-33-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-33-b0195",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225049",
+               null
+            ],
+            [
+               "225011",
+               "3M pasd"
+            ],
+            [
+               "225016",
+               "1M pasd"
+            ],
+            [
+               "225017",
+               "1M pasd"
+            ],
+            [
+               "225018",
+               "1M pasd"
+            ],
+            [
+               "225019",
+               "1M pasd"
+            ],
+            [
+               "2250437",
+               "0S pasd"
+            ],
+            [
+               "2250420",
+               "1M pasd"
+            ],
+            [
+               "2250419",
+               "1M pasd"
+            ],
+            [
+               "225023",
+               "1M pasd"
+            ],
+            [
+               "225024",
+               "6M pasd"
+            ],
+            [
+               "225025",
+               "1M pasd"
+            ],
+            [
+               "225159",
+               "2M pasd"
+            ],
+            [
+               "225160",
+               "1M pasd"
+            ],
+            [
+               "225161",
+               "0S pasd"
+            ],
+            [
+               "225162",
+               "0S pasd"
+            ],
+            [
+               "225163",
+               "1M pasd"
+            ],
+            [
+               "225164",
+               "0S pasd"
+            ],
+            [
+               "2251299",
+               "2M pasd"
+            ],
+            [
+               "2251317",
+               "0S pasd"
+            ],
+            [
+               "225182",
+               "1M pasd"
+            ],
+            [
+               "225183",
+               "1M pasd"
+            ],
+            [
+               "2251189",
+               "0S pasd"
+            ],
+            [
+               "2251190",
+               "1M pasd"
+            ],
+            [
+               "2251191",
+               "1M pasd"
+            ],
+            [
+               "2251192",
+               "0S pasd"
+            ],
+            [
+               "2251193",
+               "1M pasd"
+            ],
+            [
+               "2251194",
+               "1M pasd"
+            ],
+            [
+               "2251195",
+               "2M pasd"
+            ],
+            [
+               "2251262",
+               "2M pasd"
+            ],
+            [
+               "2251263",
+               "2M pasd"
+            ],
+            [
+               "2251264",
+               "0S pasd"
+            ],
+            [
+               "2251265",
+               "1M pasd"
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "1M pasd"
+            ],
+            [
+               "2251287",
+               "1M pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "1M pasd"
+            ],
+            [
+               "2251117",
+               "2M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "0S pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251320",
+               "1M pasd"
+            ],
+            [
+               "2251121",
+               "0S pasd"
+            ],
+            [
+               "2257259",
+               "5M pasd"
+            ],
+            [
+               "2257250",
+               "1M pasd"
+            ],
+            [
+               "2257251",
+               "1M pasd"
+            ],
+            [
+               "2257252",
+               "1M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "1M pasd"
+            ],
+            [
+               "2257239",
+               "1M pasd"
+            ],
+            [
+               "2257240",
+               "2M pasd"
+            ],
+            [
+               "2257241",
+               "2M pasd"
+            ],
+            [
+               "2257242",
+               "1M pasd"
+            ],
+            [
+               "2257243",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-15-R-3",
+         "route" : {
+            "name" : "Gosford Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-3",
+            "id" : "R_93-65-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-18-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-18-b0195",
+      "leaves" : "07:21:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "1M pasd"
+            ],
+            [
+               "2257329",
+               "1M pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "0S pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "1M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257255",
+               "0S pasd"
+            ],
+            [
+               "2257256",
+               "2M pasd"
+            ],
+            [
+               "2251124",
+               "8M pasd"
+            ],
+            [
+               "2251321",
+               "0S pasd"
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "1M pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "0S pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ],
+            [
+               "2251167",
+               "1M pasd"
+            ],
+            [
+               "2251168",
+               "1M pasd"
+            ],
+            [
+               "2251169",
+               "1M pasd"
+            ],
+            [
+               "2251170",
+               "1M pasd"
+            ],
+            [
+               "2251171",
+               "0S pasd"
+            ],
+            [
+               "2251172",
+               "1M pasd"
+            ],
+            [
+               "2251173",
+               "2M pasd"
+            ],
+            [
+               "2251174",
+               "1M pasd"
+            ],
+            [
+               "2251175",
+               "1M pasd"
+            ],
+            [
+               "2251176",
+               "0S pasd"
+            ],
+            [
+               "2251177",
+               "1M pasd"
+            ],
+            [
+               "2251178",
+               "0S pasd"
+            ],
+            [
+               "2251179",
+               "1M pasd"
+            ],
+            [
+               "2251180",
+               "0S pasd"
+            ],
+            [
+               "2251181",
+               "1M pasd"
+            ],
+            [
+               "2251182",
+               "1M pasd"
+            ],
+            [
+               "2250556",
+               "1M pasd"
+            ],
+            [
+               "2250547",
+               "1M pasd"
+            ],
+            [
+               "2250548",
+               "2M pasd"
+            ],
+            [
+               "2250641",
+               "1M pasd"
+            ],
+            [
+               "225088",
+               "0S pasd"
+            ],
+            [
+               "225014",
+               "2M pasd"
+            ],
+            [
+               "225013",
+               "1M pasd"
+            ],
+            [
+               "225012",
+               "2M pasd"
+            ],
+            [
+               "2250535",
+               "2M pasd"
+            ],
+            [
+               "2250534",
+               "1M pasd"
+            ],
+            [
+               "2250440",
+               "1M pasd"
+            ],
+            [
+               "225049",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-10-H-7",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Gosford Station",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-7",
+            "id" : "R_93-65-_-sj2-1-H-7"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-11-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-11-b0195",
+      "leaves" : "19:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "2M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-8-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-14-b0191" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-14-b0191",
+      "leaves" : "11:14:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-12-b0191" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-12-b0191",
+      "leaves" : "11:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2251265",
+               null
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "0S pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "1M pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Kincumber Village Shops - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-2",
+            "id" : "R_93-65-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-5-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-5-b0195",
+      "leaves" : "12:39:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2251265",
+               null
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "0S pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "1M pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Kincumber Village Shops - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-2",
+            "id" : "R_93-65-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-20-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-20-b0195",
+      "leaves" : "18:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250433",
+               null
+            ],
+            [
+               "2250542",
+               "1M pasd"
+            ],
+            [
+               "2250543",
+               "1M pasd"
+            ],
+            [
+               "2250544",
+               "0S pasd"
+            ],
+            [
+               "2250545",
+               "2M pasd"
+            ],
+            [
+               "225159",
+               "0S pasd"
+            ],
+            [
+               "225160",
+               "1M pasd"
+            ],
+            [
+               "225161",
+               "0S pasd"
+            ],
+            [
+               "225162",
+               "0S pasd"
+            ],
+            [
+               "225163",
+               "1M pasd"
+            ],
+            [
+               "225164",
+               "0S pasd"
+            ],
+            [
+               "2251299",
+               "1M pasd"
+            ],
+            [
+               "2251317",
+               "1M pasd"
+            ],
+            [
+               "225182",
+               "0S pasd"
+            ],
+            [
+               "225183",
+               "1M pasd"
+            ],
+            [
+               "2251189",
+               "0S pasd"
+            ],
+            [
+               "2251190",
+               "1M pasd"
+            ],
+            [
+               "2251191",
+               "0S pasd"
+            ],
+            [
+               "2251192",
+               "1M pasd"
+            ],
+            [
+               "2251193",
+               "0S pasd"
+            ],
+            [
+               "2251194",
+               "1M pasd"
+            ],
+            [
+               "2251195",
+               "0S pasd"
+            ],
+            [
+               "2251262",
+               "1M pasd"
+            ],
+            [
+               "2251263",
+               "1M pasd"
+            ],
+            [
+               "2251264",
+               "1M pasd"
+            ],
+            [
+               "2251265",
+               "0S pasd"
+            ],
+            [
+               "2251266",
+               "0S pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "0S pasd"
+            ],
+            [
+               "2251269",
+               "1M pasd"
+            ],
+            [
+               "2251270",
+               "1M pasd"
+            ],
+            [
+               "2251271",
+               "1M pasd"
+            ],
+            [
+               "2251272",
+               "0S pasd"
+            ],
+            [
+               "2251273",
+               "0S pasd"
+            ],
+            [
+               "2251154",
+               "0S pasd"
+            ],
+            [
+               "2251155",
+               "1M pasd"
+            ],
+            [
+               "2251156",
+               "0S pasd"
+            ],
+            [
+               "2251157",
+               "0S pasd"
+            ],
+            [
+               "2251158",
+               "1M pasd"
+            ],
+            [
+               "2251159",
+               "0S pasd"
+            ],
+            [
+               "2251160",
+               "0S pasd"
+            ],
+            [
+               "2251161",
+               "1M pasd"
+            ],
+            [
+               "2251162",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "2M pasd"
+            ],
+            [
+               "2251117",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "0S pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251321",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-7-R-6",
+         "route" : {
+            "name" : "Erina Fair - Namatjira Dr - Opp.No.32 (After The Scenic Rd)",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-6",
+            "id" : "R_93-65-_-sj2-1-R-6"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-16-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-16-b0195",
+      "leaves" : "06:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "0S pasd"
+            ],
+            [
+               "2251127",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "1M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-9-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-8-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-8-b0195",
+      "leaves" : "19:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "1M pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "2M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "0S pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ],
+            [
+               "2251167",
+               "1M pasd"
+            ],
+            [
+               "2251168",
+               "1M pasd"
+            ],
+            [
+               "2251169",
+               "1M pasd"
+            ],
+            [
+               "2251170",
+               "0S pasd"
+            ],
+            [
+               "2251171",
+               "1M pasd"
+            ],
+            [
+               "2251172",
+               "1M pasd"
+            ],
+            [
+               "2251173",
+               "1M pasd"
+            ],
+            [
+               "2251174",
+               "1M pasd"
+            ],
+            [
+               "2251175",
+               "0S pasd"
+            ],
+            [
+               "2251176",
+               "1M pasd"
+            ],
+            [
+               "2251177",
+               "0S pasd"
+            ],
+            [
+               "2251178",
+               "1M pasd"
+            ],
+            [
+               "2251179",
+               "0S pasd"
+            ],
+            [
+               "2251180",
+               "1M pasd"
+            ],
+            [
+               "225184",
+               "0S pasd"
+            ],
+            [
+               "225185",
+               "1M pasd"
+            ],
+            [
+               "2251312",
+               "0S pasd"
+            ],
+            [
+               "2251313",
+               "1M pasd"
+            ],
+            [
+               "225165",
+               "0S pasd"
+            ],
+            [
+               "225166",
+               "1M pasd"
+            ],
+            [
+               "225167",
+               "0S pasd"
+            ],
+            [
+               "225168",
+               "1M pasd"
+            ],
+            [
+               "225169",
+               "0S pasd"
+            ],
+            [
+               "225170",
+               "1M pasd"
+            ],
+            [
+               "225171",
+               "0S pasd"
+            ],
+            [
+               "225026",
+               "0S pasd"
+            ],
+            [
+               "225027",
+               "2M pasd"
+            ],
+            [
+               "225028",
+               "1M pasd"
+            ],
+            [
+               "225029",
+               "0S pasd"
+            ],
+            [
+               "225089",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-6-H-5",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Erina Fair",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-5",
+            "id" : "R_93-65-_-sj2-1-H-5"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-6-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-6-b0195",
+      "leaves" : "10:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-15-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-15-b0195",
+      "leaves" : "08:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-1-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-1-b0195",
+      "leaves" : "14:09:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225049",
+               null
+            ],
+            [
+               "225011",
+               "1M pasd"
+            ],
+            [
+               "225016",
+               "1M pasd"
+            ],
+            [
+               "225017",
+               "0S pasd"
+            ],
+            [
+               "225018",
+               "1M pasd"
+            ],
+            [
+               "225019",
+               "1M pasd"
+            ],
+            [
+               "2250437",
+               "1M pasd"
+            ],
+            [
+               "2250420",
+               "1M pasd"
+            ],
+            [
+               "2250419",
+               "1M pasd"
+            ],
+            [
+               "225023",
+               "1M pasd"
+            ],
+            [
+               "225024",
+               "3M pasd"
+            ],
+            [
+               "2251185",
+               "1M pasd"
+            ],
+            [
+               "2251187",
+               "3M pasd"
+            ],
+            [
+               "2251189",
+               "1M pasd"
+            ],
+            [
+               "2251190",
+               "1M pasd"
+            ],
+            [
+               "2251191",
+               "0S pasd"
+            ],
+            [
+               "2251192",
+               "1M pasd"
+            ],
+            [
+               "2251193",
+               "0S pasd"
+            ],
+            [
+               "2251194",
+               "1M pasd"
+            ],
+            [
+               "2251195",
+               "1M pasd"
+            ],
+            [
+               "2251262",
+               "2M pasd"
+            ],
+            [
+               "2251263",
+               "1M pasd"
+            ],
+            [
+               "2251264",
+               "1M pasd"
+            ],
+            [
+               "2251265",
+               "0S pasd"
+            ],
+            [
+               "2251266",
+               "7M pasd"
+            ],
+            [
+               "2251267",
+               "1M pasd"
+            ],
+            [
+               "2251268",
+               "1M pasd"
+            ],
+            [
+               "2251269",
+               "2M pasd"
+            ],
+            [
+               "2251285",
+               "1M pasd"
+            ],
+            [
+               "2251286",
+               "1M pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251114",
+               "1M pasd"
+            ],
+            [
+               "2251115",
+               "1M pasd"
+            ],
+            [
+               "2251116",
+               "1M pasd"
+            ],
+            [
+               "2251117",
+               "2M pasd"
+            ],
+            [
+               "2251128",
+               "2M pasd"
+            ],
+            [
+               "2251118",
+               "0S pasd"
+            ],
+            [
+               "2251119",
+               "1M pasd"
+            ],
+            [
+               "2251120",
+               "1M pasd"
+            ],
+            [
+               "2251320",
+               "1M pasd"
+            ],
+            [
+               "2251121",
+               "0S pasd"
+            ],
+            [
+               "2257259",
+               "8M pasd"
+            ],
+            [
+               "2257250",
+               "2M pasd"
+            ],
+            [
+               "2257251",
+               "1M pasd"
+            ],
+            [
+               "2257252",
+               "2M pasd"
+            ],
+            [
+               "2257237",
+               "2M pasd"
+            ],
+            [
+               "2257238",
+               "1M pasd"
+            ],
+            [
+               "2257239",
+               "3M pasd"
+            ],
+            [
+               "2257240",
+               "1M pasd"
+            ],
+            [
+               "2257241",
+               "4M pasd"
+            ],
+            [
+               "2257242",
+               "2M pasd"
+            ],
+            [
+               "2257243",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Gosford Station - Wagstaff Av near Mulhall St",
+            "rs_ref" : "RS_93-65-_-sj2-1-R-1",
+            "id" : "R_93-65-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-19-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-19-b0195",
+      "leaves" : "07:51:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2257243",
+               null
+            ],
+            [
+               "2257328",
+               "1M pasd"
+            ],
+            [
+               "2257244",
+               "1M pasd"
+            ],
+            [
+               "2257245",
+               "2M pasd"
+            ],
+            [
+               "2257329",
+               "0S pasd"
+            ],
+            [
+               "2257246",
+               "1M pasd"
+            ],
+            [
+               "2257247",
+               "1M pasd"
+            ],
+            [
+               "2257248",
+               "0S pasd"
+            ],
+            [
+               "2257253",
+               "1M pasd"
+            ],
+            [
+               "2257254",
+               "1M pasd"
+            ],
+            [
+               "2257255",
+               "0S pasd"
+            ],
+            [
+               "2257256",
+               "3M pasd"
+            ],
+            [
+               "2251124",
+               "9M pasd"
+            ],
+            [
+               "2251321",
+               "0S pasd"
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "1M pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "2M pasd"
+            ],
+            [
+               "2251167",
+               "1M pasd"
+            ],
+            [
+               "2251168",
+               "1M pasd"
+            ],
+            [
+               "2251169",
+               "5M pasd"
+            ],
+            [
+               "2251170",
+               "0S pasd"
+            ],
+            [
+               "2251171",
+               "1M pasd"
+            ],
+            [
+               "2251172",
+               "1M pasd"
+            ],
+            [
+               "2251173",
+               "1M pasd"
+            ],
+            [
+               "2251174",
+               "4M pasd"
+            ],
+            [
+               "2251175",
+               "1M pasd"
+            ],
+            [
+               "2251176",
+               "1M pasd"
+            ],
+            [
+               "2251177",
+               "1M pasd"
+            ],
+            [
+               "2251178",
+               "1M pasd"
+            ],
+            [
+               "2251179",
+               "1M pasd"
+            ],
+            [
+               "2251180",
+               "1M pasd"
+            ],
+            [
+               "225184",
+               "0S pasd"
+            ],
+            [
+               "225185",
+               "1M pasd"
+            ],
+            [
+               "2251312",
+               "1M pasd"
+            ],
+            [
+               "2251313",
+               "0S pasd"
+            ],
+            [
+               "225165",
+               "1M pasd"
+            ],
+            [
+               "225166",
+               "0S pasd"
+            ],
+            [
+               "225167",
+               "1M pasd"
+            ],
+            [
+               "225168",
+               "1M pasd"
+            ],
+            [
+               "225169",
+               "0S pasd"
+            ],
+            [
+               "225170",
+               "0S pasd"
+            ],
+            [
+               "225171",
+               "1M pasd"
+            ],
+            [
+               "225026",
+               "0S pasd"
+            ],
+            [
+               "225027",
+               "3M pasd"
+            ],
+            [
+               "225028",
+               "1M pasd"
+            ],
+            [
+               "225029",
+               "0S pasd"
+            ],
+            [
+               "225089",
+               "3M pasd"
+            ],
+            [
+               "2250542",
+               "1M pasd"
+            ],
+            [
+               "2250543",
+               "0S pasd"
+            ],
+            [
+               "2250544",
+               "0S pasd"
+            ],
+            [
+               "2250545",
+               "1M pasd"
+            ],
+            [
+               "2250546",
+               "1M pasd"
+            ],
+            [
+               "2250547",
+               "1M pasd"
+            ],
+            [
+               "2250548",
+               "2M pasd"
+            ],
+            [
+               "2250641",
+               "1M pasd"
+            ],
+            [
+               "225088",
+               "0S pasd"
+            ],
+            [
+               "225014",
+               "2M pasd"
+            ],
+            [
+               "225013",
+               "1M pasd"
+            ],
+            [
+               "225012",
+               "2M pasd"
+            ],
+            [
+               "2250535",
+               "2M pasd"
+            ],
+            [
+               "2250534",
+               "1M pasd"
+            ],
+            [
+               "2250440",
+               "1M pasd"
+            ],
+            [
+               "225049",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-11-H-8",
+         "route" : {
+            "name" : "Wagstaff Av near Mulhall St - Gosford Station",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-8",
+            "id" : "R_93-65-_-sj2-1-H-8"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   },
+   "VJ_93-65-_-sj2-1-9-b0195" : {
+      "vjcode" : "VJ_93-65-_-sj2-1-9-b0195",
+      "leaves" : "12:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2251321",
+               null
+            ],
+            [
+               "2251125",
+               "1M pasd"
+            ],
+            [
+               "2251126",
+               "1M pasd"
+            ],
+            [
+               "2251127",
+               "0S pasd"
+            ],
+            [
+               "2251128",
+               "0S pasd"
+            ],
+            [
+               "2251129",
+               "2M pasd"
+            ],
+            [
+               "2251130",
+               "1M pasd"
+            ],
+            [
+               "2251131",
+               "1M pasd"
+            ],
+            [
+               "2251132",
+               "2M pasd"
+            ],
+            [
+               "2251163",
+               "0S pasd"
+            ],
+            [
+               "2251164",
+               "1M pasd"
+            ],
+            [
+               "2251165",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-65-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Namatjira Dr - Opp.No.32 (After The Scenic Rd) - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-65-_-sj2-1-H-4",
+            "id" : "R_93-65-_-sj2-1-H-4"
+         }
+      },
+      "service" : "93-65-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "65"
+   }
+}
+;
+

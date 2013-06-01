@@ -1,0 +1,727 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-773-_-sj2-1" : "773"
+}
+;
+
+var stations = {
+   "2099153" : "Truman Av nr Badcoe Rd",
+   "2099150" : "Carrington Av Nr Toronto Av",
+   "2100128" : "McIntosh Rd nr Parr Pde",
+   "2100102" : "Allambie Rd nr Flers St",
+   "209927" : "Quirk St Nr St Lukes",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "2100122" : "Oxford Fall Rd nr Brooker Av",
+   "2099179" : "Fisher Rd North Nr Carawa Rd",
+   "2099111" : "McIntosh Rd nr Creer Pl",
+   "2100109" : "Condamine St nr Fishbourne Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "2100127" : "Willandra Rd nr Egan Pl",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "2099127" : "Alfred St nr Carawa Rd",
+   "2100110" : "Condamine St nr Pozieres Pde",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "2099192" : "Westminster Av nr Lismore Av",
+   "210063" : "Winbourne Rd Nr Carter Rd",
+   "2099148" : "Grover Av nr Carcoola Av",
+   "2099146" : "Carcoola Rd Nr Carawa Rd",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "210011" : "Condamine St nr James St",
+   "2099147" : "Carcoola Rd nr Pinta Pl",
+   "2099151" : "Toronto Av Nr Cromer Rd",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "2099209" : "Truman Av nr Howse Cr",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "2099123" : "Alfred St Nr Parr Pde",
+   "2099113" : "Mcintosh Rd Nr Lascelles Rd",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "210064" : "Winbourne Rd nr Harbord Rd",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2099180" : "Fisher Rd North Nr Tennyson Rd",
+   "2099177" : "Fisher Rd North Nr Grover Av",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "2100123" : "Tristram Rd nr Boyer Rd",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "2099124" : "Narraweena_ Alfred nr Karoola",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "2100126" : "Tristram Rd nr Beacon Hill Primary",
+   "2100156" : "Oxford Falls Grammar School",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210017" : "Pittwater Rd nr Pine Av",
+   "2099149" : "Carrington Av Nr Washington Av",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "2099125" : "Alfred Nr Rowena",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "2099152" : "Toronto Av nr Kenna Pl",
+   "2099128" : "Carawa Rd nr Davison St",
+   "2099114" : "Mcintosh Rd Nr Alfred St",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "2099126" : "Alfred St Nr Maas St",
+   "2099178" : "Fisher Rd North Nr Ryrie Av",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "2099112" : "Mcintosh Rd Nr Eltham St",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "209926" : "Headland Rd nr St Lukes Stand 1",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "2099154" : "Howse Cr nr Truman Av",
+   "2099143" : "Alfred St Nr Greenwood Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-773-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-773-_-sj2-1-3-b00b7",
+      "leaves" : "08:06:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210098",
+               null
+            ],
+            [
+               "210099",
+               "2M pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "0S pasd"
+            ],
+            [
+               "2100106",
+               "1M pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210063",
+               "2M pasd"
+            ],
+            [
+               "210064",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Allambie Rd nr Rodborough Rd - Winbourne Rd nr Harbord Rd",
+            "rs_ref" : "RS_99-773-_-sj2-1-H-2",
+            "id" : "R_99-773-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-773-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-_-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-773-_-sj2-1-2-b00b2",
+      "leaves" : "08:06:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210098",
+               null
+            ],
+            [
+               "210099",
+               "2M pasd"
+            ],
+            [
+               "2100100",
+               "1M pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "0S pasd"
+            ],
+            [
+               "2100106",
+               "1M pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210011",
+               "1M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210063",
+               "2M pasd"
+            ],
+            [
+               "210064",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Allambie Rd nr Rodborough Rd - Winbourne Rd nr Harbord Rd",
+            "rs_ref" : "RS_99-773-_-sj2-1-H-2",
+            "id" : "R_99-773-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-773-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-_-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-773-_-sj2-1-1-b00b7",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100156",
+               null
+            ],
+            [
+               "2100122",
+               "4M pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "1M pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "0S pasd"
+            ],
+            [
+               "2099125",
+               "1M pasd"
+            ],
+            [
+               "2099126",
+               "0S pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "0S pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "0S pasd"
+            ],
+            [
+               "2099192",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209926",
+               "1M pasd"
+            ],
+            [
+               "209927",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Oxford Falls Grammar School - Quirk St Nr St Lukes",
+            "rs_ref" : "RS_99-773-_-sj2-1-R-1",
+            "id" : "R_99-773-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-773-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-773-_-sj2-1-4-b00b2",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100156",
+               null
+            ],
+            [
+               "2100122",
+               "4M pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "1M pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "0S pasd"
+            ],
+            [
+               "2099125",
+               "1M pasd"
+            ],
+            [
+               "2099126",
+               "0S pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "0S pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "0S pasd"
+            ],
+            [
+               "2099192",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209926",
+               "1M pasd"
+            ],
+            [
+               "209927",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Oxford Falls Grammar School - Quirk St Nr St Lukes",
+            "rs_ref" : "RS_99-773-_-sj2-1-R-1",
+            "id" : "R_99-773-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-773-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   }
+}
+;
+

@@ -1,0 +1,527 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-816-_-sj2-1" : "816"
+}
+;
+
+var stations = {
+   "229176" : "Morgan St Nr Rose St",
+   "228977" : "Pacific Hwy Opp Faul St",
+   "2289186" : "Lexington Pde Opp Rosemont St",
+   "2289110" : "St Pius X High School",
+   "228957" : "Northcott Dr nr Kinros Av",
+   "229151" : "Hatfield St Nr Flowerdale Av",
+   "229133" : "Hatfield St Nr Sun Hill Dr",
+   "229154" : "Morgan St Nr Arthur St",
+   "229131" : "Morgan St Nr Myamblah Cr",
+   "229152" : "Morgan St Opp Myamblah Cr",
+   "228956" : "Northcott Dr nr Kinross Av",
+   "228924" : "Northcott Dr Northcott Dr Near Cynthia St",
+   "228925" : "Park Av Nr Westfield Kotara",
+   "2289165" : "Northcott Dr Opp Wade St",
+   "228923" : "Northcott Dr Northcott Dr Near Wade St",
+   "229168" : "Morgan St Nr Ridge St",
+   "2289176" : "Pacific Hwy Opp Northcott Dr",
+   "2289164" : "Northcott Dr Opp Cynthia St",
+   "229179" : "Morgan St Opp Berner St",
+   "229160" : "Union St Nr Parkway Av",
+   "229132" : "Morgan St Nr Hatfield St",
+   "2289187" : "Lexington Pde Nr Kotara High",
+   "228945" : "Park Av Nr Brisbane Water Rd",
+   "229153" : "Morgan St Opp Moola Pl",
+   "228935" : "Park Av Nr Fletcher St",
+   "229158" : "Union St Nr Junction Fair",
+   "229142" : "Sunhill Dr Nr Scenic Dr",
+   "228960" : "Northcott Dr nr Park Av",
+   "229134" : "Sun Hill Dr Opp Elsworth Pde",
+   "228981" : "Pacific Hwy Nr Faul St",
+   "228928" : "Garden City",
+   "228958" : "Northcott Dr nr Lexington Pde",
+   "229135" : "Sunhill Dr Nr Bershire Av",
+   "229175" : "Morgan St Nr Mary St",
+   "2289185" : "Lexington Pde Opp Rachael Av",
+   "229169" : "Morgan St Nr Janet St",
+   "229144" : "Sun Hill Dr Nr Hatfield St",
+   "229180" : "Railway St Nr Lingard St",
+   "229182" : "Union St Opp Railway St",
+   "229129" : "Morgan St Nr Alice St",
+   "2289320" : "Lexington Pde opp Princeton Av",
+   "229181" : "Union St Nr Glebe St",
+   "229167" : "Morgan St Nr Caldwell St",
+   "229183" : "Railway St Nr Union St",
+   "230398" : "Stewart Av Nr Dumaresq St",
+   "229130" : "Morgan St Nr Kiah Pl",
+   "229162" : "Union St Nr Kenrick St",
+   "230390" : "Parkway Av Nr Newcastle High",
+   "229186" : "Railway St Nr Morgan St",
+   "229143" : "Sun Hill Dr Nr Elsworth Pde",
+   "2289174" : "Pacific Hwy Nr Northcott Dr",
+   "2289177" : "Northcott Dr Nr Ellerslie Rd",
+   "228922" : "Northcott Dr Northcote Rd Near Kineaross Av",
+   "229161" : "Union St Nr Kemp St",
+   "228947" : "Park Av Nr Dibbs St",
+   "229187" : "Morgan St Nr Berner St",
+   "2289194" : "Lexington Pde Nr Kotara High",
+   "229159" : "Union St Nr Brien St",
+   "230399" : "Stewart Av Nr Hebburn St",
+   "229177" : "Morgan St Nr Llewellyn St",
+   "2291144" : "Railway St Nr Union St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-816-_-sj2-1-3-b0096" : {
+      "vjcode" : "VJ_94-816-_-sj2-1-3-b0096",
+      "leaves" : "15:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289110",
+               null
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228925",
+               "1M pasd"
+            ],
+            [
+               "2289320",
+               "1M pasd"
+            ],
+            [
+               "2289185",
+               "0S pasd"
+            ],
+            [
+               "2289186",
+               "1M pasd"
+            ],
+            [
+               "2289187",
+               "0S pasd"
+            ],
+            [
+               "2289174",
+               "2M pasd"
+            ],
+            [
+               "228977",
+               "1M pasd"
+            ],
+            [
+               "229142",
+               "2M pasd"
+            ],
+            [
+               "229143",
+               "0S pasd"
+            ],
+            [
+               "229144",
+               "1M pasd"
+            ],
+            [
+               "229151",
+               "0S pasd"
+            ],
+            [
+               "229152",
+               "1M pasd"
+            ],
+            [
+               "229153",
+               "0S pasd"
+            ],
+            [
+               "229154",
+               "1M pasd"
+            ],
+            [
+               "229175",
+               "1M pasd"
+            ],
+            [
+               "229176",
+               "0S pasd"
+            ],
+            [
+               "229177",
+               "1M pasd"
+            ],
+            [
+               "229179",
+               "1M pasd"
+            ],
+            [
+               "229180",
+               "0S pasd"
+            ],
+            [
+               "2291144",
+               "1M pasd"
+            ],
+            [
+               "229181",
+               "0S pasd"
+            ],
+            [
+               "229158",
+               "1M pasd"
+            ],
+            [
+               "229159",
+               "1M pasd"
+            ],
+            [
+               "229160",
+               "0S pasd"
+            ],
+            [
+               "230390",
+               "1M pasd"
+            ],
+            [
+               "230398",
+               "1M pasd"
+            ],
+            [
+               "230399",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-816-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "St Pius X High School - Stewart Av Nr Hebburn St",
+            "rs_ref" : "RS_94-816-_-sj2-1-R-2",
+            "id" : "R_94-816-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-816-_-sj2-1",
+      "line" : "816"
+   },
+   "VJ_94-816-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-816-_-sj2-1-2-b0096",
+      "leaves" : "08:19:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "229161",
+               null
+            ],
+            [
+               "229162",
+               "1M pasd"
+            ],
+            [
+               "229182",
+               "1M pasd"
+            ],
+            [
+               "229183",
+               "0S pasd"
+            ],
+            [
+               "229186",
+               "1M pasd"
+            ],
+            [
+               "229187",
+               "1M pasd"
+            ],
+            [
+               "229167",
+               "2M pasd"
+            ],
+            [
+               "229168",
+               "0S pasd"
+            ],
+            [
+               "229169",
+               "1M pasd"
+            ],
+            [
+               "229129",
+               "1M pasd"
+            ],
+            [
+               "229130",
+               "0S pasd"
+            ],
+            [
+               "229131",
+               "1M pasd"
+            ],
+            [
+               "229132",
+               "0S pasd"
+            ],
+            [
+               "229133",
+               "1M pasd"
+            ],
+            [
+               "229134",
+               "0S pasd"
+            ],
+            [
+               "229135",
+               "1M pasd"
+            ],
+            [
+               "228981",
+               "1M pasd"
+            ],
+            [
+               "2289176",
+               "1M pasd"
+            ],
+            [
+               "2289177",
+               "0S pasd"
+            ],
+            [
+               "228922",
+               "1M pasd"
+            ],
+            [
+               "228923",
+               "0S pasd"
+            ],
+            [
+               "228924",
+               "1M pasd"
+            ],
+            [
+               "228928",
+               "0S pasd"
+            ],
+            [
+               "228947",
+               "0S pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228960",
+               "0S pasd"
+            ],
+            [
+               "2289164",
+               "0S pasd"
+            ],
+            [
+               "2289165",
+               "1M pasd"
+            ],
+            [
+               "228956",
+               "0S pasd"
+            ],
+            [
+               "228957",
+               "0S pasd"
+            ],
+            [
+               "228958",
+               "1M pasd"
+            ],
+            [
+               "2289194",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-816-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Union St Nr Kemp St - Lexington Pde Nr Kotara High",
+            "rs_ref" : "RS_94-816-_-sj2-1-H-1",
+            "id" : "R_94-816-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-816-_-sj2-1",
+      "line" : "816"
+   },
+   "VJ_94-816-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-816-_-sj2-1-1-b0096",
+      "leaves" : "08:24:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "229161",
+               null
+            ],
+            [
+               "229162",
+               "1M pasd"
+            ],
+            [
+               "229182",
+               "1M pasd"
+            ],
+            [
+               "229183",
+               "0S pasd"
+            ],
+            [
+               "229186",
+               "1M pasd"
+            ],
+            [
+               "229187",
+               "1M pasd"
+            ],
+            [
+               "229167",
+               "2M pasd"
+            ],
+            [
+               "229168",
+               "0S pasd"
+            ],
+            [
+               "229169",
+               "1M pasd"
+            ],
+            [
+               "229129",
+               "1M pasd"
+            ],
+            [
+               "229130",
+               "0S pasd"
+            ],
+            [
+               "229131",
+               "1M pasd"
+            ],
+            [
+               "229132",
+               "0S pasd"
+            ],
+            [
+               "229133",
+               "1M pasd"
+            ],
+            [
+               "229134",
+               "0S pasd"
+            ],
+            [
+               "229135",
+               "1M pasd"
+            ],
+            [
+               "228981",
+               "1M pasd"
+            ],
+            [
+               "2289176",
+               "1M pasd"
+            ],
+            [
+               "2289177",
+               "0S pasd"
+            ],
+            [
+               "228922",
+               "1M pasd"
+            ],
+            [
+               "228923",
+               "0S pasd"
+            ],
+            [
+               "228924",
+               "1M pasd"
+            ],
+            [
+               "228928",
+               "0S pasd"
+            ],
+            [
+               "228947",
+               "0S pasd"
+            ],
+            [
+               "2289110",
+               "1M pasd"
+            ],
+            [
+               "228935",
+               "0S pasd"
+            ],
+            [
+               "228945",
+               "1M pasd"
+            ],
+            [
+               "228960",
+               "0S pasd"
+            ],
+            [
+               "2289164",
+               "0S pasd"
+            ],
+            [
+               "2289165",
+               "1M pasd"
+            ],
+            [
+               "228956",
+               "0S pasd"
+            ],
+            [
+               "228957",
+               "0S pasd"
+            ],
+            [
+               "228958",
+               "1M pasd"
+            ],
+            [
+               "2289194",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-816-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Union St Nr Kemp St - Lexington Pde Nr Kotara High",
+            "rs_ref" : "RS_94-816-_-sj2-1-H-1",
+            "id" : "R_94-816-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-816-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "816"
+   }
+}
+;
+

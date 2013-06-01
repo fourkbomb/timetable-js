@@ -1,0 +1,736 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-722-b-sj2-1" : "722"
+}
+;
+
+var stations = {
+   "2107111" : "Avalon Pde Nr Gunjulla Pl",
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "2107109" : "Hudson Pde nr Avalon Pde",
+   "2107115" : "Old Barrenjoey Rd nr Avalon Pde",
+   "210776" : "Lower Plateau Rd nr Stromboli Pl",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210775" : "Bilwara Av nr Bilambee Av",
+   "210730" : "Barrenjoey Rd 250m N of Plateau Rd",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "210774" : "Bilambee Av opp Bilga Av",
+   "209726" : "Pittwater Rd nr Hay St",
+   "210734" : "Plateau Rd nr Barrenjoey Rd",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "210785" : "Hudson Rd nr Old Wharf Reserve",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "209783" : "Parkes Rd Nr Westmoreland Av",
+   "210633" : "Gladstone St Nr Barrenjoey Rd",
+   "210634" : "Gladstone Rd Nr Bishop St",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "210380" : "Pittwater Rd Nr Coronation St",
+   "210640" : "Beaconsfield St Nr Barrenjoey Rd",
+   "2107110" : "Avalon Pde Nr Katandra Cl",
+   "210731" : "Barrenjoey Rd Nr Plateau Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "210378" : "Pittwater Rd Nr Rowan St",
+   "210779" : "Wandeen Rd Nr Hudson Pde",
+   "210773" : "Plateau Rd nr The Outlook",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210379" : "Pittwater Rd Nr Jenkins St",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210729" : "Barrenjoey Rd nr The Crescent",
+   "2099217" : "South Creek Rd nr Pittwater Rd",
+   "210732" : "Barrenjoey Rd Nr The Serpentine",
+   "209784" : "Parkes Rd nr South Creek Rd",
+   "210777" : "Lower Plateau Rd nr Wandeen Rd",
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "210778" : "Wandeen Rd 400m E of Hudson Pde",
+   "210638" : "Beaconsfield St Nr Newport Primary",
+   "210637" : "Kalinya St Nr Beaconsfield St",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "210737" : "Plateau Rd opp Weetawaa Rd",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "210782" : "Hudson Pde Nr Delecta Av",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "210256" : "Pittwater Rd Nr Arnott Cr",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210780" : "Hudson Pde nr Taylors Point Wharf",
+   "210735" : "Plateau Rd Nr Palmgrove Rd",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "210786" : "Hudson Pde Nr Hilltop Rd",
+   "2107113" : "Avalon Pde opp Police Station",
+   "210784" : "Hudson Pde 500m S Of Hilltop Rd",
+   "210636" : "Kalinya St Nr Gladstone Rd",
+   "210635" : "Gladstone Rd Nr King St",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210736" : "Plateau Rd Nr Palmgrove Rd",
+   "2107114" : "Avalon Pde opp Bellevue Av",
+   "209725" : "Pittwater Rd Nr Anzac Av",
+   "210781" : "Hudson Pde 200m E Of Taylors Point Rd",
+   "2107112" : "Avalon Pde Nr Ruskin Rowe",
+   "210783" : "Hudson Pde Nr Delecta Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-722-b-sj2-1-1-b009g" : {
+      "vjcode" : "VJ_99-722-b-sj2-1-1-b009g",
+      "leaves" : "07:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210734",
+               null
+            ],
+            [
+               "210735",
+               "0S pasd"
+            ],
+            [
+               "210736",
+               "1M pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "0S pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "1M pasd"
+            ],
+            [
+               "210783",
+               "0S pasd"
+            ],
+            [
+               "210784",
+               "1M pasd"
+            ],
+            [
+               "210785",
+               "0S pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "1M pasd"
+            ],
+            [
+               "2107111",
+               "0S pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "1M pasd"
+            ],
+            [
+               "210729",
+               "0S pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "1M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "0S pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "1M pasd"
+            ],
+            [
+               "210638",
+               "0S pasd"
+            ],
+            [
+               "210640",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "2M pasd"
+            ],
+            [
+               "210143",
+               "0S pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ],
+            [
+               "210145",
+               "0S pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "2M pasd"
+            ],
+            [
+               "209784",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Plateau Rd nr Barrenjoey Rd - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-722-b-sj2-1-H-1",
+            "id" : "R_99-722-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-b-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-722-b-sj2-1-2-b009h",
+      "leaves" : "07:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210734",
+               null
+            ],
+            [
+               "210735",
+               "0S pasd"
+            ],
+            [
+               "210736",
+               "1M pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "0S pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "1M pasd"
+            ],
+            [
+               "210783",
+               "0S pasd"
+            ],
+            [
+               "210784",
+               "1M pasd"
+            ],
+            [
+               "210785",
+               "0S pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "1M pasd"
+            ],
+            [
+               "2107111",
+               "0S pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "1M pasd"
+            ],
+            [
+               "210729",
+               "0S pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "1M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "0S pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "1M pasd"
+            ],
+            [
+               "210638",
+               "0S pasd"
+            ],
+            [
+               "210640",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "2M pasd"
+            ],
+            [
+               "210143",
+               "0S pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ],
+            [
+               "210145",
+               "0S pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "2M pasd"
+            ],
+            [
+               "209784",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Plateau Rd nr Barrenjoey Rd - South Creek Rd nr Pittwater House School",
+            "rs_ref" : "RS_99-722-b-sj2-1-H-1",
+            "id" : "R_99-722-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   }
+}
+;
+

@@ -1,0 +1,615 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-775-_-sj2-1" : "775"
+}
+;
+
+var stations = {
+   "228023" : "Pacific Hwy nr Maude St",
+   "228047" : "Pacific Hwy opp Marks Point Rd",
+   "228029" : "Pacific Hwy 400m N of Avonlea St",
+   "228191" : "Caves Beach Rd nr Middle St",
+   "228049" : "Pacific Hwy Near Docker St",
+   "228046" : "Pacific Hwy nr Emily St",
+   "228192" : "Caves Beach Rd nr Civic Av",
+   "2290260" : "Pacific Hwy nr Oakdale Rd",
+   "228026" : "Pacific Hwy nr York Cr",
+   "2280303" : "Pacific Hwy nr Ada St",
+   "228048" : "Pacific Hwy Near Docker St",
+   "228014" : "Pacific Hwy Near Docker St",
+   "2281119" : "Park Av opp Rea St",
+   "2281106" : "Caves Beach Rd nr Mawson Cl",
+   "229061" : "Pacific Hwy opp Groves Rd",
+   "228025" : "Pacific Hwy nr Floraville Rd",
+   "228028" : "Pacific Hwy nr Avonlea St",
+   "228190" : "Park Av nr Caves Beach Rd",
+   "2281128" : "Bowman St nr Gray St",
+   "2281107" : "Caves Beach Rd opp Middle St",
+   "229035" : "Pacific Hwy Near Hughes St",
+   "2281103" : "Northcote Av nr Dolphin Ct",
+   "228027" : "Pacific Hwy",
+   "228022" : "Pacific Hwy nr Belmont Shops",
+   "2281118" : "Park Av nr Silky Oak Dr",
+   "2280243" : "Pacific Hwy nr Cobbin Pde",
+   "228042" : "Pacific Hwy nr Alick St",
+   "229039" : "Pacific Hwy nr Groves Rd",
+   "228181" : "Bowman St opp Gray St",
+   "229033" : "Pacific Hwy nr Felton St",
+   "228131" : "Bowman St opp Lake Rd",
+   "228182" : "Bowman St nr Alexander Pl",
+   "228196" : "Northcote Av Nr Parbury Rd",
+   "228017" : "Pacific St nr Arthur St",
+   "228119" : "Bowman St nr Lake Rd",
+   "228031" : "Pacific Hwy 400m S of Ntaba Rd",
+   "2280113" : "Pacific Hwy opp Violet Town Rd",
+   "228039" : "Pacific Hwy nr Livingstone St",
+   "228045" : "Pacific Hwy nr Clara St",
+   "228195" : "Northcote Av nr Ross St",
+   "228184" : "Park Av opp Strathmore Rd",
+   "228193" : "Caves Beach Rd nr Phillip St",
+   "228037" : "Pacific Hwy nr Patrick St",
+   "228120" : "Bowman St nr Belmont St",
+   "2281104" : "Caves Beach Rd opp Caldwell St",
+   "228054" : "Pacific Hwy Near Ntaba Rd",
+   "228143" : "Pacific Hwy nr Belmont Airport",
+   "229040" : "Pacific Hwy near South St",
+   "2281127" : "Bowman St nr Peggy St",
+   "228044" : "Pacific Hwy nr Beach St",
+   "228030" : "Pacific Hwy Near Ntaba Rd",
+   "228183" : "Park Av nr Caldwell St",
+   "229036" : "Pacific St nr Macquarie Av",
+   "228121" : "Pacific Hwy nr Little Pelican",
+   "228118" : "Bowman St nr Old Pacific Hwy",
+   "228189" : "Park Av opp Ocean View Pde",
+   "228124" : "Pacific Hwy Near Maneela St",
+   "228188" : "Park Av nr Middle St",
+   "2281121" : "Park Av Nr Swansea High School",
+   "228036" : "Pacific Hwy",
+   "228197" : "Northcote Av Nr Francis St",
+   "228194" : "Caves Beach Rd nr Caldwell St",
+   "228132" : "Bowman St nr Pacific Hwy",
+   "2281124" : "Park Av nr Strathmore Rd",
+   "228126" : "Pacific Hwy Near Maneela St",
+   "2281100" : "Northcote Av nr Pacific Dr",
+   "228127" : "Pacific Hwy Near Tirriki St",
+   "2290285" : "Pacific Hwy nr Gateshead Primary",
+   "2281109" : "Park Av nr Ocean View Pde",
+   "2290198" : "Oxford St opp O'Brien St",
+   "228056" : "Pacific Hwy nr South St",
+   "228187" : "Park Av nr Rea St",
+   "228129" : "Pacific Hwy opp Little Pelican",
+   "2281101" : "Northcote Av Nr Francis St",
+   "229048" : "Pacific Hwy Near Oakdale Rd",
+   "228019" : "Pacific Hwy nr Bellevue Rd",
+   "228128" : "Pacific Hwy Near Gommera St",
+   "228186" : "Park Av Nr Civic Av",
+   "228052" : "Pacific Hwy Near Dalrymple St",
+   "228123" : "Pacific Hwy Near Tirriki St",
+   "228185" : "Park Av 200m N of Civic Av",
+   "228053" : "Pacific Hwy 450m S of Ntaba Rd",
+   "228122" : "Pacific Hwy Near Gommera St",
+   "228142" : "Pacific Hwy nr Soldiers Rd",
+   "2281105" : "Caves Beach Rd nr Yachtsman Av",
+   "228032" : "Pacific Hwy Near Dalrymple St",
+   "228020" : "Pacific Hwy opp Alick St",
+   "229047" : "Pacific Hwy nr Lake St",
+   "228013" : "Pacific Hwy Near Docker St",
+   "2281108" : "Caves Beach Rd opp Park Av",
+   "228043" : "Pacific Hwy nr Robert St",
+   "228034" : "Pacific Hwy 420m N of Avonlea St",
+   "229049" : "Pacific Hwy nr Hunter Sports High",
+   "228040" : "Pacific Hwy nr Belmont Shops",
+   "229050" : "Pacific Hwy Near Hughes St",
+   "228018" : "Pacific Hwy nr Beach St",
+   "228024" : "Pacific Hwy nr Evans",
+   "228016" : "Pacific Hwy nr Emily St",
+   "228130" : "Bowman St nr Peel St",
+   "228140" : "Pacific Hwy opp Belmont Airport",
+   "228198" : "Northcote Av nr Lambton Pde",
+   "2280259" : "Pacific Hwy nr Merleview St",
+   "228125" : "Pacific Hwy nr Awabakal Av",
+   "228051" : "Pacific Hwy nr Violet Town Rd",
+   "228199" : "Lambton Rd Terminus",
+   "228041" : "Pacific Hwy nr Gen St",
+   "2281102" : "Northcote Av Nr Parbury Rd",
+   "229034" : "St Marys School",
+   "228015" : "Pacific Hwy Near Marks Point",
+   "228035" : "Pacific Hwy opp Avonlea St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-775-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-775-_-sj2-1-2-b0096",
+      "leaves" : "07:43:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228199",
+               null
+            ],
+            [
+               "2281100",
+               "1M pasd"
+            ],
+            [
+               "2281101",
+               "0S pasd"
+            ],
+            [
+               "2281102",
+               "1M pasd"
+            ],
+            [
+               "2281103",
+               "0S pasd"
+            ],
+            [
+               "2281104",
+               "1M pasd"
+            ],
+            [
+               "2281105",
+               "0S pasd"
+            ],
+            [
+               "2281106",
+               "1M pasd"
+            ],
+            [
+               "2281107",
+               "0S pasd"
+            ],
+            [
+               "2281108",
+               "1M pasd"
+            ],
+            [
+               "2281109",
+               "0S pasd"
+            ],
+            [
+               "2281118",
+               "1M pasd"
+            ],
+            [
+               "2281119",
+               "1M pasd"
+            ],
+            [
+               "2281121",
+               "0S pasd"
+            ],
+            [
+               "2281124",
+               "0S pasd"
+            ],
+            [
+               "2281127",
+               "1M pasd"
+            ],
+            [
+               "2281128",
+               "1M pasd"
+            ],
+            [
+               "228118",
+               "0S pasd"
+            ],
+            [
+               "228119",
+               "1M pasd"
+            ],
+            [
+               "228120",
+               "0S pasd"
+            ],
+            [
+               "228121",
+               "1M pasd"
+            ],
+            [
+               "228122",
+               "2M pasd"
+            ],
+            [
+               "228123",
+               "0S pasd"
+            ],
+            [
+               "228124",
+               "1M pasd"
+            ],
+            [
+               "228142",
+               "1M pasd"
+            ],
+            [
+               "228143",
+               "0S pasd"
+            ],
+            [
+               "228013",
+               "1M pasd"
+            ],
+            [
+               "228014",
+               "0S pasd"
+            ],
+            [
+               "228015",
+               "1M pasd"
+            ],
+            [
+               "228016",
+               "0S pasd"
+            ],
+            [
+               "228017",
+               "1M pasd"
+            ],
+            [
+               "228018",
+               "1M pasd"
+            ],
+            [
+               "228019",
+               "0S pasd"
+            ],
+            [
+               "228020",
+               "1M pasd"
+            ],
+            [
+               "2280303",
+               "0S pasd"
+            ],
+            [
+               "228022",
+               "1M pasd"
+            ],
+            [
+               "228023",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "1M pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "228026",
+               "0S pasd"
+            ],
+            [
+               "228027",
+               "1M pasd"
+            ],
+            [
+               "228028",
+               "0S pasd"
+            ],
+            [
+               "228029",
+               "1M pasd"
+            ],
+            [
+               "228051",
+               "1M pasd"
+            ],
+            [
+               "228052",
+               "0S pasd"
+            ],
+            [
+               "228053",
+               "1M pasd"
+            ],
+            [
+               "228054",
+               "0S pasd"
+            ],
+            [
+               "228056",
+               "1M pasd"
+            ],
+            [
+               "229061",
+               "1M pasd"
+            ],
+            [
+               "229047",
+               "1M pasd"
+            ],
+            [
+               "229048",
+               "0S pasd"
+            ],
+            [
+               "229049",
+               "1M pasd"
+            ],
+            [
+               "2290285",
+               "0S pasd"
+            ],
+            [
+               "229050",
+               "0S pasd"
+            ],
+            [
+               "2290198",
+               "2M pasd"
+            ],
+            [
+               "229033",
+               "0S pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-775-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Lambton Rd Terminus - St Marys School",
+            "rs_ref" : "RS_94-775-_-sj2-1-H-2",
+            "id" : "R_94-775-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-775-_-sj2-1",
+      "line" : "775"
+   },
+   "VJ_94-775-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-775-_-sj2-1-1-b0096",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229034",
+               null
+            ],
+            [
+               "229035",
+               "1M pasd"
+            ],
+            [
+               "229036",
+               "1M pasd"
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "229039",
+               "1M pasd"
+            ],
+            [
+               "229040",
+               "0S pasd"
+            ],
+            [
+               "228030",
+               "2M pasd"
+            ],
+            [
+               "228031",
+               "0S pasd"
+            ],
+            [
+               "228032",
+               "0S pasd"
+            ],
+            [
+               "2280113",
+               "1M pasd"
+            ],
+            [
+               "228034",
+               "1M pasd"
+            ],
+            [
+               "228035",
+               "0S pasd"
+            ],
+            [
+               "228036",
+               "1M pasd"
+            ],
+            [
+               "228037",
+               "1M pasd"
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "228039",
+               "1M pasd"
+            ],
+            [
+               "2280259",
+               "1M pasd"
+            ],
+            [
+               "228040",
+               "1M pasd"
+            ],
+            [
+               "228041",
+               "0S pasd"
+            ],
+            [
+               "228042",
+               "1M pasd"
+            ],
+            [
+               "228043",
+               "1M pasd"
+            ],
+            [
+               "228044",
+               "0S pasd"
+            ],
+            [
+               "228045",
+               "1M pasd"
+            ],
+            [
+               "228046",
+               "0S pasd"
+            ],
+            [
+               "228047",
+               "1M pasd"
+            ],
+            [
+               "228048",
+               "1M pasd"
+            ],
+            [
+               "228049",
+               "0S pasd"
+            ],
+            [
+               "228140",
+               "1M pasd"
+            ],
+            [
+               "228125",
+               "0S pasd"
+            ],
+            [
+               "228126",
+               "1M pasd"
+            ],
+            [
+               "228127",
+               "0S pasd"
+            ],
+            [
+               "228128",
+               "1M pasd"
+            ],
+            [
+               "228129",
+               "1M pasd"
+            ],
+            [
+               "228130",
+               "2M pasd"
+            ],
+            [
+               "228131",
+               "0S pasd"
+            ],
+            [
+               "228132",
+               "0S pasd"
+            ],
+            [
+               "228181",
+               "1M pasd"
+            ],
+            [
+               "228182",
+               "0S pasd"
+            ],
+            [
+               "228183",
+               "1M pasd"
+            ],
+            [
+               "228184",
+               "0S pasd"
+            ],
+            [
+               "228185",
+               "0S pasd"
+            ],
+            [
+               "228186",
+               "1M pasd"
+            ],
+            [
+               "228187",
+               "0S pasd"
+            ],
+            [
+               "228188",
+               "1M pasd"
+            ],
+            [
+               "228189",
+               "0S pasd"
+            ],
+            [
+               "228190",
+               "1M pasd"
+            ],
+            [
+               "228191",
+               "0S pasd"
+            ],
+            [
+               "228192",
+               "1M pasd"
+            ],
+            [
+               "228193",
+               "0S pasd"
+            ],
+            [
+               "228194",
+               "1M pasd"
+            ],
+            [
+               "228195",
+               "1M pasd"
+            ],
+            [
+               "228196",
+               "0S pasd"
+            ],
+            [
+               "228197",
+               "1M pasd"
+            ],
+            [
+               "228198",
+               "0S pasd"
+            ],
+            [
+               "228199",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-775-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Marys School - Lambton Rd Terminus",
+            "rs_ref" : "RS_94-775-_-sj2-1-R-1",
+            "id" : "R_94-775-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-775-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "775"
+   }
+}
+;
+

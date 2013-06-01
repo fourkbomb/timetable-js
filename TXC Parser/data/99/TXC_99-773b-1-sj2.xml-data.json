@@ -1,0 +1,644 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-773-b-sj2-1" : "773"
+}
+;
+
+var stations = {
+   "208618" : "Iris St Nr Karabah Pl",
+   "2100128" : "McIntosh Rd nr Parr Pde",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "208625" : "Paxton St Nr Valley View Wy",
+   "208619" : "Iris St Nr Patanga Rd",
+   "2100123" : "Tristram Rd nr Boyer Rd",
+   "2086125" : "Romford Rd Nr Iris St",
+   "2099110" : "Warringah Rd nr Victor Rd",
+   "2100122" : "Oxford Fall Rd nr Brooker Av",
+   "2086121" : "Romford Rd Nr Bimbadeen Cr",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "208664" : "Warrringah Rd Nr Bantry Bay Rd",
+   "2086123" : "Poulton Pde Nr Romford Rd",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "2099109" : "Warringah Rd nr May Rd",
+   "208639" : "Frenchs Forest Rd Nr Skyline Pl",
+   "208644" : "Frenchs Forest Rd Nr Skyline Pl",
+   "2100126" : "Tristram Rd nr Beacon Hill Primary",
+   "208649" : "Rabbett St Nr Holland Av",
+   "2099111" : "McIntosh Rd nr Creer Pl",
+   "2100121" : "Iris St Nr Jones St",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "209918" : "Alfred St Nr Warringah Rd",
+   "208628" : "Iris St Nr Jimada Av",
+   "2100127" : "Willandra Rd nr Egan Pl",
+   "2100137" : "Willandra Rd nr Anthony Cl",
+   "2086122" : "Romford Rd Nr Robyn Av",
+   "210062" : "Winbourne Rd nr Mitchell Rd",
+   "209989" : "Warringah Rd nr Victor Rd",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "2099114" : "Mcintosh Rd Nr Alfred St",
+   "208626" : "Paxton St Nr Poulton Pde",
+   "2099119" : "Alfred St Nr Warringah Rd",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "2086120" : "Romford Rd nr Frenchs Forest Rd",
+   "210066" : "Winbourne Rd Nr Carter Rd",
+   "2100119" : "Oxford Falls Rd nr Brooker Av",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "2100125" : "Tristram Rd Nr Willandra Rd",
+   "2100170" : "St Augustines School",
+   "209917" : "Alfred St nr Oceania St",
+   "2099112" : "Mcintosh Rd Nr Eltham St",
+   "208645" : "Frenchs Forest Rd Nr Bantry Bay Rd",
+   "209932" : "Harbord Rd nr West St",
+   "2099120" : "Alfred St nr Amaral St",
+   "208629" : "Iris St Nr Karabah Pl",
+   "2099113" : "Mcintosh Rd Nr Lascelles Rd",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "2099122" : "Alfred St nr McIntosh Rd",
+   "208656" : "Frenchs Forest Rd Nr Forest High",
+   "208624" : "Paxton St Nr Iris St",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "208627" : "Paxton St Nr Iris St",
+   "209990" : "Warringah Rd nr Pine Av",
+   "2100118" : "Tristram Rd nr Boyer Rd",
+   "2100120" : "Iris St Nr Jones St",
+   "2086124" : "Romford Rd Nr Valley View Wy"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-773-b-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-773-b-sj2-1-2-b00b2",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100170",
+               null
+            ],
+            [
+               "210018",
+               "3M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "2099119",
+               "1M pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208624",
+               "1M pasd"
+            ],
+            [
+               "208625",
+               "0S pasd"
+            ],
+            [
+               "2086123",
+               "1M pasd"
+            ],
+            [
+               "2086124",
+               "0S pasd"
+            ],
+            [
+               "2086125",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "1M pasd"
+            ],
+            [
+               "208656",
+               "0S pasd"
+            ],
+            [
+               "208649",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-773-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Augustines School - Rabbett St Nr Holland Av",
+            "rs_ref" : "RS_99-773-b-sj2-1-R-1",
+            "id" : "R_99-773-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-773-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-b-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-773-b-sj2-1-4-b00b7",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208649",
+               null
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "2M pasd"
+            ],
+            [
+               "2086120",
+               "1M pasd"
+            ],
+            [
+               "2086121",
+               "1M pasd"
+            ],
+            [
+               "2086122",
+               "0S pasd"
+            ],
+            [
+               "208626",
+               "1M pasd"
+            ],
+            [
+               "208627",
+               "1M pasd"
+            ],
+            [
+               "208628",
+               "1M pasd"
+            ],
+            [
+               "208629",
+               "0S pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100122",
+               "1M pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "0S pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "209917",
+               "1M pasd"
+            ],
+            [
+               "209918",
+               "2M pasd"
+            ],
+            [
+               "2099109",
+               "1M pasd"
+            ],
+            [
+               "2099110",
+               "2M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Rabbett St Nr Holland Av - St Augustines School",
+            "rs_ref" : "RS_99-773-b-sj2-1-H-2",
+            "id" : "R_99-773-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-773-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-b-sj2-1-3-b00b2" : {
+      "vjcode" : "VJ_99-773-b-sj2-1-3-b00b2",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208649",
+               null
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "2M pasd"
+            ],
+            [
+               "2086120",
+               "1M pasd"
+            ],
+            [
+               "2086121",
+               "1M pasd"
+            ],
+            [
+               "2086122",
+               "0S pasd"
+            ],
+            [
+               "208626",
+               "1M pasd"
+            ],
+            [
+               "208627",
+               "1M pasd"
+            ],
+            [
+               "208628",
+               "1M pasd"
+            ],
+            [
+               "208629",
+               "0S pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100122",
+               "1M pasd"
+            ],
+            [
+               "2100123",
+               "1M pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100126",
+               "0S pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "209917",
+               "1M pasd"
+            ],
+            [
+               "209918",
+               "2M pasd"
+            ],
+            [
+               "2099109",
+               "1M pasd"
+            ],
+            [
+               "2099110",
+               "2M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "210066",
+               "1M pasd"
+            ],
+            [
+               "210062",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-773-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Rabbett St Nr Holland Av - St Augustines School",
+            "rs_ref" : "RS_99-773-b-sj2-1-H-2",
+            "id" : "R_99-773-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-773-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   },
+   "VJ_99-773-b-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-773-b-sj2-1-1-b00b7",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100170",
+               null
+            ],
+            [
+               "210018",
+               "3M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "2099119",
+               "1M pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "0S pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208624",
+               "1M pasd"
+            ],
+            [
+               "208625",
+               "0S pasd"
+            ],
+            [
+               "2086123",
+               "1M pasd"
+            ],
+            [
+               "2086124",
+               "0S pasd"
+            ],
+            [
+               "2086125",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "1M pasd"
+            ],
+            [
+               "208656",
+               "0S pasd"
+            ],
+            [
+               "208649",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-773-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Augustines School - Rabbett St Nr Holland Av",
+            "rs_ref" : "RS_99-773-b-sj2-1-R-1",
+            "id" : "R_99-773-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-773-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "773"
+   }
+}
+;
+

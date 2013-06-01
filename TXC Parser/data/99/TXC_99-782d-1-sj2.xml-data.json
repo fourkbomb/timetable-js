@@ -1,0 +1,601 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-782-d-sj2-1" : "782"
+}
+;
+
+var stations = {
+   "209941" : "Griffin Rd nr Headland Rd",
+   "209968" : "Headland Rd nr Wheeler Pde",
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "209927" : "Quirk St Nr St Lukes",
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "2099206" : "Quirk St nr Carew st",
+   "209931" : "Quirk St nr Tango Av",
+   "209920" : "Pittwater Rd Nr Lismore Av",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "210229" : "Jacksons Rd Nr Pittwater Rd",
+   "209943" : "Griffin Rd nr Pacific Pde",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "209726" : "Pittwater Rd nr Hay St",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "209915" : "Pittwater Rd Nr Lismore Av",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210228" : "Jacksons Rd nr Warriewood Sq",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "209946" : "Howard Av Nr Avon Rd",
+   "209919" : "Pittwater Rd nr South Creek Rd",
+   "209944" : "Howard Av nr The Strand",
+   "209916" : "Pittwater Rd nr South Creek Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "209942" : "Griffin Rd nr Boronia St",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "209926" : "Headland Rd nr St Lukes Stand 1",
+   "209729" : "Pittwater Rd Nr Westmoreland Av",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "209725" : "Pittwater Rd Nr Anzac Av",
+   "210185" : "Waterloo St nr Pittwater Rd",
+   "210133" : "Waterloo St Nr Ocean St",
+   "209914" : "Pittwater Rd Nr Hawkesbury Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-782-d-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-782-d-sj2-1-1-b00b2",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210228",
+               null
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "3M pasd"
+            ],
+            [
+               "209926",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Jacksons Rd Nr Warriewood Sq - Headland Rd nr St Lukes Stand 1",
+            "rs_ref" : "RS_99-782-d-sj2-1-H-1",
+            "id" : "R_99-782-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-782-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   },
+   "VJ_99-782-d-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-782-d-sj2-1-2-b00b7",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209927",
+               null
+            ],
+            [
+               "209931",
+               "1M pasd"
+            ],
+            [
+               "2099206",
+               "0S pasd"
+            ],
+            [
+               "209968",
+               "2M pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "0S pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "1M pasd"
+            ],
+            [
+               "209916",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210133",
+               "3M pasd"
+            ],
+            [
+               "210185",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-d-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Quirk St Nr St Lukes - Waterloo St nr Pittwater Rd",
+            "rs_ref" : "RS_99-782-d-sj2-1-R-2",
+            "id" : "R_99-782-d-sj2-1-R-2"
+         }
+      },
+      "service" : "99-782-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   },
+   "VJ_99-782-d-sj2-1-3-b00b2" : {
+      "vjcode" : "VJ_99-782-d-sj2-1-3-b00b2",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209927",
+               null
+            ],
+            [
+               "209931",
+               "1M pasd"
+            ],
+            [
+               "2099206",
+               "0S pasd"
+            ],
+            [
+               "209968",
+               "2M pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "0S pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209914",
+               "1M pasd"
+            ],
+            [
+               "209915",
+               "1M pasd"
+            ],
+            [
+               "209916",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "1M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210133",
+               "3M pasd"
+            ],
+            [
+               "210185",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-d-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Quirk St Nr St Lukes - Waterloo St nr Pittwater Rd",
+            "rs_ref" : "RS_99-782-d-sj2-1-R-2",
+            "id" : "R_99-782-d-sj2-1-R-2"
+         }
+      },
+      "service" : "99-782-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   },
+   "VJ_99-782-d-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-782-d-sj2-1-4-b00b7",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210228",
+               null
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "3M pasd"
+            ],
+            [
+               "209926",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Jacksons Rd Nr Warriewood Sq - Headland Rd nr St Lukes Stand 1",
+            "rs_ref" : "RS_99-782-d-sj2-1-H-1",
+            "id" : "R_99-782-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-782-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   }
+}
+;
+

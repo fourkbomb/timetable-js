@@ -1,0 +1,566 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-711-a-sj2-1" : "711"
+}
+;
+
+var stations = {
+   "2122211" : "Terry Rd Nr Midson Rd",
+   "211811" : "Lloyds Av near Carlingford Station",
+   "2114157" : "Wharf Rd Nr Taylor Av",
+   "211466" : "Andrew St Nr Ryde Golf Course",
+   "211489" : "Marsden Rd 320m N Of Winbourne St",
+   "211867" : "Baker St near James Ruse High School",
+   "211467" : "Adelaide St Nr Andrew St",
+   "211468" : "Adelaide St Nr Deakin St",
+   "2118189" : "Pennant Hills Rd near Carlingford Court",
+   "2122120" : "Hillview Rd Nr St Kevins",
+   "211458" : "Winbourne St Nr Marsden High School",
+   "211491" : "Marsden Rd Nr Cowells Lane",
+   "2118160" : "Marsden Rd opp Rickard St",
+   "211868" : "Baker St near Pleasant Ct",
+   "2118176" : "Dunmore Av near Cumberland High School",
+   "2114158" : "Winbourne St Nr Marsden Rd",
+   "212258" : "Marsden Rd Nr Rutledge St",
+   "2122123" : "Hillview Rd Nr Marist Bros",
+   "2117173" : "Marsden Rd nr Mobbs Lane",
+   "2117138" : "Mobbs Lane Nr Freeman Pl",
+   "2122127" : "Terry Rd Nr Spencer St",
+   "2117126" : "Marsden Rd nr Bankshill Cr",
+   "211444" : "Maxim St Nr St Michaels School",
+   "2118161" : "Marsden Rd Nr Pennant Hills Rd",
+   "2114162" : "Cobham Av Nr Parer St",
+   "211786" : "Mobbs Lane Nr Raimonde Rd",
+   "211422" : "Endeavour St nr West Ryde Primary",
+   "2122124" : "Terry Rd Nr Shaftsbury Rd",
+   "211789" : "Marsden Rd Nr Illarangi St",
+   "211490" : "Marsden Rd 280m S of Cowells Lane",
+   "211841" : "Pennant Hills Rd near Post Office St",
+   "212141" : "Mobbs Lane Nr Valley Rd",
+   "2122129" : "Terry Rd Nr Marsden Rd",
+   "212259" : "Marsden Rd Nr Lawson St",
+   "211478" : "Marsden Rd Nr Winbourne St",
+   "211866" : "Moseley St opp Baker St",
+   "2114144" : "Winbourne St Nr Marsden Rd",
+   "211460" : "Wharf Rd Nr Victoria Rd",
+   "2122126" : "Terry Rd Nr Tarrants Av",
+   "2122128" : "Terry Rd Nr Darvall Rd",
+   "211792" : "Marsden Rd nr Morris St",
+   "212214" : "West St Nr Eastwood Station",
+   "2118186" : "Moseley St near Jenkins Rd",
+   "2122122" : "Hillview Nr Clive Rd",
+   "211464" : "Andrew St Nr Cobham Av",
+   "211461" : "Taylor Av Nr Cobham Av",
+   "211469" : "Adelaide St Nr Darwin St",
+   "2122121" : "Hillview Rd Nr St Kevins",
+   "2122130" : "Terry Rd Nr Brush Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-711-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-711-a-sj2-1-1-b00bj",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212214",
+               null
+            ],
+            [
+               "2122121",
+               "2M pasd"
+            ],
+            [
+               "2122123",
+               "1M pasd"
+            ],
+            [
+               "2122124",
+               "0S pasd"
+            ],
+            [
+               "2122126",
+               "2M pasd"
+            ],
+            [
+               "2122128",
+               "1M pasd"
+            ],
+            [
+               "2122130",
+               "1M pasd"
+            ],
+            [
+               "2122129",
+               "1M pasd"
+            ],
+            [
+               "211792",
+               "1M pasd"
+            ],
+            [
+               "211789",
+               "1M pasd"
+            ],
+            [
+               "2117126",
+               "1M pasd"
+            ],
+            [
+               "2118160",
+               "3M pasd"
+            ],
+            [
+               "2118161",
+               "0S pasd"
+            ],
+            [
+               "211841",
+               "1M pasd"
+            ],
+            [
+               "2118189",
+               "1M pasd"
+            ],
+            [
+               "2118186",
+               "1M pasd"
+            ],
+            [
+               "211866",
+               "0S pasd"
+            ],
+            [
+               "211867",
+               "1M pasd"
+            ],
+            [
+               "211868",
+               "2M pasd"
+            ],
+            [
+               "2118176",
+               "1M pasd"
+            ],
+            [
+               "211811",
+               "2M pasd"
+            ],
+            [
+               "2117173",
+               "4M pasd"
+            ],
+            [
+               "211786",
+               "0S pasd"
+            ],
+            [
+               "2117138",
+               "1M pasd"
+            ],
+            [
+               "212141",
+               "1M pasd"
+            ],
+            [
+               "2122127",
+               "4M pasd"
+            ],
+            [
+               "2122211",
+               "1M pasd"
+            ],
+            [
+               "2122122",
+               "1M pasd"
+            ],
+            [
+               "2122120",
+               "1M pasd"
+            ],
+            [
+               "212214",
+               "0S pasd"
+            ],
+            [
+               "2122121",
+               "1M pasd"
+            ],
+            [
+               "2122123",
+               "0S pasd"
+            ],
+            [
+               "2122124",
+               "1M pasd"
+            ],
+            [
+               "2122126",
+               "1M pasd"
+            ],
+            [
+               "2122128",
+               "0S pasd"
+            ],
+            [
+               "2122130",
+               "1M pasd"
+            ],
+            [
+               "2122129",
+               "0S pasd"
+            ],
+            [
+               "212259",
+               "1M pasd"
+            ],
+            [
+               "212258",
+               "1M pasd"
+            ],
+            [
+               "211491",
+               "1M pasd"
+            ],
+            [
+               "211490",
+               "1M pasd"
+            ],
+            [
+               "211489",
+               "0S pasd"
+            ],
+            [
+               "211478",
+               "1M pasd"
+            ],
+            [
+               "2114158",
+               "0S pasd"
+            ],
+            [
+               "211458",
+               "1M pasd"
+            ],
+            [
+               "2114144",
+               "1M pasd"
+            ],
+            [
+               "211460",
+               "1M pasd"
+            ],
+            [
+               "2114157",
+               "1M pasd"
+            ],
+            [
+               "211461",
+               "0S pasd"
+            ],
+            [
+               "2114162",
+               "1M pasd"
+            ],
+            [
+               "211464",
+               "2M pasd"
+            ],
+            [
+               "211466",
+               "1M pasd"
+            ],
+            [
+               "211467",
+               "2M pasd"
+            ],
+            [
+               "211468",
+               "1M pasd"
+            ],
+            [
+               "211469",
+               "1M pasd"
+            ],
+            [
+               "211422",
+               "2M pasd"
+            ],
+            [
+               "211444",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-711-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Eastwood Station - Maxim St Nr St Michaels School",
+            "rs_ref" : "RS_99-711-a-sj2-1-H-1",
+            "id" : "R_99-711-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-711-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "711"
+   },
+   "VJ_99-711-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-711-a-sj2-1-2-b00bk",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212214",
+               null
+            ],
+            [
+               "2122121",
+               "2M pasd"
+            ],
+            [
+               "2122123",
+               "1M pasd"
+            ],
+            [
+               "2122124",
+               "0S pasd"
+            ],
+            [
+               "2122126",
+               "2M pasd"
+            ],
+            [
+               "2122128",
+               "1M pasd"
+            ],
+            [
+               "2122130",
+               "1M pasd"
+            ],
+            [
+               "2122129",
+               "1M pasd"
+            ],
+            [
+               "211792",
+               "1M pasd"
+            ],
+            [
+               "211789",
+               "1M pasd"
+            ],
+            [
+               "2117126",
+               "1M pasd"
+            ],
+            [
+               "2118160",
+               "3M pasd"
+            ],
+            [
+               "2118161",
+               "0S pasd"
+            ],
+            [
+               "211841",
+               "1M pasd"
+            ],
+            [
+               "2118189",
+               "1M pasd"
+            ],
+            [
+               "2118186",
+               "1M pasd"
+            ],
+            [
+               "211866",
+               "0S pasd"
+            ],
+            [
+               "211867",
+               "1M pasd"
+            ],
+            [
+               "211868",
+               "2M pasd"
+            ],
+            [
+               "2118176",
+               "1M pasd"
+            ],
+            [
+               "211811",
+               "2M pasd"
+            ],
+            [
+               "2117173",
+               "4M pasd"
+            ],
+            [
+               "211786",
+               "0S pasd"
+            ],
+            [
+               "2117138",
+               "1M pasd"
+            ],
+            [
+               "212141",
+               "1M pasd"
+            ],
+            [
+               "2122127",
+               "4M pasd"
+            ],
+            [
+               "2122211",
+               "1M pasd"
+            ],
+            [
+               "2122122",
+               "1M pasd"
+            ],
+            [
+               "2122120",
+               "1M pasd"
+            ],
+            [
+               "212214",
+               "0S pasd"
+            ],
+            [
+               "2122121",
+               "1M pasd"
+            ],
+            [
+               "2122123",
+               "0S pasd"
+            ],
+            [
+               "2122124",
+               "1M pasd"
+            ],
+            [
+               "2122126",
+               "1M pasd"
+            ],
+            [
+               "2122128",
+               "0S pasd"
+            ],
+            [
+               "2122130",
+               "1M pasd"
+            ],
+            [
+               "2122129",
+               "0S pasd"
+            ],
+            [
+               "212259",
+               "1M pasd"
+            ],
+            [
+               "212258",
+               "1M pasd"
+            ],
+            [
+               "211491",
+               "1M pasd"
+            ],
+            [
+               "211490",
+               "1M pasd"
+            ],
+            [
+               "211489",
+               "0S pasd"
+            ],
+            [
+               "211478",
+               "1M pasd"
+            ],
+            [
+               "2114158",
+               "0S pasd"
+            ],
+            [
+               "211458",
+               "1M pasd"
+            ],
+            [
+               "2114144",
+               "1M pasd"
+            ],
+            [
+               "211460",
+               "1M pasd"
+            ],
+            [
+               "2114157",
+               "1M pasd"
+            ],
+            [
+               "211461",
+               "0S pasd"
+            ],
+            [
+               "2114162",
+               "1M pasd"
+            ],
+            [
+               "211464",
+               "2M pasd"
+            ],
+            [
+               "211466",
+               "1M pasd"
+            ],
+            [
+               "211467",
+               "2M pasd"
+            ],
+            [
+               "211468",
+               "1M pasd"
+            ],
+            [
+               "211469",
+               "1M pasd"
+            ],
+            [
+               "211422",
+               "2M pasd"
+            ],
+            [
+               "211444",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-711-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Eastwood Station - Maxim St Nr St Michaels School",
+            "rs_ref" : "RS_99-711-a-sj2-1-H-1",
+            "id" : "R_99-711-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-711-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "711"
+   }
+}
+;
+

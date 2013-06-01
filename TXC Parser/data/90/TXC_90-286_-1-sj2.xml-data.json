@@ -1,0 +1,5745 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-286-_-sj2-1" : "286"
+}
+;
+
+var stations = {
+   "2066236" : "Epping Rd Nr Cox Lane",
+   "206513" : "Pacific Hwy Nr Christie St",
+   "211359" : "Coxs Rd Nr Badajoz Rd",
+   "212254" : "Kent Rd Nr Herring Rd",
+   "212249" : "Herring Rd Nr Bridge Rd",
+   "212244" : "Lovell Rd Nr Colvin Cr",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "2066242" : "Epping Rd Nr Moore St",
+   "212256" : "Kent Rd Nr Kent Rd Primary",
+   "211350" : "Kent Rd Nr Pindari St",
+   "2065137" : "Pacific Hwy Nr Alexander St",
+   "211356" : "Coxs Rd Nr Holy Spirit Primary",
+   "2065136" : "Pacific Hwy Nr Innes Rd",
+   "2066249" : "Epping Rd Nr Centennial Av",
+   "2066247" : "Epping Rd Nr Fraser St",
+   "2066250" : "Epping Rd Nr Cox Lane",
+   "2066246" : "Epping Rd Nr Johnston Cr",
+   "211365" : "Blenheim Rd Nr Coxs Rd",
+   "206533" : "Pacific Hwy nr Dickson Av",
+   "206013" : "Miller St near Pacific Hwy",
+   "212240" : "Herring Rd Nr Bridge Rd",
+   "206514" : "Pacific Hwy nr Albany St",
+   "2066231" : "Epping Rd Nr Mowbray Rd West",
+   "2000137" : "York St nr Market St",
+   "2066244" : "Epping Rd 370m W Of Sam Johnson Wy",
+   "206012" : "Blue St Stand B",
+   "211322" : "Epping Rd Nr Rivett Rd",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "2066227" : "Pacific Hwy nr Allison Av",
+   "211355" : "Coxs Rd Nr North Ryde Primary",
+   "211360" : "Blenheim Rd Nr Cutler Pde",
+   "206052" : "Miller St near Pacific Hwy",
+   "211363" : "Blenhiem Rd Nr Warwick St",
+   "2066251" : "Lane Cove Interchange Stand B",
+   "2065138" : "Pacific Hwy Nr Myrtle St",
+   "206525" : "Pacific Hwy Nr Reserve Rd",
+   "2000133" : "York St at Lang Park",
+   "2065134" : "Pacific Hwy nr Shirley St",
+   "206529" : "Pacific Hwy nr Greenwich Rd",
+   "2066226" : "Pacific Hwy nr Cobden Av",
+   "212241" : "Tallwood Av Nr Bridge Rd",
+   "211351" : "Kent Rd Nr Ada St",
+   "206594" : "Pacific Hwy nr Greenwich Rd",
+   "211364" : "Blenheim Rd Nr Cutler Pde",
+   "212246" : "North Rd Nr Watts Rd",
+   "2066245" : "Epping Rd nr Cumberland Av",
+   "212247" : "Tallwood Av Opp Watts Park",
+   "206415" : "Pacific Hwy nr Campbell St",
+   "212250" : "Herring Rd Nr Blundell St",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "206512" : "Pacific Hwy Nr Hume St",
+   "206067" : "Pacific Hwy nr Walker St",
+   "212248" : "Tallwood Av Nr Bridge Rd",
+   "2065141" : "Pacific Hwy nr Campbell St",
+   "2066228" : "Lane Cove Interchange Stand C",
+   "211349" : "Kent Rd Nr Lane Cove Rd",
+   "2065133" : "Pacific Hwy Nr Rocklands Rd",
+   "2066237" : "Epping Rd Nr Centennial Av",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "206515" : "Pacific Hwy Nr Hume St",
+   "206617" : "Epping Rd Nr Wingadee St",
+   "2000142" : "Wynyard Station_ Clarence St - Stand R",
+   "206025" : "Pacific Hwy nr West St",
+   "211348" : "Kent Rd Nr Milroy St",
+   "206430" : "Pacific Hwy nr Westbourne St",
+   "2066230" : "Epping Rd Nr Sam Johnson Way",
+   "211352" : "Kent Rd Nr Ruse St",
+   "211354" : "Coxs Rd Nr Lane Cove Rd",
+   "211347" : "Kent Rd Nr Ruse St",
+   "206435" : "Pacific Hwy nr Alto Pl",
+   "2065135" : "St Leonards Station_ Pacific Hwy - Stand B",
+   "212243" : "North Rd Nr Watts Rd",
+   "206528" : "Pacific Hwy Nr Portview Rd",
+   "212245" : "Lovell Rd Nr North Rd",
+   "2066241" : "Epping Rd Nr Fraser St",
+   "206029" : "Pacific Hwy nr McHatton St",
+   "212239" : "Herring Rd Nr Patricia St",
+   "206090" : "Pacific Hwy nr Berry St",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "2066265" : "Epping Rd 400m E Of Mowbray Rd",
+   "2066223" : "Epping Rd Nr Sam Johnson Way",
+   "206523" : "St Leonards Station_ Pacific Hwy - Stand A",
+   "2066240" : "Epping Rd Nr Tantallon Rd",
+   "2000141" : "Clarence St nr King St",
+   "211353" : "Kent Rd Opp Els Hall Park",
+   "211358" : "Coxs Rd Nr Blamey St",
+   "211323" : "Epping Rd Nr Pittwater Rd",
+   "2066229" : "Epping Rd Nr Cox Ln",
+   "212242" : "Tallwood Av Nr Watts Park",
+   "211361" : "Blenhiem Rd Nr Morshead St",
+   "212238" : "Herring Rd Nr Agincourt Rd",
+   "206524" : "Pacific Hwy N Of Shirley St",
+   "206427" : "Pacific Hwy nr Dickson Av",
+   "206028" : "Pacific Hwy nr Doohat Av",
+   "211370" : "Coxs Rd Nr Lane Cove Rd",
+   "2066248" : "Epping Rd Nr Munro St",
+   "206429" : "Pacific Hwy opp Innes Rd",
+   "211211" : "North Rd Nr Lovell Rd",
+   "212255" : "Kent Rd Nr Els Hall Park",
+   "206426" : "Pacific Hwy nr Hotham Pde",
+   "2066222" : "Epping Rd Nr Mowbray Rd West",
+   "211357" : "Coxs Rd Nr Ryrie St",
+   "200043" : "QVB_ York St - Stand C",
+   "200035" : "Wynyard Station_ York St - Stand N"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-286-_-sj2-1-10-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-10-b00bj",
+      "leaves" : "16:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "5M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-8-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-16-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-16-b00bk",
+      "leaves" : "16:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "5M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-8-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-4-b00bj",
+      "leaves" : "06:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "0S pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "0S pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "1M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206052",
+               "3M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "0S pasd"
+            ],
+            [
+               "2000137",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-1-b00a5",
+      "leaves" : "16:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "5M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-14-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-14-b00bk",
+      "leaves" : "15:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "4M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-20-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-20-b00bk",
+      "leaves" : "07:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "212249",
+               "1M pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "10M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-9-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-19-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-19-b00bk",
+      "leaves" : "18:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "7M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "9M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-12-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-6-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-6-b00bj",
+      "leaves" : "17:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "6M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "9M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-5-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-11-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-11-b00bj",
+      "leaves" : "07:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "212249",
+               "1M pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "10M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-9-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-13-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-13-b00bj",
+      "leaves" : "06:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206052",
+               "3M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-11-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-15-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-15-b00bk",
+      "leaves" : "15:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "4M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-7-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-18-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-18-b00bk",
+      "leaves" : "17:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "6M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "9M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-5-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-9-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-9-b00bj",
+      "leaves" : "15:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "4M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-7-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-5-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-5-b00bj",
+      "leaves" : "15:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "4M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-23-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-23-b00bk",
+      "leaves" : "06:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206052",
+               "3M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-11-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-17-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-17-b00bk",
+      "leaves" : "17:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "6M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "8M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "2M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "3M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-6-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-3-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-3-b00bj",
+      "leaves" : "07:23:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-2-b00bk",
+      "leaves" : "06:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "0S pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "0S pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "1M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206052",
+               "3M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "7M setDown"
+            ],
+            [
+               "200035",
+               "0S pasd"
+            ],
+            [
+               "2000137",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-22-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-22-b00bk",
+      "leaves" : "07:23:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "0S pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "0S pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-21-b00bk" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-21-b00bk",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "212249",
+               "1M pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-10-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-8-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-8-b00bj",
+      "leaves" : "17:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "6M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "8M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "2M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "3M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-6-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-7-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-7-b00bj",
+      "leaves" : "16:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "5M pasd"
+            ],
+            [
+               "2000142",
+               "2M pasd"
+            ],
+            [
+               "206012",
+               "6M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "1M pasd"
+            ],
+            [
+               "212242",
+               "0S pasd"
+            ],
+            [
+               "212243",
+               "1M pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "212244",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-12-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-12-b00bj",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212244",
+               null
+            ],
+            [
+               "212245",
+               "1M pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "212247",
+               "1M pasd"
+            ],
+            [
+               "212248",
+               "0S pasd"
+            ],
+            [
+               "212249",
+               "1M pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "1M pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "1M pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206052",
+               "5M pasd"
+            ],
+            [
+               "206067",
+               "1M pasd"
+            ],
+            [
+               "2000133",
+               "8M setDown"
+            ],
+            [
+               "200035",
+               "1M pasd"
+            ],
+            [
+               "2000137",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-10-H-2",
+         "route" : {
+            "name" : "Lovell Rd Nr Colvin Cr - York St nr Market St",
+            "rs_ref" : "RS_90-286-_-sj2-1-H-2",
+            "id" : "R_90-286-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   },
+   "VJ_90-286-_-sj2-1-24-b00bj" : {
+      "vjcode" : "VJ_90-286-_-sj2-1-24-b00bj",
+      "leaves" : "18:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200043",
+               null
+            ],
+            [
+               "2000141",
+               "7M pasd"
+            ],
+            [
+               "2000142",
+               "3M pasd"
+            ],
+            [
+               "206012",
+               "9M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "0S pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "0S pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "212241",
+               "0S pasd"
+            ],
+            [
+               "212242",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "1M pasd"
+            ],
+            [
+               "212244",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-286-_-sj2-1-12-R-1",
+         "route" : {
+            "name" : "QVB York St - Lovell Rd Nr Colvin Cr",
+            "rs_ref" : "RS_90-286-_-sj2-1-R-1",
+            "id" : "R_90-286-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-286-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "286"
+   }
+}
+;
+

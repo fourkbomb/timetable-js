@@ -1,0 +1,8708 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-209-_-sj2-1" : "209"
+}
+;
+
+var stations = {
+   "206933" : "Addison Av Nr Babbage Rd",
+   "206814" : "Eastern Valley Wy nr Willis Park",
+   "206121" : "Alfred St near Glen St",
+   "206891" : "Mcclelland St Nr First Av",
+   "206827" : "Eastern Valley Wy Nr Sugarloaf Cr",
+   "206048" : "Miller St near Ridge St",
+   "206847" : "Eastern Valley Wy Nr Mcclelland",
+   "207033" : "Archbold Rd Nr Carnavon Rd",
+   "206352" : "Strathallen Av Nr Sailors Bay Rd",
+   "207084" : "Owen St Nr Archbold Rd",
+   "206922" : "Earl St Nr Oroya Pde",
+   "206218" : "Miller St Nr Abbott St",
+   "206217" : "Miller St Nr Rosalind St",
+   "206092" : "Blue St Stand C",
+   "206049" : "Miller St Nr Carlow St",
+   "206911" : "Eastern Valley Wy Nr Deepwater Rd",
+   "206017" : "Miller St Nr Carlow St",
+   "206355" : "Strathallen Av Nr Cliff Av",
+   "206216" : "Miller St nr Ernest St",
+   "207011" : "Archbold Rd Nr Woodlands Rd",
+   "206120" : "Alfred St nr Olympic Dr",
+   "206845" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "206219" : "Miller St Nr Vale St",
+   "206212" : "Miller St Nr Pine St",
+   "206960" : "Addison Av Nr Moore St",
+   "206828" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "206047" : "Miller St nr McLaren St",
+   "206311" : "Eastern Valley Wy Nr Tenilba Rd",
+   "206356" : "Strathallen Av nr Marana Rd",
+   "206211" : "Miller St Nr The Boulevarde",
+   "206354" : "Strathallen Av nr Marana Rd",
+   "206350" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206050" : "Miller St nr Falcon St",
+   "206016" : "Miller St nr Falcon St",
+   "206917" : "Archbold Rd Nr Roseville Av",
+   "206815" : "Eastern Valley Wy nr Willis Park",
+   "206927" : "Eastern Valley Wy Nr Deepwater Rd",
+   "206812" : "Eastern Valley Wy nr Victoria Av",
+   "206215" : "Miller St nr Ernest St",
+   "206816" : "Eastern Valley Wy nr Willis Park",
+   "206220" : "Miller St Nr The Boulevarde",
+   "207032" : "Archbold Rd Nr Woodlands Rd",
+   "206811" : "Eastern Valley Wy Nr Victoria Av",
+   "206818" : "Eastern Valley Wy Nr Greenfield Av",
+   "206817" : "Eastern Valley Wy nr Victoria Av",
+   "206085" : "Miller St near Pacific Hwy",
+   "206813" : "Eastern Valley Wy nr Willis Park",
+   "206962" : "Addison Av Nr Archbold Rd",
+   "206893" : "Mcclelland St Nr Eastern Valley Wy",
+   "207012" : "Archbold Rd Nr Chelmsford Av",
+   "206842" : "Eastern Valley Wy Nr Morotai Cr",
+   "207026" : "Adelaide Av Nr Melbourne Rd",
+   "206918" : "Archbold Rd nr Clanville Rd",
+   "207031" : "Archbold Rd Nr Chelmsford Av",
+   "206125" : "Broughton St Nr Pitt St",
+   "206057" : "Lavender St Nr Walker St",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "207069" : "Tryon Rd Nr East Lindfield Primary",
+   "206965" : "Addison Av Nr Moore St",
+   "206826" : "Eastern Valley Wy Nr Mcclelland St",
+   "206758" : "Eastern Valley Wy opp Castle Cove Dr",
+   "207070" : "Crana Ave Terminus",
+   "206123" : "Alfred St near Milsons Point Station",
+   "206844" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "207067" : "Owen St Nr Sydney Rd",
+   "206928" : "Eastern Valley Wy Opp Smith St",
+   "206926" : "Clive St Nr Boundary St",
+   "206892" : "Mccelland St Nr Warrane Rd",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "206359" : "Eastern Valley Wy nr Sailors Bay Rd",
+   "206358" : "Strathallen Av Nr Sailors Bay Rd",
+   "206921" : "Archbold Rd Nr Earl St",
+   "206024" : "Miller St nr Blue St",
+   "206920" : "Archbold Rd Nr Dudley Av",
+   "206357" : "Strathallen Av Nr Baroona Rd",
+   "206018" : "Miller St near Ridge St",
+   "206019" : "Miller St nr McLaren St",
+   "206925" : "Addison Av Nr Babbage Rd",
+   "206351" : "Sailors Bay Rd nr Eastern Valley Wy",
+   "206843" : "Eastern Valley Wy Nr Warners Av",
+   "206045" : "Miller St near Pacific Hwy",
+   "207028" : "Adelaide Av Nr Sydney Rd",
+   "207066" : "Owen St Nr Archbold Rd",
+   "206890" : "Stan St Nr First Av",
+   "207083" : "Owen St Nr Sydney Rd",
+   "206213" : "Miller St nr Cammeray Shops",
+   "206846" : "Eastern Valley Wy Nr Robert St",
+   "206058" : "Lavender St nr Cliff St",
+   "206912" : "Clive St Nr Babbage Rd",
+   "206829" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "206923" : "Earl St Nr Moore St",
+   "206353" : "Strathallen Av Nr Baroona Rd",
+   "207068" : "Tryon Rd Nr Loombah Av",
+   "206360" : "Eastern Valley Wy Nr Tenilba Rd",
+   "206919" : "Archbold Rd nr Clanville Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-209-_-sj2-1-3-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-3-b00a4",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-43-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-43-b00a5",
+      "leaves" : "15:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-14-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-14-b00a4",
+      "leaves" : "07:58:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-4-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-4-b00a4",
+      "leaves" : "16:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-10-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-10-b00a4",
+      "leaves" : "07:34:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-9-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-30-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-30-b00a5",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-17-H-9",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-9",
+            "id" : "R_90-209-_-sj2-1-H-9"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-7-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-7-b00a4",
+      "leaves" : "08:07:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-46-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-46-b00a5",
+      "leaves" : "07:16:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "0S pasd"
+            ],
+            [
+               "207083",
+               "1M pasd"
+            ],
+            [
+               "207084",
+               "0S pasd"
+            ],
+            [
+               "207031",
+               "1M pasd"
+            ],
+            [
+               "207032",
+               "0S pasd"
+            ],
+            [
+               "207033",
+               "0S pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "0S pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "0S pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-7-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-33-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-33-b00a5",
+      "leaves" : "15:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-18-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-25-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-25-b00a4",
+      "leaves" : "18:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "0S pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "0S pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "0S pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "0S pasd"
+            ],
+            [
+               "207069",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-19-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-26-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-26-b00a5",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-12-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-8-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-8-b00a4",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "0S pasd"
+            ],
+            [
+               "207083",
+               "1M pasd"
+            ],
+            [
+               "207084",
+               "0S pasd"
+            ],
+            [
+               "207031",
+               "1M pasd"
+            ],
+            [
+               "207032",
+               "0S pasd"
+            ],
+            [
+               "207033",
+               "0S pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "0S pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "0S pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-7-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-34-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-34-b00a5",
+      "leaves" : "15:19:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Addison Av Nr Babbage Rd",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-1",
+            "id" : "R_90-209-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-24-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-24-b00a4",
+      "leaves" : "15:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-18-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-45-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-45-b00a5",
+      "leaves" : "07:37:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "1M pasd"
+            ],
+            [
+               "207083",
+               "0S pasd"
+            ],
+            [
+               "207084",
+               "1M pasd"
+            ],
+            [
+               "207031",
+               "1M pasd"
+            ],
+            [
+               "207032",
+               "0S pasd"
+            ],
+            [
+               "207033",
+               "1M pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "0S pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "1M pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-11-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-37-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-37-b00a5",
+      "leaves" : "16:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-17-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-17-b00a4",
+      "leaves" : "08:12:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206352",
+               null
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-15-H-7",
+         "route" : {
+            "name" : "Strathallen Av Nr Sailors Bay Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-7",
+            "id" : "R_90-209-_-sj2-1-H-7"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-6-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-6-b00a4",
+      "leaves" : "15:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-48-b00bk" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-48-b00bk",
+      "leaves" : "07:34:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-9-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-9-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-9-b00a4",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-8-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-11-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-11-b00a4",
+      "leaves" : "07:43:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-10-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-44-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-44-b00a5",
+      "leaves" : "08:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "1M pasd"
+            ],
+            [
+               "207083",
+               "1M pasd"
+            ],
+            [
+               "207084",
+               "1M pasd"
+            ],
+            [
+               "207031",
+               "0S pasd"
+            ],
+            [
+               "207032",
+               "1M pasd"
+            ],
+            [
+               "207033",
+               "0S pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "1M pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "1M pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "0S pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-13-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-2-b00bk",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206352",
+               null
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Strathallen Av Nr Sailors Bay Rd - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-2",
+            "id" : "R_90-209-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-18-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-18-b00a4",
+      "leaves" : "17:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-27-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-27-b00a5",
+      "leaves" : "07:43:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-10-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-21-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-21-b00a4",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-17-H-9",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-9",
+            "id" : "R_90-209-_-sj2-1-H-9"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-32-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-32-b00a5",
+      "leaves" : "15:04:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-16-R-8",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Eastern Valley Wy Nr Mcclelland",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-8",
+            "id" : "R_90-209-_-sj2-1-R-8"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-50-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-50-b00a4",
+      "leaves" : "17:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-22-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-22-b00a4",
+      "leaves" : "08:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206352",
+               null
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Strathallen Av Nr Sailors Bay Rd - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-2",
+            "id" : "R_90-209-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-49-b00bk" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-49-b00bk",
+      "leaves" : "08:12:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206352",
+               null
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-15-H-7",
+         "route" : {
+            "name" : "Strathallen Av Nr Sailors Bay Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-7",
+            "id" : "R_90-209-_-sj2-1-H-7"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-36-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-36-b00a5",
+      "leaves" : "16:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-19-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-19-b00a4",
+      "leaves" : "15:04:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-16-R-8",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Eastern Valley Wy Nr Mcclelland",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-8",
+            "id" : "R_90-209-_-sj2-1-R-8"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-15-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-15-b00a4",
+      "leaves" : "08:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "1M pasd"
+            ],
+            [
+               "207083",
+               "1M pasd"
+            ],
+            [
+               "207084",
+               "1M pasd"
+            ],
+            [
+               "207031",
+               "0S pasd"
+            ],
+            [
+               "207032",
+               "1M pasd"
+            ],
+            [
+               "207033",
+               "0S pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "1M pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "1M pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "0S pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-13-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-41-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-41-b00a5",
+      "leaves" : "18:11:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "0S pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "0S pasd"
+            ],
+            [
+               "207069",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-13-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-13-b00a4",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-12-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-20-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-20-b00a4",
+      "leaves" : "16:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-39-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-39-b00a5",
+      "leaves" : "17:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-1-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-1-b00a4",
+      "leaves" : "15:19:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Addison Av Nr Babbage Rd",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-1",
+            "id" : "R_90-209-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-47-b00bk" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-47-b00bk",
+      "leaves" : "08:07:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-38-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-38-b00a5",
+      "leaves" : "17:01:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-40-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-40-b00a5",
+      "leaves" : "17:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-29-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-29-b00a5",
+      "leaves" : "07:58:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "1M pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-23-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-23-b00a4",
+      "leaves" : "17:01:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "1M pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "0S pasd"
+            ],
+            [
+               "207011",
+               "1M pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "0S pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-31-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-31-b00a5",
+      "leaves" : "07:14:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "0S pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-14-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-28-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-28-b00a5",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206890",
+               null
+            ],
+            [
+               "206891",
+               "1M pasd"
+            ],
+            [
+               "206892",
+               "0S pasd"
+            ],
+            [
+               "206893",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "0S pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-8-H-6",
+         "route" : {
+            "name" : "Stan St Nr First Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-6",
+            "id" : "R_90-209-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-42-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-42-b00a5",
+      "leaves" : "18:34:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "0S pasd"
+            ],
+            [
+               "206814",
+               "1M pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "0S pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "0S pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "0S pasd"
+            ],
+            [
+               "207069",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-19-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-12-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-12-b00a4",
+      "leaves" : "07:37:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "207070",
+               null
+            ],
+            [
+               "207026",
+               "1M pasd"
+            ],
+            [
+               "207028",
+               "1M pasd"
+            ],
+            [
+               "207083",
+               "0S pasd"
+            ],
+            [
+               "207084",
+               "1M pasd"
+            ],
+            [
+               "207031",
+               "1M pasd"
+            ],
+            [
+               "207032",
+               "0S pasd"
+            ],
+            [
+               "207033",
+               "1M pasd"
+            ],
+            [
+               "206920",
+               "1M pasd"
+            ],
+            [
+               "206921",
+               "0S pasd"
+            ],
+            [
+               "206922",
+               "1M pasd"
+            ],
+            [
+               "206923",
+               "1M pasd"
+            ],
+            [
+               "206965",
+               "1M pasd"
+            ],
+            [
+               "206925",
+               "1M pasd"
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "2M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "1M pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-11-H-5",
+         "route" : {
+            "name" : "Crana Ave Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-5",
+            "id" : "R_90-209-_-sj2-1-H-5"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-16-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-16-b00a4",
+      "leaves" : "07:14:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "1M pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "0S pasd"
+            ],
+            [
+               "206817",
+               "1M pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "1M pasd"
+            ],
+            [
+               "206829",
+               "0S pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206350",
+               "1M pasd"
+            ],
+            [
+               "206351",
+               "0S pasd"
+            ],
+            [
+               "206352",
+               "1M pasd"
+            ],
+            [
+               "206353",
+               "0S pasd"
+            ],
+            [
+               "206354",
+               "1M pasd"
+            ],
+            [
+               "206355",
+               "0S pasd"
+            ],
+            [
+               "206211",
+               "1M pasd"
+            ],
+            [
+               "206212",
+               "0S pasd"
+            ],
+            [
+               "206213",
+               "1M pasd"
+            ],
+            [
+               "206215",
+               "1M pasd"
+            ],
+            [
+               "206016",
+               "1M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-14-H-4",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-209-_-sj2-1-H-4",
+            "id" : "R_90-209-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-35-b00a5" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-35-b00a5",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "0S pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "1M pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "1M pasd"
+            ],
+            [
+               "207066",
+               "0S pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "1M pasd"
+            ],
+            [
+               "207069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   },
+   "VJ_90-209-_-sj2-1-5-b00a4" : {
+      "vjcode" : "VJ_90-209-_-sj2-1-5-b00a4",
+      "leaves" : "18:11:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206092",
+               "3M pasd"
+            ],
+            [
+               "206045",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "2M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "206216",
+               "1M pasd"
+            ],
+            [
+               "206217",
+               "1M pasd"
+            ],
+            [
+               "206218",
+               "1M pasd"
+            ],
+            [
+               "206219",
+               "1M pasd"
+            ],
+            [
+               "206220",
+               "0S pasd"
+            ],
+            [
+               "206356",
+               "2M pasd"
+            ],
+            [
+               "206357",
+               "0S pasd"
+            ],
+            [
+               "206358",
+               "1M pasd"
+            ],
+            [
+               "206359",
+               "2M pasd"
+            ],
+            [
+               "206360",
+               "0S pasd"
+            ],
+            [
+               "206843",
+               "1M pasd"
+            ],
+            [
+               "206844",
+               "1M pasd"
+            ],
+            [
+               "206845",
+               "1M pasd"
+            ],
+            [
+               "206846",
+               "1M pasd"
+            ],
+            [
+               "206847",
+               "1M pasd"
+            ],
+            [
+               "206811",
+               "1M pasd"
+            ],
+            [
+               "206812",
+               "1M pasd"
+            ],
+            [
+               "206813",
+               "1M pasd"
+            ],
+            [
+               "206814",
+               "0S pasd"
+            ],
+            [
+               "206758",
+               "1M pasd"
+            ],
+            [
+               "206911",
+               "1M pasd"
+            ],
+            [
+               "206912",
+               "1M pasd"
+            ],
+            [
+               "206933",
+               "1M pasd"
+            ],
+            [
+               "206960",
+               "1M pasd"
+            ],
+            [
+               "206962",
+               "1M pasd"
+            ],
+            [
+               "206917",
+               "1M pasd"
+            ],
+            [
+               "206918",
+               "0S pasd"
+            ],
+            [
+               "206919",
+               "1M pasd"
+            ],
+            [
+               "207011",
+               "0S pasd"
+            ],
+            [
+               "207012",
+               "0S pasd"
+            ],
+            [
+               "207066",
+               "1M pasd"
+            ],
+            [
+               "207067",
+               "1M pasd"
+            ],
+            [
+               "207068",
+               "0S pasd"
+            ],
+            [
+               "207069",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-209-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Tryon Rd Nr East Lindfield Primary",
+            "rs_ref" : "RS_90-209-_-sj2-1-R-3",
+            "id" : "R_90-209-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-209-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "209"
+   }
+}
+;
+

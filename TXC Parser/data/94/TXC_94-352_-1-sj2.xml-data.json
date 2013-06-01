@@ -1,0 +1,629 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-352-_-sj2-1" : "352"
+}
+;
+
+var stations = {
+   "228023" : "Pacific Hwy nr Maude St",
+   "228121" : "Pacific Hwy nr Little Pelican",
+   "228118" : "Bowman St nr Old Pacific Hwy",
+   "2259339" : "Pacific Hwy near Tall Timbers Rd",
+   "228124" : "Pacific Hwy Near Maneela St",
+   "228047" : "Pacific Hwy opp Marks Point Rd",
+   "2259345" : "Pacific Hwy - No.750 (Opp.Chain Valley Bay Rd)",
+   "228049" : "Pacific Hwy Near Docker St",
+   "228046" : "Pacific Hwy nr Emily St",
+   "2280303" : "Pacific Hwy nr Ada St",
+   "228048" : "Pacific Hwy Near Docker St",
+   "228132" : "Bowman St nr Pacific Hwy",
+   "228014" : "Pacific Hwy Near Docker St",
+   "2259340" : "Pacific Hwy (After Carters Rd)",
+   "228126" : "Pacific Hwy Near Maneela St",
+   "228025" : "Pacific Hwy nr Floraville Rd",
+   "228127" : "Pacific Hwy Near Tirriki St",
+   "228129" : "Pacific Hwy opp Little Pelican",
+   "225985" : "Pacific Hwy near Saliena Av",
+   "228019" : "Pacific Hwy nr Bellevue Rd",
+   "2280225" : "Floraville Rd Nr Belmont  Bus Depot",
+   "2262141" : "Pacific Hwy nr Basford Rd",
+   "228128" : "Pacific Hwy Near Gommera St",
+   "228123" : "Pacific Hwy Near Tirriki St",
+   "228022" : "Pacific Hwy nr Belmont Shops",
+   "228122" : "Pacific Hwy Near Gommera St",
+   "228142" : "Pacific Hwy nr Soldiers Rd",
+   "2280243" : "Pacific Hwy nr Cobbin Pde",
+   "228042" : "Pacific Hwy nr Alick St",
+   "228020" : "Pacific Hwy opp Alick St",
+   "228013" : "Pacific Hwy Near Docker St",
+   "228043" : "Pacific Hwy nr Robert St",
+   "228131" : "Bowman St opp Lake Rd",
+   "2259300" : "Rutleys Rd (Mecca Caravan Park)",
+   "228017" : "Pacific St nr Arthur St",
+   "226449" : "Morisset - Stand 3",
+   "228119" : "Bowman St nr Lake Rd",
+   "228040" : "Pacific Hwy nr Belmont Shops",
+   "228018" : "Pacific Hwy nr Beach St",
+   "228045" : "Pacific Hwy nr Clara St",
+   "228039" : "Pacific Hwy nr Livingstone St",
+   "228024" : "Pacific Hwy nr Evans",
+   "228016" : "Pacific Hwy nr Emily St",
+   "2259625" : "Pacific Hwy near Kangaroo Av",
+   "228130" : "Bowman St nr Peel St",
+   "228140" : "Pacific Hwy opp Belmont Airport",
+   "2259346" : "Pacific Hwy near Elizabeth Bay Dr",
+   "2280259" : "Pacific Hwy nr Merleview St",
+   "228125" : "Pacific Hwy nr Awabakal Av",
+   "228120" : "Bowman St nr Belmont St",
+   "2259633" : "Pacific Hwy - No.360 (Before Tall Timbers Rd)",
+   "228143" : "Pacific Hwy nr Belmont Airport",
+   "228041" : "Pacific Hwy nr Gen St",
+   "228044" : "Pacific Hwy nr Beach St",
+   "2259299" : "Rutleys Rd (Opp.Mecca Caravan Park)",
+   "228015" : "Pacific Hwy Near Marks Point",
+   "2259347" : "Pacific Hwy near Boronia Rd",
+   "2262142" : "Pacific Hwy - No.255 (Across From Saliena Av)"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-352-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-352-_-sj2-1-2-b0096",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2280225",
+               null
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "228039",
+               "1M pasd"
+            ],
+            [
+               "2280259",
+               "1M pasd"
+            ],
+            [
+               "228040",
+               "1M pasd"
+            ],
+            [
+               "228041",
+               "0S pasd"
+            ],
+            [
+               "228042",
+               "1M pasd"
+            ],
+            [
+               "228043",
+               "1M pasd"
+            ],
+            [
+               "228044",
+               "0S pasd"
+            ],
+            [
+               "228045",
+               "1M pasd"
+            ],
+            [
+               "228046",
+               "0S pasd"
+            ],
+            [
+               "228047",
+               "1M pasd"
+            ],
+            [
+               "228048",
+               "1M pasd"
+            ],
+            [
+               "228049",
+               "0S pasd"
+            ],
+            [
+               "228140",
+               "1M pasd"
+            ],
+            [
+               "228125",
+               "0S pasd"
+            ],
+            [
+               "228126",
+               "1M pasd"
+            ],
+            [
+               "228127",
+               "0S pasd"
+            ],
+            [
+               "228128",
+               "1M pasd"
+            ],
+            [
+               "228129",
+               "1M pasd"
+            ],
+            [
+               "228130",
+               "2M pasd"
+            ],
+            [
+               "228131",
+               "0S pasd"
+            ],
+            [
+               "228132",
+               "0S pasd"
+            ],
+            [
+               "2259345",
+               "11M pasd"
+            ],
+            [
+               "2259346",
+               "0S pasd"
+            ],
+            [
+               "2259347",
+               "1M pasd"
+            ],
+            [
+               "2259633",
+               "2M pasd"
+            ],
+            [
+               "225985",
+               "0S pasd"
+            ],
+            [
+               "2259299",
+               "10M pasd"
+            ],
+            [
+               "226449",
+               "10M pasd"
+            ]
+         ],
+         "id" : "JP_94-352-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Floraville Rd Nr Belmont Bus Depot - Morisset Station",
+            "rs_ref" : "RS_94-352-_-sj2-1-H-1",
+            "id" : "R_94-352-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-352-_-sj2-1",
+      "line" : "352"
+   },
+   "VJ_94-352-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-352-_-sj2-1-1-b0096",
+      "leaves" : "17:11:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2280225",
+               null
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "228039",
+               "1M pasd"
+            ],
+            [
+               "2280259",
+               "1M pasd"
+            ],
+            [
+               "228040",
+               "1M pasd"
+            ],
+            [
+               "228041",
+               "0S pasd"
+            ],
+            [
+               "228042",
+               "1M pasd"
+            ],
+            [
+               "228043",
+               "1M pasd"
+            ],
+            [
+               "228044",
+               "0S pasd"
+            ],
+            [
+               "228045",
+               "1M pasd"
+            ],
+            [
+               "228046",
+               "0S pasd"
+            ],
+            [
+               "228047",
+               "1M pasd"
+            ],
+            [
+               "228048",
+               "1M pasd"
+            ],
+            [
+               "228049",
+               "0S pasd"
+            ],
+            [
+               "228140",
+               "1M pasd"
+            ],
+            [
+               "228125",
+               "0S pasd"
+            ],
+            [
+               "228126",
+               "1M pasd"
+            ],
+            [
+               "228127",
+               "0S pasd"
+            ],
+            [
+               "228128",
+               "1M pasd"
+            ],
+            [
+               "228129",
+               "1M pasd"
+            ],
+            [
+               "228130",
+               "2M pasd"
+            ],
+            [
+               "228131",
+               "0S pasd"
+            ],
+            [
+               "228132",
+               "0S pasd"
+            ],
+            [
+               "2259345",
+               "11M pasd"
+            ],
+            [
+               "2259346",
+               "0S pasd"
+            ],
+            [
+               "2259347",
+               "1M pasd"
+            ],
+            [
+               "2259633",
+               "1M pasd"
+            ],
+            [
+               "225985",
+               "0S pasd"
+            ],
+            [
+               "2259299",
+               "8M pasd"
+            ],
+            [
+               "226449",
+               "8M pasd"
+            ]
+         ],
+         "id" : "JP_94-352-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Floraville Rd Nr Belmont Bus Depot - Morisset Station",
+            "rs_ref" : "RS_94-352-_-sj2-1-H-1",
+            "id" : "R_94-352-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-352-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "352"
+   },
+   "VJ_94-352-_-sj2-1-4-b0096" : {
+      "vjcode" : "VJ_94-352-_-sj2-1-4-b0096",
+      "leaves" : "08:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226449",
+               null
+            ],
+            [
+               "2259300",
+               "10M pasd"
+            ],
+            [
+               "2262141",
+               "7M pasd"
+            ],
+            [
+               "2262142",
+               "0S pasd"
+            ],
+            [
+               "2259339",
+               "1M pasd"
+            ],
+            [
+               "2259625",
+               "1M pasd"
+            ],
+            [
+               "2259340",
+               "1M pasd"
+            ],
+            [
+               "228118",
+               "11M pasd"
+            ],
+            [
+               "228119",
+               "0S pasd"
+            ],
+            [
+               "228120",
+               "1M pasd"
+            ],
+            [
+               "228121",
+               "1M pasd"
+            ],
+            [
+               "228122",
+               "1M pasd"
+            ],
+            [
+               "228123",
+               "1M pasd"
+            ],
+            [
+               "228124",
+               "0S pasd"
+            ],
+            [
+               "228142",
+               "1M pasd"
+            ],
+            [
+               "228143",
+               "0S pasd"
+            ],
+            [
+               "228013",
+               "1M pasd"
+            ],
+            [
+               "228014",
+               "1M pasd"
+            ],
+            [
+               "228015",
+               "0S pasd"
+            ],
+            [
+               "228016",
+               "0S pasd"
+            ],
+            [
+               "228017",
+               "1M pasd"
+            ],
+            [
+               "228018",
+               "1M pasd"
+            ],
+            [
+               "228019",
+               "0S pasd"
+            ],
+            [
+               "228020",
+               "1M pasd"
+            ],
+            [
+               "2280303",
+               "0S pasd"
+            ],
+            [
+               "228022",
+               "1M pasd"
+            ],
+            [
+               "228023",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "1M pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-352-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Morisset Station - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-352-_-sj2-1-R-2",
+            "id" : "R_94-352-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-352-_-sj2-1",
+      "line" : "352"
+   },
+   "VJ_94-352-_-sj2-1-3-b0096" : {
+      "vjcode" : "VJ_94-352-_-sj2-1-3-b0096",
+      "leaves" : "18:21:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226449",
+               null
+            ],
+            [
+               "2259300",
+               "10M pasd"
+            ],
+            [
+               "2262141",
+               "7M pasd"
+            ],
+            [
+               "2262142",
+               "0S pasd"
+            ],
+            [
+               "2259339",
+               "1M pasd"
+            ],
+            [
+               "2259625",
+               "1M pasd"
+            ],
+            [
+               "2259340",
+               "1M pasd"
+            ],
+            [
+               "228118",
+               "11M pasd"
+            ],
+            [
+               "228119",
+               "0S pasd"
+            ],
+            [
+               "228120",
+               "1M pasd"
+            ],
+            [
+               "228121",
+               "1M pasd"
+            ],
+            [
+               "228122",
+               "1M pasd"
+            ],
+            [
+               "228123",
+               "1M pasd"
+            ],
+            [
+               "228124",
+               "0S pasd"
+            ],
+            [
+               "228142",
+               "1M pasd"
+            ],
+            [
+               "228143",
+               "0S pasd"
+            ],
+            [
+               "228013",
+               "1M pasd"
+            ],
+            [
+               "228014",
+               "1M pasd"
+            ],
+            [
+               "228015",
+               "0S pasd"
+            ],
+            [
+               "228016",
+               "0S pasd"
+            ],
+            [
+               "228017",
+               "1M pasd"
+            ],
+            [
+               "228018",
+               "1M pasd"
+            ],
+            [
+               "228019",
+               "0S pasd"
+            ],
+            [
+               "228020",
+               "1M pasd"
+            ],
+            [
+               "2280303",
+               "0S pasd"
+            ],
+            [
+               "228022",
+               "1M pasd"
+            ],
+            [
+               "228023",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "1M pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-352-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Morisset Station - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-352-_-sj2-1-R-2",
+            "id" : "R_94-352-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-352-_-sj2-1",
+      "line" : "352"
+   }
+}
+;
+

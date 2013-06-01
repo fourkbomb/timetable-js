@@ -1,0 +1,862 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-715-a-sj2-1" : "715"
+}
+;
+
+var stations = {
+   "211018" : "Ryde Rd Nr Abigail St",
+   "211048" : "Woolwich Rd nr Glenview Cr",
+   "211049" : "Woolwich Rd nr Futuna St",
+   "211053" : "Woolwich Rd nr Passy Av",
+   "2112153" : "Quarry Rd Nr Stephen Av",
+   "2122173" : "North Rd Nr Woorang St",
+   "211019" : "Ryde Rd nr Figtree Rd",
+   "2112165" : "Quarry Rd Nr Dobson Cr",
+   "211251" : "Higginbotham Rd Nr Cressy Rd",
+   "211051" : "Woolwich Rd nr Wybalena Rd",
+   "211021" : "Gladesville Rd nr Joubert St",
+   "2112167" : "Quarry Rd Nr Boyce St",
+   "2112168" : "Quarry Rd Nr Jones St",
+   "211056" : "Alexandra St nr Ernest St",
+   "211060" : "Church St nr Mount St",
+   "2112245" : "Quarry Rd Nr Lane Cove Rd",
+   "211055" : "Woolwich Rd nr Foss St",
+   "211252" : "Higginbotham Rd Nr Cressy Rd",
+   "211052" : "Woolwich Rd nr Crescent St",
+   "2122152" : "North Rd Nr Balaclava Rd",
+   "212278" : "Balaclava Rd Nr Vimiera Rd",
+   "211046" : "Woolwich Rd Nr Gladstone Av",
+   "212279" : "Balaclava Rd Nr Blaxland Rd",
+   "2122170" : "North Rd Nr Acacia St",
+   "212284" : "Balaclava Rd Opp Bligh St",
+   "211054" : "Ferry St nr Ambrose St",
+   "2112158" : "Quarry Rd Nr Smalls Rd",
+   "2112154" : "Quarry Rd Nr Stephen Av",
+   "211157" : "Higginbotham Rd nr Lyndhurst St",
+   "212280" : "Balaclava Rd Opp Gordon St",
+   "211062" : "Church St opp Herberton Av",
+   "211181" : "Higginbotham Rd nr Nelson St",
+   "211150" : "Higginbotham Rd nr Nelson St",
+   "212246" : "North Rd Nr Watts Rd",
+   "211027" : "Ryde Rd nr Luke St",
+   "211180" : "Monash Rd nr Diggers Av",
+   "211061" : "Church St nr Moorefield Av",
+   "2112159" : "Quarry Rd Nr Lavarack St",
+   "212283" : "Balaclava Rd Nr Alexandria Av",
+   "211025" : "Gladesville Rd nr Pitt St",
+   "211275" : "Higginbotham Rd Nr Nelson St",
+   "2112164" : "Quarry Rd Nr Woodbine Cr",
+   "211088" : "Ryde Rd nr Park Rd",
+   "2112161" : "Quarry Rd Nr Arthur St",
+   "212288" : "May St Nr Blaxland Rd",
+   "211090" : "Woolwich Rd nr Ferry St",
+   "211063" : "Church St nr Herberton Av",
+   "2112157" : "Quarry Rd Nr Smalls Rd",
+   "211020" : "Ryde Rd Nr Gladesville Rd",
+   "2112162" : "Quarry Rd Opp Arthur St",
+   "2112150" : "Quarry Rd Nr North Rd",
+   "211177" : "Monash Rd nr Oates Av",
+   "212285" : "Balaclava Rd Nr Bligh St",
+   "211058" : "Alexandra St nr D'Aram St",
+   "2112160" : "Quarry Rd Nr Aeolus Av",
+   "2122171" : "North Rd Nr Donovan St",
+   "211047" : "Woolwich Rd nr Vernon St",
+   "212289" : "May St Nr Blaxland Rd",
+   "2122174" : "North Rd Nr Sheehan St",
+   "212243" : "North Rd Nr Watts Rd",
+   "2112151" : "Quarry Rd Nr Olive St",
+   "2122151" : "North Rd Nr Balaclava Rd",
+   "211024" : "Marist Sisters Stand B",
+   "2122154" : "North Rd Nr Fonti St",
+   "2110108" : "Woolwich Rd nr Serpentine Rd",
+   "211042" : "Marist Sisters Stand A",
+   "211059" : "Alexandra St nr Stanley Rd",
+   "211028" : "Ryde Rd Nr Abigail St",
+   "211250" : "Pidding Rd Nr Pidding Park",
+   "2122155" : "North Rd Nr Threlfall St",
+   "2122153" : "North Rd Nr Fonti St",
+   "2122136" : "North Rd Nr Threlfall St",
+   "2122172" : "North Rd Nr Woorang St",
+   "212282" : "Balaclava Rd Nr Gwendale Cr",
+   "2112152" : "Quarry Rd Nr Olive St",
+   "212281" : "Balaclava Rd Nr Gordon St",
+   "212287" : "Balaclava Rd Nr North Rd",
+   "211050" : "Woolwich Rd nr Jeanneret Av",
+   "212213" : "Ethel St Nr Eastwood Station",
+   "211211" : "North Rd Nr Lovell Rd",
+   "2122175" : "North Rd Nr Alison St",
+   "211178" : "Monash Rd nr Buffalo Rd",
+   "212212" : "Railway Pde Nr Ethel St",
+   "211057" : "Alexandra St nr Ellesmere Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-715-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-715-a-sj2-1-2-b00bk",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211042",
+               null
+            ],
+            [
+               "211048",
+               "2M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "1M pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "0S pasd"
+            ],
+            [
+               "211025",
+               "1M pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "0S pasd"
+            ],
+            [
+               "211177",
+               "3M pasd"
+            ],
+            [
+               "211157",
+               "1M pasd"
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "0S pasd"
+            ],
+            [
+               "2112168",
+               "3M pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "1M pasd"
+            ],
+            [
+               "2112160",
+               "0S pasd"
+            ],
+            [
+               "2112158",
+               "0S pasd"
+            ],
+            [
+               "2112154",
+               "1M pasd"
+            ],
+            [
+               "2112151",
+               "0S pasd"
+            ],
+            [
+               "2112150",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "2122170",
+               "0S pasd"
+            ],
+            [
+               "2122172",
+               "0S pasd"
+            ],
+            [
+               "2122174",
+               "1M pasd"
+            ],
+            [
+               "2122153",
+               "0S pasd"
+            ],
+            [
+               "2122136",
+               "0S pasd"
+            ],
+            [
+               "2122151",
+               "1M pasd"
+            ],
+            [
+               "212287",
+               "0S pasd"
+            ],
+            [
+               "212285",
+               "1M pasd"
+            ],
+            [
+               "212283",
+               "0S pasd"
+            ],
+            [
+               "212281",
+               "1M pasd"
+            ],
+            [
+               "212279",
+               "0S pasd"
+            ],
+            [
+               "212289",
+               "1M pasd"
+            ],
+            [
+               "212212",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-715-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Eastwood Station",
+            "rs_ref" : "RS_99-715-a-sj2-1-R-2",
+            "id" : "R_99-715-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-715-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   },
+   "VJ_99-715-a-sj2-1-3-b00bj" : {
+      "vjcode" : "VJ_99-715-a-sj2-1-3-b00bj",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211042",
+               null
+            ],
+            [
+               "211048",
+               "2M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "1M pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "0S pasd"
+            ],
+            [
+               "211025",
+               "1M pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "0S pasd"
+            ],
+            [
+               "211177",
+               "3M pasd"
+            ],
+            [
+               "211157",
+               "1M pasd"
+            ],
+            [
+               "211275",
+               "1M pasd"
+            ],
+            [
+               "211252",
+               "0S pasd"
+            ],
+            [
+               "2112168",
+               "3M pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "2112162",
+               "1M pasd"
+            ],
+            [
+               "2112160",
+               "0S pasd"
+            ],
+            [
+               "2112158",
+               "0S pasd"
+            ],
+            [
+               "2112154",
+               "1M pasd"
+            ],
+            [
+               "2112151",
+               "0S pasd"
+            ],
+            [
+               "2112150",
+               "0S pasd"
+            ],
+            [
+               "212246",
+               "1M pasd"
+            ],
+            [
+               "2122170",
+               "0S pasd"
+            ],
+            [
+               "2122172",
+               "0S pasd"
+            ],
+            [
+               "2122174",
+               "1M pasd"
+            ],
+            [
+               "2122153",
+               "0S pasd"
+            ],
+            [
+               "2122136",
+               "0S pasd"
+            ],
+            [
+               "2122151",
+               "1M pasd"
+            ],
+            [
+               "212287",
+               "0S pasd"
+            ],
+            [
+               "212285",
+               "1M pasd"
+            ],
+            [
+               "212283",
+               "0S pasd"
+            ],
+            [
+               "212281",
+               "1M pasd"
+            ],
+            [
+               "212279",
+               "0S pasd"
+            ],
+            [
+               "212289",
+               "1M pasd"
+            ],
+            [
+               "212212",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-715-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Eastwood Station",
+            "rs_ref" : "RS_99-715-a-sj2-1-R-2",
+            "id" : "R_99-715-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-715-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   },
+   "VJ_99-715-a-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-715-a-sj2-1-1-b00bk",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212213",
+               null
+            ],
+            [
+               "212288",
+               "1M pasd"
+            ],
+            [
+               "212278",
+               "1M pasd"
+            ],
+            [
+               "212280",
+               "0S pasd"
+            ],
+            [
+               "212282",
+               "1M pasd"
+            ],
+            [
+               "212284",
+               "0S pasd"
+            ],
+            [
+               "2122152",
+               "1M pasd"
+            ],
+            [
+               "2122155",
+               "1M pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "2112152",
+               "1M pasd"
+            ],
+            [
+               "2112153",
+               "0S pasd"
+            ],
+            [
+               "2112157",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "1M pasd"
+            ],
+            [
+               "2112161",
+               "0S pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "0S pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "211250",
+               "2M pasd"
+            ],
+            [
+               "211251",
+               "1M pasd"
+            ],
+            [
+               "211181",
+               "1M pasd"
+            ],
+            [
+               "211150",
+               "0S pasd"
+            ],
+            [
+               "211180",
+               "1M pasd"
+            ],
+            [
+               "211178",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "6M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "0S pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "1M pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "0S pasd"
+            ],
+            [
+               "211049",
+               "1M pasd"
+            ],
+            [
+               "211047",
+               "0S pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-715-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Eastwood Station - Marist Sisters",
+            "rs_ref" : "RS_99-715-a-sj2-1-H-1",
+            "id" : "R_99-715-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-715-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   },
+   "VJ_99-715-a-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-715-a-sj2-1-4-b00bj",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "212213",
+               null
+            ],
+            [
+               "212288",
+               "1M pasd"
+            ],
+            [
+               "212278",
+               "1M pasd"
+            ],
+            [
+               "212280",
+               "0S pasd"
+            ],
+            [
+               "212282",
+               "1M pasd"
+            ],
+            [
+               "212284",
+               "0S pasd"
+            ],
+            [
+               "2122152",
+               "1M pasd"
+            ],
+            [
+               "2122155",
+               "1M pasd"
+            ],
+            [
+               "2122154",
+               "0S pasd"
+            ],
+            [
+               "2122175",
+               "1M pasd"
+            ],
+            [
+               "2122173",
+               "0S pasd"
+            ],
+            [
+               "2122171",
+               "1M pasd"
+            ],
+            [
+               "212243",
+               "0S pasd"
+            ],
+            [
+               "211211",
+               "0S pasd"
+            ],
+            [
+               "2112152",
+               "1M pasd"
+            ],
+            [
+               "2112153",
+               "0S pasd"
+            ],
+            [
+               "2112157",
+               "1M pasd"
+            ],
+            [
+               "2112159",
+               "1M pasd"
+            ],
+            [
+               "2112161",
+               "0S pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "0S pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "211250",
+               "2M pasd"
+            ],
+            [
+               "211251",
+               "1M pasd"
+            ],
+            [
+               "211181",
+               "1M pasd"
+            ],
+            [
+               "211150",
+               "0S pasd"
+            ],
+            [
+               "211180",
+               "1M pasd"
+            ],
+            [
+               "211178",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "6M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "0S pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "1M pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "0S pasd"
+            ],
+            [
+               "211049",
+               "1M pasd"
+            ],
+            [
+               "211047",
+               "0S pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-715-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Eastwood Station - Marist Sisters",
+            "rs_ref" : "RS_99-715-a-sj2-1-H-1",
+            "id" : "R_99-715-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-715-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "715"
+   }
+}
+;
+

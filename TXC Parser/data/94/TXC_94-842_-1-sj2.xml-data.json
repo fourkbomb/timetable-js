@@ -1,0 +1,636 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-842-_-sj2-1" : "842"
+}
+;
+
+var stations = {
+   "228717" : "Newcastle Rd nr Illoura St",
+   "229919" : "Newcastle Rd Nr Blue Gum Rd",
+   "2285230" : "Macquarie Rd opp Knight St",
+   "230449" : "Hanbury St nr Wilkinson St",
+   "2287210" : "Cressington Wy opp Craignair Cl",
+   "2285179" : "Lowry St opp Alfred St",
+   "2287333" : "Birchgrove Dr nr Coweambah Cl",
+   "228715" : "Victory Pde opp Chalmers Rd",
+   "2287339" : "Birchgrove Dr nr Coorong Cl",
+   "2287302" : "Croudace Rd opp Urara Pde",
+   "229864" : "Lambton Rd Nr Christo Rd",
+   "2287334" : "Birchgrove Dr nr Duckerfield Pl",
+   "2285203" : "Grenada Av nr Lawson Rd",
+   "228566" : "Lowry St Main Rd Near Lowry St",
+   "2287337" : "Birchgrove Dr nr Corio Cl",
+   "229871" : "Lambton Rd Nr Christo Rd",
+   "228742" : "Newcastle Rd nr Victory Pde",
+   "2287305" : "Croudace Rd nr Sherwood St",
+   "228579" : "Lowry St Main Rd Near Lowry St",
+   "2285204" : "Monterey Av opp Sacramento Av",
+   "2287209" : "Cressington Wy nr Murnin St",
+   "2287203" : "Croudace Rd nr Garsdale Av",
+   "229920" : "Newcastle Rd Opp Jesmond Park",
+   "229955" : "Newcastle Rd Nr Albert St",
+   "2287329" : "Jubilee Rd 250m S of Aries Wy",
+   "229850" : "Bridge St Nr High St",
+   "229842" : "Platt St opp Waratah Station",
+   "229922" : "Newcastle Rd Nr Dent St",
+   "228567" : "Main Rd nr Taylor St",
+   "2285176" : "Reservoir Rd nr Jubilee Rd",
+   "2287311" : "Jubilee Rd nr Aries Wy",
+   "228719" : "Victory Pde nr Chalmers Rd",
+   "2285181" : "Lowry St nr Main Rd",
+   "2299106" : "Newcastle Rd Nr Albert St",
+   "230447" : "Barton St Nr Maitland Rd",
+   "230429" : "Vine St nr Wye St",
+   "229851" : "High St Nr Harriet St",
+   "2285185" : "Reservoir Rd opp Jubilee Rd",
+   "229954" : "Newcastle Rd Nr Arthur St",
+   "228578" : "Main Rd opp Taylor St",
+   "2287219" : "Elermore Pde opp Cambronne Pde",
+   "2299124" : "Newcastle Rd Nr Grainger St",
+   "2287303" : "Croudace Rd opp Sherwood St",
+   "2287238" : "Croudace Rd opp Garsdale Av",
+   "230448" : "Barton St nr Crebert St",
+   "2285182" : "Lowry St nr Alfred St",
+   "2287218" : "Cressington Wy nr Elermore Pde",
+   "2304269" : "Vine St Nr Industrial Dr",
+   "229923" : "Newcastle Rd Nr Nerong Rd",
+   "2287330" : "Jubilee Rd 350m S of Aries Wy",
+   "2299123" : "Newcastle Rd Nr Morehead St",
+   "2287336" : "Birchgrove Dr nr Sakonia Cl",
+   "229965" : "Griffiths Rd Nr Verulam Rd",
+   "2287309" : "Jubilee Rd opp Taurus St",
+   "2304223" : "Hanbury St nr Macquarie Rd",
+   "2285208" : "Lawson Rd nr Delasala Dr",
+   "2285216" : "Munibung Rd nr Lachlan Rd",
+   "2287312" : "Jubilee Rd nr Taurus St",
+   "2287217" : "Cressington Wy nr Craignair Cl",
+   "2287307" : "Elermore Vale Primary",
+   "2285178" : "Lowry St nr Longworth Av",
+   "2299122" : "Newcastle Rd Nr Young Rd",
+   "2304264" : "Hanbury St nr Dora St",
+   "2287335" : "Birchgrove Dr nr Bellinger Cl",
+   "2287304" : "Croudace Rd nr Elermore Vale Primary",
+   "2285177" : "Reservoir Rd nr Longworth Av",
+   "2285207" : "Lawson Rd opp Amsdale Av",
+   "2287205" : "Cambronne Pde nr Elermore Pde",
+   "229925" : "Newcastle Rd Nr Croudace St",
+   "229926" : "Newcastle Rd Opp Steel St",
+   "2285180" : "Lowry St nr Johnstone St",
+   "2287310" : "Jubilee Rd opp Aries Wy",
+   "2285156" : "Jubilee Rd Nr Reservoir Rd",
+   "2285183" : "Lowry St nr Reservoir Rd",
+   "2287216" : "Cressington Wy nr Kadina Cl",
+   "229845" : "Turton Rd Nr High St",
+   "229847" : "Platt St Nr Grove St",
+   "2287140" : "Newcastle Rd opp Crest Rd",
+   "2287306" : "Croudace Rd nr Urara Pde",
+   "2287331" : "Birchgrove Dr Nr Victory Pde",
+   "228233" : "Medcalf St Nr Lakelands Dr",
+   "2287340" : "Birchgrove Dr nr Wootton Cl",
+   "2285210" : "Torrens Av nr Delasala Dr",
+   "229872" : "Lambton Rd Nr Edith St",
+   "229849" : "Bridge St Nr Platt St",
+   "229811" : "Platt St nr Waratah Station",
+   "229852" : "High St Nr Tighe St",
+   "229963" : "Newcastle Rd Nr Grainger St",
+   "2287211" : "Cressington Wy opp Seladon Av",
+   "2287220" : "Cambronne Pde nr Colwyn Cl",
+   "230451" : "Hanbury St opp Sunderland St",
+   "2282132" : "Ambleside Cct Nr Lakelands Dr",
+   "2285211" : "Delasala Dr opp Kenley Cr",
+   "230450" : "Hanbury St nr Railway Tce",
+   "229837" : "Platt St Nr Corpus Christi School",
+   "229921" : "Newcastle Rd Nr Steel St",
+   "229846" : "Platt St Nr Dulling St",
+   "2285206" : "Lawson Rd Nr Cartella Pl",
+   "2287342" : "Birchgrove Dr nr Iranda Gr",
+   "2285184" : "Reservoir Rd nr Lowry St",
+   "2304143" : "Hunter Christian School",
+   "2287332" : "Birchgrove Dr Nr Victory Pde",
+   "2287204" : "Cambronne Pde nr Garsdale Av",
+   "229927" : "Newcastle Rd Nr Jesmond Park",
+   "228212" : "Macquarie Rd Nr Medcalf St",
+   "2287341" : "Birchgrove Dr nr Douglas St",
+   "2287313" : "Jubilee Rd nr Croudace Rd",
+   "2285231" : "Macquarie Rd nr Blaxland Rd",
+   "2285155" : "Jubilee Rd Nr Reservoir Rd",
+   "2285209" : "Delasala Dr opp Exford Av",
+   "2304131" : "Barton St nr Bull St",
+   "229873" : "Lambton Rd Nr Coolamin Rd",
+   "2304130" : "Barton St Nr Charles St",
+   "2298114" : "Coolamin Rd Nr Lambton Rd",
+   "2287338" : "Birchgrove Dr opp Corio Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-842-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-842-_-sj2-1-1-b0096",
+      "leaves" : "14:54:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2304143",
+               null
+            ],
+            [
+               "2304269",
+               "1M pasd"
+            ],
+            [
+               "230429",
+               "0S pasd"
+            ],
+            [
+               "2304264",
+               "2M pasd"
+            ],
+            [
+               "230449",
+               "1M pasd"
+            ],
+            [
+               "230450",
+               "1M pasd"
+            ],
+            [
+               "229842",
+               "2M pasd"
+            ],
+            [
+               "229846",
+               "0S pasd"
+            ],
+            [
+               "229847",
+               "1M pasd"
+            ],
+            [
+               "229837",
+               "1M pasd"
+            ],
+            [
+               "229849",
+               "0S pasd"
+            ],
+            [
+               "229850",
+               "1M pasd"
+            ],
+            [
+               "229864",
+               "2M pasd"
+            ],
+            [
+               "2299122",
+               "1M pasd"
+            ],
+            [
+               "2299123",
+               "1M pasd"
+            ],
+            [
+               "2299124",
+               "0S pasd"
+            ],
+            [
+               "229925",
+               "1M pasd"
+            ],
+            [
+               "2299106",
+               "0S pasd"
+            ],
+            [
+               "229926",
+               "1M pasd"
+            ],
+            [
+               "229927",
+               "1M pasd"
+            ],
+            [
+               "228717",
+               "1M pasd"
+            ],
+            [
+               "228742",
+               "0S pasd"
+            ],
+            [
+               "228719",
+               "1M pasd"
+            ],
+            [
+               "2287331",
+               "1M pasd"
+            ],
+            [
+               "2287333",
+               "0S pasd"
+            ],
+            [
+               "2287335",
+               "1M pasd"
+            ],
+            [
+               "2287337",
+               "1M pasd"
+            ],
+            [
+               "2287340",
+               "0S pasd"
+            ],
+            [
+               "2287341",
+               "1M pasd"
+            ],
+            [
+               "2287216",
+               "1M pasd"
+            ],
+            [
+               "2287217",
+               "1M pasd"
+            ],
+            [
+               "2287218",
+               "0S pasd"
+            ],
+            [
+               "2287219",
+               "1M pasd"
+            ],
+            [
+               "2287220",
+               "0S pasd"
+            ],
+            [
+               "2287238",
+               "1M pasd"
+            ],
+            [
+               "2287302",
+               "1M pasd"
+            ],
+            [
+               "2287303",
+               "0S pasd"
+            ],
+            [
+               "2287304",
+               "1M pasd"
+            ],
+            [
+               "2287307",
+               "0S pasd"
+            ],
+            [
+               "2287309",
+               "1M pasd"
+            ],
+            [
+               "2287310",
+               "0S pasd"
+            ],
+            [
+               "2287329",
+               "1M pasd"
+            ],
+            [
+               "2285155",
+               "0S pasd"
+            ],
+            [
+               "2285176",
+               "1M pasd"
+            ],
+            [
+               "2285177",
+               "0S pasd"
+            ],
+            [
+               "2285178",
+               "1M pasd"
+            ],
+            [
+               "2285179",
+               "0S pasd"
+            ],
+            [
+               "2285180",
+               "1M pasd"
+            ],
+            [
+               "228566",
+               "0S pasd"
+            ],
+            [
+               "228567",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-842-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Hunter Christian School - Main Rd nr Taylor St",
+            "rs_ref" : "RS_94-842-_-sj2-1-R-1",
+            "id" : "R_94-842-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-842-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "842"
+   },
+   "VJ_94-842-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-842-_-sj2-1-2-b0096",
+      "leaves" : "07:14:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2282132",
+               null
+            ],
+            [
+               "228233",
+               "1M pasd"
+            ],
+            [
+               "228212",
+               "1M pasd"
+            ],
+            [
+               "2285230",
+               "3M pasd"
+            ],
+            [
+               "2285231",
+               "1M pasd"
+            ],
+            [
+               "2285203",
+               "2M pasd"
+            ],
+            [
+               "2285204",
+               "0S pasd"
+            ],
+            [
+               "2285206",
+               "1M pasd"
+            ],
+            [
+               "2285207",
+               "1M pasd"
+            ],
+            [
+               "2285208",
+               "1M pasd"
+            ],
+            [
+               "2285209",
+               "1M pasd"
+            ],
+            [
+               "2285211",
+               "1M pasd"
+            ],
+            [
+               "2285210",
+               "1M pasd"
+            ],
+            [
+               "2285216",
+               "1M pasd"
+            ],
+            [
+               "228578",
+               "2M pasd"
+            ],
+            [
+               "228579",
+               "1M pasd"
+            ],
+            [
+               "2285181",
+               "1M pasd"
+            ],
+            [
+               "2285182",
+               "1M pasd"
+            ],
+            [
+               "2285183",
+               "1M pasd"
+            ],
+            [
+               "2285184",
+               "0S pasd"
+            ],
+            [
+               "2285185",
+               "1M pasd"
+            ],
+            [
+               "2285156",
+               "1M pasd"
+            ],
+            [
+               "2287330",
+               "0S pasd"
+            ],
+            [
+               "2287311",
+               "2M pasd"
+            ],
+            [
+               "2287312",
+               "0S pasd"
+            ],
+            [
+               "2287313",
+               "1M pasd"
+            ],
+            [
+               "2287305",
+               "1M pasd"
+            ],
+            [
+               "2287306",
+               "1M pasd"
+            ],
+            [
+               "2287203",
+               "1M pasd"
+            ],
+            [
+               "2287204",
+               "0S pasd"
+            ],
+            [
+               "2287205",
+               "1M pasd"
+            ],
+            [
+               "2287209",
+               "1M pasd"
+            ],
+            [
+               "2287210",
+               "0S pasd"
+            ],
+            [
+               "2287211",
+               "1M pasd"
+            ],
+            [
+               "2287342",
+               "1M pasd"
+            ],
+            [
+               "2287339",
+               "0S pasd"
+            ],
+            [
+               "2287338",
+               "1M pasd"
+            ],
+            [
+               "2287336",
+               "1M pasd"
+            ],
+            [
+               "2287334",
+               "0S pasd"
+            ],
+            [
+               "2287332",
+               "1M pasd"
+            ],
+            [
+               "228715",
+               "0S pasd"
+            ],
+            [
+               "2287140",
+               "1M pasd"
+            ],
+            [
+               "229919",
+               "1M pasd"
+            ],
+            [
+               "229920",
+               "1M pasd"
+            ],
+            [
+               "229921",
+               "1M pasd"
+            ],
+            [
+               "229954",
+               "0S pasd"
+            ],
+            [
+               "229955",
+               "1M pasd"
+            ],
+            [
+               "229922",
+               "0S pasd"
+            ],
+            [
+               "229963",
+               "1M pasd"
+            ],
+            [
+               "229923",
+               "0S pasd"
+            ],
+            [
+               "229965",
+               "1M pasd"
+            ],
+            [
+               "229871",
+               "1M pasd"
+            ],
+            [
+               "229872",
+               "1M pasd"
+            ],
+            [
+               "229873",
+               "0S pasd"
+            ],
+            [
+               "2298114",
+               "0S pasd"
+            ],
+            [
+               "229851",
+               "1M pasd"
+            ],
+            [
+               "229852",
+               "1M pasd"
+            ],
+            [
+               "229845",
+               "1M pasd"
+            ],
+            [
+               "229811",
+               "1M pasd"
+            ],
+            [
+               "230451",
+               "2M pasd"
+            ],
+            [
+               "2304223",
+               "1M pasd"
+            ],
+            [
+               "230447",
+               "2M pasd"
+            ],
+            [
+               "230448",
+               "0S pasd"
+            ],
+            [
+               "2304130",
+               "1M pasd"
+            ],
+            [
+               "2304131",
+               "1M pasd"
+            ],
+            [
+               "2304143",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-842-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Ambleside Cct Nr Lakelands Dr - Hunter Christian School",
+            "rs_ref" : "RS_94-842-_-sj2-1-H-2",
+            "id" : "R_94-842-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-842-_-sj2-1",
+      "line" : "842"
+   }
+}
+;
+

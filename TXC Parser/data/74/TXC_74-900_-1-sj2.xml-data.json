@@ -1,0 +1,2814 @@
+var OPERATOR = "Picton Buslines";
+
+
+var LINES = {
+   "74-900-_-sj2-1" : "900"
+}
+;
+
+var stations = {
+   "257327" : "Tahmoor Baptist Church Thirlmere Wy",
+   "256027" : "Hurley St (Across From Dumaresq St - Opp.Cinema",
+   "257150" : "Remembrance Dr near Mount Hercules Rd",
+   "257220" : "Thirlmere Wy Near Bell St",
+   "2570114" : "Camden Valley Wy (Wilkinson St)",
+   "257427" : "Remembrance Dr near Yarran Rd",
+   "257111" : "Remembrance Dr (Razorback Section S Bends Sth)",
+   "257323" : "Telstra Exchange Cycleway near Thirlmere Wy",
+   "256025" : "Narellan Rd (William Downes Av - UWS C'Town)",
+   "257032" : "Macarthur Rd (Poplars Caravan Park)",
+   "257124" : "673 Thirlmere Wy",
+   "2560471" : "Narellan Rd near Gilchrist Dr",
+   "2560454" : "Kellicar Rd (Catholic Club) Used If Not Turning",
+   "256713" : "Shell Service Camden Valley Wy",
+   "257315" : "Thamoor Public School Remembrance Dr",
+   "2567128" : "Narellan Rd (70m Before Exchange Rd)",
+   "256821" : "Camden Valley Inn Remembrance Dr",
+   "257123" : "Redbank Cemetery Thirlmere Wy Near Argyle St",
+   "257319" : "Tahmoor Baptist Church Remembrance Dr",
+   "257122" : "Bp Service Hill St",
+   "2567259" : "Mt Annan Christian School",
+   "257011" : "John St (Westpac Bank Interchange)",
+   "2571125" : "Mallam Rd near Kyeema St",
+   "257154" : "Remembrance Dr Near Donalds Range Rd",
+   "256311" : "Menangle Rd (Broughton Anglican College)",
+   "256769" : "Camden Valley Way (Opp.Smeatons Grange Rd)",
+   "256816" : "Remembrance Dr (Water Tower Inbound Westside)",
+   "2560452" : "Hurley St (Campbelltown Mall)",
+   "2560423" : "Menangle Rd (Opp.Laneway To Belltrees Cl)",
+   "257159" : "Argyle St near Remembrance Dr",
+   "257058" : "Old Hume Hwy - No.85",
+   "257145" : "St Anthonys Church and School Menangle Rd",
+   "257015" : "Argyle St (Elizabeth St - Merino Hotel)",
+   "257333" : "Bargo River Rd near Remembrance Dr",
+   "257434" : "200M South Railway Bridge Bargo Remembrance Dr",
+   "256021" : "Kellicar Rd (Opp.Market Fair) Used If Not Turni",
+   "257039" : "Old Hume Hwy (Rosalie St)",
+   "256762" : "Elyard St (Somerset St - Narellan Shops)",
+   "257142" : "Picton Public School Whitfield Pl",
+   "257152" : "Remembrance Dr",
+   "257160" : "Picton Public School Argyle St",
+   "2570108" : "Camden Valley Wy (Opp.Hilder St)",
+   "2571135" : "Remembrance Dr and Jarvisfield Rd",
+   "257320" : "Remembrance Dr near Bradbury St",
+   "256011" : "Narellan Rd (Opp.UWS C'Town)",
+   "257143" : "Picton Shire Hall and Library Menangle Rd",
+   "257157" : "Remembrance Dr",
+   "257428" : "Wirrimbirra Sanctuary Remembrance Dr",
+   "256736" : "Narellan Rd (Footbridge - Currans Hill side)",
+   "2570141" : "Rememberance Dr - Opp.No.343",
+   "2567146" : "Elyard St (Opp.Narellan Shops near Queen St)",
+   "2567126" : "Narellan Rd (70m After Waterworth Dr)",
+   "257219" : "Thirlmere Wy near St",
+   "2570215" : "Shell Service Camden_ near Broughton St",
+   "256766" : "Narellan Hotel Camden Valley Wy",
+   "257217" : "Estonian Village Estonian Rd near Bonds Rd",
+   "256714" : "Somerset St (Opp.Narellan Shops)",
+   "257212" : "East Gate Thirlmere Wy near Owen St",
+   "256741" : "Narellan Rd (Mt Annan footbridge - Mt Annan sid",
+   "2570116" : "Remembrance Dr (Opp.Wire La & Camden Valley Inn)",
+   "2570111" : "Camden Valley Wy (Opp.Wilkinson St)",
+   "257324" : "Thirlmere Wy near Milne St",
+   "2560455" : "Kellicar Rd (Opp.BBC Hardware House)",
+   "2567135" : "Narellan Rd near Tramway Dr",
+   "257450" : "Tylers Rd",
+   "257064" : "Murray St (Coles Shop)",
+   "256711" : "Camden Valley Wy",
+   "257155" : "Remembrance Dr near Mount Hercules Rd",
+   "257024" : "Camden Valley Way (100m Opp.Kirkham Lane)",
+   "257065" : "Oxley St (Woolworths)",
+   "257034" : "Murray St (Opp.Coles Shop)",
+   "256764" : "Camden Valley Way (60m After Somerset St)",
+   "256822" : "Remembrance Dr",
+   "257213" : "Thirlmere Wy Near Bridge St",
+   "257162" : "Redbank Shops Argyle St near Thirlmere Wy",
+   "256026" : "Hurley St (C'Town Library and Pre School)",
+   "256316" : "Menangle Rd (Opp.Broughton Anglican School)",
+   "257326" : "Thirlmere Wy near Castlereagh St",
+   "2567138" : "Narellan Rd (680m After Mt Annan Dr)",
+   "257033" : "Elizabeth St (Merino Tavern)",
+   "257036" : "Menangle Rd Near Victory Av",
+   "2571136" : "Menangle St",
+   "256739" : "Narellan Rd (Water Board Depot)",
+   "2560407" : "Menangle Rd (Glen Alpine Dr)",
+   "2570112" : "Camden Valley Wy (After Kirkham La)",
+   "256715" : "Elyard St (Somerset St - Opp.Narellan Shops)",
+   "2567129" : "Narellan Rd (Before Camden Valley Wy - Opp.KFC)",
+   "257314" : "Remembrance Dr near Progress St",
+   "2571138" : "Argyle St near Thirlmere Wy",
+   "2570140" : "Rememberance Dr - No.343 (Before Bridgewater Bv",
+   "257148" : "Remembrance Dr",
+   "2567162" : "Hartley Rd",
+   "2571123" : "Regreme Rd nearLove Pl",
+   "257322" : "Myrtle Creek Remembrance Dr near River Rd",
+   "2567131" : "Camden Valley Wy (Before Sharman Cl - Opp.McDon",
+   "256820" : "Remembrance Dr",
+   "256768" : "Camden Valley Way (Opp.Narellan Shops)",
+   "256788" : "Hartley Rd Near Narellan Rd",
+   "2560424" : "Menangle Rd (Opp.Glen Alpine Dr)",
+   "257411" : "Olive Lane Austral Coal Tahmoor Colliery",
+   "2571127" : "Coldenham Rd near Jacinta Pl",
+   "2570109" : "Remebrance Dr (Before Cawdor Rd)",
+   "2560472" : "Narellan Rd (C'Town T.A.F.E)",
+   "257121" : "Picton High School Remembrance Dr",
+   "256765" : "Shell Service Camden Valley Wy",
+   "2570115" : "Remebrance Dr (Opp.Burragorang Rd)",
+   "257161" : "Cowper St near Argyle St",
+   "257170" : "Remembrance Dr",
+   "256815" : "Remembrance Dr (Water Tower Outbound Eastside)",
+   "2567127" : "Narellan Rd (Alamein Av)",
+   "2567161" : "Hartley Rd Near Sedgewick St",
+   "256763" : "Somerset St (Narellan Shops)",
+   "256712" : "Narellan Hotel Camden Valley Wy",
+   "2560422" : "Menangle Rd (Adj Laneway to Belltrees Cl)",
+   "257146" : "Argyle St near Remembrance Dr",
+   "256767" : "Camden Valley Wy",
+   "2560453" : "Hurley St (Opp.Campbelltown City Library)",
+   "257413" : "First Bridge Wellers Rd Remembrance Dr",
+   "257026" : "Harrington St (Lowe St)",
+   "257038" : "Old Hume Hwy (Macquarie Av)",
+   "256761" : "Elyard St (Rear of Narellan Shops)",
+   "2567137" : "Narellan Rd near Tramway Dr",
+   "257318" : "Tahmoor Public School Remembrance Dr",
+   "2570113" : "Camden Valley Way (After Wilson Cr)",
+   "257059" : "Old Hume Hwy - Opp.No.52",
+   "257424" : "Second Bridge Bargo Remembrance Dr",
+   "257218" : "Estonian Church Estonian Rd Near Oaks Rd",
+   "256738" : "Narellan Rd (Kenny Hill Rd)",
+   "257211" : "Thirlmere Wy Near Owen St",
+   "257451" : "Bargo Station_ near Southern Rd",
+   "257153" : "Remembrance Dr",
+   "257449" : "Bargo Station_ near Southern Rd",
+   "257156" : "Remembrance Dr",
+   "256740" : "Narellan Rd (Mt Annan Dr - Tims Garden Centre)",
+   "2570107" : "Camden Valley Wy (Hassle St)",
+   "2570128" : "Harrington St - No.46 (Camden Coaches)",
+   "257341" : "Macquarie Pl near Robyn Pl",
+   "256737" : "Narellan Rd (100m After Tramway Dr)",
+   "257316" : "Marina Petrol Remembrance Dr",
+   "2571134" : "Remembrance Dr and Jarvisfield Rd",
+   "257214" : "Thirlmere Roundabout Thirlmere Way near Turner",
+   "256012" : "Narellan Rd (Opp.Southwest Syd Tafe C'Town)",
+   "257151" : "Remembrance Dr Near Donalds Range Rd",
+   "257060" : "Old Hume Hwy (Opp.Macquarie Av)",
+   "257158" : "Remembrance Dr",
+   "257025" : "Harrington St (Elderslie HS)",
+   "257023" : "Camden Valley Way (100m Before Kirkham Lane)",
+   "257325" : "Thirlmere Wy near Fraser St",
+   "2571124" : "Regreme Rd near Magnolia Dr",
+   "257417" : "Second Bridge Bargo Southern Rd",
+   "257216" : "Estonian Church Estonian Rd Near Oaks Rd",
+   "257412" : "Wirrimbirra Sanctuary Remembrance Dr",
+   "257430" : "Olive Lane Austral Coal Tahmoor Colliery",
+   "2560470" : "Macarthur Square Shopping Centre Macarthur Squar",
+   "257037" : "Menangle Rd (Opp.Camden Hospital)",
+   "2560468" : "Campbelltown Railway Campbelltown Stat",
+   "256823" : "Remembrance Dr (After Cawdor Rd)",
+   "2570110" : "Remebrance Dr (Near Burragorang Rd)",
+   "256819" : "Remembrance Dr",
+   "257116" : "Remembrance Dr (Razorback Section S Bends Nth)",
+   "257040" : "Old Hume Hwy (Camden South PS)",
+   "2571126" : "Weeta St near Jan St",
+   "257147" : "Remembrance Dr near Antill Park Golf Course",
+   "257321" : "Remembrance Dr near York St",
+   "257144" : "Picton Station",
+   "257141" : "Argyle St near Cowper St",
+   "257416" : "Bargo Public School Southern Rd",
+   "2571139" : "Menangle Rd near Menangle St St E",
+   "257035" : "Menangle Rd Near Forrest Cr",
+   "257149" : "Remembrance Dr",
+   "2567130" : "Richardson Rd (Hope Christian School)",
+   "256824" : "Remembrance Dr",
+   "257429" : "Remembrance Dr near Caloola Rd",
+   "256014" : "Kellicar Rd (Market Fair Shops)"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_74-900-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-6-TA",
+      "leaves" : "11:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257144",
+               null
+            ],
+            [
+               "257145",
+               "2M pasd"
+            ],
+            [
+               "257146",
+               "1M pasd"
+            ],
+            [
+               "2571123",
+               "20S pasd"
+            ],
+            [
+               "2571124",
+               "43S pasd"
+            ],
+            [
+               "2571125",
+               "44S pasd"
+            ],
+            [
+               "2571126",
+               "34S pasd"
+            ],
+            [
+               "2571127",
+               "37S pasd"
+            ],
+            [
+               "2571134",
+               "1M2S pasd"
+            ],
+            [
+               "257147",
+               "55S pasd"
+            ],
+            [
+               "257148",
+               "1M35S pasd"
+            ],
+            [
+               "257149",
+               "1M52S pasd"
+            ],
+            [
+               "257150",
+               "1M38S pasd"
+            ],
+            [
+               "257151",
+               "1M37S pasd"
+            ],
+            [
+               "257152",
+               "1M13S pasd"
+            ],
+            [
+               "257116",
+               "43S pasd"
+            ],
+            [
+               "256819",
+               "38S pasd"
+            ],
+            [
+               "2570109",
+               "1M3S pasd"
+            ],
+            [
+               "256820",
+               "1M30S pasd"
+            ],
+            [
+               "256816",
+               "10S pasd"
+            ],
+            [
+               "2570141",
+               "27S pasd"
+            ],
+            [
+               "256821",
+               "39S pasd"
+            ],
+            [
+               "2570110",
+               "1M29S pasd"
+            ],
+            [
+               "257058",
+               "33S pasd"
+            ],
+            [
+               "257059",
+               "13S pasd"
+            ],
+            [
+               "257060",
+               "23S pasd"
+            ],
+            [
+               "2570215",
+               "22S pasd"
+            ],
+            [
+               "257064",
+               "1M37S pasd"
+            ],
+            [
+               "257065",
+               "53S pasd"
+            ],
+            [
+               "257011",
+               "30S pasd"
+            ],
+            [
+               "257015",
+               "15S pasd"
+            ],
+            [
+               "2570111",
+               "1M17S pasd"
+            ],
+            [
+               "2570108",
+               "55S pasd"
+            ],
+            [
+               "257023",
+               "23S pasd"
+            ],
+            [
+               "2570112",
+               "39S pasd"
+            ],
+            [
+               "256711",
+               "52S pasd"
+            ],
+            [
+               "256712",
+               "18S pasd"
+            ],
+            [
+               "2567146",
+               "51S pasd"
+            ],
+            [
+               "256761",
+               "1S pasd"
+            ],
+            [
+               "256763",
+               "1S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-6-H-5",
+         "route" : {
+            "name" : "Picton Station - Somerset St (Narellan Shops)",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-5",
+            "id" : "R_74-900-_-sj2-1-H-5"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-3-TA",
+      "leaves" : "17:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2560468",
+               null
+            ],
+            [
+               "2560452",
+               "1M15S pasd"
+            ],
+            [
+               "2560453",
+               "39S pasd"
+            ],
+            [
+               "2560454",
+               "29S pasd"
+            ],
+            [
+               "2560471",
+               "1M18S pasd"
+            ],
+            [
+               "2560472",
+               "53S pasd"
+            ],
+            [
+               "256025",
+               "51S pasd"
+            ],
+            [
+               "256739",
+               "3M3S pasd"
+            ],
+            [
+               "256740",
+               "1M53S pasd"
+            ],
+            [
+               "2567137",
+               "35S pasd"
+            ],
+            [
+               "2567138",
+               "12S pasd"
+            ],
+            [
+               "256741",
+               "52S pasd"
+            ],
+            [
+               "2567126",
+               "36S pasd"
+            ],
+            [
+               "2567127",
+               "56S pasd"
+            ],
+            [
+               "2567128",
+               "17S pasd"
+            ],
+            [
+               "2567129",
+               "47S pasd"
+            ],
+            [
+               "256714",
+               "24S pasd"
+            ],
+            [
+               "256715",
+               "19S pasd"
+            ],
+            [
+               "2567130",
+               "1M2S pasd"
+            ],
+            [
+               "256766",
+               "20S pasd"
+            ],
+            [
+               "256767",
+               "30S pasd"
+            ],
+            [
+               "2570113",
+               "1M9S pasd"
+            ],
+            [
+               "257024",
+               "50S pasd"
+            ],
+            [
+               "2570107",
+               "1M10S pasd"
+            ],
+            [
+               "2570114",
+               "31S pasd"
+            ],
+            [
+               "257033",
+               "1M42S pasd"
+            ],
+            [
+               "257011",
+               "27S pasd"
+            ],
+            [
+               "257034",
+               "30S pasd"
+            ],
+            [
+               "257035",
+               "34S pasd"
+            ],
+            [
+               "257036",
+               "28S pasd"
+            ],
+            [
+               "257037",
+               "28S pasd"
+            ],
+            [
+               "257038",
+               "20S pasd"
+            ],
+            [
+               "257039",
+               "14S pasd"
+            ],
+            [
+               "257040",
+               "15S pasd"
+            ],
+            [
+               "2570115",
+               "34S pasd"
+            ],
+            [
+               "2570116",
+               "1M37S pasd"
+            ],
+            [
+               "2570140",
+               "25S pasd"
+            ],
+            [
+               "256815",
+               "24S pasd"
+            ],
+            [
+               "256822",
+               "9S pasd"
+            ],
+            [
+               "256823",
+               "1M19S pasd"
+            ],
+            [
+               "256824",
+               "58S pasd"
+            ],
+            [
+               "257111",
+               "33S pasd"
+            ],
+            [
+               "257153",
+               "37S pasd"
+            ],
+            [
+               "257154",
+               "1M6S pasd"
+            ],
+            [
+               "257155",
+               "1M29S pasd"
+            ],
+            [
+               "257156",
+               "1M4S pasd"
+            ],
+            [
+               "257157",
+               "1M14S pasd"
+            ],
+            [
+               "257158",
+               "1M4S pasd"
+            ],
+            [
+               "2571135",
+               "38S pasd"
+            ],
+            [
+               "257159",
+               "4M pasd"
+            ],
+            [
+               "257143",
+               "1M pasd"
+            ],
+            [
+               "2571136",
+               "39S pasd"
+            ],
+            [
+               "257144",
+               "39S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Campbelltown Station - Picton Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-3",
+            "id" : "R_74-900-_-sj2-1-R-3"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-14-TA",
+      "leaves" : "13:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2560468",
+               null
+            ],
+            [
+               "2560452",
+               "1M34S pasd"
+            ],
+            [
+               "2560453",
+               "49S pasd"
+            ],
+            [
+               "2560454",
+               "37S pasd"
+            ],
+            [
+               "256021",
+               "32S pasd"
+            ],
+            [
+               "2560455",
+               "20S pasd"
+            ],
+            [
+               "2560470",
+               "1M8S pasd"
+            ],
+            [
+               "257145",
+               "30M pasd"
+            ],
+            [
+               "257160",
+               "57S pasd"
+            ],
+            [
+               "257161",
+               "1M4S pasd"
+            ],
+            [
+               "257162",
+               "14S pasd"
+            ],
+            [
+               "257123",
+               "5S pasd"
+            ],
+            [
+               "257124",
+               "1M31S pasd"
+            ],
+            [
+               "257211",
+               "1M34S pasd"
+            ],
+            [
+               "257212",
+               "32S pasd"
+            ],
+            [
+               "257213",
+               "1M3S pasd"
+            ],
+            [
+               "257214",
+               "35S pasd"
+            ],
+            [
+               "257216",
+               "1M56S pasd"
+            ],
+            [
+               "257217",
+               "29S pasd"
+            ],
+            [
+               "257218",
+               "29S pasd"
+            ],
+            [
+               "257219",
+               "2M31S pasd"
+            ],
+            [
+               "257220",
+               "1M32S pasd"
+            ],
+            [
+               "257323",
+               "3M40S pasd"
+            ],
+            [
+               "257341",
+               "1M48S pasd"
+            ],
+            [
+               "257324",
+               "40S pasd"
+            ],
+            [
+               "257325",
+               "26S pasd"
+            ],
+            [
+               "257326",
+               "35S pasd"
+            ],
+            [
+               "257327",
+               "54S pasd"
+            ],
+            [
+               "257314",
+               "25S pasd"
+            ],
+            [
+               "257315",
+               "44S pasd"
+            ],
+            [
+               "257316",
+               "1M48S pasd"
+            ],
+            [
+               "257411",
+               "2M18S pasd"
+            ],
+            [
+               "257412",
+               "2M23S pasd"
+            ],
+            [
+               "257413",
+               "2M8S pasd"
+            ],
+            [
+               "257449",
+               "2M39S pasd"
+            ],
+            [
+               "257416",
+               "33S pasd"
+            ],
+            [
+               "257417",
+               "17S pasd"
+            ],
+            [
+               "257450",
+               "17S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-14-R-11",
+         "route" : {
+            "name" : "Campbelltown Station - Tylers Rd",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-11",
+            "id" : "R_74-900-_-sj2-1-R-11"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-12-TA",
+      "leaves" : "09:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "256763",
+               null
+            ],
+            [
+               "256764",
+               "9S pasd"
+            ],
+            [
+               "256765",
+               "31S pasd"
+            ],
+            [
+               "256766",
+               "12S pasd"
+            ],
+            [
+               "256767",
+               "20S pasd"
+            ],
+            [
+               "2570113",
+               "45S pasd"
+            ],
+            [
+               "257024",
+               "32S pasd"
+            ],
+            [
+               "2570107",
+               "46S pasd"
+            ],
+            [
+               "2570114",
+               "20S pasd"
+            ],
+            [
+               "257033",
+               "1M7S pasd"
+            ],
+            [
+               "257011",
+               "18S pasd"
+            ],
+            [
+               "257034",
+               "45S pasd"
+            ],
+            [
+               "257035",
+               "52S pasd"
+            ],
+            [
+               "257036",
+               "43S pasd"
+            ],
+            [
+               "257037",
+               "40S pasd"
+            ],
+            [
+               "257038",
+               "20S pasd"
+            ],
+            [
+               "257039",
+               "14S pasd"
+            ],
+            [
+               "257040",
+               "15S pasd"
+            ],
+            [
+               "2570115",
+               "34S pasd"
+            ],
+            [
+               "2570116",
+               "1M37S pasd"
+            ],
+            [
+               "2570140",
+               "21S pasd"
+            ],
+            [
+               "256815",
+               "20S pasd"
+            ],
+            [
+               "256822",
+               "7S pasd"
+            ],
+            [
+               "256823",
+               "1M7S pasd"
+            ],
+            [
+               "256824",
+               "50S pasd"
+            ],
+            [
+               "257111",
+               "28S pasd"
+            ],
+            [
+               "257153",
+               "31S pasd"
+            ],
+            [
+               "257154",
+               "57S pasd"
+            ],
+            [
+               "257155",
+               "1M19S pasd"
+            ],
+            [
+               "257156",
+               "1M20S pasd"
+            ],
+            [
+               "257157",
+               "1M33S pasd"
+            ],
+            [
+               "257158",
+               "1M20S pasd"
+            ],
+            [
+               "2571135",
+               "47S pasd"
+            ],
+            [
+               "257159",
+               "4M pasd"
+            ],
+            [
+               "2571139",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-12-R-9",
+         "route" : {
+            "name" : "Somerset St (Narellan Shops) - Menangle Rd near Menangle St St E",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-9",
+            "id" : "R_74-900-_-sj2-1-R-9"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-5-TA",
+      "leaves" : "10:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257144",
+               null
+            ],
+            [
+               "257145",
+               "3M pasd"
+            ],
+            [
+               "257146",
+               "2M pasd"
+            ],
+            [
+               "2571123",
+               "20S pasd"
+            ],
+            [
+               "2571124",
+               "43S pasd"
+            ],
+            [
+               "2571125",
+               "44S pasd"
+            ],
+            [
+               "2571126",
+               "34S pasd"
+            ],
+            [
+               "2571127",
+               "37S pasd"
+            ],
+            [
+               "2571134",
+               "1M2S pasd"
+            ],
+            [
+               "257147",
+               "55S pasd"
+            ],
+            [
+               "257148",
+               "1M35S pasd"
+            ],
+            [
+               "257149",
+               "1M52S pasd"
+            ],
+            [
+               "257150",
+               "1M38S pasd"
+            ],
+            [
+               "257151",
+               "1M37S pasd"
+            ],
+            [
+               "257152",
+               "1M13S pasd"
+            ],
+            [
+               "257116",
+               "43S pasd"
+            ],
+            [
+               "256819",
+               "38S pasd"
+            ],
+            [
+               "2570109",
+               "1M3S pasd"
+            ],
+            [
+               "256820",
+               "1M30S pasd"
+            ],
+            [
+               "256816",
+               "10S pasd"
+            ],
+            [
+               "2570141",
+               "27S pasd"
+            ],
+            [
+               "256821",
+               "39S pasd"
+            ],
+            [
+               "2570110",
+               "3M29S pasd"
+            ],
+            [
+               "257058",
+               "1M17S pasd"
+            ],
+            [
+               "257059",
+               "31S pasd"
+            ],
+            [
+               "257060",
+               "55S pasd"
+            ],
+            [
+               "2570215",
+               "48S pasd"
+            ],
+            [
+               "257064",
+               "1M37S pasd"
+            ],
+            [
+               "257065",
+               "53S pasd"
+            ],
+            [
+               "257011",
+               "30S pasd"
+            ],
+            [
+               "257015",
+               "12S pasd"
+            ],
+            [
+               "2570111",
+               "1M4S pasd"
+            ],
+            [
+               "2570108",
+               "46S pasd"
+            ],
+            [
+               "257023",
+               "19S pasd"
+            ],
+            [
+               "2570112",
+               "33S pasd"
+            ],
+            [
+               "256711",
+               "43S pasd"
+            ],
+            [
+               "256712",
+               "15S pasd"
+            ],
+            [
+               "2567146",
+               "43S pasd"
+            ],
+            [
+               "256761",
+               "1S pasd"
+            ],
+            [
+               "256763",
+               "1S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-5-H-5",
+         "route" : {
+            "name" : "Picton Station - Somerset St (Narellan Shops)",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-5",
+            "id" : "R_74-900-_-sj2-1-H-5"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-10-TA",
+      "leaves" : "09:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257450",
+               null
+            ],
+            [
+               "257434",
+               "42S pasd"
+            ],
+            [
+               "257424",
+               "18S pasd"
+            ],
+            [
+               "257451",
+               "1M pasd"
+            ],
+            [
+               "257427",
+               "2M13S pasd"
+            ],
+            [
+               "257428",
+               "32S pasd"
+            ],
+            [
+               "257429",
+               "14S pasd"
+            ],
+            [
+               "257430",
+               "1M7S pasd"
+            ],
+            [
+               "257333",
+               "1M22S pasd"
+            ],
+            [
+               "257318",
+               "1M1S pasd"
+            ],
+            [
+               "257319",
+               "31S pasd"
+            ],
+            [
+               "257320",
+               "16S pasd"
+            ],
+            [
+               "257321",
+               "30S pasd"
+            ],
+            [
+               "257322",
+               "28S pasd"
+            ],
+            [
+               "257170",
+               "49S pasd"
+            ],
+            [
+               "257121",
+               "1M19S pasd"
+            ],
+            [
+               "257122",
+               "45S pasd"
+            ],
+            [
+               "257141",
+               "22S pasd"
+            ],
+            [
+               "257142",
+               "43S pasd"
+            ],
+            [
+               "257143",
+               "48S pasd"
+            ],
+            [
+               "2571136",
+               "58S pasd"
+            ],
+            [
+               "256316",
+               "22M22S pasd"
+            ],
+            [
+               "2560423",
+               "3M19S pasd"
+            ],
+            [
+               "2560424",
+               "1M27S pasd"
+            ],
+            [
+               "2560470",
+               "1M54S pasd"
+            ],
+            [
+               "256014",
+               "1M31S pasd"
+            ],
+            [
+               "256026",
+               "1M12S pasd"
+            ],
+            [
+               "256027",
+               "1M27S pasd"
+            ],
+            [
+               "2560468",
+               "1M27S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-10-H-7",
+         "route" : {
+            "name" : "Tylers Rd - Campbelltown Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-7",
+            "id" : "R_74-900-_-sj2-1-H-7"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-2-TA",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2560468",
+               null
+            ],
+            [
+               "2560452",
+               "45S pasd"
+            ],
+            [
+               "2560453",
+               "24S pasd"
+            ],
+            [
+               "2560454",
+               "18S pasd"
+            ],
+            [
+               "256021",
+               "15S pasd"
+            ],
+            [
+               "2560455",
+               "9S pasd"
+            ],
+            [
+               "2560407",
+               "2M10S pasd"
+            ],
+            [
+               "2560422",
+               "1M18S pasd"
+            ],
+            [
+               "256311",
+               "2M57S pasd"
+            ],
+            [
+               "257144",
+               "2M57S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Campbelltown Station - Picton Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-2",
+            "id" : "R_74-900-_-sj2-1-R-2"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-15-TA",
+      "leaves" : "16:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257144",
+               null
+            ],
+            [
+               "257145",
+               "3M pasd"
+            ],
+            [
+               "257146",
+               "2M pasd"
+            ],
+            [
+               "2571123",
+               "26S pasd"
+            ],
+            [
+               "2571124",
+               "54S pasd"
+            ],
+            [
+               "2571125",
+               "55S pasd"
+            ],
+            [
+               "2571126",
+               "43S pasd"
+            ],
+            [
+               "2571127",
+               "46S pasd"
+            ],
+            [
+               "2571134",
+               "1M16S pasd"
+            ],
+            [
+               "257147",
+               "55S pasd"
+            ],
+            [
+               "257148",
+               "1M35S pasd"
+            ],
+            [
+               "257149",
+               "1M52S pasd"
+            ],
+            [
+               "257150",
+               "1M38S pasd"
+            ],
+            [
+               "257151",
+               "1M13S pasd"
+            ],
+            [
+               "257152",
+               "55S pasd"
+            ],
+            [
+               "257116",
+               "32S pasd"
+            ],
+            [
+               "256819",
+               "28S pasd"
+            ],
+            [
+               "2570109",
+               "47S pasd"
+            ],
+            [
+               "256820",
+               "1M7S pasd"
+            ],
+            [
+               "256816",
+               "8S pasd"
+            ],
+            [
+               "2570141",
+               "20S pasd"
+            ],
+            [
+               "256821",
+               "30S pasd"
+            ],
+            [
+               "2570110",
+               "2M29S pasd"
+            ],
+            [
+               "257058",
+               "55S pasd"
+            ],
+            [
+               "257059",
+               "22S pasd"
+            ],
+            [
+               "257060",
+               "39S pasd"
+            ],
+            [
+               "2570215",
+               "35S pasd"
+            ],
+            [
+               "257064",
+               "1M37S pasd"
+            ],
+            [
+               "257065",
+               "53S pasd"
+            ],
+            [
+               "257011",
+               "30S pasd"
+            ],
+            [
+               "257015",
+               "13S pasd"
+            ],
+            [
+               "2570111",
+               "1M10S pasd"
+            ],
+            [
+               "2570108",
+               "50S pasd"
+            ],
+            [
+               "257023",
+               "21S pasd"
+            ],
+            [
+               "2570112",
+               "36S pasd"
+            ],
+            [
+               "256711",
+               "47S pasd"
+            ],
+            [
+               "256712",
+               "16S pasd"
+            ],
+            [
+               "256713",
+               "17S pasd"
+            ],
+            [
+               "256768",
+               "30S pasd"
+            ],
+            [
+               "2567131",
+               "1M27S pasd"
+            ],
+            [
+               "256769",
+               "1M37S pasd"
+            ],
+            [
+               "256736",
+               "6M56S pasd"
+            ],
+            [
+               "2567135",
+               "1M39S pasd"
+            ],
+            [
+               "256737",
+               "1M50S pasd"
+            ],
+            [
+               "256738",
+               "2M3S pasd"
+            ],
+            [
+               "256011",
+               "4M52S pasd"
+            ],
+            [
+               "256012",
+               "1M29S pasd"
+            ],
+            [
+               "256026",
+               "3M13S pasd"
+            ],
+            [
+               "256027",
+               "1M49S pasd"
+            ],
+            [
+               "2560468",
+               "1M49S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-15-H-12",
+         "route" : {
+            "name" : "Picton Station - Campbelltown Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-12",
+            "id" : "R_74-900-_-sj2-1-H-12"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-1-TA",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257144",
+               null
+            ],
+            [
+               "257145",
+               "3M pasd"
+            ],
+            [
+               "257146",
+               "1M pasd"
+            ],
+            [
+               "2571134",
+               "1M pasd"
+            ],
+            [
+               "257147",
+               "1M4S pasd"
+            ],
+            [
+               "257148",
+               "1M51S pasd"
+            ],
+            [
+               "257149",
+               "2M11S pasd"
+            ],
+            [
+               "257150",
+               "1M54S pasd"
+            ],
+            [
+               "257151",
+               "2M38S pasd"
+            ],
+            [
+               "257152",
+               "1M59S pasd"
+            ],
+            [
+               "257116",
+               "1M10S pasd"
+            ],
+            [
+               "256819",
+               "1M2S pasd"
+            ],
+            [
+               "2570109",
+               "1M43S pasd"
+            ],
+            [
+               "256820",
+               "2M26S pasd"
+            ],
+            [
+               "256816",
+               "17S pasd"
+            ],
+            [
+               "2570141",
+               "44S pasd"
+            ],
+            [
+               "256821",
+               "1M1S pasd"
+            ],
+            [
+               "2570110",
+               "1M29S pasd"
+            ],
+            [
+               "257059",
+               "46S pasd"
+            ],
+            [
+               "257060",
+               "23S pasd"
+            ],
+            [
+               "2570215",
+               "22S pasd"
+            ],
+            [
+               "257064",
+               "1M4S pasd"
+            ],
+            [
+               "257065",
+               "35S pasd"
+            ],
+            [
+               "257011",
+               "21S pasd"
+            ],
+            [
+               "257015",
+               "22S pasd"
+            ],
+            [
+               "2570111",
+               "1M53S pasd"
+            ],
+            [
+               "2570108",
+               "1M21S pasd"
+            ],
+            [
+               "257023",
+               "34S pasd"
+            ],
+            [
+               "2570112",
+               "57S pasd"
+            ],
+            [
+               "256711",
+               "1M15S pasd"
+            ],
+            [
+               "256712",
+               "27S pasd"
+            ],
+            [
+               "256713",
+               "27S pasd"
+            ],
+            [
+               "256768",
+               "44S pasd"
+            ],
+            [
+               "2567131",
+               "1M3S pasd"
+            ],
+            [
+               "256769",
+               "1M10S pasd"
+            ],
+            [
+               "2567161",
+               "3M23S pasd"
+            ],
+            [
+               "2567162",
+               "28S pasd"
+            ],
+            [
+               "256788",
+               "54S pasd"
+            ],
+            [
+               "256736",
+               "58S pasd"
+            ],
+            [
+               "2567135",
+               "1M10S pasd"
+            ],
+            [
+               "256737",
+               "1M18S pasd"
+            ],
+            [
+               "2567259",
+               "1M36S pasd"
+            ],
+            [
+               "256738",
+               "3M24S pasd"
+            ],
+            [
+               "256011",
+               "4M32S pasd"
+            ],
+            [
+               "256012",
+               "1M23S pasd"
+            ],
+            [
+               "256026",
+               "3M pasd"
+            ],
+            [
+               "256027",
+               "1M41S pasd"
+            ],
+            [
+               "2560468",
+               "1M41S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Picton Station - Campbelltown Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-1",
+            "id" : "R_74-900-_-sj2-1-H-1"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-8-TA",
+      "leaves" : "11:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "256763",
+               null
+            ],
+            [
+               "256764",
+               "9S pasd"
+            ],
+            [
+               "256765",
+               "31S pasd"
+            ],
+            [
+               "256766",
+               "12S pasd"
+            ],
+            [
+               "256767",
+               "20S pasd"
+            ],
+            [
+               "2570113",
+               "45S pasd"
+            ],
+            [
+               "257024",
+               "32S pasd"
+            ],
+            [
+               "2570107",
+               "46S pasd"
+            ],
+            [
+               "2570114",
+               "20S pasd"
+            ],
+            [
+               "257033",
+               "1M7S pasd"
+            ],
+            [
+               "257011",
+               "18S pasd"
+            ],
+            [
+               "257034",
+               "45S pasd"
+            ],
+            [
+               "257035",
+               "52S pasd"
+            ],
+            [
+               "257036",
+               "43S pasd"
+            ],
+            [
+               "257037",
+               "40S pasd"
+            ],
+            [
+               "257038",
+               "47S pasd"
+            ],
+            [
+               "257039",
+               "33S pasd"
+            ],
+            [
+               "257040",
+               "36S pasd"
+            ],
+            [
+               "2570115",
+               "1M20S pasd"
+            ],
+            [
+               "2570116",
+               "3M44S pasd"
+            ],
+            [
+               "2570140",
+               "29S pasd"
+            ],
+            [
+               "256815",
+               "27S pasd"
+            ],
+            [
+               "256822",
+               "10S pasd"
+            ],
+            [
+               "256823",
+               "1M30S pasd"
+            ],
+            [
+               "256824",
+               "1M7S pasd"
+            ],
+            [
+               "257111",
+               "38S pasd"
+            ],
+            [
+               "257153",
+               "42S pasd"
+            ],
+            [
+               "257154",
+               "1M16S pasd"
+            ],
+            [
+               "257155",
+               "1M41S pasd"
+            ],
+            [
+               "257156",
+               "1M36S pasd"
+            ],
+            [
+               "257157",
+               "1M51S pasd"
+            ],
+            [
+               "257158",
+               "1M36S pasd"
+            ],
+            [
+               "2571135",
+               "57S pasd"
+            ],
+            [
+               "257159",
+               "4M pasd"
+            ],
+            [
+               "257143",
+               "3M pasd"
+            ],
+            [
+               "2571136",
+               "1M19S pasd"
+            ],
+            [
+               "257144",
+               "1M19S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Somerset St (Narellan Shops) - Picton Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-6",
+            "id" : "R_74-900-_-sj2-1-R-6"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-13-TA",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2567126",
+               null
+            ],
+            [
+               "2567127",
+               "1M7S pasd"
+            ],
+            [
+               "2567128",
+               "20S pasd"
+            ],
+            [
+               "2567129",
+               "56S pasd"
+            ],
+            [
+               "256764",
+               "37S pasd"
+            ],
+            [
+               "256765",
+               "43S pasd"
+            ],
+            [
+               "256766",
+               "16S pasd"
+            ],
+            [
+               "256767",
+               "27S pasd"
+            ],
+            [
+               "2570113",
+               "1M2S pasd"
+            ],
+            [
+               "257024",
+               "45S pasd"
+            ],
+            [
+               "257025",
+               "45S pasd"
+            ],
+            [
+               "257026",
+               "17S pasd"
+            ],
+            [
+               "2570128",
+               "27S pasd"
+            ],
+            [
+               "257032",
+               "26S pasd"
+            ],
+            [
+               "257033",
+               "1M27S pasd"
+            ],
+            [
+               "257011",
+               "25S pasd"
+            ],
+            [
+               "257034",
+               "15S pasd"
+            ],
+            [
+               "257035",
+               "18S pasd"
+            ],
+            [
+               "257036",
+               "15S pasd"
+            ],
+            [
+               "257037",
+               "13S pasd"
+            ],
+            [
+               "257038",
+               "19S pasd"
+            ],
+            [
+               "257039",
+               "14S pasd"
+            ],
+            [
+               "257040",
+               "15S pasd"
+            ],
+            [
+               "2570115",
+               "33S pasd"
+            ],
+            [
+               "2570116",
+               "1M38S pasd"
+            ],
+            [
+               "2570140",
+               "36S pasd"
+            ],
+            [
+               "256815",
+               "34S pasd"
+            ],
+            [
+               "256822",
+               "12S pasd"
+            ],
+            [
+               "256823",
+               "1M53S pasd"
+            ],
+            [
+               "256824",
+               "1M24S pasd"
+            ],
+            [
+               "257111",
+               "48S pasd"
+            ],
+            [
+               "257153",
+               "53S pasd"
+            ],
+            [
+               "257154",
+               "1M35S pasd"
+            ],
+            [
+               "257155",
+               "2M5S pasd"
+            ],
+            [
+               "257156",
+               "1M20S pasd"
+            ],
+            [
+               "257157",
+               "1M33S pasd"
+            ],
+            [
+               "257158",
+               "1M20S pasd"
+            ],
+            [
+               "2571135",
+               "47S pasd"
+            ],
+            [
+               "257159",
+               "2M pasd"
+            ],
+            [
+               "2571139",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-13-R-10",
+         "route" : {
+            "name" : "Narellan Rd (70m After Waterworth Dr) - Menangle Rd near Menangle St St E",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-10",
+            "id" : "R_74-900-_-sj2-1-R-10"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-11-TA",
+      "leaves" : "13:04:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2571138",
+               null
+            ],
+            [
+               "257141",
+               "18S pasd"
+            ],
+            [
+               "257142",
+               "1M25S pasd"
+            ],
+            [
+               "257145",
+               "1M17S pasd"
+            ],
+            [
+               "257146",
+               "2M pasd"
+            ],
+            [
+               "2571123",
+               "20S pasd"
+            ],
+            [
+               "2571124",
+               "43S pasd"
+            ],
+            [
+               "2571125",
+               "44S pasd"
+            ],
+            [
+               "2571126",
+               "34S pasd"
+            ],
+            [
+               "2571127",
+               "37S pasd"
+            ],
+            [
+               "2571134",
+               "1M2S pasd"
+            ],
+            [
+               "257147",
+               "46S pasd"
+            ],
+            [
+               "257148",
+               "1M19S pasd"
+            ],
+            [
+               "257149",
+               "1M33S pasd"
+            ],
+            [
+               "257150",
+               "1M22S pasd"
+            ],
+            [
+               "257151",
+               "1M37S pasd"
+            ],
+            [
+               "257152",
+               "1M13S pasd"
+            ],
+            [
+               "257116",
+               "43S pasd"
+            ],
+            [
+               "256819",
+               "38S pasd"
+            ],
+            [
+               "2570109",
+               "1M3S pasd"
+            ],
+            [
+               "256820",
+               "1M30S pasd"
+            ],
+            [
+               "256816",
+               "10S pasd"
+            ],
+            [
+               "2570141",
+               "27S pasd"
+            ],
+            [
+               "256821",
+               "39S pasd"
+            ],
+            [
+               "2570110",
+               "3M29S pasd"
+            ],
+            [
+               "257058",
+               "1M17S pasd"
+            ],
+            [
+               "257059",
+               "31S pasd"
+            ],
+            [
+               "257060",
+               "55S pasd"
+            ],
+            [
+               "2570215",
+               "48S pasd"
+            ],
+            [
+               "257064",
+               "1M37S pasd"
+            ],
+            [
+               "257065",
+               "53S pasd"
+            ],
+            [
+               "257011",
+               "30S pasd"
+            ],
+            [
+               "257015",
+               "12S pasd"
+            ],
+            [
+               "2570111",
+               "1M6S pasd"
+            ],
+            [
+               "2570108",
+               "47S pasd"
+            ],
+            [
+               "257023",
+               "20S pasd"
+            ],
+            [
+               "2570112",
+               "33S pasd"
+            ],
+            [
+               "256711",
+               "44S pasd"
+            ],
+            [
+               "256712",
+               "15S pasd"
+            ],
+            [
+               "256713",
+               "16S pasd"
+            ],
+            [
+               "256768",
+               "23S pasd"
+            ],
+            [
+               "256714",
+               "23S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-11-H-8",
+         "route" : {
+            "name" : "Argyle St near Thirlmere Wy - Somerset St (Opp.Narellan Shops)",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-8",
+            "id" : "R_74-900-_-sj2-1-H-8"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-4-TA",
+      "leaves" : "08:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "257144",
+               null
+            ],
+            [
+               "257145",
+               "1M pasd"
+            ],
+            [
+               "257146",
+               "1M pasd"
+            ],
+            [
+               "2571134",
+               "1M pasd"
+            ],
+            [
+               "257147",
+               "36S pasd"
+            ],
+            [
+               "257148",
+               "1M3S pasd"
+            ],
+            [
+               "257149",
+               "1M14S pasd"
+            ],
+            [
+               "257150",
+               "1M7S pasd"
+            ],
+            [
+               "257151",
+               "1M25S pasd"
+            ],
+            [
+               "257152",
+               "1M4S pasd"
+            ],
+            [
+               "257116",
+               "37S pasd"
+            ],
+            [
+               "256819",
+               "33S pasd"
+            ],
+            [
+               "2570109",
+               "55S pasd"
+            ],
+            [
+               "256820",
+               "1M18S pasd"
+            ],
+            [
+               "256816",
+               "9S pasd"
+            ],
+            [
+               "2570141",
+               "24S pasd"
+            ],
+            [
+               "256821",
+               "35S pasd"
+            ],
+            [
+               "2570110",
+               "3M29S pasd"
+            ],
+            [
+               "257058",
+               "1M17S pasd"
+            ],
+            [
+               "257059",
+               "31S pasd"
+            ],
+            [
+               "257060",
+               "55S pasd"
+            ],
+            [
+               "2570215",
+               "48S pasd"
+            ],
+            [
+               "257064",
+               "2M41S pasd"
+            ],
+            [
+               "257065",
+               "1M29S pasd"
+            ],
+            [
+               "257011",
+               "50S pasd"
+            ],
+            [
+               "257015",
+               "12S pasd"
+            ],
+            [
+               "2570111",
+               "1M3S pasd"
+            ],
+            [
+               "2570108",
+               "45S pasd"
+            ],
+            [
+               "257023",
+               "19S pasd"
+            ],
+            [
+               "2570112",
+               "32S pasd"
+            ],
+            [
+               "256711",
+               "42S pasd"
+            ],
+            [
+               "256712",
+               "15S pasd"
+            ],
+            [
+               "2567146",
+               "42S pasd"
+            ],
+            [
+               "256761",
+               "1S pasd"
+            ],
+            [
+               "256762",
+               "15S pasd"
+            ],
+            [
+               "256763",
+               "15S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Picton Station - Somerset St (Narellan Shops)",
+            "rs_ref" : "RS_74-900-_-sj2-1-H-4",
+            "id" : "R_74-900-_-sj2-1-H-4"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-7-TA",
+      "leaves" : "13:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "256763",
+               null
+            ],
+            [
+               "256764",
+               "9S pasd"
+            ],
+            [
+               "256765",
+               "31S pasd"
+            ],
+            [
+               "256766",
+               "12S pasd"
+            ],
+            [
+               "256767",
+               "20S pasd"
+            ],
+            [
+               "2570113",
+               "45S pasd"
+            ],
+            [
+               "257024",
+               "32S pasd"
+            ],
+            [
+               "2570107",
+               "46S pasd"
+            ],
+            [
+               "2570114",
+               "20S pasd"
+            ],
+            [
+               "257033",
+               "1M7S pasd"
+            ],
+            [
+               "257011",
+               "18S pasd"
+            ],
+            [
+               "257034",
+               "45S pasd"
+            ],
+            [
+               "257035",
+               "52S pasd"
+            ],
+            [
+               "257036",
+               "43S pasd"
+            ],
+            [
+               "257037",
+               "40S pasd"
+            ],
+            [
+               "257038",
+               "47S pasd"
+            ],
+            [
+               "257039",
+               "33S pasd"
+            ],
+            [
+               "257040",
+               "36S pasd"
+            ],
+            [
+               "2570115",
+               "1M20S pasd"
+            ],
+            [
+               "2570116",
+               "3M44S pasd"
+            ],
+            [
+               "2570140",
+               "29S pasd"
+            ],
+            [
+               "256815",
+               "27S pasd"
+            ],
+            [
+               "256822",
+               "10S pasd"
+            ],
+            [
+               "256823",
+               "1M30S pasd"
+            ],
+            [
+               "256824",
+               "1M7S pasd"
+            ],
+            [
+               "257111",
+               "38S pasd"
+            ],
+            [
+               "257153",
+               "42S pasd"
+            ],
+            [
+               "257154",
+               "1M16S pasd"
+            ],
+            [
+               "257155",
+               "1M41S pasd"
+            ],
+            [
+               "257156",
+               "1M36S pasd"
+            ],
+            [
+               "257157",
+               "1M51S pasd"
+            ],
+            [
+               "257158",
+               "1M36S pasd"
+            ],
+            [
+               "2571135",
+               "57S pasd"
+            ],
+            [
+               "257159",
+               "1M pasd"
+            ],
+            [
+               "257143",
+               "1M pasd"
+            ],
+            [
+               "2571136",
+               "1M19S pasd"
+            ],
+            [
+               "257144",
+               "1M19S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-7-R-6",
+         "route" : {
+            "name" : "Somerset St (Narellan Shops) - Picton Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-6",
+            "id" : "R_74-900-_-sj2-1-R-6"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "900"
+   },
+   "VJ_74-900-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_74-900-_-sj2-1-9-TA",
+      "leaves" : "12:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "256763",
+               null
+            ],
+            [
+               "256764",
+               "9S pasd"
+            ],
+            [
+               "256765",
+               "31S pasd"
+            ],
+            [
+               "256766",
+               "12S pasd"
+            ],
+            [
+               "256767",
+               "20S pasd"
+            ],
+            [
+               "2570113",
+               "45S pasd"
+            ],
+            [
+               "257024",
+               "32S pasd"
+            ],
+            [
+               "2570107",
+               "46S pasd"
+            ],
+            [
+               "2570114",
+               "20S pasd"
+            ],
+            [
+               "257033",
+               "1M7S pasd"
+            ],
+            [
+               "257011",
+               "18S pasd"
+            ],
+            [
+               "257034",
+               "45S pasd"
+            ],
+            [
+               "257035",
+               "52S pasd"
+            ],
+            [
+               "257036",
+               "43S pasd"
+            ],
+            [
+               "257037",
+               "40S pasd"
+            ],
+            [
+               "257038",
+               "20S pasd"
+            ],
+            [
+               "257039",
+               "14S pasd"
+            ],
+            [
+               "257040",
+               "15S pasd"
+            ],
+            [
+               "2570115",
+               "34S pasd"
+            ],
+            [
+               "2570116",
+               "1M37S pasd"
+            ],
+            [
+               "2570140",
+               "21S pasd"
+            ],
+            [
+               "256815",
+               "20S pasd"
+            ],
+            [
+               "256822",
+               "7S pasd"
+            ],
+            [
+               "256823",
+               "1M7S pasd"
+            ],
+            [
+               "256824",
+               "50S pasd"
+            ],
+            [
+               "257111",
+               "28S pasd"
+            ],
+            [
+               "257153",
+               "31S pasd"
+            ],
+            [
+               "257154",
+               "57S pasd"
+            ],
+            [
+               "257155",
+               "1M19S pasd"
+            ],
+            [
+               "257156",
+               "1M36S pasd"
+            ],
+            [
+               "257157",
+               "1M51S pasd"
+            ],
+            [
+               "257158",
+               "1M36S pasd"
+            ],
+            [
+               "2571135",
+               "57S pasd"
+            ],
+            [
+               "257159",
+               "4M pasd"
+            ],
+            [
+               "257143",
+               "2M pasd"
+            ],
+            [
+               "2571136",
+               "1M19S pasd"
+            ],
+            [
+               "257144",
+               "1M19S pasd"
+            ]
+         ],
+         "id" : "JP_74-900-_-sj2-1-9-R-6",
+         "route" : {
+            "name" : "Somerset St (Narellan Shops) - Picton Station",
+            "rs_ref" : "RS_74-900-_-sj2-1-R-6",
+            "id" : "R_74-900-_-sj2-1-R-6"
+         }
+      },
+      "service" : "74-900-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "900"
+   }
+}
+;
+

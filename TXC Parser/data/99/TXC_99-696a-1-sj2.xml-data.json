@@ -1,0 +1,681 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-696-a-sj2-1" : "696"
+}
+;
+
+var stations = {
+   "211018" : "Ryde Rd Nr Abigail St",
+   "2113170" : "Lane Cove Rd Nr Lorna Av",
+   "211063" : "Church St nr Herberton Av",
+   "211090" : "Woolwich Rd nr Ferry St",
+   "211049" : "Woolwich Rd nr Futuna St",
+   "211053" : "Woolwich Rd nr Passy Av",
+   "211147" : "Buffalo Rd Nr Nelson St",
+   "211048" : "Woolwich Rd nr Glenview Cr",
+   "211020" : "Ryde Rd Nr Gladesville Rd",
+   "211263" : "Lane Cove Rd nr Quarry Rd",
+   "2113100" : "Twin Rd Nr Dempsey St",
+   "2113233" : "Lane Cove Rd Nr Coxs Rd",
+   "211019" : "Ryde Rd nr Figtree Rd",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "211058" : "Alexandra St nr D'Aram St",
+   "211398" : "Lane Cove Rd Nr Ford St",
+   "2112191" : "Buffalo Rd near Smith St",
+   "211047" : "Woolwich Rd nr Vernon St",
+   "211264" : "Lane Cove Rd Nr Dobson Cr",
+   "211021" : "Gladesville Rd nr Joubert St",
+   "211051" : "Woolwich Rd nr Wybalena Rd",
+   "211056" : "Alexandra St nr Ernest St",
+   "211060" : "Church St nr Mount St",
+   "211149" : "Buffalo Rd Nr Nelson St",
+   "211254" : "Lane Cove Rd Nr Wolger Rd",
+   "211055" : "Woolwich Rd nr Foss St",
+   "211265" : "Lane Cove Rd Nr Myra Av",
+   "211394" : "Twin Rd Nr Dempsey St",
+   "211052" : "Woolwich Rd nr Crescent St",
+   "211259" : "Goulding Rd Nr Byron Av",
+   "2112201" : "Buffalo Rd Nr Providence Rd",
+   "211148" : "Buffalo Rd nr Owen St",
+   "211046" : "Woolwich Rd Nr Gladstone Av",
+   "2112212" : "Buffalo Rd Nr Princes St",
+   "211024" : "Marist Sisters Stand B",
+   "211396" : "Lane Cove Rd Nr Ford St",
+   "2110108" : "Woolwich Rd nr Serpentine Rd",
+   "211059" : "Alexandra St nr Stanley Rd",
+   "211028" : "Ryde Rd Nr Abigail St",
+   "211054" : "Ferry St nr Ambrose St",
+   "211146" : "Buffalo Rd nr Ryde Bus Depot",
+   "211255" : "Lane Cove Rd Nr Hancott St",
+   "2112194" : "Buffalo Rd Nr Pratten Av",
+   "2112213" : "Buffalo Rd Nr Kells Rd",
+   "211260" : "Goulding Rd Nr Twin Rd",
+   "211062" : "Church St opp Herberton Av",
+   "211027" : "Ryde Rd nr Luke St",
+   "211050" : "Woolwich Rd nr Jeanneret Av",
+   "211061" : "Church St nr Moorefield Av",
+   "211262" : "Goulding Rd Nr Macleay St",
+   "211395" : "Lane Cove Rd Nr Bridge Rd",
+   "2113171" : "Lane Cove Rd Nr Paul St",
+   "2113218" : "Lane Cove Rd Nr Twin Rd",
+   "211025" : "Gladesville Rd nr Pitt St",
+   "211178" : "Monash Rd nr Buffalo Rd",
+   "211088" : "Ryde Rd nr Park Rd",
+   "2112200" : "Buffalo Rd Nr Malvina Rd",
+   "211261" : "Goulding Rd Nr Keppel St",
+   "2112192" : "Buffalo Rd near Smith St",
+   "211399" : "Twin Rd Nr Lane Cove Rd",
+   "2113167" : "Lane Cove Rd Nr Trevitt Rd",
+   "2112193" : "Buffalo Rd Nr Greene Av",
+   "211057" : "Alexandra St nr Ellesmere Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-696-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-696-a-sj2-1-2-b00bk",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211024",
+               null
+            ],
+            [
+               "211048",
+               "3M pasd"
+            ],
+            [
+               "211050",
+               "1M pasd"
+            ],
+            [
+               "211051",
+               "0S pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "0S pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "0S pasd"
+            ],
+            [
+               "211063",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "0S pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211148",
+               "4M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211237",
+               "1M pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "1M pasd"
+            ],
+            [
+               "2112194",
+               "1M pasd"
+            ],
+            [
+               "2112192",
+               "0S pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "2113233",
+               "1M pasd"
+            ],
+            [
+               "2113167",
+               "0S pasd"
+            ],
+            [
+               "2113171",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-696-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Marist Sisters - Lane Cove Rd Nr Paul St",
+            "rs_ref" : "RS_99-696-a-sj2-1-R-1",
+            "id" : "R_99-696-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-696-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "696"
+   },
+   "VJ_99-696-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-696-a-sj2-1-1-b00bj",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211024",
+               null
+            ],
+            [
+               "211048",
+               "3M pasd"
+            ],
+            [
+               "211050",
+               "1M pasd"
+            ],
+            [
+               "211051",
+               "0S pasd"
+            ],
+            [
+               "211090",
+               "0S pasd"
+            ],
+            [
+               "211055",
+               "0S pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "0S pasd"
+            ],
+            [
+               "211063",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "0S pasd"
+            ],
+            [
+               "211027",
+               "1M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211148",
+               "4M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211237",
+               "1M pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "1M pasd"
+            ],
+            [
+               "2112194",
+               "1M pasd"
+            ],
+            [
+               "2112192",
+               "0S pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "2113233",
+               "1M pasd"
+            ],
+            [
+               "2113167",
+               "0S pasd"
+            ],
+            [
+               "2113171",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-696-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Marist Sisters - Lane Cove Rd Nr Paul St",
+            "rs_ref" : "RS_99-696-a-sj2-1-R-1",
+            "id" : "R_99-696-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-696-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "696"
+   },
+   "VJ_99-696-a-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-696-a-sj2-1-4-b00bj",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2113170",
+               null
+            ],
+            [
+               "211398",
+               "3M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "1M pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "1M pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "0S pasd"
+            ],
+            [
+               "2112191",
+               "2M pasd"
+            ],
+            [
+               "2112193",
+               "0S pasd"
+            ],
+            [
+               "2112213",
+               "2M pasd"
+            ],
+            [
+               "2112200",
+               "1M pasd"
+            ],
+            [
+               "211146",
+               "2M pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211178",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "5M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "1M pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-696-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Lane Cove Rd Nr Lorna Av - Marist Sisters",
+            "rs_ref" : "RS_99-696-a-sj2-1-H-2",
+            "id" : "R_99-696-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-696-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "696"
+   },
+   "VJ_99-696-a-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-696-a-sj2-1-3-b00bk",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2113170",
+               null
+            ],
+            [
+               "211398",
+               "3M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "1M pasd"
+            ],
+            [
+               "211261",
+               "1M pasd"
+            ],
+            [
+               "211262",
+               "1M pasd"
+            ],
+            [
+               "211263",
+               "1M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "0S pasd"
+            ],
+            [
+               "2112191",
+               "2M pasd"
+            ],
+            [
+               "2112193",
+               "0S pasd"
+            ],
+            [
+               "2112213",
+               "2M pasd"
+            ],
+            [
+               "2112200",
+               "1M pasd"
+            ],
+            [
+               "211146",
+               "2M pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211178",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "5M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "1M pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "1M pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "2110108",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-696-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Lane Cove Rd Nr Lorna Av - Marist Sisters",
+            "rs_ref" : "RS_99-696-a-sj2-1-H-2",
+            "id" : "R_99-696-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-696-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "696"
+   }
+}
+;
+

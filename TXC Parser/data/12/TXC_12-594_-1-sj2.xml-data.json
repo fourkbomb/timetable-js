@@ -1,0 +1,632 @@
+var OPERATOR = "Shorelink";
+
+
+var LINES = {
+   "12-594-_-sj2-1" : "594"
+}
+;
+
+var stations = {
+   "207012" : "Archbold Rd Nr Chelmsford Av",
+   "207143" : "Birdwood Av near Koola Av",
+   "207480" : "Cotswolds Village Bobbin Head Rd",
+   "207590" : "St Joes Community Church Horace St",
+   "207599" : "Horace St near Link Rd",
+   "200033" : "Wynyard Station_ York St - Stand L",
+   "206918" : "Archbold Rd nr Clanville Rd",
+   "206963" : "Roseville Public School Addison Av",
+   "207491" : "Bobbin Head Rd Near Keats Rd",
+   "207031" : "Archbold Rd Nr Chelmsford Av",
+   "207479" : "Huon Park Village Bobbin Head Rd",
+   "200044" : "QVB_ York St - Stand D",
+   "207562" : "Eastern Arterial Rd Near Burraneer Av",
+   "2075119" : "Mona Vale Rd near Link Rd",
+   "207535" : "Killeaton St Near Collins Rd",
+   "207489" : "Bobbin Head Rd near Allara Av",
+   "207435" : "Bobbin Head Rd Near Glengarry Av",
+   "207589" : "Horace St near Stanley St",
+   "207490" : "Bobbin Head Rd near Allara Av",
+   "207429" : "Bobbin Head Rd Near Keats Rd",
+   "207011" : "Archbold Rd Nr Woodlands Rd",
+   "207430" : "Bobbin Head Rd near Allara Av",
+   "207481" : "Nazareth House Bobbin Head Rd",
+   "207484" : "Bobbin Head Rd Near Glengarry Av",
+   "207477" : "Kuringgai Creative Arts High School Bobbin Head",
+   "207439" : "Curagal Playing Fields Bobbin Head Rd",
+   "2000230" : "Wynyard Station_ Clarence St - Stand S",
+   "207428" : "Turramurra Bowling Club Bobbin Head Rd",
+   "207483" : "North Turramurra Girl Guides Hall Bobbin Head",
+   "207592" : "St Ives High School Yarrabung Rd",
+   "206917" : "Archbold Rd Nr Roseville Av",
+   "207485" : "Bobbin Head Rd Near Milton Rd",
+   "206921" : "Archbold Rd Nr Earl St",
+   "207492" : "Turramurra Bowling Club Bobbin Head Rd",
+   "207434" : "Bobbin Head Rd Near Milton Rd",
+   "207486" : "Shell Service Bobbin Head Rd",
+   "206920" : "Archbold Rd Nr Dudley Av",
+   "207431" : "Turramurra North Public School",
+   "2075128" : "Link Rd near Mona Vale Rd",
+   "207437" : "North Turramurra Golf Links Bobbin Head Rd",
+   "207433" : "Shell Service Bobbin Head Rd",
+   "207568" : "Eastern Arterial Rd near Eucalyptus St",
+   "207432" : "Samuel King Park Bobbin Head Rd",
+   "207170" : "Birdwood Rd near Koola Ave",
+   "207438" : "Nazareth House Bobbin Head Rd",
+   "207436" : "North Turramurra Girl Guides Hall Bobbin Head",
+   "207542" : "Killeaton St Near Collins Rd",
+   "207488" : "Turramurra North Public School",
+   "2075148" : "Horace St near Amesbury Av",
+   "207032" : "Archbold Rd Nr Woodlands Rd",
+   "207482" : "North Turramurra Golf Links Bobbin Head Rd",
+   "207478" : "Bobbin Head Rd near Du Faur St",
+   "207487" : "Bobbin Head Rd near Valley Park Cr",
+   "207043" : "Archbold Rd near Woodlands Rd",
+   "206962" : "Addison Av Nr Archbold Rd",
+   "206919" : "Archbold Rd nr Clanville Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_12-594-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_12-594-_-sj2-1-3-TA",
+      "leaves" : "17:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "200044",
+               null
+            ],
+            [
+               "2000230",
+               "6M pasd"
+            ],
+            [
+               "206962",
+               "25M pasd"
+            ],
+            [
+               "206917",
+               "1M27S pasd"
+            ],
+            [
+               "206918",
+               "1M4S pasd"
+            ],
+            [
+               "206919",
+               "29S pasd"
+            ],
+            [
+               "207011",
+               "17S pasd"
+            ],
+            [
+               "207012",
+               "28S pasd"
+            ],
+            [
+               "207170",
+               "5M15S pasd"
+            ],
+            [
+               "207568",
+               "2M32S pasd"
+            ],
+            [
+               "2075148",
+               "33S pasd"
+            ],
+            [
+               "207599",
+               "55S pasd"
+            ],
+            [
+               "2075128",
+               "2M pasd"
+            ],
+            [
+               "207542",
+               "2M48S pasd"
+            ],
+            [
+               "207428",
+               "8M12S pasd"
+            ],
+            [
+               "207429",
+               "21S pasd"
+            ],
+            [
+               "207430",
+               "27S pasd"
+            ],
+            [
+               "207431",
+               "21S pasd"
+            ],
+            [
+               "207432",
+               "35S pasd"
+            ],
+            [
+               "207433",
+               "19S pasd"
+            ],
+            [
+               "207434",
+               "22S pasd"
+            ],
+            [
+               "207435",
+               "25S pasd"
+            ],
+            [
+               "207436",
+               "25S pasd"
+            ],
+            [
+               "207437",
+               "22S pasd"
+            ],
+            [
+               "207438",
+               "21S pasd"
+            ],
+            [
+               "207439",
+               "26S pasd"
+            ],
+            [
+               "207477",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_12-594-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "QVB York St - Kuringgai Creative Arts High School Bobbin Head",
+            "rs_ref" : "RS_12-594-_-sj2-1-H-2",
+            "id" : "R_12-594-_-sj2-1-H-2"
+         }
+      },
+      "service" : "12-594-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "594"
+   },
+   "VJ_12-594-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_12-594-_-sj2-1-2-TA",
+      "leaves" : "18:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "200044",
+               null
+            ],
+            [
+               "2000230",
+               "6M pasd"
+            ],
+            [
+               "206962",
+               "18M pasd"
+            ],
+            [
+               "206917",
+               "1M27S pasd"
+            ],
+            [
+               "206918",
+               "1M4S pasd"
+            ],
+            [
+               "206919",
+               "29S pasd"
+            ],
+            [
+               "207011",
+               "17S pasd"
+            ],
+            [
+               "207012",
+               "28S pasd"
+            ],
+            [
+               "207170",
+               "5M15S pasd"
+            ],
+            [
+               "207568",
+               "2M32S pasd"
+            ],
+            [
+               "2075148",
+               "33S pasd"
+            ],
+            [
+               "207599",
+               "55S pasd"
+            ],
+            [
+               "2075128",
+               "2M pasd"
+            ],
+            [
+               "207542",
+               "2M33S pasd"
+            ],
+            [
+               "207428",
+               "7M27S pasd"
+            ],
+            [
+               "207429",
+               "25S pasd"
+            ],
+            [
+               "207430",
+               "32S pasd"
+            ],
+            [
+               "207431",
+               "25S pasd"
+            ],
+            [
+               "207432",
+               "41S pasd"
+            ],
+            [
+               "207433",
+               "22S pasd"
+            ],
+            [
+               "207434",
+               "26S pasd"
+            ],
+            [
+               "207435",
+               "29S pasd"
+            ],
+            [
+               "207436",
+               "29S pasd"
+            ],
+            [
+               "207437",
+               "26S pasd"
+            ],
+            [
+               "207438",
+               "25S pasd"
+            ],
+            [
+               "207439",
+               "30S pasd"
+            ],
+            [
+               "207477",
+               "30S pasd"
+            ]
+         ],
+         "id" : "JP_12-594-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "QVB York St - Kuringgai Creative Arts High School Bobbin Head",
+            "rs_ref" : "RS_12-594-_-sj2-1-H-2",
+            "id" : "R_12-594-_-sj2-1-H-2"
+         }
+      },
+      "service" : "12-594-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "594"
+   },
+   "VJ_12-594-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_12-594-_-sj2-1-4-TA",
+      "leaves" : "07:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207477",
+               null
+            ],
+            [
+               "207478",
+               "38S pasd"
+            ],
+            [
+               "207479",
+               "39S pasd"
+            ],
+            [
+               "207480",
+               "22S pasd"
+            ],
+            [
+               "207481",
+               "35S pasd"
+            ],
+            [
+               "207482",
+               "19S pasd"
+            ],
+            [
+               "207483",
+               "35S pasd"
+            ],
+            [
+               "207484",
+               "31S pasd"
+            ],
+            [
+               "207485",
+               "22S pasd"
+            ],
+            [
+               "207486",
+               "24S pasd"
+            ],
+            [
+               "207487",
+               "27S pasd"
+            ],
+            [
+               "207488",
+               "38S pasd"
+            ],
+            [
+               "207489",
+               "25S pasd"
+            ],
+            [
+               "207490",
+               "14S pasd"
+            ],
+            [
+               "207491",
+               "21S pasd"
+            ],
+            [
+               "207492",
+               "30S pasd"
+            ],
+            [
+               "207535",
+               "4M40S pasd"
+            ],
+            [
+               "2075119",
+               "1M20S pasd"
+            ],
+            [
+               "207589",
+               "1M18S pasd"
+            ],
+            [
+               "207590",
+               "30S pasd"
+            ],
+            [
+               "207592",
+               "1M12S pasd"
+            ],
+            [
+               "207562",
+               "1M49S pasd"
+            ],
+            [
+               "207143",
+               "5M11S pasd"
+            ],
+            [
+               "207031",
+               "2M37S pasd"
+            ],
+            [
+               "207032",
+               "12S pasd"
+            ],
+            [
+               "207043",
+               "11S pasd"
+            ],
+            [
+               "206920",
+               "1M1S pasd"
+            ],
+            [
+               "206921",
+               "1M20S pasd"
+            ],
+            [
+               "206963",
+               "1M39S pasd"
+            ],
+            [
+               "200033",
+               "31M pasd"
+            ],
+            [
+               "200044",
+               "31M pasd"
+            ]
+         ],
+         "id" : "JP_12-594-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "Kuringgai Creative Arts High School Bobbin Head - QVB York St",
+            "rs_ref" : "RS_12-594-_-sj2-1-R-1",
+            "id" : "R_12-594-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-594-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "594"
+   },
+   "VJ_12-594-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_12-594-_-sj2-1-1-TA",
+      "leaves" : "06:56:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "207477",
+               null
+            ],
+            [
+               "207478",
+               "27S pasd"
+            ],
+            [
+               "207479",
+               "28S pasd"
+            ],
+            [
+               "207480",
+               "16S pasd"
+            ],
+            [
+               "207481",
+               "25S pasd"
+            ],
+            [
+               "207482",
+               "14S pasd"
+            ],
+            [
+               "207483",
+               "25S pasd"
+            ],
+            [
+               "207484",
+               "22S pasd"
+            ],
+            [
+               "207485",
+               "16S pasd"
+            ],
+            [
+               "207486",
+               "17S pasd"
+            ],
+            [
+               "207487",
+               "19S pasd"
+            ],
+            [
+               "207488",
+               "27S pasd"
+            ],
+            [
+               "207489",
+               "18S pasd"
+            ],
+            [
+               "207490",
+               "10S pasd"
+            ],
+            [
+               "207491",
+               "15S pasd"
+            ],
+            [
+               "207492",
+               "21S pasd"
+            ],
+            [
+               "207535",
+               "3M53S pasd"
+            ],
+            [
+               "2075119",
+               "1M7S pasd"
+            ],
+            [
+               "207589",
+               "1M44S pasd"
+            ],
+            [
+               "207590",
+               "40S pasd"
+            ],
+            [
+               "207592",
+               "1M36S pasd"
+            ],
+            [
+               "207562",
+               "2M20S pasd"
+            ],
+            [
+               "207143",
+               "6M40S pasd"
+            ],
+            [
+               "207031",
+               "2M37S pasd"
+            ],
+            [
+               "207032",
+               "12S pasd"
+            ],
+            [
+               "207043",
+               "11S pasd"
+            ],
+            [
+               "206920",
+               "1M1S pasd"
+            ],
+            [
+               "206921",
+               "1M20S pasd"
+            ],
+            [
+               "206963",
+               "1M39S pasd"
+            ],
+            [
+               "200033",
+               "23M pasd"
+            ],
+            [
+               "200044",
+               "23M pasd"
+            ]
+         ],
+         "id" : "JP_12-594-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Kuringgai Creative Arts High School Bobbin Head - QVB York St",
+            "rs_ref" : "RS_12-594-_-sj2-1-R-1",
+            "id" : "R_12-594-_-sj2-1-R-1"
+         }
+      },
+      "service" : "12-594-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "594"
+   }
+}
+;
+

@@ -1,0 +1,947 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-624-g-sj2-1" : "624"
+}
+;
+
+var stations = {
+   "202834" : "New South Head Rd Nr Manning Rd",
+   "202946" : "New South Head Rd Nr Rose Bay Wharf",
+   "203017" : "Military Rd Nr Dover Rd",
+   "203026" : "Military Rd Nr Old South Head Rd",
+   "202951" : "New South Head Rd Nr Kambala School",
+   "203038" : "Military Rd Nr Weonga Rd",
+   "203082" : "New South Head Nr Vaucluse",
+   "202820" : "New South Head Rd Nr William St",
+   "2030130" : "New South Head Rd Nr Captain Pipers Rd",
+   "203020" : "Lancaster Rd Nr Military Rd",
+   "203080" : "Old South Head Rd Nr Billong Av",
+   "202832" : "New South Head Rd Nr Preston Av",
+   "203047" : "Rose Bay Secondary College Stand 1",
+   "203025" : "Military Rd Nr Old South Head Rd",
+   "203022" : "Military Rd Nr Oceanview Av",
+   "202713" : "Edgecliff Interchange Set Down",
+   "202961" : "New South Head Rd Nr Cranbrook Rd",
+   "203023" : "Military Rd Opp Kimberley St",
+   "202942" : "New South Head Rd Opp Cranbrook Rd",
+   "202835" : "New South Head Rd Nr Henrietta St",
+   "203021" : "Peel St Nr Kobada Rd",
+   "203041" : "Military Rd Nr Liverpool St",
+   "2030136" : "New South Head Rd Nr Old South Head Rd",
+   "202382" : "New South Head Rd Opp Wolseley Rd",
+   "202943" : "New South Head Rd Opp Salisbury Rd",
+   "202833" : "New South Head Rd Opp Knox St",
+   "202948" : "New South Head Rd Opp Norwich Rd",
+   "202956" : "New South Head Rd Nr Norwich Rd",
+   "2030132" : "New South Head Rd Nr Petrarch Av",
+   "203028" : "Military Rd Nr Eastern Av",
+   "202957" : "New South Head Rd Nr Kent Rd",
+   "203078" : "Old South Head Rd Nr South Head Cemetery",
+   "2030131" : "New South Head Rd Opp Girilang Av",
+   "203027" : "Military Rd Nr Kimberley St",
+   "202952" : "New South Head Rd Nr Rawson Rd",
+   "203061" : "Old South Head Rd Nr South Head Cemetery",
+   "2030142" : "New South Head Rd Nr Towns Rd",
+   "203042" : "Military Rd Nr Raleigh St",
+   "203054" : "Old South Head Rd Nr Clarendon St",
+   "202829" : "New South Head Rd Nr Gladswood Gdn",
+   "202725" : "New South Head Rd Nr Wunulla Rd",
+   "203079" : "Old South Head Rd Nr Burge St",
+   "202953" : "New South Head Rd Nr Fernleigh Gdns",
+   "202949" : "New South Head Rd Nr Caledonian Rd",
+   "2030134" : "New South Head Rd Opp Old South Hd Rd",
+   "203056" : "Old South Head Rd Nr Laguna St",
+   "203040" : "Military Rd Nr Dover Rd",
+   "202947" : "New South Head Rd Nr Vickery Av",
+   "2030133" : "New South Head Rd Nr Serpentine Pde",
+   "2030139" : "New South Head Rd Nr Girilang Av",
+   "202819" : "New South Head Rd Nr Knox St",
+   "203018" : "Military Rd Nr Blake St",
+   "202831" : "New South Head Rd Nr Victoria Rd",
+   "202381" : "New South Head Rd Nr Rose Bay Av",
+   "203039" : "Military Rd Nr Blake St",
+   "2030141" : "New South Head Rd Nr Clairvaux Rd",
+   "203055" : "Old South Head Rd Nr Billong Av",
+   "2030138" : "New South Head Rd Nr Laguna St",
+   "203019" : "Military Rd Nr Weonga Rd",
+   "202950" : "New South Head Rd Nr Dumaresq Rd",
+   "202955" : "New South Head Rd Nr Newcastle St",
+   "202954" : "New South Head Rd Nr Dover Rd",
+   "202724" : "New South Head Rd Nr Wolseley Rd",
+   "2030137" : "New South Head Rd Opp Serpentine Pde",
+   "202944" : "New South Head Rd Opp O'sullivan Rd",
+   "202959" : "New South Head Rd Nr O'sullivan Rd",
+   "202960" : "New South Head Rd Nr Salisbury Rd",
+   "202818" : "New South Head Rd Nr Henrietta St",
+   "2030129" : "New South Head Rd Opp Clairvaux Rd",
+   "202720" : "Edgecliff Interchange Stand F",
+   "202830" : "New South Head Rd Opp Victoria Rd",
+   "202958" : "New South Head Rd Nr Elanora St",
+   "2030140" : "New South Head Rd Nr Hopetoun Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-624-g-sj2-1-2-b00bd" : {
+      "vjcode" : "VJ_99-624-g-sj2-1-2-b00bd",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203047",
+               null
+            ],
+            [
+               "203017",
+               "1M pasd"
+            ],
+            [
+               "203018",
+               "0S pasd"
+            ],
+            [
+               "203019",
+               "1M pasd"
+            ],
+            [
+               "203020",
+               "0S pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "0S pasd"
+            ],
+            [
+               "203023",
+               "0S pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ],
+            [
+               "203054",
+               "0S pasd"
+            ],
+            [
+               "203055",
+               "0S pasd"
+            ],
+            [
+               "203056",
+               "0S pasd"
+            ],
+            [
+               "203061",
+               "1M pasd"
+            ],
+            [
+               "2030136",
+               "0S pasd"
+            ],
+            [
+               "2030137",
+               "0S pasd"
+            ],
+            [
+               "2030138",
+               "0S pasd"
+            ],
+            [
+               "2030139",
+               "1M pasd"
+            ],
+            [
+               "2030130",
+               "0S pasd"
+            ],
+            [
+               "2030141",
+               "0S pasd"
+            ],
+            [
+               "2030142",
+               "1M pasd"
+            ],
+            [
+               "202952",
+               "2M pasd"
+            ],
+            [
+               "202953",
+               "1M pasd"
+            ],
+            [
+               "202954",
+               "1M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "1M pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "1M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "1M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202713",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-g-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Rose Bay Secondary College - Edgecliff Station",
+            "rs_ref" : "RS_99-624-g-sj2-1-R-1",
+            "id" : "R_99-624-g-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-g-sj2-1-5-b00ar" : {
+      "vjcode" : "VJ_99-624-g-sj2-1-5-b00ar",
+      "leaves" : "14:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203047",
+               null
+            ],
+            [
+               "203017",
+               "1M pasd"
+            ],
+            [
+               "203018",
+               "0S pasd"
+            ],
+            [
+               "203019",
+               "1M pasd"
+            ],
+            [
+               "203020",
+               "0S pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "0S pasd"
+            ],
+            [
+               "203023",
+               "0S pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ],
+            [
+               "203054",
+               "0S pasd"
+            ],
+            [
+               "203055",
+               "0S pasd"
+            ],
+            [
+               "203056",
+               "0S pasd"
+            ],
+            [
+               "203061",
+               "1M pasd"
+            ],
+            [
+               "2030136",
+               "0S pasd"
+            ],
+            [
+               "2030137",
+               "0S pasd"
+            ],
+            [
+               "2030138",
+               "0S pasd"
+            ],
+            [
+               "2030139",
+               "1M pasd"
+            ],
+            [
+               "2030130",
+               "0S pasd"
+            ],
+            [
+               "2030141",
+               "0S pasd"
+            ],
+            [
+               "2030142",
+               "1M pasd"
+            ],
+            [
+               "202952",
+               "2M pasd"
+            ],
+            [
+               "202953",
+               "1M pasd"
+            ],
+            [
+               "202954",
+               "1M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "1M pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "1M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "1M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202713",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-g-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Rose Bay Secondary College - Edgecliff Station",
+            "rs_ref" : "RS_99-624-g-sj2-1-R-1",
+            "id" : "R_99-624-g-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-g-sj2-1",
+      "days" : [
+         "Tuesday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-g-sj2-1-3-b00ar" : {
+      "vjcode" : "VJ_99-624-g-sj2-1-3-b00ar",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "202720",
+               null
+            ],
+            [
+               "202818",
+               "1M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "0S pasd"
+            ],
+            [
+               "202830",
+               "0S pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "1M pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "1M pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "1M pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "2M pasd"
+            ],
+            [
+               "2030129",
+               "1M pasd"
+            ],
+            [
+               "2030140",
+               "0S pasd"
+            ],
+            [
+               "2030131",
+               "1M pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "0S pasd"
+            ],
+            [
+               "2030134",
+               "1M pasd"
+            ],
+            [
+               "203078",
+               "0S pasd"
+            ],
+            [
+               "203079",
+               "1M pasd"
+            ],
+            [
+               "203080",
+               "0S pasd"
+            ],
+            [
+               "203026",
+               "1M pasd"
+            ],
+            [
+               "203027",
+               "0S pasd"
+            ],
+            [
+               "203028",
+               "0S pasd"
+            ],
+            [
+               "203038",
+               "2M pasd"
+            ],
+            [
+               "203039",
+               "0S pasd"
+            ],
+            [
+               "203040",
+               "0S pasd"
+            ],
+            [
+               "203041",
+               "1M pasd"
+            ],
+            [
+               "203042",
+               "0S pasd"
+            ],
+            [
+               "203047",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-g-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Edgecliff Station - Rose Bay Secondary College",
+            "rs_ref" : "RS_99-624-g-sj2-1-H-2",
+            "id" : "R_99-624-g-sj2-1-H-2"
+         }
+      },
+      "service" : "99-624-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-g-sj2-1-4-b00ar" : {
+      "vjcode" : "VJ_99-624-g-sj2-1-4-b00ar",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "203047",
+               null
+            ],
+            [
+               "203017",
+               "1M pasd"
+            ],
+            [
+               "203018",
+               "0S pasd"
+            ],
+            [
+               "203019",
+               "1M pasd"
+            ],
+            [
+               "203020",
+               "0S pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "0S pasd"
+            ],
+            [
+               "203023",
+               "0S pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ],
+            [
+               "203054",
+               "0S pasd"
+            ],
+            [
+               "203055",
+               "0S pasd"
+            ],
+            [
+               "203056",
+               "0S pasd"
+            ],
+            [
+               "203061",
+               "1M pasd"
+            ],
+            [
+               "2030136",
+               "0S pasd"
+            ],
+            [
+               "2030137",
+               "0S pasd"
+            ],
+            [
+               "2030138",
+               "0S pasd"
+            ],
+            [
+               "2030139",
+               "1M pasd"
+            ],
+            [
+               "2030130",
+               "0S pasd"
+            ],
+            [
+               "2030141",
+               "0S pasd"
+            ],
+            [
+               "2030142",
+               "1M pasd"
+            ],
+            [
+               "202952",
+               "2M pasd"
+            ],
+            [
+               "202953",
+               "1M pasd"
+            ],
+            [
+               "202954",
+               "1M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "1M pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "1M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "1M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202713",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-g-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Rose Bay Secondary College - Edgecliff Station",
+            "rs_ref" : "RS_99-624-g-sj2-1-R-1",
+            "id" : "R_99-624-g-sj2-1-R-1"
+         }
+      },
+      "service" : "99-624-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   },
+   "VJ_99-624-g-sj2-1-6-b00bd" : {
+      "vjcode" : "VJ_99-624-g-sj2-1-6-b00bd",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "202720",
+               null
+            ],
+            [
+               "202818",
+               "1M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "0S pasd"
+            ],
+            [
+               "202830",
+               "0S pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "1M pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "1M pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "1M pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "2M pasd"
+            ],
+            [
+               "2030129",
+               "1M pasd"
+            ],
+            [
+               "2030140",
+               "0S pasd"
+            ],
+            [
+               "2030131",
+               "1M pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "0S pasd"
+            ],
+            [
+               "2030134",
+               "1M pasd"
+            ],
+            [
+               "203078",
+               "0S pasd"
+            ],
+            [
+               "203079",
+               "1M pasd"
+            ],
+            [
+               "203080",
+               "0S pasd"
+            ],
+            [
+               "203026",
+               "1M pasd"
+            ],
+            [
+               "203027",
+               "0S pasd"
+            ],
+            [
+               "203028",
+               "0S pasd"
+            ],
+            [
+               "203038",
+               "2M pasd"
+            ],
+            [
+               "203039",
+               "0S pasd"
+            ],
+            [
+               "203040",
+               "0S pasd"
+            ],
+            [
+               "203041",
+               "1M pasd"
+            ],
+            [
+               "203042",
+               "0S pasd"
+            ],
+            [
+               "203047",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-624-g-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Edgecliff Station - Rose Bay Secondary College",
+            "rs_ref" : "RS_99-624-g-sj2-1-H-2",
+            "id" : "R_99-624-g-sj2-1-H-2"
+         }
+      },
+      "service" : "99-624-g-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "624"
+   }
+}
+;
+

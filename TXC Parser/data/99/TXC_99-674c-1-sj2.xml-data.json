@@ -1,0 +1,814 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-674-c-sj2-1" : "674"
+}
+;
+
+var stations = {
+   "2228102" : "Logeman Court Retirement Malvern Rd",
+   "222914" : "Old Taren Point Rd nr Holt Rd",
+   "222949" : "Taren Point Rd nr Box Rd",
+   "222929" : "Cawarra Rd nr Meta St",
+   "222950" : "Taren Point Rd nr Gwawley Oval",
+   "222956" : "Dianella St nr Willarong St",
+   "222955" : "Parraweena Rd opp Crammond Bvd",
+   "222915" : "Holt Rd nr Old Taren Point Rd",
+   "222934" : "Taren Point Rd opp Beresford Rd",
+   "222920" : "Holt Rd nr Taren Point Rd",
+   "221977" : "Rocky Point Rd near Alice St",
+   "222933" : "Taren Point Rd nr Captain Cook Dr",
+   "222912" : "Woodlands Rd nr Smith St",
+   "222911" : "Denman Av Nr Caringbah Station",
+   "222936" : "Kingsway nr Hinkler Av",
+   "222941" : "Kingsway Nr Willarong Rd",
+   "222917" : "Holt Rd nr Old Taren Point Rd",
+   "222942" : "Taren Point Rd Nr Kingsway",
+   "222921" : "Taren Point Rd nr Toorak Av",
+   "222937" : "Kingsway Nr Kareena Rd",
+   "222948" : "Taren Point Rd Nr Parraweena Rd",
+   "222939" : "Kingsway Nr Willarong Rd",
+   "221919" : "Rocky Point Rd near Fontainebleau St",
+   "222940" : "Toorak Av nr Woodlands Rd",
+   "2217122" : "Rocky Point Rd nr Dillion St",
+   "221981" : "Rocky Point Rd near Toyer Av",
+   "222957" : "Dianella St nr Cawarra Rd",
+   "222943" : "Taren Point Rd nr Beresford Rd",
+   "222935" : "Taren Point Rd Nr Kingsway",
+   "221980" : "Rocky Point Rd near Evans St",
+   "222918" : "Holt Rd nr Moruya Av",
+   "222927" : "Cawarra Rd Nr Parraweena Rd",
+   "222944" : "Taren Point Rd nr The Boulevarde",
+   "221978" : "Rocky Point Rd near Sandringham St",
+   "222919" : "Holt Rd nr Curtis Av",
+   "2229199" : "Alexander Av nr Smith St",
+   "221979" : "Rocky Point Rd near Russell Av",
+   "222923" : "Taren Point Rd nr Box Rd",
+   "222947" : "Taren Point Rd nr Kumulla Rd",
+   "222960" : "Captain Cook Dr opp Crammond Bvd",
+   "221913" : "Rocky Point Rd near Robert St",
+   "221982" : "Rocky Point Rd near Kendall St",
+   "2217123" : "Rocky Point Rd nr Park Rd",
+   "2229200" : "Toorak Av nr Alexander Av",
+   "222931" : "Willarong Rd nr Dianella St",
+   "222945" : "Cawarra Rd nr North Carringbah Primary",
+   "222916" : "Holt Rd nr Frederick Rd",
+   "222815" : "Miranda Interchange_ Kiora Rd (Stand 5)",
+   "222922" : "Taren Point Rd nr Bay Rd",
+   "222966" : "Captain Cook Dr nr Crammond Bvd",
+   "222913" : "Woodlands Rd nr Overpass",
+   "222924" : "Erskine Rd nr Box Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-674-c-sj2-1-1-b00ax" : {
+      "vjcode" : "VJ_99-674-c-sj2-1-1-b00ax",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2217122",
+               null
+            ],
+            [
+               "2217123",
+               "0S pasd"
+            ],
+            [
+               "221977",
+               "0S pasd"
+            ],
+            [
+               "221913",
+               "1M pasd"
+            ],
+            [
+               "221978",
+               "0S pasd"
+            ],
+            [
+               "221979",
+               "0S pasd"
+            ],
+            [
+               "221980",
+               "0S pasd"
+            ],
+            [
+               "221981",
+               "1M pasd"
+            ],
+            [
+               "221982",
+               "0S pasd"
+            ],
+            [
+               "221919",
+               "0S pasd"
+            ],
+            [
+               "222940",
+               "3M pasd"
+            ],
+            [
+               "2229200",
+               "0S pasd"
+            ],
+            [
+               "2229199",
+               "1M pasd"
+            ],
+            [
+               "222912",
+               "0S pasd"
+            ],
+            [
+               "222913",
+               "1M pasd"
+            ],
+            [
+               "222914",
+               "0S pasd"
+            ],
+            [
+               "222915",
+               "1M pasd"
+            ],
+            [
+               "222916",
+               "0S pasd"
+            ],
+            [
+               "222917",
+               "1M pasd"
+            ],
+            [
+               "222918",
+               "1M pasd"
+            ],
+            [
+               "222919",
+               "0S pasd"
+            ],
+            [
+               "222920",
+               "0S pasd"
+            ],
+            [
+               "222921",
+               "1M pasd"
+            ],
+            [
+               "222922",
+               "1M pasd"
+            ],
+            [
+               "222923",
+               "0S pasd"
+            ],
+            [
+               "222924",
+               "0S pasd"
+            ],
+            [
+               "222955",
+               "1M pasd"
+            ],
+            [
+               "222927",
+               "1M pasd"
+            ],
+            [
+               "222929",
+               "0S pasd"
+            ],
+            [
+               "222957",
+               "2M pasd"
+            ],
+            [
+               "222956",
+               "0S pasd"
+            ],
+            [
+               "222931",
+               "1M pasd"
+            ],
+            [
+               "222933",
+               "1M pasd"
+            ],
+            [
+               "222934",
+               "0S pasd"
+            ],
+            [
+               "222935",
+               "1M pasd"
+            ],
+            [
+               "222939",
+               "1M pasd"
+            ],
+            [
+               "222911",
+               "0S pasd"
+            ],
+            [
+               "222941",
+               "1M pasd"
+            ],
+            [
+               "222936",
+               "1M pasd"
+            ],
+            [
+               "222937",
+               "1M pasd"
+            ],
+            [
+               "2228102",
+               "1M pasd"
+            ],
+            [
+               "222815",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-674-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Rocky Point Rd nr Dillion St - Miranda Interchange_ Kiora Rd",
+            "rs_ref" : "RS_99-674-c-sj2-1-H-1",
+            "id" : "R_99-674-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-674-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_99-674-c-sj2-1-4-b009m" : {
+      "vjcode" : "VJ_99-674-c-sj2-1-4-b009m",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2217122",
+               null
+            ],
+            [
+               "2217123",
+               "0S pasd"
+            ],
+            [
+               "221977",
+               "0S pasd"
+            ],
+            [
+               "221913",
+               "1M pasd"
+            ],
+            [
+               "221978",
+               "0S pasd"
+            ],
+            [
+               "221979",
+               "0S pasd"
+            ],
+            [
+               "221980",
+               "0S pasd"
+            ],
+            [
+               "221981",
+               "1M pasd"
+            ],
+            [
+               "221982",
+               "0S pasd"
+            ],
+            [
+               "221919",
+               "0S pasd"
+            ],
+            [
+               "222940",
+               "3M pasd"
+            ],
+            [
+               "2229200",
+               "0S pasd"
+            ],
+            [
+               "2229199",
+               "1M pasd"
+            ],
+            [
+               "222912",
+               "0S pasd"
+            ],
+            [
+               "222913",
+               "1M pasd"
+            ],
+            [
+               "222914",
+               "0S pasd"
+            ],
+            [
+               "222915",
+               "1M pasd"
+            ],
+            [
+               "222916",
+               "0S pasd"
+            ],
+            [
+               "222917",
+               "1M pasd"
+            ],
+            [
+               "222918",
+               "1M pasd"
+            ],
+            [
+               "222919",
+               "0S pasd"
+            ],
+            [
+               "222920",
+               "0S pasd"
+            ],
+            [
+               "222921",
+               "1M pasd"
+            ],
+            [
+               "222922",
+               "1M pasd"
+            ],
+            [
+               "222923",
+               "0S pasd"
+            ],
+            [
+               "222924",
+               "0S pasd"
+            ],
+            [
+               "222955",
+               "1M pasd"
+            ],
+            [
+               "222927",
+               "1M pasd"
+            ],
+            [
+               "222929",
+               "0S pasd"
+            ],
+            [
+               "222957",
+               "2M pasd"
+            ],
+            [
+               "222956",
+               "0S pasd"
+            ],
+            [
+               "222931",
+               "1M pasd"
+            ],
+            [
+               "222933",
+               "1M pasd"
+            ],
+            [
+               "222934",
+               "0S pasd"
+            ],
+            [
+               "222935",
+               "1M pasd"
+            ],
+            [
+               "222939",
+               "1M pasd"
+            ],
+            [
+               "222911",
+               "0S pasd"
+            ],
+            [
+               "222941",
+               "1M pasd"
+            ],
+            [
+               "222936",
+               "1M pasd"
+            ],
+            [
+               "222937",
+               "1M pasd"
+            ],
+            [
+               "2228102",
+               "1M pasd"
+            ],
+            [
+               "222815",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-674-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Rocky Point Rd nr Dillion St - Miranda Interchange_ Kiora Rd",
+            "rs_ref" : "RS_99-674-c-sj2-1-H-1",
+            "id" : "R_99-674-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-674-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_99-674-c-sj2-1-3-b009m" : {
+      "vjcode" : "VJ_99-674-c-sj2-1-3-b009m",
+      "leaves" : "15:13:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "222911",
+               null
+            ],
+            [
+               "222941",
+               "1M pasd"
+            ],
+            [
+               "222942",
+               "2M pasd"
+            ],
+            [
+               "222943",
+               "0S pasd"
+            ],
+            [
+               "222944",
+               "1M pasd"
+            ],
+            [
+               "222966",
+               "1M pasd"
+            ],
+            [
+               "222945",
+               "2M pasd"
+            ],
+            [
+               "222957",
+               "1M pasd"
+            ],
+            [
+               "222956",
+               "1M pasd"
+            ],
+            [
+               "222931",
+               "1M pasd"
+            ],
+            [
+               "222947",
+               "4M pasd"
+            ],
+            [
+               "222948",
+               "1M pasd"
+            ],
+            [
+               "222949",
+               "1M pasd"
+            ],
+            [
+               "222950",
+               "1M pasd"
+            ],
+            [
+               "222940",
+               "2M pasd"
+            ],
+            [
+               "2229200",
+               "0S pasd"
+            ],
+            [
+               "2229199",
+               "1M pasd"
+            ],
+            [
+               "222912",
+               "0S pasd"
+            ],
+            [
+               "222913",
+               "1M pasd"
+            ],
+            [
+               "222914",
+               "0S pasd"
+            ],
+            [
+               "222915",
+               "1M pasd"
+            ],
+            [
+               "222916",
+               "0S pasd"
+            ],
+            [
+               "222917",
+               "1M pasd"
+            ],
+            [
+               "222919",
+               "2M pasd"
+            ],
+            [
+               "222920",
+               "0S pasd"
+            ],
+            [
+               "222921",
+               "0S pasd"
+            ],
+            [
+               "222922",
+               "1M pasd"
+            ],
+            [
+               "222923",
+               "0S pasd"
+            ],
+            [
+               "222924",
+               "1M pasd"
+            ],
+            [
+               "222955",
+               "0S pasd"
+            ],
+            [
+               "222927",
+               "1M pasd"
+            ],
+            [
+               "222929",
+               "1M pasd"
+            ],
+            [
+               "222960",
+               "1M pasd"
+            ],
+            [
+               "222933",
+               "1M pasd"
+            ],
+            [
+               "222934",
+               "0S pasd"
+            ],
+            [
+               "222935",
+               "0S pasd"
+            ],
+            [
+               "222936",
+               "1M pasd"
+            ],
+            [
+               "222937",
+               "1M pasd"
+            ],
+            [
+               "2228102",
+               "0S pasd"
+            ],
+            [
+               "222815",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-674-c-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Caringbah Station - Miranda Interchange_ Kiora Rd",
+            "rs_ref" : "RS_99-674-c-sj2-1-R-2",
+            "id" : "R_99-674-c-sj2-1-R-2"
+         }
+      },
+      "service" : "99-674-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   },
+   "VJ_99-674-c-sj2-1-2-b009t" : {
+      "vjcode" : "VJ_99-674-c-sj2-1-2-b009t",
+      "leaves" : "15:13:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "222911",
+               null
+            ],
+            [
+               "222941",
+               "1M pasd"
+            ],
+            [
+               "222942",
+               "2M pasd"
+            ],
+            [
+               "222943",
+               "0S pasd"
+            ],
+            [
+               "222944",
+               "1M pasd"
+            ],
+            [
+               "222966",
+               "1M pasd"
+            ],
+            [
+               "222945",
+               "2M pasd"
+            ],
+            [
+               "222957",
+               "1M pasd"
+            ],
+            [
+               "222956",
+               "1M pasd"
+            ],
+            [
+               "222931",
+               "1M pasd"
+            ],
+            [
+               "222947",
+               "4M pasd"
+            ],
+            [
+               "222948",
+               "1M pasd"
+            ],
+            [
+               "222949",
+               "1M pasd"
+            ],
+            [
+               "222950",
+               "1M pasd"
+            ],
+            [
+               "222940",
+               "2M pasd"
+            ],
+            [
+               "2229200",
+               "0S pasd"
+            ],
+            [
+               "2229199",
+               "1M pasd"
+            ],
+            [
+               "222912",
+               "0S pasd"
+            ],
+            [
+               "222913",
+               "1M pasd"
+            ],
+            [
+               "222914",
+               "0S pasd"
+            ],
+            [
+               "222915",
+               "1M pasd"
+            ],
+            [
+               "222916",
+               "0S pasd"
+            ],
+            [
+               "222917",
+               "1M pasd"
+            ],
+            [
+               "222919",
+               "2M pasd"
+            ],
+            [
+               "222920",
+               "0S pasd"
+            ],
+            [
+               "222921",
+               "0S pasd"
+            ],
+            [
+               "222922",
+               "1M pasd"
+            ],
+            [
+               "222923",
+               "0S pasd"
+            ],
+            [
+               "222924",
+               "1M pasd"
+            ],
+            [
+               "222955",
+               "0S pasd"
+            ],
+            [
+               "222927",
+               "1M pasd"
+            ],
+            [
+               "222929",
+               "1M pasd"
+            ],
+            [
+               "222960",
+               "1M pasd"
+            ],
+            [
+               "222933",
+               "1M pasd"
+            ],
+            [
+               "222934",
+               "0S pasd"
+            ],
+            [
+               "222935",
+               "0S pasd"
+            ],
+            [
+               "222936",
+               "1M pasd"
+            ],
+            [
+               "222937",
+               "1M pasd"
+            ],
+            [
+               "2228102",
+               "0S pasd"
+            ],
+            [
+               "222815",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-674-c-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Caringbah Station - Miranda Interchange_ Kiora Rd",
+            "rs_ref" : "RS_99-674-c-sj2-1-R-2",
+            "id" : "R_99-674-c-sj2-1-R-2"
+         }
+      },
+      "service" : "99-674-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "674"
+   }
+}
+;
+

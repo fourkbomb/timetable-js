@@ -1,0 +1,574 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-722-_-sj2-1" : "722"
+}
+;
+
+var stations = {
+   "209136" : "Harbord St Nr Freshwater High",
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "209920" : "Pittwater Rd Nr Lismore Av",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "210638" : "Beaconsfield St Nr Newport Primary",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210637" : "Kalinya St Nr Beaconsfield St",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "210730" : "Barrenjoey Rd 250m N of Plateau Rd",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "209726" : "Pittwater Rd nr Hay St",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "210024" : "Pittwater Rd nr Mitchell Av",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210256" : "Pittwater Rd Nr Arnott Cr",
+   "210633" : "Gladstone St Nr Barrenjoey Rd",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "210634" : "Gladstone Rd Nr Bishop St",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "210640" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210380" : "Pittwater Rd Nr Coronation St",
+   "209919" : "Pittwater Rd nr South Creek Rd",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "210731" : "Barrenjoey Rd Nr Plateau Rd",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "210636" : "Kalinya St Nr Gladstone Rd",
+   "210378" : "Pittwater Rd Nr Rowan St",
+   "210635" : "Gladstone Rd Nr King St",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210379" : "Pittwater Rd Nr Jenkins St",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "209932" : "Harbord Rd nr West St",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "209729" : "Pittwater Rd Nr Westmoreland Av",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210729" : "Barrenjoey Rd nr The Crescent",
+   "209725" : "Pittwater Rd Nr Anzac Av",
+   "210732" : "Barrenjoey Rd Nr The Serpentine"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-722-_-sj2-1-1-b009g" : {
+      "vjcode" : "VJ_99-722-_-sj2-1-1-b009g",
+      "leaves" : "07:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "0S pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "2M pasd"
+            ],
+            [
+               "210634",
+               "0S pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "0S pasd"
+            ],
+            [
+               "210380",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "0S pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "0S pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "0S pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "3M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "209136",
+               "2M pasd"
+            ],
+            [
+               "210024",
+               "4M pasd"
+            ],
+            [
+               "210025",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Pittwater Rd nr Chard Rd",
+            "rs_ref" : "RS_99-722-_-sj2-1-H-1",
+            "id" : "R_99-722-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-_-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-722-_-sj2-1-2-b009h",
+      "leaves" : "07:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "0S pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "2M pasd"
+            ],
+            [
+               "210634",
+               "0S pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "0S pasd"
+            ],
+            [
+               "210380",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "0S pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "1M pasd"
+            ],
+            [
+               "210152",
+               "0S pasd"
+            ],
+            [
+               "210153",
+               "1M pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "0S pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "0S pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "0S pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "3M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "209136",
+               "2M pasd"
+            ],
+            [
+               "210024",
+               "4M pasd"
+            ],
+            [
+               "210025",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Pittwater Rd nr Chard Rd",
+            "rs_ref" : "RS_99-722-_-sj2-1-H-1",
+            "id" : "R_99-722-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   }
+}
+;
+

@@ -1,0 +1,903 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-699-a-sj2-1" : "699"
+}
+;
+
+var stations = {
+   "2131100" : "Frederick St Nr Mackay St",
+   "219345" : "Canterbury Rd Nr Berna St",
+   "220687" : "Thompson St Nr Flers Av",
+   "2206114" : "William St Nr Woolcott St",
+   "2206125" : "William St Nr Homer St",
+   "2208107" : "Kingsgrove Rd Nr Oatley St",
+   "220860" : "Richland St Nr Kingsgrove Bus Depot",
+   "220698" : "William St Nr Westfield St",
+   "219355" : "King St Nr Frederick St",
+   "220834" : "Kingsgrove Rd Nr Omnibus Rd",
+   "220689" : "Cameron Av Nr Larkhall Av",
+   "220699" : "William St Nr Woolcott St",
+   "219361" : "Milton St Nr Palace St",
+   "220869" : "William St Nr Kingsgrove Rd",
+   "2046113" : "First Av Nr Park Rd",
+   "2046114" : "First Ave Nr Great North Rd",
+   "219359" : "King St Nr Trevenar St",
+   "2131107" : "Milton St Nr Arthur St",
+   "219368" : "Jeffrey St Nr Canterbury Rd",
+   "2046149" : "Garfield St Nr Scott St",
+   "2206115" : "William St Nr Hood Av",
+   "220872" : "William St Nr Ferrier Pde",
+   "204683" : "Fairlight St Nr Ingham Av",
+   "219358" : "King St Nr Lasswade St",
+   "2131101" : "Frederick St Opp Albert Pde",
+   "2206113" : "William St Nr Cameron Av",
+   "204511" : "Parramatta Rd Nr Dobroyd Pde",
+   "2206100" : "William St Nr Cameron Av",
+   "219353" : "Jeffrey St Nr Robert St",
+   "219321" : "Canterbury Rd Nr Canterbury Station",
+   "204669" : "Parramatta Rd Nr Courland St",
+   "204684" : "Harris Rd Nr Rosebank College",
+   "220686" : "Caroline St Nr River St",
+   "220681" : "Caroline St Nr Bedford St",
+   "219367" : "King St Nr John St",
+   "219391" : "Fore St Nr Ivy St",
+   "213140" : "Frederick St Nr Albert Pde",
+   "2206117" : "William St Nr Bexley Rd",
+   "2131102" : "Frederick St Nr John St",
+   "219364" : "King St Nr First St",
+   "2046115" : "First Av Nr Waterview St",
+   "2131105" : "Milton St Nr Georges River Rd",
+   "219366" : "King St Nr Frederick St",
+   "220623" : "Homer St Nr William St",
+   "219393" : "Fore St Nr High St",
+   "204695" : "Rosebank College",
+   "219363" : "King St Nr Third St",
+   "219390" : "Fore St Nr Woolcott St",
+   "204670" : "Parramatta Rd Nr Arlington St",
+   "220696" : "William St Nr Bexley Rd",
+   "219360" : "Milton St Nr Palace St",
+   "213133" : "Parramatta Rd Nr Earle Av",
+   "219356" : "King St Nr Princess St",
+   "2131106" : "Milton St Nr Norton St",
+   "219357" : "King St Opp First St",
+   "213136" : "Frederick St Nr Parramatta Rd",
+   "2206116" : "William St Nr Main St",
+   "220871" : "William St Nr Tasker Av",
+   "2193105" : "Canterbury Rd nr Close St",
+   "213141" : "Frederick St Nr Eccles Av",
+   "220669" : "Clarke St Nr Lewins St",
+   "2206126" : "Clarke St Nr Earlwood Av",
+   "213220" : "Parramatta Rd Nr Croydon Rd",
+   "220685" : "Woolcott St Nr Caroline St",
+   "220870" : "William St Nr Hillside Av",
+   "219392" : "Fore St Nr Ivy St",
+   "2131103" : "Frederick St Nr Church St",
+   "213138" : "Frederick St Nr Church St",
+   "220678" : "Cameron Av Nr Dawson Av",
+   "220680" : "Thompson St Nr Caroline St",
+   "2046112" : "Ingham Av Nr First Av",
+   "220679" : "Thompson St Nr Fricourt Av",
+   "2131104" : "Frederick St Nr Henry St",
+   "220862" : "Kingsgrove Rd Nr Kingsgrove North High",
+   "220682" : "Woolcott St Nr Barnes Av",
+   "2206127" : "Homer St Nr Hartill Law Av",
+   "213139" : "Frederick St Nr John St",
+   "220688" : "Thompson St Nr Kitchener Av",
+   "220684" : "Woolcott St Nr Ann St",
+   "2046151" : "Garfield St Nr Harris Rd",
+   "220697" : "William St Nr Warburton St",
+   "219362" : "Milton St Nr Trevenar St",
+   "219354" : "Jeffrey St Nr John St",
+   "219365" : "King St Nr Princess St",
+   "219351" : "Canterbury Rd Nr Berna St",
+   "2046116" : "First Av Nr Park Rd",
+   "2046150" : "Garfield St Nr Cross St",
+   "213137" : "Frederick St Nr Henry St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-699-a-sj2-1-1-b00a0" : {
+      "vjcode" : "VJ_99-699-a-sj2-1-1-b00a0",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204683",
+               null
+            ],
+            [
+               "2046112",
+               "1M pasd"
+            ],
+            [
+               "2046113",
+               "1M pasd"
+            ],
+            [
+               "2046114",
+               "1M pasd"
+            ],
+            [
+               "2046150",
+               "2M pasd"
+            ],
+            [
+               "2046151",
+               "1M pasd"
+            ],
+            [
+               "204695",
+               "1M pasd"
+            ],
+            [
+               "204669",
+               "1M pasd"
+            ],
+            [
+               "204670",
+               "1M pasd"
+            ],
+            [
+               "204511",
+               "1M pasd"
+            ],
+            [
+               "213136",
+               "2M pasd"
+            ],
+            [
+               "213137",
+               "1M pasd"
+            ],
+            [
+               "213138",
+               "0S pasd"
+            ],
+            [
+               "213139",
+               "1M pasd"
+            ],
+            [
+               "213140",
+               "1M pasd"
+            ],
+            [
+               "213141",
+               "1M pasd"
+            ],
+            [
+               "2131107",
+               "3M pasd"
+            ],
+            [
+               "219361",
+               "2M pasd"
+            ],
+            [
+               "219362",
+               "1M pasd"
+            ],
+            [
+               "219363",
+               "1M pasd"
+            ],
+            [
+               "219364",
+               "1M pasd"
+            ],
+            [
+               "219365",
+               "1M pasd"
+            ],
+            [
+               "219366",
+               "1M pasd"
+            ],
+            [
+               "219367",
+               "0S pasd"
+            ],
+            [
+               "219368",
+               "1M pasd"
+            ],
+            [
+               "2193105",
+               "0S pasd"
+            ],
+            [
+               "219351",
+               "1M pasd"
+            ],
+            [
+               "219392",
+               "1M pasd"
+            ],
+            [
+               "219393",
+               "0S pasd"
+            ],
+            [
+               "220684",
+               "1M pasd"
+            ],
+            [
+               "220685",
+               "0S pasd"
+            ],
+            [
+               "220686",
+               "1M pasd"
+            ],
+            [
+               "220687",
+               "1M pasd"
+            ],
+            [
+               "220688",
+               "1M pasd"
+            ],
+            [
+               "220689",
+               "1M pasd"
+            ],
+            [
+               "2206126",
+               "1M pasd"
+            ],
+            [
+               "2206127",
+               "0S pasd"
+            ],
+            [
+               "2206125",
+               "0S pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "0S pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "0S pasd"
+            ],
+            [
+               "2206117",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-699-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fairlight St Nr Ingham Av - William St Nr Bexley Rd",
+            "rs_ref" : "RS_99-699-a-sj2-1-R-1",
+            "id" : "R_99-699-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-699-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "699"
+   },
+   "VJ_99-699-a-sj2-1-3-b009t" : {
+      "vjcode" : "VJ_99-699-a-sj2-1-3-b009t",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220860",
+               null
+            ],
+            [
+               "220834",
+               "0S pasd"
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "1M pasd"
+            ],
+            [
+               "220869",
+               "0S pasd"
+            ],
+            [
+               "220870",
+               "1M pasd"
+            ],
+            [
+               "220871",
+               "1M pasd"
+            ],
+            [
+               "220872",
+               "0S pasd"
+            ],
+            [
+               "220696",
+               "1M pasd"
+            ],
+            [
+               "220697",
+               "2M pasd"
+            ],
+            [
+               "220698",
+               "1M pasd"
+            ],
+            [
+               "220699",
+               "1M pasd"
+            ],
+            [
+               "2206100",
+               "3M pasd"
+            ],
+            [
+               "220623",
+               "2M pasd"
+            ],
+            [
+               "220669",
+               "1M pasd"
+            ],
+            [
+               "220678",
+               "1M pasd"
+            ],
+            [
+               "220679",
+               "1M pasd"
+            ],
+            [
+               "220680",
+               "0S pasd"
+            ],
+            [
+               "220681",
+               "1M pasd"
+            ],
+            [
+               "220682",
+               "1M pasd"
+            ],
+            [
+               "219390",
+               "0S pasd"
+            ],
+            [
+               "219391",
+               "2M pasd"
+            ],
+            [
+               "219345",
+               "0S pasd"
+            ],
+            [
+               "219321",
+               "1M pasd"
+            ],
+            [
+               "219353",
+               "1M pasd"
+            ],
+            [
+               "219354",
+               "0S pasd"
+            ],
+            [
+               "219355",
+               "1M pasd"
+            ],
+            [
+               "219356",
+               "1M pasd"
+            ],
+            [
+               "219357",
+               "1M pasd"
+            ],
+            [
+               "219358",
+               "0S pasd"
+            ],
+            [
+               "219359",
+               "1M pasd"
+            ],
+            [
+               "219360",
+               "1M pasd"
+            ],
+            [
+               "2131105",
+               "2M pasd"
+            ],
+            [
+               "2131106",
+               "1M pasd"
+            ],
+            [
+               "2131100",
+               "3M pasd"
+            ],
+            [
+               "2131101",
+               "1M pasd"
+            ],
+            [
+               "2131102",
+               "0S pasd"
+            ],
+            [
+               "2131103",
+               "1M pasd"
+            ],
+            [
+               "2131104",
+               "1M pasd"
+            ],
+            [
+               "213133",
+               "1M pasd"
+            ],
+            [
+               "213220",
+               "2M pasd"
+            ],
+            [
+               "204684",
+               "2M pasd"
+            ],
+            [
+               "2046149",
+               "3M pasd"
+            ],
+            [
+               "2046115",
+               "3M pasd"
+            ],
+            [
+               "2046116",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-699-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Richland St Nr Kingsgrove Bus Depot - First Av Nr Park Rd",
+            "rs_ref" : "RS_99-699-a-sj2-1-H-2",
+            "id" : "R_99-699-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-699-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "699"
+   },
+   "VJ_99-699-a-sj2-1-2-b009m" : {
+      "vjcode" : "VJ_99-699-a-sj2-1-2-b009m",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "220860",
+               null
+            ],
+            [
+               "220834",
+               "0S pasd"
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "1M pasd"
+            ],
+            [
+               "220869",
+               "0S pasd"
+            ],
+            [
+               "220870",
+               "1M pasd"
+            ],
+            [
+               "220871",
+               "1M pasd"
+            ],
+            [
+               "220872",
+               "0S pasd"
+            ],
+            [
+               "220696",
+               "1M pasd"
+            ],
+            [
+               "220697",
+               "2M pasd"
+            ],
+            [
+               "220698",
+               "1M pasd"
+            ],
+            [
+               "220699",
+               "1M pasd"
+            ],
+            [
+               "2206100",
+               "3M pasd"
+            ],
+            [
+               "220623",
+               "2M pasd"
+            ],
+            [
+               "220669",
+               "1M pasd"
+            ],
+            [
+               "220678",
+               "1M pasd"
+            ],
+            [
+               "220679",
+               "1M pasd"
+            ],
+            [
+               "220680",
+               "0S pasd"
+            ],
+            [
+               "220681",
+               "1M pasd"
+            ],
+            [
+               "220682",
+               "1M pasd"
+            ],
+            [
+               "219390",
+               "0S pasd"
+            ],
+            [
+               "219391",
+               "2M pasd"
+            ],
+            [
+               "219345",
+               "0S pasd"
+            ],
+            [
+               "219321",
+               "1M pasd"
+            ],
+            [
+               "219353",
+               "1M pasd"
+            ],
+            [
+               "219354",
+               "0S pasd"
+            ],
+            [
+               "219355",
+               "1M pasd"
+            ],
+            [
+               "219356",
+               "1M pasd"
+            ],
+            [
+               "219357",
+               "1M pasd"
+            ],
+            [
+               "219358",
+               "0S pasd"
+            ],
+            [
+               "219359",
+               "1M pasd"
+            ],
+            [
+               "219360",
+               "1M pasd"
+            ],
+            [
+               "2131105",
+               "2M pasd"
+            ],
+            [
+               "2131106",
+               "1M pasd"
+            ],
+            [
+               "2131100",
+               "3M pasd"
+            ],
+            [
+               "2131101",
+               "1M pasd"
+            ],
+            [
+               "2131102",
+               "0S pasd"
+            ],
+            [
+               "2131103",
+               "1M pasd"
+            ],
+            [
+               "2131104",
+               "1M pasd"
+            ],
+            [
+               "213133",
+               "1M pasd"
+            ],
+            [
+               "213220",
+               "2M pasd"
+            ],
+            [
+               "204684",
+               "2M pasd"
+            ],
+            [
+               "2046149",
+               "3M pasd"
+            ],
+            [
+               "2046115",
+               "3M pasd"
+            ],
+            [
+               "2046116",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-699-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Richland St Nr Kingsgrove Bus Depot - First Av Nr Park Rd",
+            "rs_ref" : "RS_99-699-a-sj2-1-H-2",
+            "id" : "R_99-699-a-sj2-1-H-2"
+         }
+      },
+      "service" : "99-699-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "699"
+   },
+   "VJ_99-699-a-sj2-1-4-b009x" : {
+      "vjcode" : "VJ_99-699-a-sj2-1-4-b009x",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204683",
+               null
+            ],
+            [
+               "2046112",
+               "1M pasd"
+            ],
+            [
+               "2046113",
+               "1M pasd"
+            ],
+            [
+               "2046114",
+               "1M pasd"
+            ],
+            [
+               "2046150",
+               "2M pasd"
+            ],
+            [
+               "2046151",
+               "1M pasd"
+            ],
+            [
+               "204695",
+               "1M pasd"
+            ],
+            [
+               "204669",
+               "1M pasd"
+            ],
+            [
+               "204670",
+               "1M pasd"
+            ],
+            [
+               "204511",
+               "1M pasd"
+            ],
+            [
+               "213136",
+               "2M pasd"
+            ],
+            [
+               "213137",
+               "1M pasd"
+            ],
+            [
+               "213138",
+               "0S pasd"
+            ],
+            [
+               "213139",
+               "1M pasd"
+            ],
+            [
+               "213140",
+               "1M pasd"
+            ],
+            [
+               "213141",
+               "1M pasd"
+            ],
+            [
+               "2131107",
+               "3M pasd"
+            ],
+            [
+               "219361",
+               "2M pasd"
+            ],
+            [
+               "219362",
+               "1M pasd"
+            ],
+            [
+               "219363",
+               "1M pasd"
+            ],
+            [
+               "219364",
+               "1M pasd"
+            ],
+            [
+               "219365",
+               "1M pasd"
+            ],
+            [
+               "219366",
+               "1M pasd"
+            ],
+            [
+               "219367",
+               "0S pasd"
+            ],
+            [
+               "219368",
+               "1M pasd"
+            ],
+            [
+               "2193105",
+               "0S pasd"
+            ],
+            [
+               "219351",
+               "1M pasd"
+            ],
+            [
+               "219392",
+               "1M pasd"
+            ],
+            [
+               "219393",
+               "0S pasd"
+            ],
+            [
+               "220684",
+               "1M pasd"
+            ],
+            [
+               "220685",
+               "0S pasd"
+            ],
+            [
+               "220686",
+               "1M pasd"
+            ],
+            [
+               "220687",
+               "1M pasd"
+            ],
+            [
+               "220688",
+               "1M pasd"
+            ],
+            [
+               "220689",
+               "1M pasd"
+            ],
+            [
+               "2206126",
+               "1M pasd"
+            ],
+            [
+               "2206127",
+               "0S pasd"
+            ],
+            [
+               "2206125",
+               "0S pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "0S pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "0S pasd"
+            ],
+            [
+               "2206117",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-699-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fairlight St Nr Ingham Av - William St Nr Bexley Rd",
+            "rs_ref" : "RS_99-699-a-sj2-1-R-1",
+            "id" : "R_99-699-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-699-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "699"
+   }
+}
+;
+

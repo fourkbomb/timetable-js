@@ -1,0 +1,512 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-836-_-sj2-1" : "836"
+}
+;
+
+var stations = {
+   "230312" : "Tudor St Nr Murray St",
+   "230050" : "Hunter St near Auckland St",
+   "230574" : "Lambton Rd Nr Greta Rd",
+   "230218" : "Hunter St opp Union St",
+   "229212" : "Lambton Rd nr Bavin St",
+   "230313" : "Tudor St Nr Murray St",
+   "2287281" : "Grandview Rd nr Cranbrook Pde",
+   "2287290" : "McCaffrey Dr opp Elbrook Dr",
+   "2287289" : "Mccaffrey Dr Nr Marshall St",
+   "2305157" : "Grandview Rd Nr Clepham St",
+   "2305156" : "Grandview Rd Opp Elbrook Dr",
+   "230036" : "Hunter St near Civic Theatre",
+   "230070" : "Bolton St near Church St",
+   "230034" : "Hunter St opp Darby St",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "2287282" : "Grandview Rd nr Meldon Pl",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "2305162" : "Grandview Rd Nr Elbrook Dr",
+   "230026" : "Hunter St near Darby St",
+   "230323" : "Tudor St nr Gordon Av",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "2287291" : "Mccaffrey Dr Nr Marshall St",
+   "230578" : "Russell Rd Opp Baker St",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "230017" : "Scott St near Wolfe St",
+   "229228" : "Belford St nr Dixon St",
+   "230222" : "Hunter St opp Steel St",
+   "229225" : "Belford St nr Samdon St",
+   "2287268" : "Grandview Rd nr Justin Pde",
+   "2287292" : "McCaffrey Dr opp Dean Pde",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "230225" : "Hunter St Opp Wood St",
+   "230580" : "Russell Rd Nr Brett St",
+   "2287271" : "Grandview Rd nr Spencer St",
+   "229265" : "Lambton Rd nr Bronte Rd",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "230321" : "Tudor St Nr Steel St",
+   "2287272" : "McCaffrey Dr nr Spencer St",
+   "2287267" : "Grandview Rd opp Meldon Cl",
+   "230012" : "Hunter St near Merewether St",
+   "229218" : "Hunter School Of Performing Arts",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "230229" : "Hunter St near National Park St",
+   "2305165" : "Grandview Rd Nr Marshall St",
+   "230069" : "Watt St near King St",
+   "230211" : "Hunter St nr Tudor St",
+   "230088" : "Church St near Newcastle Grammar School",
+   "2287294" : "McCaffrey Dr nr Rosedale Cr",
+   "230037" : "Hunter St opp Auckland St",
+   "2287293" : "McCaffrey Dr nr Orana St",
+   "229226" : "Belford St nr Torpey Pl",
+   "230087" : "Church St near Newcomen St",
+   "230028" : "Hunter St near Union St",
+   "230576" : "Alma Rd Nr Cromwell St",
+   "230090" : "King St near Watt St",
+   "2305108" : "Grandview Rd Opp Clepham St",
+   "2305154" : "Grandview Rd Nr Marshall St",
+   "230029" : "Scott St opp Perkins St",
+   "230570" : "Alma Rd Nr Regent St",
+   "230089" : "Bolton St near King St",
+   "230568" : "Russell Rd Nr Baker St",
+   "230316" : "Tudor St Nr Lawson St",
+   "2305153" : "Grandview Rd Nr Marshall St",
+   "2287270" : "Grandview Rd nr Wallsend South Prim",
+   "230033" : "Scott St opp Wolfe St",
+   "2305155" : "Grandview Rd Nr Arkana Cl",
+   "230317" : "Tudor St Nr Steel St",
+   "230566" : "Russell Rd Opp Brett St",
+   "230226" : "Hunter St Nr Hannell St",
+   "230041" : "Scott St near Newcastle Station",
+   "2305164" : "Grandview Rd Nr Marshall St",
+   "2305152" : "Grandview Rd Nr Lookout Rd",
+   "230565" : "Russell Rd Nr Croudace St",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "229227" : "Belford St nr Chatham St",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "230573" : "Lambton Rd Nr Turton Rd",
+   "230223" : "Tudor St Nr Parry St",
+   "230575" : "Lambton Rd Nr Wallarah Rd",
+   "230047" : "Hunter St near Perkins St",
+   "229250" : "Lambton Rd nr Market St",
+   "230214" : "Hunter St nr Steel St",
+   "229264" : "Lambton Rd nr Lang Rd",
+   "2305166" : "Grandview Rd Nr Lookout Rd",
+   "230571" : "Lambton Rd Nr Wallarah Rd",
+   "230572" : "Lambton Rd Nr Greta Rd",
+   "230230" : "Hunter St Nr Stewart Av",
+   "230315" : "Tudor St Nr Gordon Av",
+   "229260" : "Lambton Rd nr Australia Rd",
+   "2305163" : "Grandview Rd Nr Arkana Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-836-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-836-_-sj2-1-1-b0096",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "230087",
+               null
+            ],
+            [
+               "230089",
+               "1M pasd"
+            ],
+            [
+               "230090",
+               "0S pasd"
+            ],
+            [
+               "230017",
+               "2M pasd"
+            ],
+            [
+               "230047",
+               "1M pasd"
+            ],
+            [
+               "230026",
+               "1M pasd"
+            ],
+            [
+               "230036",
+               "0S pasd"
+            ],
+            [
+               "230050",
+               "1M pasd"
+            ],
+            [
+               "230028",
+               "1M pasd"
+            ],
+            [
+               "230214",
+               "1M pasd"
+            ],
+            [
+               "230229",
+               "1M pasd"
+            ],
+            [
+               "230230",
+               "1M pasd"
+            ],
+            [
+               "230211",
+               "1M pasd"
+            ],
+            [
+               "230315",
+               "1M pasd"
+            ],
+            [
+               "230316",
+               "1M pasd"
+            ],
+            [
+               "230313",
+               "0S pasd"
+            ],
+            [
+               "230317",
+               "1M pasd"
+            ],
+            [
+               "229228",
+               "0S pasd"
+            ],
+            [
+               "229227",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "2M pasd"
+            ],
+            [
+               "229218",
+               "1M pasd"
+            ],
+            [
+               "229264",
+               "1M pasd"
+            ],
+            [
+               "230574",
+               "1M pasd"
+            ],
+            [
+               "230575",
+               "1M pasd"
+            ],
+            [
+               "230576",
+               "1M pasd"
+            ],
+            [
+               "230577",
+               "0S pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "0S pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2287289",
+               "2M pasd"
+            ],
+            [
+               "2287292",
+               "0S pasd"
+            ],
+            [
+               "2287293",
+               "1M pasd"
+            ],
+            [
+               "2287294",
+               "0S pasd"
+            ],
+            [
+               "2287272",
+               "1M pasd"
+            ],
+            [
+               "2287271",
+               "0S pasd"
+            ],
+            [
+               "2287281",
+               "1M pasd"
+            ],
+            [
+               "2287282",
+               "1M pasd"
+            ],
+            [
+               "2305108",
+               "0S pasd"
+            ],
+            [
+               "2305162",
+               "1M pasd"
+            ],
+            [
+               "2305163",
+               "1M pasd"
+            ],
+            [
+               "2305164",
+               "0S pasd"
+            ],
+            [
+               "2305165",
+               "1M pasd"
+            ],
+            [
+               "2305166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-836-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Church St near Newcomen St - Grandview Rd Nr Lookout Rd",
+            "rs_ref" : "RS_94-836-_-sj2-1-R-1",
+            "id" : "R_94-836-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-836-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "836"
+   },
+   "VJ_94-836-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-836-_-sj2-1-2-b0096",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2305152",
+               null
+            ],
+            [
+               "2305153",
+               "0S pasd"
+            ],
+            [
+               "2305154",
+               "1M pasd"
+            ],
+            [
+               "2305155",
+               "0S pasd"
+            ],
+            [
+               "2305156",
+               "1M pasd"
+            ],
+            [
+               "2305157",
+               "1M pasd"
+            ],
+            [
+               "2287267",
+               "0S pasd"
+            ],
+            [
+               "2287268",
+               "1M pasd"
+            ],
+            [
+               "2287270",
+               "1M pasd"
+            ],
+            [
+               "2287295",
+               "0S pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "0S pasd"
+            ],
+            [
+               "2287290",
+               "1M pasd"
+            ],
+            [
+               "2287291",
+               "0S pasd"
+            ],
+            [
+               "2305171",
+               "2M pasd"
+            ],
+            [
+               "2305172",
+               "1M pasd"
+            ],
+            [
+               "230565",
+               "1M pasd"
+            ],
+            [
+               "230566",
+               "0S pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "230571",
+               "1M pasd"
+            ],
+            [
+               "230572",
+               "1M pasd"
+            ],
+            [
+               "230573",
+               "0S pasd"
+            ],
+            [
+               "229265",
+               "1M pasd"
+            ],
+            [
+               "229212",
+               "1M pasd"
+            ],
+            [
+               "229266",
+               "1M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229226",
+               "1M pasd"
+            ],
+            [
+               "229225",
+               "1M pasd"
+            ],
+            [
+               "230321",
+               "0S pasd"
+            ],
+            [
+               "230312",
+               "1M pasd"
+            ],
+            [
+               "230323",
+               "1M pasd"
+            ],
+            [
+               "230223",
+               "1M pasd"
+            ],
+            [
+               "230225",
+               "1M pasd"
+            ],
+            [
+               "230226",
+               "1M pasd"
+            ],
+            [
+               "230222",
+               "1M pasd"
+            ],
+            [
+               "230218",
+               "1M pasd"
+            ],
+            [
+               "230037",
+               "1M pasd"
+            ],
+            [
+               "230012",
+               "1M pasd"
+            ],
+            [
+               "230034",
+               "0S pasd"
+            ],
+            [
+               "230029",
+               "2M pasd"
+            ],
+            [
+               "230033",
+               "0S pasd"
+            ],
+            [
+               "230041",
+               "1M pasd"
+            ],
+            [
+               "230069",
+               "1M pasd"
+            ],
+            [
+               "230070",
+               "0S pasd"
+            ],
+            [
+               "230088",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-836-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Grandview Rd Nr Lookout Rd - Church St near Newcastle Grammar School",
+            "rs_ref" : "RS_94-836-_-sj2-1-H-2",
+            "id" : "R_94-836-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-836-_-sj2-1",
+      "line" : "836"
+   }
+}
+;
+

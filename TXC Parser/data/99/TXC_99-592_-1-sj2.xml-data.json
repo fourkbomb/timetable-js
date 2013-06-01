@@ -1,0 +1,1262 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-592-_-sj2-1" : "592"
+}
+;
+
+var stations = {
+   "211127" : "Riverside Girls School Stand 1",
+   "211359" : "Coxs Rd Nr Badajoz Rd",
+   "212254" : "Kent Rd Nr Herring Rd",
+   "212249" : "Herring Rd Nr Bridge Rd",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "212256" : "Kent Rd Nr Kent Rd Primary",
+   "211350" : "Kent Rd Nr Pindari St",
+   "2112165" : "Quarry Rd Nr Dobson Cr",
+   "211356" : "Coxs Rd Nr Holy Spirit Primary",
+   "2112167" : "Quarry Rd Nr Boyce St",
+   "2112168" : "Quarry Rd Nr Jones St",
+   "211365" : "Blenheim Rd Nr Coxs Rd",
+   "212240" : "Herring Rd Nr Bridge Rd",
+   "2112245" : "Quarry Rd Nr Lane Cove Rd",
+   "2112196" : "Gardener Av Nr Buffalo Rd",
+   "2112145" : "Bridge Rd Nr Ellen St",
+   "211130" : "Riverside Girls School Stand 2",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "211257" : "Bridge Rd Nr Ellen St",
+   "211355" : "Coxs Rd Nr North Ryde Primary",
+   "211360" : "Blenheim Rd Nr Cutler Pde",
+   "211363" : "Blenhiem Rd Nr Warwick St",
+   "211389" : "Bridge Rd Nr Smalls Rd",
+   "211258" : "Bridge Rd Nr Patricia St",
+   "211260" : "Goulding Rd Nr Twin Rd",
+   "211115" : "Victoria Rd nr Westminster Rd",
+   "211351" : "Kent Rd Nr Ada St",
+   "211224" : "Victoria Rd Nr Cressy Rd",
+   "211364" : "Blenheim Rd Nr Cutler Pde",
+   "211118" : "Victoria Rd nr Cowell St",
+   "2112195" : "Gardener Av Nr Buffalo Rd",
+   "211122" : "Victoria Rd Nr Salter St",
+   "212250" : "Herring Rd Nr Blundell St",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "2112141" : "Bridge Rd Nr Watts Rd",
+   "2112200" : "Buffalo Rd Nr Malvina Rd",
+   "211399" : "Twin Rd Nr Lane Cove Rd",
+   "2112164" : "Quarry Rd Nr Woodbine Cr",
+   "211256" : "Bridge Rd Nr Dorothy St",
+   "2112171" : "Gardener Av Nr Bidgee St",
+   "211349" : "Kent Rd Nr Lane Cove Rd",
+   "2113100" : "Twin Rd Nr Dempsey St",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "2111100" : "Monash Rd Nr Victoria Rd",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "211391" : "Bridge Rd Nr Brendon St",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "211388" : "Bridge Rd Nr Lavarack St",
+   "2112172" : "Gardener Av Nr Bidgee St",
+   "2122186" : "Bridge Rd Nr Watts Rd",
+   "211392" : "Bridge Rd Nr Flinders Rd",
+   "211121" : "Victoria Rd nr Sunnyside St",
+   "211123" : "Victoria Rd nr Mortimer Lewis Dr",
+   "211348" : "Kent Rd Nr Milroy St",
+   "211393" : "Bridge Rd Nr Eastview Av",
+   "211149" : "Buffalo Rd Nr Nelson St",
+   "211352" : "Kent Rd Nr Ruse St",
+   "211112" : "Victoria Rd nr Frank St",
+   "211354" : "Coxs Rd Nr Lane Cove Rd",
+   "211347" : "Kent Rd Nr Ruse St",
+   "2112169" : "Gardener Av Nr Quarry Rd",
+   "2112198" : "Gardener Av Nr Jones St",
+   "211394" : "Twin Rd Nr Dempsey St",
+   "211114" : "Victoria Rd nr Monash Rd",
+   "2112201" : "Buffalo Rd Nr Providence Rd",
+   "211259" : "Goulding Rd Nr Byron Av",
+   "211148" : "Buffalo Rd nr Owen St",
+   "2112212" : "Buffalo Rd Nr Princes St",
+   "2112170" : "Gardener Av Nr Quarry Rd",
+   "212239" : "Herring Rd Nr Patricia St",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "211120" : "Victoria Rd nr Hillcrest Av",
+   "211353" : "Kent Rd Opp Els Hall Park",
+   "211358" : "Coxs Rd Nr Blamey St",
+   "211117" : "Victoria Rd nr Pittwater Rd",
+   "2112213" : "Buffalo Rd Nr Kells Rd",
+   "211361" : "Blenhiem Rd Nr Morshead St",
+   "212238" : "Herring Rd Nr Agincourt Rd",
+   "211113" : "Victoria Rd nr Tennyson Rd",
+   "211370" : "Coxs Rd Nr Lane Cove Rd",
+   "2113106" : "Bridge Rd Nr Flinders Rd",
+   "2112197" : "Gardener Av Nr Jones St",
+   "211262" : "Goulding Rd Nr Macleay St",
+   "212255" : "Kent Rd Nr Els Hall Park",
+   "211116" : "Victoria Rd nr Concord Pl",
+   "211390" : "Bridge Rd Nr Brendon St",
+   "211261" : "Goulding Rd Nr Keppel St",
+   "211357" : "Coxs Rd Nr Ryrie St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-592-_-sj2-1-5-b00bk" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-5-b00bk",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211130",
+               null
+            ],
+            [
+               "2111100",
+               "6M pasd"
+            ],
+            [
+               "211148",
+               "2M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "2M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "2M pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "1M pasd"
+            ],
+            [
+               "2112171",
+               "0S pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "0S pasd"
+            ],
+            [
+               "2112141",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "0S pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "0S pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "0S pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "0S pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Riverside Girls School - Blenhiem Rd Nr Morshead St",
+            "rs_ref" : "RS_99-592-_-sj2-1-R-2",
+            "id" : "R_99-592-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Friday"
+      ],
+      "line" : "592"
+   },
+   "VJ_99-592-_-sj2-1-4-b00bk" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-4-b00bk",
+      "leaves" : "07:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211363",
+               null
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "1M pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "2122186",
+               "0S pasd"
+            ],
+            [
+               "2112145",
+               "1M pasd"
+            ],
+            [
+               "211258",
+               "1M pasd"
+            ],
+            [
+               "211391",
+               "0S pasd"
+            ],
+            [
+               "211392",
+               "1M pasd"
+            ],
+            [
+               "211393",
+               "1M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "1M pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "2112169",
+               "0S pasd"
+            ],
+            [
+               "2112172",
+               "1M pasd"
+            ],
+            [
+               "2112198",
+               "0S pasd"
+            ],
+            [
+               "2112196",
+               "1M pasd"
+            ],
+            [
+               "2112213",
+               "1M pasd"
+            ],
+            [
+               "2112200",
+               "1M pasd"
+            ],
+            [
+               "211238",
+               "3M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "2M pasd"
+            ],
+            [
+               "211113",
+               "0S pasd"
+            ],
+            [
+               "211114",
+               "1M pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "1M pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "1M pasd"
+            ],
+            [
+               "211123",
+               "0S pasd"
+            ],
+            [
+               "211127",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Blenhiem Rd Nr Warwick St - Riverside Girls School",
+            "rs_ref" : "RS_99-592-_-sj2-1-H-1",
+            "id" : "R_99-592-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "592"
+   },
+   "VJ_99-592-_-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-3-b00bk",
+      "leaves" : "14:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211130",
+               null
+            ],
+            [
+               "2111100",
+               "6M pasd"
+            ],
+            [
+               "211148",
+               "2M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "2M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "2M pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "1M pasd"
+            ],
+            [
+               "2112171",
+               "0S pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "0S pasd"
+            ],
+            [
+               "2112141",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "0S pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "0S pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "0S pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "0S pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Riverside Girls School - Blenhiem Rd Nr Morshead St",
+            "rs_ref" : "RS_99-592-_-sj2-1-R-2",
+            "id" : "R_99-592-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday"
+      ],
+      "line" : "592"
+   },
+   "VJ_99-592-_-sj2-1-6-b00bj" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-6-b00bj",
+      "leaves" : "14:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211130",
+               null
+            ],
+            [
+               "2111100",
+               "6M pasd"
+            ],
+            [
+               "211148",
+               "2M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "2M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "2M pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "1M pasd"
+            ],
+            [
+               "2112171",
+               "0S pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "0S pasd"
+            ],
+            [
+               "2112141",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "0S pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "0S pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "0S pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "0S pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Riverside Girls School - Blenhiem Rd Nr Morshead St",
+            "rs_ref" : "RS_99-592-_-sj2-1-R-2",
+            "id" : "R_99-592-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Thursday"
+      ],
+      "line" : "592"
+   },
+   "VJ_99-592-_-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-2-b00bj",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211130",
+               null
+            ],
+            [
+               "2111100",
+               "6M pasd"
+            ],
+            [
+               "211148",
+               "2M pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "2M pasd"
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "2112201",
+               "1M pasd"
+            ],
+            [
+               "2112212",
+               "2M pasd"
+            ],
+            [
+               "2112195",
+               "1M pasd"
+            ],
+            [
+               "2112197",
+               "1M pasd"
+            ],
+            [
+               "2112171",
+               "0S pasd"
+            ],
+            [
+               "2112170",
+               "1M pasd"
+            ],
+            [
+               "2112168",
+               "0S pasd"
+            ],
+            [
+               "2112165",
+               "1M pasd"
+            ],
+            [
+               "211259",
+               "1M pasd"
+            ],
+            [
+               "211260",
+               "1M pasd"
+            ],
+            [
+               "211394",
+               "0S pasd"
+            ],
+            [
+               "211388",
+               "1M pasd"
+            ],
+            [
+               "211389",
+               "0S pasd"
+            ],
+            [
+               "2113106",
+               "0S pasd"
+            ],
+            [
+               "211390",
+               "1M pasd"
+            ],
+            [
+               "211256",
+               "0S pasd"
+            ],
+            [
+               "211257",
+               "0S pasd"
+            ],
+            [
+               "2112141",
+               "1M pasd"
+            ],
+            [
+               "212249",
+               "0S pasd"
+            ],
+            [
+               "212250",
+               "1M pasd"
+            ],
+            [
+               "212254",
+               "0S pasd"
+            ],
+            [
+               "212255",
+               "1M pasd"
+            ],
+            [
+               "211347",
+               "0S pasd"
+            ],
+            [
+               "211348",
+               "1M pasd"
+            ],
+            [
+               "211349",
+               "0S pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "0S pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "0S pasd"
+            ],
+            [
+               "211361",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Riverside Girls School - Blenhiem Rd Nr Morshead St",
+            "rs_ref" : "RS_99-592-_-sj2-1-R-2",
+            "id" : "R_99-592-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Friday"
+      ],
+      "line" : "592"
+   },
+   "VJ_99-592-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-592-_-sj2-1-1-b00bj",
+      "leaves" : "07:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211363",
+               null
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "1M pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "0S pasd"
+            ],
+            [
+               "212238",
+               "1M pasd"
+            ],
+            [
+               "212239",
+               "1M pasd"
+            ],
+            [
+               "212240",
+               "0S pasd"
+            ],
+            [
+               "2122186",
+               "0S pasd"
+            ],
+            [
+               "2112145",
+               "1M pasd"
+            ],
+            [
+               "211258",
+               "1M pasd"
+            ],
+            [
+               "211391",
+               "0S pasd"
+            ],
+            [
+               "211392",
+               "1M pasd"
+            ],
+            [
+               "211393",
+               "1M pasd"
+            ],
+            [
+               "211399",
+               "0S pasd"
+            ],
+            [
+               "2113100",
+               "0S pasd"
+            ],
+            [
+               "211261",
+               "2M pasd"
+            ],
+            [
+               "211262",
+               "1M pasd"
+            ],
+            [
+               "2112245",
+               "1M pasd"
+            ],
+            [
+               "2112164",
+               "1M pasd"
+            ],
+            [
+               "2112167",
+               "1M pasd"
+            ],
+            [
+               "2112169",
+               "0S pasd"
+            ],
+            [
+               "2112172",
+               "1M pasd"
+            ],
+            [
+               "2112198",
+               "0S pasd"
+            ],
+            [
+               "2112196",
+               "1M pasd"
+            ],
+            [
+               "2112213",
+               "1M pasd"
+            ],
+            [
+               "2112200",
+               "1M pasd"
+            ],
+            [
+               "211238",
+               "3M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "2M pasd"
+            ],
+            [
+               "211113",
+               "0S pasd"
+            ],
+            [
+               "211114",
+               "1M pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "1M pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "1M pasd"
+            ],
+            [
+               "211123",
+               "0S pasd"
+            ],
+            [
+               "211127",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-592-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Blenhiem Rd Nr Warwick St - Riverside Girls School",
+            "rs_ref" : "RS_99-592-_-sj2-1-H-1",
+            "id" : "R_99-592-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-592-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "592"
+   }
+}
+;
+

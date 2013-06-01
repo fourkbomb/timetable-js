@@ -1,0 +1,700 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-785-g-sj2-1" : "785g"
+}
+;
+
+var stations = {
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "2099150" : "Carrington Av Nr Toronto Av",
+   "210322" : "Pittwater Rd Nr Vineyard St",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "2100113" : "Warringah Rd nr Cornish Av",
+   "210236" : "Macpherson St Nr Brands Lane",
+   "210365" : "Keenan St Nr Park St",
+   "210237" : "Macpherson St Nr Boondah Rd",
+   "210233" : "Garden St Nr Orchard St",
+   "2099127" : "Alfred St nr Carawa Rd",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "210342" : "Waratah St Nr Mona Vale Primary",
+   "210235" : "Garden St Nr Macpherson St",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "2099187" : "South Creeek Rd Nr Campbell Pde",
+   "2100143" : "Warringah Rd nr Ellis Rd",
+   "210234" : "Garden St Nr Macpherson St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "2100140" : "Warringah Rd nr McKillop Rd",
+   "2103105" : "Pittwater Rd Nr Jenkins St",
+   "2099186" : "South Creek Rd nr Inman Rd",
+   "210155" : "Garden St near Pittwater Rd",
+   "2099148" : "Grover Av nr Carcoola Av",
+   "2099146" : "Carcoola Rd Nr Carawa Rd",
+   "2099147" : "Carcoola Rd nr Pinta Pl",
+   "2100144" : "Warringah Rd nr Oxford Falls Rd",
+   "2100114" : "Warringah Rd nr Willandra Rd",
+   "210112" : "Pittwater Rd Nr Goodwin St",
+   "2099123" : "Alfred St Nr Parr Pde",
+   "2099122" : "Alfred St nr McIntosh Rd",
+   "210320" : "Pittwater Rd Nr Coronation St",
+   "2099175" : "South Creek Rd Nr Thew Pde",
+   "209974" : "Alfred St nr St. Johns Primary",
+   "210341" : "Waratah St Nr Bungan St",
+   "2100139" : "Warringah Rd opp Beacon Hill Rd",
+   "2099106" : "Warringah Rd nr Princess Mary St",
+   "210115" : "Pittwater Rd Nr Waterloo St",
+   "2099107" : "Warringah Rd nr Waratah Pde",
+   "210368" : "Mona St Nr Pittwater High School",
+   "210117" : "Pittwater Rd nr Garden St",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "2099124" : "Narraweena_ Alfred nr Karoola",
+   "210321" : "Pittwater Rd Nr Rowan St",
+   "2099108" : "Warringah Rd nr Alfred St",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "210113" : "Pittwater Rd Nr Devitt St",
+   "210327" : "Pittwater Rd Nr Darley St West",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "2099149" : "Carrington Av Nr Washington Av",
+   "2099125" : "Alfred Nr Rowena",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "210319" : "Pittwater Rd Nr Elimatta Rd",
+   "210116" : "Pittwater Rd nr Nareen Pde",
+   "2099128" : "Carawa Rd nr Davison St",
+   "210221" : "Mater Maria School",
+   "2099119" : "Alfred St Nr Warringah Rd",
+   "2099126" : "Alfred St Nr Maas St",
+   "210222" : "Macpherson St Nr Forrest Rd",
+   "210231" : "Garden St nr Irrawong Rd",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "210127" : "Garden St Nr Jacksons Rd",
+   "210232" : "Garden St Nr Retirement Village",
+   "2099120" : "Alfred St nr Amaral St",
+   "210126" : "Garden St Nr The Crescent",
+   "210223" : "Macpherson St nr Garden St",
+   "210114" : "Pittwater Rd nr Narrabeen St",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "2099143" : "Alfred St Nr Greenwood Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-785-g-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-785-g-sj2-1-1-b00b2",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100143",
+               null
+            ],
+            [
+               "2100144",
+               "0S pasd"
+            ],
+            [
+               "2100113",
+               "1M pasd"
+            ],
+            [
+               "2100114",
+               "1M pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "0S pasd"
+            ],
+            [
+               "2099108",
+               "1M pasd"
+            ],
+            [
+               "2099119",
+               "0S pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "209974",
+               "0S pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "1M pasd"
+            ],
+            [
+               "2099125",
+               "0S pasd"
+            ],
+            [
+               "2099126",
+               "1M pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099128",
+               "0S pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "0S pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "0S pasd"
+            ],
+            [
+               "2099175",
+               "2M pasd"
+            ],
+            [
+               "2099186",
+               "1M pasd"
+            ],
+            [
+               "2099187",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "2M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "2M pasd"
+            ],
+            [
+               "210117",
+               "0S pasd"
+            ],
+            [
+               "210155",
+               "1M pasd"
+            ],
+            [
+               "210126",
+               "1M pasd"
+            ],
+            [
+               "210127",
+               "1M pasd"
+            ],
+            [
+               "210231",
+               "1M pasd"
+            ],
+            [
+               "210232",
+               "0S pasd"
+            ],
+            [
+               "210233",
+               "1M pasd"
+            ],
+            [
+               "210234",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "0S pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210319",
+               "3M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210321",
+               "1M pasd"
+            ],
+            [
+               "210322",
+               "0S pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210341",
+               "2M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "1M pasd"
+            ],
+            [
+               "210368",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-785-g-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Warringah Rd nr Ellis Rd - Mona St Nr Pittwater High School",
+            "rs_ref" : "RS_99-785-g-sj2-1-H-1",
+            "id" : "R_99-785-g-sj2-1-H-1"
+         }
+      },
+      "service" : "99-785-g-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "785g"
+   },
+   "VJ_99-785-g-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-785-g-sj2-1-2-b00b7",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2100143",
+               null
+            ],
+            [
+               "2100144",
+               "0S pasd"
+            ],
+            [
+               "2100113",
+               "1M pasd"
+            ],
+            [
+               "2100114",
+               "1M pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "0S pasd"
+            ],
+            [
+               "2099108",
+               "1M pasd"
+            ],
+            [
+               "2099119",
+               "0S pasd"
+            ],
+            [
+               "2099120",
+               "1M pasd"
+            ],
+            [
+               "209974",
+               "0S pasd"
+            ],
+            [
+               "2099122",
+               "0S pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "1M pasd"
+            ],
+            [
+               "2099125",
+               "0S pasd"
+            ],
+            [
+               "2099126",
+               "1M pasd"
+            ],
+            [
+               "2099127",
+               "1M pasd"
+            ],
+            [
+               "2099128",
+               "0S pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "0S pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "0S pasd"
+            ],
+            [
+               "2099175",
+               "2M pasd"
+            ],
+            [
+               "2099186",
+               "1M pasd"
+            ],
+            [
+               "2099187",
+               "1M pasd"
+            ],
+            [
+               "2099201",
+               "0S pasd"
+            ],
+            [
+               "209711",
+               "2M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210116",
+               "2M pasd"
+            ],
+            [
+               "210117",
+               "0S pasd"
+            ],
+            [
+               "210155",
+               "1M pasd"
+            ],
+            [
+               "210126",
+               "1M pasd"
+            ],
+            [
+               "210127",
+               "1M pasd"
+            ],
+            [
+               "210231",
+               "1M pasd"
+            ],
+            [
+               "210232",
+               "0S pasd"
+            ],
+            [
+               "210233",
+               "1M pasd"
+            ],
+            [
+               "210234",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "0S pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210319",
+               "3M pasd"
+            ],
+            [
+               "210320",
+               "0S pasd"
+            ],
+            [
+               "2103105",
+               "0S pasd"
+            ],
+            [
+               "210321",
+               "1M pasd"
+            ],
+            [
+               "210322",
+               "0S pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210341",
+               "2M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "1M pasd"
+            ],
+            [
+               "210327",
+               "1M pasd"
+            ],
+            [
+               "210368",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-785-g-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Warringah Rd nr Ellis Rd - Mona St Nr Pittwater High School",
+            "rs_ref" : "RS_99-785-g-sj2-1-H-1",
+            "id" : "R_99-785-g-sj2-1-H-1"
+         }
+      },
+      "service" : "99-785-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "785g"
+   }
+}
+;
+

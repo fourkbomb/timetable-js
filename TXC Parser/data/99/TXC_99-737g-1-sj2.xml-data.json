@@ -1,0 +1,457 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-737-g-sj2-1" : "737"
+}
+;
+
+var stations = {
+   "209211" : "Manly Rd Nr Avona Cr",
+   "209428" : "Lauderdale Av Nr Woods Pde",
+   "209311" : "Sydney Rd nr Dudley St",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "209528" : "West Esplanade Nr Rowe St",
+   "209425" : "Lauderdale Av 100m W Of Rosedale Av",
+   "2093139" : "White St Nr Condamine St",
+   "2093125" : "Beatrice St Nr Ernest St",
+   "2088181" : "Spit Rd Nr Awaba St",
+   "2093121" : "Upper Beach St nr Maretimo St",
+   "209381" : "Bungaloe Av Nr Lower Beach St",
+   "2093129" : "Curban St opp Concise St",
+   "2093126" : "Ernest St Nr Lewis St",
+   "2093130" : "Curban St Nr Valley Rd",
+   "2088177" : "Military Rd Nr Lang St",
+   "209526" : "The Crescent Nr Laurence St",
+   "209057" : "Spofforth St Nr Military Rd",
+   "2093128" : "Curban St Nr Vista Av",
+   "2088178" : "Military Rd Nr Bond St",
+   "2093122" : "Upper Beach St nr Seaview St",
+   "2093137" : "Upper Beach St nr Woodland St",
+   "2088176" : "Military Rd Nr Prince St",
+   "2088179" : "Military Rd Nr Cowles Rd",
+   "209049" : "Murdoch St nr SCEGGS Jnr",
+   "208811" : "Spit Rd Nr Parriwi Rd",
+   "209054" : "Spofforth St Nr Cranbrook Av",
+   "209424" : "Lauderdale Av Nr Willyama Av",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "209581" : "West Esplanade Stand J",
+   "2093127" : "Ernest St Nr Radio Av",
+   "209055" : "Spofforth St Nr Holt Av",
+   "2088180" : "Spit Junction_ Spit Rd.",
+   "2093118" : "Maretimo St nr Violet St",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "2093124" : "Beatrice St Nr The Walk",
+   "2093132" : "New St nr Hogan St",
+   "2093138" : "Woodland St Nr White St",
+   "209426" : "Lauderdale Av nr Rosedale Av",
+   "2088185" : "Spit Rd Nr Pearl Bay Av",
+   "209380" : "New St nr Bungaloe Av",
+   "2093131" : "Curban St Nr New St",
+   "2093140" : "White St nr Orchard St",
+   "2093123" : "Seaview St nr New St",
+   "209427" : "Lauderdale Av Nr Bolingbroke Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-737-g-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-737-g-sj2-1-2-b00b7",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209049",
+               null
+            ],
+            [
+               "209054",
+               "2M pasd"
+            ],
+            [
+               "209055",
+               "0S pasd"
+            ],
+            [
+               "209057",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "2088179",
+               "1M pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "2M pasd"
+            ],
+            [
+               "209311",
+               "2M pasd"
+            ],
+            [
+               "2093118",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "1M pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "1M pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "2093126",
+               "0S pasd"
+            ],
+            [
+               "2093127",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "0S pasd"
+            ],
+            [
+               "2093131",
+               "1M pasd"
+            ],
+            [
+               "2093132",
+               "0S pasd"
+            ],
+            [
+               "209380",
+               "1M pasd"
+            ],
+            [
+               "209381",
+               "0S pasd"
+            ],
+            [
+               "2093137",
+               "1M pasd"
+            ],
+            [
+               "2093138",
+               "0S pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "1M pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "1M pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-737-g-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Murdoch St nr SCEGGS Jnr - West Esplanade",
+            "rs_ref" : "RS_99-737-g-sj2-1-R-1",
+            "id" : "R_99-737-g-sj2-1-R-1"
+         }
+      },
+      "service" : "99-737-g-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "737"
+   },
+   "VJ_99-737-g-sj2-1-1-b00aa" : {
+      "vjcode" : "VJ_99-737-g-sj2-1-1-b00aa",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209049",
+               null
+            ],
+            [
+               "209054",
+               "2M pasd"
+            ],
+            [
+               "209055",
+               "0S pasd"
+            ],
+            [
+               "209057",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "2088179",
+               "1M pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "2M pasd"
+            ],
+            [
+               "209311",
+               "2M pasd"
+            ],
+            [
+               "2093118",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "1M pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "1M pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "2093126",
+               "0S pasd"
+            ],
+            [
+               "2093127",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "0S pasd"
+            ],
+            [
+               "2093131",
+               "1M pasd"
+            ],
+            [
+               "2093132",
+               "0S pasd"
+            ],
+            [
+               "209380",
+               "1M pasd"
+            ],
+            [
+               "209381",
+               "0S pasd"
+            ],
+            [
+               "2093137",
+               "1M pasd"
+            ],
+            [
+               "2093138",
+               "0S pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "1M pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "1M pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-737-g-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Murdoch St nr SCEGGS Jnr - West Esplanade",
+            "rs_ref" : "RS_99-737-g-sj2-1-R-1",
+            "id" : "R_99-737-g-sj2-1-R-1"
+         }
+      },
+      "service" : "99-737-g-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "737"
+   }
+}
+;
+

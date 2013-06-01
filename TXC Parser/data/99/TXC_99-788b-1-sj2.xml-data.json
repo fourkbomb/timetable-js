@@ -1,0 +1,403 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-788-b-sj2-1" : "788"
+}
+;
+
+var stations = {
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "2107149" : "Old Barrenjoey Rd opp Avalon Primary",
+   "210754" : "Avalon Pde nr Old Barrenjoey Rd",
+   "210638" : "Beaconsfield St Nr Newport Primary",
+   "210637" : "Kalinya St Nr Beaconsfield St",
+   "210725" : "Barrenjoey Rd nr Eastbourne Av",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "2107144" : "Catalina Cr Nr Coonanga Rd",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210256" : "Pittwater Rd Nr Arnott Cr",
+   "2107143" : "Coonanga Rd nr Barrenjoey High School",
+   "210633" : "Gladstone St Nr Barrenjoey Rd",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "210634" : "Gladstone Rd Nr Bishop St",
+   "210640" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210380" : "Pittwater Rd Nr Coronation St",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "210636" : "Kalinya St Nr Gladstone Rd",
+   "210378" : "Pittwater Rd Nr Rowan St",
+   "210635" : "Gladstone Rd Nr King St",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210379" : "Pittwater Rd Nr Jenkins St",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "210755" : "Old Barrenjoey Rd Nr Dress Circle Rd",
+   "210727" : "Barrenjoey Rd Nr Central Rd",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210732" : "Barrenjoey Rd Nr The Serpentine",
+   "210726" : "Barrenjoey Rd Nr Wollstonecraft Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-788-b-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-788-b-sj2-1-2-b009g",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2107143",
+               null
+            ],
+            [
+               "2107144",
+               "0S pasd"
+            ],
+            [
+               "210725",
+               "2M pasd"
+            ],
+            [
+               "210726",
+               "1M pasd"
+            ],
+            [
+               "210727",
+               "1M pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ],
+            [
+               "210754",
+               "1M pasd"
+            ],
+            [
+               "2107149",
+               "1M pasd"
+            ],
+            [
+               "210755",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "3M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "0S pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "2M pasd"
+            ],
+            [
+               "210143",
+               "0S pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ],
+            [
+               "210145",
+               "0S pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-788-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Coonanga Rd nr Barrenjoey High School - Pittwater Rd Nr Waterloo St",
+            "rs_ref" : "RS_99-788-b-sj2-1-R-1",
+            "id" : "R_99-788-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-788-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "788"
+   },
+   "VJ_99-788-b-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-788-b-sj2-1-1-b009h",
+      "leaves" : "15:28:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2107143",
+               null
+            ],
+            [
+               "2107144",
+               "0S pasd"
+            ],
+            [
+               "210725",
+               "2M pasd"
+            ],
+            [
+               "210726",
+               "1M pasd"
+            ],
+            [
+               "210727",
+               "1M pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ],
+            [
+               "210754",
+               "1M pasd"
+            ],
+            [
+               "2107149",
+               "1M pasd"
+            ],
+            [
+               "210755",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "3M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "0S pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "0S pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "1M pasd"
+            ],
+            [
+               "210380",
+               "0S pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "2M pasd"
+            ],
+            [
+               "210143",
+               "0S pasd"
+            ],
+            [
+               "210144",
+               "1M pasd"
+            ],
+            [
+               "210145",
+               "0S pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-788-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Coonanga Rd nr Barrenjoey High School - Pittwater Rd Nr Waterloo St",
+            "rs_ref" : "RS_99-788-b-sj2-1-R-1",
+            "id" : "R_99-788-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-788-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "788"
+   }
+}
+;
+

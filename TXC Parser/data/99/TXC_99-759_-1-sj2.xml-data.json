@@ -1,0 +1,670 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-759-_-sj2-1" : "759"
+}
+;
+
+var stations = {
+   "212190" : "Rawson St Nr Carlingford Rd",
+   "2125138" : "Stanton Dr near Moolanda Av",
+   "2118195" : "North Rocks Rd Nr Carlingford High",
+   "2125137" : "Eaton Rd opp Stanton Dr",
+   "2125162" : "Eaton Rd near Pennant Hills Rd",
+   "2118143" : "Farnell Av near Citrus Gr",
+   "211844" : "Pennant Hills Rd Nr Coleman Av",
+   "211818" : "Carlingford Rd opp Hepburn Av",
+   "2118113" : "Oakes Rd near Carmen Dr",
+   "2125157" : "Eaton Rd opp Westmore Dr",
+   "2125160" : "Karloon Rd near Ashley Av",
+   "2118201" : "Jenkins Rd near Baker St",
+   "211814" : "Pennant Hills Rd near Alamein Av",
+   "2118141" : "Parkland Rd opp Wyburn Av",
+   "2125161" : "Karloon Rd near Eaton Rd",
+   "211816" : "Carlingford Shopping Centre Pennant Hills Rd",
+   "212115" : "Rawson St Nr Bridge St",
+   "2125159" : "Eaton Rd near Community Church",
+   "2118106" : "Jenkins Rd near Post Office St",
+   "2125154" : "Eaton Rd near Range Rd",
+   "2118144" : "Farnell Av near Balaka Dr",
+   "2121156" : "Carlingford Rd Nr Dallwood Av",
+   "2118142" : "Lindisfarne Av near Parkland Rd",
+   "2125158" : "Eaton Rd Nr Oakes Rd",
+   "2121179" : "Carlingford Rd Nr Duntroon Av",
+   "2121180" : "Carlingford Rd Nr Ward St",
+   "2125136" : "Eaton Rd near Betts Pl",
+   "2125139" : "Range Rd near Stanton Dr",
+   "2125155" : "Eaton Rd opp Dickson Av",
+   "2125140" : "Range Rd near Heidi Pl",
+   "211831" : "Pennant Hills Rd Nr North Rocks Rd",
+   "212112" : "Beecroft Rd Nr Epping Station",
+   "2121178" : "Carlingford Rd Nr Pennant Pde",
+   "2118105" : "Jenkins Rd near Pennant Hills Rd",
+   "211815" : "Pennant Hills Rd near Dunrossil Av",
+   "211879" : "Farnell Av near Balaka Dr",
+   "2118108" : "Jenkins Rd Nr Moseley St",
+   "2125156" : "Eaton Rd near Stanton Dr",
+   "211817" : "Carlingford Rd near Rembrandt St",
+   "2125134" : "Oakes Rd near Eaton Rd",
+   "2118112" : "Oakes Rd near Hillside La",
+   "2125135" : "Eaton Rd near Riley Av",
+   "2125141" : "Range Rd near Eaton Rd",
+   "2118111" : "Oakes Rd near Murray Farm Rd",
+   "211853" : "North Rocks Rd near Alkira Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-759-_-sj2-1-4-b00bk" : {
+      "vjcode" : "VJ_99-759-_-sj2-1-4-b00bk",
+      "leaves" : "15:17:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118195",
+               null
+            ],
+            [
+               "211844",
+               "7M pasd"
+            ],
+            [
+               "2118105",
+               "1M pasd"
+            ],
+            [
+               "2118106",
+               "0S pasd"
+            ],
+            [
+               "2118108",
+               "1M pasd"
+            ],
+            [
+               "2118201",
+               "1M pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "2118142",
+               "0S pasd"
+            ],
+            [
+               "2118143",
+               "1M pasd"
+            ],
+            [
+               "2118144",
+               "1M pasd"
+            ],
+            [
+               "211879",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118111",
+               "3M pasd"
+            ],
+            [
+               "2118112",
+               "1M pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "1M pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "1M pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "1M pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2125158",
+               "1M pasd"
+            ],
+            [
+               "2125159",
+               "0S pasd"
+            ],
+            [
+               "2125160",
+               "0S pasd"
+            ],
+            [
+               "2125161",
+               "1M pasd"
+            ],
+            [
+               "2125162",
+               "0S pasd"
+            ],
+            [
+               "211831",
+               "5M pasd"
+            ],
+            [
+               "211814",
+               "1M pasd"
+            ],
+            [
+               "211815",
+               "1M pasd"
+            ],
+            [
+               "211816",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "1M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "1M pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "0S pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "212190",
+               "4M pasd"
+            ],
+            [
+               "212115",
+               "0S pasd"
+            ],
+            [
+               "212112",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-759-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "North Rocks Rd Nr Carlingford High - Epping Station",
+            "rs_ref" : "RS_99-759-_-sj2-1-R-1",
+            "id" : "R_99-759-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-759-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "759"
+   },
+   "VJ_99-759-_-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-759-_-sj2-1-3-b00bk",
+      "leaves" : "14:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118195",
+               null
+            ],
+            [
+               "211844",
+               "7M pasd"
+            ],
+            [
+               "2118105",
+               "1M pasd"
+            ],
+            [
+               "2118106",
+               "0S pasd"
+            ],
+            [
+               "2118108",
+               "1M pasd"
+            ],
+            [
+               "2118201",
+               "1M pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "2118142",
+               "0S pasd"
+            ],
+            [
+               "2118143",
+               "1M pasd"
+            ],
+            [
+               "2118144",
+               "1M pasd"
+            ],
+            [
+               "211879",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118111",
+               "3M pasd"
+            ],
+            [
+               "2118112",
+               "1M pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "1M pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "1M pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "1M pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2125158",
+               "1M pasd"
+            ],
+            [
+               "2125159",
+               "0S pasd"
+            ],
+            [
+               "2125160",
+               "0S pasd"
+            ],
+            [
+               "2125161",
+               "1M pasd"
+            ],
+            [
+               "2125162",
+               "0S pasd"
+            ],
+            [
+               "211831",
+               "5M pasd"
+            ],
+            [
+               "211814",
+               "1M pasd"
+            ],
+            [
+               "211815",
+               "1M pasd"
+            ],
+            [
+               "211816",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "1M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "1M pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "0S pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "212190",
+               "4M pasd"
+            ],
+            [
+               "212115",
+               "0S pasd"
+            ],
+            [
+               "212112",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-759-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "North Rocks Rd Nr Carlingford High - Epping Station",
+            "rs_ref" : "RS_99-759-_-sj2-1-R-1",
+            "id" : "R_99-759-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-759-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Tuesday"
+      ],
+      "line" : "759"
+   },
+   "VJ_99-759-_-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-759-_-sj2-1-2-b00bj",
+      "leaves" : "15:17:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118195",
+               null
+            ],
+            [
+               "211844",
+               "7M pasd"
+            ],
+            [
+               "2118105",
+               "1M pasd"
+            ],
+            [
+               "2118106",
+               "0S pasd"
+            ],
+            [
+               "2118108",
+               "1M pasd"
+            ],
+            [
+               "2118201",
+               "1M pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "2118142",
+               "0S pasd"
+            ],
+            [
+               "2118143",
+               "1M pasd"
+            ],
+            [
+               "2118144",
+               "1M pasd"
+            ],
+            [
+               "211879",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118111",
+               "3M pasd"
+            ],
+            [
+               "2118112",
+               "1M pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "1M pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "1M pasd"
+            ],
+            [
+               "2125141",
+               "0S pasd"
+            ],
+            [
+               "2125154",
+               "1M pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "1M pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2125158",
+               "1M pasd"
+            ],
+            [
+               "2125159",
+               "0S pasd"
+            ],
+            [
+               "2125160",
+               "0S pasd"
+            ],
+            [
+               "2125161",
+               "1M pasd"
+            ],
+            [
+               "2125162",
+               "0S pasd"
+            ],
+            [
+               "211831",
+               "5M pasd"
+            ],
+            [
+               "211814",
+               "1M pasd"
+            ],
+            [
+               "211815",
+               "1M pasd"
+            ],
+            [
+               "211816",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "1M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "1M pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "0S pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "212190",
+               "4M pasd"
+            ],
+            [
+               "212115",
+               "0S pasd"
+            ],
+            [
+               "212112",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-759-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "North Rocks Rd Nr Carlingford High - Epping Station",
+            "rs_ref" : "RS_99-759-_-sj2-1-R-1",
+            "id" : "R_99-759-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-759-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "759"
+   }
+}
+;
+

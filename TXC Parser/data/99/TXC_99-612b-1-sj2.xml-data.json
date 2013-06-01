@@ -1,0 +1,619 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-612-b-sj2-1" : "612"
+}
+;
+
+var stations = {
+   "2046128" : "First Av Nr Arthur St",
+   "213314" : "Georges River Rd Nr Portland St",
+   "2206132" : "Homer St Nr Braeside Cr",
+   "204697" : "Great North Rd Opp Harrabrook Av",
+   "219387" : "Northcote St Nr Cross St",
+   "2206130" : "Homer St Nr Leonora St",
+   "219424" : "Beamish St Nr Evaline St",
+   "219423" : "Beamish St Opp Unara St",
+   "204661" : "Lyons Rd Nr Mons St",
+   "2046117" : "First Av Nr Ingham Av",
+   "204698" : "Great North Rd Nr Longview St",
+   "204722" : "Victoria Rd Nr Tavistock St",
+   "213247" : "Croydon Rd Nr Kenilworth St",
+   "2131106" : "Milton St Nr Norton St",
+   "2206128" : "Homer St Nr Earlwood Primary",
+   "204662" : "Lyons Rd nr Tait Lane",
+   "213332" : "Georges River Rd nr Bereford Av",
+   "204751" : "Lyons Rd Nr Dempsey Pl",
+   "213234" : "Croydon Rd Nr Bay St",
+   "2206129" : "Homer St Nr Morgan St",
+   "2208125" : "Bexley Rd nr William St",
+   "219419" : "Orissa St Nr Fletcher St",
+   "213333" : "Georges River Rd Nr Croydon Av",
+   "2046132" : "Brent St Nr Whitall St",
+   "219411" : "Beamish St Nr North Pde",
+   "2206126" : "Clarke St Nr Earlwood Av",
+   "204749" : "Lyons Rd Nr Gipps St",
+   "204723" : "Victoria Rd Nr Wolseley St",
+   "219388" : "Northcote St Nr Cressy St",
+   "213331" : "Georges River Rd nr Beaufort St",
+   "213329" : "Georges River nr Burwood",
+   "219413" : "Beamish St nr South Pde",
+   "213337" : "Georges River Rd nr Holborow St",
+   "220664" : "Northcote St Nr Bexley Rd",
+   "213235" : "Croydon Rd Nr Parramatta Rd",
+   "219464" : "Canterbury Rd Nr Scahill St",
+   "220663" : "Bexley Rd Nr Calbina Rd",
+   "204750" : "Lyons Rd Nr Thompson St",
+   "213248" : "Croydon Rd Nr Queen St",
+   "219422" : "Beamish St Nr Fletcher St",
+   "2046129" : "First Av Nr Duchess Av",
+   "219389" : "Northcote St Nr Canterbury Rd",
+   "2046118" : "First Av Nr Heath St",
+   "2206127" : "Homer St Nr Hartill Law Av",
+   "220665" : "Northcote St Opp Narani Cr",
+   "204699" : "Great North Rd Nr Kings Rd",
+   "2206133" : "Homer St Nr Bexley Rd",
+   "2206131" : "Homer St Nr Woodlawn Av",
+   "213328" : "Georges River Rd Nr Rawson St",
+   "204721" : "Victoria Rd Nr Lyons Rd",
+   "204664" : "Lyons Rd Nr Hampden Rd",
+   "213246" : "Croydon Rd Nr Anthony St",
+   "211023" : "The Avenue nr Hunters Hill High",
+   "2046130" : "First Av Nr Henley Point Dr",
+   "204753" : "Lyons Rd Nr Marlborough St",
+   "2208118" : "Bexley Rd Nr Clemton Av",
+   "2046131" : "Henley Marine Dr Nr Brent St",
+   "2046116" : "First Av Nr Park Rd",
+   "2046115" : "First Av Nr Waterview St",
+   "213249" : "Croydon Rd Nr Church St",
+   "213330" : "Georges River Rd nr Rose St",
+   "2131105" : "Milton St Nr Georges River Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-612-b-sj2-1-2-b009t" : {
+      "vjcode" : "VJ_99-612-b-sj2-1-2-b009t",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2206126",
+               null
+            ],
+            [
+               "2206127",
+               "0S pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "2206130",
+               "1M pasd"
+            ],
+            [
+               "2206131",
+               "0S pasd"
+            ],
+            [
+               "2206132",
+               "1M pasd"
+            ],
+            [
+               "2206133",
+               "0S pasd"
+            ],
+            [
+               "2208118",
+               "0S pasd"
+            ],
+            [
+               "2208125",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "0S pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "1M pasd"
+            ],
+            [
+               "219389",
+               "1M pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "0S pasd"
+            ],
+            [
+               "213314",
+               "5M pasd"
+            ],
+            [
+               "213328",
+               "0S pasd"
+            ],
+            [
+               "213329",
+               "1M pasd"
+            ],
+            [
+               "213330",
+               "0S pasd"
+            ],
+            [
+               "213331",
+               "1M pasd"
+            ],
+            [
+               "213332",
+               "1M pasd"
+            ],
+            [
+               "213333",
+               "0S pasd"
+            ],
+            [
+               "213337",
+               "1M pasd"
+            ],
+            [
+               "2131105",
+               "1M pasd"
+            ],
+            [
+               "2131106",
+               "0S pasd"
+            ],
+            [
+               "213246",
+               "3M pasd"
+            ],
+            [
+               "213247",
+               "0S pasd"
+            ],
+            [
+               "213248",
+               "1M pasd"
+            ],
+            [
+               "213249",
+               "0S pasd"
+            ],
+            [
+               "213234",
+               "1M pasd"
+            ],
+            [
+               "213235",
+               "0S pasd"
+            ],
+            [
+               "204697",
+               "1M pasd"
+            ],
+            [
+               "204698",
+               "1M pasd"
+            ],
+            [
+               "204699",
+               "2M pasd"
+            ],
+            [
+               "2046115",
+               "1M pasd"
+            ],
+            [
+               "2046116",
+               "2M pasd"
+            ],
+            [
+               "2046117",
+               "1M pasd"
+            ],
+            [
+               "2046118",
+               "1M pasd"
+            ],
+            [
+               "2046128",
+               "0S pasd"
+            ],
+            [
+               "2046129",
+               "1M pasd"
+            ],
+            [
+               "2046130",
+               "0S pasd"
+            ],
+            [
+               "2046131",
+               "2M pasd"
+            ],
+            [
+               "2046132",
+               "0S pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "0S pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "1M pasd"
+            ],
+            [
+               "204750",
+               "1M pasd"
+            ],
+            [
+               "204751",
+               "0S pasd"
+            ],
+            [
+               "204753",
+               "1M pasd"
+            ],
+            [
+               "204721",
+               "1M pasd"
+            ],
+            [
+               "204722",
+               "1M pasd"
+            ],
+            [
+               "204723",
+               "0S pasd"
+            ],
+            [
+               "211023",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-612-b-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Clarke St Nr Earlwood Av - The Avenue nr Hunters Hill High",
+            "rs_ref" : "RS_99-612-b-sj2-1-H-1",
+            "id" : "R_99-612-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-612-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "612"
+   },
+   "VJ_99-612-b-sj2-1-1-b009m" : {
+      "vjcode" : "VJ_99-612-b-sj2-1-1-b009m",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2206126",
+               null
+            ],
+            [
+               "2206127",
+               "0S pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "2206130",
+               "1M pasd"
+            ],
+            [
+               "2206131",
+               "0S pasd"
+            ],
+            [
+               "2206132",
+               "1M pasd"
+            ],
+            [
+               "2206133",
+               "0S pasd"
+            ],
+            [
+               "2208118",
+               "0S pasd"
+            ],
+            [
+               "2208125",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "0S pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "1M pasd"
+            ],
+            [
+               "219389",
+               "1M pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "0S pasd"
+            ],
+            [
+               "213314",
+               "5M pasd"
+            ],
+            [
+               "213328",
+               "0S pasd"
+            ],
+            [
+               "213329",
+               "1M pasd"
+            ],
+            [
+               "213330",
+               "0S pasd"
+            ],
+            [
+               "213331",
+               "1M pasd"
+            ],
+            [
+               "213332",
+               "1M pasd"
+            ],
+            [
+               "213333",
+               "0S pasd"
+            ],
+            [
+               "213337",
+               "1M pasd"
+            ],
+            [
+               "2131105",
+               "1M pasd"
+            ],
+            [
+               "2131106",
+               "0S pasd"
+            ],
+            [
+               "213246",
+               "3M pasd"
+            ],
+            [
+               "213247",
+               "0S pasd"
+            ],
+            [
+               "213248",
+               "1M pasd"
+            ],
+            [
+               "213249",
+               "1M pasd"
+            ],
+            [
+               "213234",
+               "0S pasd"
+            ],
+            [
+               "213235",
+               "0S pasd"
+            ],
+            [
+               "204697",
+               "1M pasd"
+            ],
+            [
+               "204698",
+               "1M pasd"
+            ],
+            [
+               "204699",
+               "2M pasd"
+            ],
+            [
+               "2046115",
+               "1M pasd"
+            ],
+            [
+               "2046116",
+               "2M pasd"
+            ],
+            [
+               "2046117",
+               "1M pasd"
+            ],
+            [
+               "2046118",
+               "1M pasd"
+            ],
+            [
+               "2046128",
+               "0S pasd"
+            ],
+            [
+               "2046129",
+               "1M pasd"
+            ],
+            [
+               "2046130",
+               "0S pasd"
+            ],
+            [
+               "2046131",
+               "2M pasd"
+            ],
+            [
+               "2046132",
+               "0S pasd"
+            ],
+            [
+               "204661",
+               "1M pasd"
+            ],
+            [
+               "204662",
+               "0S pasd"
+            ],
+            [
+               "204664",
+               "1M pasd"
+            ],
+            [
+               "204749",
+               "1M pasd"
+            ],
+            [
+               "204750",
+               "1M pasd"
+            ],
+            [
+               "204751",
+               "0S pasd"
+            ],
+            [
+               "204753",
+               "1M pasd"
+            ],
+            [
+               "204721",
+               "1M pasd"
+            ],
+            [
+               "204722",
+               "1M pasd"
+            ],
+            [
+               "204723",
+               "0S pasd"
+            ],
+            [
+               "211023",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-612-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Clarke St Nr Earlwood Av - The Avenue nr Hunters Hill High",
+            "rs_ref" : "RS_99-612-b-sj2-1-H-1",
+            "id" : "R_99-612-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-612-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "612"
+   }
+}
+;
+

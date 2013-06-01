@@ -1,0 +1,780 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-789-_-sj2-1" : "789"
+}
+;
+
+var stations = {
+   "210214" : "Warriewood Rd Nr Brands Lane",
+   "210754" : "Avalon Pde nr Old Barrenjoey Rd",
+   "210772" : "Bilambee Av nr Bilga Av",
+   "210769" : "Wandeen Rd nr Mia Pl",
+   "210612" : "Barrenjoey Rd Nr Karloo Pde",
+   "210730" : "Barrenjoey Rd 250m N of Plateau Rd",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210218" : "Macpherson St Nr Boondah Rd",
+   "210770" : "Bilwara Av nr Lower Plateau Rd",
+   "210767" : "Wandeen Rd Nr Hudson Pde",
+   "210220" : "Macpherson St Nr Garden St",
+   "210771" : "Bilwara Av opp Bilambee Av",
+   "210633" : "Gladstone St Nr Barrenjoey Rd",
+   "210761" : "Hudson Rd nr Old Wharf Reserve",
+   "210733" : "Barrenjoey Rd Nr Plateau Rd",
+   "210713" : "Barrenjoey Rd Nr Avalon Pde",
+   "210617" : "Barrenjoey Rd Nr The Serpentine",
+   "210634" : "Gladstone Rd Nr Bishop St",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "210640" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210354" : "Foley St Nr Julibee Av",
+   "210731" : "Barrenjoey Rd Nr Plateau Rd",
+   "210340" : "Mona Vale Rd Nr Bungan St",
+   "210217" : "Warriewood Rd Nr Hill St",
+   "210765" : "Hudson Pde 200m E Of Taylors Point Rd",
+   "210311" : "Barrenjoey Rd Nr Darley St",
+   "210212" : "Warriewood Rd Nr Vineyard St",
+   "210729" : "Barrenjoey Rd nr The Crescent",
+   "210241" : "Warriewood Rd Nr Moriac St",
+   "210732" : "Barrenjoey Rd Nr The Serpentine",
+   "210324" : "Barrenjoey Rd Nr Park St",
+   "210766" : "Hudson Pde opp Taylors Point Wharf",
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "210747" : "Plateau Rd Nr Palmgrove Rd",
+   "210313" : "Barrenjoey Rd Nr Waterview St",
+   "210638" : "Beaconsfield St Nr Newport Primary",
+   "210748" : "Plateau Rd nr Old Barrenjoey Rd",
+   "210745" : "Plateau Rd nr Weetawaa Rd",
+   "210637" : "Kalinya St Nr Beaconsfield St",
+   "210756" : "Avalon Pde Nr Ruskin Rowe",
+   "210649" : "Barrenjoey Rd Nr Gladstone St",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "210215" : "Warriewood Rd Nr Manooka Pl",
+   "210744" : "Plateau Rd nr Bilberry Av",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "210712" : "Barrenjoey Rd 300m N of Plateau Rd",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "210616" : "Barrenjoey Rd Nr Neptune Rd",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "210312" : "Barrenjoey Rd Nr Bassett St",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "210221" : "Mater Maria School",
+   "210763" : "Hudson Pde opp Delecta Av",
+   "210222" : "Macpherson St Nr Forrest Rd",
+   "210391" : "Foley St Nr Vineyard St",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210764" : "Hudson Pde Nr Delecta Av",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "210757" : "Avalon Pde Nr Gunjulla Pl",
+   "210768" : "Wandeen Rd 300m E of Hudson Pde",
+   "210219" : "Macpherson St Nr Brands Lane",
+   "210615" : "Barrenjoey Rd nr Robertson Rd",
+   "210762" : "Hudson Pde 500m S Of Hilltop Rd",
+   "210369" : "Mona Vale Rd Nr Bungan St",
+   "210760" : "Hudson Pde Nr Hilltop Rd",
+   "210636" : "Kalinya St Nr Gladstone Rd",
+   "210387" : "Mona Vale Rd Nr Oliver Wy",
+   "210635" : "Gladstone Rd Nr King St",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210758" : "Avalon Pde Nr Katandra Cl",
+   "210613" : "Barrenjoey Rd Nr Queens Pde",
+   "210611" : "Barrenjoey Rd Nr Phillip Rd",
+   "210746" : "Plateau Rd Nr Palmgrove Rd",
+   "210216" : "Warriewood Rd Nr Alameda Wy"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-789-_-sj2-1-4-b009g" : {
+      "vjcode" : "VJ_99-789-_-sj2-1-4-b009g",
+      "leaves" : "07:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "0S pasd"
+            ],
+            [
+               "210731",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "1M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "0S pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "0S pasd"
+            ],
+            [
+               "210369",
+               "1M pasd"
+            ],
+            [
+               "210387",
+               "0S pasd"
+            ],
+            [
+               "210391",
+               "1M pasd"
+            ],
+            [
+               "210212",
+               "1M pasd"
+            ],
+            [
+               "210241",
+               "1M pasd"
+            ],
+            [
+               "210214",
+               "0S pasd"
+            ],
+            [
+               "210215",
+               "1M pasd"
+            ],
+            [
+               "210216",
+               "0S pasd"
+            ],
+            [
+               "210217",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "1M pasd"
+            ],
+            [
+               "210219",
+               "0S pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-789-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Mater Maria School",
+            "rs_ref" : "RS_99-789-_-sj2-1-H-1",
+            "id" : "R_99-789-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-789-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   },
+   "VJ_99-789-_-sj2-1-3-b009g" : {
+      "vjcode" : "VJ_99-789-_-sj2-1-3-b009g",
+      "leaves" : "15:33:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210354",
+               "3M pasd"
+            ],
+            [
+               "210340",
+               "2M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "0S pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "0S pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "1M pasd"
+            ],
+            [
+               "210649",
+               "0S pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210733",
+               "2M pasd"
+            ],
+            [
+               "210712",
+               "1M pasd"
+            ],
+            [
+               "210713",
+               "1M pasd"
+            ],
+            [
+               "210754",
+               "0S pasd"
+            ],
+            [
+               "210756",
+               "1M pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "0S pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "1M pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "1M pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "0S pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "1M pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-789-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Mater Maria School - Plateau Rd nr Old Barrenjoey Rd",
+            "rs_ref" : "RS_99-789-_-sj2-1-R-2",
+            "id" : "R_99-789-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-789-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   },
+   "VJ_99-789-_-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-789-_-sj2-1-2-b009h",
+      "leaves" : "15:33:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210354",
+               "3M pasd"
+            ],
+            [
+               "210340",
+               "2M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "0S pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "0S pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "1M pasd"
+            ],
+            [
+               "210649",
+               "0S pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210733",
+               "2M pasd"
+            ],
+            [
+               "210712",
+               "1M pasd"
+            ],
+            [
+               "210713",
+               "1M pasd"
+            ],
+            [
+               "210754",
+               "0S pasd"
+            ],
+            [
+               "210756",
+               "1M pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "0S pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "1M pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "1M pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "0S pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "1M pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-789-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Mater Maria School - Plateau Rd nr Old Barrenjoey Rd",
+            "rs_ref" : "RS_99-789-_-sj2-1-R-2",
+            "id" : "R_99-789-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-789-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   },
+   "VJ_99-789-_-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-789-_-sj2-1-1-b009h",
+      "leaves" : "07:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "0S pasd"
+            ],
+            [
+               "210731",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "1M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "1M pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "0S pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "0S pasd"
+            ],
+            [
+               "210369",
+               "1M pasd"
+            ],
+            [
+               "210387",
+               "0S pasd"
+            ],
+            [
+               "210391",
+               "1M pasd"
+            ],
+            [
+               "210212",
+               "1M pasd"
+            ],
+            [
+               "210241",
+               "1M pasd"
+            ],
+            [
+               "210214",
+               "0S pasd"
+            ],
+            [
+               "210215",
+               "1M pasd"
+            ],
+            [
+               "210216",
+               "0S pasd"
+            ],
+            [
+               "210217",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "1M pasd"
+            ],
+            [
+               "210219",
+               "0S pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-789-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Mater Maria School",
+            "rs_ref" : "RS_99-789-_-sj2-1-H-1",
+            "id" : "R_99-789-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-789-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "789"
+   }
+}
+;
+

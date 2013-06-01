@@ -1,0 +1,511 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-763-a-sj2-1" : "763"
+}
+;
+
+var stations = {
+   "209941" : "Griffin Rd nr Headland Rd",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "2093165" : "Campbell Pde Nr Mackellar Ghs Stand 11",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "2096115" : "Oliver St nr Wyadra Av",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "209943" : "Griffin Rd nr Pacific Pde",
+   "209652" : "Wyuna Av Nr Harbord Rd",
+   "209686" : "Lawrence St Nr Harbord Rd",
+   "209659" : "Oliver St Nr Brighton St",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "209685" : "Cavill St nr Lawrence St",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "209682" : "Queenscliff Rd Nr Dalley St",
+   "209997" : "Mcintosh Rd Nr Vale Av",
+   "209996" : "Fisher Rd nr Lewis St",
+   "209412" : "Balgowlah Rd nr Harland Rd",
+   "2093177" : "Campbell Pde Nr Condamine St",
+   "209323" : "Condamine St Nr Gordon St",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "209653" : "Wyuna Av 250m W Of Oliver St",
+   "209639" : "Bennett St Nr Oliver St",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "209413" : "Balgowlah Rd Nr Suwarrow St",
+   "209563" : "Collingwood St Nr Stella Maris Stand 1",
+   "209681" : "Queenscliff Rd Nr Greycliffe St",
+   "209683" : "Cavill St Nr Dalley St",
+   "209946" : "Howard Av Nr Avon Rd",
+   "209688" : "Harbord Rd nr Coles Rd",
+   "209928" : "Griffin Rd Nr Abbott Rd",
+   "209663" : "Adams St nr Lalchere St",
+   "209944" : "Howard Av nr The Strand",
+   "209687" : "Harbord Rd Nr Soldiers Av",
+   "209411" : "Balgowlah Rd Nr Hill St",
+   "209536" : "Balgowlah Rd Nr Francis St",
+   "209942" : "Griffin Rd nr Boronia St",
+   "209998" : "Mcintosh Rd Nr Victor Rd",
+   "209363" : "Balgowlah Rd nr Quirk Rd",
+   "209689" : "Harbord Rd nr Wyuna Av",
+   "209661" : "Adams St Nr Park St",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "209324" : "Condamine St nr Innes Rd",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "209999" : "McIntosh Rd nr Beverley Job Park",
+   "209662" : "Adams St Nr Travers Rd",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "209994" : "Griffin Rd Nr Pitt Rd",
+   "209654" : "Wyuna Av Nr Oliver St",
+   "2099100" : "Mcintosh Rd Nr Mundara Pl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-763-a-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-763-a-sj2-1-1-b00b7",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093165",
+               null
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "1M pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "1M pasd"
+            ],
+            [
+               "209686",
+               "0S pasd"
+            ],
+            [
+               "209687",
+               "1M pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "1M pasd"
+            ],
+            [
+               "209652",
+               "0S pasd"
+            ],
+            [
+               "209653",
+               "1M pasd"
+            ],
+            [
+               "209654",
+               "1M pasd"
+            ],
+            [
+               "2096115",
+               "0S pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "1M pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "0S pasd"
+            ],
+            [
+               "209663",
+               "1M pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "1M pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "0S pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-763-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - McIntosh Rd nr Cousins Rd",
+            "rs_ref" : "RS_99-763-a-sj2-1-R-1",
+            "id" : "R_99-763-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-763-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "763"
+   },
+   "VJ_99-763-a-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-763-a-sj2-1-2-b00b2",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093165",
+               null
+            ],
+            [
+               "2093177",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "1M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209363",
+               "1M pasd"
+            ],
+            [
+               "209411",
+               "0S pasd"
+            ],
+            [
+               "209412",
+               "1M pasd"
+            ],
+            [
+               "209413",
+               "1M pasd"
+            ],
+            [
+               "209536",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209563",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "1M pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "1M pasd"
+            ],
+            [
+               "209686",
+               "0S pasd"
+            ],
+            [
+               "209687",
+               "1M pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "1M pasd"
+            ],
+            [
+               "209652",
+               "0S pasd"
+            ],
+            [
+               "209653",
+               "1M pasd"
+            ],
+            [
+               "209654",
+               "1M pasd"
+            ],
+            [
+               "2096115",
+               "0S pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "1M pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "0S pasd"
+            ],
+            [
+               "209663",
+               "1M pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "1M pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "0S pasd"
+            ],
+            [
+               "2099105",
+               "1M pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-763-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - McIntosh Rd nr Cousins Rd",
+            "rs_ref" : "RS_99-763-a-sj2-1-R-1",
+            "id" : "R_99-763-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-763-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "763"
+   }
+}
+;
+

@@ -1,0 +1,8897 @@
+var OPERATOR = "Veolia (Region 10)";
+
+
+var LINES = {
+   "27-926-_-sj2-1" : "926"
+}
+;
+
+var stations = {
+   "221216" : "Canterbury Rd Near Lachlan St",
+   "221227" : "Revesby South Public School The River Rd",
+   "221153" : "Padstow Swimming Pool and Shops Cahors Rd",
+   "2200294" : "Market St near Lancelot St",
+   "2200370" : "Bankstown - Lidcombe Hospital",
+   "221235" : "The River Rd Near Carrington St",
+   "2200278" : "Gleeson Av Near Eldridge Rd",
+   "2200295" : "Lancelot St near Clarence St",
+   "2212120" : "The River Rd near Sandakan Rd",
+   "221214" : "Mobil Service Canterbury Rd",
+   "221181" : "Padstow Uniting Church Cahors Rd",
+   "2211118" : "Padstow Baptist Church Vannan L",
+   "2211108" : "Padstow Swimming Pool and Shops Cahors Rdi",
+   "2212123" : "Sandakan Rd Near Fewtrell Av",
+   "2200277" : "Gleeson Av Near Audrey Pde",
+   "2211114" : "Pyramid Av near Sphinx Av",
+   "2212122" : "Sandakan Rd Near Steele Av",
+   "2200382" : "Centro Bankstown_ Stand 4",
+   "2211115" : "Sphinx Av Near Doyle Rd",
+   "221262" : "Polo St nr Iluka",
+   "2200348" : "Eldridge Rd Nr Northam Av",
+   "221286" : "Hydrae St near Mars St",
+   "221261" : "Revesby Railway North Marco Av",
+   "2200349" : "Artegall St opp Bankstown Hospital",
+   "221220" : "The River Rd near Turvey St",
+   "2211110" : "Uranus Rd Near Virginius St",
+   "2211113" : "Padstow Railway Howard Rd",
+   "221231" : "The River Rd near Weston St",
+   "2200273" : "Lancelot St near Clarence St",
+   "2212114" : "Hydrae St Near Uranus Rd",
+   "221215" : "Canterbury Rd Near Lachlan St",
+   "220069" : "Chapel Rd nr Hoskins Av",
+   "2212113" : "Bransgrove Rd near The River Rd",
+   "2211106" : "Padstow Shops Faraday Rd near Shoults L",
+   "220047" : "Bankstown Public School Restwell St",
+   "2212126" : "Edinburgh Dr near Vega St",
+   "221230" : "The River Rd Near Tower St",
+   "2212112" : "Bransgrove Rd near Simmons St",
+   "2200101" : "Northam Av Near Chertsey Av",
+   "2211117" : "Sphinx Av near Pyramid Av",
+   "2200293" : "Market St near Augusta St",
+   "220088" : "Artegall St nr Bankstown Hospital",
+   "2211120" : "Howard Rd near Doyle Rd",
+   "2200347" : "Eldridge Rd nr Herbert St",
+   "221287" : "Yallambie Village Hydrae St Near Mars St",
+   "221223" : "The River Rd near Bransgrove Rd",
+   "2200274" : "Lancelot St near Market St",
+   "2212117" : "Neptune St near Hydrae St",
+   "2200371" : "Bankstown Boys High School",
+   "221229" : "Revesby South Public School The River Rd",
+   "221285" : "Vega St near Neptune St",
+   "2211121" : "Howard Rd near Doyle Rd",
+   "2200292" : "Gleeson Av Near Audrey Pde",
+   "2212125" : "Heros Hill Shops Centaur St",
+   "2211122" : "Howard Rd near Baldwin St",
+   "2200276" : "Gleeson Av Near Audrey Pde",
+   "220030" : "Chapel Rd nr De Witt St",
+   "221115" : "Howard St nr Padstow Station",
+   "2212116" : "Hydrae St near Mars St",
+   "221288" : "Hydrae St Near Uranus Rd",
+   "2200296" : "Pringle Av Near Chertsey Av",
+   "221236" : "Mcdonalds The River Rd near Turvey St",
+   "221225" : "The River Rd near Spence St",
+   "2200291" : "Gleeson Av Near Audrey Pde",
+   "2200303" : "Centro Bankstown",
+   "221281" : "Revesby Railway North Marco Av",
+   "221298" : "Bransgrove Rd near Albert St",
+   "220048" : "Restwell St Near Macauley Av",
+   "2200290" : "Gleeson Av Near Eldridge Rd",
+   "220050" : "Chapel Rd nr Brandon Av",
+   "220049" : "Macauley Av Near Chapel Rd S",
+   "2200279" : "Gleeson Av Near Eldridge Rd",
+   "2212119" : "The River Rd near Morotai Rd",
+   "220089" : "Bankstown Hospital Eldridge Rd Eldridge Rd",
+   "221226" : "The River Rd Near Tower St",
+   "220061" : "Chapel Rd nr Chertsey Av",
+   "221234" : "Revesby Public School The River Rd",
+   "221221" : "The River Rd Near Carrington St",
+   "2211107" : "Padstow Railway Howard Rd",
+   "2200375" : "Bankstown Interchange Stand C",
+   "2200272" : "Pringle Av Near Chertsey Av",
+   "2212115" : "Yallambie Village Hydrae St Near Mars St",
+   "221280" : "Polo St nr Selems Pde",
+   "2211112" : "Howard Rd near Doyle Rd",
+   "2211123" : "Uranus Rd Near Virginius St",
+   "2200378" : "Bankstown Interchange_ Stand F",
+   "2211116" : "Sphinx Av Near Doyle Rd",
+   "221228" : "The River Rd near Ferndale Rd",
+   "2211111" : "Howard Rd near Doyle Rd",
+   "220054" : "Chapel Rd Nr Irvine St",
+   "220037" : "Chapel Rd nr Dellwood St",
+   "220068" : "Chapel Rd nr Hixson St",
+   "220086" : "Claribel St near Canterbury Rd",
+   "220051" : "Greenfield Pde nr Chapel Rd",
+   "2212139" : "De La Salle revesby_ River Road_ Revesby Heights",
+   "2200367" : "Chertsey Av Near Oxford Av",
+   "220087" : "Claribel St near Artegall St",
+   "221222" : "Revesby Public School The River Rd",
+   "2200350" : "Claribel St nr Canterbury Rd",
+   "2200366" : "Chertsey Av Near Oxford Av",
+   "2211109" : "Kitch Hood Walkway Kitch",
+   "2200334" : "Claribel St nr Northam Av",
+   "2212145" : "De La Salle College_ near The River Rd",
+   "2212121" : "Sandakan Rd near Rowell St",
+   "2211124" : "Uranus Rd near Kitch",
+   "2200365" : "Chertsey Av near Northam Av",
+   "2211119" : "Padstow Railway Howard Rd",
+   "2212124" : "Morotai Rd Near Rowell St",
+   "2200275" : "Market St near Gleeson Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_27-926-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-13-TA",
+      "leaves" : "16:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-17-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-17-TA",
+      "leaves" : "10:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "1M49S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "35S pasd"
+            ],
+            [
+               "2212121",
+               "51S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-5-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-31-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-31-TA",
+      "leaves" : "07:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-8-TA",
+      "leaves" : "13:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-47-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-47-TA",
+      "leaves" : "15:04:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M19S pasd"
+            ],
+            [
+               "2212123",
+               "37S pasd"
+            ],
+            [
+               "2212124",
+               "1M22S pasd"
+            ],
+            [
+               "2212125",
+               "1M7S pasd"
+            ],
+            [
+               "2212139",
+               "1M40S pasd"
+            ],
+            [
+               "221286",
+               "2M36S pasd"
+            ],
+            [
+               "221287",
+               "41S pasd"
+            ],
+            [
+               "221288",
+               "1M7S pasd"
+            ],
+            [
+               "2211109",
+               "51S pasd"
+            ],
+            [
+               "2211110",
+               "37S pasd"
+            ],
+            [
+               "2211111",
+               "1M28S pasd"
+            ],
+            [
+               "2211112",
+               "47S pasd"
+            ],
+            [
+               "2211113",
+               "1M20S pasd"
+            ],
+            [
+               "2211108",
+               "52S pasd"
+            ],
+            [
+               "221181",
+               "49S pasd"
+            ],
+            [
+               "2211114",
+               "55S pasd"
+            ],
+            [
+               "2211115",
+               "42S pasd"
+            ],
+            [
+               "221235",
+               "5M29S pasd"
+            ],
+            [
+               "221236",
+               "1M29S pasd"
+            ],
+            [
+               "221214",
+               "1M9S pasd"
+            ],
+            [
+               "221215",
+               "54S pasd"
+            ],
+            [
+               "220086",
+               "59S pasd"
+            ],
+            [
+               "220087",
+               "43S pasd"
+            ],
+            [
+               "220088",
+               "58S pasd"
+            ],
+            [
+               "2200370",
+               "29S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-14-R-9",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-9",
+            "id" : "R_27-926-_-sj2-1-R-9"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-40-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-40-TA",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-39-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-39-TA",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "2M2S pasd"
+            ],
+            [
+               "221226",
+               "1M46S pasd"
+            ],
+            [
+               "221227",
+               "1M16S pasd"
+            ],
+            [
+               "221228",
+               "1M14S pasd"
+            ],
+            [
+               "2212145",
+               "24S pasd"
+            ],
+            [
+               "2212119",
+               "1M7S pasd"
+            ],
+            [
+               "2212120",
+               "53S pasd"
+            ],
+            [
+               "2212121",
+               "53S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-12-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-26-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-26-TA",
+      "leaves" : "12:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "54S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M11S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "2211113",
+               "1M5S pasd"
+            ],
+            [
+               "221115",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-8-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-30-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-30-TA",
+      "leaves" : "06:38:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-24-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-24-TA",
+      "leaves" : "10:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "54S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M11S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "2211113",
+               "1M5S pasd"
+            ],
+            [
+               "221115",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-8-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-21-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-21-TA",
+      "leaves" : "17:09:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212139",
+               "1M23S pasd"
+            ],
+            [
+               "221229",
+               "1M11S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M15S pasd"
+            ],
+            [
+               "221261",
+               "1M28S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "52S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-6-R-3",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Revesby Public School The River Rd",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-3",
+            "id" : "R_27-926-_-sj2-1-R-3"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-3-TA",
+      "leaves" : "09:04:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-52-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-52-TA",
+      "leaves" : "08:49:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-35-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-35-TA",
+      "leaves" : "11:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-33-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-33-TA",
+      "leaves" : "09:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-23-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-23-TA",
+      "leaves" : "09:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "54S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M11S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "2211113",
+               "1M5S pasd"
+            ],
+            [
+               "221115",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-8-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-6-TA",
+      "leaves" : "11:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-9-TA",
+      "leaves" : "14:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-22-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-22-TA",
+      "leaves" : "08:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "55S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M12S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "221115",
+               "38S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-7-H-4",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-4",
+            "id" : "R_27-926-_-sj2-1-H-4"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-46-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-46-TA",
+      "leaves" : "07:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "57S pasd"
+            ],
+            [
+               "220048",
+               "1M2S pasd"
+            ],
+            [
+               "220049",
+               "1M4S pasd"
+            ],
+            [
+               "2200101",
+               "47S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "38S pasd"
+            ],
+            [
+               "2200273",
+               "21S pasd"
+            ],
+            [
+               "2200274",
+               "29S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "2211116",
+               "3M45S pasd"
+            ],
+            [
+               "2211117",
+               "37S pasd"
+            ],
+            [
+               "2211118",
+               "34S pasd"
+            ],
+            [
+               "221153",
+               "53S pasd"
+            ],
+            [
+               "2211106",
+               "1M57S pasd"
+            ],
+            [
+               "2211107",
+               "50S pasd"
+            ],
+            [
+               "2211119",
+               "18S pasd"
+            ],
+            [
+               "2211120",
+               "1M6S pasd"
+            ],
+            [
+               "2211121",
+               "43S pasd"
+            ],
+            [
+               "2211122",
+               "48S pasd"
+            ],
+            [
+               "2211123",
+               "31S pasd"
+            ],
+            [
+               "2211124",
+               "35S pasd"
+            ],
+            [
+               "2212114",
+               "39S pasd"
+            ],
+            [
+               "2212115",
+               "53S pasd"
+            ],
+            [
+               "2212116",
+               "36S pasd"
+            ],
+            [
+               "2212117",
+               "1M34S pasd"
+            ],
+            [
+               "221285",
+               "32S pasd"
+            ],
+            [
+               "2212145",
+               "33S pasd"
+            ],
+            [
+               "2212119",
+               "50S pasd"
+            ],
+            [
+               "2212120",
+               "39S pasd"
+            ],
+            [
+               "2212121",
+               "39S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-13-H-8",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-8",
+            "id" : "R_27-926-_-sj2-1-H-8"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-2-TA",
+      "leaves" : "07:07:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-41-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-41-TA",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-34-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-34-TA",
+      "leaves" : "10:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-51-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-51-TA",
+      "leaves" : "06:04:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "49S pasd"
+            ],
+            [
+               "2212112",
+               "44S pasd"
+            ],
+            [
+               "2212113",
+               "39S pasd"
+            ],
+            [
+               "221234",
+               "48S pasd"
+            ],
+            [
+               "221235",
+               "1M21S pasd"
+            ],
+            [
+               "221236",
+               "1M3S pasd"
+            ],
+            [
+               "221214",
+               "49S pasd"
+            ],
+            [
+               "221215",
+               "38S pasd"
+            ],
+            [
+               "220086",
+               "42S pasd"
+            ],
+            [
+               "220087",
+               "30S pasd"
+            ],
+            [
+               "220088",
+               "41S pasd"
+            ],
+            [
+               "2200370",
+               "16S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-44-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-44-TA",
+      "leaves" : "17:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-7-TA",
+      "leaves" : "12:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-12-TA",
+      "leaves" : "16:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-38-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-38-TA",
+      "leaves" : "14:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-20-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-20-TA",
+      "leaves" : "13:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "1M49S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "35S pasd"
+            ],
+            [
+               "2212121",
+               "51S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-5-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-32-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-32-TA",
+      "leaves" : "08:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-49-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-49-TA",
+      "leaves" : "18:39:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-16-R-11",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Revesby Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-11",
+            "id" : "R_27-926-_-sj2-1-R-11"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-36-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-36-TA",
+      "leaves" : "12:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-16-TA",
+      "leaves" : "09:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "1M49S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "35S pasd"
+            ],
+            [
+               "2212121",
+               "51S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-5-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-1-TA",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-29-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-29-TA",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200375",
+               null
+            ],
+            [
+               "220047",
+               "1M10S pasd"
+            ],
+            [
+               "220048",
+               "1M16S pasd"
+            ],
+            [
+               "220049",
+               "1M18S pasd"
+            ],
+            [
+               "220037",
+               "6S pasd"
+            ],
+            [
+               "220030",
+               "1M2S pasd"
+            ],
+            [
+               "220068",
+               "1M1S pasd"
+            ],
+            [
+               "220069",
+               "37S pasd"
+            ],
+            [
+               "220054",
+               "47S pasd"
+            ],
+            [
+               "2200347",
+               "52S pasd"
+            ],
+            [
+               "2200348",
+               "50S pasd"
+            ],
+            [
+               "2200370",
+               "50S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-10-H-6",
+         "route" : {
+            "name" : "Bankstown Station - Bankstown - Lidcombe Hospital",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-6",
+            "id" : "R_27-926-_-sj2-1-H-6"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-19-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-19-TA",
+      "leaves" : "12:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "1M49S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "35S pasd"
+            ],
+            [
+               "2212121",
+               "51S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-5-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-50-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-50-TA",
+      "leaves" : "08:39:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "221222",
+               null
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-17-H-12",
+         "route" : {
+            "name" : "Revesby Public School The River Rd - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-12",
+            "id" : "R_27-926-_-sj2-1-H-12"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-5-TA",
+      "leaves" : "10:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-28-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-28-TA",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "1M1S pasd"
+            ],
+            [
+               "221288",
+               "1M40S pasd"
+            ],
+            [
+               "2211109",
+               "1M16S pasd"
+            ],
+            [
+               "2211110",
+               "55S pasd"
+            ],
+            [
+               "2211111",
+               "2M11S pasd"
+            ],
+            [
+               "2211112",
+               "1M10S pasd"
+            ],
+            [
+               "2211113",
+               "2M pasd"
+            ],
+            [
+               "221115",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-9-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-15-TA",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "3M11S pasd"
+            ],
+            [
+               "2212119",
+               "1M19S pasd"
+            ],
+            [
+               "2212120",
+               "1M2S pasd"
+            ],
+            [
+               "2212121",
+               "1M28S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M38S pasd"
+            ],
+            [
+               "2212112",
+               "1M28S pasd"
+            ],
+            [
+               "2212113",
+               "1M19S pasd"
+            ],
+            [
+               "221234",
+               "1M35S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "29S pasd"
+            ],
+            [
+               "2200296",
+               "1M12S pasd"
+            ],
+            [
+               "2200367",
+               "1M15S pasd"
+            ],
+            [
+               "2200365",
+               "59S pasd"
+            ],
+            [
+               "220050",
+               "2M17S pasd"
+            ],
+            [
+               "220051",
+               "1M15S pasd"
+            ],
+            [
+               "2200378",
+               "1M33S pasd"
+            ],
+            [
+               "2200303",
+               "1M33S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-45-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-45-TA",
+      "leaves" : "18:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-43-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-43-TA",
+      "leaves" : "16:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-10-TA",
+      "leaves" : "15:39:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M39S pasd"
+            ],
+            [
+               "2212123",
+               "47S pasd"
+            ],
+            [
+               "2212124",
+               "1M42S pasd"
+            ],
+            [
+               "2212125",
+               "1M23S pasd"
+            ],
+            [
+               "2212126",
+               "58S pasd"
+            ],
+            [
+               "2212139",
+               "1M7S pasd"
+            ],
+            [
+               "221229",
+               "1M46S pasd"
+            ],
+            [
+               "221230",
+               "1M34S pasd"
+            ],
+            [
+               "221231",
+               "1M52S pasd"
+            ],
+            [
+               "221261",
+               "2M12S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-48-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-48-TA",
+      "leaves" : "05:59:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "221281",
+               null
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-15-H-10",
+         "route" : {
+            "name" : "Revesby Station - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-10",
+            "id" : "R_27-926-_-sj2-1-H-10"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-37-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-37-TA",
+      "leaves" : "13:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-14-TA",
+      "leaves" : "17:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "49S pasd"
+            ],
+            [
+               "2212112",
+               "44S pasd"
+            ],
+            [
+               "2212113",
+               "39S pasd"
+            ],
+            [
+               "221234",
+               "48S pasd"
+            ],
+            [
+               "221235",
+               "1M21S pasd"
+            ],
+            [
+               "221236",
+               "1M3S pasd"
+            ],
+            [
+               "221214",
+               "49S pasd"
+            ],
+            [
+               "221215",
+               "38S pasd"
+            ],
+            [
+               "220086",
+               "42S pasd"
+            ],
+            [
+               "220087",
+               "30S pasd"
+            ],
+            [
+               "220088",
+               "41S pasd"
+            ],
+            [
+               "2200370",
+               "16S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-11-TA",
+      "leaves" : "15:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-18-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-18-TA",
+      "leaves" : "11:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2211107",
+               null
+            ],
+            [
+               "2211120",
+               "40S pasd"
+            ],
+            [
+               "2211121",
+               "20S pasd"
+            ],
+            [
+               "2211122",
+               "23S pasd"
+            ],
+            [
+               "2211123",
+               "15S pasd"
+            ],
+            [
+               "2211124",
+               "17S pasd"
+            ],
+            [
+               "2212114",
+               "18S pasd"
+            ],
+            [
+               "2212115",
+               "25S pasd"
+            ],
+            [
+               "2212116",
+               "22S pasd"
+            ],
+            [
+               "2212145",
+               "1M49S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "35S pasd"
+            ],
+            [
+               "2212121",
+               "51S pasd"
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200292",
+               "1M8S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-5-R-2",
+         "route" : {
+            "name" : "Padstow Station - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-2",
+            "id" : "R_27-926-_-sj2-1-R-2"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-27-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-27-TA",
+      "leaves" : "13:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "54S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M11S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "2211113",
+               "1M5S pasd"
+            ],
+            [
+               "221115",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-8-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-42-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-42-TA",
+      "leaves" : "16:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212145",
+               "12S pasd"
+            ],
+            [
+               "2212119",
+               "33S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Centro Bankstown - Sandakan Rd near Rowell St",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-7",
+            "id" : "R_27-926-_-sj2-1-H-7"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-4-TA",
+      "leaves" : "09:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2212121",
+               null
+            ],
+            [
+               "2212122",
+               "1M6S pasd"
+            ],
+            [
+               "2212123",
+               "31S pasd"
+            ],
+            [
+               "2212124",
+               "1M8S pasd"
+            ],
+            [
+               "2212125",
+               "55S pasd"
+            ],
+            [
+               "2212126",
+               "38S pasd"
+            ],
+            [
+               "2212139",
+               "45S pasd"
+            ],
+            [
+               "221229",
+               "1M10S pasd"
+            ],
+            [
+               "221230",
+               "1M3S pasd"
+            ],
+            [
+               "221231",
+               "1M14S pasd"
+            ],
+            [
+               "221261",
+               "1M30S pasd"
+            ],
+            [
+               "221262",
+               "1M5S pasd"
+            ],
+            [
+               "2212112",
+               "59S pasd"
+            ],
+            [
+               "2212113",
+               "52S pasd"
+            ],
+            [
+               "221234",
+               "1M4S pasd"
+            ],
+            [
+               "221235",
+               "1M35S pasd"
+            ],
+            [
+               "221236",
+               "1M14S pasd"
+            ],
+            [
+               "221214",
+               "57S pasd"
+            ],
+            [
+               "221215",
+               "44S pasd"
+            ],
+            [
+               "220086",
+               "49S pasd"
+            ],
+            [
+               "220087",
+               "36S pasd"
+            ],
+            [
+               "220088",
+               "48S pasd"
+            ],
+            [
+               "2200370",
+               "17S pasd"
+            ],
+            [
+               "220089",
+               "17S pasd"
+            ],
+            [
+               "2200290",
+               "57S pasd"
+            ],
+            [
+               "2200291",
+               "37S pasd"
+            ],
+            [
+               "2200292",
+               "31S pasd"
+            ],
+            [
+               "2200293",
+               "48S pasd"
+            ],
+            [
+               "2200294",
+               "50S pasd"
+            ],
+            [
+               "2200295",
+               "22S pasd"
+            ],
+            [
+               "2200296",
+               "56S pasd"
+            ],
+            [
+               "2200367",
+               "58S pasd"
+            ],
+            [
+               "2200365",
+               "45S pasd"
+            ],
+            [
+               "220050",
+               "1M47S pasd"
+            ],
+            [
+               "220051",
+               "58S pasd"
+            ],
+            [
+               "2200378",
+               "1M14S pasd"
+            ],
+            [
+               "2200303",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sandakan Rd near Rowell St - Centro Bankstown",
+            "rs_ref" : "RS_27-926-_-sj2-1-R-1",
+            "id" : "R_27-926-_-sj2-1-R-1"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "926"
+   },
+   "VJ_27-926-_-sj2-1-25-TA" : {
+      "vjcode" : "VJ_27-926-_-sj2-1-25-TA",
+      "leaves" : "11:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2200382",
+               null
+            ],
+            [
+               "2200375",
+               "4M pasd"
+            ],
+            [
+               "220047",
+               "56S pasd"
+            ],
+            [
+               "220048",
+               "1M1S pasd"
+            ],
+            [
+               "220049",
+               "1M3S pasd"
+            ],
+            [
+               "220061",
+               "11S pasd"
+            ],
+            [
+               "2200101",
+               "39S pasd"
+            ],
+            [
+               "2200366",
+               "42S pasd"
+            ],
+            [
+               "2200272",
+               "37S pasd"
+            ],
+            [
+               "2200273",
+               "20S pasd"
+            ],
+            [
+               "2200274",
+               "31S pasd"
+            ],
+            [
+               "2200275",
+               "47S pasd"
+            ],
+            [
+               "2200276",
+               "49S pasd"
+            ],
+            [
+               "2200277",
+               "27S pasd"
+            ],
+            [
+               "2200278",
+               "30S pasd"
+            ],
+            [
+               "2200279",
+               "26S pasd"
+            ],
+            [
+               "2200371",
+               "1M1S pasd"
+            ],
+            [
+               "2200349",
+               "17S pasd"
+            ],
+            [
+               "2200334",
+               "32S pasd"
+            ],
+            [
+               "2200350",
+               "22S pasd"
+            ],
+            [
+               "221216",
+               "42S pasd"
+            ],
+            [
+               "221220",
+               "1M29S pasd"
+            ],
+            [
+               "221221",
+               "44S pasd"
+            ],
+            [
+               "221222",
+               "54S pasd"
+            ],
+            [
+               "221223",
+               "1M34S pasd"
+            ],
+            [
+               "221298",
+               "1M14S pasd"
+            ],
+            [
+               "221280",
+               "1M7S pasd"
+            ],
+            [
+               "221281",
+               "1M5S pasd"
+            ],
+            [
+               "221225",
+               "1M1S pasd"
+            ],
+            [
+               "221226",
+               "53S pasd"
+            ],
+            [
+               "221227",
+               "38S pasd"
+            ],
+            [
+               "221228",
+               "37S pasd"
+            ],
+            [
+               "2212119",
+               "45S pasd"
+            ],
+            [
+               "2212120",
+               "26S pasd"
+            ],
+            [
+               "2212121",
+               "40S pasd"
+            ],
+            [
+               "2212122",
+               "52S pasd"
+            ],
+            [
+               "2212123",
+               "24S pasd"
+            ],
+            [
+               "2212124",
+               "54S pasd"
+            ],
+            [
+               "2212125",
+               "44S pasd"
+            ],
+            [
+               "221286",
+               "2M6S pasd"
+            ],
+            [
+               "221287",
+               "33S pasd"
+            ],
+            [
+               "221288",
+               "54S pasd"
+            ],
+            [
+               "2211109",
+               "41S pasd"
+            ],
+            [
+               "2211110",
+               "30S pasd"
+            ],
+            [
+               "2211111",
+               "1M11S pasd"
+            ],
+            [
+               "2211112",
+               "38S pasd"
+            ],
+            [
+               "2211113",
+               "1M5S pasd"
+            ],
+            [
+               "221115",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_27-926-_-sj2-1-8-H-5",
+         "route" : {
+            "name" : "Centro Bankstown - Padstow Station",
+            "rs_ref" : "RS_27-926-_-sj2-1-H-5",
+            "id" : "R_27-926-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-926-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "926"
+   }
+}
+;
+

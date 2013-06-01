@@ -1,0 +1,416 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-718-_-sj2-1" : "718"
+}
+;
+
+var stations = {
+   "2303104" : "Glebe Rd Nr Beaumont St",
+   "229256" : "Pokolbin St Nr Merewether High",
+   "229426" : "Bourke St Nr Robertson St",
+   "229327" : "Downie St Nr Northumberland St",
+   "229326" : "Mcmichael St Nr The Avenue",
+   "2303114" : "Glebe Rd Nr Chatham St",
+   "229724" : "William St Nr John St",
+   "229418" : "Bourke St Nr Hargrave St",
+   "229333" : "Mcmichael St Nr The Avenue",
+   "229618" : "Maitland Rd nr Ivy St",
+   "2303121" : "Stewart Av Nr Alexander St",
+   "229421" : "Elizabeth St Nr Hannell St",
+   "229424" : "Bourke St Nr Elizabeth St",
+   "229636" : "Sheddon St Nr Fleming St",
+   "230248" : "Parry St Nr Skelton St",
+   "229332" : "Downie St Nr Mcmichael St",
+   "229427" : "Robertson St Nr Young St",
+   "229420" : "Elizabeth St Nr Rodgers St",
+   "229334" : "The Avenue Nr Norfolk Av",
+   "229311" : "Maitland Rd nr Albert St",
+   "2303100" : "Stewart Av Nr Hebburn St",
+   "229423" : "Elizabeth St Nr Parker St",
+   "229720" : "Kings Rd Nr Elizabeth St",
+   "2303113" : "Glebe Rd Nr Fellowes St",
+   "229721" : "Elizabeth St Nr Industrial Dr",
+   "229422" : "Elizabeth St nr Industrial Dr",
+   "2303103" : "Glebe Rd Nr Neil Tce",
+   "229411" : "Cowper St Nr Pat Jordan Oval",
+   "230249" : "Parry St Nr Wood St",
+   "229634" : "Norfolk Av Nr The Avenue",
+   "2303112" : "Glebe Rd Nr Coady St",
+   "2303110" : "Glebe Rd Nr June St",
+   "229218" : "Hunter School Of Performing Arts",
+   "229415" : "Young St Nr Robertson St",
+   "2303111" : "Glebe Rd Nr James St",
+   "229719" : "William St Nr John St",
+   "229730" : "William St Nr Bryant St",
+   "230392" : "Stewart Av Nr Gordon Av",
+   "229633" : "Norfolk Av Opp Robert St",
+   "229419" : "Bourke St Nr Elizabeth St",
+   "229725" : "William St Nr Elizabeth St",
+   "229329" : "Lewis St Nr Harrison St",
+   "230391" : "Stewart Av Nr Cram St",
+   "229417" : "Robertson St Nr Mathieson St",
+   "229255" : "Chatham Rd nr Merewether High",
+   "230251" : "Parry St Nr Selma St",
+   "229413" : "Cowper St Nr Thornton St",
+   "229430" : "Cowper St Nr Fitzroy St",
+   "229431" : "Young St Nr Howden St",
+   "229330" : "Lewis St Nr Harrison St",
+   "229414" : "Young St Nr Victoria St",
+   "2303107" : "Glebe Rd Nr Pacific Hwy",
+   "2303108" : "Glebe Rd Nr Edward St",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "230250" : "Parry St Nr Selma St",
+   "2303102" : "Stewart St Nr Kendrick St",
+   "230398" : "Stewart Av Nr Dumaresq St",
+   "229328" : "Downie St Nr Lewis St",
+   "2303101" : "Stewart Av Nr Dumaresq St",
+   "229250" : "Lambton Rd nr Market St",
+   "229425" : "Bourke St Nr Hargrave St",
+   "229429" : "Cowper St Nr Denison St",
+   "2303109" : "Glebe Rd Nr Henry St",
+   "2303105" : "Glebe Rd Nr Cross St",
+   "2303106" : "Glebe Rd Nr Gordon Av",
+   "229331" : "Downie St Nr Estell St",
+   "229217" : "Brunker Rd nr Heddon Rd",
+   "229632" : "Sheddon St Nr Power St",
+   "229635" : "Norfolk Av Nr Robert St",
+   "230399" : "Stewart Av Nr Hebburn St",
+   "229260" : "Lambton Rd nr Australia Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-718-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-718-_-sj2-1-2-b0096",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229218",
+               null
+            ],
+            [
+               "229266",
+               "2M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229256",
+               "2M pasd"
+            ],
+            [
+               "2303114",
+               "3M pasd"
+            ],
+            [
+               "2303112",
+               "0S pasd"
+            ],
+            [
+               "2303103",
+               "1M pasd"
+            ],
+            [
+               "2303104",
+               "1M pasd"
+            ],
+            [
+               "2303105",
+               "0S pasd"
+            ],
+            [
+               "2303106",
+               "1M pasd"
+            ],
+            [
+               "230392",
+               "0S pasd"
+            ],
+            [
+               "2303121",
+               "2M pasd"
+            ],
+            [
+               "230398",
+               "1M pasd"
+            ],
+            [
+               "230399",
+               "0S pasd"
+            ],
+            [
+               "230248",
+               "1M pasd"
+            ],
+            [
+               "230250",
+               "1M pasd"
+            ],
+            [
+               "229618",
+               "1M pasd"
+            ],
+            [
+               "229632",
+               "1M pasd"
+            ],
+            [
+               "229633",
+               "0S pasd"
+            ],
+            [
+               "229634",
+               "1M pasd"
+            ],
+            [
+               "229326",
+               "0S pasd"
+            ],
+            [
+               "229327",
+               "1M pasd"
+            ],
+            [
+               "229328",
+               "0S pasd"
+            ],
+            [
+               "229329",
+               "1M pasd"
+            ],
+            [
+               "229730",
+               "0S pasd"
+            ],
+            [
+               "229719",
+               "1M pasd"
+            ],
+            [
+               "229720",
+               "1M pasd"
+            ],
+            [
+               "229721",
+               "1M pasd"
+            ],
+            [
+               "229422",
+               "0S pasd"
+            ],
+            [
+               "229423",
+               "1M pasd"
+            ],
+            [
+               "229424",
+               "1M pasd"
+            ],
+            [
+               "229425",
+               "0S pasd"
+            ],
+            [
+               "229426",
+               "0S pasd"
+            ],
+            [
+               "229427",
+               "1M pasd"
+            ],
+            [
+               "229431",
+               "1M pasd"
+            ],
+            [
+               "229429",
+               "0S pasd"
+            ],
+            [
+               "229430",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-718-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Hunter School Of Performing Arts - Cowper St Nr Fitzroy St",
+            "rs_ref" : "RS_94-718-_-sj2-1-R-2",
+            "id" : "R_94-718-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-718-_-sj2-1",
+      "line" : "718"
+   },
+   "VJ_94-718-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-718-_-sj2-1-1-b0096",
+      "leaves" : "08:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "229411",
+               null
+            ],
+            [
+               "229413",
+               "1M pasd"
+            ],
+            [
+               "229414",
+               "0S pasd"
+            ],
+            [
+               "229415",
+               "1M pasd"
+            ],
+            [
+               "229417",
+               "0S pasd"
+            ],
+            [
+               "229418",
+               "1M pasd"
+            ],
+            [
+               "229419",
+               "0S pasd"
+            ],
+            [
+               "229420",
+               "1M pasd"
+            ],
+            [
+               "229421",
+               "0S pasd"
+            ],
+            [
+               "229724",
+               "3M pasd"
+            ],
+            [
+               "229725",
+               "0S pasd"
+            ],
+            [
+               "229330",
+               "1M pasd"
+            ],
+            [
+               "229331",
+               "0S pasd"
+            ],
+            [
+               "229332",
+               "1M pasd"
+            ],
+            [
+               "229333",
+               "0S pasd"
+            ],
+            [
+               "229334",
+               "1M pasd"
+            ],
+            [
+               "229635",
+               "0S pasd"
+            ],
+            [
+               "229636",
+               "0S pasd"
+            ],
+            [
+               "229311",
+               "1M pasd"
+            ],
+            [
+               "230251",
+               "1M pasd"
+            ],
+            [
+               "230249",
+               "1M pasd"
+            ],
+            [
+               "2303100",
+               "1M pasd"
+            ],
+            [
+               "2303101",
+               "1M pasd"
+            ],
+            [
+               "2303102",
+               "1M pasd"
+            ],
+            [
+               "230391",
+               "1M pasd"
+            ],
+            [
+               "2303107",
+               "1M pasd"
+            ],
+            [
+               "2303108",
+               "0S pasd"
+            ],
+            [
+               "2303109",
+               "1M pasd"
+            ],
+            [
+               "2303110",
+               "1M pasd"
+            ],
+            [
+               "2303111",
+               "0S pasd"
+            ],
+            [
+               "2303113",
+               "1M pasd"
+            ],
+            [
+               "229255",
+               "2M pasd"
+            ],
+            [
+               "229217",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "2M pasd"
+            ],
+            [
+               "229218",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_94-718-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cowper St Nr Pat Jordan Oval - Hunter School Of Performing Arts",
+            "rs_ref" : "RS_94-718-_-sj2-1-H-1",
+            "id" : "R_94-718-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-718-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "718"
+   }
+}
+;
+

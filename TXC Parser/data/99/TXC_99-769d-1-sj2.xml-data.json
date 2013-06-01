@@ -1,0 +1,1085 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-769-d-sj2-1" : "769"
+}
+;
+
+var stations = {
+   "209428" : "Lauderdale Av Nr Woods Pde",
+   "209528" : "West Esplanade Nr Rowe St",
+   "2093101" : "Abbott St nr Radio Av",
+   "209376" : "White St nr Woodland St",
+   "209523" : "West Esplanade Stand C",
+   "209425" : "Lauderdale Av 100m W Of Rosedale Av",
+   "2093139" : "White St Nr Condamine St",
+   "2093125" : "Beatrice St Nr Ernest St",
+   "2093102" : "Lewis St nr Primary School",
+   "209423" : "Lauderdale Av 125m W Of Rosedale Av",
+   "209224" : "Frenchs Forest Rd nr Ellery Pde",
+   "209234" : "Frenchs Forest Rd Nr Montauban Av",
+   "209420" : "Lauderdale Av Nr Woods Pde",
+   "209381" : "Bungaloe Av Nr Lower Beach St",
+   "209397" : "Woodland St opp Bareena Dr",
+   "209241" : "Wakehurst Pwy Nr Armstrong St",
+   "2093100" : "Woodland St nr Bareena Dr",
+   "209527" : "The Crescent Nr Margaret St",
+   "208655" : "Wakehurst Pwy",
+   "209247" : "Wakehurst Pwy Nr Armstrong St",
+   "2093122" : "Upper Beach St nr Seaview St",
+   "208638" : "Wakehurst Pwy nr Warringah Rd",
+   "2093137" : "Upper Beach St nr Woodland St",
+   "209243" : "Wakehurst Pwy Nr Judith St",
+   "209242" : "Wakehurst Pwy Nr Burnt St",
+   "209399" : "Woodland St Nr Ernest St",
+   "209581" : "West Esplanade Stand J",
+   "2093115" : "Upper Beach St nr Kareema St",
+   "208630" : "Wakehurst Pwy",
+   "2093114" : "Seaview St nr Upper Beach St",
+   "209233" : "Clontarf St Nr Montauban Av",
+   "209231" : "Wakehurst Pwy Nr Lister Av",
+   "209373" : "Lauderdale Av nr King Av",
+   "2093132" : "New St nr Hogan St",
+   "209379" : "Woodland St nr Lower Beach St",
+   "209232" : "Wakehurst Pwy Nr Castle Cct",
+   "209374" : "White St Nr Condamine St",
+   "209239" : "Wakehurst Pwy Nr Castle Cct",
+   "209421" : "Lauderdale Av Nr Arlington Dr",
+   "209390" : "Ernest St Nr Lewis St",
+   "209246" : "Wakehurst Pwy Nr Burnt St",
+   "209426" : "Lauderdale Av nr Rosedale Av",
+   "209391" : "Ernest St nr Beatrice St",
+   "2093140" : "White St nr Orchard St",
+   "2093123" : "Seaview St nr New St",
+   "209427" : "Lauderdale Av Nr Bolingbroke Pde",
+   "209422" : "Lauderdale Av nr Rosedale Av",
+   "209257" : "Frenchs Forest Rd Nr Macmillan St",
+   "209385" : "Curban St Nr New St",
+   "209388" : "Curban St Nr Vista Av",
+   "2093103" : "Lewis St opp Primary School",
+   "209236" : "Frenchs Forest Rd nr Baringa Av",
+   "209387" : "Curban St nr Beaconview St",
+   "2100156" : "Oxford Falls Grammar School",
+   "208712" : "Wakehurst Pwy Nr Manly Dam Res",
+   "2093121" : "Upper Beach St nr Maretimo St",
+   "209511" : "Belgrave St Stand F",
+   "2093129" : "Curban St opp Concise St",
+   "2093126" : "Ernest St Nr Lewis St",
+   "2093130" : "Curban St Nr Valley Rd",
+   "2093112" : "Beatrice St Nr The Walk",
+   "209526" : "The Crescent Nr Laurence St",
+   "208711" : "Wakehurst Pwy Nr Manly Dam Res",
+   "2093128" : "Curban St Nr Vista Av",
+   "2093113" : "Beatrice St nr New St",
+   "209225" : "Frenchs Forest Rd Nr Macmillan St",
+   "209240" : "Wakehurst Pwy Nr Lister Av",
+   "208631" : "Wakehurst Pwy nr Warringah Rd",
+   "209254" : "Wakehurst Pwy Nr Judith St",
+   "208637" : "Wakehurst Pwy nr Frenchs Forest Rd",
+   "209424" : "Lauderdale Av Nr Willyama Av",
+   "208713" : "Wakehurst Pwy near Kirkwood St",
+   "2093120" : "Ethel St nr Coral St",
+   "209398" : "Woodland St Nr Ernest St",
+   "209384" : "New St nr Gourlay Av",
+   "2093138" : "Woodland St Nr White St",
+   "209238" : "Clontarf St Nr Montauban Av",
+   "2093124" : "Beatrice St Nr The Walk",
+   "209251" : "Ethel St Nr Sydney Rd",
+   "2093119" : "Ethel St nr Plant St",
+   "209382" : "Bungaloe Av Nr Lower Beach St",
+   "209375" : "White St nr Jackson St",
+   "209253" : "Wakehurst Pwy Nr Kirkwood St",
+   "209380" : "New St nr Bungaloe Av",
+   "209383" : "New St nr Condamine St",
+   "2093131" : "Curban St Nr New St",
+   "209235" : "Frenchs Forest Rd nr Baringa Av",
+   "209386" : "Curban St Nr Valley Rd",
+   "209237" : "Frenchs Forest Rd Nr Redman St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-769-d-sj2-1-6-b00b2" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-6-b00b2",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209523",
+               null
+            ],
+            [
+               "209527",
+               "2M pasd"
+            ],
+            [
+               "209420",
+               "0S pasd"
+            ],
+            [
+               "209421",
+               "1M pasd"
+            ],
+            [
+               "209422",
+               "0S pasd"
+            ],
+            [
+               "209423",
+               "1M pasd"
+            ],
+            [
+               "209373",
+               "0S pasd"
+            ],
+            [
+               "209374",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "0S pasd"
+            ],
+            [
+               "209376",
+               "1M pasd"
+            ],
+            [
+               "209379",
+               "1M pasd"
+            ],
+            [
+               "209382",
+               "0S pasd"
+            ],
+            [
+               "209383",
+               "1M pasd"
+            ],
+            [
+               "209384",
+               "1M pasd"
+            ],
+            [
+               "209385",
+               "0S pasd"
+            ],
+            [
+               "209386",
+               "1M pasd"
+            ],
+            [
+               "209387",
+               "1M pasd"
+            ],
+            [
+               "209388",
+               "1M pasd"
+            ],
+            [
+               "209399",
+               "1M pasd"
+            ],
+            [
+               "2093100",
+               "1M pasd"
+            ],
+            [
+               "2093101",
+               "0S pasd"
+            ],
+            [
+               "2093102",
+               "1M pasd"
+            ],
+            [
+               "209390",
+               "1M pasd"
+            ],
+            [
+               "209391",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "0S pasd"
+            ],
+            [
+               "2093113",
+               "1M pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093119",
+               "1M pasd"
+            ],
+            [
+               "209224",
+               "1M pasd"
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "1M pasd"
+            ],
+            [
+               "209237",
+               "0S pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "1M pasd"
+            ],
+            [
+               "209241",
+               "0S pasd"
+            ],
+            [
+               "209242",
+               "1M pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ],
+            [
+               "209253",
+               "1M pasd"
+            ],
+            [
+               "208711",
+               "2M pasd"
+            ],
+            [
+               "208630",
+               "2M pasd"
+            ],
+            [
+               "208631",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-3-H-3",
+         "route" : {
+            "name" : "West Esplanade - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-769-d-sj2-1-H-3",
+            "id" : "R_99-769-d-sj2-1-H-3"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-d-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-4-b00b2",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100156",
+               null
+            ],
+            [
+               "208637",
+               "4M pasd"
+            ],
+            [
+               "208638",
+               "0S pasd"
+            ],
+            [
+               "208655",
+               "1M pasd"
+            ],
+            [
+               "208712",
+               "2M pasd"
+            ],
+            [
+               "208713",
+               "2M pasd"
+            ],
+            [
+               "209254",
+               "0S pasd"
+            ],
+            [
+               "209246",
+               "1M pasd"
+            ],
+            [
+               "209247",
+               "1M pasd"
+            ],
+            [
+               "209231",
+               "0S pasd"
+            ],
+            [
+               "209232",
+               "1M pasd"
+            ],
+            [
+               "209233",
+               "0S pasd"
+            ],
+            [
+               "209234",
+               "1M pasd"
+            ],
+            [
+               "209235",
+               "1M pasd"
+            ],
+            [
+               "209257",
+               "1M pasd"
+            ],
+            [
+               "209251",
+               "1M pasd"
+            ],
+            [
+               "2093120",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "0S pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "0S pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "2093126",
+               "1M pasd"
+            ],
+            [
+               "2093103",
+               "0S pasd"
+            ],
+            [
+               "209397",
+               "1M pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "1M pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "0S pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "0S pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "0S pasd"
+            ],
+            [
+               "209511",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Oxford Falls Grammar School - Belgrave St",
+            "rs_ref" : "RS_99-769-d-sj2-1-R-2",
+            "id" : "R_99-769-d-sj2-1-R-2"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-d-sj2-1-3-b009h" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-3-b009h",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2100156",
+               null
+            ],
+            [
+               "208637",
+               "4M pasd"
+            ],
+            [
+               "208638",
+               "0S pasd"
+            ],
+            [
+               "208655",
+               "1M pasd"
+            ],
+            [
+               "208712",
+               "2M pasd"
+            ],
+            [
+               "208713",
+               "2M pasd"
+            ],
+            [
+               "209254",
+               "0S pasd"
+            ],
+            [
+               "209246",
+               "1M pasd"
+            ],
+            [
+               "209247",
+               "1M pasd"
+            ],
+            [
+               "209231",
+               "0S pasd"
+            ],
+            [
+               "209232",
+               "1M pasd"
+            ],
+            [
+               "209233",
+               "0S pasd"
+            ],
+            [
+               "209234",
+               "1M pasd"
+            ],
+            [
+               "209235",
+               "1M pasd"
+            ],
+            [
+               "209257",
+               "1M pasd"
+            ],
+            [
+               "209251",
+               "1M pasd"
+            ],
+            [
+               "2093120",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "0S pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "0S pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "2093126",
+               "1M pasd"
+            ],
+            [
+               "2093103",
+               "0S pasd"
+            ],
+            [
+               "209397",
+               "1M pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "1M pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "0S pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "0S pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "0S pasd"
+            ],
+            [
+               "209511",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Oxford Falls Grammar School - Belgrave St",
+            "rs_ref" : "RS_99-769-d-sj2-1-R-2",
+            "id" : "R_99-769-d-sj2-1-R-2"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-d-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-2-b00b7",
+      "leaves" : "08:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209224",
+               null
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "1M pasd"
+            ],
+            [
+               "209237",
+               "0S pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "1M pasd"
+            ],
+            [
+               "209241",
+               "0S pasd"
+            ],
+            [
+               "209242",
+               "1M pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ],
+            [
+               "209253",
+               "1M pasd"
+            ],
+            [
+               "208711",
+               "2M pasd"
+            ],
+            [
+               "208630",
+               "2M pasd"
+            ],
+            [
+               "208631",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd nr Ellery Pde - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-769-d-sj2-1-H-1",
+            "id" : "R_99-769-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-d-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-1-b00b2",
+      "leaves" : "08:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209224",
+               null
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "1M pasd"
+            ],
+            [
+               "209237",
+               "0S pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "1M pasd"
+            ],
+            [
+               "209241",
+               "0S pasd"
+            ],
+            [
+               "209242",
+               "1M pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ],
+            [
+               "209253",
+               "1M pasd"
+            ],
+            [
+               "208711",
+               "2M pasd"
+            ],
+            [
+               "208630",
+               "2M pasd"
+            ],
+            [
+               "208631",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd nr Ellery Pde - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-769-d-sj2-1-H-1",
+            "id" : "R_99-769-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-d-sj2-1-5-b009h" : {
+      "vjcode" : "VJ_99-769-d-sj2-1-5-b009h",
+      "leaves" : "08:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209523",
+               null
+            ],
+            [
+               "209527",
+               "2M pasd"
+            ],
+            [
+               "209420",
+               "0S pasd"
+            ],
+            [
+               "209421",
+               "1M pasd"
+            ],
+            [
+               "209422",
+               "0S pasd"
+            ],
+            [
+               "209423",
+               "1M pasd"
+            ],
+            [
+               "209373",
+               "0S pasd"
+            ],
+            [
+               "209374",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "0S pasd"
+            ],
+            [
+               "209376",
+               "1M pasd"
+            ],
+            [
+               "209379",
+               "1M pasd"
+            ],
+            [
+               "209382",
+               "0S pasd"
+            ],
+            [
+               "209383",
+               "1M pasd"
+            ],
+            [
+               "209384",
+               "1M pasd"
+            ],
+            [
+               "209385",
+               "0S pasd"
+            ],
+            [
+               "209386",
+               "1M pasd"
+            ],
+            [
+               "209387",
+               "1M pasd"
+            ],
+            [
+               "209388",
+               "1M pasd"
+            ],
+            [
+               "209399",
+               "1M pasd"
+            ],
+            [
+               "2093100",
+               "1M pasd"
+            ],
+            [
+               "2093101",
+               "0S pasd"
+            ],
+            [
+               "2093102",
+               "1M pasd"
+            ],
+            [
+               "209390",
+               "1M pasd"
+            ],
+            [
+               "209391",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "0S pasd"
+            ],
+            [
+               "2093113",
+               "1M pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093119",
+               "1M pasd"
+            ],
+            [
+               "209224",
+               "1M pasd"
+            ],
+            [
+               "209225",
+               "1M pasd"
+            ],
+            [
+               "209236",
+               "1M pasd"
+            ],
+            [
+               "209237",
+               "0S pasd"
+            ],
+            [
+               "209238",
+               "1M pasd"
+            ],
+            [
+               "209239",
+               "1M pasd"
+            ],
+            [
+               "209240",
+               "1M pasd"
+            ],
+            [
+               "209241",
+               "0S pasd"
+            ],
+            [
+               "209242",
+               "1M pasd"
+            ],
+            [
+               "209243",
+               "0S pasd"
+            ],
+            [
+               "209253",
+               "1M pasd"
+            ],
+            [
+               "208711",
+               "2M pasd"
+            ],
+            [
+               "208630",
+               "2M pasd"
+            ],
+            [
+               "208631",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-d-sj2-1-3-H-3",
+         "route" : {
+            "name" : "West Esplanade - Oxford Falls Grammar School",
+            "rs_ref" : "RS_99-769-d-sj2-1-H-3",
+            "id" : "R_99-769-d-sj2-1-H-3"
+         }
+      },
+      "service" : "99-769-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   }
+}
+;
+

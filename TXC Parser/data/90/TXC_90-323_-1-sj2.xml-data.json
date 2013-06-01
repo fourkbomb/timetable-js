@@ -1,0 +1,4329 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-323-_-sj2-1" : "323"
+}
+;
+
+var stations = {
+   "202834" : "New South Head Rd Nr Manning Rd",
+   "202925" : "Dover Rd Nr Carlisle St",
+   "202946" : "New South Head Rd Nr Rose Bay Wharf",
+   "202912" : "Dover Rd Nr Old South Head Rd",
+   "203026" : "Military Rd Nr Old South Head Rd",
+   "202914" : "Victory St Nr Gilbert St",
+   "202820" : "New South Head Rd Nr William St",
+   "202832" : "New South Head Rd Nr Preston Av",
+   "203025" : "Military Rd Nr Old South Head Rd",
+   "201115" : "Bayswater Rd nr Darlinghurst Rd",
+   "203022" : "Military Rd Nr Oceanview Av",
+   "202922" : "Dover Rd Nr Old South Head Rd",
+   "202961" : "New South Head Rd Nr Cranbrook Rd",
+   "200081" : "Elizabeth St Nr Martin Pl",
+   "203023" : "Military Rd Opp Kimberley St",
+   "2000167" : "Elizabeth St Nr Park St",
+   "201154" : "William St nr College Cr",
+   "202942" : "New South Head Rd Opp Cranbrook Rd",
+   "202835" : "New South Head Rd Nr Henrietta St",
+   "203021" : "Peel St Nr Kobada Rd",
+   "202382" : "New South Head Rd Opp Wolseley Rd",
+   "202833" : "New South Head Rd Opp Knox St",
+   "202943" : "New South Head Rd Opp Salisbury Rd",
+   "202948" : "New South Head Rd Opp Norwich Rd",
+   "201113" : "William St nr Crown St",
+   "202755" : "Bayswater Rd Nr New Beach Rd",
+   "201084" : "William St Nr College St",
+   "2000283" : "Elizabeth St nr King St",
+   "202956" : "New South Head Rd Nr Norwich Rd",
+   "203031" : "Portland St 250m S Of Lancaster Rd",
+   "202957" : "New South Head Rd Nr Kent Rd",
+   "203028" : "Military Rd Nr Eastern Av",
+   "201117" : "Kings Cross Rd Nr Ward Av",
+   "203035" : "Portland St 250m S Of Lancaster Rd",
+   "203033" : "Victory St Nr Gilbert St",
+   "203034" : "Portland St Nr Blake St",
+   "203027" : "Military Rd Nr Kimberley St",
+   "200068" : "Phillip St Nr Bridge St",
+   "201083" : "William St nr Crown St",
+   "201114" : "William St Nr Dowling St",
+   "203029" : "Peel St Nr George St",
+   "202829" : "New South Head Rd Nr Gladswood Gdn",
+   "203030" : "Lancaster Rd Nr Peel St",
+   "202725" : "New South Head Rd Nr Wunulla Rd",
+   "202714" : "Edgecliff Interchange Stand B",
+   "200056" : "Elizabeth St Nr Park St",
+   "202726" : "New South Head Rd Nr Edgecliff Station",
+   "2000147" : "Circular Quay Stand D",
+   "202754" : "New South Head Rd Opp New Beach Rd",
+   "201118" : "Bayswater Rd Nr Waratah St",
+   "202947" : "New South Head Rd Nr Vickery Av",
+   "200057" : "Elizabeth St Nr Market St",
+   "202756" : "New South Head Rd Nr Mona Rd",
+   "202819" : "New South Head Rd Nr Knox St",
+   "202753" : "New South Head Rd Opp Mona Rd",
+   "202911" : "Victory St Nr Dover Rd",
+   "202831" : "New South Head Rd Nr Victoria Rd",
+   "202381" : "New South Head Rd Nr Rose Bay Av",
+   "201090" : "Williams St nr Forbes St",
+   "203036" : "Portland St Nr Lancaster Rd",
+   "203032" : "Portland St Nr Blake St",
+   "202955" : "New South Head Rd Nr Newcastle St",
+   "202924" : "Dover Rd Nr Ian St",
+   "201076" : "Craigend St Nr Neild Av",
+   "200082" : "Elizabeth St Nr Martin Pl",
+   "202724" : "New South Head Rd Nr Wolseley Rd",
+   "202944" : "New South Head Rd Opp O'sullivan Rd",
+   "201077" : "Craigend St Nr Oswald L",
+   "202923" : "Dover Rd Nr New South Head Rd",
+   "202716" : "Edgecliff Interchange Set Down",
+   "202959" : "New South Head Rd Nr O'sullivan Rd",
+   "202960" : "New South Head Rd Nr Salisbury Rd",
+   "202818" : "New South Head Rd Nr Henrietta St",
+   "201126" : "Bayswater Rd nr Darlinghurst Rd",
+   "202913" : "Victory St Nr Strickland St",
+   "202830" : "New South Head Rd Opp Victoria Rd",
+   "202958" : "New South Head Rd Nr Elanora St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-323-_-sj2-1-10-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-10-b00bd",
+      "leaves" : "07:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "2M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "3M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-12-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-12-b00bd",
+      "leaves" : "08:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "2M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "1M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-5-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-21-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-21-b00be",
+      "leaves" : "17:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-15-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-15-b00be",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-7-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-7-b00bd",
+      "leaves" : "06:13:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "0S pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "1M pasd"
+            ],
+            [
+               "201090",
+               "3M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "1M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-22-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-22-b00be",
+      "leaves" : "18:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-1-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-1-b00bd",
+      "leaves" : "18:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-2-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-2-b00be",
+      "leaves" : "06:13:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "0S pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "1M pasd"
+            ],
+            [
+               "201090",
+               "3M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "1M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-14-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-14-b00be",
+      "leaves" : "08:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "2M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "1M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-5-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-6-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-6-b00bd",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-9-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-9-b00bd",
+      "leaves" : "07:13:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "1M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-17-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-17-b00be",
+      "leaves" : "07:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "2M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "3M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-11-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-11-b00bd",
+      "leaves" : "07:51:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "2M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "3M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-20-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-20-b00be",
+      "leaves" : "16:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-4-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-4-b00bd",
+      "leaves" : "16:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-5-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-5-b00bd",
+      "leaves" : "16:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-19-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-19-b00be",
+      "leaves" : "17:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-13-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-13-b00be",
+      "leaves" : "07:51:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "1M pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "1M pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "2M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "2M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "3M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-24-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-24-b00bd",
+      "leaves" : "17:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-8-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-8-b00bd",
+      "leaves" : "06:46:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "0S pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "1M pasd"
+            ],
+            [
+               "201090",
+               "3M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "1M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-18-b00af" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-18-b00af",
+      "leaves" : "16:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-3-b00bd" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-3-b00bd",
+      "leaves" : "17:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2000147",
+               null
+            ],
+            [
+               "200068",
+               "2M pasd"
+            ],
+            [
+               "200081",
+               "2M pasd"
+            ],
+            [
+               "2000283",
+               "1M pasd"
+            ],
+            [
+               "2000167",
+               "4M pasd"
+            ],
+            [
+               "201154",
+               "2M pasd"
+            ],
+            [
+               "201113",
+               "3M pasd"
+            ],
+            [
+               "201114",
+               "2M pasd"
+            ],
+            [
+               "201126",
+               "3M pasd"
+            ],
+            [
+               "201117",
+               "1M pasd"
+            ],
+            [
+               "201118",
+               "1M pasd"
+            ],
+            [
+               "202755",
+               "2M pasd"
+            ],
+            [
+               "202756",
+               "1M pasd"
+            ],
+            [
+               "202716",
+               "3M setDown"
+            ],
+            [
+               "202714",
+               "0S pasd"
+            ],
+            [
+               "202818",
+               "2M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "1M pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "2M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "1M pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202924",
+               "1M pasd"
+            ],
+            [
+               "202925",
+               "1M pasd"
+            ],
+            [
+               "202922",
+               "1M pasd"
+            ],
+            [
+               "202913",
+               "2M pasd"
+            ],
+            [
+               "202914",
+               "0S pasd"
+            ],
+            [
+               "203034",
+               "1M pasd"
+            ],
+            [
+               "203035",
+               "1M pasd"
+            ],
+            [
+               "203036",
+               "1M pasd"
+            ],
+            [
+               "203021",
+               "1M pasd"
+            ],
+            [
+               "203022",
+               "1M pasd"
+            ],
+            [
+               "203023",
+               "1M pasd"
+            ],
+            [
+               "203025",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Circular Quay - Military Rd Nr Old South Head Rd",
+            "rs_ref" : "RS_90-323-_-sj2-1-R-1",
+            "id" : "R_90-323-_-sj2-1-R-1"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-16-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-16-b00be",
+      "leaves" : "07:13:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "1M pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "1M pasd"
+            ],
+            [
+               "202832",
+               "1M pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "1M pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "1M pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "2M pasd"
+            ],
+            [
+               "201090",
+               "4M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "2M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-3-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   },
+   "VJ_90-323-_-sj2-1-23-b00be" : {
+      "vjcode" : "VJ_90-323-_-sj2-1-23-b00be",
+      "leaves" : "06:46:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203026",
+               null
+            ],
+            [
+               "203027",
+               "1M pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "1M pasd"
+            ],
+            [
+               "203031",
+               "1M pasd"
+            ],
+            [
+               "203032",
+               "1M pasd"
+            ],
+            [
+               "203033",
+               "0S pasd"
+            ],
+            [
+               "202911",
+               "1M pasd"
+            ],
+            [
+               "202912",
+               "1M pasd"
+            ],
+            [
+               "202923",
+               "2M pasd"
+            ],
+            [
+               "202955",
+               "0S pasd"
+            ],
+            [
+               "202956",
+               "0S pasd"
+            ],
+            [
+               "202957",
+               "1M pasd"
+            ],
+            [
+               "202958",
+               "1M pasd"
+            ],
+            [
+               "202959",
+               "1M pasd"
+            ],
+            [
+               "202960",
+               "1M pasd"
+            ],
+            [
+               "202961",
+               "0S pasd"
+            ],
+            [
+               "202381",
+               "1M pasd"
+            ],
+            [
+               "202382",
+               "1M pasd"
+            ],
+            [
+               "202831",
+               "2M pasd"
+            ],
+            [
+               "202832",
+               "0S pasd"
+            ],
+            [
+               "202833",
+               "2M pasd"
+            ],
+            [
+               "202834",
+               "1M pasd"
+            ],
+            [
+               "202835",
+               "0S pasd"
+            ],
+            [
+               "202726",
+               "2M pasd"
+            ],
+            [
+               "202753",
+               "1M pasd"
+            ],
+            [
+               "202754",
+               "0S pasd"
+            ],
+            [
+               "201076",
+               "2M pasd"
+            ],
+            [
+               "201077",
+               "1M pasd"
+            ],
+            [
+               "201115",
+               "1M pasd"
+            ],
+            [
+               "201090",
+               "3M pasd"
+            ],
+            [
+               "201083",
+               "1M pasd"
+            ],
+            [
+               "201084",
+               "1M pasd"
+            ],
+            [
+               "200056",
+               "2M setDown"
+            ],
+            [
+               "200057",
+               "2M pasd"
+            ],
+            [
+               "200082",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-323-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Military Rd Nr Old South Head Rd - Elizabeth St Nr Martin Pl",
+            "rs_ref" : "RS_90-323-_-sj2-1-H-2",
+            "id" : "R_90-323-_-sj2-1-H-2"
+         }
+      },
+      "service" : "90-323-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "323"
+   }
+}
+;
+

@@ -1,0 +1,545 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-832-_-sj2-1" : "832"
+}
+;
+
+var stations = {
+   "229256" : "Pokolbin St Nr Merewether High",
+   "230574" : "Lambton Rd Nr Greta Rd",
+   "229212" : "Lambton Rd nr Bavin St",
+   "2287226" : "Dangerfield Dr opp Allenwood Cl",
+   "2287290" : "McCaffrey Dr opp Elbrook Dr",
+   "228595" : "Wallsend Rd nr Rowes Ln",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "2287222" : "115 Dangerfield Dr",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "2287305" : "Croudace Rd nr Sherwood St",
+   "2287223" : "95 Dangerfield Dr",
+   "2305151" : "Lookout Rd Opp Grandview Rd",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "2287203" : "Croudace Rd nr Garsdale Av",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "2287291" : "Mccaffrey Dr Nr Marshall St",
+   "230578" : "Russell Rd Opp Baker St",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "2287326" : "Aries Wy opp Taurus St",
+   "2287225" : "73 Dangerfield Dr",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "230580" : "Russell Rd Nr Brett St",
+   "229265" : "Lambton Rd nr Bronte Rd",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2285185" : "Reservoir Rd opp Jubilee Rd",
+   "2305150" : "Lookout Rd 300m N Of Grandview Rd",
+   "2285252" : "Main Rd nr Harrisons Ln",
+   "2287322" : "Aries Wy nr Gemini Av",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "229218" : "Hunter School Of Performing Arts",
+   "2285250" : "Main Rd 200m E of Cockburns Ln",
+   "2285147" : "Reservoir Rd nr Hartford St",
+   "2285249" : "Main Rd opp Baptist Church",
+   "2287330" : "Jubilee Rd 350m S of Aries Wy",
+   "2287227" : "35 Dangerfield Dr",
+   "230576" : "Alma Rd Nr Cromwell St",
+   "230570" : "Alma Rd Nr Regent St",
+   "230568" : "Russell Rd Nr Baker St",
+   "229255" : "Chatham Rd nr Merewether High",
+   "2285251" : "Main Rd nr Cockburns Ln",
+   "2285148" : "Reservoir Rd nr Nadrian Cl",
+   "230566" : "Russell Rd Opp Brett St",
+   "2285156" : "Jubilee Rd Nr Reservoir Rd",
+   "2287324" : "Aries Wy nr Virgo St",
+   "2287228" : "Dangerfield Dr nr Croudace Rd",
+   "2287221" : "Cambronne Pde nr Rialto Cl",
+   "230565" : "Russell Rd Nr Croudace St",
+   "2287306" : "Croudace Rd nr Urara Pde",
+   "2287325" : "Aries Wy opp Aries Way Reserve",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "230573" : "Lambton Rd Nr Turton Rd",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "2305175" : "Cardiff Rd Nr Marshall St",
+   "230575" : "Lambton Rd Nr Wallarah Rd",
+   "229250" : "Lambton Rd nr Market St",
+   "2287323" : "Aries Wy nr Leo Cl",
+   "2287252" : "Dangerfield Dr opp Cambronne Pde",
+   "2287224" : "79 Dangerfield Dr",
+   "2285184" : "Reservoir Rd nr Lowry St",
+   "2285149" : "Reservoir Rd nr Dewrang St",
+   "229264" : "Lambton Rd nr Lang Rd",
+   "2287328" : "Croudace Rd nr Jubilee Rd",
+   "230571" : "Lambton Rd Nr Wallarah Rd",
+   "2287321" : "Aries Wy nr Pisces Av",
+   "2287327" : "Aries Wy nr Aquarius Av",
+   "229217" : "Brunker Rd nr Heddon Rd",
+   "230572" : "Lambton Rd Nr Greta Rd",
+   "229260" : "Lambton Rd nr Australia Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-832-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-832-_-sj2-1-2-b0096",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229255",
+               null
+            ],
+            [
+               "229217",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "2M pasd"
+            ],
+            [
+               "229218",
+               "1M pasd"
+            ],
+            [
+               "229264",
+               "1M pasd"
+            ],
+            [
+               "230574",
+               "1M pasd"
+            ],
+            [
+               "230575",
+               "0S pasd"
+            ],
+            [
+               "230576",
+               "1M pasd"
+            ],
+            [
+               "230577",
+               "0S pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "0S pasd"
+            ],
+            [
+               "2305144",
+               "1M pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2305150",
+               "0S pasd"
+            ],
+            [
+               "2305151",
+               "1M pasd"
+            ],
+            [
+               "2305175",
+               "1M pasd"
+            ],
+            [
+               "2285249",
+               "0S pasd"
+            ],
+            [
+               "2285250",
+               "1M pasd"
+            ],
+            [
+               "2285251",
+               "0S pasd"
+            ],
+            [
+               "2285252",
+               "1M pasd"
+            ],
+            [
+               "228595",
+               "0S pasd"
+            ],
+            [
+               "2285147",
+               "1M pasd"
+            ],
+            [
+               "2285148",
+               "1M pasd"
+            ],
+            [
+               "2285149",
+               "0S pasd"
+            ],
+            [
+               "2285184",
+               "1M pasd"
+            ],
+            [
+               "2285185",
+               "0S pasd"
+            ],
+            [
+               "2285156",
+               "1M pasd"
+            ],
+            [
+               "2287330",
+               "0S pasd"
+            ],
+            [
+               "2287321",
+               "1M pasd"
+            ],
+            [
+               "2287322",
+               "0S pasd"
+            ],
+            [
+               "2287323",
+               "1M pasd"
+            ],
+            [
+               "2287324",
+               "0S pasd"
+            ],
+            [
+               "2287325",
+               "1M pasd"
+            ],
+            [
+               "2287326",
+               "0S pasd"
+            ],
+            [
+               "2287327",
+               "1M pasd"
+            ],
+            [
+               "2287328",
+               "0S pasd"
+            ],
+            [
+               "2287305",
+               "1M pasd"
+            ],
+            [
+               "2287306",
+               "0S pasd"
+            ],
+            [
+               "2287203",
+               "1M pasd"
+            ],
+            [
+               "2287221",
+               "0S pasd"
+            ],
+            [
+               "2287222",
+               "1M pasd"
+            ],
+            [
+               "2287223",
+               "0S pasd"
+            ],
+            [
+               "2287224",
+               "0S pasd"
+            ],
+            [
+               "2287225",
+               "1M pasd"
+            ],
+            [
+               "2287226",
+               "0S pasd"
+            ],
+            [
+               "2287227",
+               "1M pasd"
+            ],
+            [
+               "2287252",
+               "0S pasd"
+            ],
+            [
+               "2287228",
+               "0S pasd"
+            ],
+            [
+               "2287295",
+               "0S pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "0S pasd"
+            ],
+            [
+               "2287290",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-832-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Chatham Rd nr Merewether High - McCaffrey Dr opp Elbrook Dr",
+            "rs_ref" : "RS_94-832-_-sj2-1-R-2",
+            "id" : "R_94-832-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-832-_-sj2-1",
+      "line" : "832"
+   },
+   "VJ_94-832-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-832-_-sj2-1-1-b0096",
+      "leaves" : "07:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2305175",
+               null
+            ],
+            [
+               "2285249",
+               "1M pasd"
+            ],
+            [
+               "2285250",
+               "0S pasd"
+            ],
+            [
+               "2285251",
+               "1M pasd"
+            ],
+            [
+               "2285252",
+               "1M pasd"
+            ],
+            [
+               "228595",
+               "0S pasd"
+            ],
+            [
+               "2285147",
+               "1M pasd"
+            ],
+            [
+               "2285148",
+               "1M pasd"
+            ],
+            [
+               "2285149",
+               "0S pasd"
+            ],
+            [
+               "2285184",
+               "1M pasd"
+            ],
+            [
+               "2285185",
+               "0S pasd"
+            ],
+            [
+               "2285156",
+               "1M pasd"
+            ],
+            [
+               "2287330",
+               "1M pasd"
+            ],
+            [
+               "2287321",
+               "0S pasd"
+            ],
+            [
+               "2287322",
+               "1M pasd"
+            ],
+            [
+               "2287323",
+               "1M pasd"
+            ],
+            [
+               "2287324",
+               "0S pasd"
+            ],
+            [
+               "2287325",
+               "1M pasd"
+            ],
+            [
+               "2287326",
+               "0S pasd"
+            ],
+            [
+               "2287327",
+               "1M pasd"
+            ],
+            [
+               "2287328",
+               "0S pasd"
+            ],
+            [
+               "2287305",
+               "1M pasd"
+            ],
+            [
+               "2287306",
+               "0S pasd"
+            ],
+            [
+               "2287203",
+               "1M pasd"
+            ],
+            [
+               "2287221",
+               "1M pasd"
+            ],
+            [
+               "2287222",
+               "1M pasd"
+            ],
+            [
+               "2287223",
+               "0S pasd"
+            ],
+            [
+               "2287224",
+               "1M pasd"
+            ],
+            [
+               "2287225",
+               "0S pasd"
+            ],
+            [
+               "2287226",
+               "1M pasd"
+            ],
+            [
+               "2287227",
+               "1M pasd"
+            ],
+            [
+               "2287252",
+               "0S pasd"
+            ],
+            [
+               "2287228",
+               "0S pasd"
+            ],
+            [
+               "2287295",
+               "1M pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "0S pasd"
+            ],
+            [
+               "2287290",
+               "1M pasd"
+            ],
+            [
+               "2287291",
+               "1M pasd"
+            ],
+            [
+               "2305171",
+               "2M pasd"
+            ],
+            [
+               "2305172",
+               "1M pasd"
+            ],
+            [
+               "230565",
+               "1M pasd"
+            ],
+            [
+               "230566",
+               "1M pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "230571",
+               "1M pasd"
+            ],
+            [
+               "230572",
+               "0S pasd"
+            ],
+            [
+               "230573",
+               "1M pasd"
+            ],
+            [
+               "229265",
+               "1M pasd"
+            ],
+            [
+               "229212",
+               "0S pasd"
+            ],
+            [
+               "229266",
+               "0S pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229256",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-832-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Cardiff Rd Nr Marshall St - Pokolbin St Nr Merewether High",
+            "rs_ref" : "RS_94-832-_-sj2-1-H-1",
+            "id" : "R_94-832-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-832-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "832"
+   }
+}
+;
+

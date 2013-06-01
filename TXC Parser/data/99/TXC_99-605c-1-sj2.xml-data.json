@@ -1,0 +1,784 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-605-c-sj2-1" : "605"
+}
+;
+
+var stations = {
+   "2046100" : "Great North Rd Nr Garfield St",
+   "204724" : "Westbourne St Nr Marlborough St",
+   "204629" : "Blackwall Point Rd Nr Great North Rd",
+   "2046102" : "Great North Rd Nr Lyons Rd",
+   "204747" : "Lyons Rd Nr Janet St",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "204745" : "Lyons Rd Nr Thompson St",
+   "204613" : "Lyons Rd nr Lamrock Av",
+   "204618" : "Great North Rd Nr Hill St",
+   "211121" : "Victoria Rd nr Sunnyside St",
+   "211123" : "Victoria Rd nr Mortimer Lewis Dr",
+   "204731" : "Marlborough St Nr Lyons Rd",
+   "204631" : "Blackwell Point Rd Nr Bechert Rd",
+   "211112" : "Victoria Rd nr Frank St",
+   "211125" : "Victoria Nr Huntleys Point",
+   "211114" : "Victoria Rd nr Monash Rd",
+   "204621" : "Great North Rd Nr Glen Ormond Av",
+   "204620" : "Great North Rd Nr Hampden Rd",
+   "211120" : "Victoria Rd nr Hillcrest Av",
+   "204633" : "Blackwall Point Rd Nr Riverview St",
+   "204630" : "Blackwall Point Rd Nr Melrose Cr",
+   "204619" : "Great North Rd Nr Reginald St",
+   "211117" : "Victoria Rd nr Pittwater Rd",
+   "204730" : "Marlborough St Nr Tavistock St",
+   "211115" : "Victoria Rd nr Westminster Rd",
+   "211224" : "Victoria Rd Nr Cressy Rd",
+   "204612" : "Lyons Rd Nr Mons St",
+   "211118" : "Victoria Rd nr Cowell St",
+   "211113" : "Victoria Rd nr Tennyson Rd",
+   "204632" : "Blackwall Point Rd Opp Parkview Rd",
+   "211124" : "Victoria Rd nr Crown St",
+   "204746" : "Lyons Rd Nr Gipps St",
+   "204614" : "Lyons Rd Nr Ingham Av",
+   "211122" : "Victoria Rd Nr Salter St",
+   "211116" : "Victoria Rd nr Concord Pl",
+   "204744" : "Lyons Rd Nr Tranmere St",
+   "2046142" : "Ramsay Rd Nr Fairlight St",
+   "204634" : "Blackwall Point Rd Nr Bortfield Dr",
+   "204617" : "Great North Rd Nr Kerin  Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-605-c-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-605-c-sj2-1-3-b00bk",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "1M pasd"
+            ],
+            [
+               "211113",
+               "1M pasd"
+            ],
+            [
+               "211114",
+               "0S pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "0S pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "0S pasd"
+            ],
+            [
+               "211123",
+               "1M pasd"
+            ],
+            [
+               "211124",
+               "1M pasd"
+            ],
+            [
+               "211125",
+               "1M pasd"
+            ],
+            [
+               "204724",
+               "3M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "0S pasd"
+            ],
+            [
+               "204747",
+               "0S pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "0S pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "2046142",
+               "2M pasd"
+            ],
+            [
+               "2046100",
+               "0S pasd"
+            ],
+            [
+               "2046102",
+               "1M pasd"
+            ],
+            [
+               "204617",
+               "0S pasd"
+            ],
+            [
+               "204618",
+               "1M pasd"
+            ],
+            [
+               "204619",
+               "0S pasd"
+            ],
+            [
+               "204620",
+               "1M pasd"
+            ],
+            [
+               "204621",
+               "0S pasd"
+            ],
+            [
+               "204629",
+               "1M pasd"
+            ],
+            [
+               "204630",
+               "1M pasd"
+            ],
+            [
+               "204631",
+               "0S pasd"
+            ],
+            [
+               "204632",
+               "1M pasd"
+            ],
+            [
+               "204633",
+               "0S pasd"
+            ],
+            [
+               "204634",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Blackwall Point Rd Nr Bortfield Dr",
+            "rs_ref" : "RS_99-605-c-sj2-1-R-1",
+            "id" : "R_99-605-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Friday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-c-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-605-c-sj2-1-1-b00bj",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "1M pasd"
+            ],
+            [
+               "211113",
+               "1M pasd"
+            ],
+            [
+               "211114",
+               "0S pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "0S pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "0S pasd"
+            ],
+            [
+               "211123",
+               "1M pasd"
+            ],
+            [
+               "211124",
+               "1M pasd"
+            ],
+            [
+               "211125",
+               "1M pasd"
+            ],
+            [
+               "204724",
+               "3M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "0S pasd"
+            ],
+            [
+               "204747",
+               "0S pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "0S pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "2046142",
+               "2M pasd"
+            ],
+            [
+               "2046100",
+               "0S pasd"
+            ],
+            [
+               "2046102",
+               "1M pasd"
+            ],
+            [
+               "204617",
+               "0S pasd"
+            ],
+            [
+               "204618",
+               "1M pasd"
+            ],
+            [
+               "204619",
+               "0S pasd"
+            ],
+            [
+               "204620",
+               "1M pasd"
+            ],
+            [
+               "204621",
+               "0S pasd"
+            ],
+            [
+               "204629",
+               "1M pasd"
+            ],
+            [
+               "204630",
+               "1M pasd"
+            ],
+            [
+               "204631",
+               "0S pasd"
+            ],
+            [
+               "204632",
+               "1M pasd"
+            ],
+            [
+               "204633",
+               "0S pasd"
+            ],
+            [
+               "204634",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Blackwall Point Rd Nr Bortfield Dr",
+            "rs_ref" : "RS_99-605-c-sj2-1-R-1",
+            "id" : "R_99-605-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-c-sj2-1",
+      "days" : [
+         "Friday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-c-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-605-c-sj2-1-4-b00bj",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "1M pasd"
+            ],
+            [
+               "211113",
+               "1M pasd"
+            ],
+            [
+               "211114",
+               "0S pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "0S pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "0S pasd"
+            ],
+            [
+               "211123",
+               "1M pasd"
+            ],
+            [
+               "211124",
+               "1M pasd"
+            ],
+            [
+               "211125",
+               "1M pasd"
+            ],
+            [
+               "204724",
+               "3M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "0S pasd"
+            ],
+            [
+               "204747",
+               "0S pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "0S pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "2046142",
+               "2M pasd"
+            ],
+            [
+               "2046100",
+               "0S pasd"
+            ],
+            [
+               "2046102",
+               "1M pasd"
+            ],
+            [
+               "204617",
+               "0S pasd"
+            ],
+            [
+               "204618",
+               "1M pasd"
+            ],
+            [
+               "204619",
+               "0S pasd"
+            ],
+            [
+               "204620",
+               "1M pasd"
+            ],
+            [
+               "204621",
+               "0S pasd"
+            ],
+            [
+               "204629",
+               "1M pasd"
+            ],
+            [
+               "204630",
+               "1M pasd"
+            ],
+            [
+               "204631",
+               "0S pasd"
+            ],
+            [
+               "204632",
+               "1M pasd"
+            ],
+            [
+               "204633",
+               "0S pasd"
+            ],
+            [
+               "204634",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Blackwall Point Rd Nr Bortfield Dr",
+            "rs_ref" : "RS_99-605-c-sj2-1-R-1",
+            "id" : "R_99-605-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-c-sj2-1",
+      "days" : [
+         "Thursday"
+      ],
+      "line" : "605"
+   },
+   "VJ_99-605-c-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-605-c-sj2-1-2-b00bk",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211224",
+               "0S pasd"
+            ],
+            [
+               "211112",
+               "1M pasd"
+            ],
+            [
+               "211113",
+               "1M pasd"
+            ],
+            [
+               "211114",
+               "0S pasd"
+            ],
+            [
+               "211115",
+               "1M pasd"
+            ],
+            [
+               "211116",
+               "0S pasd"
+            ],
+            [
+               "211117",
+               "1M pasd"
+            ],
+            [
+               "211118",
+               "0S pasd"
+            ],
+            [
+               "211120",
+               "1M pasd"
+            ],
+            [
+               "211121",
+               "1M pasd"
+            ],
+            [
+               "211122",
+               "0S pasd"
+            ],
+            [
+               "211123",
+               "1M pasd"
+            ],
+            [
+               "211124",
+               "1M pasd"
+            ],
+            [
+               "211125",
+               "1M pasd"
+            ],
+            [
+               "204724",
+               "3M pasd"
+            ],
+            [
+               "204730",
+               "0S pasd"
+            ],
+            [
+               "204731",
+               "1M pasd"
+            ],
+            [
+               "204744",
+               "0S pasd"
+            ],
+            [
+               "204745",
+               "1M pasd"
+            ],
+            [
+               "204746",
+               "0S pasd"
+            ],
+            [
+               "204747",
+               "0S pasd"
+            ],
+            [
+               "204612",
+               "1M pasd"
+            ],
+            [
+               "204613",
+               "0S pasd"
+            ],
+            [
+               "204614",
+               "0S pasd"
+            ],
+            [
+               "2046142",
+               "2M pasd"
+            ],
+            [
+               "2046100",
+               "0S pasd"
+            ],
+            [
+               "2046102",
+               "1M pasd"
+            ],
+            [
+               "204617",
+               "0S pasd"
+            ],
+            [
+               "204618",
+               "1M pasd"
+            ],
+            [
+               "204619",
+               "0S pasd"
+            ],
+            [
+               "204620",
+               "1M pasd"
+            ],
+            [
+               "204621",
+               "0S pasd"
+            ],
+            [
+               "204629",
+               "1M pasd"
+            ],
+            [
+               "204630",
+               "1M pasd"
+            ],
+            [
+               "204631",
+               "0S pasd"
+            ],
+            [
+               "204632",
+               "1M pasd"
+            ],
+            [
+               "204633",
+               "0S pasd"
+            ],
+            [
+               "204634",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-605-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Blackwall Point Rd Nr Bortfield Dr",
+            "rs_ref" : "RS_99-605-c-sj2-1-R-1",
+            "id" : "R_99-605-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-605-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday"
+      ],
+      "line" : "605"
+   }
+}
+;
+

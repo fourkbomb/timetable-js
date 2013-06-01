@@ -1,0 +1,757 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-38-7-sj2-1" : "38\\7"
+}
+;
+
+var stations = {
+   "2250171" : "Pacific Hwy near Argyle Av",
+   "2250162" : "Pacific Hwy Near Glennie St",
+   "2250181" : "Tuggerah St Near Fagans St",
+   "2250189" : "Bourbon St Near Wyoming Rd",
+   "225848" : "Shirley St at Ourimbah St",
+   "2250172" : "Pacific Hwy Near Apanie Av",
+   "2250249" : "Chamberlain St near Darryl Rd",
+   "2250161" : "Pacific Hwy Near Dwyer St",
+   "2250173" : "Pacific Hwy near Kent St",
+   "2250244" : "Malison St near Maranda St",
+   "225838" : "Cutrock Pryor near Baileys Rd Cutrock Rd",
+   "2250245" : "Malison St Near Mindaree Av",
+   "2250231" : "Maidens Brush Rd Near Beaumont Av",
+   "2250187" : "Sunset St Near Rugby Cl",
+   "2250240" : "Robert St near Orange Pde",
+   "2250160" : "Pacific Hwy near Etna St",
+   "2250232" : "Maidens Brush Rd near Pemworth Cl",
+   "2250169" : "Wyoming Rd near Thornley St",
+   "2250180" : "Macdonalds Rd - RMB 6470 (After Pacific Hwy)",
+   "225840" : "Coachwood Dr - Opp.No.25 (After Tallowood Cr)",
+   "225044" : "Gosford (Stand 4)",
+   "2250238" : "Turpentine St Near Orange Pde",
+   "2250174" : "Newling St Near Pacific Hwy",
+   "225839" : "Cutrock Pryor near Mcgrath Cl",
+   "2250177" : "Newling St Near Pemberton Bvd",
+   "2250225" : "Cary St near Maidens Brush Rd",
+   "2250239" : "Orange Pde near Turpentine St",
+   "2250188" : "Sunset St near Bourbon St",
+   "2250230" : "Wyoming Public School Maidens Brush Rd",
+   "2250178" : "Parsons Rd Near Pacific Hwy",
+   "2250237" : "Turpentine St Near Kalori Av",
+   "2250243" : "Malison St near Maranda St",
+   "2250246" : "Malison St near Chamberlain Rd",
+   "225846" : "Shirley St (After Bristowe Cl)",
+   "2250223" : "Cary St Near Pacific Hwy",
+   "2250241" : "Maple St near Robert St",
+   "225841" : "Coachwood Dr near Ironbank Cl",
+   "2250242" : "Malison St Near Elizabeth St",
+   "2250229" : "Maidens Brush Rd near Jarrett St",
+   "2250235" : "Warrawilla Rd Near Rain Forest Rd",
+   "2250175" : "Newling St Near Cristina Av",
+   "2250234" : "Maidens Brush Rd Near Birch Rd",
+   "2250248" : "Chamberlain St near Giselle Av",
+   "2250236" : "Turpentine St Near Diosma St",
+   "2250170" : "Pacific Hwy Near Berrys Head Rd",
+   "225842" : "Shirley St Opp Old Farm Pl",
+   "2250778" : "Pacific Hwy - No.638 (Between Manns Rd and Goon",
+   "2250233" : "Maidens Brush Rd near Limetta Way",
+   "225829" : "Ourimbah University",
+   "2250224" : "Cary St Near Parry Dr",
+   "225845" : "Shirley St Near Red Cedar Cl",
+   "225847" : "Shirley St opp Ourimbah University",
+   "2250168" : "Wyoming Rd near Macgregor St",
+   "225844" : "Shirley St near Casula Pl",
+   "225081" : "Lisarow Station",
+   "2250176" : "Newling St near Pierce St",
+   "225843" : "Shirley St near Old Farm Pl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-38-7-sj2-1-3-b0195" : {
+      "vjcode" : "VJ_93-38-7-sj2-1-3-b0195",
+      "leaves" : "19:22:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225044",
+               null
+            ],
+            [
+               "2250160",
+               "0S pasd"
+            ],
+            [
+               "2250161",
+               "1M pasd"
+            ],
+            [
+               "2250162",
+               "0S pasd"
+            ],
+            [
+               "2250223",
+               "1M pasd"
+            ],
+            [
+               "2250224",
+               "0S pasd"
+            ],
+            [
+               "2250225",
+               "0S pasd"
+            ],
+            [
+               "2250229",
+               "1M pasd"
+            ],
+            [
+               "2250230",
+               "0S pasd"
+            ],
+            [
+               "2250231",
+               "1M pasd"
+            ],
+            [
+               "2250232",
+               "0S pasd"
+            ],
+            [
+               "2250233",
+               "0S pasd"
+            ],
+            [
+               "2250234",
+               "4M pasd"
+            ],
+            [
+               "2250235",
+               "0S pasd"
+            ],
+            [
+               "2250236",
+               "0S pasd"
+            ],
+            [
+               "2250237",
+               "1M pasd"
+            ],
+            [
+               "2250238",
+               "0S pasd"
+            ],
+            [
+               "2250239",
+               "0S pasd"
+            ],
+            [
+               "2250240",
+               "1M pasd"
+            ],
+            [
+               "2250241",
+               "0S pasd"
+            ],
+            [
+               "2250242",
+               "0S pasd"
+            ],
+            [
+               "2250243",
+               "0S pasd"
+            ],
+            [
+               "2250244",
+               "0S pasd"
+            ],
+            [
+               "2250245",
+               "0S pasd"
+            ],
+            [
+               "2250246",
+               "1M pasd"
+            ],
+            [
+               "2250248",
+               "0S pasd"
+            ],
+            [
+               "2250249",
+               "0S pasd"
+            ],
+            [
+               "2250187",
+               "3M pasd"
+            ],
+            [
+               "2250188",
+               "0S pasd"
+            ],
+            [
+               "2250189",
+               "0S pasd"
+            ],
+            [
+               "2250168",
+               "1M pasd"
+            ],
+            [
+               "2250169",
+               "0S pasd"
+            ],
+            [
+               "2250778",
+               "1M pasd"
+            ],
+            [
+               "2250170",
+               "0S pasd"
+            ],
+            [
+               "2250171",
+               "1M pasd"
+            ],
+            [
+               "2250172",
+               "0S pasd"
+            ],
+            [
+               "2250173",
+               "1M pasd"
+            ],
+            [
+               "2250174",
+               "0S pasd"
+            ],
+            [
+               "2250175",
+               "1M pasd"
+            ],
+            [
+               "2250176",
+               "0S pasd"
+            ],
+            [
+               "2250177",
+               "0S pasd"
+            ],
+            [
+               "2250178",
+               "1M pasd"
+            ],
+            [
+               "225081",
+               "4M pasd"
+            ],
+            [
+               "2250180",
+               "0S pasd"
+            ],
+            [
+               "2250181",
+               "0S pasd"
+            ],
+            [
+               "225838",
+               "1M pasd"
+            ],
+            [
+               "225839",
+               "0S pasd"
+            ],
+            [
+               "225840",
+               "1M pasd"
+            ],
+            [
+               "225841",
+               "0S pasd"
+            ],
+            [
+               "225842",
+               "0S pasd"
+            ],
+            [
+               "225843",
+               "0S pasd"
+            ],
+            [
+               "225844",
+               "1M pasd"
+            ],
+            [
+               "225845",
+               "0S pasd"
+            ],
+            [
+               "225846",
+               "0S pasd"
+            ],
+            [
+               "225829",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-38-7-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Gosford Station - Ourimbah University",
+            "rs_ref" : "RS_93-38-7-sj2-1-R-1",
+            "id" : "R_93-38-7-sj2-1-R-1"
+         }
+      },
+      "service" : "93-38-7-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "38\\7"
+   },
+   "VJ_93-38-7-sj2-1-2-b0195" : {
+      "vjcode" : "VJ_93-38-7-sj2-1-2-b0195",
+      "leaves" : "21:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225044",
+               null
+            ],
+            [
+               "2250160",
+               "0S pasd"
+            ],
+            [
+               "2250161",
+               "1M pasd"
+            ],
+            [
+               "2250162",
+               "0S pasd"
+            ],
+            [
+               "2250223",
+               "1M pasd"
+            ],
+            [
+               "2250224",
+               "0S pasd"
+            ],
+            [
+               "2250225",
+               "0S pasd"
+            ],
+            [
+               "2250229",
+               "1M pasd"
+            ],
+            [
+               "2250230",
+               "0S pasd"
+            ],
+            [
+               "2250231",
+               "1M pasd"
+            ],
+            [
+               "2250232",
+               "0S pasd"
+            ],
+            [
+               "2250233",
+               "0S pasd"
+            ],
+            [
+               "2250234",
+               "4M pasd"
+            ],
+            [
+               "2250235",
+               "0S pasd"
+            ],
+            [
+               "2250236",
+               "0S pasd"
+            ],
+            [
+               "2250237",
+               "1M pasd"
+            ],
+            [
+               "2250238",
+               "0S pasd"
+            ],
+            [
+               "2250239",
+               "0S pasd"
+            ],
+            [
+               "2250240",
+               "1M pasd"
+            ],
+            [
+               "2250241",
+               "0S pasd"
+            ],
+            [
+               "2250242",
+               "0S pasd"
+            ],
+            [
+               "2250243",
+               "0S pasd"
+            ],
+            [
+               "2250244",
+               "0S pasd"
+            ],
+            [
+               "2250245",
+               "0S pasd"
+            ],
+            [
+               "2250246",
+               "1M pasd"
+            ],
+            [
+               "2250248",
+               "0S pasd"
+            ],
+            [
+               "2250249",
+               "0S pasd"
+            ],
+            [
+               "2250187",
+               "3M pasd"
+            ],
+            [
+               "2250188",
+               "0S pasd"
+            ],
+            [
+               "2250189",
+               "0S pasd"
+            ],
+            [
+               "2250168",
+               "1M pasd"
+            ],
+            [
+               "2250169",
+               "0S pasd"
+            ],
+            [
+               "2250778",
+               "1M pasd"
+            ],
+            [
+               "2250170",
+               "0S pasd"
+            ],
+            [
+               "2250171",
+               "1M pasd"
+            ],
+            [
+               "2250172",
+               "0S pasd"
+            ],
+            [
+               "2250173",
+               "1M pasd"
+            ],
+            [
+               "2250174",
+               "0S pasd"
+            ],
+            [
+               "2250175",
+               "1M pasd"
+            ],
+            [
+               "2250176",
+               "0S pasd"
+            ],
+            [
+               "2250177",
+               "0S pasd"
+            ],
+            [
+               "2250178",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-38-7-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Gosford Station - Parsons Rd Near Pacific Hwy",
+            "rs_ref" : "RS_93-38-7-sj2-1-R-2",
+            "id" : "R_93-38-7-sj2-1-R-2"
+         }
+      },
+      "service" : "93-38-7-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "38\\7"
+   },
+   "VJ_93-38-7-sj2-1-5-b0195" : {
+      "vjcode" : "VJ_93-38-7-sj2-1-5-b0195",
+      "leaves" : "20:22:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225044",
+               null
+            ],
+            [
+               "2250160",
+               "0S pasd"
+            ],
+            [
+               "2250161",
+               "1M pasd"
+            ],
+            [
+               "2250162",
+               "0S pasd"
+            ],
+            [
+               "2250223",
+               "1M pasd"
+            ],
+            [
+               "2250224",
+               "0S pasd"
+            ],
+            [
+               "2250225",
+               "0S pasd"
+            ],
+            [
+               "2250229",
+               "1M pasd"
+            ],
+            [
+               "2250230",
+               "0S pasd"
+            ],
+            [
+               "2250231",
+               "1M pasd"
+            ],
+            [
+               "2250232",
+               "0S pasd"
+            ],
+            [
+               "2250233",
+               "0S pasd"
+            ],
+            [
+               "2250234",
+               "4M pasd"
+            ],
+            [
+               "2250235",
+               "0S pasd"
+            ],
+            [
+               "2250236",
+               "0S pasd"
+            ],
+            [
+               "2250237",
+               "1M pasd"
+            ],
+            [
+               "2250238",
+               "0S pasd"
+            ],
+            [
+               "2250239",
+               "0S pasd"
+            ],
+            [
+               "2250240",
+               "1M pasd"
+            ],
+            [
+               "2250241",
+               "0S pasd"
+            ],
+            [
+               "2250242",
+               "0S pasd"
+            ],
+            [
+               "2250243",
+               "0S pasd"
+            ],
+            [
+               "2250244",
+               "0S pasd"
+            ],
+            [
+               "2250245",
+               "0S pasd"
+            ],
+            [
+               "2250246",
+               "1M pasd"
+            ],
+            [
+               "2250248",
+               "0S pasd"
+            ],
+            [
+               "2250249",
+               "0S pasd"
+            ],
+            [
+               "2250187",
+               "3M pasd"
+            ],
+            [
+               "2250188",
+               "0S pasd"
+            ],
+            [
+               "2250189",
+               "0S pasd"
+            ],
+            [
+               "2250168",
+               "1M pasd"
+            ],
+            [
+               "2250169",
+               "0S pasd"
+            ],
+            [
+               "2250778",
+               "1M pasd"
+            ],
+            [
+               "2250170",
+               "0S pasd"
+            ],
+            [
+               "2250171",
+               "1M pasd"
+            ],
+            [
+               "2250172",
+               "0S pasd"
+            ],
+            [
+               "2250173",
+               "1M pasd"
+            ],
+            [
+               "2250174",
+               "0S pasd"
+            ],
+            [
+               "2250175",
+               "1M pasd"
+            ],
+            [
+               "2250176",
+               "0S pasd"
+            ],
+            [
+               "2250177",
+               "0S pasd"
+            ],
+            [
+               "2250178",
+               "1M pasd"
+            ],
+            [
+               "225081",
+               "4M pasd"
+            ],
+            [
+               "2250180",
+               "0S pasd"
+            ],
+            [
+               "2250181",
+               "0S pasd"
+            ],
+            [
+               "225838",
+               "1M pasd"
+            ],
+            [
+               "225839",
+               "0S pasd"
+            ],
+            [
+               "225840",
+               "0S pasd"
+            ],
+            [
+               "225841",
+               "0S pasd"
+            ],
+            [
+               "225842",
+               "1M pasd"
+            ],
+            [
+               "225843",
+               "0S pasd"
+            ],
+            [
+               "225844",
+               "0S pasd"
+            ],
+            [
+               "225845",
+               "0S pasd"
+            ],
+            [
+               "225846",
+               "1M pasd"
+            ],
+            [
+               "225847",
+               "0S pasd"
+            ],
+            [
+               "225848",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-38-7-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Gosford Station - Shirley St at Ourimbah St",
+            "rs_ref" : "RS_93-38-7-sj2-1-R-3",
+            "id" : "R_93-38-7-sj2-1-R-3"
+         }
+      },
+      "service" : "93-38-7-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "38\\7"
+   }
+}
+;
+

@@ -1,0 +1,888 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-746-c-sj2-1" : "746"
+}
+;
+
+var stations = {
+   "209941" : "Griffin Rd nr Headland Rd",
+   "210046" : "Pittwater Rd Nr Oliver St",
+   "2099193" : "Fisher Rd nr Regent St",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "209769" : "Lantana Av 400m E of Terminus",
+   "2099174" : "Fisher Rd North Nr Grover Av",
+   "209733" : "Kirkstone Rd Nr Carlisle St",
+   "2099197" : "Fisher Rd nr Tor Rd",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "209943" : "Griffin Rd nr Pacific Pde",
+   "209652" : "Wyuna Av Nr Harbord Rd",
+   "2099179" : "Fisher Rd North Nr Carawa Rd",
+   "209659" : "Oliver St Nr Brighton St",
+   "209682" : "Queenscliff Rd Nr Dalley St",
+   "210043" : "Pittwater Rd Nr Wakefield St",
+   "2099170" : "Fisher Rd North Nr Tennyson Rd",
+   "209748" : "Heather St nr Kirkstone Rd",
+   "209549" : "Pittwater Rd Nr Collingwood St",
+   "209765" : "Veterans Pde nr Acacia St",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "210047" : "Pittwater Rd nr Aitken Av",
+   "209552" : "Pittwater Rd Nr Raglan St",
+   "209683" : "Cavill St Nr Dalley St",
+   "209571" : "Darley Rd Nr St Pauls College",
+   "209688" : "Harbord Rd nr Coles Rd",
+   "209663" : "Adams St nr Lalchere St",
+   "209731" : "Ambleside St nr Penrith Cr",
+   "2099194" : "Fisher Rd North nr Lynwood Av",
+   "209944" : "Howard Av nr The Strand",
+   "209687" : "Harbord Rd Nr Soldiers Av",
+   "209564" : "Collingwood St Nr Stella Maris Stand 2",
+   "210022" : "Pittwater Rd nr Carter Rd",
+   "209767" : "Veterans Pde nr Lantana Av",
+   "209770" : "Lantana Av nr Veterans Pde",
+   "209519" : "Gilbert St Nr Belgrave St",
+   "209689" : "Harbord Rd nr Wyuna Av",
+   "209662" : "Adams St Nr Travers Rd",
+   "2099180" : "Fisher Rd North Nr Tennyson Rd",
+   "209768" : "Lakeshore Dr nr Lantana Av",
+   "2099177" : "Fisher Rd North Nr Grover Av",
+   "209547" : "Pittwater Rd Nr Eurobin Av",
+   "209735" : "Rose Av nr Grasmere Cr",
+   "2099171" : "Fisher Rd North Nr Carawa Rd",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "209550" : "Pittwater Rd Nr Pine St",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "210044" : "Pittwater Rd Nr Western Av",
+   "2096115" : "Oliver St nr Wyadra Av",
+   "209686" : "Lawrence St Nr Harbord Rd",
+   "2099118" : "Fisher Rd nr St David Av",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "209685" : "Cavill St nr Lawrence St",
+   "210024" : "Pittwater Rd nr Mitchell Av",
+   "209996" : "Fisher Rd nr Lewis St",
+   "209732" : "Heather St nr Ambleside St",
+   "209749" : "Ambleside St nr Crummock St",
+   "2100131" : "Pittwater Rd nr Warringah Mall Stand A",
+   "209551" : "Pittwater Rd Nr Carlton St",
+   "209653" : "Wyuna Av 250m W Of Oliver St",
+   "209639" : "Bennett St Nr Oliver St",
+   "209730" : "South Creek Rd nr Toronto Av",
+   "209553" : "Belgrave St Nr Sydney Rd",
+   "209734" : "Kirkstone Rd nr Rose Av",
+   "209681" : "Queenscliff Rd Nr Greycliffe St",
+   "209946" : "Howard Av Nr Avon Rd",
+   "2099178" : "Fisher Rd North Nr Ryrie Av",
+   "209928" : "Griffin Rd Nr Abbott Rd",
+   "209736" : "Rose Av Nr Veterans Pde",
+   "209942" : "Griffin Rd nr Boronia St",
+   "209745" : "Rose Av Nr Veterans Pde",
+   "209747" : "Kirkstone Rd Nr Carlisle St",
+   "210021" : "Pittwater Rd nr Harbord Rd",
+   "209786" : "Lantana Av 180m W of Veterans",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "209661" : "Adams St Nr Park St",
+   "210042" : "Pittwater Rd nr Corrie Rd",
+   "210041" : "Pittwater Rd Nr Sterland Av",
+   "2099198" : "Fisher Rd Nr Ilikai Pl",
+   "210026" : "Pittwater Rd nr Orchard Rd",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "209746" : "Rose Av nr Berith St",
+   "209994" : "Griffin Rd Nr Pitt Rd",
+   "209654" : "Wyuna Av Nr Oliver St",
+   "2099173" : "Fisher Rd North Nr Ryrie Av",
+   "210045" : "Pittwater Rd Nr Riverview Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-746-c-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-746-c-sj2-1-3-b00b7",
+      "leaves" : "07:58:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209768",
+               null
+            ],
+            [
+               "209769",
+               "1M pasd"
+            ],
+            [
+               "209770",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209745",
+               "1M pasd"
+            ],
+            [
+               "209746",
+               "1M pasd"
+            ],
+            [
+               "209747",
+               "2M pasd"
+            ],
+            [
+               "209748",
+               "1M pasd"
+            ],
+            [
+               "209749",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "2099118",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100131",
+               "1M pasd"
+            ],
+            [
+               "210041",
+               "1M pasd"
+            ],
+            [
+               "210042",
+               "1M pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "0S pasd"
+            ],
+            [
+               "209549",
+               "1M pasd"
+            ],
+            [
+               "209550",
+               "0S pasd"
+            ],
+            [
+               "209551",
+               "1M pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "1M setDown"
+            ],
+            [
+               "209571",
+               "1M setDown"
+            ]
+         ],
+         "id" : "JP_99-746-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Lakeshore Dr nr Lantana Av - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-746-c-sj2-1-H-1",
+            "id" : "R_99-746-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-746-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "746"
+   },
+   "VJ_99-746-c-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-746-c-sj2-1-4-b00b2",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209564",
+               null
+            ],
+            [
+               "209681",
+               "2M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "0S pasd"
+            ],
+            [
+               "209686",
+               "1M pasd"
+            ],
+            [
+               "209687",
+               "0S pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "0S pasd"
+            ],
+            [
+               "209652",
+               "0S pasd"
+            ],
+            [
+               "209653",
+               "1M pasd"
+            ],
+            [
+               "209654",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "0S pasd"
+            ],
+            [
+               "209639",
+               "1M pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "0S pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "1M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "1M pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "1M pasd"
+            ],
+            [
+               "2099174",
+               "0S pasd"
+            ],
+            [
+               "209730",
+               "2M pasd"
+            ],
+            [
+               "209731",
+               "1M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "0S pasd"
+            ],
+            [
+               "209734",
+               "1M pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "0S pasd"
+            ],
+            [
+               "209786",
+               "1M pasd"
+            ],
+            [
+               "209768",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-746-c-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Collingwood St Nr Stella Maris - Lakeshore Dr nr Lantana Av",
+            "rs_ref" : "RS_99-746-c-sj2-1-R-2",
+            "id" : "R_99-746-c-sj2-1-R-2"
+         }
+      },
+      "service" : "99-746-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "746"
+   },
+   "VJ_99-746-c-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-746-c-sj2-1-1-b00b2",
+      "leaves" : "07:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209768",
+               null
+            ],
+            [
+               "209769",
+               "1M pasd"
+            ],
+            [
+               "209770",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209745",
+               "1M pasd"
+            ],
+            [
+               "209746",
+               "1M pasd"
+            ],
+            [
+               "209747",
+               "2M pasd"
+            ],
+            [
+               "209748",
+               "1M pasd"
+            ],
+            [
+               "209749",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ],
+            [
+               "2099177",
+               "1M pasd"
+            ],
+            [
+               "2099178",
+               "1M pasd"
+            ],
+            [
+               "2099179",
+               "0S pasd"
+            ],
+            [
+               "2099180",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099193",
+               "0S pasd"
+            ],
+            [
+               "2099118",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100131",
+               "1M pasd"
+            ],
+            [
+               "210041",
+               "1M pasd"
+            ],
+            [
+               "210042",
+               "1M pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "1M pasd"
+            ],
+            [
+               "209548",
+               "0S pasd"
+            ],
+            [
+               "209549",
+               "1M pasd"
+            ],
+            [
+               "209550",
+               "0S pasd"
+            ],
+            [
+               "209551",
+               "1M pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "1M setDown"
+            ],
+            [
+               "209571",
+               "1M setDown"
+            ]
+         ],
+         "id" : "JP_99-746-c-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Lakeshore Dr nr Lantana Av - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-746-c-sj2-1-H-1",
+            "id" : "R_99-746-c-sj2-1-H-1"
+         }
+      },
+      "service" : "99-746-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "746"
+   },
+   "VJ_99-746-c-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-746-c-sj2-1-2-b00b7",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209564",
+               null
+            ],
+            [
+               "209681",
+               "2M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "209685",
+               "0S pasd"
+            ],
+            [
+               "209686",
+               "1M pasd"
+            ],
+            [
+               "209687",
+               "0S pasd"
+            ],
+            [
+               "209688",
+               "1M pasd"
+            ],
+            [
+               "209689",
+               "0S pasd"
+            ],
+            [
+               "209652",
+               "0S pasd"
+            ],
+            [
+               "209653",
+               "1M pasd"
+            ],
+            [
+               "209654",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "0S pasd"
+            ],
+            [
+               "209639",
+               "1M pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "0S pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "1M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "1M pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "1M pasd"
+            ],
+            [
+               "2099174",
+               "0S pasd"
+            ],
+            [
+               "209730",
+               "2M pasd"
+            ],
+            [
+               "209731",
+               "1M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "0S pasd"
+            ],
+            [
+               "209734",
+               "1M pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "0S pasd"
+            ],
+            [
+               "209786",
+               "1M pasd"
+            ],
+            [
+               "209768",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-746-c-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Collingwood St Nr Stella Maris - Lakeshore Dr nr Lantana Av",
+            "rs_ref" : "RS_99-746-c-sj2-1-R-2",
+            "id" : "R_99-746-c-sj2-1-R-2"
+         }
+      },
+      "service" : "99-746-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "746"
+   }
+}
+;
+

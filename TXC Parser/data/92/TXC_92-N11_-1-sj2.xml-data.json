@@ -1,0 +1,968 @@
+var OPERATOR = "NightRide";
+
+
+var LINES = {
+   "92-N11-_-sj2-1" : "N11"
+}
+;
+
+var stations = {
+   "200064" : "Railway Square_ George St - Stand D",
+   "221712" : "Railway Pde Nr Kogarah Station",
+   "221880" : "Railway Pde & Lancelot St - NightRide Stop",
+   "2000222" : "George St Nr Bathurst St",
+   "2229196" : "Caringbah (Kingsway)",
+   "2230192" : "Woolooware Station_ Kingsway",
+   "201622" : "Regent St Nr Redfern St",
+   "204451" : "Sydney Park Rd Nr King St",
+   "2230191" : "Woolooware Station_ Kingsway",
+   "204411" : "Princes Hwy Nr St Peters Station",
+   "221622" : "Railway St Nr Banksia Station",
+   "221871" : "Carlton Station_ near Railway Pde",
+   "221870" : "Carlton Station_ Railway Pde",
+   "220571" : "Princes Hwy & Burrows St",
+   "2220333" : "Hurstville Station_ Ormonde Pde_ Stand E",
+   "201631" : "Gibbons St nr Redfern St",
+   "221617" : "Railway St Stand F",
+   "222411" : "Spinners Tradesmen Tomuglys Bridge Clare",
+   "223022" : "Cronulla Railway Cronulla St",
+   "220564" : "Princes Hwy nr Brodie Spark Dr",
+   "220561" : "Princes Hwy Nr Gertrude St",
+   "2000181" : "George St Nr Park St",
+   "221879" : "Railway Pde & Lancelot St - NightRide Stop",
+   "221711" : "Railway Pde Nr Kogarah Station",
+   "220578" : "Princes Hwy & Kyle St",
+   "200062" : "Railway Square_ Lee St - Stand A",
+   "222449" : "Tomuglys Bridge Princes Hwy near Clare St",
+   "2000409" : "Bathurst St after Castlereagh St (NightRide)",
+   "222895" : "Kingsway near Kiora Rd North",
+   "2229197" : "Caringbah (Kingsway)",
+   "221618" : "Railway St Stand H",
+   "2228107" : "Kingsway near Kiora Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_92-N11-_-sj2-1-20-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-20-TA",
+      "leaves" : "04:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2000222",
+               null
+            ],
+            [
+               "200064",
+               "4M pasd"
+            ],
+            [
+               "201622",
+               "4M pasd"
+            ],
+            [
+               "204451",
+               "3M40S pasd"
+            ],
+            [
+               "220561",
+               "6M12S pasd"
+            ],
+            [
+               "220578",
+               "1M8S pasd"
+            ],
+            [
+               "221622",
+               "2M17S pasd"
+            ],
+            [
+               "221617",
+               "1M43S pasd"
+            ],
+            [
+               "221711",
+               "4M pasd"
+            ],
+            [
+               "221871",
+               "2M pasd"
+            ],
+            [
+               "221879",
+               "2M pasd"
+            ],
+            [
+               "2220333",
+               "2M pasd"
+            ],
+            [
+               "222411",
+               "9M pasd"
+            ],
+            [
+               "2228107",
+               "7M pasd"
+            ],
+            [
+               "2229197",
+               "4M pasd"
+            ],
+            [
+               "2230191",
+               "2M35S pasd"
+            ],
+            [
+               "223022",
+               "2M35S pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "George St Nr Bathurst St - Cronulla Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-H-1",
+            "id" : "R_92-N11-_-sj2-1-H-1"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-7-TA",
+      "leaves" : "04:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223022",
+               null
+            ],
+            [
+               "2230192",
+               "1M22S pasd"
+            ],
+            [
+               "2229196",
+               "2M38S pasd"
+            ],
+            [
+               "222895",
+               "4M pasd"
+            ],
+            [
+               "222449",
+               "7M pasd"
+            ],
+            [
+               "2220333",
+               "9M pasd"
+            ],
+            [
+               "221880",
+               "2M pasd"
+            ],
+            [
+               "221870",
+               "2M pasd"
+            ],
+            [
+               "221712",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "4M pasd"
+            ],
+            [
+               "220571",
+               "4M pasd"
+            ],
+            [
+               "220564",
+               "1M14S pasd"
+            ],
+            [
+               "204411",
+               "5M17S pasd"
+            ],
+            [
+               "201631",
+               "3M29S pasd"
+            ],
+            [
+               "200062",
+               "4M pasd"
+            ],
+            [
+               "2000181",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Cronulla Station - Town Hall Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-R-3",
+            "id" : "R_92-N11-_-sj2-1-R-3"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-10-TA",
+      "leaves" : "02:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223022",
+               null
+            ],
+            [
+               "2230192",
+               "1M22S pasd"
+            ],
+            [
+               "2229196",
+               "2M38S pasd"
+            ],
+            [
+               "222895",
+               "4M pasd"
+            ],
+            [
+               "222449",
+               "7M pasd"
+            ],
+            [
+               "2220333",
+               "9M pasd"
+            ],
+            [
+               "221880",
+               "2M pasd"
+            ],
+            [
+               "221870",
+               "2M pasd"
+            ],
+            [
+               "221712",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "4M pasd"
+            ],
+            [
+               "220571",
+               "4M pasd"
+            ],
+            [
+               "220564",
+               "1M14S pasd"
+            ],
+            [
+               "204411",
+               "5M17S pasd"
+            ],
+            [
+               "201631",
+               "3M29S pasd"
+            ],
+            [
+               "200062",
+               "4M pasd"
+            ],
+            [
+               "2000181",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Cronulla Station - Town Hall Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-R-3",
+            "id" : "R_92-N11-_-sj2-1-R-3"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-3-TA",
+      "leaves" : "00:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2000222",
+               null
+            ],
+            [
+               "200064",
+               "4M pasd"
+            ],
+            [
+               "201622",
+               "4M pasd"
+            ],
+            [
+               "204451",
+               "3M40S pasd"
+            ],
+            [
+               "220561",
+               "6M12S pasd"
+            ],
+            [
+               "220578",
+               "1M8S pasd"
+            ],
+            [
+               "221622",
+               "2M17S pasd"
+            ],
+            [
+               "221617",
+               "1M43S pasd"
+            ],
+            [
+               "221711",
+               "4M pasd"
+            ],
+            [
+               "221871",
+               "2M pasd"
+            ],
+            [
+               "221879",
+               "2M pasd"
+            ],
+            [
+               "2220333",
+               "2M pasd"
+            ],
+            [
+               "222411",
+               "9M pasd"
+            ],
+            [
+               "2228107",
+               "7M pasd"
+            ],
+            [
+               "2229197",
+               "4M pasd"
+            ],
+            [
+               "2230191",
+               "2M35S pasd"
+            ],
+            [
+               "223022",
+               "2M35S pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "George St Nr Bathurst St - Cronulla Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-H-1",
+            "id" : "R_92-N11-_-sj2-1-H-1"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-9-TA",
+      "leaves" : "01:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223022",
+               null
+            ],
+            [
+               "2230192",
+               "1M22S pasd"
+            ],
+            [
+               "2229196",
+               "2M38S pasd"
+            ],
+            [
+               "222895",
+               "4M pasd"
+            ],
+            [
+               "222449",
+               "7M pasd"
+            ],
+            [
+               "2220333",
+               "9M pasd"
+            ],
+            [
+               "221880",
+               "2M pasd"
+            ],
+            [
+               "221870",
+               "2M pasd"
+            ],
+            [
+               "221712",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "4M pasd"
+            ],
+            [
+               "220571",
+               "4M pasd"
+            ],
+            [
+               "220564",
+               "1M14S pasd"
+            ],
+            [
+               "204411",
+               "5M17S pasd"
+            ],
+            [
+               "201631",
+               "3M29S pasd"
+            ],
+            [
+               "200062",
+               "4M pasd"
+            ],
+            [
+               "2000181",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Cronulla Station - Town Hall Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-R-3",
+            "id" : "R_92-N11-_-sj2-1-R-3"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-4-TA",
+      "leaves" : "01:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2000222",
+               null
+            ],
+            [
+               "200064",
+               "4M pasd"
+            ],
+            [
+               "201622",
+               "4M pasd"
+            ],
+            [
+               "204451",
+               "3M40S pasd"
+            ],
+            [
+               "220561",
+               "6M12S pasd"
+            ],
+            [
+               "220578",
+               "1M8S pasd"
+            ],
+            [
+               "221622",
+               "2M17S pasd"
+            ],
+            [
+               "221617",
+               "1M43S pasd"
+            ],
+            [
+               "221711",
+               "4M pasd"
+            ],
+            [
+               "221871",
+               "2M pasd"
+            ],
+            [
+               "221879",
+               "2M pasd"
+            ],
+            [
+               "2220333",
+               "2M pasd"
+            ],
+            [
+               "222411",
+               "9M pasd"
+            ],
+            [
+               "2228107",
+               "7M pasd"
+            ],
+            [
+               "2229197",
+               "4M pasd"
+            ],
+            [
+               "2230191",
+               "2M35S pasd"
+            ],
+            [
+               "223022",
+               "2M35S pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "George St Nr Bathurst St - Cronulla Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-H-1",
+            "id" : "R_92-N11-_-sj2-1-H-1"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-8-TA",
+      "leaves" : "00:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223022",
+               null
+            ],
+            [
+               "2230192",
+               "1M22S pasd"
+            ],
+            [
+               "2229196",
+               "2M38S pasd"
+            ],
+            [
+               "222895",
+               "4M pasd"
+            ],
+            [
+               "222449",
+               "7M pasd"
+            ],
+            [
+               "2220333",
+               "9M pasd"
+            ],
+            [
+               "221880",
+               "2M pasd"
+            ],
+            [
+               "221870",
+               "2M pasd"
+            ],
+            [
+               "221712",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "4M pasd"
+            ],
+            [
+               "220571",
+               "4M pasd"
+            ],
+            [
+               "220564",
+               "1M14S pasd"
+            ],
+            [
+               "204411",
+               "5M17S pasd"
+            ],
+            [
+               "201631",
+               "3M29S pasd"
+            ],
+            [
+               "200062",
+               "4M pasd"
+            ],
+            [
+               "2000181",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Cronulla Station - Town Hall Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-R-3",
+            "id" : "R_92-N11-_-sj2-1-R-3"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-5-TA",
+      "leaves" : "02:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2000222",
+               null
+            ],
+            [
+               "200064",
+               "4M pasd"
+            ],
+            [
+               "201622",
+               "4M pasd"
+            ],
+            [
+               "204451",
+               "3M40S pasd"
+            ],
+            [
+               "220561",
+               "6M12S pasd"
+            ],
+            [
+               "220578",
+               "1M8S pasd"
+            ],
+            [
+               "221622",
+               "2M17S pasd"
+            ],
+            [
+               "221617",
+               "1M43S pasd"
+            ],
+            [
+               "221711",
+               "4M pasd"
+            ],
+            [
+               "221871",
+               "2M pasd"
+            ],
+            [
+               "221879",
+               "2M pasd"
+            ],
+            [
+               "2220333",
+               "2M pasd"
+            ],
+            [
+               "222411",
+               "9M pasd"
+            ],
+            [
+               "2228107",
+               "7M pasd"
+            ],
+            [
+               "2229197",
+               "4M pasd"
+            ],
+            [
+               "2230191",
+               "2M35S pasd"
+            ],
+            [
+               "223022",
+               "2M35S pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "George St Nr Bathurst St - Cronulla Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-H-1",
+            "id" : "R_92-N11-_-sj2-1-H-1"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-6-TA",
+      "leaves" : "03:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223022",
+               null
+            ],
+            [
+               "2230192",
+               "1M22S pasd"
+            ],
+            [
+               "2229196",
+               "2M38S pasd"
+            ],
+            [
+               "222895",
+               "4M pasd"
+            ],
+            [
+               "222449",
+               "7M pasd"
+            ],
+            [
+               "2220333",
+               "9M pasd"
+            ],
+            [
+               "221880",
+               "2M pasd"
+            ],
+            [
+               "221870",
+               "2M pasd"
+            ],
+            [
+               "221712",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "4M pasd"
+            ],
+            [
+               "220571",
+               "4M pasd"
+            ],
+            [
+               "220564",
+               "1M14S pasd"
+            ],
+            [
+               "204411",
+               "5M17S pasd"
+            ],
+            [
+               "201631",
+               "3M29S pasd"
+            ],
+            [
+               "200062",
+               "4M pasd"
+            ],
+            [
+               "2000181",
+               "4M pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Cronulla Station - Town Hall Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-R-3",
+            "id" : "R_92-N11-_-sj2-1-R-3"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   },
+   "VJ_92-N11-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_92-N11-_-sj2-1-1-TA",
+      "leaves" : "03:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2000222",
+               null
+            ],
+            [
+               "200064",
+               "4M pasd"
+            ],
+            [
+               "201622",
+               "4M pasd"
+            ],
+            [
+               "204451",
+               "3M40S pasd"
+            ],
+            [
+               "220561",
+               "6M12S pasd"
+            ],
+            [
+               "220578",
+               "1M8S pasd"
+            ],
+            [
+               "221622",
+               "2M17S pasd"
+            ],
+            [
+               "221617",
+               "1M43S pasd"
+            ],
+            [
+               "221711",
+               "4M pasd"
+            ],
+            [
+               "221871",
+               "2M pasd"
+            ],
+            [
+               "221879",
+               "2M pasd"
+            ],
+            [
+               "2220333",
+               "2M pasd"
+            ],
+            [
+               "222411",
+               "9M pasd"
+            ],
+            [
+               "2228107",
+               "7M pasd"
+            ],
+            [
+               "2229197",
+               "4M pasd"
+            ],
+            [
+               "2230191",
+               "2M35S pasd"
+            ],
+            [
+               "223022",
+               "2M35S pasd"
+            ]
+         ],
+         "id" : "JP_92-N11-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "George St Nr Bathurst St - Cronulla Station",
+            "rs_ref" : "RS_92-N11-_-sj2-1-H-1",
+            "id" : "R_92-N11-_-sj2-1-H-1"
+         }
+      },
+      "service" : "92-N11-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "N11"
+   }
+}
+;
+

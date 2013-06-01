@@ -1,0 +1,511 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-747-c-sj2-1" : "747"
+}
+;
+
+var stations = {
+   "209521" : "Victoria Pde Nr Manly School",
+   "2099153" : "Truman Av nr Badcoe Rd",
+   "2099150" : "Carrington Av Nr Toronto Av",
+   "209557" : "North Steyne Nr Collingwood St",
+   "210036" : "Pittwater Rd nr Kentwell Rd",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "209750" : "South Creek Rd nr Penrith Av",
+   "2099197" : "Fisher Rd nr Tor Rd",
+   "210030" : "Pittwater Rd nr Queencliff Rd",
+   "209546" : "Pittwater Rd Nr Eurobin Av",
+   "2099170" : "Fisher Rd North Nr Tennyson Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "210017" : "Pittwater Rd nr Pine Av",
+   "209996" : "Fisher Rd nr Lewis St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "209556" : "North Steyne Nr Pacific St",
+   "2099149" : "Carrington Av Nr Washington Av",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "210034" : "Pittwater Rd Nr Western Av",
+   "209579" : "East Esplande Stand A",
+   "2099152" : "Toronto Av nr Kenna Pl",
+   "209542" : "Pittwater Rd Nr Steinton St",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "2099128" : "Carawa Rd nr Davison St",
+   "209555" : "North Steyne Nr Pine St",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "210032" : "Pittwater Rd Nr Oliver St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209571" : "Darley Rd Nr St Pauls College",
+   "209912" : "Pittwater Rd Nr Pacific Pde",
+   "2099194" : "Fisher Rd North nr Lynwood Av",
+   "210033" : "Pittwater Rd Nr Riverview Pde",
+   "2099183" : "Carawa Rd Nr Alfred St",
+   "2099148" : "Grover Av nr Carcoola Av",
+   "2099146" : "Carcoola Rd Nr Carawa Rd",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "209565" : "Eurobin St Nr Stella Maris Stand 3",
+   "2099147" : "Carcoola Rd nr Pinta Pl",
+   "2099151" : "Toronto Av Nr Cromer Rd",
+   "209911" : "Pittwater Rd nr May Rd",
+   "2099209" : "Truman Av nr Howse Cr",
+   "209913" : "Pittwater Rd nr St Davids Av",
+   "209541" : "Belgrave St Nr Raglan St",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "210037" : "Pittwater Rd Nr Sterland Av",
+   "2099198" : "Fisher Rd Nr Ilikai Pl",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2099154" : "Howse Cr nr Truman Av",
+   "209561" : "North Steyne Nr Carlton St",
+   "210035" : "Pittwater Rd Nr Wakefield St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-747-c-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-747-c-sj2-1-2-b00b2",
+      "leaves" : "15:31:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209571",
+               null
+            ],
+            [
+               "209521",
+               "2M pasd"
+            ],
+            [
+               "209579",
+               "2M pasd"
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209561",
+               "1M pasd"
+            ],
+            [
+               "209555",
+               "0S pasd"
+            ],
+            [
+               "209556",
+               "1M pasd"
+            ],
+            [
+               "209557",
+               "0S pasd"
+            ],
+            [
+               "209565",
+               "1M pasd"
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "1M pasd"
+            ],
+            [
+               "210034",
+               "0S pasd"
+            ],
+            [
+               "210035",
+               "1M pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "0S pasd"
+            ],
+            [
+               "210018",
+               "1M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "0S pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "1M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099183",
+               "2M pasd"
+            ],
+            [
+               "2099128",
+               "0S pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-747-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Darley Rd Nr St Pauls College - South Creek Rd nr Penrith Av",
+            "rs_ref" : "RS_99-747-c-sj2-1-R-1",
+            "id" : "R_99-747-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-747-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "747"
+   },
+   "VJ_99-747-c-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-747-c-sj2-1-1-b00b7",
+      "leaves" : "15:31:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209571",
+               null
+            ],
+            [
+               "209521",
+               "2M pasd"
+            ],
+            [
+               "209579",
+               "2M pasd"
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "1M pasd"
+            ],
+            [
+               "209561",
+               "1M pasd"
+            ],
+            [
+               "209555",
+               "0S pasd"
+            ],
+            [
+               "209556",
+               "1M pasd"
+            ],
+            [
+               "209557",
+               "0S pasd"
+            ],
+            [
+               "209565",
+               "1M pasd"
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "1M pasd"
+            ],
+            [
+               "210034",
+               "0S pasd"
+            ],
+            [
+               "210035",
+               "1M pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "0S pasd"
+            ],
+            [
+               "210018",
+               "1M pasd"
+            ],
+            [
+               "210019",
+               "1M pasd"
+            ],
+            [
+               "209911",
+               "1M pasd"
+            ],
+            [
+               "209912",
+               "0S pasd"
+            ],
+            [
+               "209913",
+               "1M pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "1M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "1M pasd"
+            ],
+            [
+               "2099170",
+               "0S pasd"
+            ],
+            [
+               "2099183",
+               "2M pasd"
+            ],
+            [
+               "2099128",
+               "0S pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "0S pasd"
+            ],
+            [
+               "2099149",
+               "1M pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209750",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-747-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Darley Rd Nr St Pauls College - South Creek Rd nr Penrith Av",
+            "rs_ref" : "RS_99-747-c-sj2-1-R-1",
+            "id" : "R_99-747-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-747-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "747"
+   }
+}
+;
+

@@ -1,0 +1,708 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-570-_-sj2-1" : "570"
+}
+;
+
+var stations = {
+   "211018" : "Ryde Rd Nr Abigail St",
+   "211048" : "Woolwich Rd nr Glenview Cr",
+   "211049" : "Woolwich Rd nr Futuna St",
+   "211053" : "Woolwich Rd nr Passy Av",
+   "211284" : "Morrison Rd nr Delange Rd",
+   "211019" : "Ryde Rd nr Figtree Rd",
+   "211162" : "Pittwater Rd nr Eltham St",
+   "2111105" : "Morrison Rd nr Bayview St",
+   "2111108" : "Morrison Rd nr Champion Rd",
+   "211278" : "Morrison Rd Nr Acacia Av",
+   "211079" : "Pittwater Rd nr Ryde Rd",
+   "211051" : "Woolwich Rd nr Wybalena Rd",
+   "211021" : "Gladesville Rd nr Joubert St",
+   "211056" : "Alexandra St nr Ernest St",
+   "211060" : "Church St nr Mount St",
+   "211166" : "Pittwater Rd Nr Victoria Rd",
+   "2112244" : "Constitution Rd Nr Hamilton Cr",
+   "211055" : "Woolwich Rd nr Foss St",
+   "211163" : "Pittwater Rd nr Venus St",
+   "211052" : "Woolwich Rd nr Crescent St",
+   "211161" : "Pittwater Rd nr Ryde Rd",
+   "2112131" : "Morrison Rd Nr Regent St",
+   "211046" : "Woolwich Rd Nr Gladstone Av",
+   "2111107" : "Morrison Rd Nr Western Cr",
+   "211054" : "Ferry St nr Ambrose St",
+   "2112133" : "Morrison Rd near Church St",
+   "2112129" : "Morrison Rd Nr Princes St",
+   "211431" : "Constitution Rd nr Meadowbank Station",
+   "211062" : "Church St opp Herberton Av",
+   "211027" : "Ryde Rd nr Luke St",
+   "2112134" : "Morrison Rd near Church St",
+   "211061" : "Church St nr Moorefield Av",
+   "211025" : "Gladesville Rd nr Pitt St",
+   "211088" : "Ryde Rd nr Park Rd",
+   "211090" : "Woolwich Rd nr Ferry St",
+   "211063" : "Church St nr Herberton Av",
+   "211020" : "Ryde Rd Nr Gladesville Rd",
+   "211280" : "Morrison Rd Nr Mitchell St",
+   "2112138" : "Belmore St Nr Constitution Rd",
+   "211279" : "Morrison Rd Nr Bass St",
+   "211165" : "Pittwater Rd Nr Victoria Rd",
+   "211058" : "Alexandra St nr D'Aram St",
+   "211047" : "Woolwich Rd nr Vernon St",
+   "211184" : "Ross St nr Raven St",
+   "2111102" : "Morrison Rd nr Tennyson Rd",
+   "2112137" : "Belmore St Nr Thistle St",
+   "2111117" : "Ross St nr Blair St",
+   "2112135" : "Morrison Rd Nr Belmore St",
+   "2112139" : "Constitution Rd Nr Belmore St",
+   "2112130" : "Morrison Rd Nr Gladstone Av",
+   "211024" : "Marist Sisters Stand B",
+   "211042" : "Marist Sisters Stand A",
+   "211059" : "Alexandra St nr Stanley Rd",
+   "211028" : "Ryde Rd Nr Abigail St",
+   "2111106" : "Morrison Rd Nr Western Cr",
+   "211282" : "Morrison Rd Nr Putney Primary",
+   "2112136" : "Belmore St Nr Suttor Av",
+   "211167" : "Jordan St nr Victoria Rd",
+   "211050" : "Woolwich Rd nr Jeanneret Av",
+   "211080" : "Pittwater Rd nr Aston St",
+   "211164" : "Pittwater Rd nr Auburn St",
+   "2112132" : "Morrison Rd near Church St",
+   "2111104" : "Morrison Rd nr Bremner Park",
+   "2112128" : "Morrison Rd Nr Princes St",
+   "2111101" : "Morrison Rd nr Tennyson Rd",
+   "211057" : "Alexandra St nr Ellesmere Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-570-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-570-_-sj2-1-4-b00bj",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211042",
+               null
+            ],
+            [
+               "211048",
+               "2M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "1M pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "1M pasd"
+            ],
+            [
+               "211027",
+               "0S pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211079",
+               "1M pasd"
+            ],
+            [
+               "211080",
+               "1M pasd"
+            ],
+            [
+               "211163",
+               "0S pasd"
+            ],
+            [
+               "211166",
+               "1M pasd"
+            ],
+            [
+               "2111117",
+               "1M pasd"
+            ],
+            [
+               "2111107",
+               "1M pasd"
+            ],
+            [
+               "2111108",
+               "1M pasd"
+            ],
+            [
+               "2111101",
+               "0S pasd"
+            ],
+            [
+               "2111105",
+               "1M pasd"
+            ],
+            [
+               "211279",
+               "1M pasd"
+            ],
+            [
+               "211280",
+               "1M pasd"
+            ],
+            [
+               "211284",
+               "0S pasd"
+            ],
+            [
+               "2112129",
+               "2M pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "2112135",
+               "1M pasd"
+            ],
+            [
+               "2112136",
+               "0S pasd"
+            ],
+            [
+               "2112138",
+               "1M pasd"
+            ],
+            [
+               "2112244",
+               "0S pasd"
+            ],
+            [
+               "211431",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-570-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Meadowbank Station",
+            "rs_ref" : "RS_99-570-_-sj2-1-R-2",
+            "id" : "R_99-570-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-570-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "570"
+   },
+   "VJ_99-570-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-570-_-sj2-1-2-b00bk",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211431",
+               null
+            ],
+            [
+               "2112139",
+               "3M pasd"
+            ],
+            [
+               "2112137",
+               "2M pasd"
+            ],
+            [
+               "2112134",
+               "1M pasd"
+            ],
+            [
+               "2112133",
+               "1M pasd"
+            ],
+            [
+               "2112130",
+               "1M pasd"
+            ],
+            [
+               "2112128",
+               "1M pasd"
+            ],
+            [
+               "211282",
+               "3M pasd"
+            ],
+            [
+               "211278",
+               "1M pasd"
+            ],
+            [
+               "2111104",
+               "1M pasd"
+            ],
+            [
+               "2111102",
+               "1M pasd"
+            ],
+            [
+               "2111106",
+               "2M pasd"
+            ],
+            [
+               "211184",
+               "2M pasd"
+            ],
+            [
+               "211167",
+               "1M pasd"
+            ],
+            [
+               "211165",
+               "0S pasd"
+            ],
+            [
+               "211164",
+               "2M pasd"
+            ],
+            [
+               "211162",
+               "0S pasd"
+            ],
+            [
+               "211161",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "2M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "0S pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "0S pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-570-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Meadowbank Station - Marist Sisters",
+            "rs_ref" : "RS_99-570-_-sj2-1-H-1",
+            "id" : "R_99-570-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-570-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "570"
+   },
+   "VJ_99-570-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-570-_-sj2-1-1-b00bj",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211431",
+               null
+            ],
+            [
+               "2112139",
+               "3M pasd"
+            ],
+            [
+               "2112137",
+               "2M pasd"
+            ],
+            [
+               "2112134",
+               "1M pasd"
+            ],
+            [
+               "2112133",
+               "1M pasd"
+            ],
+            [
+               "2112130",
+               "1M pasd"
+            ],
+            [
+               "2112128",
+               "1M pasd"
+            ],
+            [
+               "211282",
+               "3M pasd"
+            ],
+            [
+               "211278",
+               "1M pasd"
+            ],
+            [
+               "2111104",
+               "1M pasd"
+            ],
+            [
+               "2111102",
+               "1M pasd"
+            ],
+            [
+               "2111106",
+               "2M pasd"
+            ],
+            [
+               "211184",
+               "2M pasd"
+            ],
+            [
+               "211167",
+               "1M pasd"
+            ],
+            [
+               "211165",
+               "0S pasd"
+            ],
+            [
+               "211164",
+               "2M pasd"
+            ],
+            [
+               "211162",
+               "0S pasd"
+            ],
+            [
+               "211161",
+               "1M pasd"
+            ],
+            [
+               "211088",
+               "2M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "2M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "211062",
+               "1M pasd"
+            ],
+            [
+               "211060",
+               "0S pasd"
+            ],
+            [
+               "211058",
+               "1M pasd"
+            ],
+            [
+               "211056",
+               "0S pasd"
+            ],
+            [
+               "211054",
+               "1M pasd"
+            ],
+            [
+               "211053",
+               "0S pasd"
+            ],
+            [
+               "211052",
+               "1M pasd"
+            ],
+            [
+               "211049",
+               "0S pasd"
+            ],
+            [
+               "211047",
+               "1M pasd"
+            ],
+            [
+               "211046",
+               "0S pasd"
+            ],
+            [
+               "211024",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-570-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Meadowbank Station - Marist Sisters",
+            "rs_ref" : "RS_99-570-_-sj2-1-H-1",
+            "id" : "R_99-570-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-570-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "570"
+   },
+   "VJ_99-570-_-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-570-_-sj2-1-3-b00bk",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "211042",
+               null
+            ],
+            [
+               "211048",
+               "2M pasd"
+            ],
+            [
+               "211050",
+               "0S pasd"
+            ],
+            [
+               "211051",
+               "1M pasd"
+            ],
+            [
+               "211090",
+               "1M pasd"
+            ],
+            [
+               "211055",
+               "1M pasd"
+            ],
+            [
+               "211057",
+               "1M pasd"
+            ],
+            [
+               "211059",
+               "0S pasd"
+            ],
+            [
+               "211061",
+               "1M pasd"
+            ],
+            [
+               "211063",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "1M pasd"
+            ],
+            [
+               "211027",
+               "0S pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211079",
+               "1M pasd"
+            ],
+            [
+               "211080",
+               "1M pasd"
+            ],
+            [
+               "211163",
+               "0S pasd"
+            ],
+            [
+               "211166",
+               "1M pasd"
+            ],
+            [
+               "2111117",
+               "1M pasd"
+            ],
+            [
+               "2111107",
+               "1M pasd"
+            ],
+            [
+               "2111108",
+               "1M pasd"
+            ],
+            [
+               "2111101",
+               "0S pasd"
+            ],
+            [
+               "2111105",
+               "1M pasd"
+            ],
+            [
+               "211279",
+               "1M pasd"
+            ],
+            [
+               "211280",
+               "1M pasd"
+            ],
+            [
+               "211284",
+               "0S pasd"
+            ],
+            [
+               "2112129",
+               "2M pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "2112135",
+               "1M pasd"
+            ],
+            [
+               "2112136",
+               "0S pasd"
+            ],
+            [
+               "2112138",
+               "1M pasd"
+            ],
+            [
+               "2112244",
+               "0S pasd"
+            ],
+            [
+               "211431",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-570-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Marist Sisters - Meadowbank Station",
+            "rs_ref" : "RS_99-570-_-sj2-1-R-2",
+            "id" : "R_99-570-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-570-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "570"
+   }
+}
+;
+

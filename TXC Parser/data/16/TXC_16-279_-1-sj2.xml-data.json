@@ -1,0 +1,866 @@
+var OPERATOR = "Forest Coach Lines";
+
+
+var LINES = {
+   "16-279-_-sj2-1" : "279"
+}
+;
+
+var stations = {
+   "2086101" : "Forest Wy Near Adams St",
+   "208669" : "Warringah Rd Opp Maxwell Pd",
+   "2086100" : "Warringah Rd nr Ftzpatrick Av",
+   "208689" : "The Esplanade Near The Crst",
+   "208735" : "Warringah Rd near Woodlands Rd",
+   "208752" : "Warringah Rd near Darley St",
+   "208696" : "Carnarvon Dr near Epping Dr",
+   "208691" : "The Esplanade near Trigalana Pl",
+   "208695" : "Carnarvon Dr Near Warrigal Rd",
+   "206971" : "Boundary St Nr Archbold Rd",
+   "208714" : "Warringah Rd near Starkey St",
+   "208742" : "Forestville. Warringah Rd near Altona Av",
+   "208692" : "The Esplanade Near Comeroy Cr",
+   "208753" : "Warringah Rd near Melwood Av",
+   "208736" : "Warringah Rd opp Melwood Av",
+   "208571" : "Bambara Oval Forest Wy",
+   "206970" : "Boundary St And Penhurst St",
+   "206790" : "Ashley St near Archer St",
+   "208755" : "Warringah Rd Nr Ryrie Av",
+   "208662" : "Forest Wy Near Naree Rd",
+   "208734" : "Warringah Rd Nr Ryrie Av",
+   "208754" : "Forestville. Warringah Rd near Forestville Av",
+   "206765" : "Chatswood Railway Interchange",
+   "208733" : "Warringah Rd near Valley Rd",
+   "206979" : "Archer St Near William St",
+   "2086102" : "Forest Wy Near Adams St",
+   "206931" : "Boundary St Near Archbold Rd",
+   "208738" : "Warringah Rd near Ferguson St",
+   "206785" : "Anderson St near Tulip St",
+   "206932" : "Boundary St Near Penshurst St",
+   "206972" : "Boundary St Near Archer St",
+   "208740" : "Warringah Rd near Altona Av",
+   "2086129" : "Epping Dr near Rabbett St",
+   "208690" : "The Esplanade Near Cadow St",
+   "2086103" : "Forest Wy Near Bowman Av",
+   "206784" : "Ashley St near Anderson St",
+   "206930" : "Roseville College Boundary St Near Spearman St",
+   "208737" : "Warringah Rd opp Darley St",
+   "208661" : "Forest Wy Near Adams St",
+   "208694" : "Carnarvon Dr near Federation Pl",
+   "208756" : "Warringah Rd opp Valley Rd",
+   "208743" : "Warringah Rd near Currie Rd",
+   "208741" : "Warringah Rd near Maxwell Pd",
+   "208739" : "Warringah Rd near Brown St",
+   "208693" : "The Esplanade Near Burraloo St",
+   "206969" : "Babbage Rd Nr Duntroon Av",
+   "206789" : "Anderson St near Tulip St",
+   "208670" : "Warringah Rd nr Fitzpatrick Av",
+   "208663" : "Forest Way nr Rabbett St",
+   "208688" : "The Esplanade near Prince Charles Rd",
+   "206966" : "Babbage Rd Nr Park St",
+   "2067130" : "Chatswood (Interchange)",
+   "206980" : "Archer St Near Waratah St",
+   "208572" : "Forest Wy near Glen St",
+   "206967" : "Warringah Rd Nr Malga Av",
+   "208671" : "Forest Wy Nr Warringah Rd",
+   "206968" : "Warringah Rd Nr Malga Av",
+   "206786" : "Chatswood Presbyterian Church Anderson St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_16-279-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_16-279-_-sj2-1-3-TA",
+      "leaves" : "16:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208688",
+               null
+            ],
+            [
+               "208689",
+               "38S pasd"
+            ],
+            [
+               "208690",
+               "36S pasd"
+            ],
+            [
+               "208691",
+               "30S pasd"
+            ],
+            [
+               "208692",
+               "49S pasd"
+            ],
+            [
+               "208693",
+               "34S pasd"
+            ],
+            [
+               "208694",
+               "43S pasd"
+            ],
+            [
+               "208695",
+               "1M7S pasd"
+            ],
+            [
+               "208696",
+               "32S pasd"
+            ],
+            [
+               "2086129",
+               "59S pasd"
+            ],
+            [
+               "208661",
+               "1M26S pasd"
+            ],
+            [
+               "208662",
+               "34S pasd"
+            ],
+            [
+               "208663",
+               "1M32S pasd"
+            ],
+            [
+               "2086100",
+               "55S pasd"
+            ],
+            [
+               "208741",
+               "37S pasd"
+            ],
+            [
+               "208742",
+               "44S pasd"
+            ],
+            [
+               "208743",
+               "51S pasd"
+            ],
+            [
+               "208714",
+               "53S pasd"
+            ],
+            [
+               "208752",
+               "21S pasd"
+            ],
+            [
+               "208753",
+               "15S pasd"
+            ],
+            [
+               "208754",
+               "11S pasd"
+            ],
+            [
+               "208755",
+               "28S pasd"
+            ],
+            [
+               "208756",
+               "17S pasd"
+            ],
+            [
+               "206968",
+               "1M47S pasd"
+            ],
+            [
+               "206969",
+               "41S pasd"
+            ],
+            [
+               "206970",
+               "2M35S pasd"
+            ],
+            [
+               "206971",
+               "1M10S pasd"
+            ],
+            [
+               "206972",
+               "2M30S pasd"
+            ],
+            [
+               "206979",
+               "50S pasd"
+            ],
+            [
+               "206784",
+               "1M1S pasd"
+            ],
+            [
+               "206785",
+               "46S pasd"
+            ],
+            [
+               "206786",
+               "54S pasd"
+            ],
+            [
+               "206765",
+               "54S pasd"
+            ]
+         ],
+         "id" : "JP_16-279-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "The Esplanade near Prince Charles Rd - Chatswood Station",
+            "rs_ref" : "RS_16-279-_-sj2-1-R-3",
+            "id" : "R_16-279-_-sj2-1-R-3"
+         }
+      },
+      "service" : "16-279-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "279"
+   },
+   "VJ_16-279-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_16-279-_-sj2-1-5-TA",
+      "leaves" : "07:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208688",
+               null
+            ],
+            [
+               "208689",
+               "38S pasd"
+            ],
+            [
+               "208690",
+               "36S pasd"
+            ],
+            [
+               "208691",
+               "30S pasd"
+            ],
+            [
+               "208692",
+               "49S pasd"
+            ],
+            [
+               "208693",
+               "34S pasd"
+            ],
+            [
+               "208694",
+               "43S pasd"
+            ],
+            [
+               "208695",
+               "1M7S pasd"
+            ],
+            [
+               "208696",
+               "32S pasd"
+            ],
+            [
+               "2086129",
+               "59S pasd"
+            ],
+            [
+               "208661",
+               "1M26S pasd"
+            ],
+            [
+               "208662",
+               "34S pasd"
+            ],
+            [
+               "208663",
+               "1M32S pasd"
+            ],
+            [
+               "2086100",
+               "1M9S pasd"
+            ],
+            [
+               "208741",
+               "46S pasd"
+            ],
+            [
+               "208742",
+               "55S pasd"
+            ],
+            [
+               "208743",
+               "1M4S pasd"
+            ],
+            [
+               "208714",
+               "1M6S pasd"
+            ],
+            [
+               "208752",
+               "32S pasd"
+            ],
+            [
+               "208753",
+               "22S pasd"
+            ],
+            [
+               "208754",
+               "17S pasd"
+            ],
+            [
+               "208755",
+               "42S pasd"
+            ],
+            [
+               "208756",
+               "25S pasd"
+            ],
+            [
+               "206968",
+               "2M41S pasd"
+            ],
+            [
+               "206969",
+               "1M1S pasd"
+            ],
+            [
+               "206970",
+               "2M35S pasd"
+            ],
+            [
+               "206971",
+               "1M10S pasd"
+            ],
+            [
+               "206972",
+               "2M30S pasd"
+            ],
+            [
+               "206979",
+               "50S pasd"
+            ],
+            [
+               "206784",
+               "1M1S pasd"
+            ],
+            [
+               "206785",
+               "46S pasd"
+            ],
+            [
+               "206786",
+               "54S pasd"
+            ],
+            [
+               "206765",
+               "54S pasd"
+            ]
+         ],
+         "id" : "JP_16-279-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "The Esplanade near Prince Charles Rd - Chatswood Station",
+            "rs_ref" : "RS_16-279-_-sj2-1-R-3",
+            "id" : "R_16-279-_-sj2-1-R-3"
+         }
+      },
+      "service" : "16-279-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "279"
+   },
+   "VJ_16-279-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_16-279-_-sj2-1-4-TA",
+      "leaves" : "07:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208688",
+               null
+            ],
+            [
+               "208689",
+               "38S pasd"
+            ],
+            [
+               "208690",
+               "36S pasd"
+            ],
+            [
+               "208691",
+               "30S pasd"
+            ],
+            [
+               "208692",
+               "49S pasd"
+            ],
+            [
+               "208693",
+               "34S pasd"
+            ],
+            [
+               "208694",
+               "43S pasd"
+            ],
+            [
+               "208695",
+               "1M7S pasd"
+            ],
+            [
+               "208696",
+               "32S pasd"
+            ],
+            [
+               "2086129",
+               "59S pasd"
+            ],
+            [
+               "208661",
+               "1M26S pasd"
+            ],
+            [
+               "208662",
+               "34S pasd"
+            ],
+            [
+               "208663",
+               "1M32S pasd"
+            ],
+            [
+               "2086100",
+               "1M9S pasd"
+            ],
+            [
+               "208741",
+               "46S pasd"
+            ],
+            [
+               "208742",
+               "55S pasd"
+            ],
+            [
+               "208743",
+               "1M4S pasd"
+            ],
+            [
+               "208714",
+               "1M6S pasd"
+            ],
+            [
+               "208752",
+               "32S pasd"
+            ],
+            [
+               "208753",
+               "22S pasd"
+            ],
+            [
+               "208754",
+               "17S pasd"
+            ],
+            [
+               "208755",
+               "42S pasd"
+            ],
+            [
+               "208756",
+               "25S pasd"
+            ],
+            [
+               "206968",
+               "2M41S pasd"
+            ],
+            [
+               "206969",
+               "1M1S pasd"
+            ],
+            [
+               "206970",
+               "3M3S pasd"
+            ],
+            [
+               "206971",
+               "1M23S pasd"
+            ],
+            [
+               "206972",
+               "2M57S pasd"
+            ],
+            [
+               "206979",
+               "1M pasd"
+            ],
+            [
+               "206784",
+               "1M12S pasd"
+            ],
+            [
+               "206785",
+               "54S pasd"
+            ],
+            [
+               "206786",
+               "1M4S pasd"
+            ],
+            [
+               "206765",
+               "1M4S pasd"
+            ]
+         ],
+         "id" : "JP_16-279-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "The Esplanade near Prince Charles Rd - Chatswood Station",
+            "rs_ref" : "RS_16-279-_-sj2-1-R-3",
+            "id" : "R_16-279-_-sj2-1-R-3"
+         }
+      },
+      "service" : "16-279-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "279"
+   },
+   "VJ_16-279-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_16-279-_-sj2-1-1-TA",
+      "leaves" : "16:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2067130",
+               null
+            ],
+            [
+               "206789",
+               "1M14S pasd"
+            ],
+            [
+               "206790",
+               "52S pasd"
+            ],
+            [
+               "206980",
+               "29S pasd"
+            ],
+            [
+               "206930",
+               "58S pasd"
+            ],
+            [
+               "206931",
+               "1M42S pasd"
+            ],
+            [
+               "206932",
+               "51S pasd"
+            ],
+            [
+               "206966",
+               "1M54S pasd"
+            ],
+            [
+               "206967",
+               "1M15S pasd"
+            ],
+            [
+               "208733",
+               "3M41S pasd"
+            ],
+            [
+               "208734",
+               "27S pasd"
+            ],
+            [
+               "208735",
+               "56S pasd"
+            ],
+            [
+               "208736",
+               "36S pasd"
+            ],
+            [
+               "208737",
+               "21S pasd"
+            ],
+            [
+               "208738",
+               "44S pasd"
+            ],
+            [
+               "208739",
+               "1M14S pasd"
+            ],
+            [
+               "208740",
+               "52S pasd"
+            ],
+            [
+               "208669",
+               "1M1S pasd"
+            ],
+            [
+               "208670",
+               "35S pasd"
+            ],
+            [
+               "208671",
+               "1M18S pasd"
+            ],
+            [
+               "2086101",
+               "58S pasd"
+            ],
+            [
+               "2086102",
+               "33S pasd"
+            ],
+            [
+               "2086103",
+               "30S pasd"
+            ],
+            [
+               "208688",
+               "47S pasd"
+            ],
+            [
+               "208689",
+               "28S pasd"
+            ],
+            [
+               "208690",
+               "27S pasd"
+            ],
+            [
+               "208691",
+               "23S pasd"
+            ],
+            [
+               "208692",
+               "37S pasd"
+            ],
+            [
+               "208693",
+               "25S pasd"
+            ],
+            [
+               "208694",
+               "32S pasd"
+            ],
+            [
+               "208695",
+               "50S pasd"
+            ],
+            [
+               "208696",
+               "50S pasd"
+            ]
+         ],
+         "id" : "JP_16-279-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Chatswood Station - Carnarvon Dr near Epping Dr",
+            "rs_ref" : "RS_16-279-_-sj2-1-H-1",
+            "id" : "R_16-279-_-sj2-1-H-1"
+         }
+      },
+      "service" : "16-279-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "279"
+   },
+   "VJ_16-279-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_16-279-_-sj2-1-2-TA",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2067130",
+               null
+            ],
+            [
+               "206789",
+               "1M14S pasd"
+            ],
+            [
+               "206790",
+               "52S pasd"
+            ],
+            [
+               "206980",
+               "29S pasd"
+            ],
+            [
+               "206930",
+               "58S pasd"
+            ],
+            [
+               "206931",
+               "1M42S pasd"
+            ],
+            [
+               "206932",
+               "51S pasd"
+            ],
+            [
+               "206966",
+               "1M54S pasd"
+            ],
+            [
+               "206967",
+               "1M15S pasd"
+            ],
+            [
+               "208733",
+               "3M41S pasd"
+            ],
+            [
+               "208734",
+               "27S pasd"
+            ],
+            [
+               "208735",
+               "56S pasd"
+            ],
+            [
+               "208736",
+               "36S pasd"
+            ],
+            [
+               "208737",
+               "21S pasd"
+            ],
+            [
+               "208738",
+               "44S pasd"
+            ],
+            [
+               "208739",
+               "1M14S pasd"
+            ],
+            [
+               "208740",
+               "52S pasd"
+            ],
+            [
+               "208669",
+               "1M1S pasd"
+            ],
+            [
+               "208670",
+               "35S pasd"
+            ],
+            [
+               "208671",
+               "1M18S pasd"
+            ],
+            [
+               "2086101",
+               "41S pasd"
+            ],
+            [
+               "2086102",
+               "24S pasd"
+            ],
+            [
+               "2086103",
+               "22S pasd"
+            ],
+            [
+               "208688",
+               "33S pasd"
+            ],
+            [
+               "208689",
+               "20S pasd"
+            ],
+            [
+               "208690",
+               "19S pasd"
+            ],
+            [
+               "208691",
+               "16S pasd"
+            ],
+            [
+               "208692",
+               "26S pasd"
+            ],
+            [
+               "208693",
+               "18S pasd"
+            ],
+            [
+               "208694",
+               "23S pasd"
+            ],
+            [
+               "208695",
+               "36S pasd"
+            ],
+            [
+               "208696",
+               "22S pasd"
+            ],
+            [
+               "2086129",
+               "59S pasd"
+            ],
+            [
+               "2086102",
+               "1M41S pasd"
+            ],
+            [
+               "2086103",
+               "40S pasd"
+            ],
+            [
+               "208571",
+               "1M10S pasd"
+            ],
+            [
+               "208572",
+               "1M10S pasd"
+            ]
+         ],
+         "id" : "JP_16-279-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Chatswood Station - Forest Wy near Glen St",
+            "rs_ref" : "RS_16-279-_-sj2-1-H-2",
+            "id" : "R_16-279-_-sj2-1-H-2"
+         }
+      },
+      "service" : "16-279-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "279"
+   }
+}
+;
+

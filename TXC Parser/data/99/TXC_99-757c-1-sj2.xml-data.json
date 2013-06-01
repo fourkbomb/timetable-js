@@ -1,0 +1,582 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-757-c-sj2-1" : "757"
+}
+;
+
+var stations = {
+   "215338" : "Cook St nr Brodie St",
+   "2151112" : "Larra Cr nr Mill Dr",
+   "2153372" : "Baulkham Hills High School_ Windsor Rd",
+   "2151105" : "Wiliams Rd nr Sophia Cr",
+   "215169" : "North Rocks nr North Rocks Primary",
+   "211818" : "Carlingford Rd opp Hepburn Av",
+   "215170" : "North Rocks Rd opp Westfields",
+   "2153189" : "Windsor Rd nr Landscape St",
+   "2151110" : "Larra Cr nr Eather Av",
+   "2151106" : "Williams Rd nr Rajola Pl",
+   "215166" : "North Rocks Rd nr Watts St",
+   "211842" : "Pennant Hills Rd near Janell Cl",
+   "215167" : "North Rocks Rd nr Lawndale Av",
+   "2151151" : "Barclay Rd nr Muirfield High School",
+   "2118202" : "Jenkins Rd Nr Lochinvar Pde",
+   "211876" : "Jenkins Rd near Post Office St",
+   "2118204" : "Jenkins Rd near Woodstock Rd",
+   "2151150" : "Barlcay Rd opp Perry St",
+   "2151141" : "Barlcay Rd nr Perry St",
+   "215331" : "Cook St nr Juniper Pl",
+   "2151107" : "Perry St nr Williams Rd",
+   "2121156" : "Carlingford Rd Nr Dallwood Av",
+   "2151109" : "Mill Dr nr Larra Cr",
+   "2151108" : "Perry St nr Barclay Rd",
+   "2151142" : "Barclay Rd Nr Mill Dr",
+   "2151103" : "Sophia Cr 200m S of Hancey Av",
+   "2151101" : "Williams Rd nr Perry St",
+   "2151111" : "Larra Cr nr Raine Av",
+   "2118104" : "Jenkins Rd near James St",
+   "2121142" : "Bridge St Nr Wyralla Av",
+   "2153187" : "Windsor Rd nr Community Centre",
+   "2121179" : "Carlingford Rd Nr Duntroon Av",
+   "211851" : "North Rocks Rd Nr Bellevue Dr",
+   "2121180" : "Carlingford Rd Nr Ward St",
+   "215332" : "Cook St nr Willow Dr",
+   "215337" : "Cook St nr Carrabai Pl",
+   "2151113" : "Mill Dr nr Alderson Av",
+   "211875" : "Jenkins Rd Nr Moseley St",
+   "2118203" : "Jenkins Rd Nr Robbie Cr",
+   "211850" : "North Rocks Rd near New North Rocks Rd",
+   "2151149" : "Barclay Rd Nr Mill Dr",
+   "215168" : "North Rocks Rd nr Lawndale Av",
+   "211852" : "North Rocks Rd opp Farnell Av",
+   "2151102" : "Sophia Cr nr Hancey Av",
+   "215333" : "Cook St Nr Orchard St",
+   "2153188" : "Windsor Rd nr Rembrandt Dr",
+   "215336" : "Cook St Nr Orchard St",
+   "212112" : "Beecroft Rd Nr Epping Station",
+   "2121178" : "Carlingford Rd Nr Pennant Pde",
+   "2151104" : "Williams Rd nr Hancey Av",
+   "2151117" : "Bowral St nr Christ Of Kings School",
+   "2153216" : "Renown Rd nr Sports Club",
+   "2153186" : "Windsor Rd nr Charles St",
+   "211817" : "Carlingford Rd near Rembrandt St",
+   "2153213" : "Renown Rd opp Sports Club",
+   "211840" : "Pennant Hills Rd Nr Coleman Av",
+   "211853" : "North Rocks Rd near Alkira Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-757-c-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-757-c-sj2-1-1-b00bk",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2151117",
+               null
+            ],
+            [
+               "215166",
+               "2M pasd"
+            ],
+            [
+               "215167",
+               "1M pasd"
+            ],
+            [
+               "215168",
+               "1M pasd"
+            ],
+            [
+               "215169",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "3M pasd"
+            ],
+            [
+               "2151141",
+               "1M pasd"
+            ],
+            [
+               "2151108",
+               "1M pasd"
+            ],
+            [
+               "2151101",
+               "0S pasd"
+            ],
+            [
+               "2151102",
+               "1M pasd"
+            ],
+            [
+               "2151103",
+               "1M pasd"
+            ],
+            [
+               "2151104",
+               "0S pasd"
+            ],
+            [
+               "2151105",
+               "1M pasd"
+            ],
+            [
+               "2151106",
+               "1M pasd"
+            ],
+            [
+               "2151107",
+               "0S pasd"
+            ],
+            [
+               "2151109",
+               "2M pasd"
+            ],
+            [
+               "2151110",
+               "0S pasd"
+            ],
+            [
+               "2151111",
+               "2M pasd"
+            ],
+            [
+               "2151112",
+               "0S pasd"
+            ],
+            [
+               "2151113",
+               "1M pasd"
+            ],
+            [
+               "2151142",
+               "1M pasd"
+            ],
+            [
+               "2153216",
+               "2M pasd"
+            ],
+            [
+               "215331",
+               "1M pasd"
+            ],
+            [
+               "215332",
+               "1M pasd"
+            ],
+            [
+               "215333",
+               "1M pasd"
+            ],
+            [
+               "2153186",
+               "1M pasd"
+            ],
+            [
+               "2153187",
+               "1M pasd"
+            ],
+            [
+               "2153188",
+               "1M pasd"
+            ],
+            [
+               "2153189",
+               "1M pasd"
+            ],
+            [
+               "2153372",
+               "1M pasd"
+            ],
+            [
+               "215336",
+               "3M pasd"
+            ],
+            [
+               "215337",
+               "1M pasd"
+            ],
+            [
+               "215338",
+               "0S pasd"
+            ],
+            [
+               "2153213",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "1M pasd"
+            ],
+            [
+               "2151150",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "0S pasd"
+            ],
+            [
+               "215170",
+               "1M pasd"
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "0S pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "1M pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "211875",
+               "1M pasd"
+            ],
+            [
+               "211876",
+               "1M pasd"
+            ],
+            [
+               "2118104",
+               "0S pasd"
+            ],
+            [
+               "211840",
+               "1M pasd"
+            ],
+            [
+               "211842",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "2M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "0S pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "1M pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "2121142",
+               "3M pasd"
+            ],
+            [
+               "212112",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-757-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bowral St nr Christ Of Kings School - Epping Station",
+            "rs_ref" : "RS_99-757-c-sj2-1-R-1",
+            "id" : "R_99-757-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-757-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   },
+   "VJ_99-757-c-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-757-c-sj2-1-2-b00bj",
+      "leaves" : "14:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2151117",
+               null
+            ],
+            [
+               "215166",
+               "2M pasd"
+            ],
+            [
+               "215167",
+               "1M pasd"
+            ],
+            [
+               "215168",
+               "1M pasd"
+            ],
+            [
+               "215169",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "3M pasd"
+            ],
+            [
+               "2151141",
+               "1M pasd"
+            ],
+            [
+               "2151108",
+               "1M pasd"
+            ],
+            [
+               "2151101",
+               "0S pasd"
+            ],
+            [
+               "2151102",
+               "1M pasd"
+            ],
+            [
+               "2151103",
+               "1M pasd"
+            ],
+            [
+               "2151104",
+               "0S pasd"
+            ],
+            [
+               "2151105",
+               "1M pasd"
+            ],
+            [
+               "2151106",
+               "1M pasd"
+            ],
+            [
+               "2151107",
+               "0S pasd"
+            ],
+            [
+               "2151109",
+               "2M pasd"
+            ],
+            [
+               "2151110",
+               "0S pasd"
+            ],
+            [
+               "2151111",
+               "2M pasd"
+            ],
+            [
+               "2151112",
+               "0S pasd"
+            ],
+            [
+               "2151113",
+               "1M pasd"
+            ],
+            [
+               "2151142",
+               "1M pasd"
+            ],
+            [
+               "2153216",
+               "2M pasd"
+            ],
+            [
+               "215331",
+               "1M pasd"
+            ],
+            [
+               "215332",
+               "1M pasd"
+            ],
+            [
+               "215333",
+               "1M pasd"
+            ],
+            [
+               "2153186",
+               "1M pasd"
+            ],
+            [
+               "2153187",
+               "1M pasd"
+            ],
+            [
+               "2153188",
+               "1M pasd"
+            ],
+            [
+               "2153189",
+               "1M pasd"
+            ],
+            [
+               "2153372",
+               "1M pasd"
+            ],
+            [
+               "215336",
+               "3M pasd"
+            ],
+            [
+               "215337",
+               "1M pasd"
+            ],
+            [
+               "215338",
+               "0S pasd"
+            ],
+            [
+               "2153213",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "1M pasd"
+            ],
+            [
+               "2151150",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "0S pasd"
+            ],
+            [
+               "215170",
+               "1M pasd"
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "0S pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "1M pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "211875",
+               "1M pasd"
+            ],
+            [
+               "211876",
+               "1M pasd"
+            ],
+            [
+               "2118104",
+               "0S pasd"
+            ],
+            [
+               "211840",
+               "1M pasd"
+            ],
+            [
+               "211842",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "2M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "0S pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "1M pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "2121142",
+               "3M pasd"
+            ],
+            [
+               "212112",
+               "3M pasd"
+            ]
+         ],
+         "id" : "JP_99-757-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bowral St nr Christ Of Kings School - Epping Station",
+            "rs_ref" : "RS_99-757-c-sj2-1-R-1",
+            "id" : "R_99-757-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-757-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "757"
+   }
+}
+;
+

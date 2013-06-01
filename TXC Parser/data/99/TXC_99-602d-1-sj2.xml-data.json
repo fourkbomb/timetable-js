@@ -1,0 +1,448 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-602-d-sj2-1" : "602"
+}
+;
+
+var stations = {
+   "206830" : "Edinburgh Rd Nr Raeburn Av",
+   "206333" : "Sailors Bay Rd Nr Gunyah St",
+   "206842" : "Eastern Valley Wy Nr Morotai Cr",
+   "206312" : "Tenilba Rd Nr Eastern Valley Wy",
+   "206827" : "Eastern Valley Wy Nr Sugarloaf Cr",
+   "206837" : "Edinburgh Rd Nr Sunnyside Av",
+   "206330" : "Sailors Bay Rd Nr Woonona Rd",
+   "206318" : "Kameruka Rd Nr Minnamurra Rd",
+   "206832" : "Edinburgh Rd Nr Edith St",
+   "206315" : "Kameruka Rd Nr The Outpost",
+   "206835" : "Edinburgh Rd Terminus",
+   "206840" : "Edinburgh Rd Nr The Parapet",
+   "206839" : "Edinburgh Rd Opp Edith St",
+   "206331" : "Sailors Bay Rd Nr Namoi Rd",
+   "206328" : "Sailors Bay Rd Nr Neeworra Rd",
+   "206833" : "Edinburgh Rd Nr Sunnyside Av",
+   "206834" : "Edinburgh Rd Nr Edinburgh Reserve",
+   "206826" : "Eastern Valley Wy Nr Mcclelland St",
+   "206828" : "Eastern Valley Wy Nr Sunnyside Cr",
+   "206928" : "Eastern Valley Wy Opp Smith St",
+   "206311" : "Eastern Valley Wy Nr Tenilba Rd",
+   "206926" : "Clive St Nr Boundary St",
+   "206841" : "Edinburgh Rd Nr Eastern Valley Wy",
+   "206313" : "Tenilba Rd Nr Harden Av",
+   "206927" : "Eastern Valley Wy Nr Deepwater Rd",
+   "206815" : "Eastern Valley Wy nr Willis Park",
+   "206816" : "Eastern Valley Wy nr Willis Park",
+   "206317" : "Kameruka Rd Nr Coorabin Rd",
+   "206329" : "Sailors Bay Rd Nr Narooma Rd",
+   "206925" : "Addison Av Nr Babbage Rd",
+   "206316" : "Kameruka Rd Nr Parker St",
+   "206860" : "Willoughby Girls High Stand 5",
+   "206876" : "Mowbray Rd Nr Chiltern Rd",
+   "206829" : "Eastern Valley Wy Nr Edinburgh Rd",
+   "206817" : "Eastern Valley Wy nr Victoria Av",
+   "206818" : "Eastern Valley Wy Nr Greenfield Av",
+   "206875" : "Mowbray Rd Nr Marlborough Rd",
+   "206836" : "Edinburgh Rd Opp Edinburgh Reserve",
+   "206314" : "Kameruka Rd Nr Jack Mclure Pl",
+   "206334" : "Sailors Bay Rd Nr Strathallen Av",
+   "206831" : "Edinburgh Rd Nr Charles St",
+   "206838" : "Edinburgh Rd Nr Sortie Port",
+   "206332" : "Sailors Bay Rd Nr St Phillip Neri"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-602-d-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-602-d-sj2-1-2-b00a4",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "0S pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "0S pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206830",
+               "0S pasd"
+            ],
+            [
+               "206831",
+               "1M pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "1M pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206312",
+               "0S pasd"
+            ],
+            [
+               "206313",
+               "0S pasd"
+            ],
+            [
+               "206314",
+               "1M pasd"
+            ],
+            [
+               "206315",
+               "0S pasd"
+            ],
+            [
+               "206316",
+               "1M pasd"
+            ],
+            [
+               "206317",
+               "1M pasd"
+            ],
+            [
+               "206318",
+               "0S pasd"
+            ],
+            [
+               "206328",
+               "1M pasd"
+            ],
+            [
+               "206329",
+               "0S pasd"
+            ],
+            [
+               "206330",
+               "1M pasd"
+            ],
+            [
+               "206331",
+               "1M pasd"
+            ],
+            [
+               "206332",
+               "1M pasd"
+            ],
+            [
+               "206333",
+               "0S pasd"
+            ],
+            [
+               "206334",
+               "1M pasd"
+            ],
+            [
+               "206875",
+               "4M pasd"
+            ],
+            [
+               "206876",
+               "0S pasd"
+            ],
+            [
+               "206860",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-602-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Willoughby Girls High",
+            "rs_ref" : "RS_99-602-d-sj2-1-H-1",
+            "id" : "R_99-602-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-602-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "602"
+   },
+   "VJ_99-602-d-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_99-602-d-sj2-1-1-b00a5",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "206925",
+               null
+            ],
+            [
+               "206926",
+               "1M pasd"
+            ],
+            [
+               "206927",
+               "1M pasd"
+            ],
+            [
+               "206928",
+               "0S pasd"
+            ],
+            [
+               "206815",
+               "1M pasd"
+            ],
+            [
+               "206816",
+               "1M pasd"
+            ],
+            [
+               "206817",
+               "0S pasd"
+            ],
+            [
+               "206818",
+               "1M pasd"
+            ],
+            [
+               "206826",
+               "1M pasd"
+            ],
+            [
+               "206827",
+               "1M pasd"
+            ],
+            [
+               "206828",
+               "0S pasd"
+            ],
+            [
+               "206829",
+               "1M pasd"
+            ],
+            [
+               "206830",
+               "0S pasd"
+            ],
+            [
+               "206831",
+               "1M pasd"
+            ],
+            [
+               "206832",
+               "0S pasd"
+            ],
+            [
+               "206833",
+               "1M pasd"
+            ],
+            [
+               "206834",
+               "1M pasd"
+            ],
+            [
+               "206835",
+               "1M pasd"
+            ],
+            [
+               "206836",
+               "1M pasd"
+            ],
+            [
+               "206837",
+               "1M pasd"
+            ],
+            [
+               "206838",
+               "1M pasd"
+            ],
+            [
+               "206839",
+               "0S pasd"
+            ],
+            [
+               "206840",
+               "0S pasd"
+            ],
+            [
+               "206841",
+               "1M pasd"
+            ],
+            [
+               "206842",
+               "1M pasd"
+            ],
+            [
+               "206311",
+               "1M pasd"
+            ],
+            [
+               "206312",
+               "0S pasd"
+            ],
+            [
+               "206313",
+               "0S pasd"
+            ],
+            [
+               "206314",
+               "1M pasd"
+            ],
+            [
+               "206315",
+               "0S pasd"
+            ],
+            [
+               "206316",
+               "1M pasd"
+            ],
+            [
+               "206317",
+               "1M pasd"
+            ],
+            [
+               "206318",
+               "0S pasd"
+            ],
+            [
+               "206328",
+               "1M pasd"
+            ],
+            [
+               "206329",
+               "0S pasd"
+            ],
+            [
+               "206330",
+               "1M pasd"
+            ],
+            [
+               "206331",
+               "1M pasd"
+            ],
+            [
+               "206332",
+               "1M pasd"
+            ],
+            [
+               "206333",
+               "0S pasd"
+            ],
+            [
+               "206334",
+               "1M pasd"
+            ],
+            [
+               "206875",
+               "4M pasd"
+            ],
+            [
+               "206876",
+               "0S pasd"
+            ],
+            [
+               "206860",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-602-d-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Addison Av Nr Babbage Rd - Willoughby Girls High",
+            "rs_ref" : "RS_99-602-d-sj2-1-H-1",
+            "id" : "R_99-602-d-sj2-1-H-1"
+         }
+      },
+      "service" : "99-602-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "602"
+   }
+}
+;
+

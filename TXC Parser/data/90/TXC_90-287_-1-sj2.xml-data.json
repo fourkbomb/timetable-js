@@ -1,0 +1,4958 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-287-_-sj2-1" : "287"
+}
+;
+
+var stations = {
+   "2066236" : "Epping Rd Nr Cox Lane",
+   "206513" : "Pacific Hwy Nr Christie St",
+   "206121" : "Alfred St near Glen St",
+   "211359" : "Coxs Rd Nr Badajoz Rd",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "2066242" : "Epping Rd Nr Moore St",
+   "211398" : "Lane Cove Rd Nr Ford St",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "2065137" : "Pacific Hwy Nr Alexander St",
+   "211356" : "Coxs Rd Nr Holy Spirit Primary",
+   "2065136" : "Pacific Hwy Nr Innes Rd",
+   "2066249" : "Epping Rd Nr Centennial Av",
+   "2066247" : "Epping Rd Nr Fraser St",
+   "2066250" : "Epping Rd Nr Cox Lane",
+   "2066246" : "Epping Rd Nr Johnston Cr",
+   "211365" : "Blenheim Rd Nr Coxs Rd",
+   "206533" : "Pacific Hwy nr Dickson Av",
+   "206013" : "Miller St near Pacific Hwy",
+   "206120" : "Alfred St nr Olympic Dr",
+   "211240" : "Cressy Rd Nr Buffalo Rd",
+   "2066231" : "Epping Rd Nr Mowbray Rd West",
+   "206514" : "Pacific Hwy nr Albany St",
+   "2066244" : "Epping Rd 370m W Of Sam Johnson Wy",
+   "211254" : "Lane Cove Rd Nr Wolger Rd",
+   "211265" : "Lane Cove Rd Nr Myra Av",
+   "211223" : "Victoria Rd Nr Beazley St",
+   "206012" : "Blue St Stand B",
+   "211322" : "Epping Rd Nr Rivett Rd",
+   "211239" : "Cressy Rd Nr Victoria Rd",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "2066227" : "Pacific Hwy nr Allison Av",
+   "2112234" : "Lane Cove Rd nr Quarry Rd",
+   "211396" : "Lane Cove Rd Nr Ford St",
+   "211355" : "Coxs Rd Nr North Ryde Primary",
+   "211360" : "Blenheim Rd Nr Cutler Pde",
+   "211363" : "Blenhiem Rd Nr Warwick St",
+   "211227" : "Victoria Rd nr Beazley St",
+   "2066251" : "Lane Cove Interchange Stand B",
+   "2065138" : "Pacific Hwy Nr Myrtle St",
+   "206525" : "Pacific Hwy Nr Reserve Rd",
+   "211255" : "Lane Cove Rd Nr Hancott St",
+   "211253" : "Lane Cove Rd Nr Price St",
+   "2066226" : "Pacific Hwy nr Cobden Av",
+   "206529" : "Pacific Hwy nr Greenwich Rd",
+   "2065134" : "Pacific Hwy nr Shirley St",
+   "211364" : "Blenheim Rd Nr Cutler Pde",
+   "206594" : "Pacific Hwy nr Greenwich Rd",
+   "2066245" : "Epping Rd nr Cumberland Av",
+   "2112205" : "Lane Cove Rd Nr Bryon Park",
+   "206415" : "Pacific Hwy nr Campbell St",
+   "211395" : "Lane Cove Rd Nr Bridge Rd",
+   "2113218" : "Lane Cove Rd Nr Twin Rd",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "206512" : "Pacific Hwy Nr Hume St",
+   "206085" : "Miller St near Pacific Hwy",
+   "2066228" : "Lane Cove Interchange Stand C",
+   "2065141" : "Pacific Hwy nr Campbell St",
+   "211263" : "Lane Cove Rd nr Quarry Rd",
+   "2065133" : "Pacific Hwy Nr Rocklands Rd",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "2066237" : "Epping Rd Nr Centennial Av",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "211228" : "Blaxland Rd Nr Hatton St",
+   "211221" : "Blaxland Rd Nr Argyle Av",
+   "206515" : "Pacific Hwy Nr Hume St",
+   "211264" : "Lane Cove Rd Nr Dobson Cr",
+   "206125" : "Broughton St Nr Pitt St",
+   "206617" : "Epping Rd Nr Wingadee St",
+   "206057" : "Lavender St Nr Walker St",
+   "2112242" : "Lane Cove Rd Nr Buffalo Rd",
+   "206025" : "Pacific Hwy nr West St",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "2066230" : "Epping Rd Nr Sam Johnson Way",
+   "206430" : "Pacific Hwy nr Westbourne St",
+   "211354" : "Coxs Rd Nr Lane Cove Rd",
+   "211230" : "Blaxland Rd Near Church St",
+   "206435" : "Pacific Hwy nr Alto Pl",
+   "206123" : "Alfred St near Milsons Point Station",
+   "2065135" : "St Leonards Station_ Pacific Hwy - Stand B",
+   "206128" : "Alfred St nr Lavender St",
+   "206528" : "Pacific Hwy Nr Portview Rd",
+   "211220" : "Blaxland Rd Nr Devlin St",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "2066241" : "Epping Rd Nr Fraser St",
+   "206029" : "Pacific Hwy nr McHatton St",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "206024" : "Miller St nr Blue St",
+   "206090" : "Pacific Hwy nr Berry St",
+   "2066265" : "Epping Rd 400m E Of Mowbray Rd",
+   "2066223" : "Epping Rd Nr Sam Johnson Way",
+   "2066240" : "Epping Rd Nr Tantallon Rd",
+   "206523" : "St Leonards Station_ Pacific Hwy - Stand A",
+   "211323" : "Epping Rd Nr Pittwater Rd",
+   "2066229" : "Epping Rd Nr Cox Ln",
+   "211358" : "Coxs Rd Nr Blamey St",
+   "211361" : "Blenhiem Rd Nr Morshead St",
+   "206524" : "Pacific Hwy N Of Shirley St",
+   "211370" : "Coxs Rd Nr Lane Cove Rd",
+   "206427" : "Pacific Hwy nr Dickson Av",
+   "206028" : "Pacific Hwy nr Doohat Av",
+   "206058" : "Lavender St nr Cliff St",
+   "2066248" : "Epping Rd Nr Munro St",
+   "206429" : "Pacific Hwy opp Innes Rd",
+   "211222" : "Blaxland Rd Nr Princes St",
+   "206426" : "Pacific Hwy nr Hotham Pde",
+   "2112204" : "Lane Cove Rd Opp Byron Park",
+   "2066222" : "Epping Rd Nr Mowbray Rd West",
+   "211357" : "Coxs Rd Nr Ryrie St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-287-_-sj2-1-11-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-11-b00bk",
+      "leaves" : "16:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-8-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-8-b00bj",
+      "leaves" : "07:06:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-16-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-16-b00bk",
+      "leaves" : "07:36:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "1M pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "1M pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-5-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-6-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-6-b00bj",
+      "leaves" : "17:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-6-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-15-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-15-b00bk",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "1M pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "3M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "2M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "2M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "5M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "1M pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-14-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-14-b00bk",
+      "leaves" : "18:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-9-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-9-b00bj",
+      "leaves" : "06:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "2M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-8-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-3-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-3-b00bj",
+      "leaves" : "18:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-19-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-19-b00bk",
+      "leaves" : "06:54:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "2M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-8-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-17-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-17-b00bk",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-4-b00bj",
+      "leaves" : "16:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "0S pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-12-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-12-b00bk",
+      "leaves" : "17:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-9-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-20-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-20-b00bj",
+      "leaves" : "17:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "1M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "1M pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "0S pasd"
+            ],
+            [
+               "2066242",
+               "1M pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "0S pasd"
+            ],
+            [
+               "2066231",
+               "1M pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-9-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-2-b00bk",
+      "leaves" : "06:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "2M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "0S pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206085",
+               "3M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-13-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-13-b00bk",
+      "leaves" : "17:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "2M pasd"
+            ],
+            [
+               "206013",
+               "1M pasd"
+            ],
+            [
+               "206090",
+               "2M pasd"
+            ],
+            [
+               "206028",
+               "1M pasd"
+            ],
+            [
+               "206029",
+               "1M pasd"
+            ],
+            [
+               "2065133",
+               "2M pasd"
+            ],
+            [
+               "2065134",
+               "1M pasd"
+            ],
+            [
+               "206524",
+               "1M pasd"
+            ],
+            [
+               "206512",
+               "0S pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "2M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "1M pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "1M pasd"
+            ],
+            [
+               "211364",
+               "1M pasd"
+            ],
+            [
+               "211365",
+               "0S pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "1M pasd"
+            ],
+            [
+               "211398",
+               "1M pasd"
+            ],
+            [
+               "2113218",
+               "2M pasd"
+            ],
+            [
+               "2112205",
+               "2M pasd"
+            ],
+            [
+               "211263",
+               "2M pasd"
+            ],
+            [
+               "211264",
+               "1M pasd"
+            ],
+            [
+               "211265",
+               "1M pasd"
+            ],
+            [
+               "2112242",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "3M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "1M pasd"
+            ],
+            [
+               "211223",
+               "2M pasd"
+            ],
+            [
+               "211239",
+               "1M pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-6-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_90-287-_-sj2-1-R-2",
+            "id" : "R_90-287-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-18-b00bk" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-18-b00bk",
+      "leaves" : "07:06:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-1-b00bj",
+      "leaves" : "07:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "1M pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "3M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "2M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "2M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "5M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "1M pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-5-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-5-b00bj",
+      "leaves" : "07:36:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "1M pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "1M pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-5-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-7-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-7-b00bj",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "3M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "3M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "1M pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "2M pasd"
+            ],
+            [
+               "211355",
+               "0S pasd"
+            ],
+            [
+               "211356",
+               "1M pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "2M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "1M pasd"
+            ],
+            [
+               "2066249",
+               "0S pasd"
+            ],
+            [
+               "2066250",
+               "1M pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "1M pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "1M pasd"
+            ],
+            [
+               "206430",
+               "0S pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "2M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "3M pasd"
+            ],
+            [
+               "206025",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "4M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   },
+   "VJ_90-287-_-sj2-1-10-b00bj" : {
+      "vjcode" : "VJ_90-287-_-sj2-1-10-b00bj",
+      "leaves" : "06:33:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211227",
+               "3M pasd"
+            ],
+            [
+               "211228",
+               "2M pasd"
+            ],
+            [
+               "211230",
+               "1M pasd"
+            ],
+            [
+               "211253",
+               "2M pasd"
+            ],
+            [
+               "211254",
+               "1M pasd"
+            ],
+            [
+               "211255",
+               "1M pasd"
+            ],
+            [
+               "2112234",
+               "0S pasd"
+            ],
+            [
+               "2112204",
+               "2M pasd"
+            ],
+            [
+               "211395",
+               "1M pasd"
+            ],
+            [
+               "211396",
+               "1M pasd"
+            ],
+            [
+               "211354",
+               "1M pasd"
+            ],
+            [
+               "211355",
+               "1M pasd"
+            ],
+            [
+               "211356",
+               "0S pasd"
+            ],
+            [
+               "211357",
+               "1M pasd"
+            ],
+            [
+               "211358",
+               "1M pasd"
+            ],
+            [
+               "211359",
+               "1M pasd"
+            ],
+            [
+               "211360",
+               "1M pasd"
+            ],
+            [
+               "211361",
+               "1M pasd"
+            ],
+            [
+               "211322",
+               "2M pasd"
+            ],
+            [
+               "2066222",
+               "2M pasd"
+            ],
+            [
+               "2066245",
+               "1M pasd"
+            ],
+            [
+               "2066230",
+               "1M pasd"
+            ],
+            [
+               "2066246",
+               "1M pasd"
+            ],
+            [
+               "2066247",
+               "0S pasd"
+            ],
+            [
+               "2066240",
+               "1M pasd"
+            ],
+            [
+               "206617",
+               "0S pasd"
+            ],
+            [
+               "2066249",
+               "1M pasd"
+            ],
+            [
+               "2066250",
+               "0S pasd"
+            ],
+            [
+               "2066251",
+               "1M pasd"
+            ],
+            [
+               "206435",
+               "2M pasd"
+            ],
+            [
+               "206426",
+               "0S pasd"
+            ],
+            [
+               "206427",
+               "1M pasd"
+            ],
+            [
+               "206415",
+               "1M pasd"
+            ],
+            [
+               "206429",
+               "0S pasd"
+            ],
+            [
+               "206430",
+               "1M pasd"
+            ],
+            [
+               "206594",
+               "1M pasd"
+            ],
+            [
+               "206525",
+               "1M pasd"
+            ],
+            [
+               "206523",
+               "1M pasd"
+            ],
+            [
+               "206514",
+               "1M pasd"
+            ],
+            [
+               "206515",
+               "1M pasd"
+            ],
+            [
+               "2065137",
+               "1M pasd"
+            ],
+            [
+               "2065138",
+               "2M pasd"
+            ],
+            [
+               "206025",
+               "1M pasd"
+            ],
+            [
+               "206085",
+               "3M pasd"
+            ],
+            [
+               "206024",
+               "0S pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "0S pasd"
+            ],
+            [
+               "206058",
+               "0S pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "0S pasd"
+            ],
+            [
+               "206120",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-287-_-sj2-1-2-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-287-_-sj2-1-H-1",
+            "id" : "R_90-287-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-287-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "287"
+   }
+}
+;
+

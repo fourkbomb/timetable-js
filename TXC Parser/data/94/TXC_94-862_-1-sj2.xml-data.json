@@ -1,0 +1,461 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-862-_-sj2-1" : "862"
+}
+;
+
+var stations = {
+   "228216" : "Medcalf St Nr Albert St",
+   "228235" : "Myles Av Nr Warners Bay High School",
+   "2282172" : "Glad Gunson Dr Nr Yalumba Cl",
+   "2282156" : "Glad Gunson Dr Nr Leasingham Cl",
+   "2290232" : "Violet Town Rd 350m N of McElwee Dr",
+   "2290386" : "Violet Town Rd opp Regent St",
+   "228099" : "Old Belmont Rd opp Arlington St",
+   "228217" : "Medcalf St Nr Maurie Av",
+   "2290234" : "Violet Town Rd nr Charles St",
+   "2290233" : "Violet Town Rd opp Albert St",
+   "2290211" : "Wilsons Rd nr Tango St",
+   "2282137" : "Glad Gunson Dr Opp Pindimar Cl",
+   "2282103" : "The Esplanade Nr James St",
+   "228098" : "Old Belmont Rd opp Bangalla St",
+   "2282173" : "Glad Gunson Dr Nr Bundarra Cl",
+   "2282120" : "Linden Av Nr Morris St",
+   "228222" : "The Esplanade Opp Fairfax Rd",
+   "2282145" : "The Esplanade Opp James St",
+   "2290176" : "Burton Rd opp Glad Gunson Dr",
+   "2290210" : "Wilsons Rd nr Ada St",
+   "2282119" : "Linden Av Nr Cherry Rd",
+   "2290175" : "Burton Rd nr Casson Av",
+   "2290398" : "Warners Bay Rd nr Burton Rd",
+   "2290177" : "Burton Rd nr Glad Gunson Dr",
+   "2282106" : "Macquarie Dr Nr Cherry Rd",
+   "228225" : "Medcalf Rd Nr Vincent St",
+   "2282130" : "Glad Gunson Dr Nr Lynn Av",
+   "2282105" : "Macquarie Rd Nr South Creek",
+   "2290178" : "Burton Rd opp Casson Av",
+   "228218" : "Medcalf St Nr Fairfax Rd",
+   "2290180" : "Warners Bay Rd 220m E of Burton Rd",
+   "2280126" : "Violet Town Rd opp Camberwarra Dr",
+   "2282104" : "The Esplanade Nr Warners Bay Rd",
+   "228069" : "Belmont Christian College",
+   "2290174" : "Burton Rd nr Warners Bay Rd",
+   "228219" : "The Esplanade Nr Fairfax Rd",
+   "228269" : "King St Nr Medcalf St",
+   "2282118" : "Macquarie Rd Nr South Creek",
+   "2290388" : "Violet Town Rd opp Tingira Dr",
+   "2280100" : "Old Belmont Rd opp Harlo St",
+   "2282155" : "Glad Gunson Dr Nr Lindeman Cl",
+   "228273" : "The Esplanade Nr King St",
+   "2290181" : "Warners Bay Rd nr Old Warners Bay Rd",
+   "2282157" : "Glad Gunson Dr Nr Wyndham Wy",
+   "228227" : "Medcalf St Opp Albert St",
+   "228093" : "Old Belmont Rd nr Bangalla St",
+   "2290400" : "Warners Bay opp Old Warners Bay Rd",
+   "2290179" : "Burton Rd opp Lamington Dr",
+   "228092" : "Old Belmont Rd nr Arlington St",
+   "2282114" : "Glad Gunson Dr Nr Eleebana Primary",
+   "228260" : "Myles Av Nr Warners Bay High School",
+   "2280125" : "Violet Town Rd nr Cambewarra Dr",
+   "2290389" : "Violet Town Rd Nr Neridah St",
+   "2282121" : "Linden Av Nr Glad Gunson Dr",
+   "228223" : "Fairfax Rd Nr The Esplanade",
+   "228221" : "The Esplanade Opp Seamans Av",
+   "228094" : "Old Belmont Rd nr Nikkin St",
+   "229011" : "Wilsons Rd opp Davies Pde",
+   "2290241" : "Wilsons Rd nr Davies Pde",
+   "2282158" : "Glad Gunson Dr Nr Rothbury St",
+   "228091" : "Old Belmont Rd nr Harlo St",
+   "2282144" : "The Esplanade Opp Warners Bay Rd",
+   "228096" : "Old Belmont Rd opp Kanundra St",
+   "228233" : "Medcalf St Nr Lakelands Dr",
+   "228272" : "The Esplanade Nr King St",
+   "228095" : "Old Belmont Rd nr Kanundra St",
+   "228226" : "Medcalf St Nr Ruswell Av",
+   "228097" : "Old Belmont Rd nr Leicester Av",
+   "2290385" : "Violet Town Rd nr John St",
+   "228215" : "Medcalf St Nr Walker St",
+   "228234" : "King St Nr Hillsborough Rd",
+   "2290240" : "Violet Town Rd 380m N of McElwee Dr",
+   "2290399" : "Warners Bay Rd 200m E of Burton Rd",
+   "2290382" : "Violet Town Rd Nr Neridah St",
+   "2282171" : "Glad Gunson Dr Opp Wyndham Wy",
+   "2282122" : "Linden Av Nr Cherry Rd",
+   "228051" : "Pacific Hwy nr Violet Town Rd",
+   "228220" : "The Esplanade Nr Seaman Av",
+   "2282117" : "Macquarie Rd Opp Cherry Rd",
+   "2290383" : "Violet Town Rd nr Tingira Dr"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-862-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-862-_-sj2-1-2-b0096",
+      "leaves" : "07:41:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228260",
+               null
+            ],
+            [
+               "228269",
+               "1M pasd"
+            ],
+            [
+               "228215",
+               "0S pasd"
+            ],
+            [
+               "228216",
+               "1M pasd"
+            ],
+            [
+               "228217",
+               "1M pasd"
+            ],
+            [
+               "228218",
+               "0S pasd"
+            ],
+            [
+               "228219",
+               "1M pasd"
+            ],
+            [
+               "228220",
+               "1M pasd"
+            ],
+            [
+               "228272",
+               "1M pasd"
+            ],
+            [
+               "2282103",
+               "0S pasd"
+            ],
+            [
+               "2282104",
+               "1M pasd"
+            ],
+            [
+               "2282105",
+               "1M pasd"
+            ],
+            [
+               "2282106",
+               "1M pasd"
+            ],
+            [
+               "2282119",
+               "0S pasd"
+            ],
+            [
+               "2282120",
+               "1M pasd"
+            ],
+            [
+               "2282130",
+               "1M pasd"
+            ],
+            [
+               "2282137",
+               "0S pasd"
+            ],
+            [
+               "2282171",
+               "1M pasd"
+            ],
+            [
+               "2282172",
+               "1M pasd"
+            ],
+            [
+               "2282173",
+               "1M pasd"
+            ],
+            [
+               "2290177",
+               "0S pasd"
+            ],
+            [
+               "2290178",
+               "1M pasd"
+            ],
+            [
+               "2290179",
+               "1M pasd"
+            ],
+            [
+               "2290180",
+               "0S pasd"
+            ],
+            [
+               "2290181",
+               "1M pasd"
+            ],
+            [
+               "2290210",
+               "1M pasd"
+            ],
+            [
+               "229011",
+               "1M pasd"
+            ],
+            [
+               "2290232",
+               "1M pasd"
+            ],
+            [
+               "2290233",
+               "1M pasd"
+            ],
+            [
+               "2290386",
+               "1M pasd"
+            ],
+            [
+               "2290388",
+               "1M pasd"
+            ],
+            [
+               "2290389",
+               "1M pasd"
+            ],
+            [
+               "2280126",
+               "1M pasd"
+            ],
+            [
+               "228051",
+               "0S pasd"
+            ],
+            [
+               "228091",
+               "2M pasd"
+            ],
+            [
+               "228092",
+               "0S pasd"
+            ],
+            [
+               "228093",
+               "1M pasd"
+            ],
+            [
+               "228094",
+               "0S pasd"
+            ],
+            [
+               "228095",
+               "1M pasd"
+            ],
+            [
+               "228069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-862-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Myles Av Nr Warners Bay High School - Belmont Christian College",
+            "rs_ref" : "RS_94-862-_-sj2-1-H-2",
+            "id" : "R_94-862-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-862-_-sj2-1",
+      "line" : "862"
+   },
+   "VJ_94-862-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-862-_-sj2-1-1-b0096",
+      "leaves" : "14:58:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228069",
+               null
+            ],
+            [
+               "228096",
+               "1M pasd"
+            ],
+            [
+               "228097",
+               "1M pasd"
+            ],
+            [
+               "228098",
+               "0S pasd"
+            ],
+            [
+               "228099",
+               "0S pasd"
+            ],
+            [
+               "2280100",
+               "1M pasd"
+            ],
+            [
+               "2280125",
+               "2M pasd"
+            ],
+            [
+               "2290382",
+               "1M pasd"
+            ],
+            [
+               "2290383",
+               "1M pasd"
+            ],
+            [
+               "2290385",
+               "1M pasd"
+            ],
+            [
+               "2290234",
+               "1M pasd"
+            ],
+            [
+               "2290240",
+               "1M pasd"
+            ],
+            [
+               "2290241",
+               "1M pasd"
+            ],
+            [
+               "2290211",
+               "1M pasd"
+            ],
+            [
+               "2290400",
+               "1M pasd"
+            ],
+            [
+               "2290399",
+               "0S pasd"
+            ],
+            [
+               "2290398",
+               "1M pasd"
+            ],
+            [
+               "2290174",
+               "0S pasd"
+            ],
+            [
+               "2290175",
+               "1M pasd"
+            ],
+            [
+               "2290176",
+               "0S pasd"
+            ],
+            [
+               "2282155",
+               "1M pasd"
+            ],
+            [
+               "2282156",
+               "1M pasd"
+            ],
+            [
+               "2282157",
+               "0S pasd"
+            ],
+            [
+               "2282158",
+               "1M pasd"
+            ],
+            [
+               "2282114",
+               "1M pasd"
+            ],
+            [
+               "2282121",
+               "1M pasd"
+            ],
+            [
+               "2282122",
+               "0S pasd"
+            ],
+            [
+               "2282117",
+               "1M pasd"
+            ],
+            [
+               "2282118",
+               "1M pasd"
+            ],
+            [
+               "2282144",
+               "0S pasd"
+            ],
+            [
+               "2282145",
+               "1M pasd"
+            ],
+            [
+               "228273",
+               "1M pasd"
+            ],
+            [
+               "228221",
+               "1M pasd"
+            ],
+            [
+               "228222",
+               "0S pasd"
+            ],
+            [
+               "228223",
+               "1M pasd"
+            ],
+            [
+               "228225",
+               "0S pasd"
+            ],
+            [
+               "228226",
+               "1M pasd"
+            ],
+            [
+               "228227",
+               "0S pasd"
+            ],
+            [
+               "228233",
+               "1M pasd"
+            ],
+            [
+               "228234",
+               "2M pasd"
+            ],
+            [
+               "228235",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_94-862-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Belmont Christian College - Myles Av Nr Warners Bay High School",
+            "rs_ref" : "RS_94-862-_-sj2-1-R-1",
+            "id" : "R_94-862-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-862-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "862"
+   }
+}
+;
+

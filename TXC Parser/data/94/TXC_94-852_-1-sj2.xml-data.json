@@ -1,0 +1,825 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-852-_-sj2-1" : "852"
+}
+;
+
+var stations = {
+   "2282143" : "Bareki Rd Opp Harkins St",
+   "2280305" : "Tingira Dr opp Cassegrain Cl",
+   "228261" : "King St Nr Pring St",
+   "2280164" : "Tallawalla Rd Nr Berringar Rd",
+   "2280207" : "Lurnea Cr",
+   "2280130" : "Tingira Dr nr Wyndham Wy",
+   "2282185" : "Bareki Rd Nr Moani St",
+   "2280153" : "Regal Wy Nr Connaught Rd",
+   "228025" : "Pacific Hwy nr Floraville Rd",
+   "2280163" : "Tallawalla Rd nr Valentine Primary",
+   "2280136" : "Connaught Rd opp Parklea Av",
+   "2280154" : "Connaught Rd nr Arundel Pl",
+   "2280177" : "Andrew Rd opp Leichhardt Rd",
+   "2280174" : "Andrew Rd nr Christopher Av",
+   "2280316" : "Croudace Bay Rd opp Lindsay Av",
+   "2280144" : "Regal Wy opp Kento Cr",
+   "2280314" : "Croudace Bay Rd nr Belmont Hospital",
+   "2280176" : "Andrew Rd opp Roma Rd",
+   "2280145" : "Regal Wy nr Ruston Av",
+   "2280142" : "Regal Wy nr Helmsdale Dr",
+   "228262" : "King St Nr Charles St",
+   "2280194" : "Croudace Bay Rd nr Andrew Rd",
+   "2280225" : "Floraville Rd Nr Belmont  Bus Depot",
+   "228237" : "Myles Av Nr Warners Bay High School",
+   "2280210" : "Berringar Rd nr Tallawalla Rd",
+   "2280143" : "Regal Wy nr Stonehaven Pl",
+   "2282103" : "The Esplanade Nr James St",
+   "2282145" : "The Esplanade Opp James St",
+   "2280141" : "Regal Wy nr Suffolk Dr",
+   "2280219" : "Tallawalla Rd Nr Berringar Rd",
+   "2280208" : "Riawena St nr Berringar Rd",
+   "2280243" : "Pacific Hwy nr Cobbin Pde",
+   "2280173" : "Andrew Rd nr Dilkera Av",
+   "2280140" : "Regal Wy nr Aberdeen Dr",
+   "2280178" : "Andrew Rd nr Minter St",
+   "2280253" : "Lewers St opp Croudace Bay Rd",
+   "228061" : "Tingira Dr nr Violet Town Rd",
+   "2282106" : "Macquarie Dr Nr Cherry Rd",
+   "2280155" : "Connaught Rd nr Parklea Av",
+   "2280206" : "Lurnea Cr",
+   "2280220" : "Tallawalla Rd nr Macquarie Dr",
+   "2282105" : "Macquarie Rd Nr South Creek",
+   "2280179" : "Andrew Rd 170m S of Berringar Rd",
+   "2280203" : "Berringar Rd Nr Allambee Pl",
+   "228258" : "Yorston St Nr East St",
+   "2280150" : "Regal Wy nr Linekar Cl",
+   "2280215" : "Riawena St nr Lurnea Cr",
+   "2282104" : "The Esplanade Nr Warners Bay Rd",
+   "2282180" : "Bareki Rd Nr Eleebana Rd",
+   "2280131" : "Tingira Dr opp Wyndham Wy",
+   "2280202" : "Andrew Rd nr Victor Av",
+   "2282118" : "Macquarie Rd Nr South Creek",
+   "2280175" : "Andrew Rd opp Frederick St",
+   "2282178" : "Bareki Rd Opp Moani St",
+   "2280149" : "Regal Wy opp Helmsdale Dr",
+   "2282116" : "Macquarie Dr Opp Glad Gunson Dr",
+   "2280224" : "Ross St nr Evans St",
+   "2280148" : "Regal Wy opp Stonehaven Pl",
+   "2280366" : "Evans St nr Haig St",
+   "2280244" : "Evans St nr Pacific Hwy",
+   "2282181" : "Bareki Rd 200m S Of Harkins St",
+   "2280152" : "Regal Wy nr Trafalgar Cr",
+   "2282182" : "Bareki Rd 250m S Of Harkins St",
+   "2280180" : "Andrew Rd nr Croudace Bay Rd",
+   "2282108" : "Bareki Rd Nr Harkins St",
+   "2280151" : "Regal Wy opp Aberdeen Dr",
+   "2280317" : "Croudace Bay Rd nr Lindsay Av",
+   "2280197" : "Andrew Rd nr Redondo Rd",
+   "2280139" : "Regal Wy nr Warwick Wy",
+   "2282179" : "Bareki Rd Opp Yerambla Cl",
+   "2280247" : "Evans St nr Robb St",
+   "2280223" : "Lewers St nr Croudace Bay Rd",
+   "2280257" : "Evans St nr Vista Pde",
+   "2280146" : "Regal Wy opp Ruston Av",
+   "2280198" : "Andrew Rd nr Leichhardt Rd",
+   "2280255" : "Croudace Bay Rd opp Spinnaker Ridge Way",
+   "2282144" : "The Esplanade Opp Warners Bay Rd",
+   "2280199" : "Andrew Rd nr Roma Rd",
+   "2280196" : "Andrew Rd 120m S of Berringar Rd",
+   "228267" : "King St Nr Albert St",
+   "2280304" : "Tingira Dr nr Cassegrain Cl",
+   "2280221" : "Croudace Bay Rd nr Spinnaker Ridge Way",
+   "2282184" : "Bareki Rd Nr Yerambla Cl",
+   "2282102" : "King St Nr Howard St",
+   "2280147" : "Regal Wy nr Kenton Cr",
+   "2280138" : "Regal Wy Nr Connaught Rd",
+   "2282107" : "Macquarie Dr Nr Glad Gunson Dr",
+   "228024" : "Pacific Hwy nr Evans",
+   "2280248" : "Evans St opp Haig St",
+   "2280209" : "Berringa Rd opp Tallawalla Rd",
+   "2280200" : "Andrew Rd nr Frederick St",
+   "2282183" : "Bareki Rd Nr Birubi Cl",
+   "2280166" : "Berringar Rd Nr Allambee Pl",
+   "2280315" : "Croudace Bay Rd opp Belmont Hospital",
+   "2282177" : "Macquarie Rd Nr Bareki Rd",
+   "2280201" : "Andrew Rd nr Albert St",
+   "2280137" : "Connaught Rd nr Westminster Cl",
+   "2280250" : "Ross St nr The Parade",
+   "2282117" : "Macquarie Rd Opp Cherry Rd",
+   "2282186" : "Macquarie Dr Nr Bareki Rd",
+   "2280181" : "Croudace Bay Rd nr Excalibur Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-852-_-sj2-1-3-b0096" : {
+      "vjcode" : "VJ_94-852-_-sj2-1-3-b0096",
+      "leaves" : "15:29:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228237",
+               null
+            ],
+            [
+               "228258",
+               "1M pasd"
+            ],
+            [
+               "228261",
+               "0S pasd"
+            ],
+            [
+               "228262",
+               "1M pasd"
+            ],
+            [
+               "2282102",
+               "0S pasd"
+            ],
+            [
+               "2282103",
+               "1M pasd"
+            ],
+            [
+               "2282104",
+               "0S pasd"
+            ],
+            [
+               "2282105",
+               "1M pasd"
+            ],
+            [
+               "2282106",
+               "0S pasd"
+            ],
+            [
+               "2282107",
+               "1M pasd"
+            ],
+            [
+               "2282108",
+               "0S pasd"
+            ],
+            [
+               "2282182",
+               "1M pasd"
+            ],
+            [
+               "2282183",
+               "0S pasd"
+            ],
+            [
+               "2282184",
+               "1M pasd"
+            ],
+            [
+               "2282185",
+               "0S pasd"
+            ],
+            [
+               "2282186",
+               "1M pasd"
+            ],
+            [
+               "2280130",
+               "1M pasd"
+            ],
+            [
+               "2280304",
+               "1M pasd"
+            ],
+            [
+               "228061",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "1M pasd"
+            ],
+            [
+               "2280136",
+               "0S pasd"
+            ],
+            [
+               "2280137",
+               "1M pasd"
+            ],
+            [
+               "2280138",
+               "0S pasd"
+            ],
+            [
+               "2280139",
+               "1M pasd"
+            ],
+            [
+               "2280140",
+               "0S pasd"
+            ],
+            [
+               "2280141",
+               "0S pasd"
+            ],
+            [
+               "2280142",
+               "1M pasd"
+            ],
+            [
+               "2280143",
+               "0S pasd"
+            ],
+            [
+               "2280144",
+               "0S pasd"
+            ],
+            [
+               "2280145",
+               "0S pasd"
+            ],
+            [
+               "2280163",
+               "1M pasd"
+            ],
+            [
+               "2280164",
+               "0S pasd"
+            ],
+            [
+               "2280210",
+               "0S pasd"
+            ],
+            [
+               "2280215",
+               "0S pasd"
+            ],
+            [
+               "2280206",
+               "1M pasd"
+            ],
+            [
+               "2280166",
+               "0S pasd"
+            ],
+            [
+               "2280173",
+               "1M pasd"
+            ],
+            [
+               "2280174",
+               "0S pasd"
+            ],
+            [
+               "2280175",
+               "1M pasd"
+            ],
+            [
+               "2280176",
+               "1M pasd"
+            ],
+            [
+               "2280177",
+               "0S pasd"
+            ],
+            [
+               "2280178",
+               "1M pasd"
+            ],
+            [
+               "2280179",
+               "0S pasd"
+            ],
+            [
+               "2280180",
+               "1M pasd"
+            ],
+            [
+               "2280181",
+               "0S pasd"
+            ],
+            [
+               "2280316",
+               "1M pasd"
+            ],
+            [
+               "2280221",
+               "1M pasd"
+            ],
+            [
+               "2280315",
+               "1M pasd"
+            ],
+            [
+               "2280223",
+               "1M pasd"
+            ],
+            [
+               "2280224",
+               "1M pasd"
+            ],
+            [
+               "2280366",
+               "0S pasd"
+            ],
+            [
+               "2280257",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "0S pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-852-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Myles Av Nr Warners Bay High School - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-852-_-sj2-1-R-1",
+            "id" : "R_94-852-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-852-_-sj2-1",
+      "days" : [
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "852"
+   },
+   "VJ_94-852-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-852-_-sj2-1-1-b0096",
+      "leaves" : "15:39:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228237",
+               null
+            ],
+            [
+               "228258",
+               "1M pasd"
+            ],
+            [
+               "228261",
+               "0S pasd"
+            ],
+            [
+               "228262",
+               "1M pasd"
+            ],
+            [
+               "2282102",
+               "0S pasd"
+            ],
+            [
+               "2282103",
+               "1M pasd"
+            ],
+            [
+               "2282104",
+               "0S pasd"
+            ],
+            [
+               "2282105",
+               "1M pasd"
+            ],
+            [
+               "2282106",
+               "0S pasd"
+            ],
+            [
+               "2282107",
+               "1M pasd"
+            ],
+            [
+               "2282108",
+               "0S pasd"
+            ],
+            [
+               "2282182",
+               "1M pasd"
+            ],
+            [
+               "2282183",
+               "0S pasd"
+            ],
+            [
+               "2282184",
+               "1M pasd"
+            ],
+            [
+               "2282185",
+               "0S pasd"
+            ],
+            [
+               "2282186",
+               "1M pasd"
+            ],
+            [
+               "2280130",
+               "1M pasd"
+            ],
+            [
+               "2280304",
+               "1M pasd"
+            ],
+            [
+               "228061",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "1M pasd"
+            ],
+            [
+               "2280136",
+               "0S pasd"
+            ],
+            [
+               "2280137",
+               "1M pasd"
+            ],
+            [
+               "2280138",
+               "0S pasd"
+            ],
+            [
+               "2280139",
+               "1M pasd"
+            ],
+            [
+               "2280140",
+               "0S pasd"
+            ],
+            [
+               "2280141",
+               "0S pasd"
+            ],
+            [
+               "2280142",
+               "1M pasd"
+            ],
+            [
+               "2280143",
+               "0S pasd"
+            ],
+            [
+               "2280144",
+               "0S pasd"
+            ],
+            [
+               "2280145",
+               "0S pasd"
+            ],
+            [
+               "2280163",
+               "1M pasd"
+            ],
+            [
+               "2280164",
+               "0S pasd"
+            ],
+            [
+               "2280210",
+               "0S pasd"
+            ],
+            [
+               "2280215",
+               "0S pasd"
+            ],
+            [
+               "2280206",
+               "1M pasd"
+            ],
+            [
+               "2280166",
+               "0S pasd"
+            ],
+            [
+               "2280173",
+               "1M pasd"
+            ],
+            [
+               "2280174",
+               "0S pasd"
+            ],
+            [
+               "2280175",
+               "1M pasd"
+            ],
+            [
+               "2280176",
+               "1M pasd"
+            ],
+            [
+               "2280177",
+               "0S pasd"
+            ],
+            [
+               "2280178",
+               "1M pasd"
+            ],
+            [
+               "2280179",
+               "0S pasd"
+            ],
+            [
+               "2280180",
+               "1M pasd"
+            ],
+            [
+               "2280181",
+               "0S pasd"
+            ],
+            [
+               "2280316",
+               "1M pasd"
+            ],
+            [
+               "2280221",
+               "1M pasd"
+            ],
+            [
+               "2280315",
+               "1M pasd"
+            ],
+            [
+               "2280223",
+               "1M pasd"
+            ],
+            [
+               "2280224",
+               "1M pasd"
+            ],
+            [
+               "2280366",
+               "0S pasd"
+            ],
+            [
+               "2280257",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "0S pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-852-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Myles Av Nr Warners Bay High School - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-852-_-sj2-1-R-1",
+            "id" : "R_94-852-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-852-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "852"
+   },
+   "VJ_94-852-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-852-_-sj2-1-2-b0096",
+      "leaves" : "07:45:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2280225",
+               null
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "2280244",
+               "1M pasd"
+            ],
+            [
+               "2280247",
+               "1M pasd"
+            ],
+            [
+               "2280248",
+               "0S pasd"
+            ],
+            [
+               "2280250",
+               "1M pasd"
+            ],
+            [
+               "2280253",
+               "0S pasd"
+            ],
+            [
+               "2280314",
+               "1M pasd"
+            ],
+            [
+               "2280255",
+               "2M pasd"
+            ],
+            [
+               "2280317",
+               "1M pasd"
+            ],
+            [
+               "2280194",
+               "1M pasd"
+            ],
+            [
+               "2280196",
+               "1M pasd"
+            ],
+            [
+               "2280197",
+               "0S pasd"
+            ],
+            [
+               "2280198",
+               "1M pasd"
+            ],
+            [
+               "2280199",
+               "0S pasd"
+            ],
+            [
+               "2280200",
+               "1M pasd"
+            ],
+            [
+               "2280201",
+               "0S pasd"
+            ],
+            [
+               "2280202",
+               "0S pasd"
+            ],
+            [
+               "2280203",
+               "1M pasd"
+            ],
+            [
+               "2280207",
+               "0S pasd"
+            ],
+            [
+               "2280208",
+               "1M pasd"
+            ],
+            [
+               "2280209",
+               "0S pasd"
+            ],
+            [
+               "2280219",
+               "1M pasd"
+            ],
+            [
+               "2280220",
+               "0S pasd"
+            ],
+            [
+               "2280146",
+               "1M pasd"
+            ],
+            [
+               "2280147",
+               "0S pasd"
+            ],
+            [
+               "2280148",
+               "0S pasd"
+            ],
+            [
+               "2280149",
+               "1M pasd"
+            ],
+            [
+               "2280150",
+               "0S pasd"
+            ],
+            [
+               "2280151",
+               "1M pasd"
+            ],
+            [
+               "2280152",
+               "0S pasd"
+            ],
+            [
+               "2280153",
+               "0S pasd"
+            ],
+            [
+               "2280154",
+               "1M pasd"
+            ],
+            [
+               "2280155",
+               "1M pasd"
+            ],
+            [
+               "2280304",
+               "1M pasd"
+            ],
+            [
+               "228061",
+               "1M pasd"
+            ],
+            [
+               "2280305",
+               "1M pasd"
+            ],
+            [
+               "2280131",
+               "2M pasd"
+            ],
+            [
+               "2282177",
+               "1M pasd"
+            ],
+            [
+               "2282178",
+               "2M pasd"
+            ],
+            [
+               "2282179",
+               "0S pasd"
+            ],
+            [
+               "2282180",
+               "2M pasd"
+            ],
+            [
+               "2282181",
+               "0S pasd"
+            ],
+            [
+               "2282143",
+               "1M pasd"
+            ],
+            [
+               "2282116",
+               "1M pasd"
+            ],
+            [
+               "2282117",
+               "1M pasd"
+            ],
+            [
+               "2282118",
+               "0S pasd"
+            ],
+            [
+               "2282144",
+               "1M pasd"
+            ],
+            [
+               "2282145",
+               "0S pasd"
+            ],
+            [
+               "228267",
+               "1M pasd"
+            ],
+            [
+               "228237",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-852-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Floraville Rd Nr Belmont Bus Depot - Myles Av Nr Warners Bay High School",
+            "rs_ref" : "RS_94-852-_-sj2-1-H-2",
+            "id" : "R_94-852-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-852-_-sj2-1",
+      "line" : "852"
+   }
+}
+;
+

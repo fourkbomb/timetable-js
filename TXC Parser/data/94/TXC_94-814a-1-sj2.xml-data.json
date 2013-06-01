@@ -1,0 +1,451 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-814-a-sj2-1" : "814a"
+}
+;
+
+var stations = {
+   "2282146" : "Warners Bay Rd Nr Jonathan St",
+   "2282164" : "Wyndham Wy Nr Tingira Dr",
+   "2282172" : "Glad Gunson Dr Nr Yalumba Cl",
+   "2282156" : "Glad Gunson Dr Nr Leasingham Cl",
+   "2282162" : "Wyndham Wy Opp Woodside Dr",
+   "2280130" : "Tingira Dr nr Wyndham Wy",
+   "2282170" : "Wyndham Wy Nr Glad Gunson Dr",
+   "2280153" : "Regal Wy Nr Connaught Rd",
+   "2280136" : "Connaught Rd opp Parklea Av",
+   "2282163" : "Wyndham Wy Nr Desreaux Cl",
+   "2282159" : "Wyndham Wy Nr Glad Gunson Dr",
+   "2280154" : "Connaught Rd nr Arundel Pl",
+   "2280316" : "Croudace Bay Rd opp Lindsay Av",
+   "2280144" : "Regal Wy opp Kento Cr",
+   "2284118" : "Marmong St nr Fourth St",
+   "2280314" : "Croudace Bay Rd nr Belmont Hospital",
+   "2280145" : "Regal Wy nr Ruston Av",
+   "2280142" : "Regal Wy nr Helmsdale Dr",
+   "2280194" : "Croudace Bay Rd nr Andrew Rd",
+   "2280143" : "Regal Wy nr Stonehaven Pl",
+   "228287" : "Warners Bay Rd Nr Augusta St",
+   "2282103" : "The Esplanade Nr James St",
+   "2282161" : "Wyndham Wy Nr Clearbrook Cl",
+   "2282173" : "Glad Gunson Dr Nr Bundarra Cl",
+   "2280141" : "Regal Wy nr Suffolk Dr",
+   "228222" : "The Esplanade Opp Fairfax Rd",
+   "2282145" : "The Esplanade Opp James St",
+   "2290176" : "Burton Rd opp Glad Gunson Dr",
+   "2280140" : "Regal Wy nr Aberdeen Dr",
+   "2290175" : "Burton Rd nr Casson Av",
+   "2280253" : "Lewers St opp Croudace Bay Rd",
+   "2290177" : "Burton Rd nr Glad Gunson Dr",
+   "2280155" : "Connaught Rd nr Parklea Av",
+   "2290178" : "Burton Rd opp Casson Av",
+   "2280150" : "Regal Wy nr Linekar Cl",
+   "2282167" : "Wyndham Wy Nr Woodside Dr",
+   "2282168" : "Wyndham Wy Opp Ridgewood Cr",
+   "2282104" : "The Esplanade Nr Warners Bay Rd",
+   "2284116" : "St Pauls High School",
+   "2290174" : "Burton Rd nr Warners Bay Rd",
+   "228219" : "The Esplanade Nr Fairfax Rd",
+   "228286" : "Warners Bay Rd Nr Punt Rd",
+   "2280149" : "Regal Wy opp Helmsdale Dr",
+   "2280224" : "Ross St nr Evans St",
+   "2282155" : "Glad Gunson Dr Nr Lindeman Cl",
+   "2280148" : "Regal Wy opp Stonehaven Pl",
+   "228273" : "The Esplanade Nr King St",
+   "2280152" : "Regal Wy nr Trafalgar Cr",
+   "2282174" : "Warners Bay Rd Nr Burton Rd",
+   "2282157" : "Glad Gunson Dr Nr Wyndham Wy",
+   "2280151" : "Regal Wy opp Aberdeen Dr",
+   "2280317" : "Croudace Bay Rd nr Lindsay Av",
+   "2290179" : "Burton Rd opp Lamington Dr",
+   "2282160" : "Wyndham Wy Nr Dalwood Cl",
+   "2280139" : "Regal Wy nr Warwick Wy",
+   "2280223" : "Lewers St nr Croudace Bay Rd",
+   "2282176" : "Warners Bay Rd Nr Jonathan St",
+   "228221" : "The Esplanade Opp Seamans Av",
+   "2280255" : "Croudace Bay Rd opp Spinnaker Ridge Way",
+   "2280146" : "Regal Wy opp Ruston Av",
+   "2282166" : "Wyndham Wy Opp Desreaux Cl",
+   "2282144" : "The Esplanade Opp Warners Bay Rd",
+   "2280221" : "Croudace Bay Rd nr Spinnaker Ridge Way",
+   "2282175" : "Warners Bay Rd Nr Delma Pde",
+   "2282149" : "Warners Bay Rd Opp Burton Rd",
+   "2280147" : "Regal Wy nr Kenton Cr",
+   "228272" : "The Esplanade Nr King St",
+   "2282169" : "Wyndham Wy Nr Mateus Cl",
+   "2282165" : "Wyndham Wy Nr Stenhouse Dr",
+   "2282147" : "Warners Bay Rd Nr Coronation St",
+   "2280138" : "Regal Wy Nr Connaught Rd",
+   "2280315" : "Croudace Bay Rd opp Belmont Hospital",
+   "2282148" : "Warners Bay Rd Nr Burton Rd",
+   "2282171" : "Glad Gunson Dr Opp Wyndham Wy",
+   "2280137" : "Connaught Rd nr Westminster Cl",
+   "2280250" : "Ross St nr The Parade",
+   "228220" : "The Esplanade Nr Seaman Av",
+   "2280181" : "Croudace Bay Rd nr Excalibur Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-814-a-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-814-a-sj2-1-2-b0096",
+      "leaves" : "07:19:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2280250",
+               null
+            ],
+            [
+               "2280253",
+               "0S pasd"
+            ],
+            [
+               "2280314",
+               "1M pasd"
+            ],
+            [
+               "2280255",
+               "0S pasd"
+            ],
+            [
+               "2280317",
+               "1M pasd"
+            ],
+            [
+               "2280194",
+               "0S pasd"
+            ],
+            [
+               "2280146",
+               "1M pasd"
+            ],
+            [
+               "2280147",
+               "0S pasd"
+            ],
+            [
+               "2280148",
+               "1M pasd"
+            ],
+            [
+               "2280149",
+               "0S pasd"
+            ],
+            [
+               "2280150",
+               "0S pasd"
+            ],
+            [
+               "2280151",
+               "1M pasd"
+            ],
+            [
+               "2280152",
+               "0S pasd"
+            ],
+            [
+               "2280153",
+               "0S pasd"
+            ],
+            [
+               "2280154",
+               "1M pasd"
+            ],
+            [
+               "2280155",
+               "0S pasd"
+            ],
+            [
+               "2282165",
+               "2M pasd"
+            ],
+            [
+               "2282166",
+               "0S pasd"
+            ],
+            [
+               "2282167",
+               "1M pasd"
+            ],
+            [
+               "2282168",
+               "0S pasd"
+            ],
+            [
+               "2282169",
+               "1M pasd"
+            ],
+            [
+               "2282170",
+               "1M pasd"
+            ],
+            [
+               "2282171",
+               "0S pasd"
+            ],
+            [
+               "2282172",
+               "1M pasd"
+            ],
+            [
+               "2282173",
+               "1M pasd"
+            ],
+            [
+               "2290177",
+               "0S pasd"
+            ],
+            [
+               "2290178",
+               "1M pasd"
+            ],
+            [
+               "2290179",
+               "0S pasd"
+            ],
+            [
+               "2282174",
+               "1M pasd"
+            ],
+            [
+               "2282175",
+               "1M pasd"
+            ],
+            [
+               "2282176",
+               "0S pasd"
+            ],
+            [
+               "228286",
+               "1M pasd"
+            ],
+            [
+               "2282144",
+               "1M pasd"
+            ],
+            [
+               "2282145",
+               "0S pasd"
+            ],
+            [
+               "228273",
+               "1M pasd"
+            ],
+            [
+               "228221",
+               "1M pasd"
+            ],
+            [
+               "228222",
+               "0S pasd"
+            ],
+            [
+               "2284116",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-814-a-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Ross St nr The Parade - St Pauls High School",
+            "rs_ref" : "RS_94-814-a-sj2-1-H-2",
+            "id" : "R_94-814-a-sj2-1-H-2"
+         }
+      },
+      "service" : "94-814-a-sj2-1",
+      "line" : "814a"
+   },
+   "VJ_94-814-a-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-814-a-sj2-1-1-b0096",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2284116",
+               null
+            ],
+            [
+               "2284118",
+               "2M pasd"
+            ],
+            [
+               "228219",
+               "10M pasd"
+            ],
+            [
+               "228220",
+               "0S pasd"
+            ],
+            [
+               "228272",
+               "1M pasd"
+            ],
+            [
+               "2282103",
+               "1M pasd"
+            ],
+            [
+               "2282104",
+               "1M pasd"
+            ],
+            [
+               "228287",
+               "1M pasd"
+            ],
+            [
+               "2282146",
+               "0S pasd"
+            ],
+            [
+               "2282147",
+               "1M pasd"
+            ],
+            [
+               "2282148",
+               "0S pasd"
+            ],
+            [
+               "2282149",
+               "0S pasd"
+            ],
+            [
+               "2290174",
+               "1M pasd"
+            ],
+            [
+               "2290175",
+               "0S pasd"
+            ],
+            [
+               "2290176",
+               "1M pasd"
+            ],
+            [
+               "2282155",
+               "0S pasd"
+            ],
+            [
+               "2282156",
+               "1M pasd"
+            ],
+            [
+               "2282157",
+               "1M pasd"
+            ],
+            [
+               "2282159",
+               "1M pasd"
+            ],
+            [
+               "2282160",
+               "0S pasd"
+            ],
+            [
+               "2282161",
+               "1M pasd"
+            ],
+            [
+               "2282162",
+               "0S pasd"
+            ],
+            [
+               "2282163",
+               "1M pasd"
+            ],
+            [
+               "2282164",
+               "0S pasd"
+            ],
+            [
+               "2280130",
+               "0S pasd"
+            ],
+            [
+               "2280136",
+               "2M pasd"
+            ],
+            [
+               "2280137",
+               "0S pasd"
+            ],
+            [
+               "2280138",
+               "1M pasd"
+            ],
+            [
+               "2280139",
+               "0S pasd"
+            ],
+            [
+               "2280140",
+               "0S pasd"
+            ],
+            [
+               "2280141",
+               "1M pasd"
+            ],
+            [
+               "2280142",
+               "0S pasd"
+            ],
+            [
+               "2280143",
+               "0S pasd"
+            ],
+            [
+               "2280144",
+               "1M pasd"
+            ],
+            [
+               "2280145",
+               "0S pasd"
+            ],
+            [
+               "2280181",
+               "1M pasd"
+            ],
+            [
+               "2280316",
+               "0S pasd"
+            ],
+            [
+               "2280221",
+               "1M pasd"
+            ],
+            [
+               "2280315",
+               "0S pasd"
+            ],
+            [
+               "2280223",
+               "1M pasd"
+            ],
+            [
+               "2280224",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-814-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Pauls High School - Ross St nr Evans St",
+            "rs_ref" : "RS_94-814-a-sj2-1-R-1",
+            "id" : "R_94-814-a-sj2-1-R-1"
+         }
+      },
+      "service" : "94-814-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "814a"
+   }
+}
+;
+

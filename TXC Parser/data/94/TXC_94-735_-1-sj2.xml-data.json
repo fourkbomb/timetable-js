@@ -1,0 +1,684 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-735-_-sj2-1" : "735"
+}
+;
+
+var stations = {
+   "229114" : "Henry St Nr Herbert St",
+   "229256" : "Pokolbin St Nr Merewether High",
+   "229197" : "Pell St Nr Curry St",
+   "230093" : "Darby St near Parry St",
+   "2298118" : "Turton Rd nr High St",
+   "2298116" : "St Philips College Nr Bridge St",
+   "230449" : "Hanbury St nr Wilkinson St",
+   "2291104" : "Scenic Dr Opp Woodward St",
+   "230524" : "Turton Rd Opp Rex Av",
+   "2291108" : "Scenic Dr Nr Woodward St",
+   "229212" : "Lambton Rd nr Bavin St",
+   "229154" : "Morgan St Nr Arthur St",
+   "2291103" : "Scenic Dr Opp Charlotte St",
+   "2291130" : "Patrick St Nr Burwood St",
+   "2291123" : "Ridge St Nr Mitchell St",
+   "2303114" : "Glebe Rd Nr Chatham St",
+   "229127" : "Alice St Nr Pacific Hwy",
+   "229831" : "St Phillips College",
+   "229115" : "Macquarie St Nr Herbert St",
+   "2291129" : "Patrick St Nr Kilgour Av",
+   "229196" : "Holy Family School",
+   "229140" : "Scenic Dr Opp Ashford Pde",
+   "2291110" : "Lloyd St Nr Scenic Dr",
+   "230067" : "Darby St near Art Gallery",
+   "2291131" : "Patrick St Nr Watkins St",
+   "2291109" : "Scenic Dr Nr Charlotte St",
+   "2298102" : "Turton Rd Nr Kahibah Rd",
+   "229142" : "Sunhill Dr Nr Scenic Dr",
+   "229134" : "Sun Hill Dr Opp Elsworth Pde",
+   "229113" : "Lockyer St Nr June St",
+   "2291105" : "Scenic Dr Opp Toorakcl",
+   "229135" : "Sunhill Dr Nr Bershire Av",
+   "2291125" : "Mitchell St Nr Berner St",
+   "2291128" : "Patrick St Nr Robey St",
+   "229818" : "Turton Rd Nr Tinonee Rd",
+   "229117" : "Macquarie St Nr Hugh St",
+   "230530" : "Turton Rd Nr Hobart Rd",
+   "230064" : "Darby St Nr Tooke St",
+   "229850" : "Bridge St Nr High St",
+   "229842" : "Platt St opp Waratah Station",
+   "230092" : "Darby St Nr Bull St",
+   "229116" : "Macquarie St Nr Hugh St",
+   "229193" : "Ridge St Nr Mitchell St",
+   "229834" : "Turton Rd Nr Christo Rd",
+   "229149" : "Scenic Dr Nr Sun Hill Dr",
+   "229130" : "Morgan St Nr Kiah Pl",
+   "229112" : "James St Nr Lockyer St",
+   "230525" : "Turton Rd Opp Young Rd",
+   "230447" : "Barton St Nr Maitland Rd",
+   "2303113" : "Glebe Rd Nr Fellowes St",
+   "230065" : "Darby St near St Johns Church",
+   "230429" : "Vine St nr Wye St",
+   "229851" : "High St Nr Harriet St",
+   "229265" : "Lambton Rd nr Bronte Rd",
+   "2303112" : "Glebe Rd Nr Coady St",
+   "2291132" : "Mitchell St Nr Barr St",
+   "2291127" : "Patrick St Nr Union St",
+   "229833" : "Bridge St Opp Smart St",
+   "230094" : "Darby St Nr Tooke St",
+   "2291107" : "Scenic Dr Nr Perina Pl",
+   "229218" : "Hunter School Of Performing Arts",
+   "230523" : "Turton Rd opp Monash Rd",
+   "230448" : "Barton St nr Crebert St",
+   "2291126" : "Mitchell St Nr Lingard St",
+   "229128" : "Alice St Nr Wilton St",
+   "229119" : "Henry St Opp Herbert St",
+   "2304269" : "Vine St Nr Industrial Dr",
+   "229832" : "Bridge St Nr Myall Rd",
+   "229151" : "Hatfield St Nr Flowerdale Av",
+   "229133" : "Hatfield St Nr Sun Hill Dr",
+   "2291124" : "Mitchell St Nr Llewellyn St",
+   "229839" : "Platt St Nr Prince St",
+   "229131" : "Morgan St Nr Myamblah Cr",
+   "229152" : "Morgan St Opp Myamblah Cr",
+   "229111" : "James St Nr Glebe Rd",
+   "2304223" : "Hanbury St nr Macquarie Rd",
+   "2291106" : "Merewether Heights Primary",
+   "230062" : "Darby St near Bar Beach Av",
+   "229132" : "Morgan St Nr Hatfield St",
+   "229139" : "Scenic Dr Opp Sun Hill Dr",
+   "2291135" : "Mitchell St Nr Park St",
+   "2304264" : "Hanbury St nr Dora St",
+   "229836" : "Platt St Nr Alfred St",
+   "229216" : "Brunker Rd nr Coolah Rd",
+   "229853" : "Turton Rd Nr Young St",
+   "2291102" : "Scenic Dr Nr Hickson St",
+   "229153" : "Morgan St Opp Moola Pl",
+   "230095" : "Darby St Nr Parkway Av",
+   "229838" : "Platt St Nr Grove St",
+   "229118" : "Macquarie St Nr Whitely Cl",
+   "230531" : "Turton Rd Nr Monash Rd",
+   "229147" : "Scenic Dr Nr Sun Hill Dr",
+   "229845" : "Turton Rd Nr High St",
+   "229847" : "Platt St Nr Grove St",
+   "229144" : "Sun Hill Dr Nr Hatfield St",
+   "230066" : "Darby St Nr Bull St",
+   "229129" : "Morgan St Nr Alice St",
+   "229198" : "Lloyd St Nr Curry St",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "229811" : "Platt St nr Waratah Station",
+   "229852" : "High St Nr Tighe St",
+   "2291112" : "Holy Family School",
+   "230451" : "Hanbury St opp Sunderland St",
+   "229122" : "James St Nr Glebe Rd",
+   "230091" : "Darby St near Queen St",
+   "229250" : "Lambton Rd nr Market St",
+   "230063" : "Darby St Nr Parkway Av",
+   "229143" : "Sun Hill Dr Nr Elsworth Pde",
+   "230450" : "Hanbury St nr Railway Tce",
+   "2291111" : "Pell St Nr Janet St",
+   "229846" : "Platt St Nr Dulling St",
+   "2304143" : "Hunter Christian School",
+   "229264" : "Lambton Rd nr Lang Rd",
+   "229121" : "James St Nr Lockyer St",
+   "229120" : "Lockyer St Nr Henry St",
+   "229141" : "Scenic Dr Opp Sun Hill Dr",
+   "230515" : "Turton Rd Nr Young Rd",
+   "229817" : "Turton Rd opp Crescent Rd",
+   "229148" : "Scenic Dr Nr Ashford Pde",
+   "2304131" : "Barton St nr Bull St",
+   "229217" : "Brunker Rd nr Heddon Rd",
+   "2304130" : "Barton St Nr Charles St",
+   "229260" : "Lambton Rd nr Australia Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-735-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-735-_-sj2-1-2-b0096",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "230091",
+               null
+            ],
+            [
+               "230092",
+               "1M pasd"
+            ],
+            [
+               "230093",
+               "0S pasd"
+            ],
+            [
+               "230094",
+               "1M pasd"
+            ],
+            [
+               "230095",
+               "0S pasd"
+            ],
+            [
+               "230062",
+               "1M pasd"
+            ],
+            [
+               "2291130",
+               "0S pasd"
+            ],
+            [
+               "2291131",
+               "1M pasd"
+            ],
+            [
+               "2291132",
+               "0S pasd"
+            ],
+            [
+               "2291135",
+               "1M pasd"
+            ],
+            [
+               "229193",
+               "1M pasd"
+            ],
+            [
+               "229196",
+               "0S pasd"
+            ],
+            [
+               "229197",
+               "0S pasd"
+            ],
+            [
+               "229198",
+               "1M pasd"
+            ],
+            [
+               "2291102",
+               "1M pasd"
+            ],
+            [
+               "2291103",
+               "0S pasd"
+            ],
+            [
+               "2291104",
+               "1M pasd"
+            ],
+            [
+               "2291105",
+               "1M pasd"
+            ],
+            [
+               "229139",
+               "1M pasd"
+            ],
+            [
+               "229140",
+               "0S pasd"
+            ],
+            [
+               "229141",
+               "1M pasd"
+            ],
+            [
+               "229142",
+               "0S pasd"
+            ],
+            [
+               "229143",
+               "0S pasd"
+            ],
+            [
+               "229144",
+               "1M pasd"
+            ],
+            [
+               "229151",
+               "1M pasd"
+            ],
+            [
+               "229152",
+               "0S pasd"
+            ],
+            [
+               "229153",
+               "1M pasd"
+            ],
+            [
+               "229154",
+               "1M pasd"
+            ],
+            [
+               "229127",
+               "0S pasd"
+            ],
+            [
+               "229117",
+               "1M pasd"
+            ],
+            [
+               "229118",
+               "0S pasd"
+            ],
+            [
+               "229119",
+               "1M pasd"
+            ],
+            [
+               "229120",
+               "0S pasd"
+            ],
+            [
+               "229121",
+               "1M pasd"
+            ],
+            [
+               "229122",
+               "0S pasd"
+            ],
+            [
+               "2303113",
+               "1M pasd"
+            ],
+            [
+               "229216",
+               "3M pasd"
+            ],
+            [
+               "229217",
+               "1M pasd"
+            ],
+            [
+               "229260",
+               "1M pasd"
+            ],
+            [
+               "229218",
+               "1M pasd"
+            ],
+            [
+               "229264",
+               "1M pasd"
+            ],
+            [
+               "230530",
+               "1M pasd"
+            ],
+            [
+               "230531",
+               "1M pasd"
+            ],
+            [
+               "230515",
+               "1M pasd"
+            ],
+            [
+               "2298102",
+               "3M pasd"
+            ],
+            [
+               "229818",
+               "2M pasd"
+            ],
+            [
+               "229845",
+               "2M pasd"
+            ],
+            [
+               "229831",
+               "3M pasd"
+            ],
+            [
+               "2298116",
+               "0S pasd"
+            ],
+            [
+               "229832",
+               "0S pasd"
+            ],
+            [
+               "229833",
+               "1M pasd"
+            ],
+            [
+               "229836",
+               "0S pasd"
+            ],
+            [
+               "229838",
+               "1M pasd"
+            ],
+            [
+               "229839",
+               "0S pasd"
+            ],
+            [
+               "229811",
+               "1M pasd"
+            ],
+            [
+               "230451",
+               "1M pasd"
+            ],
+            [
+               "2304223",
+               "1M pasd"
+            ],
+            [
+               "230447",
+               "1M pasd"
+            ],
+            [
+               "230448",
+               "1M pasd"
+            ],
+            [
+               "2304130",
+               "0S pasd"
+            ],
+            [
+               "2304131",
+               "1M pasd"
+            ],
+            [
+               "2304143",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-735-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Darby St near Queen St - Hunter Christian School",
+            "rs_ref" : "RS_94-735-_-sj2-1-H-2",
+            "id" : "R_94-735-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-735-_-sj2-1",
+      "line" : "735"
+   },
+   "VJ_94-735-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-735-_-sj2-1-1-b0096",
+      "leaves" : "15:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2304143",
+               null
+            ],
+            [
+               "2304269",
+               "1M pasd"
+            ],
+            [
+               "230429",
+               "1M pasd"
+            ],
+            [
+               "2304264",
+               "2M pasd"
+            ],
+            [
+               "230449",
+               "2M pasd"
+            ],
+            [
+               "230450",
+               "1M pasd"
+            ],
+            [
+               "229842",
+               "2M pasd"
+            ],
+            [
+               "229846",
+               "1M pasd"
+            ],
+            [
+               "229847",
+               "0S pasd"
+            ],
+            [
+               "229831",
+               "2M pasd"
+            ],
+            [
+               "2298116",
+               "0S pasd"
+            ],
+            [
+               "229850",
+               "0S pasd"
+            ],
+            [
+               "229851",
+               "1M pasd"
+            ],
+            [
+               "229852",
+               "0S pasd"
+            ],
+            [
+               "2298118",
+               "1M pasd"
+            ],
+            [
+               "229853",
+               "0S pasd"
+            ],
+            [
+               "229834",
+               "1M pasd"
+            ],
+            [
+               "229817",
+               "0S pasd"
+            ],
+            [
+               "230525",
+               "2M pasd"
+            ],
+            [
+               "230523",
+               "0S pasd"
+            ],
+            [
+               "230524",
+               "0S pasd"
+            ],
+            [
+               "229265",
+               "1M pasd"
+            ],
+            [
+               "229212",
+               "0S pasd"
+            ],
+            [
+               "229266",
+               "1M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229256",
+               "1M pasd"
+            ],
+            [
+               "2303114",
+               "3M pasd"
+            ],
+            [
+               "2303112",
+               "0S pasd"
+            ],
+            [
+               "229111",
+               "0S pasd"
+            ],
+            [
+               "229112",
+               "1M pasd"
+            ],
+            [
+               "229113",
+               "0S pasd"
+            ],
+            [
+               "229114",
+               "1M pasd"
+            ],
+            [
+               "229115",
+               "0S pasd"
+            ],
+            [
+               "229116",
+               "1M pasd"
+            ],
+            [
+               "229128",
+               "1M pasd"
+            ],
+            [
+               "229129",
+               "0S pasd"
+            ],
+            [
+               "229130",
+               "1M pasd"
+            ],
+            [
+               "229131",
+               "0S pasd"
+            ],
+            [
+               "229132",
+               "1M pasd"
+            ],
+            [
+               "229133",
+               "1M pasd"
+            ],
+            [
+               "229134",
+               "0S pasd"
+            ],
+            [
+               "229135",
+               "1M pasd"
+            ],
+            [
+               "229147",
+               "0S pasd"
+            ],
+            [
+               "229148",
+               "1M pasd"
+            ],
+            [
+               "229149",
+               "0S pasd"
+            ],
+            [
+               "2291106",
+               "1M pasd"
+            ],
+            [
+               "2291107",
+               "0S pasd"
+            ],
+            [
+               "2291108",
+               "1M pasd"
+            ],
+            [
+               "2291109",
+               "1M pasd"
+            ],
+            [
+               "2291110",
+               "1M pasd"
+            ],
+            [
+               "2291111",
+               "1M pasd"
+            ],
+            [
+               "2291112",
+               "0S pasd"
+            ],
+            [
+               "2291123",
+               "1M pasd"
+            ],
+            [
+               "2291124",
+               "0S pasd"
+            ],
+            [
+               "2291125",
+               "0S pasd"
+            ],
+            [
+               "2291126",
+               "1M pasd"
+            ],
+            [
+               "2291127",
+               "0S pasd"
+            ],
+            [
+               "2291128",
+               "1M pasd"
+            ],
+            [
+               "2291129",
+               "0S pasd"
+            ],
+            [
+               "230063",
+               "1M pasd"
+            ],
+            [
+               "230064",
+               "0S pasd"
+            ],
+            [
+               "230065",
+               "1M pasd"
+            ],
+            [
+               "230066",
+               "0S pasd"
+            ],
+            [
+               "230067",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-735-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Hunter Christian School - Darby St near Art Gallery",
+            "rs_ref" : "RS_94-735-_-sj2-1-R-1",
+            "id" : "R_94-735-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-735-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "735"
+   }
+}
+;
+

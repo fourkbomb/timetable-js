@@ -1,0 +1,767 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-780-_-sj2-1" : "780"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "209733" : "Kirkstone Rd Nr Carlisle St",
+   "210028" : "Condamine St nr Kentwell Rd",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "209330" : "Sydney Rd Nr Woodland St",
+   "209783" : "Parkes Rd Nr Westmoreland Av",
+   "209323" : "Condamine St Nr Gordon St",
+   "209329" : "Condamine St nr Sydney Rd",
+   "209772" : "Collaroy Plateau_ Edgecliffe Bvd nr Claudare St",
+   "209334" : "Sydney Rd nr Coral St",
+   "2099192" : "Westminster Av nr Lismore Av",
+   "209919" : "Pittwater Rd nr South Creek Rd",
+   "2100145" : "Pittwater Rd nr Warringah Mall Stand B",
+   "209335" : "Manly Rd nr Heaton Av",
+   "209771" : "Veterans Pde Nr Edgecliffe Bvd",
+   "2093162" : "Campbell Pde Nr Condamine St",
+   "209731" : "Ambleside St nr Penrith Cr",
+   "210022" : "Pittwater Rd nr Carter Rd",
+   "209767" : "Veterans Pde nr Lantana Av",
+   "209019" : "Military Rd Nr Hampden Av",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "209328" : "Condamine St Nr Griffiths St",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "2099188" : "Campbell Pde nr Heron Pl",
+   "209784" : "Parkes Rd nr South Creek Rd",
+   "209778" : "Telopea St nr Aubreen St",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "209777" : "Hilma St nr Telopea St",
+   "209735" : "Rose Av nr Grasmere Cr",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "209779" : "Plateau Rd nr Hall Av",
+   "209920" : "Pittwater Rd Nr Lismore Av",
+   "209775" : "Edgecliffe Bvd Nr Acacia St",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "2093163" : "Campbell Pde Nr Mackellar Ghs Stand 13",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210024" : "Pittwater Rd nr Mitchell Av",
+   "209332" : "Sydney Rd nr Wanganella St",
+   "209774" : "Edgecliffe Bvd Nr Aubreen St",
+   "209732" : "Heather St nr Ambleside St",
+   "209776" : "Edgecliffe Bvd nr Grevillia St",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "208944" : "Military Rd nr Rangers Rd",
+   "209773" : "Edgecliffe Bvd nr Stella St",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "209730" : "South Creek Rd nr Toronto Av",
+   "209734" : "Kirkstone Rd nr Rose Av",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "209780" : "Plateau Rd Nr Hilma St",
+   "209736" : "Rose Av Nr Veterans Pde",
+   "2088193" : "Military Rd Nr Lang St",
+   "210021" : "Pittwater Rd nr Harbord Rd",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "209331" : "Sydney Rd nr West St",
+   "210026" : "Pittwater Rd nr Orchard Rd",
+   "209324" : "Condamine St nr Innes Rd",
+   "2088188" : "Spit Rd Nr Stanton Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-780-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-780-_-sj2-1-1-b00b2",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2099201",
+               null
+            ],
+            [
+               "209919",
+               "2M pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "2M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "1M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "0S pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-780-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "South Creek Rd nr Pittwater House School - Neutral Bay Junction",
+            "rs_ref" : "RS_99-780-_-sj2-1-R-1",
+            "id" : "R_99-780-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-780-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "780"
+   },
+   "VJ_99-780-_-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-780-_-sj2-1-2-b009g",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209730",
+               null
+            ],
+            [
+               "209731",
+               "1M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "0S pasd"
+            ],
+            [
+               "209734",
+               "1M pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "1M pasd"
+            ],
+            [
+               "209779",
+               "0S pasd"
+            ],
+            [
+               "209780",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "2M pasd"
+            ],
+            [
+               "209784",
+               "0S pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "1M pasd"
+            ],
+            [
+               "210024",
+               "2M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "3M pasd"
+            ],
+            [
+               "2093162",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-780-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "South Creek Rd nr Toronto Av - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-780-_-sj2-1-H-2",
+            "id" : "R_99-780-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-780-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "780"
+   },
+   "VJ_99-780-_-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-780-_-sj2-1-4-b00b7",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2099201",
+               null
+            ],
+            [
+               "209919",
+               "2M pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "0S pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "2M pasd"
+            ],
+            [
+               "209323",
+               "2M pasd"
+            ],
+            [
+               "209324",
+               "0S pasd"
+            ],
+            [
+               "209325",
+               "1M pasd"
+            ],
+            [
+               "209327",
+               "2M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "1M pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "1M pasd"
+            ],
+            [
+               "2088186",
+               "2M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "0S pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-780-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "South Creek Rd nr Pittwater House School - Neutral Bay Junction",
+            "rs_ref" : "RS_99-780-_-sj2-1-R-1",
+            "id" : "R_99-780-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-780-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "780"
+   },
+   "VJ_99-780-_-sj2-1-3-b009h" : {
+      "vjcode" : "VJ_99-780-_-sj2-1-3-b009h",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209730",
+               null
+            ],
+            [
+               "209731",
+               "1M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "0S pasd"
+            ],
+            [
+               "209734",
+               "1M pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "1M pasd"
+            ],
+            [
+               "209779",
+               "0S pasd"
+            ],
+            [
+               "209780",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "2M pasd"
+            ],
+            [
+               "209784",
+               "0S pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "1M pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "2M pasd"
+            ],
+            [
+               "210022",
+               "1M pasd"
+            ],
+            [
+               "210024",
+               "2M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "1M pasd"
+            ],
+            [
+               "210028",
+               "3M pasd"
+            ],
+            [
+               "2093162",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-780-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "South Creek Rd nr Toronto Av - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-780-_-sj2-1-H-2",
+            "id" : "R_99-780-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-780-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "780"
+   }
+}
+;
+

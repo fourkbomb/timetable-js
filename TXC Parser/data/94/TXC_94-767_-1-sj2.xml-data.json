@@ -1,0 +1,548 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-767-_-sj2-1" : "767"
+}
+;
+
+var stations = {
+   "2280231" : "Floraville Rd Nr Floraville Primary",
+   "228023" : "Pacific Hwy nr Maude St",
+   "228047" : "Pacific Hwy opp Marks Point Rd",
+   "228049" : "Pacific Hwy Near Docker St",
+   "228046" : "Pacific Hwy nr Emily St",
+   "2280229" : "Floraville Rd opp Park St",
+   "2290260" : "Pacific Hwy nr Oakdale Rd",
+   "228048" : "Pacific Hwy Near Docker St",
+   "2280303" : "Pacific Hwy nr Ada St",
+   "228163" : "Ungala Rd nr Gommera St",
+   "2280234" : "Floraville Rd opp Violet Town Rd",
+   "228014" : "Pacific Hwy Near Docker St",
+   "229061" : "Pacific Hwy opp Groves Rd",
+   "228025" : "Pacific Hwy nr Floraville Rd",
+   "229035" : "Pacific Hwy Near Hughes St",
+   "228160" : "Ungala Rd opp Carawa St",
+   "228022" : "Pacific Hwy nr Belmont Shops",
+   "228042" : "Pacific Hwy nr Alick St",
+   "2280243" : "Pacific Hwy nr Cobbin Pde",
+   "229039" : "Pacific Hwy nr Groves Rd",
+   "2280232" : "Floraville Rd nr Victoria St",
+   "2280237" : "Floraville Rd nr Nyanda Av",
+   "229033" : "Pacific Hwy nr Felton St",
+   "2280233" : "Floraville Rd nr Harold St",
+   "228017" : "Pacific St nr Arthur St",
+   "2280119" : "Floraville Rd Nr Belmont Bus Depot",
+   "228031" : "Pacific Hwy 400m S of Ntaba Rd",
+   "228045" : "Pacific Hwy nr Clara St",
+   "228039" : "Pacific Hwy nr Livingstone St",
+   "2280238" : "Floraville Rd Nr Floraville Primary",
+   "2280126" : "Violet Town Rd opp Camberwarra Dr",
+   "2280294" : "Marks Point Rd Nr Pacific Hwy",
+   "2280236" : "Floraville Rd nr Hollway St",
+   "2280120" : "Floraville Rd nr Pacific Hwy",
+   "229040" : "Pacific Hwy near South St",
+   "228054" : "Pacific Hwy Near Ntaba Rd",
+   "228143" : "Pacific Hwy nr Belmont Airport",
+   "228044" : "Pacific Hwy nr Beach St",
+   "228030" : "Pacific Hwy Near Ntaba Rd",
+   "229036" : "Pacific St nr Macquarie Av",
+   "2280241" : "Floraville Rd nr Maxwell Av",
+   "228124" : "Pacific Hwy Near Maneela St",
+   "2280235" : "Floraville Rd nr Violet Town Rd",
+   "2280240" : "Floraville Rd nr Sampson Av",
+   "2280228" : "Floraville Rd nr Fairweather Av",
+   "2280239" : "Floraville Rd nr Griffiths Av",
+   "228126" : "Pacific Hwy Near Maneela St",
+   "2280295" : "Marks Point Rd nr Findon St",
+   "228161" : "Ungala Rd opp Tirriki St",
+   "2290285" : "Pacific Hwy nr Gateshead Primary",
+   "228056" : "Pacific Hwy nr South St",
+   "2290198" : "Oxford St opp O'Brien St",
+   "2280125" : "Violet Town Rd nr Cambewarra Dr",
+   "229048" : "Pacific Hwy Near Oakdale Rd",
+   "228019" : "Pacific Hwy nr Bellevue Rd",
+   "228162" : "Ungala Rd opp Kolang St",
+   "2290389" : "Violet Town Rd Nr Neridah St",
+   "228052" : "Pacific Hwy Near Dalrymple St",
+   "228123" : "Pacific Hwy Near Tirriki St",
+   "228122" : "Pacific Hwy Near Gommera St",
+   "2280230" : "Floraville Rd nr Park Royal Dr",
+   "228053" : "Pacific Hwy 450m S of Ntaba Rd",
+   "228142" : "Pacific Hwy nr Soldiers Rd",
+   "228032" : "Pacific Hwy Near Dalrymple St",
+   "2280242" : "Floraville Rd nr York Cr",
+   "2280227" : "Floraville Rd opp York Cr",
+   "228020" : "Pacific Hwy opp Alick St",
+   "228013" : "Pacific Hwy Near Docker St",
+   "229047" : "Pacific Hwy nr Lake St",
+   "228043" : "Pacific Hwy nr Robert St",
+   "229049" : "Pacific Hwy nr Hunter Sports High",
+   "228040" : "Pacific Hwy nr Belmont Shops",
+   "229050" : "Pacific Hwy Near Hughes St",
+   "228018" : "Pacific Hwy nr Beach St",
+   "228024" : "Pacific Hwy nr Evans",
+   "228016" : "Pacific Hwy nr Emily St",
+   "228140" : "Pacific Hwy opp Belmont Airport",
+   "2280259" : "Pacific Hwy nr Merleview St",
+   "228125" : "Pacific Hwy nr Awabakal Av",
+   "2290382" : "Violet Town Rd Nr Neridah St",
+   "2280297" : "Marks Point Rd Nr Pacific Hwy",
+   "228051" : "Pacific Hwy nr Violet Town Rd",
+   "228041" : "Pacific Hwy nr Gen St",
+   "2280296" : "Marks Point Rd nr Swan St",
+   "229034" : "St Marys School",
+   "228015" : "Pacific Hwy Near Marks Point",
+   "228164" : "Gommera St opp Garrawantara St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-767-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-767-_-sj2-1-2-b0096",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229034",
+               null
+            ],
+            [
+               "229035",
+               "0S pasd"
+            ],
+            [
+               "229036",
+               "1M pasd"
+            ],
+            [
+               "2290260",
+               "1M pasd"
+            ],
+            [
+               "229039",
+               "1M pasd"
+            ],
+            [
+               "229040",
+               "1M pasd"
+            ],
+            [
+               "228030",
+               "1M pasd"
+            ],
+            [
+               "228031",
+               "1M pasd"
+            ],
+            [
+               "228032",
+               "0S pasd"
+            ],
+            [
+               "2280125",
+               "2M pasd"
+            ],
+            [
+               "2290382",
+               "1M pasd"
+            ],
+            [
+               "2280235",
+               "0S pasd"
+            ],
+            [
+               "2280236",
+               "1M pasd"
+            ],
+            [
+               "2280237",
+               "0S pasd"
+            ],
+            [
+               "2280238",
+               "1M pasd"
+            ],
+            [
+               "2280239",
+               "0S pasd"
+            ],
+            [
+               "2280240",
+               "1M pasd"
+            ],
+            [
+               "2280241",
+               "0S pasd"
+            ],
+            [
+               "2280242",
+               "1M pasd"
+            ],
+            [
+               "2280120",
+               "0S pasd"
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "228039",
+               "1M pasd"
+            ],
+            [
+               "2280259",
+               "1M pasd"
+            ],
+            [
+               "228040",
+               "1M pasd"
+            ],
+            [
+               "228041",
+               "0S pasd"
+            ],
+            [
+               "228042",
+               "2M pasd"
+            ],
+            [
+               "228043",
+               "1M pasd"
+            ],
+            [
+               "228044",
+               "0S pasd"
+            ],
+            [
+               "228045",
+               "1M pasd"
+            ],
+            [
+               "228046",
+               "1M pasd"
+            ],
+            [
+               "2280294",
+               "0S pasd"
+            ],
+            [
+               "2280295",
+               "1M pasd"
+            ],
+            [
+               "2280296",
+               "1M pasd"
+            ],
+            [
+               "2280297",
+               "1M pasd"
+            ],
+            [
+               "228047",
+               "1M pasd"
+            ],
+            [
+               "228048",
+               "1M pasd"
+            ],
+            [
+               "228049",
+               "0S pasd"
+            ],
+            [
+               "228140",
+               "1M pasd"
+            ],
+            [
+               "228125",
+               "0S pasd"
+            ],
+            [
+               "228126",
+               "1M pasd"
+            ],
+            [
+               "228160",
+               "0S pasd"
+            ],
+            [
+               "228161",
+               "1M pasd"
+            ],
+            [
+               "228162",
+               "0S pasd"
+            ],
+            [
+               "228163",
+               "0S pasd"
+            ],
+            [
+               "228164",
+               "0S pasd"
+            ],
+            [
+               "228122",
+               "1M pasd"
+            ],
+            [
+               "228123",
+               "0S pasd"
+            ],
+            [
+               "228124",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-767-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "St Marys School - Pacific Hwy Near Maneela St",
+            "rs_ref" : "RS_94-767-_-sj2-1-R-2",
+            "id" : "R_94-767-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-767-_-sj2-1",
+      "line" : "767"
+   },
+   "VJ_94-767-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-767-_-sj2-1-1-b0096",
+      "leaves" : "07:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228126",
+               null
+            ],
+            [
+               "228160",
+               "1M pasd"
+            ],
+            [
+               "228161",
+               "0S pasd"
+            ],
+            [
+               "228162",
+               "1M pasd"
+            ],
+            [
+               "228163",
+               "0S pasd"
+            ],
+            [
+               "228164",
+               "0S pasd"
+            ],
+            [
+               "228122",
+               "1M pasd"
+            ],
+            [
+               "228123",
+               "0S pasd"
+            ],
+            [
+               "228124",
+               "1M pasd"
+            ],
+            [
+               "228142",
+               "1M pasd"
+            ],
+            [
+               "228143",
+               "0S pasd"
+            ],
+            [
+               "228013",
+               "1M pasd"
+            ],
+            [
+               "228014",
+               "0S pasd"
+            ],
+            [
+               "228015",
+               "1M pasd"
+            ],
+            [
+               "2280294",
+               "0S pasd"
+            ],
+            [
+               "2280295",
+               "0S pasd"
+            ],
+            [
+               "2280296",
+               "1M pasd"
+            ],
+            [
+               "2280297",
+               "1M pasd"
+            ],
+            [
+               "228016",
+               "1M pasd"
+            ],
+            [
+               "228017",
+               "1M pasd"
+            ],
+            [
+               "228018",
+               "1M pasd"
+            ],
+            [
+               "228019",
+               "1M pasd"
+            ],
+            [
+               "228020",
+               "0S pasd"
+            ],
+            [
+               "2280303",
+               "1M pasd"
+            ],
+            [
+               "228022",
+               "1M pasd"
+            ],
+            [
+               "228023",
+               "1M pasd"
+            ],
+            [
+               "228024",
+               "1M pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280119",
+               "0S pasd"
+            ],
+            [
+               "2280227",
+               "0S pasd"
+            ],
+            [
+               "2280228",
+               "0S pasd"
+            ],
+            [
+               "2280229",
+               "1M pasd"
+            ],
+            [
+               "2280230",
+               "0S pasd"
+            ],
+            [
+               "2280231",
+               "1M pasd"
+            ],
+            [
+               "2280232",
+               "0S pasd"
+            ],
+            [
+               "2280233",
+               "1M pasd"
+            ],
+            [
+               "2280234",
+               "0S pasd"
+            ],
+            [
+               "2290389",
+               "1M pasd"
+            ],
+            [
+               "2280126",
+               "0S pasd"
+            ],
+            [
+               "228051",
+               "1M pasd"
+            ],
+            [
+               "228052",
+               "1M pasd"
+            ],
+            [
+               "228053",
+               "0S pasd"
+            ],
+            [
+               "228054",
+               "1M pasd"
+            ],
+            [
+               "228056",
+               "1M pasd"
+            ],
+            [
+               "229061",
+               "1M pasd"
+            ],
+            [
+               "229047",
+               "1M pasd"
+            ],
+            [
+               "229048",
+               "0S pasd"
+            ],
+            [
+               "229049",
+               "1M pasd"
+            ],
+            [
+               "2290285",
+               "0S pasd"
+            ],
+            [
+               "229050",
+               "0S pasd"
+            ],
+            [
+               "2290198",
+               "2M pasd"
+            ],
+            [
+               "229033",
+               "0S pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-767-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Pacific Hwy Near Maneela St - St Marys School",
+            "rs_ref" : "RS_94-767-_-sj2-1-H-1",
+            "id" : "R_94-767-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-767-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "767"
+   }
+}
+;
+

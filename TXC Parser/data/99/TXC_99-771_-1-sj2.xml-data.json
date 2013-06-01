@@ -1,0 +1,1119 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-771-_-sj2-1" : "771"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "206121" : "Alfred St near Glen St",
+   "209428" : "Lauderdale Av Nr Woods Pde",
+   "209523" : "West Esplanade Stand C",
+   "209528" : "West Esplanade Nr Rowe St",
+   "209425" : "Lauderdale Av 100m W Of Rosedale Av",
+   "2093139" : "White St Nr Condamine St",
+   "2093125" : "Beatrice St Nr Ernest St",
+   "209423" : "Lauderdale Av 125m W Of Rosedale Av",
+   "209393" : "Beatrice St 150m N of Moore St",
+   "209252" : "Sydney Rd Nr Hope St",
+   "206046" : "Miller St nr Berry St",
+   "206049" : "Miller St Nr Carlow St",
+   "206017" : "Miller St Nr Carlow St",
+   "209420" : "Lauderdale Av Nr Woods Pde",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "206120" : "Alfred St nr Olympic Dr",
+   "209381" : "Bungaloe Av Nr Lower Beach St",
+   "209397" : "Woodland St opp Bareena Dr",
+   "209527" : "The Crescent Nr Margaret St",
+   "209392" : "Beatrice St nr Gordon St",
+   "208947" : "Military Rd Nr Watson St",
+   "206078" : "Miller Nr Monte Sant Angelo College",
+   "2088178" : "Military Rd Nr Bond St",
+   "2093122" : "Upper Beach St nr Seaview St",
+   "2093137" : "Upper Beach St nr Woodland St",
+   "2088179" : "Military Rd Nr Cowles Rd",
+   "208811" : "Spit Rd Nr Parriwi Rd",
+   "209581" : "West Esplanade Stand J",
+   "206124" : "Broughton St Nr Fitzroy St",
+   "209335" : "Manly Rd nr Heaton Av",
+   "2093115" : "Upper Beach St nr Kareema St",
+   "209019" : "Military Rd Nr Hampden Av",
+   "206083" : "Miller St near Ridge St",
+   "2093114" : "Seaview St nr Upper Beach St",
+   "2088180" : "Spit Junction_ Spit Rd.",
+   "209396" : "Woodland St Nr Alma St",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "209373" : "Lauderdale Av nr King Av",
+   "209379" : "Woodland St nr Lower Beach St",
+   "2093132" : "New St nr Hogan St",
+   "209374" : "White St Nr Condamine St",
+   "209390" : "Ernest St Nr Lewis St",
+   "209421" : "Lauderdale Av Nr Arlington Dr",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "209426" : "Lauderdale Av nr Rosedale Av",
+   "209391" : "Ernest St nr Beatrice St",
+   "206085" : "Miller St near Pacific Hwy",
+   "2093140" : "White St nr Orchard St",
+   "2093123" : "Seaview St nr New St",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "209422" : "Lauderdale Av nr Rosedale Av",
+   "209427" : "Lauderdale Av Nr Bolingbroke Pde",
+   "206075" : "Falcon St nr Moodie St",
+   "209211" : "Manly Rd Nr Avona Cr",
+   "209385" : "Curban St Nr New St",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "209311" : "Sydney Rd nr Dudley St",
+   "209388" : "Curban St Nr Vista Av",
+   "2088181" : "Spit Rd Nr Awaba St",
+   "209387" : "Curban St nr Beaconview St",
+   "206125" : "Broughton St Nr Pitt St",
+   "209058" : "Military Rd Nr Cabramatta Rd",
+   "206072" : "Miller St nr Falcon St",
+   "206057" : "Lavender St Nr Walker St",
+   "2093121" : "Upper Beach St nr Maretimo St",
+   "209021" : "Military Rd Nr Hampden Av",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "2093129" : "Curban St opp Concise St",
+   "208911" : "Military Rd Nr Watson St",
+   "2093112" : "Beatrice St Nr The Walk",
+   "2093130" : "Curban St Nr Valley Rd",
+   "2088177" : "Military Rd Nr Lang St",
+   "206123" : "Alfred St near Milsons Point Station",
+   "209526" : "The Crescent Nr Laurence St",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "2093113" : "Beatrice St nr New St",
+   "2093128" : "Curban St Nr Vista Av",
+   "208944" : "Military Rd nr Rangers Rd",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "2088176" : "Military Rd Nr Prince St",
+   "209395" : "Alma St nr Woodlands St",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "209424" : "Lauderdale Av Nr Willyama Av",
+   "206024" : "Miller St nr Blue St",
+   "209394" : "Beatrice St Nr Moore St",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "209384" : "New St nr Gourlay Av",
+   "209398" : "Woodland St Nr Ernest St",
+   "206018" : "Miller St near Ridge St",
+   "2088193" : "Military Rd Nr Lang St",
+   "206019" : "Miller St nr McLaren St",
+   "2093118" : "Maretimo St nr Violet St",
+   "2093124" : "Beatrice St Nr The Walk",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "2093138" : "Woodland St Nr White St",
+   "2093119" : "Ethel St nr Plant St",
+   "206058" : "Lavender St nr Cliff St",
+   "209382" : "Bungaloe Av Nr Lower Beach St",
+   "2088185" : "Spit Rd Nr Pearl Bay Av",
+   "209375" : "White St nr Jackson St",
+   "209383" : "New St nr Condamine St",
+   "206014" : "Blue St Stand D",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "209380" : "New St nr Bungaloe Av",
+   "2093131" : "Curban St Nr New St",
+   "2088188" : "Spit Rd Nr Stanton Rd",
+   "209389" : "Ernest St Nr Radio Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-771-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-771-_-sj2-1-4-b00b2",
+      "leaves" : "07:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209523",
+               null
+            ],
+            [
+               "209527",
+               "2M pasd"
+            ],
+            [
+               "209420",
+               "0S pasd"
+            ],
+            [
+               "209421",
+               "0S pasd"
+            ],
+            [
+               "209422",
+               "1M pasd"
+            ],
+            [
+               "209423",
+               "0S pasd"
+            ],
+            [
+               "209373",
+               "0S pasd"
+            ],
+            [
+               "209374",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "0S pasd"
+            ],
+            [
+               "209379",
+               "2M pasd"
+            ],
+            [
+               "209382",
+               "1M pasd"
+            ],
+            [
+               "209383",
+               "0S pasd"
+            ],
+            [
+               "209384",
+               "1M pasd"
+            ],
+            [
+               "209385",
+               "1M pasd"
+            ],
+            [
+               "209387",
+               "1M pasd"
+            ],
+            [
+               "209388",
+               "2M pasd"
+            ],
+            [
+               "209389",
+               "1M pasd"
+            ],
+            [
+               "209390",
+               "1M pasd"
+            ],
+            [
+               "209391",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "1M pasd"
+            ],
+            [
+               "2093113",
+               "0S pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093119",
+               "1M pasd"
+            ],
+            [
+               "209252",
+               "2M pasd"
+            ],
+            [
+               "209335",
+               "2M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "4M pasd"
+            ],
+            [
+               "2088187",
+               "2M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "West Esplanade - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-771-_-sj2-1-H-2",
+            "id" : "R_99-771-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-771-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   },
+   "VJ_99-771-_-sj2-1-2-b00aa" : {
+      "vjcode" : "VJ_99-771-_-sj2-1-2-b00aa",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206124",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206078",
+               "1M pasd"
+            ],
+            [
+               "206083",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "1M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "2M pasd"
+            ],
+            [
+               "209311",
+               "2M pasd"
+            ],
+            [
+               "2093118",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "0S pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "0S pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "209392",
+               "1M pasd"
+            ],
+            [
+               "209393",
+               "1M pasd"
+            ],
+            [
+               "209394",
+               "0S pasd"
+            ],
+            [
+               "209395",
+               "1M pasd"
+            ],
+            [
+               "209396",
+               "1M pasd"
+            ],
+            [
+               "209397",
+               "0S pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "1M pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "0S pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "0S pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Broughton St Nr Fitzroy St - West Esplanade",
+            "rs_ref" : "RS_99-771-_-sj2-1-R-1",
+            "id" : "R_99-771-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-771-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   },
+   "VJ_99-771-_-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-771-_-sj2-1-3-b00b7",
+      "leaves" : "07:09:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209523",
+               null
+            ],
+            [
+               "209527",
+               "2M pasd"
+            ],
+            [
+               "209420",
+               "0S pasd"
+            ],
+            [
+               "209421",
+               "0S pasd"
+            ],
+            [
+               "209422",
+               "1M pasd"
+            ],
+            [
+               "209423",
+               "0S pasd"
+            ],
+            [
+               "209373",
+               "0S pasd"
+            ],
+            [
+               "209374",
+               "1M pasd"
+            ],
+            [
+               "209375",
+               "0S pasd"
+            ],
+            [
+               "209379",
+               "2M pasd"
+            ],
+            [
+               "209382",
+               "1M pasd"
+            ],
+            [
+               "209383",
+               "0S pasd"
+            ],
+            [
+               "209384",
+               "1M pasd"
+            ],
+            [
+               "209385",
+               "1M pasd"
+            ],
+            [
+               "209387",
+               "1M pasd"
+            ],
+            [
+               "209388",
+               "2M pasd"
+            ],
+            [
+               "209389",
+               "1M pasd"
+            ],
+            [
+               "209390",
+               "1M pasd"
+            ],
+            [
+               "209391",
+               "0S pasd"
+            ],
+            [
+               "2093112",
+               "1M pasd"
+            ],
+            [
+               "2093113",
+               "0S pasd"
+            ],
+            [
+               "2093114",
+               "1M pasd"
+            ],
+            [
+               "2093115",
+               "1M pasd"
+            ],
+            [
+               "2093119",
+               "1M pasd"
+            ],
+            [
+               "209252",
+               "2M pasd"
+            ],
+            [
+               "209335",
+               "2M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "2M pasd"
+            ],
+            [
+               "2088186",
+               "4M pasd"
+            ],
+            [
+               "2088187",
+               "2M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "1M pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "West Esplanade - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-771-_-sj2-1-H-2",
+            "id" : "R_99-771-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-771-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   },
+   "VJ_99-771-_-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-771-_-sj2-1-1-b00b7",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206124",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206078",
+               "1M pasd"
+            ],
+            [
+               "206083",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "1M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "1M pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088185",
+               "1M pasd"
+            ],
+            [
+               "208811",
+               "1M pasd"
+            ],
+            [
+               "209211",
+               "2M pasd"
+            ],
+            [
+               "209311",
+               "2M pasd"
+            ],
+            [
+               "2093118",
+               "1M pasd"
+            ],
+            [
+               "2093121",
+               "0S pasd"
+            ],
+            [
+               "2093122",
+               "1M pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "0S pasd"
+            ],
+            [
+               "2093125",
+               "1M pasd"
+            ],
+            [
+               "209392",
+               "1M pasd"
+            ],
+            [
+               "209393",
+               "1M pasd"
+            ],
+            [
+               "209394",
+               "0S pasd"
+            ],
+            [
+               "209395",
+               "1M pasd"
+            ],
+            [
+               "209396",
+               "1M pasd"
+            ],
+            [
+               "209397",
+               "0S pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "1M pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "1M pasd"
+            ],
+            [
+               "2093140",
+               "0S pasd"
+            ],
+            [
+               "209424",
+               "1M pasd"
+            ],
+            [
+               "209425",
+               "0S pasd"
+            ],
+            [
+               "209426",
+               "0S pasd"
+            ],
+            [
+               "209427",
+               "1M pasd"
+            ],
+            [
+               "209428",
+               "0S pasd"
+            ],
+            [
+               "209526",
+               "1M pasd"
+            ],
+            [
+               "209528",
+               "1M pasd"
+            ],
+            [
+               "209581",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Broughton St Nr Fitzroy St - West Esplanade",
+            "rs_ref" : "RS_99-771-_-sj2-1-R-1",
+            "id" : "R_99-771-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-771-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   }
+}
+;
+

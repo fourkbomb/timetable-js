@@ -1,0 +1,853 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-785-e-sj2-1" : "785e"
+}
+;
+
+var stations = {
+   "209719" : "Pittwater Rd Nr Ramsay St",
+   "210242" : "Warriewood Rd Nr Moriac St",
+   "209733" : "Kirkstone Rd Nr Carlisle St",
+   "210111" : "Pittwater Rd Nr Clarke St",
+   "210236" : "Macpherson St Nr Brands Lane",
+   "210138" : "Ocean St nr Emerald St",
+   "210384" : "Narrabeen Park Pde Nr Melbourne Av",
+   "210365" : "Keenan St Nr Park St",
+   "210251" : "Sydney Rd 350m S Of Arnott Cr",
+   "210218" : "Macpherson St Nr Boondah Rd",
+   "210338" : "Pittwater Rd Nr Park St",
+   "210237" : "Macpherson St Nr Boondah Rd",
+   "210238" : "Warriewood Rd Nr Macpherson St",
+   "210220" : "Macpherson St Nr Garden St",
+   "209783" : "Parkes Rd Nr Westmoreland Av",
+   "209711" : "Pittwater Rd Nr Westmoreland Av",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "210342" : "Waratah St Nr Mona Vale Primary",
+   "210235" : "Garden St Nr Macpherson St",
+   "209713" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "209772" : "Collaroy Plateau_ Edgecliffe Bvd nr Claudare St",
+   "209718" : "Pittwater Rd Nr Jenkins St",
+   "210377" : "Waterview St Nr Mona St",
+   "209771" : "Veterans Pde Nr Edgecliffe Bvd",
+   "209731" : "Ambleside St nr Penrith Cr",
+   "209767" : "Veterans Pde nr Lantana Av",
+   "210311" : "Barrenjoey Rd Nr Darley St",
+   "210244" : "Warriewood Rd Nr Harris St",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "210112" : "Pittwater Rd Nr Goodwin St",
+   "210140" : "Narrabeen Park Pde Nr Walsh St",
+   "210386" : "Coronation St Nr Mona Vale Hospital",
+   "210324" : "Barrenjoey Rd Nr Park St",
+   "209778" : "Telopea St nr Aubreen St",
+   "209784" : "Parkes Rd nr South Creek Rd",
+   "209777" : "Hilma St nr Telopea St",
+   "209782" : "Parkes Rd Nr Orlando Rd",
+   "209735" : "Rose Av nr Grasmere Cr",
+   "210341" : "Waratah St Nr Bungan St",
+   "210313" : "Barrenjoey Rd Nr Waterview St",
+   "209779" : "Plateau Rd nr Hall Av",
+   "210115" : "Pittwater Rd Nr Waterloo St",
+   "209775" : "Edgecliffe Bvd Nr Acacia St",
+   "210368" : "Mona St Nr Pittwater High School",
+   "210239" : "Warriewood Rd Nr Alameda Wy",
+   "2099201" : "South Creek Rd nr Pittwater House School",
+   "210253" : "Narrabeen Park Pde Nr Sydney St",
+   "210240" : "Warriewood Rd Nr Manooka Pl",
+   "210137" : "Ocean St Nr Octavia St",
+   "209774" : "Edgecliffe Bvd Nr Aubreen St",
+   "209732" : "Heather St nr Ambleside St",
+   "210394" : "Vineyard St Nr Pittwater Rd",
+   "209716" : "Pittwater Rd nr Homestead Av",
+   "209776" : "Edgecliffe Bvd nr Grevillia St",
+   "210113" : "Pittwater Rd Nr Devitt St",
+   "209781" : "Anzac Av nr Parkes Rd",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "210135" : "Waterloo St Nr Ocean St",
+   "210376" : "Waterview St Nr Delwood Cl",
+   "210312" : "Barrenjoey Rd Nr Bassett St",
+   "209773" : "Edgecliffe Bvd nr Stella St",
+   "210374" : "Waterview St Nr Barrenjoey Rd",
+   "210243" : "Warriewood Rd Nr Valley View Cct",
+   "210221" : "Mater Maria School",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "209734" : "Kirkstone Rd nr Rose Av",
+   "210222" : "Macpherson St Nr Forrest Rd",
+   "210331" : "Pittwater Rd Nr Darley St",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "210375" : "Waterview St Nr Bellevarde Pde",
+   "210385" : "Narrabeen Park Pde Nr Cook Tce",
+   "210219" : "Macpherson St Nr Brands Lane",
+   "209780" : "Plateau Rd Nr Hilma St",
+   "210250" : "Sydney Rd Nr Narrabeen Park Pde",
+   "209736" : "Rose Av Nr Veterans Pde",
+   "209712" : "Pittwater Rd Nr Hadleigh Av",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "209715" : "Pittwater Rd nr Ocean Gr",
+   "210252" : "Sydney Rd Nr Arnott Cr",
+   "210223" : "Macpherson St nr Garden St",
+   "210139" : "Ocean St Nr Malcolm St",
+   "210114" : "Pittwater Rd nr Narrabeen St",
+   "210254" : "Narrabeen Park Pde Nr Hunter St",
+   "209714" : "Pittwater Rd Nr Anzac Av",
+   "2099154" : "Howse Cr nr Truman Av",
+   "210136" : "Ocean St Nr Albemarle St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-785-e-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-785-e-sj2-1-1-b00b7",
+      "leaves" : "07:31:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099154",
+               null
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "1M pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209731",
+               "2M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "1M pasd"
+            ],
+            [
+               "209734",
+               "0S pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "1M pasd"
+            ],
+            [
+               "209779",
+               "0S pasd"
+            ],
+            [
+               "209780",
+               "1M pasd"
+            ],
+            [
+               "209781",
+               "1M pasd"
+            ],
+            [
+               "209782",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "1M pasd"
+            ],
+            [
+               "209784",
+               "0S pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "2M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210135",
+               "1M pasd"
+            ],
+            [
+               "210136",
+               "0S pasd"
+            ],
+            [
+               "210137",
+               "1M pasd"
+            ],
+            [
+               "210138",
+               "1M pasd"
+            ],
+            [
+               "210139",
+               "0S pasd"
+            ],
+            [
+               "210140",
+               "1M pasd"
+            ],
+            [
+               "210250",
+               "1M pasd"
+            ],
+            [
+               "210251",
+               "0S pasd"
+            ],
+            [
+               "210252",
+               "1M pasd"
+            ],
+            [
+               "210253",
+               "0S pasd"
+            ],
+            [
+               "210254",
+               "0S pasd"
+            ],
+            [
+               "210384",
+               "1M pasd"
+            ],
+            [
+               "210385",
+               "0S pasd"
+            ],
+            [
+               "210386",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "4M pasd"
+            ],
+            [
+               "210219",
+               "1M pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210238",
+               "1M pasd"
+            ],
+            [
+               "210239",
+               "1M pasd"
+            ],
+            [
+               "210240",
+               "1M pasd"
+            ],
+            [
+               "210242",
+               "0S pasd"
+            ],
+            [
+               "210243",
+               "1M pasd"
+            ],
+            [
+               "210244",
+               "1M pasd"
+            ],
+            [
+               "210394",
+               "2M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "0S pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210374",
+               "0S pasd"
+            ],
+            [
+               "210375",
+               "0S pasd"
+            ],
+            [
+               "210376",
+               "1M pasd"
+            ],
+            [
+               "210377",
+               "0S pasd"
+            ],
+            [
+               "210368",
+               "2M pasd"
+            ],
+            [
+               "210331",
+               "2M pasd"
+            ],
+            [
+               "210338",
+               "2M pasd"
+            ],
+            [
+               "210341",
+               "2M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-785-e-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howse Cr nr Truman Av - Keenan St Nr Park St",
+            "rs_ref" : "RS_99-785-e-sj2-1-H-1",
+            "id" : "R_99-785-e-sj2-1-H-1"
+         }
+      },
+      "service" : "99-785-e-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "785e"
+   },
+   "VJ_99-785-e-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-785-e-sj2-1-2-b00b2",
+      "leaves" : "07:31:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2099154",
+               null
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "1M pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "1M pasd"
+            ],
+            [
+               "209731",
+               "2M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "1M pasd"
+            ],
+            [
+               "209734",
+               "0S pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "1M pasd"
+            ],
+            [
+               "209779",
+               "0S pasd"
+            ],
+            [
+               "209780",
+               "1M pasd"
+            ],
+            [
+               "209781",
+               "1M pasd"
+            ],
+            [
+               "209782",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "1M pasd"
+            ],
+            [
+               "209784",
+               "0S pasd"
+            ],
+            [
+               "2099201",
+               "1M pasd"
+            ],
+            [
+               "209711",
+               "2M pasd"
+            ],
+            [
+               "209712",
+               "0S pasd"
+            ],
+            [
+               "209713",
+               "1M pasd"
+            ],
+            [
+               "209714",
+               "1M pasd"
+            ],
+            [
+               "209715",
+               "1M pasd"
+            ],
+            [
+               "209716",
+               "0S pasd"
+            ],
+            [
+               "209717",
+               "1M pasd"
+            ],
+            [
+               "209718",
+               "0S pasd"
+            ],
+            [
+               "209719",
+               "1M pasd"
+            ],
+            [
+               "210111",
+               "1M pasd"
+            ],
+            [
+               "210112",
+               "0S pasd"
+            ],
+            [
+               "210113",
+               "1M pasd"
+            ],
+            [
+               "210114",
+               "0S pasd"
+            ],
+            [
+               "210115",
+               "1M pasd"
+            ],
+            [
+               "210135",
+               "1M pasd"
+            ],
+            [
+               "210136",
+               "0S pasd"
+            ],
+            [
+               "210137",
+               "1M pasd"
+            ],
+            [
+               "210138",
+               "1M pasd"
+            ],
+            [
+               "210139",
+               "0S pasd"
+            ],
+            [
+               "210140",
+               "1M pasd"
+            ],
+            [
+               "210250",
+               "1M pasd"
+            ],
+            [
+               "210251",
+               "0S pasd"
+            ],
+            [
+               "210252",
+               "1M pasd"
+            ],
+            [
+               "210253",
+               "0S pasd"
+            ],
+            [
+               "210254",
+               "0S pasd"
+            ],
+            [
+               "210384",
+               "1M pasd"
+            ],
+            [
+               "210385",
+               "0S pasd"
+            ],
+            [
+               "210386",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "1M pasd"
+            ],
+            [
+               "210218",
+               "4M pasd"
+            ],
+            [
+               "210219",
+               "1M pasd"
+            ],
+            [
+               "210220",
+               "1M pasd"
+            ],
+            [
+               "210222",
+               "1M pasd"
+            ],
+            [
+               "210221",
+               "1M pasd"
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210235",
+               "1M pasd"
+            ],
+            [
+               "210236",
+               "1M pasd"
+            ],
+            [
+               "210237",
+               "0S pasd"
+            ],
+            [
+               "210238",
+               "1M pasd"
+            ],
+            [
+               "210239",
+               "1M pasd"
+            ],
+            [
+               "210240",
+               "1M pasd"
+            ],
+            [
+               "210242",
+               "0S pasd"
+            ],
+            [
+               "210243",
+               "1M pasd"
+            ],
+            [
+               "210244",
+               "1M pasd"
+            ],
+            [
+               "210394",
+               "2M pasd"
+            ],
+            [
+               "210397",
+               "1M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "0S pasd"
+            ],
+            [
+               "210312",
+               "0S pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210374",
+               "0S pasd"
+            ],
+            [
+               "210375",
+               "0S pasd"
+            ],
+            [
+               "210376",
+               "1M pasd"
+            ],
+            [
+               "210377",
+               "0S pasd"
+            ],
+            [
+               "210368",
+               "2M pasd"
+            ],
+            [
+               "210331",
+               "2M pasd"
+            ],
+            [
+               "210338",
+               "2M pasd"
+            ],
+            [
+               "210341",
+               "2M pasd"
+            ],
+            [
+               "210342",
+               "0S pasd"
+            ],
+            [
+               "210365",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-785-e-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howse Cr nr Truman Av - Keenan St Nr Park St",
+            "rs_ref" : "RS_99-785-e-sj2-1-H-1",
+            "id" : "R_99-785-e-sj2-1-H-1"
+         }
+      },
+      "service" : "99-785-e-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "785e"
+   }
+}
+;
+

@@ -1,0 +1,421 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-841-_-sj2-1" : "841"
+}
+;
+
+var stations = {
+   "2298116" : "St Philips College Nr Bridge St",
+   "2299102" : "Croudace St Nr Chilcott St",
+   "2290493" : "Frederick St Stand B",
+   "230449" : "Hanbury St nr Wilkinson St",
+   "2299101" : "Croudace St Opp Turner St",
+   "230581" : "Croudace St Opp Russell Rd",
+   "229831" : "St Phillips College",
+   "2290136" : "Charlestown Rd nr Willis St",
+   "229864" : "Lambton Rd Nr Christo Rd",
+   "2290128" : "Charlestown Rd nr Buller St",
+   "229871" : "Lambton Rd Nr Christo Rd",
+   "2290492" : "Frederick St Stand C",
+   "229994" : "Croudace St Nr De Vitre St",
+   "2289237" : "Charlestown Rd 150m S Of Stuart St",
+   "229013" : "Charlestown Rd nr Kirkdale Dr",
+   "2289271" : "Charlestown Rd Nr Park",
+   "2305151" : "Lookout Rd Opp Grandview Rd",
+   "230564" : "Croudace St Nr Russell Rd",
+   "2290126" : "Charlestown Rd nr Robert St",
+   "2290138" : "Charlestown Rd opp Kirkdale Dr",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "2289270" : "Charlestown Rd Nr Kimbarra Cl",
+   "229995" : "Croudace St Nr Howe St",
+   "229842" : "Platt St opp Waratah Station",
+   "2305169" : "Lookout Rd Nr Grandview Rd",
+   "229922" : "Newcastle Rd Nr Dent St",
+   "230447" : "Barton St Nr Maitland Rd",
+   "2289249" : "Charlestown Rd Nr Blackbutt Pde",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "230429" : "Vine St nr Wye St",
+   "229851" : "High St Nr Harriet St",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2305150" : "Lookout Rd 300m N Of Grandview Rd",
+   "2290491" : "Pearson St Stand E",
+   "2299124" : "Newcastle Rd Nr Grainger St",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "2290490" : "Pearson St Stand A",
+   "230448" : "Barton St nr Crebert St",
+   "2304269" : "Vine St Nr Industrial Dr",
+   "229923" : "Newcastle Rd Nr Nerong Rd",
+   "2299123" : "Newcastle Rd Nr Morehead St",
+   "229965" : "Griffiths Rd Nr Verulam Rd",
+   "2304223" : "Hanbury St nr Macquarie Rd",
+   "2305167" : "Charlestown Rd Nr Hurn St",
+   "2299100" : "Croudace St nr Mitchell Av",
+   "2299122" : "Newcastle Rd Nr Young Rd",
+   "2299104" : "Croudace St Nr Lambton Primary",
+   "2304264" : "Hanbury St nr Dora St",
+   "2305170" : "Lookout Rd 200m S Of Mccaffrey Dr",
+   "229014" : "Charlestown Rd opp Kendall St",
+   "228918" : "Charlestown Rd Near Blackbutt Pde",
+   "229999" : "Croudace St Nr Chilcott St",
+   "229845" : "Turton Rd Nr High St",
+   "229847" : "Platt St Nr Grove St",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "229872" : "Lambton Rd Nr Edith St",
+   "229811" : "Platt St nr Waratah Station",
+   "229852" : "High St Nr Tighe St",
+   "229963" : "Newcastle Rd Nr Grainger St",
+   "230451" : "Hanbury St opp Sunderland St",
+   "2289272" : "Charlestown Rd Nr Peatties Rd",
+   "230450" : "Hanbury St nr Railway Tce",
+   "229846" : "Platt St Nr Dulling St",
+   "2304143" : "Hunter Christian School",
+   "229015" : "Charlestown Rd nr Willis St",
+   "2290137" : "Charlestown Rd nr Hillsborough Rd",
+   "2304131" : "Barton St nr Bull St",
+   "229873" : "Lambton Rd Nr Coolamin Rd",
+   "2304130" : "Barton St Nr Charles St",
+   "2298114" : "Coolamin Rd Nr Lambton Rd",
+   "2299103" : "Croudace St Nr Armstrong St",
+   "2305168" : "Charlestown Rd Opp Carnley Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-841-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-841-_-sj2-1-1-b0096",
+      "leaves" : "07:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2290493",
+               null
+            ],
+            [
+               "2290490",
+               "1M pasd"
+            ],
+            [
+               "2290128",
+               "1M pasd"
+            ],
+            [
+               "2290136",
+               "0S pasd"
+            ],
+            [
+               "2290137",
+               "1M pasd"
+            ],
+            [
+               "2290138",
+               "1M pasd"
+            ],
+            [
+               "2289237",
+               "0S pasd"
+            ],
+            [
+               "2289249",
+               "1M pasd"
+            ],
+            [
+               "2289272",
+               "2M pasd"
+            ],
+            [
+               "2305168",
+               "0S pasd"
+            ],
+            [
+               "2305169",
+               "1M pasd"
+            ],
+            [
+               "2305170",
+               "1M pasd"
+            ],
+            [
+               "2305171",
+               "1M pasd"
+            ],
+            [
+               "2305172",
+               "1M pasd"
+            ],
+            [
+               "230581",
+               "1M pasd"
+            ],
+            [
+               "2299101",
+               "1M pasd"
+            ],
+            [
+               "2299102",
+               "1M pasd"
+            ],
+            [
+               "2299103",
+               "0S pasd"
+            ],
+            [
+               "2299104",
+               "0S pasd"
+            ],
+            [
+               "229922",
+               "1M pasd"
+            ],
+            [
+               "229963",
+               "0S pasd"
+            ],
+            [
+               "229923",
+               "1M pasd"
+            ],
+            [
+               "229965",
+               "0S pasd"
+            ],
+            [
+               "229871",
+               "1M pasd"
+            ],
+            [
+               "229872",
+               "1M pasd"
+            ],
+            [
+               "229873",
+               "0S pasd"
+            ],
+            [
+               "2298114",
+               "0S pasd"
+            ],
+            [
+               "229851",
+               "1M pasd"
+            ],
+            [
+               "229852",
+               "1M pasd"
+            ],
+            [
+               "229845",
+               "1M pasd"
+            ],
+            [
+               "229811",
+               "2M pasd"
+            ],
+            [
+               "230451",
+               "1M pasd"
+            ],
+            [
+               "2304223",
+               "1M pasd"
+            ],
+            [
+               "230447",
+               "2M pasd"
+            ],
+            [
+               "230448",
+               "0S pasd"
+            ],
+            [
+               "2304130",
+               "1M pasd"
+            ],
+            [
+               "2304131",
+               "1M pasd"
+            ],
+            [
+               "2304143",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-841-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Frederick St Interchange - Hunter Christian School",
+            "rs_ref" : "RS_94-841-_-sj2-1-H-1",
+            "id" : "R_94-841-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-841-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "841"
+   },
+   "VJ_94-841-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-841-_-sj2-1-2-b0096",
+      "leaves" : "14:59:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2304143",
+               null
+            ],
+            [
+               "2304269",
+               "2M pasd"
+            ],
+            [
+               "230429",
+               "0S pasd"
+            ],
+            [
+               "2304264",
+               "3M pasd"
+            ],
+            [
+               "230449",
+               "2M pasd"
+            ],
+            [
+               "230450",
+               "1M pasd"
+            ],
+            [
+               "229842",
+               "2M pasd"
+            ],
+            [
+               "229846",
+               "0S pasd"
+            ],
+            [
+               "229847",
+               "1M pasd"
+            ],
+            [
+               "229831",
+               "1M pasd"
+            ],
+            [
+               "2298116",
+               "0S pasd"
+            ],
+            [
+               "229864",
+               "2M pasd"
+            ],
+            [
+               "2299122",
+               "1M pasd"
+            ],
+            [
+               "2299123",
+               "1M pasd"
+            ],
+            [
+               "2299124",
+               "0S pasd"
+            ],
+            [
+               "229994",
+               "1M pasd"
+            ],
+            [
+               "229995",
+               "1M pasd"
+            ],
+            [
+               "229999",
+               "0S pasd"
+            ],
+            [
+               "2299100",
+               "1M pasd"
+            ],
+            [
+               "230564",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "0S pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2305150",
+               "1M pasd"
+            ],
+            [
+               "2305151",
+               "1M pasd"
+            ],
+            [
+               "2305167",
+               "1M pasd"
+            ],
+            [
+               "2289270",
+               "1M pasd"
+            ],
+            [
+               "2289271",
+               "0S pasd"
+            ],
+            [
+               "228918",
+               "2M pasd"
+            ],
+            [
+               "229013",
+               "1M pasd"
+            ],
+            [
+               "229014",
+               "1M pasd"
+            ],
+            [
+               "229015",
+               "0S pasd"
+            ],
+            [
+               "2290126",
+               "1M pasd"
+            ],
+            [
+               "2290491",
+               "1M pasd"
+            ],
+            [
+               "2290492",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-841-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Hunter Christian School - Frederick St Interchange",
+            "rs_ref" : "RS_94-841-_-sj2-1-R-2",
+            "id" : "R_94-841-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-841-_-sj2-1",
+      "line" : "841"
+   }
+}
+;
+

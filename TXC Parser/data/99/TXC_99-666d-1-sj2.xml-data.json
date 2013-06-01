@@ -1,0 +1,511 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-666-d-sj2-1" : "666"
+}
+;
+
+var stations = {
+   "206684" : "Ronald Av Nr Osborne Rd",
+   "206513" : "Pacific Hwy Nr Christie St",
+   "206347" : "Harden Av Nr Tenilba Rd",
+   "206640" : "Longueville Rd Nr River Rd West",
+   "206544" : "Burlington St Stand 3",
+   "206692" : "Phoenix St Nr Pottery Green Park",
+   "206681" : "Little St Nr Central Av",
+   "206697" : "Fourth Av Nr Second Av",
+   "206342" : "Kameruka Rd Nr Minnamurra Rd",
+   "206693" : "Phoenix St Nr Longueville Rd",
+   "206337" : "Sailors Bay Rd Nr Bligh St",
+   "206344" : "Kameruka Rd Nr Narooma Rd",
+   "2068101" : "High St Nr Robert St",
+   "206687" : "Campbell Ave",
+   "206580" : "Ronald Av 350m E Of Panorama Rd",
+   "206683" : "Ronald Av Nr Panorama Rd",
+   "206549" : "Willoughby Rd Nr Donnelly St",
+   "206639" : "Longueville Rd Nr Richardson St",
+   "206636" : "Longueville Rd Nr Austin St",
+   "206345" : "Kameruka Rd Nr The Outpost",
+   "206577" : "Kingslangley Rd nr Lansdowne St",
+   "2065135" : "St Leonards Station_ Pacific Hwy - Stand B",
+   "206685" : "Osborne Rd Nr Second Av",
+   "206528" : "Pacific Hwy Nr Portview Rd",
+   "206552" : "Greenwich Rd nr Pacific Hwy",
+   "206534" : "Willoughby Rd Nr Garland Rd",
+   "206686" : "Second Av Nr Campbell Av",
+   "206576" : "St Vincents Rd nr River Rd",
+   "206579" : "Ronald Av Nr Crowther Av",
+   "206575" : "River Rd Nr Allawah Pl",
+   "206638" : "Longueville Rd Nr Alpha Rd",
+   "206690" : "Fourth Av Nr First Av",
+   "206346" : "Kameruka Rd Nr Kyogle Rd",
+   "206537" : "Willoughby Rd Nr Atchison St",
+   "206578" : "Balfour St nr Innes Rd",
+   "206340" : "Sailors Bay Rd Nr Narooma Rd",
+   "206866" : "Willoughby Girls High Stand 8",
+   "206682" : "Central Av Nr Longueville Rd",
+   "206535" : "Willoughby Rd Nr Dodds St",
+   "206341" : "Sailors Bay Rd Nr Kameruka Rd",
+   "2068103" : "High St Nr Forsyth St",
+   "206879" : "Willoughby Rd Nr Small St",
+   "206877" : "Willoughby Rd Nr Hudson Av",
+   "206553" : "Greenwich Rd Nr Anglo Rd",
+   "206691" : "Phoenix St Nr Dorritt St",
+   "206688" : "Third Av Nr Second Av",
+   "206343" : "Kameruka Rd Nr Coorabin Rd",
+   "206878" : "Willoughby Rd Nr Frenchs Rd",
+   "206855" : "Penshurst St Nr Rosewall St",
+   "206637" : "Longueville Rd Nr Dorritt St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-666-d-sj2-1-1-b00a5" : {
+      "vjcode" : "VJ_99-666-d-sj2-1-1-b00a5",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206337",
+               null
+            ],
+            [
+               "206340",
+               "1M pasd"
+            ],
+            [
+               "206341",
+               "1M pasd"
+            ],
+            [
+               "206342",
+               "0S pasd"
+            ],
+            [
+               "206343",
+               "1M pasd"
+            ],
+            [
+               "206344",
+               "0S pasd"
+            ],
+            [
+               "206345",
+               "1M pasd"
+            ],
+            [
+               "206346",
+               "0S pasd"
+            ],
+            [
+               "206347",
+               "1M pasd"
+            ],
+            [
+               "2068101",
+               "4M pasd"
+            ],
+            [
+               "2068103",
+               "1M pasd"
+            ],
+            [
+               "206855",
+               "2M pasd"
+            ],
+            [
+               "206866",
+               "3M pasd"
+            ],
+            [
+               "206877",
+               "1M pasd"
+            ],
+            [
+               "206878",
+               "1M pasd"
+            ],
+            [
+               "206879",
+               "1M pasd"
+            ],
+            [
+               "206534",
+               "2M pasd"
+            ],
+            [
+               "206535",
+               "1M pasd"
+            ],
+            [
+               "206549",
+               "1M pasd"
+            ],
+            [
+               "206537",
+               "1M pasd"
+            ],
+            [
+               "206544",
+               "3M pasd"
+            ],
+            [
+               "206513",
+               "2M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206552",
+               "1M pasd"
+            ],
+            [
+               "206553",
+               "1M pasd"
+            ],
+            [
+               "206575",
+               "1M pasd"
+            ],
+            [
+               "206576",
+               "0S pasd"
+            ],
+            [
+               "206577",
+               "1M pasd"
+            ],
+            [
+               "206578",
+               "1M pasd"
+            ],
+            [
+               "206579",
+               "1M pasd"
+            ],
+            [
+               "206580",
+               "1M pasd"
+            ],
+            [
+               "206683",
+               "1M pasd"
+            ],
+            [
+               "206684",
+               "0S pasd"
+            ],
+            [
+               "206685",
+               "1M pasd"
+            ],
+            [
+               "206686",
+               "0S pasd"
+            ],
+            [
+               "206687",
+               "1M pasd"
+            ],
+            [
+               "206688",
+               "1M pasd"
+            ],
+            [
+               "206697",
+               "1M pasd"
+            ],
+            [
+               "206690",
+               "0S pasd"
+            ],
+            [
+               "206691",
+               "1M pasd"
+            ],
+            [
+               "206692",
+               "1M pasd"
+            ],
+            [
+               "206693",
+               "1M pasd"
+            ],
+            [
+               "206681",
+               "1M pasd"
+            ],
+            [
+               "206682",
+               "1M pasd"
+            ],
+            [
+               "206636",
+               "0S pasd"
+            ],
+            [
+               "206637",
+               "1M pasd"
+            ],
+            [
+               "206638",
+               "1M pasd"
+            ],
+            [
+               "206639",
+               "0S pasd"
+            ],
+            [
+               "206640",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-666-d-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sailors Bay Rd Nr Bligh St - Longueville Rd Nr River Rd West",
+            "rs_ref" : "RS_99-666-d-sj2-1-R-1",
+            "id" : "R_99-666-d-sj2-1-R-1"
+         }
+      },
+      "service" : "99-666-d-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "666"
+   },
+   "VJ_99-666-d-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-666-d-sj2-1-2-b00a4",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206337",
+               null
+            ],
+            [
+               "206340",
+               "1M pasd"
+            ],
+            [
+               "206341",
+               "1M pasd"
+            ],
+            [
+               "206342",
+               "0S pasd"
+            ],
+            [
+               "206343",
+               "1M pasd"
+            ],
+            [
+               "206344",
+               "0S pasd"
+            ],
+            [
+               "206345",
+               "1M pasd"
+            ],
+            [
+               "206346",
+               "0S pasd"
+            ],
+            [
+               "206347",
+               "1M pasd"
+            ],
+            [
+               "2068101",
+               "4M pasd"
+            ],
+            [
+               "2068103",
+               "1M pasd"
+            ],
+            [
+               "206855",
+               "2M pasd"
+            ],
+            [
+               "206866",
+               "3M pasd"
+            ],
+            [
+               "206877",
+               "1M pasd"
+            ],
+            [
+               "206878",
+               "1M pasd"
+            ],
+            [
+               "206879",
+               "1M pasd"
+            ],
+            [
+               "206534",
+               "2M pasd"
+            ],
+            [
+               "206535",
+               "1M pasd"
+            ],
+            [
+               "206549",
+               "1M pasd"
+            ],
+            [
+               "206537",
+               "1M pasd"
+            ],
+            [
+               "206544",
+               "3M pasd"
+            ],
+            [
+               "206513",
+               "2M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "1M pasd"
+            ],
+            [
+               "206552",
+               "1M pasd"
+            ],
+            [
+               "206553",
+               "1M pasd"
+            ],
+            [
+               "206575",
+               "1M pasd"
+            ],
+            [
+               "206576",
+               "0S pasd"
+            ],
+            [
+               "206577",
+               "1M pasd"
+            ],
+            [
+               "206578",
+               "1M pasd"
+            ],
+            [
+               "206579",
+               "1M pasd"
+            ],
+            [
+               "206580",
+               "1M pasd"
+            ],
+            [
+               "206683",
+               "1M pasd"
+            ],
+            [
+               "206684",
+               "0S pasd"
+            ],
+            [
+               "206685",
+               "1M pasd"
+            ],
+            [
+               "206686",
+               "0S pasd"
+            ],
+            [
+               "206687",
+               "1M pasd"
+            ],
+            [
+               "206688",
+               "1M pasd"
+            ],
+            [
+               "206697",
+               "1M pasd"
+            ],
+            [
+               "206690",
+               "0S pasd"
+            ],
+            [
+               "206691",
+               "1M pasd"
+            ],
+            [
+               "206692",
+               "1M pasd"
+            ],
+            [
+               "206693",
+               "1M pasd"
+            ],
+            [
+               "206681",
+               "1M pasd"
+            ],
+            [
+               "206682",
+               "1M pasd"
+            ],
+            [
+               "206636",
+               "0S pasd"
+            ],
+            [
+               "206637",
+               "1M pasd"
+            ],
+            [
+               "206638",
+               "1M pasd"
+            ],
+            [
+               "206639",
+               "0S pasd"
+            ],
+            [
+               "206640",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-666-d-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Sailors Bay Rd Nr Bligh St - Longueville Rd Nr River Rd West",
+            "rs_ref" : "RS_99-666-d-sj2-1-R-1",
+            "id" : "R_99-666-d-sj2-1-R-1"
+         }
+      },
+      "service" : "99-666-d-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "666"
+   }
+}
+;
+

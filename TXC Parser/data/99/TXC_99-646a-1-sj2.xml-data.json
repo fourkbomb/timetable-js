@@ -1,0 +1,732 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-646-a-sj2-1" : "646"
+}
+;
+
+var stations = {
+   "2031117" : "Avoca St Nr Frances St",
+   "202946" : "New South Head Rd Nr Rose Bay Wharf",
+   "2031126" : "Albion St Nr Hooper St",
+   "2035175" : "Garden St Nr Gale Rd",
+   "202951" : "New South Head Rd Nr Kambala School",
+   "203063" : "Old South Head Rd Nr Macquarie Rd",
+   "203082" : "New South Head Nr Vaucluse",
+   "203480" : "Arden St Opp Neptune St",
+   "203422" : "Arden St Nr Malabar Rd",
+   "202820" : "New South Head Rd Nr William St",
+   "202517" : "Queen St Nr Ocean St",
+   "203067" : "Old South Head Rd Nr Derby St",
+   "202713" : "Edgecliff Interchange Set Down",
+   "202422" : "Bronte Rd Nr Carrington Rd",
+   "202514" : "Edgecliff Rd Nr Leswell St",
+   "2035151" : "Maroubra Rd Nr French St",
+   "2035189" : "Garden St Nr Storey St",
+   "202942" : "New South Head Rd Opp Cranbrook Rd",
+   "203419" : "Malabar Rd Opp Liguria St",
+   "203069" : "Military Rd Terminus",
+   "203453" : "Coogee Bay Rd Nr Byron St",
+   "202943" : "New South Head Rd Opp Salisbury Rd",
+   "202948" : "New South Head Rd Opp Norwich Rd",
+   "203157" : "Frenchmans Rd Nr Clovelly Rd",
+   "202513" : "Edgecliff Rd Nr Vernon St",
+   "203469" : "Arden St Nr Coogee Bay Rd",
+   "2030132" : "New South Head Rd Nr Petrarch Av",
+   "203468" : "Arden St Nr Carr St",
+   "202423" : "Bronte Rd Nr Waverley Court House",
+   "2030131" : "New South Head Rd Opp Girilang Av",
+   "202225" : "Bronte Rd Nr Spring St",
+   "2035176" : "Garden St Nr Maroubra Rd",
+   "203068" : "Old South Head Rd Nr Salisbury St",
+   "2035152" : "Maroubra Rd Nr Malabar Rd",
+   "202516" : "Queen St Nr Nelson St",
+   "203420" : "Malabar Rd Nr Nymboida St",
+   "202419" : "Albion St Nr Macpherson St",
+   "202524" : "Ocean St Nr Jersey Rd",
+   "2031153" : "Avoca St Opp Albert St",
+   "2031124" : "Frenchmans Rd Nr Barrett Pl",
+   "202829" : "New South Head Rd Nr Gladswood Gdn",
+   "202725" : "New South Head Rd Nr Wunulla Rd",
+   "203418" : "Malabar Rd Opp Mermaid Av",
+   "202949" : "New South Head Rd Nr Caledonian Rd",
+   "202421" : "Albion St Nr Bronte Rd",
+   "202234" : "Bronte Rd Nr Ebley St",
+   "2030134" : "New South Head Rd Opp Old South Hd Rd",
+   "202233" : "Bronte Rd Nr Birrell St",
+   "2030133" : "New South Head Rd Nr Serpentine Pde",
+   "202947" : "New South Head Rd Nr Vickery Av",
+   "202819" : "New South Head Rd Nr Knox St",
+   "203066" : "Old South Head Rd Nr Belah Av",
+   "2035150" : "Maroubra Rd Nr Flower St",
+   "203196" : "Coogee Bay Rd Nr Perouse Rd",
+   "2031119" : "Avoca St Nr Frenchmans Rd",
+   "202950" : "New South Head Rd Nr Dumaresq Rd",
+   "203064" : "Old South Head Rd Nr Georges Rd",
+   "203421" : "Malabar Rd Nr Moverly Rd",
+   "202724" : "New South Head Rd Nr Wolseley Rd",
+   "2031152" : "Avoca St Nr Short St",
+   "202944" : "New South Head Rd Opp O'sullivan Rd",
+   "202523" : "Ocean St Opp Wellington St",
+   "203065" : "Old South Head Rd Nr Cambridge Av",
+   "2035164" : "Moverley Rd Nr The Sydney French School",
+   "202515" : "Edgecliff Rd Nr Queen St",
+   "202818" : "New South Head Rd Nr Henrietta St",
+   "2031125" : "Frenchmans Rd Nr Gilderthorpe Av",
+   "202279" : "Bondi Junction Interchange Stand L",
+   "2030129" : "New South Head Rd Opp Clairvaux Rd",
+   "203062" : "Old South Head Rd Nr Village High Rd",
+   "2035131" : "Maroubra Rd Nr Mons Av",
+   "202830" : "New South Head Rd Opp Victoria Rd",
+   "2031177" : "Coogee Bay Rd Nr Dudley St",
+   "2030140" : "New South Head Rd Nr Hopetoun Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-646-a-sj2-1-1-b00af" : {
+      "vjcode" : "VJ_99-646-a-sj2-1-1-b00af",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2035164",
+               null
+            ],
+            [
+               "2035189",
+               "2M pasd"
+            ],
+            [
+               "2035175",
+               "0S pasd"
+            ],
+            [
+               "2035176",
+               "0S pasd"
+            ],
+            [
+               "2035131",
+               "1M pasd"
+            ],
+            [
+               "2035150",
+               "0S pasd"
+            ],
+            [
+               "2035151",
+               "1M pasd"
+            ],
+            [
+               "2035152",
+               "0S pasd"
+            ],
+            [
+               "203418",
+               "2M pasd"
+            ],
+            [
+               "203419",
+               "0S pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203480",
+               "0S pasd"
+            ],
+            [
+               "203468",
+               "1M pasd"
+            ],
+            [
+               "203469",
+               "0S pasd"
+            ],
+            [
+               "203453",
+               "2M pasd"
+            ],
+            [
+               "2031177",
+               "1M pasd"
+            ],
+            [
+               "203196",
+               "1M pasd"
+            ],
+            [
+               "2031152",
+               "0S pasd"
+            ],
+            [
+               "2031153",
+               "1M pasd"
+            ],
+            [
+               "2031117",
+               "1M pasd"
+            ],
+            [
+               "2031119",
+               "0S pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "1M pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "1M pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "1M pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202234",
+               "1M pasd"
+            ],
+            [
+               "202225",
+               "1M pasd"
+            ],
+            [
+               "202279",
+               "1M pasd"
+            ],
+            [
+               "202513",
+               "2M pasd"
+            ],
+            [
+               "202514",
+               "0S pasd"
+            ],
+            [
+               "202515",
+               "2M pasd"
+            ],
+            [
+               "202516",
+               "0S pasd"
+            ],
+            [
+               "202517",
+               "1M pasd"
+            ],
+            [
+               "202523",
+               "1M pasd"
+            ],
+            [
+               "202524",
+               "1M pasd"
+            ],
+            [
+               "202713",
+               "2M setDown"
+            ],
+            [
+               "202818",
+               "1M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "0S pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "0S pasd"
+            ],
+            [
+               "202725",
+               "1M pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "0S pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "1M pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "1M pasd"
+            ],
+            [
+               "2030129",
+               "1M pasd"
+            ],
+            [
+               "2030140",
+               "1M pasd"
+            ],
+            [
+               "2030131",
+               "1M pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "1M pasd"
+            ],
+            [
+               "2030134",
+               "0S pasd"
+            ],
+            [
+               "203062",
+               "1M pasd"
+            ],
+            [
+               "203063",
+               "1M pasd"
+            ],
+            [
+               "203064",
+               "0S pasd"
+            ],
+            [
+               "203065",
+               "1M pasd"
+            ],
+            [
+               "203066",
+               "1M pasd"
+            ],
+            [
+               "203067",
+               "1M pasd"
+            ],
+            [
+               "203068",
+               "1M pasd"
+            ],
+            [
+               "203069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-646-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Moverley Rd Nr The Sydney French School - Military Rd Terminus",
+            "rs_ref" : "RS_99-646-a-sj2-1-R-1",
+            "id" : "R_99-646-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-646-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "646"
+   },
+   "VJ_99-646-a-sj2-1-2-b00bd" : {
+      "vjcode" : "VJ_99-646-a-sj2-1-2-b00bd",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2035164",
+               null
+            ],
+            [
+               "2035189",
+               "2M pasd"
+            ],
+            [
+               "2035175",
+               "0S pasd"
+            ],
+            [
+               "2035176",
+               "0S pasd"
+            ],
+            [
+               "2035131",
+               "1M pasd"
+            ],
+            [
+               "2035150",
+               "0S pasd"
+            ],
+            [
+               "2035151",
+               "1M pasd"
+            ],
+            [
+               "2035152",
+               "0S pasd"
+            ],
+            [
+               "203418",
+               "2M pasd"
+            ],
+            [
+               "203419",
+               "0S pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203480",
+               "0S pasd"
+            ],
+            [
+               "203468",
+               "1M pasd"
+            ],
+            [
+               "203469",
+               "0S pasd"
+            ],
+            [
+               "203453",
+               "2M pasd"
+            ],
+            [
+               "2031177",
+               "1M pasd"
+            ],
+            [
+               "203196",
+               "1M pasd"
+            ],
+            [
+               "2031152",
+               "0S pasd"
+            ],
+            [
+               "2031153",
+               "1M pasd"
+            ],
+            [
+               "2031117",
+               "1M pasd"
+            ],
+            [
+               "2031119",
+               "0S pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "1M pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "1M pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "1M pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202234",
+               "1M pasd"
+            ],
+            [
+               "202225",
+               "1M pasd"
+            ],
+            [
+               "202279",
+               "1M pasd"
+            ],
+            [
+               "202513",
+               "2M pasd"
+            ],
+            [
+               "202514",
+               "0S pasd"
+            ],
+            [
+               "202515",
+               "2M pasd"
+            ],
+            [
+               "202516",
+               "0S pasd"
+            ],
+            [
+               "202517",
+               "1M pasd"
+            ],
+            [
+               "202523",
+               "1M pasd"
+            ],
+            [
+               "202524",
+               "1M pasd"
+            ],
+            [
+               "202713",
+               "2M setDown"
+            ],
+            [
+               "202818",
+               "1M pasd"
+            ],
+            [
+               "202819",
+               "1M pasd"
+            ],
+            [
+               "202820",
+               "1M pasd"
+            ],
+            [
+               "202829",
+               "0S pasd"
+            ],
+            [
+               "202830",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "0S pasd"
+            ],
+            [
+               "202725",
+               "1M pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "0S pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "1M pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "1M pasd"
+            ],
+            [
+               "2030129",
+               "1M pasd"
+            ],
+            [
+               "2030140",
+               "1M pasd"
+            ],
+            [
+               "2030131",
+               "1M pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "1M pasd"
+            ],
+            [
+               "2030134",
+               "0S pasd"
+            ],
+            [
+               "203062",
+               "1M pasd"
+            ],
+            [
+               "203063",
+               "1M pasd"
+            ],
+            [
+               "203064",
+               "0S pasd"
+            ],
+            [
+               "203065",
+               "1M pasd"
+            ],
+            [
+               "203066",
+               "1M pasd"
+            ],
+            [
+               "203067",
+               "1M pasd"
+            ],
+            [
+               "203068",
+               "1M pasd"
+            ],
+            [
+               "203069",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-646-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Moverley Rd Nr The Sydney French School - Military Rd Terminus",
+            "rs_ref" : "RS_99-646-a-sj2-1-R-1",
+            "id" : "R_99-646-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-646-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "646"
+   }
+}
+;
+

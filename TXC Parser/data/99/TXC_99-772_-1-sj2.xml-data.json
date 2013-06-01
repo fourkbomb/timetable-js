@@ -1,0 +1,520 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-772-_-sj2-1" : "772"
+}
+;
+
+var stations = {
+   "211848" : "Pennant Hills Rd near Tintern Av",
+   "215338" : "Cook St nr Brodie St",
+   "211835" : "Pennant Hills Rd nr Bettington Rd",
+   "211839" : "Pennant Hills Rd near Charles St",
+   "2117142" : "Pennant Hills Rd nr Bettington Rd",
+   "2153372" : "Baulkham Hills High School_ Windsor Rd",
+   "215134" : "Pennant Hills Rd nr Masons Dr",
+   "211818" : "Carlingford Rd opp Hepburn Av",
+   "215170" : "North Rocks Rd opp Westfields",
+   "2118103" : "Pennant Hills Rd near Charles St",
+   "211842" : "Pennant Hills Rd near Janell Cl",
+   "2151151" : "Barclay Rd nr Muirfield High School",
+   "215136" : "Pennant Hills Rd nr Kings School",
+   "2117145" : "Pennant Hills Rd nr Gollan Av",
+   "2118202" : "Jenkins Rd Nr Lochinvar Pde",
+   "211876" : "Jenkins Rd near Post Office St",
+   "2118204" : "Jenkins Rd near Woodstock Rd",
+   "211846" : "Pennant Hills Rd near Martins La",
+   "2151150" : "Barlcay Rd opp Perry St",
+   "2121156" : "Carlingford Rd Nr Dallwood Av",
+   "211849" : "Pennant Hills Rd opp Westminster Av",
+   "211838" : "Pennant Hills Rd Nr Baker St",
+   "2118104" : "Jenkins Rd near James St",
+   "2121142" : "Bridge St Nr Wyralla Av",
+   "215112" : "Tara School",
+   "2121179" : "Carlingford Rd Nr Duntroon Av",
+   "211918" : "Wongala Cr near Beecroft Station",
+   "211851" : "North Rocks Rd Nr Bellevue Dr",
+   "2121180" : "Carlingford Rd Nr Ward St",
+   "211841" : "Pennant Hills Rd near Post Office St",
+   "215337" : "Cook St nr Carrabai Pl",
+   "215135" : "Pennant Hills Rd opp Vista St",
+   "211837" : "Pennant Hills Rd near Cumberland High",
+   "211928" : "Beecroft Rd near Beecroft Primary",
+   "2118203" : "Jenkins Rd Nr Robbie Cr",
+   "211875" : "Jenkins Rd Nr Moseley St",
+   "2117143" : "Pennant Hills Rd nr Hunterford Cr",
+   "211946" : "Beecroft Rd near Copeland Rd",
+   "211850" : "North Rocks Rd near New North Rocks Rd",
+   "211836" : "Pennant Hills Rd near Westminster Av",
+   "211847" : "Pennant Hills Rd Nr Baker St",
+   "2151149" : "Barclay Rd Nr Mill Dr",
+   "211852" : "North Rocks Rd opp Farnell Av",
+   "215336" : "Cook St Nr Orchard St",
+   "2121178" : "Carlingford Rd Nr Pennant Pde",
+   "2117144" : "Pennant Hills Rd nr Vista St",
+   "212114" : "Beecroft Rd Nr Epping Station",
+   "211817" : "Carlingford Rd near Rembrandt St",
+   "2153213" : "Renown Rd opp Sports Club",
+   "211840" : "Pennant Hills Rd Nr Coleman Av",
+   "211853" : "North Rocks Rd near Alkira Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-772-_-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-772-_-sj2-1-1-b00bj",
+      "leaves" : "15:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2153372",
+               null
+            ],
+            [
+               "215336",
+               "6M pasd"
+            ],
+            [
+               "215337",
+               "0S pasd"
+            ],
+            [
+               "215338",
+               "1M pasd"
+            ],
+            [
+               "2153213",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "3M pasd"
+            ],
+            [
+               "2151150",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "1M pasd"
+            ],
+            [
+               "215170",
+               "2M pasd"
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "1M pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "211875",
+               "2M pasd"
+            ],
+            [
+               "211876",
+               "0S pasd"
+            ],
+            [
+               "2118104",
+               "1M pasd"
+            ],
+            [
+               "2118103",
+               "1M pasd"
+            ],
+            [
+               "211846",
+               "1M pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "1M pasd"
+            ],
+            [
+               "2117142",
+               "1M pasd"
+            ],
+            [
+               "2117143",
+               "1M pasd"
+            ],
+            [
+               "2117144",
+               "1M pasd"
+            ],
+            [
+               "2117145",
+               "0S pasd"
+            ],
+            [
+               "215112",
+               "3M pasd"
+            ],
+            [
+               "215134",
+               "2M pasd"
+            ],
+            [
+               "215135",
+               "1M pasd"
+            ],
+            [
+               "215136",
+               "2M pasd"
+            ],
+            [
+               "211835",
+               "1M pasd"
+            ],
+            [
+               "211836",
+               "1M pasd"
+            ],
+            [
+               "211837",
+               "1M pasd"
+            ],
+            [
+               "211838",
+               "1M pasd"
+            ],
+            [
+               "211839",
+               "1M pasd"
+            ],
+            [
+               "211840",
+               "1M pasd"
+            ],
+            [
+               "211842",
+               "1M pasd"
+            ],
+            [
+               "211841",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "1M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "1M pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "0S pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "2121142",
+               "3M pasd"
+            ],
+            [
+               "212114",
+               "2M pasd"
+            ],
+            [
+               "211928",
+               "8M pasd"
+            ],
+            [
+               "211946",
+               "1M pasd"
+            ],
+            [
+               "211918",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-772-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Baulkham Hills High School_ Windsor Rd - Beecroft Station",
+            "rs_ref" : "RS_99-772-_-sj2-1-R-1",
+            "id" : "R_99-772-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-772-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "772"
+   },
+   "VJ_99-772-_-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-772-_-sj2-1-2-b00bk",
+      "leaves" : "15:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2153372",
+               null
+            ],
+            [
+               "215336",
+               "6M pasd"
+            ],
+            [
+               "215337",
+               "0S pasd"
+            ],
+            [
+               "215338",
+               "1M pasd"
+            ],
+            [
+               "2153213",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "3M pasd"
+            ],
+            [
+               "2151150",
+               "1M pasd"
+            ],
+            [
+               "2151151",
+               "1M pasd"
+            ],
+            [
+               "215170",
+               "2M pasd"
+            ],
+            [
+               "211850",
+               "1M pasd"
+            ],
+            [
+               "211851",
+               "0S pasd"
+            ],
+            [
+               "211852",
+               "1M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "1M pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "211875",
+               "2M pasd"
+            ],
+            [
+               "211876",
+               "0S pasd"
+            ],
+            [
+               "2118104",
+               "1M pasd"
+            ],
+            [
+               "2118103",
+               "1M pasd"
+            ],
+            [
+               "211846",
+               "1M pasd"
+            ],
+            [
+               "211847",
+               "0S pasd"
+            ],
+            [
+               "211848",
+               "1M pasd"
+            ],
+            [
+               "211849",
+               "1M pasd"
+            ],
+            [
+               "2117142",
+               "1M pasd"
+            ],
+            [
+               "2117143",
+               "1M pasd"
+            ],
+            [
+               "2117144",
+               "1M pasd"
+            ],
+            [
+               "2117145",
+               "0S pasd"
+            ],
+            [
+               "215112",
+               "3M pasd"
+            ],
+            [
+               "215134",
+               "2M pasd"
+            ],
+            [
+               "215135",
+               "1M pasd"
+            ],
+            [
+               "215136",
+               "2M pasd"
+            ],
+            [
+               "211835",
+               "1M pasd"
+            ],
+            [
+               "211836",
+               "1M pasd"
+            ],
+            [
+               "211837",
+               "1M pasd"
+            ],
+            [
+               "211838",
+               "1M pasd"
+            ],
+            [
+               "211839",
+               "1M pasd"
+            ],
+            [
+               "211840",
+               "1M pasd"
+            ],
+            [
+               "211842",
+               "1M pasd"
+            ],
+            [
+               "211841",
+               "1M pasd"
+            ],
+            [
+               "211817",
+               "1M pasd"
+            ],
+            [
+               "211818",
+               "1M pasd"
+            ],
+            [
+               "2121178",
+               "1M pasd"
+            ],
+            [
+               "2121156",
+               "1M pasd"
+            ],
+            [
+               "2121179",
+               "0S pasd"
+            ],
+            [
+               "2121180",
+               "1M pasd"
+            ],
+            [
+               "2121142",
+               "3M pasd"
+            ],
+            [
+               "212114",
+               "2M pasd"
+            ],
+            [
+               "211928",
+               "8M pasd"
+            ],
+            [
+               "211946",
+               "1M pasd"
+            ],
+            [
+               "211918",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-772-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Baulkham Hills High School_ Windsor Rd - Beecroft Station",
+            "rs_ref" : "RS_99-772-_-sj2-1-R-1",
+            "id" : "R_99-772-_-sj2-1-R-1"
+         }
+      },
+      "service" : "99-772-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "772"
+   }
+}
+;
+

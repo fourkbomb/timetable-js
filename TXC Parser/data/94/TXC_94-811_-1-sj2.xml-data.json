@@ -1,0 +1,356 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-811-_-sj2-1" : "811"
+}
+;
+
+var stations = {
+   "228432" : "Lake Rd opp Cockle Creek Station",
+   "2285147" : "Reservoir Rd nr Hartford St",
+   "2285134" : "Newcastle St nr St Kevins Primary",
+   "228598" : "Wallsend Rd opp Rowes Ln",
+   "2285175" : "Reservoir Rd opp Clarence St",
+   "228514" : "Main Rd nr Lilian St",
+   "2285152" : "Reservoir Rd nr Hartford St",
+   "2285139" : "Main Rd nr Curry St",
+   "2285101" : "Main Rd nr Charles St",
+   "228576" : "Newcastle St nr Main Rd",
+   "2285140" : "Main Rd nr Hendrick St",
+   "228485" : "Lake Rd nr Workers' Club",
+   "228461" : "Lake Rd nr McLaughlin St",
+   "228582" : "Main Rd opp Poyner Av",
+   "2285166" : "Graham St Nr Glendale Dr",
+   "2285174" : "Clarence St opp Graham St",
+   "228595" : "Wallsend Rd nr Rowes Ln",
+   "228431" : "Lake Rd nr Cockle Creek Station",
+   "228438" : "Lake Rd opp McLaughlin St",
+   "2285164" : "Clarence St nr Karen Av",
+   "2285177" : "Reservoir Rd nr Longworth Av",
+   "2285157" : "Reservoir Rd nr Clarence St",
+   "2285138" : "Main Rd nr Peatties Rd",
+   "2284118" : "Marmong St nr Fourth St",
+   "228494" : "Lake Rd nr Mine Rescue Station",
+   "2285148" : "Reservoir Rd nr Nadrian Cl",
+   "2285171" : "Graham St Nr Glendale Dr",
+   "228593" : "Main Rd opp Curry St",
+   "228518" : "Glendale Crossroads",
+   "228462" : "Lake Rd nr Waratah St",
+   "228465" : "Lake Rd opp Workers Club",
+   "228488" : "Lake Rd opp Waratah St",
+   "228580" : "Main Rd Near Bruce St",
+   "2285163" : "Clarence St nr Graham St",
+   "228486" : "Lake Rd opp Mine Rescue Station",
+   "2285150" : "Reservoir Rd opp Dewrang St",
+   "2285153" : "Reservoir Rd nr Wallsend Rd",
+   "2285169" : "Glendale Dr nr Alfred St",
+   "228564" : "Main Rd nr Poyner Av",
+   "2285151" : "Reservoir Rd nr Christina St",
+   "2285165" : "Clarence St Nr Graham St",
+   "2285176" : "Reservoir Rd nr Jubilee Rd",
+   "2285141" : "Main Rd nr Andrew St",
+   "228565" : "Main Rd Near Bruce St",
+   "228517" : "Main Rd Near Glendale Dr",
+   "2285184" : "Reservoir Rd nr Lowry St",
+   "2284116" : "St Pauls High School",
+   "2285149" : "Reservoir Rd nr Dewrang St",
+   "2285172" : "Clarence St Nr Graham St",
+   "228439" : "Lake Rd nr Victoria St",
+   "2285185" : "Reservoir Rd opp Jubilee Rd",
+   "2285302" : "Glendale Crossroads",
+   "228489" : "Lake Rd nr Park Av",
+   "228594" : "Main Rd opp Peatties Rd",
+   "2285137" : "Main Rd nr Alice St",
+   "228581" : "Main Rd opp Lilian St",
+   "228437" : "Lake Rd nr Princess St",
+   "2285170" : "Glendale Dr nr Main Rd",
+   "2285173" : "Clarence St opp Karen Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-811-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-811-_-sj2-1-1-b0096",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2284116",
+               null
+            ],
+            [
+               "2284118",
+               "2M pasd"
+            ],
+            [
+               "228431",
+               "6M pasd"
+            ],
+            [
+               "228485",
+               "1M pasd"
+            ],
+            [
+               "228486",
+               "1M pasd"
+            ],
+            [
+               "228437",
+               "0S pasd"
+            ],
+            [
+               "228488",
+               "1M pasd"
+            ],
+            [
+               "228489",
+               "0S pasd"
+            ],
+            [
+               "228438",
+               "0S pasd"
+            ],
+            [
+               "2285302",
+               "2M pasd"
+            ],
+            [
+               "228564",
+               "0S pasd"
+            ],
+            [
+               "228514",
+               "1M pasd"
+            ],
+            [
+               "228565",
+               "0S pasd"
+            ],
+            [
+               "2285170",
+               "1M pasd"
+            ],
+            [
+               "2285171",
+               "0S pasd"
+            ],
+            [
+               "2285172",
+               "0S pasd"
+            ],
+            [
+               "2285173",
+               "1M pasd"
+            ],
+            [
+               "2285174",
+               "1M pasd"
+            ],
+            [
+               "2285175",
+               "0S pasd"
+            ],
+            [
+               "2285176",
+               "1M pasd"
+            ],
+            [
+               "2285177",
+               "1M pasd"
+            ],
+            [
+               "2285150",
+               "1M pasd"
+            ],
+            [
+               "2285151",
+               "1M pasd"
+            ],
+            [
+               "2285152",
+               "0S pasd"
+            ],
+            [
+               "2285153",
+               "1M pasd"
+            ],
+            [
+               "228598",
+               "1M pasd"
+            ],
+            [
+               "2285138",
+               "1M pasd"
+            ],
+            [
+               "2285139",
+               "0S pasd"
+            ],
+            [
+               "2285140",
+               "1M pasd"
+            ],
+            [
+               "2285141",
+               "0S pasd"
+            ],
+            [
+               "2285134",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-811-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Pauls High School - Newcastle St nr St Kevins Primary",
+            "rs_ref" : "RS_94-811-_-sj2-1-R-1",
+            "id" : "R_94-811-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-811-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "811"
+   },
+   "VJ_94-811-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-811-_-sj2-1-2-b0096",
+      "leaves" : "08:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228576",
+               null
+            ],
+            [
+               "2285101",
+               "1M pasd"
+            ],
+            [
+               "2285137",
+               "0S pasd"
+            ],
+            [
+               "228593",
+               "1M pasd"
+            ],
+            [
+               "228594",
+               "0S pasd"
+            ],
+            [
+               "228595",
+               "1M pasd"
+            ],
+            [
+               "2285147",
+               "1M pasd"
+            ],
+            [
+               "2285148",
+               "1M pasd"
+            ],
+            [
+               "2285149",
+               "1M pasd"
+            ],
+            [
+               "2285184",
+               "1M pasd"
+            ],
+            [
+               "2285185",
+               "1M pasd"
+            ],
+            [
+               "2285157",
+               "1M pasd"
+            ],
+            [
+               "2285163",
+               "0S pasd"
+            ],
+            [
+               "2285164",
+               "1M pasd"
+            ],
+            [
+               "2285165",
+               "1M pasd"
+            ],
+            [
+               "2285166",
+               "0S pasd"
+            ],
+            [
+               "2285169",
+               "0S pasd"
+            ],
+            [
+               "228517",
+               "1M pasd"
+            ],
+            [
+               "228580",
+               "0S pasd"
+            ],
+            [
+               "228581",
+               "0S pasd"
+            ],
+            [
+               "228582",
+               "1M pasd"
+            ],
+            [
+               "228518",
+               "0S pasd"
+            ],
+            [
+               "228461",
+               "2M pasd"
+            ],
+            [
+               "228462",
+               "0S pasd"
+            ],
+            [
+               "228439",
+               "1M pasd"
+            ],
+            [
+               "228494",
+               "1M pasd"
+            ],
+            [
+               "228465",
+               "0S pasd"
+            ],
+            [
+               "228432",
+               "1M pasd"
+            ],
+            [
+               "2284116",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-811-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Newcastle St nr Main Rd - St Pauls High School",
+            "rs_ref" : "RS_94-811-_-sj2-1-H-2",
+            "id" : "R_94-811-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-811-_-sj2-1",
+      "line" : "811"
+   }
+}
+;
+

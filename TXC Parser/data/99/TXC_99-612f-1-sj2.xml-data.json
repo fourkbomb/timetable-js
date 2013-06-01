@@ -1,0 +1,912 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-612-f-sj2-1" : "612"
+}
+;
+
+var stations = {
+   "2031117" : "Avoca St Nr Frances St",
+   "202352" : "Victoria Rd Opp Bellevue Hill Prim",
+   "202946" : "New South Head Rd Nr Rose Bay Wharf",
+   "2031126" : "Albion St Nr Hooper St",
+   "203125" : "Oberon St Nr Canberra St",
+   "203559" : "Anzac Pde Nr Byng St",
+   "203026" : "Military Rd Nr Old South Head Rd",
+   "202951" : "New South Head Rd Nr Kambala School",
+   "202325" : "Victoria Rd Opp Rose Bay Av",
+   "203038" : "Military Rd Nr Weonga Rd",
+   "203037" : "Lancaster Rd Nr Military Rd",
+   "2035143" : "Marine Pde nr Maroubra Rd",
+   "203082" : "New South Head Nr Vaucluse",
+   "203424" : "Oberon St Nr Mount St",
+   "203422" : "Arden St Nr Malabar Rd",
+   "203047" : "Rose Bay Secondary College Stand 1",
+   "203080" : "Old South Head Rd Nr Billong Av",
+   "202422" : "Bronte Rd Nr Carrington Rd",
+   "203425" : "Oberon St Nr Hendy St",
+   "203558" : "Anzac Pde Nr Maroubra Rd",
+   "202320" : "Victoria Rd Opp Drumalbyn Rd",
+   "202942" : "New South Head Rd Opp Cranbrook Rd",
+   "202319" : "Victoria Rd Nr Mansion Rd",
+   "202317" : "Victoria Rd Nr Rivers St",
+   "203135" : "Belmore Rd Nr Arthur St",
+   "203419" : "Malabar Rd Opp Liguria St",
+   "203041" : "Military Rd Nr Liverpool St",
+   "2035159" : "Torrington Rd Nr Inman St",
+   "202943" : "New South Head Rd Opp Salisbury Rd",
+   "202948" : "New South Head Rd Opp Norwich Rd",
+   "203157" : "Frenchmans Rd Nr Clovelly Rd",
+   "2035110" : "Minneapolis Cr Nr Chicago Av",
+   "2035113" : "Minneapolis Cr Nr Midway Dr",
+   "2030132" : "New South Head Rd Nr Petrarch Av",
+   "202315" : "Victoria Rd Nr Old South Head Rd",
+   "203028" : "Military Rd Nr Eastern Av",
+   "202324" : "Victoria Rd Opp Aston Gdn",
+   "203078" : "Old South Head Rd Nr South Head Cemetery",
+   "202423" : "Bronte Rd Nr Waverley Court House",
+   "2030131" : "New South Head Rd Opp Girilang Av",
+   "202316" : "Victoria Rd Nr Bradley Av Reserve",
+   "202225" : "Bronte Rd Nr Spring St",
+   "203027" : "Military Rd Nr Kimberley St",
+   "203134" : "Perouse Rd Nr Cuthill St",
+   "2035160" : "Torrington Rd Nr Malabar Rd",
+   "203420" : "Malabar Rd Nr Nymboida St",
+   "202419" : "Albion St Nr Macpherson St",
+   "203029" : "Peel St Nr George St",
+   "203042" : "Military Rd Nr Raleigh St",
+   "2031124" : "Frenchmans Rd Nr Barrett Pl",
+   "203030" : "Lancaster Rd Nr Peel St",
+   "202311" : "Old South Head Rd Nr Edgecliff Rd",
+   "203079" : "Old South Head Rd Nr Burge St",
+   "202725" : "New South Head Rd Nr Wunulla Rd",
+   "203418" : "Malabar Rd Opp Mermaid Av",
+   "2031115" : "Alison Rd Nr Belmore Rd",
+   "2035121" : "Yorktown Pde Nr New Orleans Cr",
+   "202949" : "New South Head Rd Nr Caledonian Rd",
+   "202318" : "Victoria Rd Nr March St",
+   "2035156" : "Marine Pde Nr Bond St",
+   "202421" : "Albion St Nr Bronte Rd",
+   "202234" : "Bronte Rd Nr Ebley St",
+   "2035141" : "Mckeon St Nr Hereward St",
+   "2030134" : "New South Head Rd Opp Old South Hd Rd",
+   "202233" : "Bronte Rd Nr Birrell St",
+   "2035140" : "Duncan St Nr Maroubra Bay Primary",
+   "203040" : "Military Rd Nr Dover Rd",
+   "2030133" : "New South Head Rd Nr Serpentine Pde",
+   "202947" : "New South Head Rd Nr Vickery Av",
+   "2035108" : "Malabar Rd Nr Fitzgerald Av",
+   "203126" : "Canberra St Nr Howard St",
+   "2031119" : "Avoca St Nr Frenchmans Rd",
+   "202532" : "Old South Head Rd Nr Edgecliff Rd",
+   "202321" : "Victoria Rd Opp Cranbrook Rd",
+   "203039" : "Military Rd Nr Blake St",
+   "2035193" : "Torrington Rd nr Wilson St",
+   "202323" : "Victoria Rd Nr Scots College",
+   "202950" : "New South Head Rd Nr Dumaresq Rd",
+   "2031116" : "Alison Rd Nr Avoca St",
+   "203136" : "Belmore Rd Nr Alison Rd",
+   "203421" : "Malabar Rd Nr Moverly Rd",
+   "203561" : "Anzac Pde nr Fitzgerald Av",
+   "202248" : "Oxford St Nr Grosvenor St",
+   "203423" : "Oberon St Nr Arden St",
+   "202724" : "New South Head Rd Nr Wolseley Rd",
+   "202944" : "New South Head Rd Opp O'sullivan Rd",
+   "203562" : "Anzac Pde Nr Minneapolis Cr",
+   "2035137" : "Malabar Rd Nr Mons Av",
+   "203124" : "Oberon St Opp Henry St",
+   "203133" : "Perouse Rd Nr Soudan St",
+   "2031125" : "Frenchmans Rd Nr Gilderthorpe Av",
+   "2030129" : "New South Head Rd Opp Clairvaux Rd",
+   "2035142" : "Marine Pde Nr Mckeon St",
+   "2030140" : "New South Head Rd Nr Hopetoun Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-612-f-sj2-1-2-b00bd" : {
+      "vjcode" : "VJ_99-612-f-sj2-1-2-b00bd",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203558",
+               null
+            ],
+            [
+               "203559",
+               "1M pasd"
+            ],
+            [
+               "203561",
+               "0S pasd"
+            ],
+            [
+               "203562",
+               "1M pasd"
+            ],
+            [
+               "2035110",
+               "0S pasd"
+            ],
+            [
+               "2035113",
+               "1M pasd"
+            ],
+            [
+               "2035121",
+               "1M pasd"
+            ],
+            [
+               "2035108",
+               "1M pasd"
+            ],
+            [
+               "2035137",
+               "0S pasd"
+            ],
+            [
+               "2035140",
+               "1M pasd"
+            ],
+            [
+               "2035141",
+               "1M pasd"
+            ],
+            [
+               "2035142",
+               "0S pasd"
+            ],
+            [
+               "2035143",
+               "0S pasd"
+            ],
+            [
+               "2035156",
+               "1M pasd"
+            ],
+            [
+               "2035193",
+               "1M pasd"
+            ],
+            [
+               "2035159",
+               "0S pasd"
+            ],
+            [
+               "2035160",
+               "1M pasd"
+            ],
+            [
+               "203418",
+               "1M pasd"
+            ],
+            [
+               "203419",
+               "0S pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203423",
+               "0S pasd"
+            ],
+            [
+               "203424",
+               "1M pasd"
+            ],
+            [
+               "203425",
+               "1M pasd"
+            ],
+            [
+               "203124",
+               "0S pasd"
+            ],
+            [
+               "203125",
+               "1M pasd"
+            ],
+            [
+               "203126",
+               "0S pasd"
+            ],
+            [
+               "203133",
+               "3M pasd"
+            ],
+            [
+               "203134",
+               "1M pasd"
+            ],
+            [
+               "203135",
+               "3M pasd"
+            ],
+            [
+               "203136",
+               "2M pasd"
+            ],
+            [
+               "2031115",
+               "0S pasd"
+            ],
+            [
+               "2031116",
+               "1M pasd"
+            ],
+            [
+               "2031117",
+               "0S pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "1M pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "1M pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "1M pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202234",
+               "1M pasd"
+            ],
+            [
+               "202225",
+               "1M pasd"
+            ],
+            [
+               "202248",
+               "0S pasd"
+            ],
+            [
+               "202532",
+               "2M pasd"
+            ],
+            [
+               "202311",
+               "1M pasd"
+            ],
+            [
+               "202315",
+               "0S pasd"
+            ],
+            [
+               "202352",
+               "1M pasd"
+            ],
+            [
+               "202316",
+               "1M pasd"
+            ],
+            [
+               "202317",
+               "1M pasd"
+            ],
+            [
+               "202318",
+               "1M pasd"
+            ],
+            [
+               "202319",
+               "2M pasd"
+            ],
+            [
+               "202320",
+               "0S pasd"
+            ],
+            [
+               "202321",
+               "1M pasd"
+            ],
+            [
+               "202323",
+               "1M pasd"
+            ],
+            [
+               "202324",
+               "2M pasd"
+            ],
+            [
+               "202325",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "0S pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "0S pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "2M pasd"
+            ],
+            [
+               "2030129",
+               "0S pasd"
+            ],
+            [
+               "2030140",
+               "1M pasd"
+            ],
+            [
+               "2030131",
+               "0S pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "1M pasd"
+            ],
+            [
+               "2030134",
+               "0S pasd"
+            ],
+            [
+               "203078",
+               "0S pasd"
+            ],
+            [
+               "203079",
+               "0S pasd"
+            ],
+            [
+               "203080",
+               "1M pasd"
+            ],
+            [
+               "203026",
+               "0S pasd"
+            ],
+            [
+               "203027",
+               "0S pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203037",
+               "0S pasd"
+            ],
+            [
+               "203038",
+               "1M pasd"
+            ],
+            [
+               "203039",
+               "0S pasd"
+            ],
+            [
+               "203040",
+               "0S pasd"
+            ],
+            [
+               "203041",
+               "0S pasd"
+            ],
+            [
+               "203042",
+               "1M pasd"
+            ],
+            [
+               "203047",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-612-f-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Maroubra Rd - Rose Bay Secondary College",
+            "rs_ref" : "RS_99-612-f-sj2-1-H-1",
+            "id" : "R_99-612-f-sj2-1-H-1"
+         }
+      },
+      "service" : "99-612-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "612"
+   },
+   "VJ_99-612-f-sj2-1-1-b00af" : {
+      "vjcode" : "VJ_99-612-f-sj2-1-1-b00af",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203558",
+               null
+            ],
+            [
+               "203559",
+               "1M pasd"
+            ],
+            [
+               "203561",
+               "0S pasd"
+            ],
+            [
+               "203562",
+               "1M pasd"
+            ],
+            [
+               "2035110",
+               "0S pasd"
+            ],
+            [
+               "2035113",
+               "1M pasd"
+            ],
+            [
+               "2035121",
+               "1M pasd"
+            ],
+            [
+               "2035108",
+               "1M pasd"
+            ],
+            [
+               "2035137",
+               "0S pasd"
+            ],
+            [
+               "2035140",
+               "1M pasd"
+            ],
+            [
+               "2035141",
+               "1M pasd"
+            ],
+            [
+               "2035142",
+               "0S pasd"
+            ],
+            [
+               "2035143",
+               "0S pasd"
+            ],
+            [
+               "2035156",
+               "1M pasd"
+            ],
+            [
+               "2035193",
+               "1M pasd"
+            ],
+            [
+               "2035159",
+               "0S pasd"
+            ],
+            [
+               "2035160",
+               "1M pasd"
+            ],
+            [
+               "203418",
+               "1M pasd"
+            ],
+            [
+               "203419",
+               "0S pasd"
+            ],
+            [
+               "203420",
+               "0S pasd"
+            ],
+            [
+               "203421",
+               "1M pasd"
+            ],
+            [
+               "203422",
+               "1M pasd"
+            ],
+            [
+               "203423",
+               "0S pasd"
+            ],
+            [
+               "203424",
+               "1M pasd"
+            ],
+            [
+               "203425",
+               "1M pasd"
+            ],
+            [
+               "203124",
+               "0S pasd"
+            ],
+            [
+               "203125",
+               "1M pasd"
+            ],
+            [
+               "203126",
+               "0S pasd"
+            ],
+            [
+               "203133",
+               "3M pasd"
+            ],
+            [
+               "203134",
+               "1M pasd"
+            ],
+            [
+               "203135",
+               "3M pasd"
+            ],
+            [
+               "203136",
+               "2M pasd"
+            ],
+            [
+               "2031115",
+               "0S pasd"
+            ],
+            [
+               "2031116",
+               "1M pasd"
+            ],
+            [
+               "2031117",
+               "0S pasd"
+            ],
+            [
+               "2031119",
+               "1M pasd"
+            ],
+            [
+               "203157",
+               "1M pasd"
+            ],
+            [
+               "2031124",
+               "1M pasd"
+            ],
+            [
+               "2031125",
+               "1M pasd"
+            ],
+            [
+               "2031126",
+               "0S pasd"
+            ],
+            [
+               "202419",
+               "1M pasd"
+            ],
+            [
+               "202421",
+               "1M pasd"
+            ],
+            [
+               "202422",
+               "1M pasd"
+            ],
+            [
+               "202423",
+               "1M pasd"
+            ],
+            [
+               "202233",
+               "1M pasd"
+            ],
+            [
+               "202234",
+               "1M pasd"
+            ],
+            [
+               "202225",
+               "1M pasd"
+            ],
+            [
+               "202248",
+               "0S pasd"
+            ],
+            [
+               "202532",
+               "2M pasd"
+            ],
+            [
+               "202311",
+               "1M pasd"
+            ],
+            [
+               "202315",
+               "0S pasd"
+            ],
+            [
+               "202352",
+               "1M pasd"
+            ],
+            [
+               "202316",
+               "1M pasd"
+            ],
+            [
+               "202317",
+               "1M pasd"
+            ],
+            [
+               "202318",
+               "1M pasd"
+            ],
+            [
+               "202319",
+               "2M pasd"
+            ],
+            [
+               "202320",
+               "0S pasd"
+            ],
+            [
+               "202321",
+               "1M pasd"
+            ],
+            [
+               "202323",
+               "1M pasd"
+            ],
+            [
+               "202324",
+               "2M pasd"
+            ],
+            [
+               "202325",
+               "1M pasd"
+            ],
+            [
+               "202724",
+               "1M pasd"
+            ],
+            [
+               "202725",
+               "0S pasd"
+            ],
+            [
+               "202942",
+               "1M pasd"
+            ],
+            [
+               "202943",
+               "0S pasd"
+            ],
+            [
+               "202944",
+               "1M pasd"
+            ],
+            [
+               "202946",
+               "0S pasd"
+            ],
+            [
+               "202947",
+               "1M pasd"
+            ],
+            [
+               "202948",
+               "0S pasd"
+            ],
+            [
+               "202949",
+               "1M pasd"
+            ],
+            [
+               "202950",
+               "0S pasd"
+            ],
+            [
+               "202951",
+               "1M pasd"
+            ],
+            [
+               "203082",
+               "2M pasd"
+            ],
+            [
+               "2030129",
+               "0S pasd"
+            ],
+            [
+               "2030140",
+               "1M pasd"
+            ],
+            [
+               "2030131",
+               "0S pasd"
+            ],
+            [
+               "2030132",
+               "0S pasd"
+            ],
+            [
+               "2030133",
+               "1M pasd"
+            ],
+            [
+               "2030134",
+               "0S pasd"
+            ],
+            [
+               "203078",
+               "0S pasd"
+            ],
+            [
+               "203079",
+               "0S pasd"
+            ],
+            [
+               "203080",
+               "1M pasd"
+            ],
+            [
+               "203026",
+               "0S pasd"
+            ],
+            [
+               "203027",
+               "0S pasd"
+            ],
+            [
+               "203028",
+               "1M pasd"
+            ],
+            [
+               "203029",
+               "0S pasd"
+            ],
+            [
+               "203030",
+               "0S pasd"
+            ],
+            [
+               "203037",
+               "0S pasd"
+            ],
+            [
+               "203038",
+               "1M pasd"
+            ],
+            [
+               "203039",
+               "0S pasd"
+            ],
+            [
+               "203040",
+               "0S pasd"
+            ],
+            [
+               "203041",
+               "0S pasd"
+            ],
+            [
+               "203042",
+               "1M pasd"
+            ],
+            [
+               "203047",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-612-f-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Maroubra Rd - Rose Bay Secondary College",
+            "rs_ref" : "RS_99-612-f-sj2-1-H-1",
+            "id" : "R_99-612-f-sj2-1-H-1"
+         }
+      },
+      "service" : "99-612-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "612"
+   }
+}
+;
+

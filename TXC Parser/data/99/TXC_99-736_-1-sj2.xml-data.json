@@ -1,0 +1,981 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-736-_-sj2-1" : "736"
+}
+;
+
+var stations = {
+   "209971" : "Pacific Pde Nr Avon Rd",
+   "209941" : "Griffin Rd nr Headland Rd",
+   "209957" : "Griffin Rd nr Tasman St",
+   "209655" : "Wyndora Av Nr Oliver St",
+   "209633" : "Carrington Pde Nr Adina Rd",
+   "209958" : "Griffin Rd Nr Pitt Rd",
+   "209630" : "Carrington Pde nr Beach St",
+   "209943" : "Griffin Rd nr Pacific Pde",
+   "2100109" : "Condamine St nr Fishbourne Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "209950" : "Howard Av 230m E of Pittwater Rd",
+   "209638" : "Adams St Nr Park St",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "2100110" : "Condamine St nr Pozieres Pde",
+   "2096112" : "Queenscliff Rd Nr Greycliffe St",
+   "209647" : "Wyuna Av Nr Oliver St",
+   "2096103" : "Lawrence St Nr Harbord Rd",
+   "209613" : "Evans St Nr Albert St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "209614" : "Evans St Nr Charles St",
+   "209944" : "Howard Av nr The Strand",
+   "209949" : "Howard Av Nr Pittwater Rd",
+   "2096100" : "Harbord Rd nr Wyndora Av",
+   "210011" : "Condamine St nr James St",
+   "209565" : "Eurobin St Nr Stella Maris Stand 3",
+   "209975" : "Pacific Pde nr Pittwater Rd",
+   "2096110" : "Cavill St Nr Dalley St",
+   "209932" : "Harbord Rd nr West St",
+   "209694" : "Bennett St nr Stirgess Av",
+   "209627" : "Evans St nr Carrington Pde",
+   "209322" : "Condamine St nr Sloane Cr",
+   "209629" : "Carrington Pde Nr The Drive",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2096118" : "Wyndora Av nr Carlton St",
+   "209649" : "Wyuna Av Nr Harbord Rd",
+   "2096111" : "Queenscliff Rd Nr Dalley St",
+   "2096101" : "Harbord Rd nr Surfers Pde",
+   "2093163" : "Campbell Pde Nr Mackellar Ghs Stand 13",
+   "209995" : "Griffin Rd Nr Abbott Rd",
+   "209954" : "Howard St nr The Strand",
+   "209637" : "Adams St Nr Travers Rd",
+   "209558" : "North Steyne Nr Cameron Av",
+   "210017" : "Pittwater Rd nr Pine Av",
+   "209952" : "Howard Av Nr Avon Rd",
+   "2093177" : "Campbell Pde Nr Condamine St",
+   "209631" : "Carrington Pde nr Stewart House",
+   "209946" : "Howard Av Nr Avon Rd",
+   "209642" : "Oliver St nr Harbord Primary",
+   "209972" : "Pacific Pde Nr The Crescent",
+   "209928" : "Griffin Rd Nr Abbott Rd",
+   "209640" : "Oliver St Nr Brighton St",
+   "209634" : "Adams St nr Farnell St",
+   "209512" : "Kenneth Rd Nr Balgowlah Rd",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "209942" : "Griffin Rd nr Boronia St",
+   "209956" : "Griffin Rd nr Banksia St",
+   "2093147" : "Kenneth Rd Nr Addiscombe Rd",
+   "2093175" : "Quirk Rd Nr Innes Rd",
+   "209648" : "Wyuna Av 250m W Of Oliver St",
+   "209953" : "Howard Av Nr Clyde Rd",
+   "209693" : "Bennet St nr Freshwater High",
+   "2096102" : "Harbord Rd Nr Soldiers Av",
+   "209656" : "Wyndora Av Nr Eric St",
+   "2096116" : "Oliver St nr Wyadra Av",
+   "209660" : "Bennett St Nr Oliver St",
+   "2093166" : "Campbell Pde Nr Mackellar Ghs Stand 10",
+   "209632" : "Carrington Pde Nr Gardere Av",
+   "2093176" : "Quirk Rd nr Campbell Pde",
+   "209691" : "Brighton St nr Bennett St",
+   "209973" : "Pacific Pde Nr Sturdee Pde",
+   "209994" : "Griffin Rd Nr Pitt Rd",
+   "209628" : "Lumsdaine Dr Nr Harbord Diggers Club",
+   "209955" : "The Strand nr Oaks Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-736-_-sj2-1-6-b00b7" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-6-b00b7",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093166",
+               null
+            ],
+            [
+               "2093177",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "2M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "2M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "209925",
+               "1M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "209691",
+               "3M pasd"
+            ],
+            [
+               "209693",
+               "0S pasd"
+            ],
+            [
+               "209694",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "1M pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "2096116",
+               "0S pasd"
+            ],
+            [
+               "209655",
+               "1M pasd"
+            ],
+            [
+               "209656",
+               "0S pasd"
+            ],
+            [
+               "2096118",
+               "0S pasd"
+            ],
+            [
+               "209613",
+               "1M pasd"
+            ],
+            [
+               "209614",
+               "0S pasd"
+            ],
+            [
+               "209627",
+               "0S pasd"
+            ],
+            [
+               "209628",
+               "1M pasd"
+            ],
+            [
+               "209629",
+               "1M pasd"
+            ],
+            [
+               "209630",
+               "1M pasd"
+            ],
+            [
+               "209631",
+               "0S pasd"
+            ],
+            [
+               "209632",
+               "1M pasd"
+            ],
+            [
+               "209633",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "0S pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "0S pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209971",
+               "1M pasd"
+            ],
+            [
+               "209972",
+               "0S pasd"
+            ],
+            [
+               "209973",
+               "1M pasd"
+            ],
+            [
+               "209975",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - Pacific Pde nr Pittwater Rd",
+            "rs_ref" : "RS_99-736-_-sj2-1-R-2",
+            "id" : "R_99-736-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   },
+   "VJ_99-736-_-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-4-b00b7",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209949",
+               null
+            ],
+            [
+               "209950",
+               "1M pasd"
+            ],
+            [
+               "209952",
+               "1M pasd"
+            ],
+            [
+               "209953",
+               "0S pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "1M pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209634",
+               "1M pasd"
+            ],
+            [
+               "209637",
+               "1M pasd"
+            ],
+            [
+               "209638",
+               "0S pasd"
+            ],
+            [
+               "209660",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "0S pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "2096116",
+               "0S pasd"
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "1M pasd"
+            ],
+            [
+               "209649",
+               "0S pasd"
+            ],
+            [
+               "2096100",
+               "1M pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "2M pasd"
+            ],
+            [
+               "209565",
+               "0S pasd"
+            ],
+            [
+               "209512",
+               "2M pasd"
+            ],
+            [
+               "2093147",
+               "2M pasd"
+            ],
+            [
+               "2093175",
+               "1M pasd"
+            ],
+            [
+               "2093176",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Pittwater Rd - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-736-_-sj2-1-H-1",
+            "id" : "R_99-736-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   },
+   "VJ_99-736-_-sj2-1-3-b009g" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-3-b009g",
+      "leaves" : "08:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2096116",
+               null
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "1M pasd"
+            ],
+            [
+               "209649",
+               "0S pasd"
+            ],
+            [
+               "2096100",
+               "1M pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "2M pasd"
+            ],
+            [
+               "209565",
+               "0S pasd"
+            ],
+            [
+               "209512",
+               "2M pasd"
+            ],
+            [
+               "2093147",
+               "2M pasd"
+            ],
+            [
+               "2093175",
+               "1M pasd"
+            ],
+            [
+               "2093176",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Oliver St nr Wyadra Av - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-736-_-sj2-1-H-3",
+            "id" : "R_99-736-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   },
+   "VJ_99-736-_-sj2-1-5-b00b7" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-5-b00b7",
+      "leaves" : "08:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2096116",
+               null
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "1M pasd"
+            ],
+            [
+               "209649",
+               "0S pasd"
+            ],
+            [
+               "2096100",
+               "1M pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "2M pasd"
+            ],
+            [
+               "209565",
+               "0S pasd"
+            ],
+            [
+               "209512",
+               "2M pasd"
+            ],
+            [
+               "2093147",
+               "2M pasd"
+            ],
+            [
+               "2093175",
+               "1M pasd"
+            ],
+            [
+               "2093176",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-3-H-3",
+         "route" : {
+            "name" : "Oliver St nr Wyadra Av - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-736-_-sj2-1-H-3",
+            "id" : "R_99-736-_-sj2-1-H-3"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   },
+   "VJ_99-736-_-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-2-b00b2",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093166",
+               null
+            ],
+            [
+               "2093177",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "210011",
+               "2M pasd"
+            ],
+            [
+               "2100109",
+               "0S pasd"
+            ],
+            [
+               "2100110",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "2M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "210017",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "209925",
+               "1M pasd"
+            ],
+            [
+               "209932",
+               "1M pasd"
+            ],
+            [
+               "209691",
+               "3M pasd"
+            ],
+            [
+               "209693",
+               "0S pasd"
+            ],
+            [
+               "209694",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "1M pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "2096116",
+               "0S pasd"
+            ],
+            [
+               "209655",
+               "1M pasd"
+            ],
+            [
+               "209656",
+               "0S pasd"
+            ],
+            [
+               "2096118",
+               "0S pasd"
+            ],
+            [
+               "209613",
+               "1M pasd"
+            ],
+            [
+               "209614",
+               "0S pasd"
+            ],
+            [
+               "209627",
+               "0S pasd"
+            ],
+            [
+               "209628",
+               "1M pasd"
+            ],
+            [
+               "209629",
+               "1M pasd"
+            ],
+            [
+               "209630",
+               "1M pasd"
+            ],
+            [
+               "209631",
+               "0S pasd"
+            ],
+            [
+               "209632",
+               "1M pasd"
+            ],
+            [
+               "209633",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "0S pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "0S pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209971",
+               "1M pasd"
+            ],
+            [
+               "209972",
+               "0S pasd"
+            ],
+            [
+               "209973",
+               "1M pasd"
+            ],
+            [
+               "209975",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - Pacific Pde nr Pittwater Rd",
+            "rs_ref" : "RS_99-736-_-sj2-1-R-2",
+            "id" : "R_99-736-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   },
+   "VJ_99-736-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-736-_-sj2-1-1-b00b2",
+      "leaves" : "07:49:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209949",
+               null
+            ],
+            [
+               "209950",
+               "1M pasd"
+            ],
+            [
+               "209952",
+               "1M pasd"
+            ],
+            [
+               "209953",
+               "0S pasd"
+            ],
+            [
+               "209954",
+               "1M pasd"
+            ],
+            [
+               "209955",
+               "1M pasd"
+            ],
+            [
+               "209956",
+               "1M pasd"
+            ],
+            [
+               "209957",
+               "1M pasd"
+            ],
+            [
+               "209958",
+               "1M pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209634",
+               "1M pasd"
+            ],
+            [
+               "209637",
+               "1M pasd"
+            ],
+            [
+               "209638",
+               "0S pasd"
+            ],
+            [
+               "209660",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "0S pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "2096116",
+               "0S pasd"
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "1M pasd"
+            ],
+            [
+               "209649",
+               "0S pasd"
+            ],
+            [
+               "2096100",
+               "1M pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "2M pasd"
+            ],
+            [
+               "209565",
+               "0S pasd"
+            ],
+            [
+               "209512",
+               "2M pasd"
+            ],
+            [
+               "2093147",
+               "2M pasd"
+            ],
+            [
+               "2093175",
+               "1M pasd"
+            ],
+            [
+               "2093176",
+               "1M pasd"
+            ],
+            [
+               "2093163",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-736-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Howard Av Nr Pittwater Rd - Campbell Pde Nr Mackellar Ghs",
+            "rs_ref" : "RS_99-736-_-sj2-1-H-1",
+            "id" : "R_99-736-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-736-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "736"
+   }
+}
+;
+

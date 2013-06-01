@@ -1,0 +1,385 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-339-z-sj2-1" : "339z"
+}
+;
+
+var stations = {
+   "228516" : "Main Rd nr Harrison St",
+   "2290493" : "Frederick St Stand B",
+   "2285134" : "Newcastle St nr St Kevins Primary",
+   "228514" : "Main Rd nr Lilian St",
+   "2285161" : "Rudolph Steiner School",
+   "2285160" : "Macquarie College",
+   "2290149" : "Waratah Av nr Elizabeth Pde",
+   "228515" : "Main Rd nr Veronica St",
+   "228566" : "Lowry St Main Rd Near Lowry St",
+   "2290170" : "Waratah Av opp Brett St",
+   "2290492" : "Frederick St Stand C",
+   "228518" : "Glendale Crossroads",
+   "228579" : "Lowry St Main Rd Near Lowry St",
+   "2285222" : "First St nr John St",
+   "2290160" : "Gari St nr Patricia Av",
+   "228524" : "Main Rd nr Wansbeck Valley Rd",
+   "228468" : "Glendale Centre Stand 5",
+   "2290436" : "Hillsborough Rd opp Chadwick St",
+   "228580" : "Main Rd Near Bruce St",
+   "2290161" : "Patricia Av nr Anjon St",
+   "2290168" : "E K Av nr Armstrong Rd",
+   "2290155" : "Warners Bay Rd nr E K Av",
+   "2285292" : "Maud St Nr Ethel St",
+   "2290152" : "E K Av opp Armstrong Rd",
+   "228568" : "Main Rd Near Glendale Dr",
+   "228569" : "Main Rd opp Newcastle St",
+   "2290169" : "E K Av Nr Waratah Av",
+   "228567" : "Main Rd nr Taylor St",
+   "2285301" : "Gertrude St Nr Helen St",
+   "228523" : "Main Rd opp Wansbeck Valley Rd",
+   "2290151" : "E K Av Nr Waratah Av",
+   "228517" : "Main Rd Near Glendale Dr",
+   "2285302" : "Glendale Crossroads",
+   "2290166" : "E K Av nr Vicki St",
+   "228578" : "Main Rd opp Taylor St",
+   "2290153" : "E K Av 200m N of Trent St",
+   "2290154" : "E K Av nr Targo St",
+   "228581" : "Main Rd opp Lilian St",
+   "2290490" : "Pearson St Stand A",
+   "2285293" : "Maud St Nr Ethel St",
+   "2290171" : "Waratah Av nr Hillsborough Rd",
+   "2285266" : "Newcastle St nr Henry St",
+   "2290163" : "Patricia Av nr Gari St",
+   "228576" : "Newcastle St nr Main Rd",
+   "2285290" : "First St nr Pine Av",
+   "2285289" : "First St opp Pine Av",
+   "2290167" : "E K Av 120m N of Trent St",
+   "228582" : "Main Rd opp Poyner Av",
+   "228466" : "Glendale Centre Stand 7",
+   "2285300" : "Gertrude St Nr Helen St",
+   "2290150" : "Waratah Av nr Brett St",
+   "2282194" : "Hillsborough Rd Nr Crocket St",
+   "228577" : "Main Rd nr Newcastle St",
+   "2290441" : "Hillsborough Rd nr Higham St",
+   "228564" : "Main Rd nr Poyner Av",
+   "2290164" : "Gari St nr Warners Bay Rd",
+   "2285167" : "Lake Rd nr Reservoir Rd",
+   "228565" : "Main Rd Near Bruce St",
+   "229057" : "Smart St Stand D",
+   "2290162" : "Patricia Av nr Lincoln St",
+   "228213" : "Crockett St Nr Hillsborough Rd",
+   "2285288" : "First St opp Lake St",
+   "2285265" : "Newcastle St nr Myall Rd",
+   "2285223" : "First St nr Peach Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-339-z-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-339-z-sj2-1-2-b0096",
+      "leaves" : "15:29:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2285161",
+               null
+            ],
+            [
+               "2285160",
+               "2M pasd"
+            ],
+            [
+               "228468",
+               "5M pasd"
+            ],
+            [
+               "2285302",
+               "3M pasd"
+            ],
+            [
+               "228564",
+               "1M pasd"
+            ],
+            [
+               "228514",
+               "1M pasd"
+            ],
+            [
+               "228565",
+               "0S pasd"
+            ],
+            [
+               "228568",
+               "1M pasd"
+            ],
+            [
+               "228566",
+               "1M pasd"
+            ],
+            [
+               "228567",
+               "1M pasd"
+            ],
+            [
+               "228516",
+               "0S pasd"
+            ],
+            [
+               "228524",
+               "1M pasd"
+            ],
+            [
+               "228569",
+               "0S pasd"
+            ],
+            [
+               "2285134",
+               "1M pasd"
+            ],
+            [
+               "2285266",
+               "1M pasd"
+            ],
+            [
+               "2285223",
+               "1M pasd"
+            ],
+            [
+               "2285290",
+               "0S pasd"
+            ],
+            [
+               "2285292",
+               "1M pasd"
+            ],
+            [
+               "2285300",
+               "1M pasd"
+            ],
+            [
+               "2282194",
+               "1M pasd"
+            ],
+            [
+               "2290441",
+               "0S pasd"
+            ],
+            [
+               "2290149",
+               "3M pasd"
+            ],
+            [
+               "2290150",
+               "1M pasd"
+            ],
+            [
+               "2290151",
+               "0S pasd"
+            ],
+            [
+               "2290152",
+               "1M pasd"
+            ],
+            [
+               "2290153",
+               "1M pasd"
+            ],
+            [
+               "2290154",
+               "1M pasd"
+            ],
+            [
+               "2290155",
+               "1M pasd"
+            ],
+            [
+               "2290160",
+               "0S pasd"
+            ],
+            [
+               "2290161",
+               "1M pasd"
+            ],
+            [
+               "2290493",
+               "0S pasd"
+            ],
+            [
+               "2290490",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-339-z-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Rudolph Steiner School - Pearson St Interchange",
+            "rs_ref" : "RS_94-339-z-sj2-1-H-2",
+            "id" : "R_94-339-z-sj2-1-H-2"
+         }
+      },
+      "service" : "94-339-z-sj2-1",
+      "line" : "339z"
+   },
+   "VJ_94-339-z-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-339-z-sj2-1-1-b0096",
+      "leaves" : "07:51:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229057",
+               null
+            ],
+            [
+               "2290492",
+               "1M pasd"
+            ],
+            [
+               "2290162",
+               "1M pasd"
+            ],
+            [
+               "2290163",
+               "1M pasd"
+            ],
+            [
+               "2290164",
+               "0S pasd"
+            ],
+            [
+               "2290166",
+               "2M pasd"
+            ],
+            [
+               "2290167",
+               "1M pasd"
+            ],
+            [
+               "2290168",
+               "1M pasd"
+            ],
+            [
+               "2290169",
+               "1M pasd"
+            ],
+            [
+               "2290170",
+               "1M pasd"
+            ],
+            [
+               "2290171",
+               "1M pasd"
+            ],
+            [
+               "2290436",
+               "0S pasd"
+            ],
+            [
+               "228213",
+               "1M pasd"
+            ],
+            [
+               "2285301",
+               "1M pasd"
+            ],
+            [
+               "2285293",
+               "0S pasd"
+            ],
+            [
+               "2285288",
+               "1M pasd"
+            ],
+            [
+               "2285289",
+               "0S pasd"
+            ],
+            [
+               "2285222",
+               "1M pasd"
+            ],
+            [
+               "2285265",
+               "1M pasd"
+            ],
+            [
+               "228576",
+               "1M pasd"
+            ],
+            [
+               "228577",
+               "1M pasd"
+            ],
+            [
+               "228523",
+               "0S pasd"
+            ],
+            [
+               "228515",
+               "0S pasd"
+            ],
+            [
+               "228578",
+               "2M pasd"
+            ],
+            [
+               "228579",
+               "1M pasd"
+            ],
+            [
+               "228517",
+               "1M pasd"
+            ],
+            [
+               "228580",
+               "1M pasd"
+            ],
+            [
+               "228581",
+               "1M pasd"
+            ],
+            [
+               "228582",
+               "1M pasd"
+            ],
+            [
+               "228518",
+               "1M pasd"
+            ],
+            [
+               "228466",
+               "0S pasd"
+            ],
+            [
+               "2285167",
+               "4M pasd"
+            ],
+            [
+               "2285160",
+               "1M pasd"
+            ],
+            [
+               "2285161",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-339-z-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Smart St Stand D - Rudolph Steiner School",
+            "rs_ref" : "RS_94-339-z-sj2-1-R-1",
+            "id" : "R_94-339-z-sj2-1-R-1"
+         }
+      },
+      "service" : "94-339-z-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "339z"
+   }
+}
+;
+

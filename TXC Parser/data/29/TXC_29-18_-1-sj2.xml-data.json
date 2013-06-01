@@ -1,0 +1,3385 @@
+var OPERATOR = "Red Bus Service";
+
+
+var LINES = {
+   "29-18-_-sj2-1" : "18"
+}
+;
+
+var stations = {
+   "2261148" : "Robertson Rd opp Mort St",
+   "226132" : "CC Hwy at Lions Pk LONG JETTY",
+   "2250461" : "CC Hwy at Narrawa Av",
+   "226133" : "CC Hwy at Shelly Beach Rd",
+   "2260193" : "CC Hwy at Bellevue Rd",
+   "2261145" : "Robertson Rd at Mort St",
+   "2260172" : "CC Hwy at Cabarita St",
+   "2260143" : "CC Hwy at Willoughby Rd",
+   "2260133" : "CC Hwy opp Bellevue Rd",
+   "2261361" : "The Entrance Rd (Stockland Bay Village)",
+   "226121" : "The Entrance Rd at LAKESIDE PLAZA",
+   "2250534" : "Mann St before Donnison St",
+   "2261199" : "Rotherham St at York St",
+   "226148" : "CC Hwy at Graham St",
+   "2260146" : "CC Hwy at ERINA HEIGHTS PS",
+   "2261210" : "Wyong Rd at Kathleen White Cr",
+   "2250546" : "CC Hwy before Avoca Dr",
+   "2261167" : "Wyong Rd at Norton Av",
+   "2261203" : "Sherry St at Eastern Rd",
+   "2260174" : "CC Hwy at Tumbi Rd",
+   "2261151" : "Brooke Av at BROOKE AV PS",
+   "2261462" : "Wyong Rd near The Entrance Rd",
+   "226157" : "The Entrance Rd at Ashton Av",
+   "2261201" : "Debra Anne Dr opp Jessica St",
+   "2260151" : "CC Hwy opp Brooks Hill Lane",
+   "2261212" : "Wyong Rd opp Norton Av",
+   "226135" : "Bateau Bay Square BAY VILLAGE",
+   "226141" : "CC Hwy at  Whalans Rd",
+   "225012" : "CC Hwy before Dane Dr",
+   "225026" : "CC Hwy opp ERINA HS",
+   "2250419" : "CC Hwy at  Adelaide St",
+   "2261146" : "South St before East St",
+   "2261168" : "Wyong Rd at Armstrong Av",
+   "226154" : "CC Hwy at Gordon Rd",
+   "2261143" : "Robertson Rd opp Dampier Blvd",
+   "2260138" : "CC Hwy at Pitt Rd",
+   "2261180" : "Cresthaven Av opp Sir Josephs Banks Dr",
+   "2250760" : "CC Hwy at Binglee Erina",
+   "225019" : "CC Hwy at Albany St",
+   "2250434" : "CC Hwy at Bonnal Rd",
+   "225014" : "CC Hwy opp White St",
+   "226155" : "CC Hwy at Archbold Rd",
+   "2250708" : "CC Hwy at Chiltern Rd",
+   "226144" : "CC Hwy at Cresthaven Av",
+   "226152" : "CC Hwy at Pacific St",
+   "2260153" : "CC Hwy at Okanagan Cl",
+   "226128" : "CC Hwy at Pacific St",
+   "2250440" : "Mann St after Erina St East",
+   "226153" : "CC Hwy at Thompson St",
+   "2250454" : "Mann St at Faunce St",
+   "2261391" : "Central Coast Hwy near Oakland Av",
+   "2261147" : "South St at East St",
+   "2261211" : "Wyong Rd at Tasman Av",
+   "226134" : "CC Hwy at Tlsc The Entrance",
+   "2261202" : "Debra Anne Dr at Melissa Cl",
+   "2261214" : "Wyong Rd opp Davidson Av",
+   "2260480" : "Central Coast Hwy near Tumbi Rd",
+   "2260150" : "CC Hwy at Matcham Rd",
+   "2250420" : "CC Hwy at Henry Parry Dr",
+   "2250562" : "CC Hwy before Karalta Rd",
+   "226150" : "CC Hwy at Venice St",
+   "2261183" : "Eastern Rd at Northumberland Way",
+   "2261111" : "Rotherham St at Sherry St",
+   "2260137" : "CC Hwy opp Tumbi Rd",
+   "2260152" : "CC Hwy opp Willoughby Rd",
+   "226125" : "opp DIGGERS CC Hwy",
+   "2261165" : "Wyong Rd at Davidson Av",
+   "2260135" : "CC Hwy at Crystal St",
+   "2261176" : "Cresthaven Av at Sir Josephs Banks Dr",
+   "2261200" : "Rotherham St opp Adrian Cl",
+   "225024" : "CC Hwy opp Pateman St",
+   "226158" : "Fairview Av at Torrens Av",
+   "2260171" : "CC Hwy at Reads Rd",
+   "2261166" : "Wyong Rd at Boorana Cl",
+   "2250725" : "Central Coast Hwy near Barralong Rd",
+   "225018" : "CC Hwy at Masons Pde",
+   "226123" : "The Entrance Rd at Boondilla Rd",
+   "2261174" : "Cresthaven Av at Aurora Pl",
+   "2260191" : "CC Hwy at Forresters Beach Rd",
+   "2260445" : "CC Hwy opp Arundel Rd",
+   "2260141" : "CC Hwy at Ghersi Av",
+   "2260192" : "CC Hwy at Forresters Bch Retirement Village",
+   "2250722" : "Central Coast Adventist School (opp. Bing Lee)",
+   "2260175" : "CC Hwy at Apollo Country Resort",
+   "2250548" : "Punt Bridge CC Hwy",
+   "226156" : "CC Hwy at Anzac Rd",
+   "2260144" : "CC Hwy at Brooks Hill Lane",
+   "2261115" : "Rotherham St at York St",
+   "2261431" : "CC Hwy at Passage Rd",
+   "2261144" : "Robertson Rd opp Cunningham Rd",
+   "2250547" : "Erina Council Depot CC Hwy",
+   "2260142" : "CC Hwy at Old Gosford Rd",
+   "225013" : "CC Hwy at Albany St",
+   "226149" : "CC Hwy at Tuggerah Pde",
+   "2260140" : "CC Hwy opp Reads Rd",
+   "225011" : "Mann St at  William St Mall",
+   "2261149" : "Robertson Rd at Cunningham Rd",
+   "2260139" : "CC Hwy opp Cabarita St",
+   "2250535" : "Mann St at Georgiana Tce",
+   "2260134" : "CC Hwy at Forresters Beach Rd",
+   "2261198" : "Cresthaven Av opp Ireland Dr",
+   "2261181" : "Cresthaven Av opp Lancaster Pde",
+   "2260145" : "CC Hwy opp Matcham Rd",
+   "2250462" : "CC Hwy at Carlton Rd",
+   "226142" : "CC Hwy opp Whalans Rd",
+   "2261172" : "CC Hwy at DIGGERS Long Jetty",
+   "2261142" : "Brooke Av opp Brooke Av  PS",
+   "2261215" : "Wyong Rd at South St",
+   "2260154" : "CC Hwy opp Ocean View Dr",
+   "2261113" : "Debra Anne Dr at Jessica St",
+   "2261150" : "Robertson Rd at Dampier Blvd",
+   "226120" : "Fairview Av at Torrens Av",
+   "225047" : "Gosford (Stand 1)",
+   "226140" : "CC Hwy at Coleridge Rd STH",
+   "226139" : "CC Hwy at Coleridge Rd",
+   "226131" : "CC Hwy at Mclachlan Av",
+   "2250545" : "Erina High School CC Hwy",
+   "225017" : "Mann St at Georgiana Tce",
+   "2261155" : "Eastern Rd at Sherry St",
+   "225016" : "Mann St at Donnison St",
+   "225025" : "CC Hwy opp  Avoca Dr",
+   "2261178" : "Cresthaven Av opp Lamb Cl",
+   "2250437" : "York St at White St",
+   "2260136" : "CC Hwy opp Apollo Country Resort",
+   "226130" : "CC Hwy at Swadling St",
+   "226119" : "Torrens Av at Coral St",
+   "2250561" : "CC Hwy opp Binglee",
+   "226151" : "CC Hwy at Surf St",
+   "2261213" : "Wyong Rd at Shortland Av",
+   "2261363" : "CC Hwy opp TLSC The Entrance",
+   "226126" : "CC Hwy at Archbold Rd",
+   "2250739" : "CC Hwy at  Frederick St",
+   "2260190" : "CC Hwy opp Crystal St",
+   "2261173" : "Shelly Beach Rd near Bellevue St",
+   "226127" : "CC Hwy at Toowoon Bay Rd",
+   "2261175" : "Cresthaven Av at Lancaster Pde",
+   "2261179" : "Cresthaven Av at Lamb Cl",
+   "226129" : "cc Hwy at  Surf St",
+   "2261154" : "Eastern Rd at Grandis Pl",
+   "2261448" : "South St after East St",
+   "2261395" : "Wyong Rd near Central Coast Hwy",
+   "2250641" : "CC Hwy at George St",
+   "2260482" : "Central Coast Hwy near Crystal St",
+   "226122" : "The Entrance Rd at  Warrigal St",
+   "226159" : "Torrens Av at Coral St",
+   "2261116" : "Cresthaven Av at Ireland Dr",
+   "2260485" : "CC Hwy at Arundel Rd",
+   "2250639" : "CC Hwy",
+   "2250444" : "The Entrance Rd opp Narrawa Av",
+   "2261114" : "Rotherham St at  Adrian Cl",
+   "225023" : "CC Hwy at Brougham St",
+   "225088" : "CC Hwy at Adelaide St",
+   "2261112" : "Debra Anne Dr opp Melissa Cl",
+   "226124" : "CC Hwy at Anzac Rd",
+   "2261384" : "Cresthaven Ave near Central Coast Hwy",
+   "2260173" : "CC Hwy opp Pitt Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_29-18-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-12-TA",
+      "leaves" : "19:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "226144",
+               null
+            ],
+            [
+               "2261174",
+               "1M14S pasd"
+            ],
+            [
+               "2261175",
+               "25S pasd"
+            ],
+            [
+               "2261176",
+               "43S pasd"
+            ],
+            [
+               "2261178",
+               "38S pasd"
+            ],
+            [
+               "2261198",
+               "38S pasd"
+            ],
+            [
+               "2261199",
+               "25S pasd"
+            ],
+            [
+               "2261200",
+               "42S pasd"
+            ],
+            [
+               "2261201",
+               "37S pasd"
+            ],
+            [
+               "2261202",
+               "30S pasd"
+            ],
+            [
+               "2261203",
+               "50S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "38S pasd"
+            ],
+            [
+               "2261167",
+               "47S pasd"
+            ],
+            [
+               "2261168",
+               "40S pasd"
+            ],
+            [
+               "2261395",
+               "34S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "CC Hwy at Cresthaven Av - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-3",
+            "id" : "R_29-18-_-sj2-1-H-3"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-8-TA",
+      "leaves" : "06:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225047",
+               null
+            ],
+            [
+               "2250454",
+               "7S pasd"
+            ],
+            [
+               "225011",
+               "32S pasd"
+            ],
+            [
+               "225016",
+               "19S pasd"
+            ],
+            [
+               "225017",
+               "27S pasd"
+            ],
+            [
+               "225018",
+               "1M4S pasd"
+            ],
+            [
+               "225019",
+               "28S pasd"
+            ],
+            [
+               "2250437",
+               "31S pasd"
+            ],
+            [
+               "2250420",
+               "50S pasd"
+            ],
+            [
+               "2250419",
+               "42S pasd"
+            ],
+            [
+               "225023",
+               "17S pasd"
+            ],
+            [
+               "225024",
+               "1M57S pasd"
+            ],
+            [
+               "225025",
+               "19S pasd"
+            ],
+            [
+               "225026",
+               "43S pasd"
+            ],
+            [
+               "2250434",
+               "46S pasd"
+            ],
+            [
+               "2250639",
+               "14S pasd"
+            ],
+            [
+               "2250760",
+               "1S pasd"
+            ],
+            [
+               "2250725",
+               "13S pasd"
+            ],
+            [
+               "2250461",
+               "22S pasd"
+            ],
+            [
+               "2250462",
+               "47S pasd"
+            ],
+            [
+               "2260485",
+               "49S pasd"
+            ],
+            [
+               "2260150",
+               "2M11S pasd"
+            ],
+            [
+               "2260151",
+               "19S pasd"
+            ],
+            [
+               "2260152",
+               "1M10S pasd"
+            ],
+            [
+               "2260153",
+               "22S pasd"
+            ],
+            [
+               "2260154",
+               "56S pasd"
+            ],
+            [
+               "2260171",
+               "26S pasd"
+            ],
+            [
+               "2260172",
+               "31S pasd"
+            ],
+            [
+               "2260173",
+               "37S pasd"
+            ],
+            [
+               "2260174",
+               "28S pasd"
+            ],
+            [
+               "2260175",
+               "27S pasd"
+            ],
+            [
+               "2260482",
+               "33S pasd"
+            ],
+            [
+               "2260190",
+               "6S pasd"
+            ],
+            [
+               "2260191",
+               "42S pasd"
+            ],
+            [
+               "2260192",
+               "15S pasd"
+            ],
+            [
+               "2260193",
+               "24S pasd"
+            ],
+            [
+               "226142",
+               "10S pasd"
+            ],
+            [
+               "2261431",
+               "28S pasd"
+            ],
+            [
+               "226144",
+               "27S pasd"
+            ],
+            [
+               "2261174",
+               "1M3S pasd"
+            ],
+            [
+               "2261175",
+               "22S pasd"
+            ],
+            [
+               "2261176",
+               "36S pasd"
+            ],
+            [
+               "2261178",
+               "32S pasd"
+            ],
+            [
+               "2261198",
+               "32S pasd"
+            ],
+            [
+               "2261199",
+               "21S pasd"
+            ],
+            [
+               "2261200",
+               "36S pasd"
+            ],
+            [
+               "2261201",
+               "31S pasd"
+            ],
+            [
+               "2261202",
+               "26S pasd"
+            ],
+            [
+               "2261203",
+               "43S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "32S pasd"
+            ],
+            [
+               "2261167",
+               "40S pasd"
+            ],
+            [
+               "2261168",
+               "34S pasd"
+            ],
+            [
+               "2261395",
+               "28S pasd"
+            ],
+            [
+               "226148",
+               "16S pasd"
+            ],
+            [
+               "226149",
+               "36S pasd"
+            ],
+            [
+               "226150",
+               "54S pasd"
+            ],
+            [
+               "226151",
+               "15S pasd"
+            ],
+            [
+               "226152",
+               "45S pasd"
+            ],
+            [
+               "226153",
+               "22S pasd"
+            ],
+            [
+               "226154",
+               "25S pasd"
+            ],
+            [
+               "226155",
+               "32S pasd"
+            ],
+            [
+               "2261172",
+               "22S pasd"
+            ],
+            [
+               "226156",
+               "25S pasd"
+            ],
+            [
+               "2261173",
+               "1M13S pasd"
+            ],
+            [
+               "226157",
+               "30S pasd"
+            ],
+            [
+               "226158",
+               "25S pasd"
+            ],
+            [
+               "226159",
+               "25S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Gosford Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-4",
+            "id" : "R_29-18-_-sj2-1-H-4"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-7-TA",
+      "leaves" : "19:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "226144",
+               null
+            ],
+            [
+               "2261174",
+               "1M14S pasd"
+            ],
+            [
+               "2261175",
+               "25S pasd"
+            ],
+            [
+               "2261176",
+               "43S pasd"
+            ],
+            [
+               "2261178",
+               "38S pasd"
+            ],
+            [
+               "2261198",
+               "38S pasd"
+            ],
+            [
+               "2261199",
+               "25S pasd"
+            ],
+            [
+               "2261200",
+               "42S pasd"
+            ],
+            [
+               "2261201",
+               "37S pasd"
+            ],
+            [
+               "2261202",
+               "30S pasd"
+            ],
+            [
+               "2261203",
+               "50S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "38S pasd"
+            ],
+            [
+               "2261167",
+               "47S pasd"
+            ],
+            [
+               "2261168",
+               "40S pasd"
+            ],
+            [
+               "2261395",
+               "34S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "CC Hwy at Cresthaven Av - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-3",
+            "id" : "R_29-18-_-sj2-1-H-3"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-9-TA",
+      "leaves" : "06:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225047",
+               null
+            ],
+            [
+               "2250454",
+               "7S pasd"
+            ],
+            [
+               "225011",
+               "32S pasd"
+            ],
+            [
+               "225016",
+               "19S pasd"
+            ],
+            [
+               "225017",
+               "27S pasd"
+            ],
+            [
+               "225018",
+               "1M4S pasd"
+            ],
+            [
+               "225019",
+               "28S pasd"
+            ],
+            [
+               "2250437",
+               "31S pasd"
+            ],
+            [
+               "2250420",
+               "50S pasd"
+            ],
+            [
+               "2250419",
+               "42S pasd"
+            ],
+            [
+               "225023",
+               "17S pasd"
+            ],
+            [
+               "225024",
+               "1M57S pasd"
+            ],
+            [
+               "225025",
+               "19S pasd"
+            ],
+            [
+               "225026",
+               "43S pasd"
+            ],
+            [
+               "2250434",
+               "46S pasd"
+            ],
+            [
+               "2250639",
+               "14S pasd"
+            ],
+            [
+               "2250760",
+               "1S pasd"
+            ],
+            [
+               "2250725",
+               "13S pasd"
+            ],
+            [
+               "2250461",
+               "22S pasd"
+            ],
+            [
+               "2250462",
+               "47S pasd"
+            ],
+            [
+               "2260485",
+               "49S pasd"
+            ],
+            [
+               "2260150",
+               "2M11S pasd"
+            ],
+            [
+               "2260151",
+               "19S pasd"
+            ],
+            [
+               "2260152",
+               "1M10S pasd"
+            ],
+            [
+               "2260153",
+               "22S pasd"
+            ],
+            [
+               "2260154",
+               "56S pasd"
+            ],
+            [
+               "2260171",
+               "26S pasd"
+            ],
+            [
+               "2260172",
+               "31S pasd"
+            ],
+            [
+               "2260173",
+               "37S pasd"
+            ],
+            [
+               "2260174",
+               "35S pasd"
+            ],
+            [
+               "2260175",
+               "34S pasd"
+            ],
+            [
+               "2260482",
+               "42S pasd"
+            ],
+            [
+               "2260190",
+               "7S pasd"
+            ],
+            [
+               "2260191",
+               "53S pasd"
+            ],
+            [
+               "2260192",
+               "18S pasd"
+            ],
+            [
+               "2260193",
+               "31S pasd"
+            ],
+            [
+               "226142",
+               "12S pasd"
+            ],
+            [
+               "2261431",
+               "35S pasd"
+            ],
+            [
+               "226144",
+               "33S pasd"
+            ],
+            [
+               "2261174",
+               "1M3S pasd"
+            ],
+            [
+               "2261175",
+               "22S pasd"
+            ],
+            [
+               "2261176",
+               "36S pasd"
+            ],
+            [
+               "2261178",
+               "32S pasd"
+            ],
+            [
+               "2261198",
+               "32S pasd"
+            ],
+            [
+               "2261199",
+               "21S pasd"
+            ],
+            [
+               "2261200",
+               "36S pasd"
+            ],
+            [
+               "2261201",
+               "31S pasd"
+            ],
+            [
+               "2261202",
+               "26S pasd"
+            ],
+            [
+               "2261203",
+               "43S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "32S pasd"
+            ],
+            [
+               "2261167",
+               "40S pasd"
+            ],
+            [
+               "2261168",
+               "34S pasd"
+            ],
+            [
+               "2261395",
+               "28S pasd"
+            ],
+            [
+               "226148",
+               "16S pasd"
+            ],
+            [
+               "226149",
+               "36S pasd"
+            ],
+            [
+               "226150",
+               "54S pasd"
+            ],
+            [
+               "226151",
+               "15S pasd"
+            ],
+            [
+               "226152",
+               "45S pasd"
+            ],
+            [
+               "226153",
+               "22S pasd"
+            ],
+            [
+               "226154",
+               "25S pasd"
+            ],
+            [
+               "226155",
+               "32S pasd"
+            ],
+            [
+               "2261172",
+               "22S pasd"
+            ],
+            [
+               "226156",
+               "25S pasd"
+            ],
+            [
+               "2261173",
+               "1M13S pasd"
+            ],
+            [
+               "226157",
+               "30S pasd"
+            ],
+            [
+               "226158",
+               "25S pasd"
+            ],
+            [
+               "226159",
+               "25S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-7-H-4",
+         "route" : {
+            "name" : "Gosford Station - Torrens Av at Coral St",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-4",
+            "id" : "R_29-18-_-sj2-1-H-4"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-5-TA",
+      "leaves" : "05:58:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2261361",
+               null
+            ],
+            [
+               "2261363",
+               "41S pasd"
+            ],
+            [
+               "2261462",
+               "32S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "39S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "21S pasd"
+            ],
+            [
+               "226141",
+               "25S pasd"
+            ],
+            [
+               "2260133",
+               "23S pasd"
+            ],
+            [
+               "2260134",
+               "34S pasd"
+            ],
+            [
+               "2260135",
+               "38S pasd"
+            ],
+            [
+               "2260136",
+               "36S pasd"
+            ],
+            [
+               "2260480",
+               "21S pasd"
+            ],
+            [
+               "2260137",
+               "6S pasd"
+            ],
+            [
+               "2260138",
+               "36S pasd"
+            ],
+            [
+               "2260139",
+               "19S pasd"
+            ],
+            [
+               "2260140",
+               "26S pasd"
+            ],
+            [
+               "2260141",
+               "29S pasd"
+            ],
+            [
+               "2260142",
+               "46S pasd"
+            ],
+            [
+               "2260143",
+               "22S pasd"
+            ],
+            [
+               "2260144",
+               "1M1S pasd"
+            ],
+            [
+               "2260145",
+               "24S pasd"
+            ],
+            [
+               "2260146",
+               "19S pasd"
+            ],
+            [
+               "2260445",
+               "1M36S pasd"
+            ],
+            [
+               "2250708",
+               "49S pasd"
+            ],
+            [
+               "2250444",
+               "38S pasd"
+            ],
+            [
+               "2250722",
+               "21S pasd"
+            ],
+            [
+               "2250561",
+               "12S pasd"
+            ],
+            [
+               "2250562",
+               "22S pasd"
+            ],
+            [
+               "2250545",
+               "30S pasd"
+            ],
+            [
+               "2250546",
+               "32S pasd"
+            ],
+            [
+               "2250547",
+               "40S pasd"
+            ],
+            [
+               "2250548",
+               "1M6S pasd"
+            ],
+            [
+               "2250641",
+               "40S pasd"
+            ],
+            [
+               "225088",
+               "28S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "The Entrance Rd (Stockland Bay Village) - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-2",
+            "id" : "R_29-18-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-10-TA",
+      "leaves" : "18:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "226144",
+               null
+            ],
+            [
+               "2261174",
+               "1M14S pasd"
+            ],
+            [
+               "2261175",
+               "25S pasd"
+            ],
+            [
+               "2261176",
+               "43S pasd"
+            ],
+            [
+               "2261178",
+               "38S pasd"
+            ],
+            [
+               "2261198",
+               "38S pasd"
+            ],
+            [
+               "2261199",
+               "25S pasd"
+            ],
+            [
+               "2261200",
+               "42S pasd"
+            ],
+            [
+               "2261201",
+               "37S pasd"
+            ],
+            [
+               "2261202",
+               "30S pasd"
+            ],
+            [
+               "2261203",
+               "50S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "38S pasd"
+            ],
+            [
+               "2261167",
+               "47S pasd"
+            ],
+            [
+               "2261168",
+               "40S pasd"
+            ],
+            [
+               "2261395",
+               "34S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "CC Hwy at Cresthaven Av - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-3",
+            "id" : "R_29-18-_-sj2-1-H-3"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-11-TA",
+      "leaves" : "19:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "226144",
+               null
+            ],
+            [
+               "2261174",
+               "1M14S pasd"
+            ],
+            [
+               "2261175",
+               "25S pasd"
+            ],
+            [
+               "2261176",
+               "43S pasd"
+            ],
+            [
+               "2261178",
+               "38S pasd"
+            ],
+            [
+               "2261198",
+               "38S pasd"
+            ],
+            [
+               "2261199",
+               "25S pasd"
+            ],
+            [
+               "2261200",
+               "42S pasd"
+            ],
+            [
+               "2261201",
+               "37S pasd"
+            ],
+            [
+               "2261202",
+               "30S pasd"
+            ],
+            [
+               "2261203",
+               "50S pasd"
+            ],
+            [
+               "2261183",
+               "18S pasd"
+            ],
+            [
+               "2261142",
+               "1M21S pasd"
+            ],
+            [
+               "2261143",
+               "35S pasd"
+            ],
+            [
+               "2261144",
+               "21S pasd"
+            ],
+            [
+               "2261145",
+               "37S pasd"
+            ],
+            [
+               "2261146",
+               "31S pasd"
+            ],
+            [
+               "2261448",
+               "6S pasd"
+            ],
+            [
+               "2261165",
+               "29S pasd"
+            ],
+            [
+               "2261166",
+               "38S pasd"
+            ],
+            [
+               "2261167",
+               "47S pasd"
+            ],
+            [
+               "2261168",
+               "40S pasd"
+            ],
+            [
+               "2261395",
+               "34S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-5-H-3",
+         "route" : {
+            "name" : "CC Hwy at Cresthaven Av - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-18-_-sj2-1-H-3",
+            "id" : "R_29-18-_-sj2-1-H-3"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-2-TA",
+      "leaves" : "07:12:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "46S pasd"
+            ],
+            [
+               "226121",
+               "27S pasd"
+            ],
+            [
+               "226122",
+               "29S pasd"
+            ],
+            [
+               "226123",
+               "48S pasd"
+            ],
+            [
+               "2261391",
+               "26S pasd"
+            ],
+            [
+               "226124",
+               "22S pasd"
+            ],
+            [
+               "226125",
+               "33S pasd"
+            ],
+            [
+               "226126",
+               "30S pasd"
+            ],
+            [
+               "226127",
+               "52S pasd"
+            ],
+            [
+               "226128",
+               "47S pasd"
+            ],
+            [
+               "226129",
+               "44S pasd"
+            ],
+            [
+               "226130",
+               "21S pasd"
+            ],
+            [
+               "226131",
+               "42S pasd"
+            ],
+            [
+               "226132",
+               "58S pasd"
+            ],
+            [
+               "226133",
+               "46S pasd"
+            ],
+            [
+               "2261462",
+               "19S pasd"
+            ],
+            [
+               "2261210",
+               "22S pasd"
+            ],
+            [
+               "2261211",
+               "29S pasd"
+            ],
+            [
+               "2261212",
+               "34S pasd"
+            ],
+            [
+               "2261213",
+               "44S pasd"
+            ],
+            [
+               "2261214",
+               "26S pasd"
+            ],
+            [
+               "2261215",
+               "35S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "20S pasd"
+            ],
+            [
+               "2261112",
+               "29S pasd"
+            ],
+            [
+               "2261113",
+               "1M1S pasd"
+            ],
+            [
+               "2261114",
+               "23S pasd"
+            ],
+            [
+               "2261115",
+               "44S pasd"
+            ],
+            [
+               "2261116",
+               "38S pasd"
+            ],
+            [
+               "2261179",
+               "43S pasd"
+            ],
+            [
+               "2261180",
+               "43S pasd"
+            ],
+            [
+               "2261181",
+               "59S pasd"
+            ],
+            [
+               "2261384",
+               "1M33S pasd"
+            ],
+            [
+               "226139",
+               "27S pasd"
+            ],
+            [
+               "226140",
+               "26S pasd"
+            ],
+            [
+               "226141",
+               "31S pasd"
+            ],
+            [
+               "2260133",
+               "28S pasd"
+            ],
+            [
+               "2260134",
+               "42S pasd"
+            ],
+            [
+               "2260135",
+               "48S pasd"
+            ],
+            [
+               "2260136",
+               "45S pasd"
+            ],
+            [
+               "2260480",
+               "27S pasd"
+            ],
+            [
+               "2260137",
+               "8S pasd"
+            ],
+            [
+               "2260138",
+               "45S pasd"
+            ],
+            [
+               "2260139",
+               "36S pasd"
+            ],
+            [
+               "2260140",
+               "47S pasd"
+            ],
+            [
+               "2260141",
+               "54S pasd"
+            ],
+            [
+               "2260142",
+               "1M25S pasd"
+            ],
+            [
+               "2260143",
+               "41S pasd"
+            ],
+            [
+               "2260144",
+               "1M51S pasd"
+            ],
+            [
+               "2260145",
+               "44S pasd"
+            ],
+            [
+               "2260146",
+               "36S pasd"
+            ],
+            [
+               "2260445",
+               "2M56S pasd"
+            ],
+            [
+               "2250708",
+               "1M31S pasd"
+            ],
+            [
+               "2250444",
+               "1M10S pasd"
+            ],
+            [
+               "2250722",
+               "38S pasd"
+            ],
+            [
+               "2250561",
+               "23S pasd"
+            ],
+            [
+               "2250562",
+               "40S pasd"
+            ],
+            [
+               "2250545",
+               "55S pasd"
+            ],
+            [
+               "2250546",
+               "1M pasd"
+            ],
+            [
+               "2250547",
+               "1M14S pasd"
+            ],
+            [
+               "2250548",
+               "2M1S pasd"
+            ],
+            [
+               "2250641",
+               "1M14S pasd"
+            ],
+            [
+               "225088",
+               "44S pasd"
+            ],
+            [
+               "225014",
+               "2M32S pasd"
+            ],
+            [
+               "2250739",
+               "48S pasd"
+            ],
+            [
+               "225013",
+               "31S pasd"
+            ],
+            [
+               "225012",
+               "1M30S pasd"
+            ],
+            [
+               "2250535",
+               "2M31S pasd"
+            ],
+            [
+               "2250534",
+               "55S pasd"
+            ],
+            [
+               "2250440",
+               "1M25S pasd"
+            ],
+            [
+               "225047",
+               "1M25S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-2-R-1",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-1",
+            "id" : "R_29-18-_-sj2-1-R-1"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-13-TA",
+      "leaves" : "06:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2261361",
+               null
+            ],
+            [
+               "2261363",
+               "41S pasd"
+            ],
+            [
+               "2261462",
+               "32S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "39S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "26S pasd"
+            ],
+            [
+               "226141",
+               "31S pasd"
+            ],
+            [
+               "2260133",
+               "28S pasd"
+            ],
+            [
+               "2260134",
+               "42S pasd"
+            ],
+            [
+               "2260135",
+               "48S pasd"
+            ],
+            [
+               "2260136",
+               "45S pasd"
+            ],
+            [
+               "2260480",
+               "27S pasd"
+            ],
+            [
+               "2260137",
+               "8S pasd"
+            ],
+            [
+               "2260138",
+               "45S pasd"
+            ],
+            [
+               "2260139",
+               "24S pasd"
+            ],
+            [
+               "2260140",
+               "32S pasd"
+            ],
+            [
+               "2260141",
+               "37S pasd"
+            ],
+            [
+               "2260142",
+               "58S pasd"
+            ],
+            [
+               "2260143",
+               "28S pasd"
+            ],
+            [
+               "2260144",
+               "1M16S pasd"
+            ],
+            [
+               "2260145",
+               "30S pasd"
+            ],
+            [
+               "2260146",
+               "24S pasd"
+            ],
+            [
+               "2260445",
+               "2M pasd"
+            ],
+            [
+               "2250708",
+               "1M2S pasd"
+            ],
+            [
+               "2250444",
+               "48S pasd"
+            ],
+            [
+               "2250722",
+               "26S pasd"
+            ],
+            [
+               "2250561",
+               "16S pasd"
+            ],
+            [
+               "2250562",
+               "27S pasd"
+            ],
+            [
+               "2250545",
+               "37S pasd"
+            ],
+            [
+               "2250546",
+               "41S pasd"
+            ],
+            [
+               "2250547",
+               "51S pasd"
+            ],
+            [
+               "2250548",
+               "1M22S pasd"
+            ],
+            [
+               "2250641",
+               "50S pasd"
+            ],
+            [
+               "225088",
+               "31S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "The Entrance Rd (Stockland Bay Village) - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-2",
+            "id" : "R_29-18-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-6-TA",
+      "leaves" : "06:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2261361",
+               null
+            ],
+            [
+               "2261363",
+               "41S pasd"
+            ],
+            [
+               "2261462",
+               "32S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "39S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "21S pasd"
+            ],
+            [
+               "226141",
+               "25S pasd"
+            ],
+            [
+               "2260133",
+               "23S pasd"
+            ],
+            [
+               "2260134",
+               "34S pasd"
+            ],
+            [
+               "2260135",
+               "38S pasd"
+            ],
+            [
+               "2260136",
+               "36S pasd"
+            ],
+            [
+               "2260480",
+               "21S pasd"
+            ],
+            [
+               "2260137",
+               "6S pasd"
+            ],
+            [
+               "2260138",
+               "36S pasd"
+            ],
+            [
+               "2260139",
+               "21S pasd"
+            ],
+            [
+               "2260140",
+               "28S pasd"
+            ],
+            [
+               "2260141",
+               "32S pasd"
+            ],
+            [
+               "2260142",
+               "50S pasd"
+            ],
+            [
+               "2260143",
+               "24S pasd"
+            ],
+            [
+               "2260144",
+               "1M6S pasd"
+            ],
+            [
+               "2260145",
+               "26S pasd"
+            ],
+            [
+               "2260146",
+               "21S pasd"
+            ],
+            [
+               "2260445",
+               "1M44S pasd"
+            ],
+            [
+               "2250708",
+               "53S pasd"
+            ],
+            [
+               "2250444",
+               "41S pasd"
+            ],
+            [
+               "2250722",
+               "22S pasd"
+            ],
+            [
+               "2250561",
+               "13S pasd"
+            ],
+            [
+               "2250562",
+               "23S pasd"
+            ],
+            [
+               "2250545",
+               "32S pasd"
+            ],
+            [
+               "2250546",
+               "35S pasd"
+            ],
+            [
+               "2250547",
+               "44S pasd"
+            ],
+            [
+               "2250548",
+               "1M11S pasd"
+            ],
+            [
+               "2250641",
+               "43S pasd"
+            ],
+            [
+               "225088",
+               "31S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "The Entrance Rd (Stockland Bay Village) - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-2",
+            "id" : "R_29-18-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-3-TA",
+      "leaves" : "05:11:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2261361",
+               null
+            ],
+            [
+               "2261363",
+               "41S pasd"
+            ],
+            [
+               "2261462",
+               "32S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "39S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "21S pasd"
+            ],
+            [
+               "226141",
+               "25S pasd"
+            ],
+            [
+               "2260133",
+               "23S pasd"
+            ],
+            [
+               "2260134",
+               "34S pasd"
+            ],
+            [
+               "2260135",
+               "38S pasd"
+            ],
+            [
+               "2260136",
+               "36S pasd"
+            ],
+            [
+               "2260480",
+               "21S pasd"
+            ],
+            [
+               "2260137",
+               "6S pasd"
+            ],
+            [
+               "2260138",
+               "36S pasd"
+            ],
+            [
+               "2260139",
+               "19S pasd"
+            ],
+            [
+               "2260140",
+               "26S pasd"
+            ],
+            [
+               "2260141",
+               "29S pasd"
+            ],
+            [
+               "2260142",
+               "46S pasd"
+            ],
+            [
+               "2260143",
+               "22S pasd"
+            ],
+            [
+               "2260144",
+               "1M1S pasd"
+            ],
+            [
+               "2260145",
+               "24S pasd"
+            ],
+            [
+               "2260146",
+               "19S pasd"
+            ],
+            [
+               "2260445",
+               "1M36S pasd"
+            ],
+            [
+               "2250708",
+               "49S pasd"
+            ],
+            [
+               "2250444",
+               "38S pasd"
+            ],
+            [
+               "2250722",
+               "21S pasd"
+            ],
+            [
+               "2250561",
+               "12S pasd"
+            ],
+            [
+               "2250562",
+               "22S pasd"
+            ],
+            [
+               "2250545",
+               "30S pasd"
+            ],
+            [
+               "2250546",
+               "32S pasd"
+            ],
+            [
+               "2250547",
+               "40S pasd"
+            ],
+            [
+               "2250548",
+               "1M6S pasd"
+            ],
+            [
+               "2250641",
+               "40S pasd"
+            ],
+            [
+               "225088",
+               "28S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "The Entrance Rd (Stockland Bay Village) - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-2",
+            "id" : "R_29-18-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-4-TA",
+      "leaves" : "05:41:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2261361",
+               null
+            ],
+            [
+               "2261363",
+               "41S pasd"
+            ],
+            [
+               "2261462",
+               "32S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "39S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "21S pasd"
+            ],
+            [
+               "226141",
+               "25S pasd"
+            ],
+            [
+               "2260133",
+               "23S pasd"
+            ],
+            [
+               "2260134",
+               "34S pasd"
+            ],
+            [
+               "2260135",
+               "38S pasd"
+            ],
+            [
+               "2260136",
+               "36S pasd"
+            ],
+            [
+               "2260480",
+               "21S pasd"
+            ],
+            [
+               "2260137",
+               "6S pasd"
+            ],
+            [
+               "2260138",
+               "36S pasd"
+            ],
+            [
+               "2260139",
+               "19S pasd"
+            ],
+            [
+               "2260140",
+               "26S pasd"
+            ],
+            [
+               "2260141",
+               "29S pasd"
+            ],
+            [
+               "2260142",
+               "46S pasd"
+            ],
+            [
+               "2260143",
+               "22S pasd"
+            ],
+            [
+               "2260144",
+               "1M1S pasd"
+            ],
+            [
+               "2260145",
+               "24S pasd"
+            ],
+            [
+               "2260146",
+               "19S pasd"
+            ],
+            [
+               "2260445",
+               "1M36S pasd"
+            ],
+            [
+               "2250708",
+               "49S pasd"
+            ],
+            [
+               "2250444",
+               "38S pasd"
+            ],
+            [
+               "2250722",
+               "21S pasd"
+            ],
+            [
+               "2250561",
+               "12S pasd"
+            ],
+            [
+               "2250562",
+               "22S pasd"
+            ],
+            [
+               "2250545",
+               "30S pasd"
+            ],
+            [
+               "2250546",
+               "32S pasd"
+            ],
+            [
+               "2250547",
+               "40S pasd"
+            ],
+            [
+               "2250548",
+               "1M6S pasd"
+            ],
+            [
+               "2250641",
+               "40S pasd"
+            ],
+            [
+               "225088",
+               "28S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "The Entrance Rd (Stockland Bay Village) - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-2",
+            "id" : "R_29-18-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "18"
+   },
+   "VJ_29-18-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_29-18-_-sj2-1-1-TA",
+      "leaves" : "05:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226119",
+               null
+            ],
+            [
+               "226120",
+               "38S pasd"
+            ],
+            [
+               "226121",
+               "22S pasd"
+            ],
+            [
+               "226122",
+               "24S pasd"
+            ],
+            [
+               "226123",
+               "40S pasd"
+            ],
+            [
+               "2261391",
+               "21S pasd"
+            ],
+            [
+               "226124",
+               "18S pasd"
+            ],
+            [
+               "226125",
+               "27S pasd"
+            ],
+            [
+               "226126",
+               "25S pasd"
+            ],
+            [
+               "226127",
+               "44S pasd"
+            ],
+            [
+               "226128",
+               "41S pasd"
+            ],
+            [
+               "226129",
+               "25S pasd"
+            ],
+            [
+               "226130",
+               "12S pasd"
+            ],
+            [
+               "226131",
+               "24S pasd"
+            ],
+            [
+               "226132",
+               "33S pasd"
+            ],
+            [
+               "226133",
+               "26S pasd"
+            ],
+            [
+               "2261462",
+               "11S pasd"
+            ],
+            [
+               "2261210",
+               "13S pasd"
+            ],
+            [
+               "2261211",
+               "16S pasd"
+            ],
+            [
+               "2261212",
+               "19S pasd"
+            ],
+            [
+               "2261213",
+               "25S pasd"
+            ],
+            [
+               "2261214",
+               "15S pasd"
+            ],
+            [
+               "2261215",
+               "21S pasd"
+            ],
+            [
+               "2261147",
+               "28S pasd"
+            ],
+            [
+               "2261148",
+               "31S pasd"
+            ],
+            [
+               "2261149",
+               "36S pasd"
+            ],
+            [
+               "2261150",
+               "17S pasd"
+            ],
+            [
+               "2261151",
+               "36S pasd"
+            ],
+            [
+               "2261154",
+               "39S pasd"
+            ],
+            [
+               "2261155",
+               "53S pasd"
+            ],
+            [
+               "2261111",
+               "15S pasd"
+            ],
+            [
+               "2261112",
+               "22S pasd"
+            ],
+            [
+               "2261113",
+               "46S pasd"
+            ],
+            [
+               "2261114",
+               "17S pasd"
+            ],
+            [
+               "2261115",
+               "33S pasd"
+            ],
+            [
+               "2261116",
+               "28S pasd"
+            ],
+            [
+               "2261179",
+               "32S pasd"
+            ],
+            [
+               "2261180",
+               "32S pasd"
+            ],
+            [
+               "2261181",
+               "44S pasd"
+            ],
+            [
+               "2261384",
+               "1M10S pasd"
+            ],
+            [
+               "226139",
+               "21S pasd"
+            ],
+            [
+               "226140",
+               "21S pasd"
+            ],
+            [
+               "226141",
+               "25S pasd"
+            ],
+            [
+               "2260133",
+               "23S pasd"
+            ],
+            [
+               "2260134",
+               "34S pasd"
+            ],
+            [
+               "2260135",
+               "38S pasd"
+            ],
+            [
+               "2260136",
+               "36S pasd"
+            ],
+            [
+               "2260480",
+               "21S pasd"
+            ],
+            [
+               "2260137",
+               "6S pasd"
+            ],
+            [
+               "2260138",
+               "36S pasd"
+            ],
+            [
+               "2260139",
+               "24S pasd"
+            ],
+            [
+               "2260140",
+               "32S pasd"
+            ],
+            [
+               "2260141",
+               "37S pasd"
+            ],
+            [
+               "2260142",
+               "58S pasd"
+            ],
+            [
+               "2260143",
+               "28S pasd"
+            ],
+            [
+               "2260144",
+               "1M16S pasd"
+            ],
+            [
+               "2260145",
+               "30S pasd"
+            ],
+            [
+               "2260146",
+               "24S pasd"
+            ],
+            [
+               "2260445",
+               "2M pasd"
+            ],
+            [
+               "2250708",
+               "1M2S pasd"
+            ],
+            [
+               "2250444",
+               "48S pasd"
+            ],
+            [
+               "2250722",
+               "26S pasd"
+            ],
+            [
+               "2250561",
+               "16S pasd"
+            ],
+            [
+               "2250562",
+               "27S pasd"
+            ],
+            [
+               "2250545",
+               "37S pasd"
+            ],
+            [
+               "2250546",
+               "41S pasd"
+            ],
+            [
+               "2250547",
+               "51S pasd"
+            ],
+            [
+               "2250548",
+               "1M22S pasd"
+            ],
+            [
+               "2250641",
+               "50S pasd"
+            ],
+            [
+               "225088",
+               "31S pasd"
+            ],
+            [
+               "225014",
+               "2M18S pasd"
+            ],
+            [
+               "2250739",
+               "43S pasd"
+            ],
+            [
+               "225013",
+               "28S pasd"
+            ],
+            [
+               "225012",
+               "1M22S pasd"
+            ],
+            [
+               "2250535",
+               "2M17S pasd"
+            ],
+            [
+               "2250534",
+               "50S pasd"
+            ],
+            [
+               "2250440",
+               "1M17S pasd"
+            ],
+            [
+               "225047",
+               "1M17S pasd"
+            ]
+         ],
+         "id" : "JP_29-18-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Torrens Av at Coral St - Gosford Station",
+            "rs_ref" : "RS_29-18-_-sj2-1-R-1",
+            "id" : "R_29-18-_-sj2-1-R-1"
+         }
+      },
+      "service" : "29-18-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "18"
+   }
+}
+;
+

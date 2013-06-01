@@ -1,0 +1,7760 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-229-_-sj2-1" : "229"
+}
+;
+
+var stations = {
+   "206121" : "Alfred St near Glen St",
+   "208826" : "Stanton Rd Nr Tivoli St",
+   "206048" : "Miller St near Ridge St",
+   "2088213" : "Parriwi Rd 200m N Of Cyprian St",
+   "206049" : "Miller St Nr Carlow St",
+   "206046" : "Miller St nr Berry St",
+   "206017" : "Miller St Nr Carlow St",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "206120" : "Alfred St nr Olympic Dr",
+   "206047" : "Miller St nr McLaren St",
+   "208947" : "Military Rd Nr Watson St",
+   "208828" : "Kirkoswald Av Nr Fairfax Rd",
+   "2088178" : "Military Rd Nr Bond St",
+   "208827" : "Kirkoswald Av Nr Tivoli St",
+   "2088179" : "Military Rd Nr Cowles Rd",
+   "208829" : "Kirkoswald Av Nr Burran Av",
+   "209019" : "Military Rd Nr Hampden Av",
+   "2088180" : "Spit Junction_ Spit Rd.",
+   "2088207" : "Pearl Bay Rd Terminus",
+   "2088204" : "Pindari Av Nr Euryalus St",
+   "206085" : "Miller St near Pacific Hwy",
+   "208831" : "Burran Av Nr Stanton Rd",
+   "206075" : "Falcon St nr Moodie St",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "208843" : "Moruben Rd Nr Awaba St",
+   "2088181" : "Spit Rd Nr Awaba St",
+   "2088200" : "Medusa St Nr Pursell Av",
+   "206125" : "Broughton St Nr Pitt St",
+   "209058" : "Military Rd Nr Cabramatta Rd",
+   "206072" : "Miller St nr Falcon St",
+   "206057" : "Lavender St Nr Walker St",
+   "208822" : "Spit Junction_ Punch St",
+   "2088216" : "Parriwi Rd Nr Spit Rd",
+   "209021" : "Military Rd Nr Hampden Av",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "208911" : "Military Rd Nr Watson St",
+   "2088177" : "Military Rd Nr Lang St",
+   "206123" : "Alfred St near Milsons Point Station",
+   "208844" : "Moruben Rd Nr Lower Punch St",
+   "206128" : "Alfred St nr Lavender St",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "208944" : "Military Rd nr Rangers Rd",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "2088176" : "Military Rd Nr Prince St",
+   "206074" : "Falcon St nr Bardsley Gdns",
+   "208842" : "Stanton Rd Nr Hampden St",
+   "2088205" : "Pindari Av Nr Beauty Point Rd",
+   "2088214" : "Parriwi Rd Nr Cyprian St",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "206024" : "Miller St nr Blue St",
+   "2088206" : "Pearl Bay Av Nr Marsala St",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "206018" : "Miller St near Ridge St",
+   "2088201" : "Mosman_ Medusa St nr Pindari Av",
+   "208871" : "Spit Junction_ Military Rd",
+   "2088193" : "Military Rd Nr Lang St",
+   "206019" : "Miller St nr McLaren St",
+   "208830" : "Burran Av Nr Stanton Rd",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "206058" : "Lavender St nr Cliff St",
+   "208825" : "Stanton Rd Nr Spit Rd",
+   "206014" : "Blue St Stand D",
+   "208948" : "Military Rd nr Wycombe Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-229-_-sj2-1-10-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-10-b00ab",
+      "leaves" : "17:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208871",
+               null
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Spit Junction_ Military Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-1",
+            "id" : "R_90-229-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-3-b00b2" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-3-b00b2",
+      "leaves" : "17:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208871",
+               null
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Spit Junction_ Military Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-1",
+            "id" : "R_90-229-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-38-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-38-b00aa",
+      "leaves" : "10:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-35-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-35-b00aa",
+      "leaves" : "14:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-30-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-30-b00ab",
+      "leaves" : "11:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-8-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-8-b00ab",
+      "leaves" : "12:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-57-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-57-b00aa",
+      "leaves" : "13:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-9-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-9-b00ab",
+      "leaves" : "13:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-39-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-39-b00aa",
+      "leaves" : "17:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-4-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-4-b00aa",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2088184",
+               null
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Spit Rd Nr Medusa St - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-3",
+            "id" : "R_90-229-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-43-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-43-b00ab",
+      "leaves" : "18:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "3M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "1M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-16-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-14-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-14-b00aa",
+      "leaves" : "16:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-19-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-19-b00ab",
+      "leaves" : "11:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-36-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-36-b00aa",
+      "leaves" : "13:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-42-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-42-b00ab",
+      "leaves" : "11:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-15-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-15-b00ab",
+      "leaves" : "14:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-52-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-52-b00aa",
+      "leaves" : "14:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "3M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "2M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "1M pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-14-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-41-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-41-b00aa",
+      "leaves" : "13:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-44-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-44-b00ab",
+      "leaves" : "13:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-55-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-55-b00aa",
+      "leaves" : "10:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-16-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-16-b00ab",
+      "leaves" : "13:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-50-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-50-b00ab",
+      "leaves" : "07:21:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "3M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-7",
+            "id" : "R_90-229-_-sj2-1-H-7"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-28-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-28-b00aa",
+      "leaves" : "13:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-18-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-18-b00ab",
+      "leaves" : "12:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-58-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-58-b00aa",
+      "leaves" : "12:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-45-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-45-b00ab",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-10-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-51-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-51-b00aa",
+      "leaves" : "15:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "1M pasd"
+            ],
+            [
+               "208831",
+               "0S pasd"
+            ],
+            [
+               "208842",
+               "2M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "0S pasd"
+            ],
+            [
+               "208871",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "3M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-13-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-7-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-7-b00ab",
+      "leaves" : "11:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-11-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-11-b00ab",
+      "leaves" : "12:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-27-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-27-b00aa",
+      "leaves" : "12:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-60-b00b7" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-60-b00b7",
+      "leaves" : "17:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-24-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-24-b00ab",
+      "leaves" : "10:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-6-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-6-b00ab",
+      "leaves" : "12:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-49-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-49-b00ab",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2088184",
+               null
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Spit Rd Nr Medusa St - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-3",
+            "id" : "R_90-229-_-sj2-1-R-3"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-5-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-5-b00ab",
+      "leaves" : "16:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-23-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-23-b00ab",
+      "leaves" : "09:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "2M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-25-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-25-b00aa",
+      "leaves" : "10:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-47-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-47-b00aa",
+      "leaves" : "12:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-34-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-34-b00aa",
+      "leaves" : "18:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "3M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "1M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-16-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-17-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-17-b00aa",
+      "leaves" : "07:21:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "3M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "2M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Miller St near Pacific Hwy",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-7",
+            "id" : "R_90-229-_-sj2-1-H-7"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-13-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-13-b00aa",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-10-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-56-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-56-b00aa",
+      "leaves" : "09:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "3M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-12-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-59-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-59-b00aa",
+      "leaves" : "10:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-1-b00b2",
+      "leaves" : "16:08:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208871",
+               null
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Spit Junction_ Military Rd - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-1",
+            "id" : "R_90-229-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-32-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-32-b00ab",
+      "leaves" : "14:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "3M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "2M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "1M pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-14-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-40-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-40-b00aa",
+      "leaves" : "14:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-31-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-31-b00ab",
+      "leaves" : "15:02:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "1M pasd"
+            ],
+            [
+               "208831",
+               "0S pasd"
+            ],
+            [
+               "208842",
+               "2M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "0S pasd"
+            ],
+            [
+               "208871",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "3M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-13-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-33-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-33-b00ab",
+      "leaves" : "16:06:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "2M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "2M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-15-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-48-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-48-b00aa",
+      "leaves" : "11:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-46-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-46-b00ab",
+      "leaves" : "14:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-22-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-22-b00ab",
+      "leaves" : "10:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-2-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-2-b00aa",
+      "leaves" : "09:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "2M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-21-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-21-b00ab",
+      "leaves" : "09:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "3M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-12-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-54-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-54-b00aa",
+      "leaves" : "11:53:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-8-R-2",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Spit Junction_ Spit Rd.",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-2",
+            "id" : "R_90-229-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-37-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-37-b00aa",
+      "leaves" : "11:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-29-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-29-b00ab",
+      "leaves" : "10:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206120",
+               null
+            ],
+            [
+               "206121",
+               "2M pasd"
+            ],
+            [
+               "206128",
+               "1M pasd"
+            ],
+            [
+               "206014",
+               "2M pasd"
+            ],
+            [
+               "206046",
+               "2M pasd"
+            ],
+            [
+               "206047",
+               "1M pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "1M pasd"
+            ],
+            [
+               "206074",
+               "2M pasd"
+            ],
+            [
+               "206075",
+               "1M pasd"
+            ],
+            [
+               "208947",
+               "2M pasd"
+            ],
+            [
+               "208948",
+               "1M pasd"
+            ],
+            [
+               "209021",
+               "1M pasd"
+            ],
+            [
+               "209058",
+               "2M pasd"
+            ],
+            [
+               "2088176",
+               "2M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "2M pasd"
+            ],
+            [
+               "2088179",
+               "0S pasd"
+            ],
+            [
+               "2088180",
+               "1M pasd"
+            ],
+            [
+               "2088181",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "1M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "1M pasd"
+            ],
+            [
+               "2088201",
+               "0S pasd"
+            ],
+            [
+               "2088204",
+               "1M pasd"
+            ],
+            [
+               "2088205",
+               "0S pasd"
+            ],
+            [
+               "2088206",
+               "0S pasd"
+            ],
+            [
+               "2088207",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Alfred St nr Olympic Dr - Pearl Bay Rd Terminus",
+            "rs_ref" : "RS_90-229-_-sj2-1-R-5",
+            "id" : "R_90-229-_-sj2-1-R-5"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-20-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-20-b00ab",
+      "leaves" : "10:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-12-b00ab" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-12-b00ab",
+      "leaves" : "13:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-53-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-53-b00aa",
+      "leaves" : "12:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208822",
+               null
+            ],
+            [
+               "2088190",
+               "2M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "2M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-9-H-6",
+         "route" : {
+            "name" : "Spit Junction_ Punch St - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-6",
+            "id" : "R_90-229-_-sj2-1-H-6"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   },
+   "VJ_90-229-_-sj2-1-26-b00aa" : {
+      "vjcode" : "VJ_90-229-_-sj2-1-26-b00aa",
+      "leaves" : "11:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088207",
+               null
+            ],
+            [
+               "2088213",
+               "3M pasd"
+            ],
+            [
+               "2088214",
+               "1M pasd"
+            ],
+            [
+               "2088216",
+               "1M pasd"
+            ],
+            [
+               "208825",
+               "0S pasd"
+            ],
+            [
+               "208826",
+               "1M pasd"
+            ],
+            [
+               "208827",
+               "1M pasd"
+            ],
+            [
+               "208828",
+               "0S pasd"
+            ],
+            [
+               "208829",
+               "1M pasd"
+            ],
+            [
+               "208830",
+               "0S pasd"
+            ],
+            [
+               "208831",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "1M pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "208844",
+               "1M pasd"
+            ],
+            [
+               "208871",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "2M pasd"
+            ],
+            [
+               "2088193",
+               "1M pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "2M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "4M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "0S pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "1M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_90-229-_-sj2-1-6-H-4",
+         "route" : {
+            "name" : "Pearl Bay Rd Terminus - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_90-229-_-sj2-1-H-4",
+            "id" : "R_90-229-_-sj2-1-H-4"
+         }
+      },
+      "service" : "90-229-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "229"
+   }
+}
+;
+

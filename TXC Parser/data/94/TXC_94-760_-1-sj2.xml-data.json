@@ -1,0 +1,430 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-760-_-sj2-1" : "760"
+}
+;
+
+var stations = {
+   "230548" : "Chiplin St Nr Hawkins St",
+   "2287235" : "92 Dangerfield Dr",
+   "2287237" : "Cambronne Pde nr Andretta Av",
+   "2287230" : "Dangerfield Dr nr Cambronne Pde",
+   "2299102" : "Croudace St Nr Chilcott St",
+   "2287294" : "McCaffrey Dr nr Rosedale Cr",
+   "2299101" : "Croudace St Opp Turner St",
+   "2287293" : "McCaffrey Dr nr Orana St",
+   "2287236" : "106 Dangerfield Dr",
+   "230581" : "Croudace St Opp Russell Rd",
+   "2287226" : "Dangerfield Dr opp Allenwood Cl",
+   "2287232" : "Dangerfield Dr nr Allenwood Cl",
+   "2287227" : "35 Dangerfield Dr",
+   "2287302" : "Croudace Rd opp Urara Pde",
+   "230549" : "Chiplin St Nr Florida Av",
+   "2287234" : "82 Dangerfield Dr",
+   "2287290" : "McCaffrey Dr opp Elbrook Dr",
+   "230570" : "Alma Rd Nr Regent St",
+   "2287289" : "Mccaffrey Dr Nr Marshall St",
+   "2299100" : "Croudace St nr Mitchell Av",
+   "2305131" : "Portland Pl Nr Regent St",
+   "230568" : "Russell Rd Nr Baker St",
+   "229996" : "Howe St Nr Grainger St",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "2287222" : "115 Dangerfield Dr",
+   "230566" : "Russell Rd Opp Brett St",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "229949" : "Howe St Opp Wye St",
+   "2287223" : "95 Dangerfield Dr",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "2287203" : "Croudace Rd nr Garsdale Av",
+   "2287231" : "34 Dangerfield Dr",
+   "230564" : "Croudace St Nr Russell Rd",
+   "2287228" : "Dangerfield Dr nr Croudace Rd",
+   "2287221" : "Cambronne Pde nr Rialto Cl",
+   "230565" : "Russell Rd Nr Croudace St",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "2287291" : "Mccaffrey Dr Nr Marshall St",
+   "2287306" : "Croudace Rd nr Urara Pde",
+   "230578" : "Russell Rd Opp Baker St",
+   "230547" : "Railway Rd Nr Westcourt Rd",
+   "230550" : "Mitchell Av Nr Florida Av",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "2287225" : "73 Dangerfield Dr",
+   "2299128" : "Hobart Rd Nr Durham Rd",
+   "2287292" : "McCaffrey Dr opp Dean Pde",
+   "229997" : "Howe St Nr Morehead St",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "2287252" : "Dangerfield Dr opp Cambronne Pde",
+   "2287224" : "79 Dangerfield Dr",
+   "2305107" : "St Therese Primary",
+   "2299133" : "Railway Rd Nr Regent St",
+   "230580" : "Russell Rd Nr Brett St",
+   "2287229" : "Dangerfield Dr nr Isabella Cl",
+   "230596" : "Regent St Nr New Lambton Primary",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2287272" : "McCaffrey Dr nr Spencer St",
+   "2287233" : "68 Dangerfield Dr",
+   "2287238" : "Croudace Rd opp Garsdale Av",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-760-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-760-_-sj2-1-2-b0096",
+      "leaves" : "08:42:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2287306",
+               null
+            ],
+            [
+               "2287203",
+               "1M pasd"
+            ],
+            [
+               "2287221",
+               "1M pasd"
+            ],
+            [
+               "2287222",
+               "1M pasd"
+            ],
+            [
+               "2287223",
+               "0S pasd"
+            ],
+            [
+               "2287224",
+               "1M pasd"
+            ],
+            [
+               "2287225",
+               "0S pasd"
+            ],
+            [
+               "2287226",
+               "1M pasd"
+            ],
+            [
+               "2287227",
+               "0S pasd"
+            ],
+            [
+               "2287252",
+               "1M pasd"
+            ],
+            [
+               "2287228",
+               "0S pasd"
+            ],
+            [
+               "2287295",
+               "0S pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "1M pasd"
+            ],
+            [
+               "2287290",
+               "1M pasd"
+            ],
+            [
+               "2287291",
+               "0S pasd"
+            ],
+            [
+               "2305171",
+               "2M pasd"
+            ],
+            [
+               "2305172",
+               "2M pasd"
+            ],
+            [
+               "230581",
+               "1M pasd"
+            ],
+            [
+               "2299101",
+               "2M pasd"
+            ],
+            [
+               "2299102",
+               "0S pasd"
+            ],
+            [
+               "229996",
+               "1M pasd"
+            ],
+            [
+               "229997",
+               "0S pasd"
+            ],
+            [
+               "229949",
+               "1M pasd"
+            ],
+            [
+               "2299128",
+               "0S pasd"
+            ],
+            [
+               "2299133",
+               "1M pasd"
+            ],
+            [
+               "230547",
+               "1M pasd"
+            ],
+            [
+               "230548",
+               "0S pasd"
+            ],
+            [
+               "230549",
+               "1M pasd"
+            ],
+            [
+               "230550",
+               "1M pasd"
+            ],
+            [
+               "2299100",
+               "0S pasd"
+            ],
+            [
+               "230564",
+               "1M pasd"
+            ],
+            [
+               "230565",
+               "0S pasd"
+            ],
+            [
+               "230566",
+               "1M pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "2305107",
+               "1M pasd"
+            ],
+            [
+               "2305131",
+               "1M pasd"
+            ],
+            [
+               "230596",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-760-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Croudace Rd nr Urara Pde - Regent St Nr New Lambton Primary",
+            "rs_ref" : "RS_94-760-_-sj2-1-H-2",
+            "id" : "R_94-760-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-760-_-sj2-1",
+      "line" : "760"
+   },
+   "VJ_94-760-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-760-_-sj2-1-1-b0096",
+      "leaves" : "15:44:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2305107",
+               null
+            ],
+            [
+               "2305131",
+               "1M pasd"
+            ],
+            [
+               "230596",
+               "1M pasd"
+            ],
+            [
+               "230577",
+               "0S pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "230581",
+               "1M pasd"
+            ],
+            [
+               "2299101",
+               "2M pasd"
+            ],
+            [
+               "2299102",
+               "0S pasd"
+            ],
+            [
+               "229996",
+               "1M pasd"
+            ],
+            [
+               "229997",
+               "0S pasd"
+            ],
+            [
+               "229949",
+               "1M pasd"
+            ],
+            [
+               "2299128",
+               "0S pasd"
+            ],
+            [
+               "2299133",
+               "1M pasd"
+            ],
+            [
+               "230547",
+               "1M pasd"
+            ],
+            [
+               "230548",
+               "1M pasd"
+            ],
+            [
+               "230549",
+               "0S pasd"
+            ],
+            [
+               "230550",
+               "1M pasd"
+            ],
+            [
+               "2299100",
+               "0S pasd"
+            ],
+            [
+               "230564",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "1M pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2287289",
+               "2M pasd"
+            ],
+            [
+               "2287292",
+               "1M pasd"
+            ],
+            [
+               "2287293",
+               "1M pasd"
+            ],
+            [
+               "2287294",
+               "0S pasd"
+            ],
+            [
+               "2287272",
+               "1M pasd"
+            ],
+            [
+               "2287229",
+               "1M pasd"
+            ],
+            [
+               "2287230",
+               "0S pasd"
+            ],
+            [
+               "2287231",
+               "1M pasd"
+            ],
+            [
+               "2287232",
+               "0S pasd"
+            ],
+            [
+               "2287233",
+               "1M pasd"
+            ],
+            [
+               "2287234",
+               "0S pasd"
+            ],
+            [
+               "2287235",
+               "1M pasd"
+            ],
+            [
+               "2287236",
+               "0S pasd"
+            ],
+            [
+               "2287237",
+               "1M pasd"
+            ],
+            [
+               "2287238",
+               "1M pasd"
+            ],
+            [
+               "2287302",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-760-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Therese Primary - Croudace Rd opp Urara Pde",
+            "rs_ref" : "RS_94-760-_-sj2-1-R-1",
+            "id" : "R_94-760-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-760-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "760"
+   }
+}
+;
+

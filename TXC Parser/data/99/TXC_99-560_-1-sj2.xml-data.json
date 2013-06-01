@@ -1,0 +1,767 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-560-_-sj2-1" : "560"
+}
+;
+
+var stations = {
+   "204718" : "Victoria Rd Nr Thornley St",
+   "211018" : "Ryde Rd Nr Abigail St",
+   "211147" : "Buffalo Rd Nr Nelson St",
+   "211030" : "Park Rd nr Princes St",
+   "203922" : "Victoria Rd Nr Evans St",
+   "211020" : "Ryde Rd Nr Gladesville Rd",
+   "203838" : "Johnston St Nr Annandale North Primary",
+   "204827" : "Newington College",
+   "204711" : "Victoria Rd Nr Wolseley St",
+   "211019" : "Ryde Rd nr Figtree Rd",
+   "211029" : "Park Rd Nr Ryde Rd",
+   "211177" : "Monash Rd nr Oates Av",
+   "204722" : "Victoria Rd Nr Tavistock St",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "203920" : "Victoria Rd Nr Hornsey St",
+   "203912" : "Victoria Rd Nr Wellington St",
+   "211151" : "Thompson St Nr Monash Rd",
+   "203921" : "Victoria Rd Nr Robert St",
+   "211021" : "Gladesville Rd nr Joubert St",
+   "203816" : "The Crescent Nr City West Link",
+   "204717" : "Victoria Rd Nr Park Av",
+   "211149" : "Buffalo Rd Nr Nelson St",
+   "203811" : "The Crescent Nr Chapman Rd",
+   "204714" : "Victoria Rd Nr Edwin St",
+   "211032" : "Princes St Nr Pittwater Rd",
+   "204723" : "Victoria Rd Nr Wolseley St",
+   "203914" : "Victoria Rd Nr Ellen St",
+   "211148" : "Buffalo Rd nr Owen St",
+   "211156" : "Thompson St Nr Monash Rd",
+   "211155" : "Thompson St Nr Westminster Rd",
+   "211028" : "Ryde Rd Nr Abigail St",
+   "211146" : "Buffalo Rd nr Ryde Bus Depot",
+   "211031" : "Princes St Nr Blaxland St",
+   "204719" : "Victoria Rd Nr Church St",
+   "204712" : "Victoria Rd nr Wrights Rd",
+   "203915" : "Victoria Rd Nr Robert St",
+   "211154" : "Thompson St nr Atkinson Reserve",
+   "204760" : "Victoria Rd near Cary St",
+   "203837" : "Johnston St Nr Booth St",
+   "211014" : "Princes St Nr Pittwater Rd",
+   "204720" : "Victoria Rd Nr Edwin St",
+   "211017" : "Park Rd Nr Ryde Rd",
+   "211180" : "Monash Rd nr Diggers Av",
+   "211027" : "Ryde Rd nr Luke St",
+   "204721" : "Victoria Rd Nr Lyons Rd",
+   "211152" : "Thompson St Nr Westminster Rd",
+   "203923" : "Victoria Rd Nr Darling St",
+   "204716" : "Victoria Rd Nr Day St",
+   "203911" : "Victoria Rd Nr Terry St",
+   "203823" : "Johnston St Nr Booth St",
+   "204828" : "Newington College Prep",
+   "211025" : "Gladesville Rd nr Pitt St",
+   "203925" : "Victoria Rd Nr Toelle St",
+   "203913" : "Victoria Rd Nr Darling St",
+   "211153" : "Thompson St nr The Strand",
+   "204713" : "Victoria Rd Nr Lyons Rd",
+   "211015" : "Princes St Nr Blaxland St",
+   "203924" : "Victoria Rd Nr Moodie St",
+   "211016" : "Princes St nr Park Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-560-_-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-3-b00bk",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211146",
+               "0S pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211177",
+               "1M pasd"
+            ],
+            [
+               "211151",
+               "0S pasd"
+            ],
+            [
+               "211152",
+               "1M pasd"
+            ],
+            [
+               "211153",
+               "0S pasd"
+            ],
+            [
+               "211014",
+               "1M pasd"
+            ],
+            [
+               "211015",
+               "0S pasd"
+            ],
+            [
+               "211016",
+               "1M pasd"
+            ],
+            [
+               "211017",
+               "1M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "1M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "204711",
+               "4M pasd"
+            ],
+            [
+               "204712",
+               "0S pasd"
+            ],
+            [
+               "204713",
+               "1M pasd"
+            ],
+            [
+               "204714",
+               "1M pasd"
+            ],
+            [
+               "204716",
+               "0S pasd"
+            ],
+            [
+               "204717",
+               "1M pasd"
+            ],
+            [
+               "204760",
+               "0S pasd"
+            ],
+            [
+               "203911",
+               "2M pasd"
+            ],
+            [
+               "203912",
+               "0S pasd"
+            ],
+            [
+               "203913",
+               "1M pasd"
+            ],
+            [
+               "203914",
+               "0S pasd"
+            ],
+            [
+               "203915",
+               "1M pasd"
+            ],
+            [
+               "203811",
+               "2M pasd"
+            ],
+            [
+               "203823",
+               "2M pasd"
+            ],
+            [
+               "204828",
+               "13M pasd"
+            ],
+            [
+               "204827",
+               "13M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Newington College",
+            "rs_ref" : "RS_99-560-_-sj2-1-H-2",
+            "id" : "R_99-560-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   },
+   "VJ_99-560-_-sj2-1-6-b00bk" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-6-b00bk",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204828",
+               null
+            ],
+            [
+               "204827",
+               "3M pasd"
+            ],
+            [
+               "203837",
+               "13M pasd"
+            ],
+            [
+               "203838",
+               "1M pasd"
+            ],
+            [
+               "203816",
+               "2M pasd"
+            ],
+            [
+               "203920",
+               "1M pasd"
+            ],
+            [
+               "203921",
+               "1M pasd"
+            ],
+            [
+               "203922",
+               "0S pasd"
+            ],
+            [
+               "203923",
+               "1M pasd"
+            ],
+            [
+               "203924",
+               "1M pasd"
+            ],
+            [
+               "203925",
+               "0S pasd"
+            ],
+            [
+               "204718",
+               "2M pasd"
+            ],
+            [
+               "204719",
+               "1M pasd"
+            ],
+            [
+               "204720",
+               "0S pasd"
+            ],
+            [
+               "204721",
+               "1M pasd"
+            ],
+            [
+               "204722",
+               "0S pasd"
+            ],
+            [
+               "204723",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "4M pasd"
+            ],
+            [
+               "211027",
+               "2M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211029",
+               "2M pasd"
+            ],
+            [
+               "211030",
+               "0S pasd"
+            ],
+            [
+               "211031",
+               "1M pasd"
+            ],
+            [
+               "211032",
+               "1M pasd"
+            ],
+            [
+               "211154",
+               "1M pasd"
+            ],
+            [
+               "211155",
+               "0S pasd"
+            ],
+            [
+               "211156",
+               "1M pasd"
+            ],
+            [
+               "211180",
+               "0S pasd"
+            ],
+            [
+               "211148",
+               "0S pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Newington College Prep - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-560-_-sj2-1-R-3",
+            "id" : "R_99-560-_-sj2-1-R-3"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   },
+   "VJ_99-560-_-sj2-1-2-b009x" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-2-b009x",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203913",
+               null
+            ],
+            [
+               "203914",
+               "0S pasd"
+            ],
+            [
+               "203915",
+               "1M pasd"
+            ],
+            [
+               "203811",
+               "2M pasd"
+            ],
+            [
+               "203823",
+               "2M pasd"
+            ],
+            [
+               "204828",
+               "13M pasd"
+            ],
+            [
+               "204827",
+               "13M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Victoria Rd Nr Darling St - Newington College",
+            "rs_ref" : "RS_99-560-_-sj2-1-H-1",
+            "id" : "R_99-560-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   },
+   "VJ_99-560-_-sj2-1-1-b00a0" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-1-b00a0",
+      "leaves" : "07:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "203913",
+               null
+            ],
+            [
+               "203914",
+               "0S pasd"
+            ],
+            [
+               "203915",
+               "1M pasd"
+            ],
+            [
+               "203811",
+               "2M pasd"
+            ],
+            [
+               "203823",
+               "2M pasd"
+            ],
+            [
+               "204828",
+               "13M pasd"
+            ],
+            [
+               "204827",
+               "13M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Victoria Rd Nr Darling St - Newington College",
+            "rs_ref" : "RS_99-560-_-sj2-1-H-1",
+            "id" : "R_99-560-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   },
+   "VJ_99-560-_-sj2-1-5-b00bj" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-5-b00bj",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211146",
+               "0S pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211177",
+               "1M pasd"
+            ],
+            [
+               "211151",
+               "0S pasd"
+            ],
+            [
+               "211152",
+               "1M pasd"
+            ],
+            [
+               "211153",
+               "0S pasd"
+            ],
+            [
+               "211014",
+               "1M pasd"
+            ],
+            [
+               "211015",
+               "0S pasd"
+            ],
+            [
+               "211016",
+               "1M pasd"
+            ],
+            [
+               "211017",
+               "1M pasd"
+            ],
+            [
+               "211018",
+               "1M pasd"
+            ],
+            [
+               "211019",
+               "1M pasd"
+            ],
+            [
+               "211020",
+               "1M pasd"
+            ],
+            [
+               "211021",
+               "0S pasd"
+            ],
+            [
+               "204711",
+               "4M pasd"
+            ],
+            [
+               "204712",
+               "0S pasd"
+            ],
+            [
+               "204713",
+               "1M pasd"
+            ],
+            [
+               "204714",
+               "1M pasd"
+            ],
+            [
+               "204716",
+               "0S pasd"
+            ],
+            [
+               "204717",
+               "1M pasd"
+            ],
+            [
+               "204760",
+               "0S pasd"
+            ],
+            [
+               "203911",
+               "2M pasd"
+            ],
+            [
+               "203912",
+               "0S pasd"
+            ],
+            [
+               "203913",
+               "1M pasd"
+            ],
+            [
+               "203914",
+               "0S pasd"
+            ],
+            [
+               "203915",
+               "1M pasd"
+            ],
+            [
+               "203811",
+               "2M pasd"
+            ],
+            [
+               "203823",
+               "2M pasd"
+            ],
+            [
+               "204828",
+               "13M pasd"
+            ],
+            [
+               "204827",
+               "13M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Newington College",
+            "rs_ref" : "RS_99-560-_-sj2-1-H-2",
+            "id" : "R_99-560-_-sj2-1-H-2"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   },
+   "VJ_99-560-_-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-560-_-sj2-1-4-b00bj",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204828",
+               null
+            ],
+            [
+               "204827",
+               "3M pasd"
+            ],
+            [
+               "203837",
+               "13M pasd"
+            ],
+            [
+               "203838",
+               "1M pasd"
+            ],
+            [
+               "203816",
+               "2M pasd"
+            ],
+            [
+               "203920",
+               "1M pasd"
+            ],
+            [
+               "203921",
+               "1M pasd"
+            ],
+            [
+               "203922",
+               "0S pasd"
+            ],
+            [
+               "203923",
+               "1M pasd"
+            ],
+            [
+               "203924",
+               "1M pasd"
+            ],
+            [
+               "203925",
+               "0S pasd"
+            ],
+            [
+               "204718",
+               "2M pasd"
+            ],
+            [
+               "204719",
+               "1M pasd"
+            ],
+            [
+               "204720",
+               "0S pasd"
+            ],
+            [
+               "204721",
+               "1M pasd"
+            ],
+            [
+               "204722",
+               "0S pasd"
+            ],
+            [
+               "204723",
+               "1M pasd"
+            ],
+            [
+               "211025",
+               "4M pasd"
+            ],
+            [
+               "211027",
+               "2M pasd"
+            ],
+            [
+               "211028",
+               "1M pasd"
+            ],
+            [
+               "211029",
+               "2M pasd"
+            ],
+            [
+               "211030",
+               "0S pasd"
+            ],
+            [
+               "211031",
+               "1M pasd"
+            ],
+            [
+               "211032",
+               "1M pasd"
+            ],
+            [
+               "211154",
+               "1M pasd"
+            ],
+            [
+               "211155",
+               "0S pasd"
+            ],
+            [
+               "211156",
+               "1M pasd"
+            ],
+            [
+               "211180",
+               "0S pasd"
+            ],
+            [
+               "211148",
+               "0S pasd"
+            ],
+            [
+               "211149",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-560-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Newington College Prep - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-560-_-sj2-1-R-3",
+            "id" : "R_99-560-_-sj2-1-R-3"
+         }
+      },
+      "service" : "99-560-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "560"
+   }
+}
+;
+

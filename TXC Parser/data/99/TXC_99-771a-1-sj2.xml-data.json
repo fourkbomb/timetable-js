@@ -1,0 +1,691 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-771-a-sj2-1" : "771"
+}
+;
+
+var stations = {
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210730" : "Barrenjoey Rd 250m N of Plateau Rd",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "209726" : "Pittwater Rd nr Hay St",
+   "206017" : "Miller St Nr Carlow St",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "206120" : "Alfred St nr Olympic Dr",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "210633" : "Gladstone St Nr Barrenjoey Rd",
+   "210634" : "Gladstone Rd Nr Bishop St",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "210640" : "Beaconsfield St Nr Barrenjoey Rd",
+   "210380" : "Pittwater Rd Nr Coronation St",
+   "209919" : "Pittwater Rd nr South Creek Rd",
+   "2100145" : "Pittwater Rd nr Warringah Mall Stand B",
+   "210731" : "Barrenjoey Rd Nr Plateau Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "210378" : "Pittwater Rd Nr Rowan St",
+   "210379" : "Pittwater Rd Nr Jenkins St",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210729" : "Barrenjoey Rd nr The Crescent",
+   "206085" : "Miller St near Pacific Hwy",
+   "210732" : "Barrenjoey Rd Nr The Serpentine",
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "209920" : "Pittwater Rd Nr Lismore Av",
+   "210638" : "Beaconsfield St Nr Newport Primary",
+   "210637" : "Kalinya St Nr Beaconsfield St",
+   "206125" : "Broughton St Nr Pitt St",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "206072" : "Miller St nr Falcon St",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "206057" : "Lavender St Nr Walker St",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "208911" : "Military Rd Nr Watson St",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "206123" : "Alfred St near Milsons Point Station",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "210256" : "Pittwater Rd Nr Arnott Cr",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "209049" : "Murdoch St nr SCEGGS Jnr",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "206024" : "Miller St nr Blue St",
+   "210389" : "Pittwater Rd Nr Cook Tce",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "206018" : "Miller St near Ridge St",
+   "206019" : "Miller St nr McLaren St",
+   "210636" : "Kalinya St Nr Gladstone Rd",
+   "210635" : "Gladstone Rd Nr King St",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "206058" : "Lavender St nr Cliff St",
+   "209729" : "Pittwater Rd Nr Westmoreland Av",
+   "209725" : "Pittwater Rd Nr Anzac Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-771-a-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-771-a-sj2-1-2-b009g",
+      "leaves" : "06:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "0S pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "0S pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "0S pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "0S pasd"
+            ],
+            [
+               "210380",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "0S pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "0S pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "0S pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "7M pasd"
+            ],
+            [
+               "2088190",
+               "20M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "209049",
+               "5M pasd"
+            ],
+            [
+               "208913",
+               "2M pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "5M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-771-a-sj2-1-H-1",
+            "id" : "R_99-771-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-771-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   },
+   "VJ_99-771-a-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_99-771-a-sj2-1-1-b009h",
+      "leaves" : "06:53:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210728",
+               null
+            ],
+            [
+               "210729",
+               "1M pasd"
+            ],
+            [
+               "210730",
+               "1M pasd"
+            ],
+            [
+               "210731",
+               "0S pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210633",
+               "1M pasd"
+            ],
+            [
+               "210634",
+               "0S pasd"
+            ],
+            [
+               "210635",
+               "1M pasd"
+            ],
+            [
+               "210636",
+               "1M pasd"
+            ],
+            [
+               "210637",
+               "0S pasd"
+            ],
+            [
+               "210638",
+               "1M pasd"
+            ],
+            [
+               "210640",
+               "0S pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "0S pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210378",
+               "1M pasd"
+            ],
+            [
+               "210379",
+               "0S pasd"
+            ],
+            [
+               "210380",
+               "1M pasd"
+            ],
+            [
+               "210389",
+               "0S pasd"
+            ],
+            [
+               "210256",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "0S pasd"
+            ],
+            [
+               "210147",
+               "1M pasd"
+            ],
+            [
+               "210148",
+               "0S pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "2M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "1M pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "0S pasd"
+            ],
+            [
+               "209726",
+               "1M pasd"
+            ],
+            [
+               "209727",
+               "0S pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "1M pasd"
+            ],
+            [
+               "209919",
+               "0S pasd"
+            ],
+            [
+               "209920",
+               "1M pasd"
+            ],
+            [
+               "209921",
+               "0S pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "2100145",
+               "7M pasd"
+            ],
+            [
+               "2088190",
+               "20M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "209049",
+               "5M pasd"
+            ],
+            [
+               "208913",
+               "2M pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "5M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-771-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Barrenjoey Rd Nr Avalon Pde - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-771-a-sj2-1-H-1",
+            "id" : "R_99-771-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-771-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "771"
+   }
+}
+;
+

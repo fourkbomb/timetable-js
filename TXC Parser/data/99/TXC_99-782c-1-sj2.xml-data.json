@@ -1,0 +1,823 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-782-c-sj2-1" : "782"
+}
+;
+
+var stations = {
+   "2118195" : "North Rocks Rd Nr Carlingford High",
+   "2151112" : "Larra Cr nr Mill Dr",
+   "2125162" : "Eaton Rd near Pennant Hills Rd",
+   "2118143" : "Farnell Av near Citrus Gr",
+   "2118113" : "Oakes Rd near Carmen Dr",
+   "2125160" : "Karloon Rd near Ashley Av",
+   "2151106" : "Williams Rd nr Rajola Pl",
+   "2118201" : "Jenkins Rd near Baker St",
+   "2118118" : "Oakes Rd near Murray Farm Rd",
+   "211814" : "Pennant Hills Rd near Alamein Av",
+   "2118141" : "Parkland Rd opp Wyburn Av",
+   "2125161" : "Karloon Rd near Eaton Rd",
+   "2118202" : "Jenkins Rd Nr Lochinvar Pde",
+   "211816" : "Carlingford Shopping Centre Pennant Hills Rd",
+   "2151141" : "Barlcay Rd nr Perry St",
+   "2151107" : "Perry St nr Williams Rd",
+   "2125163" : "Oakes Rd near Wildara Av",
+   "2125159" : "Eaton Rd near Community Church",
+   "2118106" : "Jenkins Rd near Post Office St",
+   "2118144" : "Farnell Av near Balaka Dr",
+   "2125154" : "Eaton Rd near Range Rd",
+   "215171" : "North Rocks Rd nr Westfields",
+   "2118142" : "Lindisfarne Av near Parkland Rd",
+   "212571" : "Thompsons Corner Pennant Hills Rd",
+   "212034" : "Beecroft Rd nr Mount Saint Benedict",
+   "2151111" : "Larra Cr nr Raine Av",
+   "211951" : "Copeland Rd near Cardinal Av",
+   "211860" : "North Rocks Rd Nr Bellevue Dr",
+   "2151113" : "Mill Dr nr Alderson Av",
+   "211946" : "Beecroft Rd near Copeland Rd",
+   "2125155" : "Eaton Rd opp Dickson Av",
+   "2125140" : "Range Rd near Heidi Pl",
+   "2151149" : "Barclay Rd Nr Mill Dr",
+   "211952" : "Copeland Rd near Rorke St",
+   "2151104" : "Williams Rd nr Hancey Av",
+   "2118108" : "Jenkins Rd Nr Moseley St",
+   "2125156" : "Eaton Rd near Stanton Dr",
+   "2125134" : "Oakes Rd near Eaton Rd",
+   "211853" : "North Rocks Rd near Alkira Rd",
+   "2125138" : "Stanton Dr near Moolanda Av",
+   "2125137" : "Eaton Rd opp Stanton Dr",
+   "2151105" : "Wiliams Rd nr Sophia Cr",
+   "212560" : "Aiken Rd near Salina Av",
+   "2118116" : "Oakes Rd Nr Dryden Av",
+   "211844" : "Pennant Hills Rd Nr Coleman Av",
+   "2125157" : "Eaton Rd opp Westmore Dr",
+   "2151110" : "Larra Cr nr Eather Av",
+   "2118114" : "Oakes Rd near Coral Tree Dr",
+   "211959" : "Copeland Rd Nr Hull Rd",
+   "211960" : "Copeland Rd Nr York St",
+   "2118204" : "Jenkins Rd near Woodstock Rd",
+   "2151138" : "Barclay Rd nr North Rocks Rd",
+   "2151140" : "Barclay Rd nr Hepburn Rd",
+   "2151109" : "Mill Dr nr Larra Cr",
+   "2125158" : "Eaton Rd Nr Oakes Rd",
+   "2151108" : "Perry St nr Barclay Rd",
+   "2151103" : "Sophia Cr 200m S of Hancey Av",
+   "2151101" : "Williams Rd nr Perry St",
+   "2118194" : "North Rocks Rd near St Gerards",
+   "212559" : "Aiken Rd near Pennant Hills Rd",
+   "2151139" : "Barclay Rd nr Tiernan Av",
+   "2125136" : "Eaton Rd near Betts Pl",
+   "2118203" : "Jenkins Rd Nr Robbie Cr",
+   "2125139" : "Range Rd near Stanton Dr",
+   "211859" : "North Rocks Rd near Farnell Av",
+   "2151102" : "Sophia Cr nr Hancey Av",
+   "2118105" : "Jenkins Rd near Pennant Hills Rd",
+   "2118115" : "Oakes Rd near Murray Farm Rd",
+   "211879" : "Farnell Av near Balaka Dr",
+   "212513" : "Aiken Rd near Wildara Av",
+   "2118112" : "Oakes Rd near Hillside La",
+   "2125141" : "Range Rd near Eaton Rd",
+   "2125135" : "Eaton Rd near Riley Av",
+   "2118111" : "Oakes Rd near Murray Farm Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-782-c-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-782-c-sj2-1-1-b00bj",
+      "leaves" : "15:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118194",
+               null
+            ],
+            [
+               "2118195",
+               "0S pasd"
+            ],
+            [
+               "211814",
+               "2M pasd"
+            ],
+            [
+               "211816",
+               "2M pasd"
+            ],
+            [
+               "211844",
+               "2M pasd"
+            ],
+            [
+               "2118105",
+               "1M pasd"
+            ],
+            [
+               "2118106",
+               "1M pasd"
+            ],
+            [
+               "2118108",
+               "1M pasd"
+            ],
+            [
+               "2118201",
+               "0S pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "211879",
+               "2M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118111",
+               "3M pasd"
+            ],
+            [
+               "2118112",
+               "1M pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "0S pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "1M pasd"
+            ],
+            [
+               "2125138",
+               "0S pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "0S pasd"
+            ],
+            [
+               "2125141",
+               "1M pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2125158",
+               "0S pasd"
+            ],
+            [
+               "2125159",
+               "0S pasd"
+            ],
+            [
+               "2125160",
+               "0S pasd"
+            ],
+            [
+               "2125161",
+               "1M pasd"
+            ],
+            [
+               "2125162",
+               "0S pasd"
+            ],
+            [
+               "211951",
+               "0S pasd"
+            ],
+            [
+               "211952",
+               "1M pasd"
+            ],
+            [
+               "211959",
+               "0S pasd"
+            ],
+            [
+               "211960",
+               "0S pasd"
+            ],
+            [
+               "211946",
+               "1M pasd"
+            ],
+            [
+               "212034",
+               "1M pasd"
+            ],
+            [
+               "212571",
+               "4M pasd"
+            ],
+            [
+               "212559",
+               "2M pasd"
+            ],
+            [
+               "212560",
+               "1M pasd"
+            ],
+            [
+               "212513",
+               "0S pasd"
+            ],
+            [
+               "2125163",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "1M pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "0S pasd"
+            ],
+            [
+               "2125141",
+               "1M pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "3M pasd"
+            ],
+            [
+               "2118115",
+               "2M pasd"
+            ],
+            [
+               "2118118",
+               "0S pasd"
+            ],
+            [
+               "2118116",
+               "1M pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "0S pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "2118142",
+               "1M pasd"
+            ],
+            [
+               "2118143",
+               "1M pasd"
+            ],
+            [
+               "2118144",
+               "1M pasd"
+            ],
+            [
+               "211859",
+               "1M pasd"
+            ],
+            [
+               "211860",
+               "1M pasd"
+            ],
+            [
+               "215171",
+               "1M pasd"
+            ],
+            [
+               "2151138",
+               "1M pasd"
+            ],
+            [
+               "2151139",
+               "1M pasd"
+            ],
+            [
+               "2151140",
+               "1M pasd"
+            ],
+            [
+               "2151141",
+               "1M pasd"
+            ],
+            [
+               "2151108",
+               "1M pasd"
+            ],
+            [
+               "2151101",
+               "1M pasd"
+            ],
+            [
+               "2151102",
+               "1M pasd"
+            ],
+            [
+               "2151103",
+               "0S pasd"
+            ],
+            [
+               "2151104",
+               "1M pasd"
+            ],
+            [
+               "2151105",
+               "0S pasd"
+            ],
+            [
+               "2151106",
+               "1M pasd"
+            ],
+            [
+               "2151107",
+               "1M pasd"
+            ],
+            [
+               "2151109",
+               "1M pasd"
+            ],
+            [
+               "2151110",
+               "1M pasd"
+            ],
+            [
+               "2151111",
+               "1M pasd"
+            ],
+            [
+               "2151112",
+               "0S pasd"
+            ],
+            [
+               "2151113",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "North Rocks Rd near St Gerards - Barclay Rd Nr Mill Dr",
+            "rs_ref" : "RS_99-782-c-sj2-1-R-1",
+            "id" : "R_99-782-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-782-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   },
+   "VJ_99-782-c-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-782-c-sj2-1-2-b00bk",
+      "leaves" : "15:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2118194",
+               null
+            ],
+            [
+               "2118195",
+               "0S pasd"
+            ],
+            [
+               "211814",
+               "2M pasd"
+            ],
+            [
+               "211816",
+               "2M pasd"
+            ],
+            [
+               "211844",
+               "2M pasd"
+            ],
+            [
+               "2118105",
+               "1M pasd"
+            ],
+            [
+               "2118106",
+               "1M pasd"
+            ],
+            [
+               "2118108",
+               "1M pasd"
+            ],
+            [
+               "2118201",
+               "0S pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "211879",
+               "2M pasd"
+            ],
+            [
+               "211853",
+               "1M pasd"
+            ],
+            [
+               "2118111",
+               "3M pasd"
+            ],
+            [
+               "2118112",
+               "1M pasd"
+            ],
+            [
+               "2118113",
+               "0S pasd"
+            ],
+            [
+               "2125134",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "0S pasd"
+            ],
+            [
+               "2125136",
+               "0S pasd"
+            ],
+            [
+               "2125137",
+               "1M pasd"
+            ],
+            [
+               "2125138",
+               "0S pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "0S pasd"
+            ],
+            [
+               "2125141",
+               "1M pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2125158",
+               "0S pasd"
+            ],
+            [
+               "2125159",
+               "0S pasd"
+            ],
+            [
+               "2125160",
+               "0S pasd"
+            ],
+            [
+               "2125161",
+               "1M pasd"
+            ],
+            [
+               "2125162",
+               "0S pasd"
+            ],
+            [
+               "211951",
+               "0S pasd"
+            ],
+            [
+               "211952",
+               "1M pasd"
+            ],
+            [
+               "211959",
+               "0S pasd"
+            ],
+            [
+               "211960",
+               "0S pasd"
+            ],
+            [
+               "211946",
+               "1M pasd"
+            ],
+            [
+               "212034",
+               "1M pasd"
+            ],
+            [
+               "212571",
+               "4M pasd"
+            ],
+            [
+               "212559",
+               "2M pasd"
+            ],
+            [
+               "212560",
+               "1M pasd"
+            ],
+            [
+               "212513",
+               "0S pasd"
+            ],
+            [
+               "2125163",
+               "1M pasd"
+            ],
+            [
+               "2125135",
+               "1M pasd"
+            ],
+            [
+               "2125136",
+               "1M pasd"
+            ],
+            [
+               "2125137",
+               "0S pasd"
+            ],
+            [
+               "2125138",
+               "1M pasd"
+            ],
+            [
+               "2125139",
+               "0S pasd"
+            ],
+            [
+               "2125140",
+               "0S pasd"
+            ],
+            [
+               "2125141",
+               "1M pasd"
+            ],
+            [
+               "2125154",
+               "0S pasd"
+            ],
+            [
+               "2125155",
+               "0S pasd"
+            ],
+            [
+               "2125156",
+               "0S pasd"
+            ],
+            [
+               "2125157",
+               "1M pasd"
+            ],
+            [
+               "2118114",
+               "3M pasd"
+            ],
+            [
+               "2118115",
+               "2M pasd"
+            ],
+            [
+               "2118118",
+               "0S pasd"
+            ],
+            [
+               "2118116",
+               "1M pasd"
+            ],
+            [
+               "2118202",
+               "1M pasd"
+            ],
+            [
+               "2118203",
+               "0S pasd"
+            ],
+            [
+               "2118204",
+               "0S pasd"
+            ],
+            [
+               "2118141",
+               "1M pasd"
+            ],
+            [
+               "2118142",
+               "1M pasd"
+            ],
+            [
+               "2118143",
+               "1M pasd"
+            ],
+            [
+               "2118144",
+               "1M pasd"
+            ],
+            [
+               "211859",
+               "1M pasd"
+            ],
+            [
+               "211860",
+               "1M pasd"
+            ],
+            [
+               "215171",
+               "1M pasd"
+            ],
+            [
+               "2151138",
+               "1M pasd"
+            ],
+            [
+               "2151139",
+               "1M pasd"
+            ],
+            [
+               "2151140",
+               "1M pasd"
+            ],
+            [
+               "2151141",
+               "1M pasd"
+            ],
+            [
+               "2151108",
+               "1M pasd"
+            ],
+            [
+               "2151101",
+               "1M pasd"
+            ],
+            [
+               "2151102",
+               "1M pasd"
+            ],
+            [
+               "2151103",
+               "0S pasd"
+            ],
+            [
+               "2151104",
+               "1M pasd"
+            ],
+            [
+               "2151105",
+               "0S pasd"
+            ],
+            [
+               "2151106",
+               "1M pasd"
+            ],
+            [
+               "2151107",
+               "1M pasd"
+            ],
+            [
+               "2151109",
+               "1M pasd"
+            ],
+            [
+               "2151110",
+               "1M pasd"
+            ],
+            [
+               "2151111",
+               "1M pasd"
+            ],
+            [
+               "2151112",
+               "0S pasd"
+            ],
+            [
+               "2151113",
+               "1M pasd"
+            ],
+            [
+               "2151149",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-782-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "North Rocks Rd near St Gerards - Barclay Rd Nr Mill Dr",
+            "rs_ref" : "RS_99-782-c-sj2-1-R-1",
+            "id" : "R_99-782-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-782-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "782"
+   }
+}
+;
+

@@ -1,0 +1,610 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-693-_-sj2-1" : "693"
+}
+;
+
+var stations = {
+   "220863" : "Kingsgrove Rd Nr Forrester St",
+   "219424" : "Beamish St Nr Evaline St",
+   "219224" : "Kingsgrove Rd nr Moncur Av",
+   "219243" : "Kingsgrove Rd nr St Jude Cr",
+   "219231" : "Kingsgrove Rd nr Archibald St",
+   "220894" : "Kingsgrove Rd Nr Homer St",
+   "219457" : "Beamish St Nr Evaline St",
+   "219423" : "Beamish St Opp Unara St",
+   "2208107" : "Kingsgrove Rd Nr Oatley St",
+   "219214" : "Kingsgrove Rd Nr Canterbury Rd",
+   "219213" : "Kingsgrove Rd nr Rod St",
+   "220834" : "Kingsgrove Rd Nr Omnibus Rd",
+   "219446" : "Canterbury Rd Nr Orissa St",
+   "220849" : "Banner Rd Nr Kingsgrove Rd",
+   "219459" : "Beamish St Nr Fletcher St",
+   "219414" : "Beamish St nr South Pde",
+   "213351" : "Brighton Av nr Queensborough Rd",
+   "213357" : "Brighton Av nr Georges River",
+   "219417" : "Beamish St Nr North Pde",
+   "219237" : "Canterbury Rd opp Chelmsford Av",
+   "219445" : "Beamish St Opp Ninth Av",
+   "220848" : "Kingsgrove Rd Nr Banner Rd",
+   "219413" : "Beamish St nr South Pde",
+   "219244" : "Kingsgrove Rd nr Harp St",
+   "213356" : "Brighton Av nr Albert St",
+   "2208127" : "Our Lady Of Fatima School",
+   "219420" : "Canterbury Rd Nr Thorncraft Pde",
+   "220833" : "Shaw St Nr Caroline St",
+   "219242" : "Kingsgrove Rd Nr Canterbury Rd",
+   "219458" : "Beamish St Nr Hill St",
+   "219465" : "Canterbury Rd Nr Viking St",
+   "220850" : "Kingsgrove Rd Nr Narramore St",
+   "220845" : "Caroline St Nr St. Ursula College",
+   "219422" : "Beamish St Nr Fletcher St",
+   "219444" : "Brighton Av Nr Beamish St",
+   "219416" : "South Pde Nr Campsie Station",
+   "219441" : "Brighton Av Nr Burns St",
+   "219466" : "Canterbury Rd Nr Troy St",
+   "2208112" : "Kingsgrove Rd Nr Kingsgrove Av",
+   "220862" : "Kingsgrove Rd Nr Kingsgrove North High",
+   "220865" : "Kingsgrove Rd Nr Forrester St",
+   "220847" : "Kingsgrove Rd Nr Rodgers Av",
+   "213341" : "Georges River Rd nr Brighton St",
+   "219421" : "Canterbury Rd Nr Beamish St",
+   "220812" : "Kingsgrove Rd nr Kingsgrove Station",
+   "220852" : "Caroline St Nr Kingsgrove Infants",
+   "219245" : "Kingsgrove Rd nr Turton St",
+   "219241" : "Canterbury Rd nr Chelmsford Av",
+   "2208111" : "Kingsgrove Rd Nr Commercial Rd",
+   "220811" : "Kingsgrove Rd nr Kingsgrove Station",
+   "220835" : "Kingsgrove Rd Nr Edward St",
+   "219238" : "Canterbury Rd nr Tudor St",
+   "220864" : "Kingsgrove Rd Opp Omnibus Rd",
+   "219467" : "Canterbury Rd Nr Elizabeth St",
+   "2208116" : "Kingsgrove Rd Nr Pacific St",
+   "219442" : "Brighton Av Nr Browning St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-693-_-sj2-1-3-b009m" : {
+      "vjcode" : "VJ_99-693-_-sj2-1-3-b009m",
+      "leaves" : "15:19:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "220852",
+               null
+            ],
+            [
+               "220849",
+               "1M pasd"
+            ],
+            [
+               "220845",
+               "2M pasd"
+            ],
+            [
+               "2208127",
+               "1M pasd"
+            ],
+            [
+               "220833",
+               "3M pasd"
+            ],
+            [
+               "220811",
+               "2M pasd"
+            ],
+            [
+               "2208111",
+               "0S pasd"
+            ],
+            [
+               "220863",
+               "1M pasd"
+            ],
+            [
+               "220834",
+               "0S pasd"
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "1M pasd"
+            ],
+            [
+               "219231",
+               "2M pasd"
+            ],
+            [
+               "219224",
+               "1M pasd"
+            ],
+            [
+               "219213",
+               "2M pasd"
+            ],
+            [
+               "219214",
+               "1M pasd"
+            ],
+            [
+               "219237",
+               "0S pasd"
+            ],
+            [
+               "219238",
+               "1M pasd"
+            ],
+            [
+               "219420",
+               "0S pasd"
+            ],
+            [
+               "219446",
+               "1M pasd"
+            ],
+            [
+               "219421",
+               "0S pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "0S pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219416",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-693-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Caroline St Nr Kingsgrove Infants - Campsie Station",
+            "rs_ref" : "RS_99-693-_-sj2-1-R-2",
+            "id" : "R_99-693-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-693-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "693"
+   },
+   "VJ_99-693-_-sj2-1-2-b009t" : {
+      "vjcode" : "VJ_99-693-_-sj2-1-2-b009t",
+      "leaves" : "15:19:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "220852",
+               null
+            ],
+            [
+               "220849",
+               "1M pasd"
+            ],
+            [
+               "220845",
+               "2M pasd"
+            ],
+            [
+               "2208127",
+               "1M pasd"
+            ],
+            [
+               "220833",
+               "3M pasd"
+            ],
+            [
+               "220811",
+               "2M pasd"
+            ],
+            [
+               "2208111",
+               "0S pasd"
+            ],
+            [
+               "220863",
+               "1M pasd"
+            ],
+            [
+               "220834",
+               "0S pasd"
+            ],
+            [
+               "220862",
+               "1M pasd"
+            ],
+            [
+               "2208107",
+               "1M pasd"
+            ],
+            [
+               "219231",
+               "2M pasd"
+            ],
+            [
+               "219224",
+               "1M pasd"
+            ],
+            [
+               "219213",
+               "2M pasd"
+            ],
+            [
+               "219214",
+               "1M pasd"
+            ],
+            [
+               "219237",
+               "0S pasd"
+            ],
+            [
+               "219238",
+               "1M pasd"
+            ],
+            [
+               "219420",
+               "0S pasd"
+            ],
+            [
+               "219446",
+               "1M pasd"
+            ],
+            [
+               "219421",
+               "0S pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "0S pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219416",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-693-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Caroline St Nr Kingsgrove Infants - Campsie Station",
+            "rs_ref" : "RS_99-693-_-sj2-1-R-2",
+            "id" : "R_99-693-_-sj2-1-R-2"
+         }
+      },
+      "service" : "99-693-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "693"
+   },
+   "VJ_99-693-_-sj2-1-1-b009t" : {
+      "vjcode" : "VJ_99-693-_-sj2-1-1-b009t",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "213341",
+               null
+            ],
+            [
+               "213351",
+               "1M pasd"
+            ],
+            [
+               "213356",
+               "1M pasd"
+            ],
+            [
+               "213357",
+               "0S pasd"
+            ],
+            [
+               "219441",
+               "1M pasd"
+            ],
+            [
+               "219442",
+               "1M pasd"
+            ],
+            [
+               "219444",
+               "0S pasd"
+            ],
+            [
+               "219445",
+               "0S pasd"
+            ],
+            [
+               "219417",
+               "1M pasd"
+            ],
+            [
+               "219414",
+               "0S pasd"
+            ],
+            [
+               "219457",
+               "1M pasd"
+            ],
+            [
+               "219458",
+               "0S pasd"
+            ],
+            [
+               "219459",
+               "1M pasd"
+            ],
+            [
+               "219465",
+               "1M pasd"
+            ],
+            [
+               "219466",
+               "0S pasd"
+            ],
+            [
+               "219467",
+               "1M pasd"
+            ],
+            [
+               "219241",
+               "0S pasd"
+            ],
+            [
+               "219242",
+               "1M pasd"
+            ],
+            [
+               "219243",
+               "1M pasd"
+            ],
+            [
+               "219244",
+               "1M pasd"
+            ],
+            [
+               "219245",
+               "1M pasd"
+            ],
+            [
+               "220894",
+               "2M pasd"
+            ],
+            [
+               "2208116",
+               "1M pasd"
+            ],
+            [
+               "220864",
+               "1M pasd"
+            ],
+            [
+               "220865",
+               "0S pasd"
+            ],
+            [
+               "2208112",
+               "1M pasd"
+            ],
+            [
+               "220812",
+               "1M pasd"
+            ],
+            [
+               "220835",
+               "0S pasd"
+            ],
+            [
+               "220847",
+               "1M pasd"
+            ],
+            [
+               "220848",
+               "1M pasd"
+            ],
+            [
+               "220850",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-693-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Georges River Rd nr Brighton St - Kingsgrove Rd Nr Narramore St",
+            "rs_ref" : "RS_99-693-_-sj2-1-H-1",
+            "id" : "R_99-693-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-693-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "693"
+   },
+   "VJ_99-693-_-sj2-1-4-b009m" : {
+      "vjcode" : "VJ_99-693-_-sj2-1-4-b009m",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "213341",
+               null
+            ],
+            [
+               "213351",
+               "1M pasd"
+            ],
+            [
+               "213356",
+               "1M pasd"
+            ],
+            [
+               "213357",
+               "0S pasd"
+            ],
+            [
+               "219441",
+               "1M pasd"
+            ],
+            [
+               "219442",
+               "1M pasd"
+            ],
+            [
+               "219444",
+               "0S pasd"
+            ],
+            [
+               "219445",
+               "0S pasd"
+            ],
+            [
+               "219417",
+               "1M pasd"
+            ],
+            [
+               "219414",
+               "0S pasd"
+            ],
+            [
+               "219457",
+               "1M pasd"
+            ],
+            [
+               "219458",
+               "0S pasd"
+            ],
+            [
+               "219459",
+               "1M pasd"
+            ],
+            [
+               "219465",
+               "1M pasd"
+            ],
+            [
+               "219466",
+               "0S pasd"
+            ],
+            [
+               "219467",
+               "1M pasd"
+            ],
+            [
+               "219241",
+               "0S pasd"
+            ],
+            [
+               "219242",
+               "1M pasd"
+            ],
+            [
+               "219243",
+               "1M pasd"
+            ],
+            [
+               "219244",
+               "1M pasd"
+            ],
+            [
+               "219245",
+               "1M pasd"
+            ],
+            [
+               "220894",
+               "2M pasd"
+            ],
+            [
+               "2208116",
+               "1M pasd"
+            ],
+            [
+               "220864",
+               "1M pasd"
+            ],
+            [
+               "220865",
+               "0S pasd"
+            ],
+            [
+               "2208112",
+               "1M pasd"
+            ],
+            [
+               "220812",
+               "1M pasd"
+            ],
+            [
+               "220835",
+               "0S pasd"
+            ],
+            [
+               "220847",
+               "1M pasd"
+            ],
+            [
+               "220848",
+               "1M pasd"
+            ],
+            [
+               "220850",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-693-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Georges River Rd nr Brighton St - Kingsgrove Rd Nr Narramore St",
+            "rs_ref" : "RS_99-693-_-sj2-1-H-1",
+            "id" : "R_99-693-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-693-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "693"
+   }
+}
+;
+

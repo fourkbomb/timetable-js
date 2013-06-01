@@ -1,0 +1,7055 @@
+var OPERATOR = "Dions Bus Service";
+
+
+var LINES = {
+   "36-4-_-sj2-1" : "4"
+}
+;
+
+var stations = {
+   "251818" : "Ferrara Furniture Princes Hwy near Caldwell Av",
+   "251915" : "Fraternity Bowling Club Princes Hwy",
+   "250042" : "Avis and Carlovers Princes Hwy",
+   "251918" : "Alminco Princes Hwy near Jardine St",
+   "251817" : "Stocklands_ Princes Hwy",
+   "251619" : "Bulli Bowling Club",
+   "2518105" : "Corrimal Court Shopping Centre_ near Railway St",
+   "251930" : "Princess Hwy near Lysaght St",
+   "251753" : "Campbell St near Robert St",
+   "251828" : "Health Sense Pharmacy Princes Hwy",
+   "251765" : "Pioneer Rd & George Tate Cl",
+   "251925" : "Princes Hwy near Elliotts Rd",
+   "251712" : "Woonona Shops_ Princes Hwy after Russell St",
+   "250015" : "Collegians Flinders St near Charlotte St",
+   "251923" : "Fairy Meadow Public School Princes Hwy",
+   "250043" : "Keira St after Smith St",
+   "251919" : "Antiques Princes Hwy near Chapman St",
+   "251711" : "Northern Automotive and Bulli Fire Station",
+   "251637" : "Trinity Row Near Jardine St",
+   "251744" : "Pendlebury Pde near Lighthorse Dr",
+   "251767" : "Pioneer Rd & George Tate Cl",
+   "250016" : "Flinders St after Gipps St",
+   "251740" : "Woonona Public School Railway Pde",
+   "251638" : "Bulli Beach Tourist Park Farrell Rd",
+   "251741" : "Railway Pde near Dorrigo Av",
+   "2518110" : "Pioneer Rd & Dalby St",
+   "250017" : "Princes Hwy near Bourke St",
+   "2518117" : "Railway St and Park Rd",
+   "250014" : "Peter Taranto Real Estate Keira St",
+   "251760" : "Seaview Village Park Rd near Mitchell Rd",
+   "250013" : "Keira St at Crown St",
+   "251616" : "Bulli Flower And Gift Shop Princes Hwy",
+   "2519119" : "Princes Hwy and Lysaght Av",
+   "2518115" : "Pioneer Rd and Railway St",
+   "250029" : "Rugby League Offices Illawarra Steelers",
+   "251913" : "Kitchen and Joinery Princes Hwy",
+   "250040" : "Princes Hwy near Bourke St",
+   "251759" : "Woonona Station",
+   "251633" : "Sandon Point Childrens Centre Point St",
+   "250018" : "Princes Hwy near Achilles Av",
+   "2500326" : "Wollongong City Council",
+   "251743" : "Pendlebury Pde near Lighthorse Dr",
+   "2500317" : "Burelli St after Church St",
+   "250041" : "Flinders St before Gipps St",
+   "251636" : "Point Break Takeaway Somerville St",
+   "251927" : "Cabbage Tree Creek",
+   "2518114" : "Bellambi Bowling Club",
+   "250011" : "Crown St Mall Princes Hwy",
+   "251632" : "Point St Near Princes Hwy",
+   "251929" : "Princess Hwy near Mt Ousley Rd",
+   "250034" : "Wollongong City Council",
+   "2518112" : "Corrimal Leagues Club",
+   "2518116" : "Railway St and Pioneer Rd",
+   "2518118" : "Corrimal Leagues Club",
+   "251617" : "Princes Hwy Near Hospital Rd",
+   "251640" : "Farrell Rd Near Waterloo St",
+   "251922" : "Cabbage Tree Motor Park Princes Hwy",
+   "251730" : "Bulli Fire Princes Hwy",
+   "251618" : "Bulli Hotel_ Princes Highway",
+   "251912" : "Princess Hwy near Mt Ousley Rd",
+   "251826" : "Butcher Shop Princes Hwy near Thurston Cr",
+   "250039" : "Wollongong Toyota Princes Hwy near Ajax Av",
+   "251920" : "Princes Hwy near Hope St",
+   "251917" : "Fair Meadow Community Centre Princes Hwy",
+   "251742" : "Lighthorse Dr near Pendlebury Pde",
+   "250028" : "Wollongong Entertainment Centre Crown St",
+   "250033" : "Greater Union Cinemas Burelli St",
+   "251926" : "Bosco Accounting Princes Hwy near Guest Av",
+   "250081" : "St Francis Xaviers School",
+   "2518113" : "Pioneer Rd and Lavender St",
+   "251635" : "Point St Near Westmacott Pde",
+   "251921" : "Princes Hwy before Florence St",
+   "2518119" : "Corrimal Shops",
+   "251928" : "Princes Hwy near Collaery Av",
+   "251752" : "Campbell St near Princes Hwy",
+   "251819" : "Pauls Old Wares Princes Hwy",
+   "2518111" : "Railway St and Duff Pde",
+   "2518108" : "Pioneer Rd and Lavender St",
+   "251737" : "Seaview Village Park Rd near Mitchell Rd",
+   "2518102" : "Woolworths Petrol Plus Princes Hwy",
+   "251827" : "Towncraft Princes Hwy near Thurston Cr",
+   "251739" : "Railway Pde Near Royal Cr",
+   "251729" : "Strachan Park _ Princes Hwy",
+   "251914" : "Cabbage Tree Creek",
+   "251639" : "Carrington St & Farrell Rd",
+   "251738" : "Woonona Station",
+   "251764" : "Campbell St and Northern Distributor",
+   "251766" : "Campbell St and Northern Distributor",
+   "2518109" : "Bellambi Bowling Club",
+   "251916" : "Princes Hwy near Elliotts Rd",
+   "251924" : "Fairy Meadow Shops Princes Hwy"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_36-4-_-sj2-1-20-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-20-TA",
+      "leaves" : "08:43:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-14-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-17-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-17-TA",
+      "leaves" : "17:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "47S pasd"
+            ],
+            [
+               "250015",
+               "41S pasd"
+            ],
+            [
+               "250016",
+               "1M7S pasd"
+            ],
+            [
+               "250017",
+               "44S pasd"
+            ],
+            [
+               "250018",
+               "34S pasd"
+            ],
+            [
+               "2519119",
+               "2M7S pasd"
+            ],
+            [
+               "251912",
+               "38S pasd"
+            ],
+            [
+               "251913",
+               "18S pasd"
+            ],
+            [
+               "251914",
+               "19S pasd"
+            ],
+            [
+               "251915",
+               "20S pasd"
+            ],
+            [
+               "251916",
+               "25S pasd"
+            ],
+            [
+               "251917",
+               "36S pasd"
+            ],
+            [
+               "251918",
+               "1M27S pasd"
+            ],
+            [
+               "251919",
+               "26S pasd"
+            ],
+            [
+               "251920",
+               "35S pasd"
+            ],
+            [
+               "251818",
+               "50S pasd"
+            ],
+            [
+               "251819",
+               "1M12S pasd"
+            ],
+            [
+               "2518102",
+               "59S pasd"
+            ],
+            [
+               "2518119",
+               "55S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-11-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-26-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-26-TA",
+      "leaves" : "12:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-33-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-33-TA",
+      "leaves" : "10:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-23-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-23-TA",
+      "leaves" : "10:23:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-14-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-22-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-22-TA",
+      "leaves" : "10:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-3-TA",
+      "leaves" : "09:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "59S pasd"
+            ],
+            [
+               "251817",
+               "2M1S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-25-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-25-TA",
+      "leaves" : "12:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-14-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-16-TA",
+      "leaves" : "16:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "56S pasd"
+            ],
+            [
+               "2500326",
+               "1M30S pasd"
+            ],
+            [
+               "2500317",
+               "2M25S pasd"
+            ],
+            [
+               "250013",
+               "1M9S pasd"
+            ],
+            [
+               "250014",
+               "47S pasd"
+            ],
+            [
+               "250015",
+               "41S pasd"
+            ],
+            [
+               "250016",
+               "1M7S pasd"
+            ],
+            [
+               "250017",
+               "44S pasd"
+            ],
+            [
+               "250018",
+               "34S pasd"
+            ],
+            [
+               "2519119",
+               "2M7S pasd"
+            ],
+            [
+               "251912",
+               "38S pasd"
+            ],
+            [
+               "251913",
+               "18S pasd"
+            ],
+            [
+               "251914",
+               "19S pasd"
+            ],
+            [
+               "251915",
+               "20S pasd"
+            ],
+            [
+               "251916",
+               "25S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-10-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-42-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-42-TA",
+      "leaves" : "17:48:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-43-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-43-TA",
+      "leaves" : "17:42:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Bulli Station - Woonona Shops_ Princes Hwy after Russell St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-2",
+            "id" : "R_36-4-_-sj2-1-R-2"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-18-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-18-TA",
+      "leaves" : "17:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "1M10S pasd"
+            ],
+            [
+               "250015",
+               "1M2S pasd"
+            ],
+            [
+               "250016",
+               "1M41S pasd"
+            ],
+            [
+               "250017",
+               "1M7S pasd"
+            ],
+            [
+               "250018",
+               "52S pasd"
+            ],
+            [
+               "2519119",
+               "3M8S pasd"
+            ],
+            [
+               "251912",
+               "38S pasd"
+            ],
+            [
+               "251913",
+               "18S pasd"
+            ],
+            [
+               "251914",
+               "19S pasd"
+            ],
+            [
+               "251915",
+               "20S pasd"
+            ],
+            [
+               "251916",
+               "25S pasd"
+            ],
+            [
+               "251917",
+               "26S pasd"
+            ],
+            [
+               "251918",
+               "1M2S pasd"
+            ],
+            [
+               "251919",
+               "19S pasd"
+            ],
+            [
+               "251920",
+               "25S pasd"
+            ],
+            [
+               "251818",
+               "35S pasd"
+            ],
+            [
+               "251819",
+               "51S pasd"
+            ],
+            [
+               "2518102",
+               "42S pasd"
+            ],
+            [
+               "2518119",
+               "40S pasd"
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-12-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-13-TA",
+      "leaves" : "14:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "39S pasd"
+            ],
+            [
+               "250015",
+               "34S pasd"
+            ],
+            [
+               "250016",
+               "56S pasd"
+            ],
+            [
+               "250017",
+               "37S pasd"
+            ],
+            [
+               "250018",
+               "29S pasd"
+            ],
+            [
+               "2519119",
+               "1M45S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "35S pasd"
+            ],
+            [
+               "251766",
+               "1M25S pasd"
+            ],
+            [
+               "251729",
+               "2M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-8-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-8-TA",
+      "leaves" : "16:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "2M42S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "21S pasd"
+            ],
+            [
+               "251927",
+               "53S pasd"
+            ],
+            [
+               "251928",
+               "23S pasd"
+            ],
+            [
+               "251929",
+               "35S pasd"
+            ],
+            [
+               "251930",
+               "48S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-6-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-14-TA",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "56S pasd"
+            ],
+            [
+               "2500326",
+               "1M30S pasd"
+            ],
+            [
+               "2500317",
+               "2M25S pasd"
+            ],
+            [
+               "250013",
+               "1M9S pasd"
+            ],
+            [
+               "250014",
+               "1M2S pasd"
+            ],
+            [
+               "250015",
+               "55S pasd"
+            ],
+            [
+               "250016",
+               "1M30S pasd"
+            ],
+            [
+               "250017",
+               "59S pasd"
+            ],
+            [
+               "250018",
+               "46S pasd"
+            ],
+            [
+               "2519119",
+               "2M48S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-9-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-31-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-31-TA",
+      "leaves" : "18:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-10-TA",
+      "leaves" : "07:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "39S pasd"
+            ],
+            [
+               "250015",
+               "34S pasd"
+            ],
+            [
+               "250016",
+               "56S pasd"
+            ],
+            [
+               "250017",
+               "37S pasd"
+            ],
+            [
+               "250018",
+               "29S pasd"
+            ],
+            [
+               "2519119",
+               "1M45S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "26S pasd"
+            ],
+            [
+               "251918",
+               "1M2S pasd"
+            ],
+            [
+               "251919",
+               "19S pasd"
+            ],
+            [
+               "251920",
+               "25S pasd"
+            ],
+            [
+               "251818",
+               "35S pasd"
+            ],
+            [
+               "251819",
+               "51S pasd"
+            ],
+            [
+               "2518102",
+               "42S pasd"
+            ],
+            [
+               "2518119",
+               "40S pasd"
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-7-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-34-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-34-TA",
+      "leaves" : "10:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-17-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-37-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-37-TA",
+      "leaves" : "13:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-12-TA",
+      "leaves" : "12:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "39S pasd"
+            ],
+            [
+               "250015",
+               "34S pasd"
+            ],
+            [
+               "250016",
+               "56S pasd"
+            ],
+            [
+               "250017",
+               "37S pasd"
+            ],
+            [
+               "250018",
+               "29S pasd"
+            ],
+            [
+               "2519119",
+               "1M45S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "35S pasd"
+            ],
+            [
+               "251766",
+               "1M25S pasd"
+            ],
+            [
+               "251729",
+               "2M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-8-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-5-TA",
+      "leaves" : "11:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "2M42S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M6S pasd"
+            ],
+            [
+               "250040",
+               "1M10S pasd"
+            ],
+            [
+               "250041",
+               "54S pasd"
+            ],
+            [
+               "250042",
+               "37S pasd"
+            ],
+            [
+               "250043",
+               "1M13S pasd"
+            ],
+            [
+               "250011",
+               "1M pasd"
+            ],
+            [
+               "250033",
+               "1M41S pasd"
+            ],
+            [
+               "250034",
+               "1M31S pasd"
+            ],
+            [
+               "250081",
+               "2M7S pasd"
+            ],
+            [
+               "250028",
+               "2M7S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-5-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-44-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-44-TA",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "2M42S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "1M30S pasd"
+            ],
+            [
+               "250040",
+               "50S pasd"
+            ],
+            [
+               "250041",
+               "38S pasd"
+            ],
+            [
+               "250042",
+               "26S pasd"
+            ],
+            [
+               "250043",
+               "52S pasd"
+            ],
+            [
+               "250011",
+               "44S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-18-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-36-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-36-TA",
+      "leaves" : "12:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-19-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-19-TA",
+      "leaves" : "18:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "2M42S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "23S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-13-R-4",
+         "route" : {
+            "name" : "Bulli Station - Princess Hwy near Lysaght St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-4",
+            "id" : "R_36-4-_-sj2-1-R-4"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-28-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-28-TA",
+      "leaves" : "14:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "23S pasd"
+            ],
+            [
+               "2518118",
+               "2M19S pasd"
+            ],
+            [
+               "2518117",
+               "1M18S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "1M13S pasd"
+            ],
+            [
+               "251767",
+               "1M9S pasd"
+            ],
+            [
+               "251742",
+               "53S pasd"
+            ],
+            [
+               "251743",
+               "14S pasd"
+            ],
+            [
+               "251744",
+               "31S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "52S pasd"
+            ],
+            [
+               "251766",
+               "2M8S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-14-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-11-TA",
+      "leaves" : "10:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "39S pasd"
+            ],
+            [
+               "250015",
+               "34S pasd"
+            ],
+            [
+               "250016",
+               "56S pasd"
+            ],
+            [
+               "250017",
+               "37S pasd"
+            ],
+            [
+               "250018",
+               "29S pasd"
+            ],
+            [
+               "2519119",
+               "1M45S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "35S pasd"
+            ],
+            [
+               "251766",
+               "1M25S pasd"
+            ],
+            [
+               "251729",
+               "2M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-8-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-35-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-35-TA",
+      "leaves" : "12:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-17-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-21-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-21-TA",
+      "leaves" : "09:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-24-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-24-TA",
+      "leaves" : "11:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-27-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-27-TA",
+      "leaves" : "13:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-41-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-41-TA",
+      "leaves" : "16:48:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-38-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-38-TA",
+      "leaves" : "14:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-17-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-7-TA",
+      "leaves" : "15:07:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "59S pasd"
+            ],
+            [
+               "251817",
+               "2M1S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-39-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-39-TA",
+      "leaves" : "14:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-15-TA",
+      "leaves" : "16:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "250028",
+               null
+            ],
+            [
+               "250029",
+               "46S pasd"
+            ],
+            [
+               "2500326",
+               "1M15S pasd"
+            ],
+            [
+               "2500317",
+               "2M pasd"
+            ],
+            [
+               "250013",
+               "59S pasd"
+            ],
+            [
+               "250014",
+               "39S pasd"
+            ],
+            [
+               "250015",
+               "34S pasd"
+            ],
+            [
+               "250016",
+               "56S pasd"
+            ],
+            [
+               "250017",
+               "37S pasd"
+            ],
+            [
+               "250018",
+               "29S pasd"
+            ],
+            [
+               "2519119",
+               "1M45S pasd"
+            ],
+            [
+               "251912",
+               "58S pasd"
+            ],
+            [
+               "251913",
+               "28S pasd"
+            ],
+            [
+               "251914",
+               "29S pasd"
+            ],
+            [
+               "251915",
+               "30S pasd"
+            ],
+            [
+               "251916",
+               "35S pasd"
+            ],
+            [
+               "251917",
+               "31S pasd"
+            ],
+            [
+               "251918",
+               "1M14S pasd"
+            ],
+            [
+               "251919",
+               "23S pasd"
+            ],
+            [
+               "251920",
+               "30S pasd"
+            ],
+            [
+               "251818",
+               "43S pasd"
+            ],
+            [
+               "251819",
+               "1M2S pasd"
+            ],
+            [
+               "2518102",
+               "50S pasd"
+            ],
+            [
+               "2518119",
+               "47S pasd"
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "35S pasd"
+            ],
+            [
+               "251766",
+               "1M25S pasd"
+            ],
+            [
+               "251729",
+               "2M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-8-H-3",
+         "route" : {
+            "name" : "Wollongong Entertainment Centre Crown St - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-3",
+            "id" : "R_36-4-_-sj2-1-H-3"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-29-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-29-TA",
+      "leaves" : "14:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-40-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-40-TA",
+      "leaves" : "15:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-32-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-32-TA",
+      "leaves" : "09:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "1M18S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-16-R-6",
+         "route" : {
+            "name" : "Bulli Station - Stocklands_ Princes Hwy",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-6",
+            "id" : "R_36-4-_-sj2-1-R-6"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-6-TA",
+      "leaves" : "12:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "59S pasd"
+            ],
+            [
+               "251817",
+               "2M1S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-4-TA",
+      "leaves" : "11:07:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "59S pasd"
+            ],
+            [
+               "251817",
+               "2M1S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-1-TA",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "47S pasd"
+            ],
+            [
+               "251632",
+               "41S pasd"
+            ],
+            [
+               "251633",
+               "27S pasd"
+            ],
+            [
+               "251635",
+               "36S pasd"
+            ],
+            [
+               "251636",
+               "49S pasd"
+            ],
+            [
+               "251637",
+               "2M19S pasd"
+            ],
+            [
+               "251638",
+               "39S pasd"
+            ],
+            [
+               "251639",
+               "42S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "1M pasd"
+            ],
+            [
+               "2518108",
+               "1M27S pasd"
+            ],
+            [
+               "2518109",
+               "1M33S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "1M18S pasd"
+            ],
+            [
+               "251817",
+               "2M42S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-2-TA",
+      "leaves" : "18:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Bulli Station - Woonona Shops_ Princes Hwy after Russell St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-2",
+            "id" : "R_36-4-_-sj2-1-R-2"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-30-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-30-TA",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2518119",
+               null
+            ],
+            [
+               "2518105",
+               "17S pasd"
+            ],
+            [
+               "2518118",
+               "1M44S pasd"
+            ],
+            [
+               "2518117",
+               "59S pasd"
+            ],
+            [
+               "2518116",
+               "25S pasd"
+            ],
+            [
+               "2518115",
+               "7S pasd"
+            ],
+            [
+               "2518114",
+               "1M28S pasd"
+            ],
+            [
+               "2518113",
+               "55S pasd"
+            ],
+            [
+               "251767",
+               "52S pasd"
+            ],
+            [
+               "251742",
+               "39S pasd"
+            ],
+            [
+               "251743",
+               "10S pasd"
+            ],
+            [
+               "251744",
+               "24S pasd"
+            ],
+            [
+               "251759",
+               "3M pasd"
+            ],
+            [
+               "251760",
+               "17S pasd"
+            ],
+            [
+               "251766",
+               "43S pasd"
+            ],
+            [
+               "251729",
+               "3M pasd"
+            ],
+            [
+               "251730",
+               "1M7S pasd"
+            ],
+            [
+               "251617",
+               "47S pasd"
+            ],
+            [
+               "251618",
+               "47S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-15-H-5",
+         "route" : {
+            "name" : "Corrimal Shops - Bulli Station",
+            "rs_ref" : "RS_36-4-_-sj2-1-H-5",
+            "id" : "R_36-4-_-sj2-1-H-5"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "4"
+   },
+   "VJ_36-4-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_36-4-_-sj2-1-9-TA",
+      "leaves" : "16:37:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "251618",
+               null
+            ],
+            [
+               "251619",
+               "40S pasd"
+            ],
+            [
+               "251632",
+               "35S pasd"
+            ],
+            [
+               "251633",
+               "23S pasd"
+            ],
+            [
+               "251635",
+               "30S pasd"
+            ],
+            [
+               "251636",
+               "42S pasd"
+            ],
+            [
+               "251637",
+               "1M59S pasd"
+            ],
+            [
+               "251638",
+               "33S pasd"
+            ],
+            [
+               "251639",
+               "38S pasd"
+            ],
+            [
+               "251640",
+               "36S pasd"
+            ],
+            [
+               "251616",
+               "1M54S pasd"
+            ],
+            [
+               "251711",
+               "42S pasd"
+            ],
+            [
+               "251712",
+               "48S pasd"
+            ],
+            [
+               "251752",
+               "44S pasd"
+            ],
+            [
+               "251753",
+               "1M20S pasd"
+            ],
+            [
+               "251764",
+               "56S pasd"
+            ],
+            [
+               "251737",
+               "37S pasd"
+            ],
+            [
+               "251738",
+               "13S pasd"
+            ],
+            [
+               "251739",
+               "10S pasd"
+            ],
+            [
+               "251740",
+               "33S pasd"
+            ],
+            [
+               "251741",
+               "29S pasd"
+            ],
+            [
+               "251742",
+               "1M2S pasd"
+            ],
+            [
+               "251743",
+               "18S pasd"
+            ],
+            [
+               "251744",
+               "38S pasd"
+            ],
+            [
+               "251765",
+               "45S pasd"
+            ],
+            [
+               "2518108",
+               "1M5S pasd"
+            ],
+            [
+               "2518109",
+               "1M10S pasd"
+            ],
+            [
+               "2518110",
+               "1M7S pasd"
+            ],
+            [
+               "2518111",
+               "53S pasd"
+            ],
+            [
+               "2518112",
+               "59S pasd"
+            ],
+            [
+               "251817",
+               "2M1S pasd"
+            ],
+            [
+               "251826",
+               "39S pasd"
+            ],
+            [
+               "251827",
+               "59S pasd"
+            ],
+            [
+               "251828",
+               "58S pasd"
+            ],
+            [
+               "251921",
+               "56S pasd"
+            ],
+            [
+               "251922",
+               "58S pasd"
+            ],
+            [
+               "251923",
+               "33S pasd"
+            ],
+            [
+               "251924",
+               "26S pasd"
+            ],
+            [
+               "251925",
+               "31S pasd"
+            ],
+            [
+               "251926",
+               "14S pasd"
+            ],
+            [
+               "251927",
+               "35S pasd"
+            ],
+            [
+               "251928",
+               "15S pasd"
+            ],
+            [
+               "251929",
+               "23S pasd"
+            ],
+            [
+               "251930",
+               "33S pasd"
+            ],
+            [
+               "250039",
+               "2M24S pasd"
+            ],
+            [
+               "250040",
+               "1M20S pasd"
+            ],
+            [
+               "250041",
+               "1M1S pasd"
+            ],
+            [
+               "250042",
+               "42S pasd"
+            ],
+            [
+               "250043",
+               "1M24S pasd"
+            ],
+            [
+               "250011",
+               "1M9S pasd"
+            ],
+            [
+               "250033",
+               "1M24S pasd"
+            ],
+            [
+               "250034",
+               "1M16S pasd"
+            ],
+            [
+               "250081",
+               "1M45S pasd"
+            ],
+            [
+               "250028",
+               "1M45S pasd"
+            ]
+         ],
+         "id" : "JP_36-4-_-sj2-1-4-R-1",
+         "route" : {
+            "name" : "Bulli Station - Wollongong Entertainment Centre Crown St",
+            "rs_ref" : "RS_36-4-_-sj2-1-R-1",
+            "id" : "R_36-4-_-sj2-1-R-1"
+         }
+      },
+      "service" : "36-4-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "4"
+   }
+}
+;
+

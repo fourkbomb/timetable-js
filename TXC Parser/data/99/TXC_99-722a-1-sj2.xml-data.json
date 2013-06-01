@@ -1,0 +1,995 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-722-a-sj2-1" : "722"
+}
+;
+
+var stations = {
+   "208642" : "French Forest Rd Nr Patanga Rd",
+   "208618" : "Iris St Nr Karabah Pl",
+   "2099167" : "Carcoola Rd Nr Carawa Rd",
+   "2099153" : "Truman Av nr Badcoe Rd",
+   "209327" : "Condamine St Nr Balgowlah Rd",
+   "2100102" : "Allambie Rd nr Flers St",
+   "2099172" : "Carawa Rd Nr Alfred St",
+   "2099163" : "Carrington Av Nr Toronto Av",
+   "2099166" : "Carcoola Rd nr Cromer Primary",
+   "208619" : "Iris St Nr Patanga Rd",
+   "2099174" : "Fisher Rd North Nr Grover Av",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "208646" : "Frenchs Forest Rd Nr Forest High",
+   "2099165" : "Grover Av nr Carcoola Rd",
+   "2099197" : "Fisher Rd nr Tor Rd",
+   "209325" : "Condamine St Nr Kenneth Rd",
+   "208644" : "Frenchs Forest Rd Nr Skyline Pl",
+   "2099140" : "Alfred Nr Rowena",
+   "2099115" : "Mcintosh Rd Nr Mundara Pl",
+   "2099170" : "Fisher Rd North Nr Tennyson Rd",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "208643" : "Frenchs Forest Rd Nr Hurdis Av",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "209330" : "Sydney Rd Nr Woodland St",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "2099155" : "McNamara Rd nr Howse Cr",
+   "209329" : "Condamine St nr Sydney Rd",
+   "210074" : "Allambie Rd nr Aquatic Dr",
+   "2100136" : "McIntosh Rd nr Cousins Rd",
+   "2099138" : "Carawa Rd nr Waroon Rd",
+   "2093116" : "Balgowlah Boys High Stand 6",
+   "2093115" : "Upper Beach St nr Kareema St",
+   "2099194" : "Fisher Rd North nr Lynwood Av",
+   "2093162" : "Campbell Pde Nr Condamine St",
+   "2099117" : "Mcintosh Rd Nr Vale Av",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "2099151" : "Toronto Av Nr Cromer Rd",
+   "2099164" : "Carrington Av Nr Washington Av",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "2099209" : "Truman Av nr Howse Cr",
+   "208645" : "Frenchs Forest Rd Nr Bantry Bay Rd",
+   "2099157" : "Toronto Av opp Kenna Pl",
+   "209328" : "Condamine St Nr Griffiths St",
+   "2099122" : "Alfred St nr McIntosh Rd",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "2099211" : "McIntosh Rd nr Waratah Pde",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "2100118" : "Tristram Rd nr Boyer Rd",
+   "2093143" : "Wanganella St nr White St",
+   "2099105" : "McIntosh Rd nr Careden Av",
+   "2099171" : "Fisher Rd North Nr Carawa Rd",
+   "2099145" : "Alfred St nr Alamein Av",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "2099212" : "Toronto Av Nr Carrington Av",
+   "208664" : "Warrringah Rd Nr Bantry Bay Rd",
+   "2099104" : "Mcintosh Rd Nr Eltham St",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "208649" : "Rabbett St Nr Holland Av",
+   "2099103" : "Mcintosh Rd Nr Lascelles Rd",
+   "2099142" : "Alfred St Nr Greenwood Av",
+   "2100137" : "Willandra Rd nr Anthony Cl",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "208652" : "Warringah Rd nr Allambie Rd",
+   "2099152" : "Toronto Av nr Kenna Pl",
+   "2093167" : "Campbell Pde Nr Mackellar Ghs Stand 9",
+   "2100116" : "Tristram Rd Nr Willandra Rd",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "2099156" : "Badcoe Rd nr Truman Av",
+   "2099139" : "Alfred St Nr Maas St",
+   "209730" : "South Creek Rd nr Toronto Av",
+   "2100119" : "Oxford Falls Rd nr Brooker Av",
+   "2099141" : "Narraweena_ Alfred nr Raynor",
+   "2099158" : "Toronto Av Nr Cromer Rd",
+   "2093169" : "Quirk Rd Nr Mackellar Ghs Stand 7",
+   "209331" : "Sydney Rd nr West St",
+   "2099144" : "Alfred St Nr Parr Pde",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "2099198" : "Fisher Rd Nr Ilikai Pl",
+   "2099116" : "Mcintosh Rd Nr Victor Rd",
+   "2099101" : "Mcintosh Rd Nr Alfred St",
+   "2099154" : "Howse Cr nr Truman Av",
+   "2099173" : "Fisher Rd North Nr Ryrie Av",
+   "2100120" : "Iris St Nr Jones St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-722-a-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-722-a-sj2-1-3-b00b7",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093167",
+               null
+            ],
+            [
+               "210019",
+               "9M pasd"
+            ],
+            [
+               "2099122",
+               "4M pasd"
+            ],
+            [
+               "2099115",
+               "1M pasd"
+            ],
+            [
+               "2099116",
+               "0S pasd"
+            ],
+            [
+               "2099117",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "2M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "0S pasd"
+            ],
+            [
+               "2099170",
+               "1M pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "209730",
+               "1M pasd"
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - Carcoola Rd Nr Carawa Rd",
+            "rs_ref" : "RS_99-722-a-sj2-1-R-2",
+            "id" : "R_99-722-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-722-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-a-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-722-a-sj2-1-4-b00b7",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209730",
+               null
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "0S pasd"
+            ],
+            [
+               "2099138",
+               "1M pasd"
+            ],
+            [
+               "2099172",
+               "1M pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "0S pasd"
+            ],
+            [
+               "2099142",
+               "1M pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "0S pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "2M pasd"
+            ],
+            [
+               "208646",
+               "0S pasd"
+            ],
+            [
+               "208649",
+               "3M pasd"
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208652",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "2M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "0S pasd"
+            ],
+            [
+               "2100108",
+               "1M pasd"
+            ],
+            [
+               "2093162",
+               "1M pasd"
+            ],
+            [
+               "2093169",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "3M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "0S pasd"
+            ],
+            [
+               "2093143",
+               "2M pasd"
+            ],
+            [
+               "2093115",
+               "0S pasd"
+            ],
+            [
+               "2093116",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-722-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "South Creek Rd nr Toronto Av - Balgowlah Boys High",
+            "rs_ref" : "RS_99-722-a-sj2-1-H-1",
+            "id" : "R_99-722-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-a-sj2-1-2-b009g" : {
+      "vjcode" : "VJ_99-722-a-sj2-1-2-b009g",
+      "leaves" : "15:23:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2093167",
+               null
+            ],
+            [
+               "210019",
+               "9M pasd"
+            ],
+            [
+               "2099122",
+               "4M pasd"
+            ],
+            [
+               "2099115",
+               "1M pasd"
+            ],
+            [
+               "2099116",
+               "0S pasd"
+            ],
+            [
+               "2099117",
+               "1M pasd"
+            ],
+            [
+               "2099197",
+               "2M pasd"
+            ],
+            [
+               "2099198",
+               "1M pasd"
+            ],
+            [
+               "2099194",
+               "0S pasd"
+            ],
+            [
+               "2099170",
+               "1M pasd"
+            ],
+            [
+               "2099171",
+               "1M pasd"
+            ],
+            [
+               "2099173",
+               "0S pasd"
+            ],
+            [
+               "2099174",
+               "1M pasd"
+            ],
+            [
+               "209730",
+               "1M pasd"
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "0S pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-722-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Campbell Pde Nr Mackellar Ghs - Carcoola Rd Nr Carawa Rd",
+            "rs_ref" : "RS_99-722-a-sj2-1-R-2",
+            "id" : "R_99-722-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-722-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   },
+   "VJ_99-722-a-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-722-a-sj2-1-1-b00b2",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209730",
+               null
+            ],
+            [
+               "2099212",
+               "1M pasd"
+            ],
+            [
+               "2099151",
+               "1M pasd"
+            ],
+            [
+               "2099152",
+               "1M pasd"
+            ],
+            [
+               "2099153",
+               "0S pasd"
+            ],
+            [
+               "2099209",
+               "1M pasd"
+            ],
+            [
+               "2099154",
+               "0S pasd"
+            ],
+            [
+               "2099155",
+               "1M pasd"
+            ],
+            [
+               "2099156",
+               "0S pasd"
+            ],
+            [
+               "2099157",
+               "0S pasd"
+            ],
+            [
+               "2099158",
+               "1M pasd"
+            ],
+            [
+               "2099163",
+               "1M pasd"
+            ],
+            [
+               "2099164",
+               "1M pasd"
+            ],
+            [
+               "2099165",
+               "0S pasd"
+            ],
+            [
+               "2099166",
+               "1M pasd"
+            ],
+            [
+               "2099167",
+               "0S pasd"
+            ],
+            [
+               "2099138",
+               "1M pasd"
+            ],
+            [
+               "2099172",
+               "1M pasd"
+            ],
+            [
+               "2099139",
+               "1M pasd"
+            ],
+            [
+               "2099140",
+               "1M pasd"
+            ],
+            [
+               "2099141",
+               "0S pasd"
+            ],
+            [
+               "2099142",
+               "1M pasd"
+            ],
+            [
+               "2099144",
+               "0S pasd"
+            ],
+            [
+               "2099145",
+               "1M pasd"
+            ],
+            [
+               "2099101",
+               "0S pasd"
+            ],
+            [
+               "2099211",
+               "1M pasd"
+            ],
+            [
+               "2099103",
+               "0S pasd"
+            ],
+            [
+               "2099104",
+               "1M pasd"
+            ],
+            [
+               "2099105",
+               "0S pasd"
+            ],
+            [
+               "2100136",
+               "1M pasd"
+            ],
+            [
+               "2100137",
+               "1M pasd"
+            ],
+            [
+               "2100116",
+               "1M pasd"
+            ],
+            [
+               "2100118",
+               "1M pasd"
+            ],
+            [
+               "2100119",
+               "1M pasd"
+            ],
+            [
+               "2100120",
+               "1M pasd"
+            ],
+            [
+               "208618",
+               "0S pasd"
+            ],
+            [
+               "208619",
+               "1M pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "2M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "2M pasd"
+            ],
+            [
+               "208646",
+               "0S pasd"
+            ],
+            [
+               "208649",
+               "3M pasd"
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208652",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "2M pasd"
+            ],
+            [
+               "210074",
+               "1M pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "1M pasd"
+            ],
+            [
+               "210080",
+               "0S pasd"
+            ],
+            [
+               "210081",
+               "1M pasd"
+            ],
+            [
+               "2100103",
+               "0S pasd"
+            ],
+            [
+               "2100104",
+               "1M pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "0S pasd"
+            ],
+            [
+               "2100108",
+               "1M pasd"
+            ],
+            [
+               "2093162",
+               "1M pasd"
+            ],
+            [
+               "2093169",
+               "1M pasd"
+            ],
+            [
+               "209325",
+               "3M pasd"
+            ],
+            [
+               "209327",
+               "1M pasd"
+            ],
+            [
+               "209328",
+               "0S pasd"
+            ],
+            [
+               "209329",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "0S pasd"
+            ],
+            [
+               "2093143",
+               "2M pasd"
+            ],
+            [
+               "2093115",
+               "0S pasd"
+            ],
+            [
+               "2093116",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-722-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "South Creek Rd nr Toronto Av - Balgowlah Boys High",
+            "rs_ref" : "RS_99-722-a-sj2-1-H-1",
+            "id" : "R_99-722-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-722-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "722"
+   }
+}
+;
+

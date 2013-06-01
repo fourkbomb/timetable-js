@@ -1,0 +1,561 @@
+var OPERATOR = "Berrima Buslines";
+
+
+var LINES = {
+   "79-808-_-sj2-1" : "808"
+}
+;
+
+var stations = {
+   "2577147" : "Illawarra Hwy near Yarranga St",
+   "2576328" : "Kangaloon Rd",
+   "257633" : "Inverness Stud Argyle Rd",
+   "257715" : "Argyle Rd Near Kings Rd",
+   "257737" : "Illawarra Hwy near Suttor Rd",
+   "2577112" : "Tudor House Prep School East Boundary St",
+   "2577145" : "Burrawang General Store_ Hoddle St",
+   "257616" : "Boolwey St",
+   "2577169" : "Illawarra Hwy & Mcgraths Rd",
+   "2577116" : "Wattle Hill And Woodlands Garden",
+   "257689" : "Kangaloon Rd near Boardman Rd",
+   "257636" : "Kennilworth Gardens Retirement Village",
+   "2577115" : "Moss Vale And District Show Ground",
+   "257716" : "Moss Vale Holden Argyle Rd",
+   "257629" : "Harbison Care",
+   "2577114" : "Moss Vale And District Show Ground",
+   "257626" : "Moss Vale Rd Near Burradoo Rd",
+   "2577117" : "Tudor House Prep School East Boundary St",
+   "257687" : "Burradoo and Kangaloon Rds",
+   "2577148" : "Waters Shop",
+   "2577166" : "Illawarra Hwy near Sheepwash Rd",
+   "257650" : "Church of Scientology Bendooley St",
+   "257624" : "Mt Eymard Moss Vale Rd",
+   "257717" : "Illawarra Hwy near Hawkins St",
+   "257637" : "The Majors Village Kangaloon Rd",
+   "257631" : "Bedford Pl near Moss Vale Rd",
+   "257649" : "Bowral High School",
+   "2577168" : "Illawarra Hwy & Church Rd",
+   "257625" : "Moss Vale Rd Near Yean St",
+   "257713" : "Argyle Rd Near Mawson Tce",
+   "2576314" : "Bowral Public School near Bendooley St",
+   "257627" : "Moss Vale Rd near Holly Rd",
+   "257736" : "Illawarra Hwy near Argyle Rd",
+   "257630" : "Chevalier College",
+   "257690" : "Bowral Hospital (Bowral St)",
+   "2577162" : "Moss Vale Hs",
+   "257623" : "Moss Vale Rd Near Beavan Pl",
+   "2577167" : "Illawarra Hwy near Sheepwash Rd",
+   "257718" : "Argyle Rd near Illawarra Hwy",
+   "257634" : "Briars Tavern Argyle Rd",
+   "257719" : "Moss Vale Shops and Court House",
+   "257622" : "Moss Vale Rd near Kangaloon Rd",
+   "2576317" : "Illawarra Hwy & Mcgraths Rd",
+   "257635" : "Bong Bong Bridge Argyle Rd",
+   "2576315" : "Kangaloon Rd near Boardman Rd",
+   "2577143" : "Illawarra Hwy near Meryla St",
+   "257621" : "Boolwey St",
+   "257712" : "Argyle Rd near Headlam Rd",
+   "2577165" : "Illawarra Hwy & Church Rd",
+   "257686" : "Kangaloon and Kirklands Rds",
+   "257628" : "Berrima District Pony Club Moss Vale Rd",
+   "257632" : "Moss Vale Rd Near Elizabeth St",
+   "257685" : "Kangaloon Public School",
+   "2577146" : "Illawarra Hwy near Main St",
+   "257619" : "Bowral Hospital Side Entrance Mona Rd",
+   "2577113" : "Wattle Hill And Woodlands Garden",
+   "2577163" : "Moss Vale Hs"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_79-808-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_79-808-_-sj2-1-1-TA",
+      "leaves" : "07:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "257616",
+               null
+            ],
+            [
+               "257621",
+               "18S pasd"
+            ],
+            [
+               "257636",
+               "48S pasd"
+            ],
+            [
+               "257637",
+               "21S pasd"
+            ],
+            [
+               "257687",
+               "33S pasd"
+            ],
+            [
+               "257689",
+               "1M pasd"
+            ],
+            [
+               "2576328",
+               "5M pasd"
+            ],
+            [
+               "257685",
+               "7M pasd"
+            ],
+            [
+               "257686",
+               "10M32S pasd"
+            ],
+            [
+               "2577147",
+               "8M22S pasd"
+            ],
+            [
+               "2577146",
+               "1M6S pasd"
+            ],
+            [
+               "2577143",
+               "2M pasd"
+            ],
+            [
+               "2577148",
+               "18S pasd"
+            ],
+            [
+               "2576317",
+               "2M42S pasd"
+            ],
+            [
+               "2577145",
+               "3M pasd"
+            ],
+            [
+               "2577165",
+               "7M pasd"
+            ],
+            [
+               "2577166",
+               "3M pasd"
+            ],
+            [
+               "2577112",
+               "12M pasd"
+            ],
+            [
+               "2577113",
+               "5M16S pasd"
+            ],
+            [
+               "2577162",
+               "4M44S pasd"
+            ],
+            [
+               "2577114",
+               "1M27S pasd"
+            ],
+            [
+               "257717",
+               "1M28S pasd"
+            ],
+            [
+               "257718",
+               "52S pasd"
+            ],
+            [
+               "257719",
+               "52S pasd"
+            ]
+         ],
+         "id" : "JP_79-808-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Boolwey St - Moss Vale Shops and Court House",
+            "rs_ref" : "RS_79-808-_-sj2-1-R-1",
+            "id" : "R_79-808-_-sj2-1-R-1"
+         }
+      },
+      "service" : "79-808-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "808"
+   },
+   "VJ_79-808-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_79-808-_-sj2-1-2-TA",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2576314",
+               null
+            ],
+            [
+               "257621",
+               "1M2S pasd"
+            ],
+            [
+               "257636",
+               "2M40S pasd"
+            ],
+            [
+               "257637",
+               "1M12S pasd"
+            ],
+            [
+               "257687",
+               "1M51S pasd"
+            ],
+            [
+               "257689",
+               "3M15S pasd"
+            ],
+            [
+               "2576328",
+               "11M pasd"
+            ],
+            [
+               "257685",
+               "7M pasd"
+            ],
+            [
+               "2577147",
+               "15M57S pasd"
+            ],
+            [
+               "2577146",
+               "1M3S pasd"
+            ],
+            [
+               "2577143",
+               "2S pasd"
+            ],
+            [
+               "2577148",
+               "31S pasd"
+            ],
+            [
+               "2576317",
+               "4M27S pasd"
+            ],
+            [
+               "2577165",
+               "3M pasd"
+            ],
+            [
+               "2577166",
+               "2M pasd"
+            ],
+            [
+               "2576315",
+               "10M pasd"
+            ],
+            [
+               "257616",
+               "10M pasd"
+            ]
+         ],
+         "id" : "JP_79-808-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Bowral Public School near Bendooley St - Boolwey St",
+            "rs_ref" : "RS_79-808-_-sj2-1-R-2",
+            "id" : "R_79-808-_-sj2-1-R-2"
+         }
+      },
+      "service" : "79-808-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "808"
+   },
+   "VJ_79-808-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_79-808-_-sj2-1-4-TA",
+      "leaves" : "09:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "257616",
+               null
+            ],
+            [
+               "257621",
+               "46S pasd"
+            ],
+            [
+               "257622",
+               "34S pasd"
+            ],
+            [
+               "257623",
+               "51S pasd"
+            ],
+            [
+               "257624",
+               "33S pasd"
+            ],
+            [
+               "257625",
+               "58S pasd"
+            ],
+            [
+               "257626",
+               "22S pasd"
+            ],
+            [
+               "257627",
+               "1M16S pasd"
+            ],
+            [
+               "257628",
+               "46S pasd"
+            ],
+            [
+               "257629",
+               "32S pasd"
+            ],
+            [
+               "257630",
+               "36S pasd"
+            ],
+            [
+               "257631",
+               "49S pasd"
+            ],
+            [
+               "257632",
+               "24S pasd"
+            ],
+            [
+               "257633",
+               "2M6S pasd"
+            ],
+            [
+               "257634",
+               "1M5S pasd"
+            ],
+            [
+               "257635",
+               "2M15S pasd"
+            ],
+            [
+               "257712",
+               "34S pasd"
+            ],
+            [
+               "257713",
+               "1M29S pasd"
+            ],
+            [
+               "257715",
+               "49S pasd"
+            ],
+            [
+               "257716",
+               "1M7S pasd"
+            ],
+            [
+               "257717",
+               "35S pasd"
+            ],
+            [
+               "257718",
+               "35S pasd"
+            ],
+            [
+               "257719",
+               "58S pasd"
+            ],
+            [
+               "257736",
+               "52S pasd"
+            ],
+            [
+               "257737",
+               "1M pasd"
+            ],
+            [
+               "2577115",
+               "59S pasd"
+            ],
+            [
+               "2577163",
+               "1M9S pasd"
+            ],
+            [
+               "2577116",
+               "1M26S pasd"
+            ],
+            [
+               "2577117",
+               "1M34S pasd"
+            ],
+            [
+               "2577167",
+               "5M pasd"
+            ],
+            [
+               "2577168",
+               "2M pasd"
+            ],
+            [
+               "2577145",
+               "3M pasd"
+            ],
+            [
+               "2577169",
+               "3M pasd"
+            ],
+            [
+               "2577147",
+               "6M15S pasd"
+            ],
+            [
+               "2577146",
+               "45S pasd"
+            ],
+            [
+               "2577143",
+               "3M pasd"
+            ],
+            [
+               "2577148",
+               "31S pasd"
+            ],
+            [
+               "2576317",
+               "4M29S pasd"
+            ],
+            [
+               "2577145",
+               "3M pasd"
+            ],
+            [
+               "2577165",
+               "3M pasd"
+            ],
+            [
+               "2577166",
+               "2M pasd"
+            ],
+            [
+               "2576315",
+               "9M pasd"
+            ],
+            [
+               "257649",
+               "2M pasd"
+            ],
+            [
+               "257619",
+               "1M25S pasd"
+            ],
+            [
+               "257690",
+               "35S pasd"
+            ],
+            [
+               "257650",
+               "1M14S pasd"
+            ],
+            [
+               "257616",
+               "1M14S pasd"
+            ]
+         ],
+         "id" : "JP_79-808-_-sj2-1-4-R-4",
+         "route" : {
+            "name" : "Boolwey St - Boolwey St",
+            "rs_ref" : "RS_79-808-_-sj2-1-R-4",
+            "id" : "R_79-808-_-sj2-1-R-4"
+         }
+      },
+      "service" : "79-808-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "808"
+   },
+   "VJ_79-808-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_79-808-_-sj2-1-3-TA",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2577163",
+               null
+            ],
+            [
+               "2577116",
+               "6M12S pasd"
+            ],
+            [
+               "2577117",
+               "6M48S pasd"
+            ],
+            [
+               "2577167",
+               "7M pasd"
+            ],
+            [
+               "2577168",
+               "2M pasd"
+            ],
+            [
+               "2577145",
+               "5M pasd"
+            ],
+            [
+               "2577169",
+               "6M pasd"
+            ],
+            [
+               "2577147",
+               "4M28S pasd"
+            ],
+            [
+               "2577146",
+               "32S pasd"
+            ],
+            [
+               "2577143",
+               "32S pasd"
+            ]
+         ],
+         "id" : "JP_79-808-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Moss Vale Hs - Illawarra Hwy near Meryla St",
+            "rs_ref" : "RS_79-808-_-sj2-1-R-3",
+            "id" : "R_79-808-_-sj2-1-R-3"
+         }
+      },
+      "service" : "79-808-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "808"
+   }
+}
+;
+

@@ -1,0 +1,727 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-772-b-sj2-1" : "772"
+}
+;
+
+var stations = {
+   "2088186" : "Spit Rd Nr Medusa St",
+   "206017" : "Miller St Nr Carlow St",
+   "2088190" : "Spit Rd Nr Military Rd",
+   "206120" : "Alfred St nr Olympic Dr",
+   "209330" : "Sydney Rd Nr Woodland St",
+   "2093142" : "Sydney Rd Nr Condamine St",
+   "2096112" : "Queenscliff Rd Nr Greycliffe St",
+   "209647" : "Wyuna Av Nr Oliver St",
+   "2096103" : "Lawrence St Nr Harbord Rd",
+   "209938" : "Pitt Rd nr Reid Av",
+   "209552" : "Pittwater Rd Nr Raglan St",
+   "2096117" : "Carlton St nr Wyndora Av",
+   "209334" : "Sydney Rd nr Coral St",
+   "209538" : "Sydney Rd Nr James St",
+   "209335" : "Manly Rd nr Heaton Av",
+   "209019" : "Military Rd Nr Hampden Av",
+   "209937" : "Pitt Rd Nr Playfair Rd",
+   "2096100" : "Harbord Rd nr Wyndora Av",
+   "209615" : "Evans St Nr Albert St",
+   "208812" : "Spit Rd Nr Parriwi Rd",
+   "2096110" : "Cavill St Nr Dalley St",
+   "209442" : "Sydney Rd Nr Austin St",
+   "209645" : "Wyndora Av Nr Eric St",
+   "209212" : "Manly Rd Nr Avona Cr",
+   "206085" : "Miller St near Pacific Hwy",
+   "209537" : "Sydney Rd Opp Ivanhoe Park",
+   "2088194" : "Military Rd Nr Belmont Rd",
+   "209646" : "Wyndora Av Nr Oliver St",
+   "209059" : "Military Rd Nr Cabramatta Rd",
+   "2093141" : "Sydney Rd Nr Hill St",
+   "209664" : "Carrington Pde Nr Adina Rd",
+   "209649" : "Wyuna Av Nr Harbord Rd",
+   "209665" : "Carrington Pde Nr Gardere Av",
+   "2096111" : "Queenscliff Rd Nr Dalley St",
+   "209559" : "North Steyne Nr Pacific St",
+   "209934" : "Abbott Rd Nr Burilla Av",
+   "2096101" : "Harbord Rd nr Surfers Pde",
+   "209441" : "Sydney Rd Nr Bellevue St",
+   "209995" : "Griffin Rd Nr Abbott Rd",
+   "206125" : "Broughton St Nr Pitt St",
+   "206072" : "Miller St nr Falcon St",
+   "206057" : "Lavender St Nr Walker St",
+   "209558" : "North Steyne Nr Cameron Av",
+   "209332" : "Sydney Rd nr Wanganella St",
+   "209438" : "Sydney Rd Nr Thornton St",
+   "206030" : "Blues Point Rd Nr Blue St",
+   "209666" : "Carrington Pde nr Beach St",
+   "208911" : "Military Rd Nr Watson St",
+   "206123" : "Alfred St near Milsons Point Station",
+   "209667" : "Carrington Pde Nr The Drive",
+   "209939" : "Pitt Rd nr Granger Av",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "208944" : "Military Rd nr Rangers Rd",
+   "206031" : "Blues Point Rd nr Lavender St",
+   "209940" : "Pitt Rd Nr Griffin Rd",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "209553" : "Belgrave St Nr Sydney Rd",
+   "206024" : "Miller St nr Blue St",
+   "209936" : "Pitt Rd Nr Fairport St",
+   "209935" : "Abbott Rd Nr Fay St",
+   "2088192" : "Military Rd Nr Wudgong St",
+   "206018" : "Miller St near Ridge St",
+   "2088193" : "Military Rd Nr Lang St",
+   "206019" : "Miller St nr McLaren St",
+   "209560" : "North Steyne Nr Pine St",
+   "209648" : "Wyuna Av 250m W Of Oliver St",
+   "206058" : "Lavender St nr Cliff St",
+   "2096102" : "Harbord Rd Nr Soldiers Av",
+   "209331" : "Sydney Rd nr West St",
+   "209554" : "North Steyne Nr Carlton St",
+   "209669" : "Evans St Nr Charles St",
+   "209440" : "Sydney Rd Nr Cohen St",
+   "2088188" : "Spit Rd Nr Stanton Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-772-b-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-772-b-sj2-1-2-b00b2",
+      "leaves" : "06:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209934",
+               null
+            ],
+            [
+               "209935",
+               "0S pasd"
+            ],
+            [
+               "209936",
+               "1M pasd"
+            ],
+            [
+               "209937",
+               "1M pasd"
+            ],
+            [
+               "209938",
+               "0S pasd"
+            ],
+            [
+               "209939",
+               "0S pasd"
+            ],
+            [
+               "209940",
+               "1M pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209664",
+               "2M pasd"
+            ],
+            [
+               "209665",
+               "1M pasd"
+            ],
+            [
+               "209666",
+               "0S pasd"
+            ],
+            [
+               "209667",
+               "1M pasd"
+            ],
+            [
+               "209669",
+               "1M pasd"
+            ],
+            [
+               "209615",
+               "1M pasd"
+            ],
+            [
+               "2096117",
+               "0S pasd"
+            ],
+            [
+               "209645",
+               "0S pasd"
+            ],
+            [
+               "209646",
+               "1M pasd"
+            ],
+            [
+               "209647",
+               "1M pasd"
+            ],
+            [
+               "209648",
+               "0S pasd"
+            ],
+            [
+               "209649",
+               "1M pasd"
+            ],
+            [
+               "2096100",
+               "0S pasd"
+            ],
+            [
+               "2096101",
+               "1M pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "1M pasd"
+            ],
+            [
+               "209558",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "1M pasd"
+            ],
+            [
+               "209554",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "1M pasd"
+            ],
+            [
+               "209537",
+               "0S pasd"
+            ],
+            [
+               "209538",
+               "1M pasd"
+            ],
+            [
+               "209438",
+               "1M pasd"
+            ],
+            [
+               "209440",
+               "0S pasd"
+            ],
+            [
+               "209441",
+               "1M pasd"
+            ],
+            [
+               "209442",
+               "1M pasd"
+            ],
+            [
+               "2093141",
+               "0S pasd"
+            ],
+            [
+               "2093142",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "0S pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "3M pasd"
+            ],
+            [
+               "2088186",
+               "3M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "5M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-772-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Abbott Rd Nr Burilla Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-772-b-sj2-1-H-1",
+            "id" : "R_99-772-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-772-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "772"
+   },
+   "VJ_99-772-b-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-772-b-sj2-1-1-b00b7",
+      "leaves" : "06:52:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209934",
+               null
+            ],
+            [
+               "209935",
+               "0S pasd"
+            ],
+            [
+               "209936",
+               "1M pasd"
+            ],
+            [
+               "209937",
+               "1M pasd"
+            ],
+            [
+               "209938",
+               "0S pasd"
+            ],
+            [
+               "209939",
+               "0S pasd"
+            ],
+            [
+               "209940",
+               "1M pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209664",
+               "2M pasd"
+            ],
+            [
+               "209665",
+               "1M pasd"
+            ],
+            [
+               "209666",
+               "0S pasd"
+            ],
+            [
+               "209667",
+               "1M pasd"
+            ],
+            [
+               "209669",
+               "1M pasd"
+            ],
+            [
+               "209615",
+               "1M pasd"
+            ],
+            [
+               "2096117",
+               "0S pasd"
+            ],
+            [
+               "209645",
+               "0S pasd"
+            ],
+            [
+               "209646",
+               "1M pasd"
+            ],
+            [
+               "209647",
+               "1M pasd"
+            ],
+            [
+               "209648",
+               "0S pasd"
+            ],
+            [
+               "209649",
+               "1M pasd"
+            ],
+            [
+               "2096100",
+               "0S pasd"
+            ],
+            [
+               "2096101",
+               "1M pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "1M pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "1M pasd"
+            ],
+            [
+               "209558",
+               "1M pasd"
+            ],
+            [
+               "209559",
+               "1M pasd"
+            ],
+            [
+               "209560",
+               "1M pasd"
+            ],
+            [
+               "209554",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "1M pasd"
+            ],
+            [
+               "209537",
+               "0S pasd"
+            ],
+            [
+               "209538",
+               "1M pasd"
+            ],
+            [
+               "209438",
+               "1M pasd"
+            ],
+            [
+               "209440",
+               "0S pasd"
+            ],
+            [
+               "209441",
+               "1M pasd"
+            ],
+            [
+               "209442",
+               "1M pasd"
+            ],
+            [
+               "2093141",
+               "0S pasd"
+            ],
+            [
+               "2093142",
+               "1M pasd"
+            ],
+            [
+               "209330",
+               "1M pasd"
+            ],
+            [
+               "209331",
+               "0S pasd"
+            ],
+            [
+               "209332",
+               "1M pasd"
+            ],
+            [
+               "209334",
+               "1M pasd"
+            ],
+            [
+               "209335",
+               "1M pasd"
+            ],
+            [
+               "209212",
+               "1M pasd"
+            ],
+            [
+               "208812",
+               "3M pasd"
+            ],
+            [
+               "2088186",
+               "3M pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "1M pasd"
+            ],
+            [
+               "2088190",
+               "1M pasd"
+            ],
+            [
+               "2088192",
+               "1M pasd"
+            ],
+            [
+               "2088193",
+               "0S pasd"
+            ],
+            [
+               "2088194",
+               "1M pasd"
+            ],
+            [
+               "209059",
+               "1M pasd"
+            ],
+            [
+               "209019",
+               "1M pasd"
+            ],
+            [
+               "208944",
+               "1M pasd"
+            ],
+            [
+               "208913",
+               "0S pasd"
+            ],
+            [
+               "208911",
+               "2M pasd"
+            ],
+            [
+               "206072",
+               "5M pasd"
+            ],
+            [
+               "206017",
+               "1M pasd"
+            ],
+            [
+               "206018",
+               "1M pasd"
+            ],
+            [
+               "206019",
+               "2M pasd"
+            ],
+            [
+               "206085",
+               "1M pasd"
+            ],
+            [
+               "206024",
+               "1M pasd"
+            ],
+            [
+               "206030",
+               "0S pasd"
+            ],
+            [
+               "206031",
+               "1M pasd"
+            ],
+            [
+               "206057",
+               "1M pasd"
+            ],
+            [
+               "206058",
+               "1M pasd"
+            ],
+            [
+               "206123",
+               "2M pasd"
+            ],
+            [
+               "206125",
+               "1M pasd"
+            ],
+            [
+               "206120",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-772-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Abbott Rd Nr Burilla Av - Alfred St nr Olympic Dr",
+            "rs_ref" : "RS_99-772-b-sj2-1-H-1",
+            "id" : "R_99-772-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-772-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "772"
+   }
+}
+;
+

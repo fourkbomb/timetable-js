@@ -1,0 +1,495 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-536-4-sj2-1" : "5364"
+}
+;
+
+var stations = {
+   "2251315" : "Kallaroo Rd (After Empire Bay Dr)",
+   "2256203" : "Blackwall Rd Near Allfield Rd",
+   "2257209" : "Gordon Rd near Sorrento Rd",
+   "2257177" : "Springwood St Near Winifred Av",
+   "2256176" : "Blackwall Rd Near Alpha Rd",
+   "2251295" : "Scaysbrook Dr near Edmondson Cr",
+   "225199" : "Kallaroo Rd near Hastings Pde",
+   "2256200" : "Blackwall Rd Near Victoria Rd",
+   "2257206" : "Greenfield Rd Near Rickard Rd",
+   "2257211" : "Rickard Rd near Rosella Rd",
+   "2251293" : "Scaysbrook Dr near Waldron Rd",
+   "2251290" : "Scaysbrook Dr near Monica St",
+   "2257219" : "Empire Bay Dr near Wards Hill Rd",
+   "2257148" : "Opposite Ettalong Bowling Club Springwood St",
+   "2251100" : "Empire Bay Dr Near Bundaleer Cr",
+   "2257202" : "Empire Bay Dr Near Peridon Av",
+   "2256198" : "Woy Woy Court House Blackwall Rd",
+   "2257208" : "Sorrento Rd near Boongala Av",
+   "2256177" : "Blackwall Rd Near Mcmasters Rd",
+   "2257220" : "Empire Bay Dr near Wards Hill Rd",
+   "2257203" : "Empire Bay Dr near Hillcrest Rd",
+   "2257179" : "Springwood Rd - Opp.No.79 (Before Karingi St)",
+   "2256185" : "Dunmore St Near Wyoming St",
+   "2257185" : "Picnic Pde Near Bream Rd",
+   "2251294" : "Scaysbrook Dr near Pickering Cl",
+   "2257121" : "Ettalong Centrelink Ocean View Rd",
+   "2257205" : "Greenfield Rd - No.57",
+   "2257218" : "Empire Bay Dr",
+   "2256199" : "Blackwall Rd Near Victoria Rd",
+   "2251292" : "Scaysbrook Dr near Waldron Rd",
+   "225613" : "Woy Woy Stand 2",
+   "2257144" : "Ocean View Rd near Picnic Pde",
+   "2251288" : "Cullen Rd (Before Dundulla Rd)",
+   "2256175" : "Blackwall Rd near Burge Rd",
+   "2257204" : "Empire Bay Dr near Rosella Rd",
+   "2257216" : "Empire Bay Dr near Awinya Cl",
+   "2256188" : "Springwood St Near Gallipoli Av",
+   "2251166" : "Avoca Dr near Killuna Rd",
+   "2257214" : "Greenfield Rd Near Rickard Rd",
+   "2256187" : "Springwood St Near Warwick St",
+   "2257143" : "Ocean View Rd near Whiting Rd",
+   "2257184" : "Picnic Pde Near Ocean View Rd",
+   "2251284" : "Oberton St Near School St",
+   "2251281" : "Melville St near Scaysbrook Dr",
+   "2251296" : "Scaysbrook Dr near Edmondson Cr",
+   "2256202" : "Blackwall Rd near Farnell Rd",
+   "2257134" : "Booker Bay Rd - No.108 (After Karu Av)",
+   "2256201" : "Woy Woy Public School Blackwall Rd",
+   "2257133" : "Booker Bay Rd near Flathead Rd",
+   "2251283" : "Oberton St Near Gurrigal St",
+   "2251289" : "Melville St near Cullens Rd",
+   "2257119" : "Ettalong Public School Uligandi St",
+   "2257212" : "Rickard Rd near Myrtle St",
+   "2257261" : "Greenfield Rd - No.33",
+   "2257187" : "Daley Av near Ulami Av",
+   "2251104" : "Empire Bay Dr near Bridge St",
+   "2257217" : "Empire Bay Dr (Opp.Empire Bay PS)",
+   "2257210" : "Gordon Rd near Boongala Av",
+   "2257260" : "Greenfield Rd - No.60",
+   "2256215" : "Maitland Bay Dr Before The Rip Bridge",
+   "2251334" : "Kallaroo Rd - No. 55 (Opp.The Cedars Cl)",
+   "2256184" : "Dunmore St near Mcmasters Rd",
+   "2251287" : "The Cullens Rd near The Scenic Rd",
+   "2257340" : "Uligandi St - No.41 (After Barrenjoey Rd)",
+   "2256186" : "Springwood St Near Wallaby St",
+   "2257213" : "Rickard Rd near Echuca Rd Rickard Rd",
+   "2251282" : "Oberton St near Julan Rd",
+   "2251333" : "Empire Bay Dr - Opp.No.54 (Before Mackillop Rd)",
+   "2257188" : "Daley Av near Helmsman Bvd",
+   "2257215" : "Greenfield Rd near Empire Bay Dr",
+   "2257319" : "Davis St - No.14 (After Eastern Rd)",
+   "2257186" : "Picnic Pde Near Flathead Rd",
+   "2257207" : "Kendall Rd near Sorrento Rd",
+   "2257264" : "Empire Bay Dr - No.145",
+   "2251102" : "Empire Bay Dr near Humphreys Rd",
+   "2251316" : "Kallaroo Rd (Before Empire Bay Dr)",
+   "2257140" : "Booker Bay Rd Near Davis St",
+   "2257317" : "Schnapper Rd - Opp.No.40 (Before Bream Rd)",
+   "2251103" : "Mackillop Rd Kincumber Sth",
+   "2257142" : "Ocean View Rd (Ferry Rd)",
+   "2251291" : "Scaysbrook Dr Near Woodfield Rd",
+   "2257178" : "Springwood St Near Gwendolen Av",
+   "2251350" : "Empire Bay Dr - No.138 (Opp.Bundaleer Cr)",
+   "2251297" : "Empire Bay Dr near Rachael Cl",
+   "2251105" : "Empire Bay Dr Near Kerta Rd",
+   "2257122" : "Ocean View Rd near Whiting Rd",
+   "2251101" : "Empire Bay Dr Near Wandi Cl",
+   "225198" : "173 Kildare St Opp Andrew Cl",
+   "2257120" : "Ettalong Memorial Club Ocean View Rd",
+   "225197" : "Kildare St Opp Armstrong St",
+   "225196" : "Empire Bay Dr Near Nerang Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-536-4-sj2-1-2-b0195" : {
+      "vjcode" : "VJ_93-536-4-sj2-1-2-b0195",
+      "leaves" : "21:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225613",
+               null
+            ],
+            [
+               "2256198",
+               "0S pasd"
+            ],
+            [
+               "2256199",
+               "1M pasd"
+            ],
+            [
+               "2256200",
+               "0S pasd"
+            ],
+            [
+               "2256201",
+               "1M pasd"
+            ],
+            [
+               "2256202",
+               "0S pasd"
+            ],
+            [
+               "2256203",
+               "0S pasd"
+            ],
+            [
+               "2256175",
+               "1M pasd"
+            ],
+            [
+               "2256176",
+               "0S pasd"
+            ],
+            [
+               "2256177",
+               "1M pasd"
+            ],
+            [
+               "2256184",
+               "0S pasd"
+            ],
+            [
+               "2256185",
+               "0S pasd"
+            ],
+            [
+               "2256186",
+               "1M pasd"
+            ],
+            [
+               "2256187",
+               "0S pasd"
+            ],
+            [
+               "2256188",
+               "1M pasd"
+            ],
+            [
+               "2257177",
+               "0S pasd"
+            ],
+            [
+               "2257178",
+               "0S pasd"
+            ],
+            [
+               "2257179",
+               "1M pasd"
+            ],
+            [
+               "2257148",
+               "0S pasd"
+            ],
+            [
+               "2257340",
+               "1M pasd"
+            ],
+            [
+               "2257119",
+               "1M pasd"
+            ],
+            [
+               "2257120",
+               "0S pasd"
+            ],
+            [
+               "2257121",
+               "1M pasd"
+            ],
+            [
+               "2257122",
+               "0S pasd"
+            ],
+            [
+               "2257317",
+               "1M pasd"
+            ],
+            [
+               "2257133",
+               "1M pasd"
+            ],
+            [
+               "2257134",
+               "0S pasd"
+            ],
+            [
+               "2257319",
+               "1M pasd"
+            ],
+            [
+               "2257140",
+               "0S pasd"
+            ],
+            [
+               "2257142",
+               "1M pasd"
+            ],
+            [
+               "2257143",
+               "0S pasd"
+            ],
+            [
+               "2257144",
+               "1M pasd"
+            ],
+            [
+               "2257184",
+               "0S pasd"
+            ],
+            [
+               "2257185",
+               "0S pasd"
+            ],
+            [
+               "2257186",
+               "1M pasd"
+            ],
+            [
+               "2256215",
+               "0S pasd"
+            ],
+            [
+               "2257187",
+               "1M pasd"
+            ],
+            [
+               "2257188",
+               "1M pasd"
+            ],
+            [
+               "2257202",
+               "0S pasd"
+            ],
+            [
+               "2257203",
+               "1M pasd"
+            ],
+            [
+               "2257264",
+               "1M pasd"
+            ],
+            [
+               "2257204",
+               "0S pasd"
+            ],
+            [
+               "2257205",
+               "1M pasd"
+            ],
+            [
+               "2257261",
+               "0S pasd"
+            ],
+            [
+               "2257206",
+               "1M pasd"
+            ],
+            [
+               "2257207",
+               "0S pasd"
+            ],
+            [
+               "2257208",
+               "0S pasd"
+            ],
+            [
+               "2257209",
+               "0S pasd"
+            ],
+            [
+               "2257210",
+               "1M pasd"
+            ],
+            [
+               "2257211",
+               "0S pasd"
+            ],
+            [
+               "2257212",
+               "0S pasd"
+            ],
+            [
+               "2257213",
+               "0S pasd"
+            ],
+            [
+               "2257214",
+               "0S pasd"
+            ],
+            [
+               "2257215",
+               "1M pasd"
+            ],
+            [
+               "2257260",
+               "0S pasd"
+            ],
+            [
+               "2257216",
+               "0S pasd"
+            ],
+            [
+               "2257217",
+               "0S pasd"
+            ],
+            [
+               "2257218",
+               "1M pasd"
+            ],
+            [
+               "2257219",
+               "0S pasd"
+            ],
+            [
+               "2257220",
+               "1M pasd"
+            ],
+            [
+               "2251297",
+               "0S pasd"
+            ],
+            [
+               "225196",
+               "1M pasd"
+            ],
+            [
+               "2251315",
+               "1M pasd"
+            ],
+            [
+               "225197",
+               "0S pasd"
+            ],
+            [
+               "225198",
+               "1M pasd"
+            ],
+            [
+               "225199",
+               "0S pasd"
+            ],
+            [
+               "2251334",
+               "1M pasd"
+            ],
+            [
+               "2251316",
+               "1M pasd"
+            ],
+            [
+               "2251350",
+               "0S pasd"
+            ],
+            [
+               "2251100",
+               "1M pasd"
+            ],
+            [
+               "2251101",
+               "0S pasd"
+            ],
+            [
+               "2251102",
+               "1M pasd"
+            ],
+            [
+               "2251333",
+               "1M pasd"
+            ],
+            [
+               "2251103",
+               "1M pasd"
+            ],
+            [
+               "2251104",
+               "1M pasd"
+            ],
+            [
+               "2251105",
+               "1M pasd"
+            ],
+            [
+               "2251287",
+               "0S pasd"
+            ],
+            [
+               "2251288",
+               "0S pasd"
+            ],
+            [
+               "2251289",
+               "1M pasd"
+            ],
+            [
+               "2251290",
+               "0S pasd"
+            ],
+            [
+               "2251291",
+               "1M pasd"
+            ],
+            [
+               "2251292",
+               "0S pasd"
+            ],
+            [
+               "2251293",
+               "0S pasd"
+            ],
+            [
+               "2251294",
+               "1M pasd"
+            ],
+            [
+               "2251295",
+               "0S pasd"
+            ],
+            [
+               "2251296",
+               "1M pasd"
+            ],
+            [
+               "2251281",
+               "0S pasd"
+            ],
+            [
+               "2251282",
+               "1M pasd"
+            ],
+            [
+               "2251283",
+               "0S pasd"
+            ],
+            [
+               "2251284",
+               "1M pasd"
+            ],
+            [
+               "2251166",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-536-4-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Woy Woy Station - Avoca Dr near Killuna Rd",
+            "rs_ref" : "RS_93-536-4-sj2-1-H-1",
+            "id" : "R_93-536-4-sj2-1-H-1"
+         }
+      },
+      "service" : "93-536-4-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "5364"
+   }
+}
+;
+

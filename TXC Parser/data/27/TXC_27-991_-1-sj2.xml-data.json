@@ -1,0 +1,3309 @@
+var OPERATOR = "Veolia (Region 10)";
+
+
+var LINES = {
+   "27-991-_-sj2-1" : "991"
+}
+;
+
+var stations = {
+   "223345" : "Heathcote Pre-School and Public School Rosebery",
+   "2233173" : "Carnarvon St Near Fremantle Pl",
+   "2233170" : "Glenora Rd Near Norseman Pl",
+   "2233161" : "Sladden Rd Near Brooke St",
+   "223249" : "Heather St Near Mistletoe St",
+   "223217" : "Spur Cr Near Ninth Av",
+   "2233184" : "Sladden Rd Near Bisdee Pl",
+   "223228" : "National Av near Primrose Pl",
+   "2233226" : "Fairview Shop Fairview Av near Cutler Rd",
+   "223318" : "Corinth Rd near Forum Dr",
+   "223312" : "Engadine Post Office St",
+   "2233247" : "Yarrawarrah Shopping Centre Engadine_ near Whea",
+   "2233266" : "Forum Dr after Troy Rd",
+   "2233175" : "Roebourne St Near Wittenoom Pl",
+   "223316" : "Forum Dr at Rialto Pl",
+   "223315" : "Bp Service Princes Hwy",
+   "2232222" : "National Av Near Second Av",
+   "2233220" : "Fairview Av Near Beethoven St",
+   "223327" : "Boundary Rd Near Short St",
+   "223242" : "Loftus Station",
+   "2233158" : "Porter Rd Near Birok Av",
+   "2233181" : "Old Bush Rd Near Dalziel St",
+   "223347" : "Rosebery St Near King St",
+   "223352" : "Dalley Rd near Willandra Pde",
+   "223324" : "Rosebery St Near King St",
+   "223342" : "Patterson Rd near Lindsay Gordon Pl",
+   "223231" : "Sutherland Interchange (Stand 4)",
+   "2233205" : "Engadine Motel Princes Hwy near Numantia Rd",
+   "2233221" : "Fairview Av Near Higgerson Av",
+   "223328" : "Boundary Rd near Surveyor Av",
+   "223251" : "Spur Cr near National Av",
+   "2233186" : "Sladden Rd Near Brooke St",
+   "223225" : "Sixth Av near Eighth Av",
+   "223244" : "National Av Near Cranberry St",
+   "223216" : "Spur Cr Near Heather St",
+   "2233178" : "Glenora Rd Near Norseman Pl",
+   "2233246" : "St John Bosco Primary School",
+   "223221" : "Loftus Public School National Av",
+   "223348" : "Rosebery St Near Willandra Pde",
+   "223212" : "Myrtle St",
+   "223250" : "Ninth Av Near Spur Cr",
+   "223240" : "Sixth Av near National Av",
+   "223219" : "National Av near Pare St",
+   "223325" : "Heathcote Primary School Rosebery St",
+   "223322" : "Cassandra Cr near Willandra Pde",
+   "2233218" : "Beethoven St near Hayden Pl",
+   "2233166" : "Yarrawarra Public School Old Bush Rd",
+   "2233176" : "Carnarvon St Near Fremantle Pl",
+   "2233232" : "Stephen Rd near Old Princes Hwy",
+   "2233245" : "St John Bosco College",
+   "2233207" : "Higgerson Av near Awatea Pl",
+   "223233" : "National Av Near Second Av",
+   "2233118" : "Woolworths Waratah Rd near Dernancourt Av",
+   "2233229" : "Beethoven St near Hayden Pl",
+   "223237" : "Fifth Av near Coreen Av",
+   "223344" : "Rosebery St Near Short St",
+   "223235" : "Fourth Av Near National Av",
+   "223238" : "Sixth Av near Eighth Av",
+   "2233188" : "Porter Rd Near Birok Av",
+   "2233227" : "Fairview Av Near Higgerson Av",
+   "223317" : "Forum Dr at Troy Rd",
+   "223214" : "Ninth Av Near Spur Cr",
+   "2233163" : "Sladden Rd Near Dalziel St",
+   "2233238" : "Corinth Rd near Forum Dr",
+   "223319" : "Corinth Rd Near Troy Rd",
+   "223253" : "Myrtle St",
+   "2233116" : "Engadine Bowling Club Cambrai Av",
+   "2233165" : "Old Bush Rd Near Dalziel St",
+   "223246" : "Pare Av near Ninth Av",
+   "223223" : "Sixth Av Near Loftus Av",
+   "2233183" : "Sladden Rd Near Dalziel St",
+   "223248" : "Spur Cr Near Heather St",
+   "2233228" : "Fairview Av Near Beethoven St",
+   "2232221" : "National Av Near Cranberry St",
+   "2233160" : "Sladden Rd Near Brooke St",
+   "223213" : "Spur Cr near Myrtle St",
+   "2233172" : "Giles St near Carnarvon St",
+   "223331" : "Garvan Rd near Patterson Rd",
+   "2233159" : "Engadine High School Porter Rd",
+   "223229" : "National Av Near Third Av",
+   "223241" : "Sixth Av Near Loftus Av",
+   "2233185" : "Sladden Rd Near Brooke St",
+   "2233174" : "Roebourne St Near Wittenoom Pl",
+   "223252" : "Myrtle St near Spur Cr",
+   "223329" : "Boundary Rd near Jennings Rd",
+   "2233171" : "Turrella Rd near Giles St",
+   "2233180" : "Yarrawarrah Public School Old Bush Rd",
+   "223346" : "Heathcote Oliver St near Princes Hwy",
+   "2233219" : "Beethoven St near Fairview Av",
+   "223226" : "Fourth Av Near Veronica Pl",
+   "223227" : "Fourth Av Near National Av",
+   "2233265" : "Dorset Rd after Abbott Rd",
+   "223218" : "Ninth Av near Browallia Cr",
+   "2233157" : "Woolworths and Engadine RSL Citizens Club",
+   "223321" : "Corinth Rd near Cassandra Cr",
+   "2233168" : "Wheatley Rd near Bridgeview Rd",
+   "2233230" : "Beethoven St Near Higgerson Av",
+   "2233217" : "Beethoven St Near Higgerson Av",
+   "223351" : "Dalley Rd near Junction Rd",
+   "223341" : "Patterson Rd Near Wright Cl",
+   "2233206" : "Higgerson Av near Rosenheath Pl",
+   "223232" : "First Av near National Av",
+   "2233119" : "Engadine Post Office Old Princes Hwy",
+   "2233167" : "Old Bush Rd near Laurina Av",
+   "2232205" : "Sutherland Cemetery Linden St near Oxford St",
+   "2233187" : "Engadine High School Porter Rd",
+   "223326" : "Rosebery St Near Short St",
+   "2233182" : "Sladden Rd Near Old Bush Rd",
+   "2233231" : "Higgerson Av near Namara Pl",
+   "2233222" : "Fairview Av near Cutler Rd",
+   "223234" : "National Av Near Third Av",
+   "223222" : "Loftus Station",
+   "2233117" : "Engadine Public School Waratah Rd",
+   "2233179" : "Glenora Rd near Urana Rd",
+   "223323" : "Rosebery St Near Willandra Pde",
+   "223215" : "Heather St Near Mistletoe St",
+   "223243" : "Loftus Public School National Av",
+   "2233177" : "Giles St near Turrella Rd",
+   "223343" : "Boundary Rd Near Short St",
+   "223349" : "Cassandra Cr near Dalley Rd",
+   "2233164" : "Sladden Rd Near Old Bush Rd",
+   "223311" : "Engadine Railway Station St",
+   "223236" : "Fourth Av Near Veronica Pl",
+   "2233169" : "Glenora Rd near Wheatley Rd",
+   "223247" : "Spur Cr Near Ninth Av",
+   "223224" : "Sixth Av Near Seventh Av",
+   "2233162" : "Sladden Rd Near Bisdee Pl",
+   "223239" : "Sixth Av Near Seventh Av",
+   "223245" : "Pare St near National Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_27-991-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-11-TA",
+      "leaves" : "15:11:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "1M13S pasd"
+            ],
+            [
+               "2233175",
+               "51S pasd"
+            ],
+            [
+               "2233176",
+               "51S pasd"
+            ],
+            [
+               "2233177",
+               "59S pasd"
+            ],
+            [
+               "2233178",
+               "45S pasd"
+            ],
+            [
+               "2233179",
+               "1M20S pasd"
+            ],
+            [
+               "2233247",
+               "1M19S pasd"
+            ],
+            [
+               "2233119",
+               "7M3S pasd"
+            ],
+            [
+               "2233246",
+               "1M36S pasd"
+            ],
+            [
+               "2233245",
+               "45S pasd"
+            ],
+            [
+               "2233117",
+               "1M46S pasd"
+            ],
+            [
+               "2233118",
+               "16S pasd"
+            ],
+            [
+               "2233157",
+               "17S pasd"
+            ],
+            [
+               "223312",
+               "59S pasd"
+            ],
+            [
+               "2233226",
+               "2M8S pasd"
+            ],
+            [
+               "2233227",
+               "42S pasd"
+            ],
+            [
+               "2233228",
+               "42S pasd"
+            ],
+            [
+               "2233229",
+               "28S pasd"
+            ],
+            [
+               "2233230",
+               "41S pasd"
+            ],
+            [
+               "2233231",
+               "1M2S pasd"
+            ],
+            [
+               "2233232",
+               "42S pasd"
+            ],
+            [
+               "223315",
+               "1M13S pasd"
+            ],
+            [
+               "223316",
+               "1M46S pasd"
+            ],
+            [
+               "223317",
+               "12S pasd"
+            ],
+            [
+               "2233266",
+               "24S pasd"
+            ],
+            [
+               "223318",
+               "14S pasd"
+            ],
+            [
+               "223319",
+               "33S pasd"
+            ],
+            [
+               "2233238",
+               "24S pasd"
+            ],
+            [
+               "223321",
+               "1M18S pasd"
+            ],
+            [
+               "223322",
+               "13S pasd"
+            ],
+            [
+               "223351",
+               "32S pasd"
+            ],
+            [
+               "223323",
+               "35S pasd"
+            ],
+            [
+               "223324",
+               "32S pasd"
+            ],
+            [
+               "223325",
+               "39S pasd"
+            ],
+            [
+               "2233265",
+               "3M pasd"
+            ],
+            [
+               "223326",
+               "2M8S pasd"
+            ],
+            [
+               "223327",
+               "24S pasd"
+            ],
+            [
+               "223328",
+               "28S pasd"
+            ],
+            [
+               "223329",
+               "31S pasd"
+            ],
+            [
+               "223331",
+               "31S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-10-H-9",
+         "route" : {
+            "name" : "Sutherland Station - Garvan Rd near Patterson Rd",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-9",
+            "id" : "R_27-991-_-sj2-1-H-9"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-12-TA",
+      "leaves" : "11:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223331",
+               null
+            ],
+            [
+               "223341",
+               "29S pasd"
+            ],
+            [
+               "223342",
+               "24S pasd"
+            ],
+            [
+               "223343",
+               "1M1S pasd"
+            ],
+            [
+               "223344",
+               "18S pasd"
+            ],
+            [
+               "223345",
+               "48S pasd"
+            ],
+            [
+               "223347",
+               "35S pasd"
+            ],
+            [
+               "223348",
+               "23S pasd"
+            ],
+            [
+               "223349",
+               "34S pasd"
+            ],
+            [
+               "223351",
+               "28S pasd"
+            ],
+            [
+               "223352",
+               "42S pasd"
+            ],
+            [
+               "2233205",
+               "1M21S pasd"
+            ],
+            [
+               "2233206",
+               "1M32S pasd"
+            ],
+            [
+               "2233207",
+               "20S pasd"
+            ],
+            [
+               "2233217",
+               "27S pasd"
+            ],
+            [
+               "2233218",
+               "38S pasd"
+            ],
+            [
+               "2233219",
+               "46S pasd"
+            ],
+            [
+               "2233220",
+               "14S pasd"
+            ],
+            [
+               "2233221",
+               "41S pasd"
+            ],
+            [
+               "2233222",
+               "34S pasd"
+            ],
+            [
+               "223311",
+               "2M45S pasd"
+            ],
+            [
+               "223312",
+               "30S pasd"
+            ],
+            [
+               "2233157",
+               "33S pasd"
+            ],
+            [
+               "2233158",
+               "1M30S pasd"
+            ],
+            [
+               "2233159",
+               "27S pasd"
+            ],
+            [
+               "2233160",
+               "54S pasd"
+            ],
+            [
+               "2233161",
+               "22S pasd"
+            ],
+            [
+               "2233162",
+               "26S pasd"
+            ],
+            [
+               "2233163",
+               "32S pasd"
+            ],
+            [
+               "2233164",
+               "34S pasd"
+            ],
+            [
+               "2233165",
+               "28S pasd"
+            ],
+            [
+               "2233166",
+               "44S pasd"
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "39S pasd"
+            ],
+            [
+               "223215",
+               "58S pasd"
+            ],
+            [
+               "223216",
+               "26S pasd"
+            ],
+            [
+               "223217",
+               "28S pasd"
+            ],
+            [
+               "223218",
+               "29S pasd"
+            ],
+            [
+               "223219",
+               "46S pasd"
+            ],
+            [
+               "2232221",
+               "27S pasd"
+            ],
+            [
+               "223221",
+               "1M3S pasd"
+            ],
+            [
+               "223222",
+               "44S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "27S pasd"
+            ],
+            [
+               "223227",
+               "38S pasd"
+            ],
+            [
+               "223228",
+               "11S pasd"
+            ],
+            [
+               "223229",
+               "14S pasd"
+            ],
+            [
+               "2232222",
+               "34S pasd"
+            ],
+            [
+               "2232205",
+               "2M18S pasd"
+            ],
+            [
+               "223231",
+               "2M18S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-11-R-10",
+         "route" : {
+            "name" : "Garvan Rd near Patterson Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-10",
+            "id" : "R_27-991-_-sj2-1-R-10"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-13-TA",
+      "leaves" : "14:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223331",
+               null
+            ],
+            [
+               "223341",
+               "29S pasd"
+            ],
+            [
+               "223342",
+               "24S pasd"
+            ],
+            [
+               "223343",
+               "1M1S pasd"
+            ],
+            [
+               "223344",
+               "18S pasd"
+            ],
+            [
+               "223345",
+               "48S pasd"
+            ],
+            [
+               "223347",
+               "35S pasd"
+            ],
+            [
+               "223348",
+               "23S pasd"
+            ],
+            [
+               "223349",
+               "34S pasd"
+            ],
+            [
+               "223351",
+               "28S pasd"
+            ],
+            [
+               "223352",
+               "42S pasd"
+            ],
+            [
+               "2233205",
+               "1M21S pasd"
+            ],
+            [
+               "2233206",
+               "1M32S pasd"
+            ],
+            [
+               "2233207",
+               "20S pasd"
+            ],
+            [
+               "2233217",
+               "27S pasd"
+            ],
+            [
+               "2233218",
+               "38S pasd"
+            ],
+            [
+               "2233219",
+               "3M4S pasd"
+            ],
+            [
+               "2233220",
+               "56S pasd"
+            ],
+            [
+               "2233221",
+               "2M46S pasd"
+            ],
+            [
+               "2233222",
+               "2M16S pasd"
+            ],
+            [
+               "223311",
+               "10M58S pasd"
+            ],
+            [
+               "223312",
+               "30S pasd"
+            ],
+            [
+               "2233157",
+               "33S pasd"
+            ],
+            [
+               "2233158",
+               "1M30S pasd"
+            ],
+            [
+               "2233159",
+               "27S pasd"
+            ],
+            [
+               "2233160",
+               "54S pasd"
+            ],
+            [
+               "2233161",
+               "22S pasd"
+            ],
+            [
+               "2233162",
+               "26S pasd"
+            ],
+            [
+               "2233163",
+               "32S pasd"
+            ],
+            [
+               "2233164",
+               "34S pasd"
+            ],
+            [
+               "2233165",
+               "28S pasd"
+            ],
+            [
+               "2233166",
+               "44S pasd"
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "59S pasd"
+            ],
+            [
+               "223215",
+               "1M27S pasd"
+            ],
+            [
+               "223216",
+               "40S pasd"
+            ],
+            [
+               "223217",
+               "42S pasd"
+            ],
+            [
+               "223218",
+               "43S pasd"
+            ],
+            [
+               "223219",
+               "1M9S pasd"
+            ],
+            [
+               "2232221",
+               "41S pasd"
+            ],
+            [
+               "223221",
+               "1M35S pasd"
+            ],
+            [
+               "223222",
+               "1M4S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "54S pasd"
+            ],
+            [
+               "223227",
+               "1M17S pasd"
+            ],
+            [
+               "223228",
+               "23S pasd"
+            ],
+            [
+               "223229",
+               "28S pasd"
+            ],
+            [
+               "2232222",
+               "1M8S pasd"
+            ],
+            [
+               "2232205",
+               "4M36S pasd"
+            ],
+            [
+               "223231",
+               "4M36S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-12-R-10",
+         "route" : {
+            "name" : "Garvan Rd near Patterson Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-10",
+            "id" : "R_27-991-_-sj2-1-R-10"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-8-TA",
+      "leaves" : "08:02:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2233166",
+               null
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "39S pasd"
+            ],
+            [
+               "223215",
+               "58S pasd"
+            ],
+            [
+               "223216",
+               "26S pasd"
+            ],
+            [
+               "223217",
+               "28S pasd"
+            ],
+            [
+               "223218",
+               "29S pasd"
+            ],
+            [
+               "223219",
+               "46S pasd"
+            ],
+            [
+               "2232221",
+               "27S pasd"
+            ],
+            [
+               "223221",
+               "1M3S pasd"
+            ],
+            [
+               "223222",
+               "44S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "32S pasd"
+            ],
+            [
+               "223227",
+               "46S pasd"
+            ],
+            [
+               "223228",
+               "14S pasd"
+            ],
+            [
+               "223229",
+               "16S pasd"
+            ],
+            [
+               "2232222",
+               "41S pasd"
+            ],
+            [
+               "2232205",
+               "2M46S pasd"
+            ],
+            [
+               "223231",
+               "2M46S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-7-R-6",
+         "route" : {
+            "name" : "Yarrawarra Public School Old Bush Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-6",
+            "id" : "R_27-991-_-sj2-1-R-6"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-3-TA",
+      "leaves" : "08:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223331",
+               null
+            ],
+            [
+               "223341",
+               "29S pasd"
+            ],
+            [
+               "223342",
+               "24S pasd"
+            ],
+            [
+               "223343",
+               "1M1S pasd"
+            ],
+            [
+               "223344",
+               "18S pasd"
+            ],
+            [
+               "223345",
+               "48S pasd"
+            ],
+            [
+               "223347",
+               "35S pasd"
+            ],
+            [
+               "223348",
+               "23S pasd"
+            ],
+            [
+               "223349",
+               "34S pasd"
+            ],
+            [
+               "223351",
+               "28S pasd"
+            ],
+            [
+               "223352",
+               "42S pasd"
+            ],
+            [
+               "2233205",
+               "1M21S pasd"
+            ],
+            [
+               "2233206",
+               "1M32S pasd"
+            ],
+            [
+               "2233207",
+               "20S pasd"
+            ],
+            [
+               "2233217",
+               "27S pasd"
+            ],
+            [
+               "2233218",
+               "38S pasd"
+            ],
+            [
+               "2233219",
+               "49S pasd"
+            ],
+            [
+               "2233220",
+               "15S pasd"
+            ],
+            [
+               "2233221",
+               "44S pasd"
+            ],
+            [
+               "2233222",
+               "36S pasd"
+            ],
+            [
+               "223312",
+               "2M36S pasd"
+            ],
+            [
+               "2233157",
+               "40S pasd"
+            ],
+            [
+               "2233158",
+               "1M48S pasd"
+            ],
+            [
+               "2233159",
+               "32S pasd"
+            ],
+            [
+               "2233160",
+               "54S pasd"
+            ],
+            [
+               "2233161",
+               "22S pasd"
+            ],
+            [
+               "2233162",
+               "26S pasd"
+            ],
+            [
+               "2233163",
+               "32S pasd"
+            ],
+            [
+               "2233164",
+               "34S pasd"
+            ],
+            [
+               "2233165",
+               "28S pasd"
+            ],
+            [
+               "2233166",
+               "44S pasd"
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "39S pasd"
+            ],
+            [
+               "223215",
+               "58S pasd"
+            ],
+            [
+               "223216",
+               "26S pasd"
+            ],
+            [
+               "223217",
+               "28S pasd"
+            ],
+            [
+               "223218",
+               "29S pasd"
+            ],
+            [
+               "223219",
+               "46S pasd"
+            ],
+            [
+               "2232221",
+               "27S pasd"
+            ],
+            [
+               "223221",
+               "1M3S pasd"
+            ],
+            [
+               "223222",
+               "44S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "27S pasd"
+            ],
+            [
+               "223227",
+               "38S pasd"
+            ],
+            [
+               "223228",
+               "11S pasd"
+            ],
+            [
+               "223229",
+               "14S pasd"
+            ],
+            [
+               "2232222",
+               "34S pasd"
+            ],
+            [
+               "2232205",
+               "2M18S pasd"
+            ],
+            [
+               "223231",
+               "2M18S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Garvan Rd near Patterson Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-3",
+            "id" : "R_27-991-_-sj2-1-R-3"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-9-TA",
+      "leaves" : "07:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2233159",
+               null
+            ],
+            [
+               "2233160",
+               "54S pasd"
+            ],
+            [
+               "2233161",
+               "22S pasd"
+            ],
+            [
+               "2233162",
+               "26S pasd"
+            ],
+            [
+               "2233163",
+               "32S pasd"
+            ],
+            [
+               "2233164",
+               "34S pasd"
+            ],
+            [
+               "2233165",
+               "28S pasd"
+            ],
+            [
+               "2233166",
+               "44S pasd"
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "39S pasd"
+            ],
+            [
+               "223215",
+               "58S pasd"
+            ],
+            [
+               "223216",
+               "26S pasd"
+            ],
+            [
+               "223217",
+               "28S pasd"
+            ],
+            [
+               "223218",
+               "29S pasd"
+            ],
+            [
+               "223219",
+               "46S pasd"
+            ],
+            [
+               "2232221",
+               "27S pasd"
+            ],
+            [
+               "223221",
+               "1M3S pasd"
+            ],
+            [
+               "223222",
+               "44S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "32S pasd"
+            ],
+            [
+               "223227",
+               "46S pasd"
+            ],
+            [
+               "223228",
+               "14S pasd"
+            ],
+            [
+               "223229",
+               "16S pasd"
+            ],
+            [
+               "2232222",
+               "41S pasd"
+            ],
+            [
+               "2232205",
+               "2M46S pasd"
+            ],
+            [
+               "223231",
+               "2M46S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-8-R-7",
+         "route" : {
+            "name" : "Engadine High School Porter Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-7",
+            "id" : "R_27-991-_-sj2-1-R-7"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-5-TA",
+      "leaves" : "16:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "58S pasd"
+            ],
+            [
+               "2233175",
+               "40S pasd"
+            ],
+            [
+               "2233176",
+               "40S pasd"
+            ],
+            [
+               "2233177",
+               "46S pasd"
+            ],
+            [
+               "2233178",
+               "35S pasd"
+            ],
+            [
+               "2233179",
+               "1M3S pasd"
+            ],
+            [
+               "2233180",
+               "1M3S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-5-H-4",
+         "route" : {
+            "name" : "Sutherland Station - Yarrawarra Public School Old Bush Rd",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-4",
+            "id" : "R_27-991-_-sj2-1-H-4"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-1-TA",
+      "leaves" : "11:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "58S pasd"
+            ],
+            [
+               "2233175",
+               "40S pasd"
+            ],
+            [
+               "2233176",
+               "40S pasd"
+            ],
+            [
+               "2233177",
+               "46S pasd"
+            ],
+            [
+               "2233178",
+               "35S pasd"
+            ],
+            [
+               "2233179",
+               "1M3S pasd"
+            ],
+            [
+               "2233180",
+               "1M18S pasd"
+            ],
+            [
+               "2233181",
+               "41S pasd"
+            ],
+            [
+               "2233182",
+               "26S pasd"
+            ],
+            [
+               "2233183",
+               "29S pasd"
+            ],
+            [
+               "2233184",
+               "34S pasd"
+            ],
+            [
+               "2233185",
+               "27S pasd"
+            ],
+            [
+               "2233186",
+               "24S pasd"
+            ],
+            [
+               "2233187",
+               "59S pasd"
+            ],
+            [
+               "2233188",
+               "32S pasd"
+            ],
+            [
+               "223312",
+               "2M28S pasd"
+            ],
+            [
+               "2233226",
+               "1M36S pasd"
+            ],
+            [
+               "2233227",
+               "32S pasd"
+            ],
+            [
+               "2233228",
+               "31S pasd"
+            ],
+            [
+               "2233229",
+               "21S pasd"
+            ],
+            [
+               "2233230",
+               "41S pasd"
+            ],
+            [
+               "2233231",
+               "1M2S pasd"
+            ],
+            [
+               "2233232",
+               "42S pasd"
+            ],
+            [
+               "223315",
+               "1M13S pasd"
+            ],
+            [
+               "223316",
+               "1M46S pasd"
+            ],
+            [
+               "223317",
+               "12S pasd"
+            ],
+            [
+               "2233266",
+               "24S pasd"
+            ],
+            [
+               "223318",
+               "16S pasd"
+            ],
+            [
+               "223319",
+               "36S pasd"
+            ],
+            [
+               "2233238",
+               "26S pasd"
+            ],
+            [
+               "223321",
+               "1M23S pasd"
+            ],
+            [
+               "223322",
+               "14S pasd"
+            ],
+            [
+               "223323",
+               "49S pasd"
+            ],
+            [
+               "223324",
+               "34S pasd"
+            ],
+            [
+               "223325",
+               "42S pasd"
+            ],
+            [
+               "223326",
+               "1M8S pasd"
+            ],
+            [
+               "223327",
+               "24S pasd"
+            ],
+            [
+               "223328",
+               "28S pasd"
+            ],
+            [
+               "223329",
+               "31S pasd"
+            ],
+            [
+               "223331",
+               "31S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Sutherland Station - Garvan Rd near Patterson Rd",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-1",
+            "id" : "R_27-991-_-sj2-1-H-1"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-6-TA",
+      "leaves" : "14:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "58S pasd"
+            ],
+            [
+               "2233175",
+               "40S pasd"
+            ],
+            [
+               "2233176",
+               "40S pasd"
+            ],
+            [
+               "2233177",
+               "46S pasd"
+            ],
+            [
+               "2233178",
+               "35S pasd"
+            ],
+            [
+               "2233179",
+               "1M3S pasd"
+            ],
+            [
+               "2233180",
+               "1M18S pasd"
+            ],
+            [
+               "2233181",
+               "1M13S pasd"
+            ],
+            [
+               "2233182",
+               "47S pasd"
+            ],
+            [
+               "2233183",
+               "50S pasd"
+            ],
+            [
+               "2233184",
+               "59S pasd"
+            ],
+            [
+               "2233185",
+               "48S pasd"
+            ],
+            [
+               "2233186",
+               "42S pasd"
+            ],
+            [
+               "2233187",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-6-H-5",
+         "route" : {
+            "name" : "Sutherland Station - Engadine High School Porter Rd",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-5",
+            "id" : "R_27-991-_-sj2-1-H-5"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-15-TA",
+      "leaves" : "14:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "58S pasd"
+            ],
+            [
+               "2233175",
+               "40S pasd"
+            ],
+            [
+               "2233176",
+               "40S pasd"
+            ],
+            [
+               "2233177",
+               "46S pasd"
+            ],
+            [
+               "2233178",
+               "35S pasd"
+            ],
+            [
+               "2233179",
+               "1M3S pasd"
+            ],
+            [
+               "2233180",
+               "1M18S pasd"
+            ],
+            [
+               "2233181",
+               "41S pasd"
+            ],
+            [
+               "2233182",
+               "26S pasd"
+            ],
+            [
+               "2233183",
+               "29S pasd"
+            ],
+            [
+               "2233184",
+               "34S pasd"
+            ],
+            [
+               "2233185",
+               "27S pasd"
+            ],
+            [
+               "2233186",
+               "24S pasd"
+            ],
+            [
+               "2233187",
+               "59S pasd"
+            ],
+            [
+               "2233188",
+               "32S pasd"
+            ],
+            [
+               "223312",
+               "2M28S pasd"
+            ],
+            [
+               "2233226",
+               "1M36S pasd"
+            ],
+            [
+               "2233227",
+               "32S pasd"
+            ],
+            [
+               "2233228",
+               "31S pasd"
+            ],
+            [
+               "2233229",
+               "21S pasd"
+            ],
+            [
+               "2233230",
+               "41S pasd"
+            ],
+            [
+               "2233231",
+               "1M2S pasd"
+            ],
+            [
+               "2233232",
+               "42S pasd"
+            ],
+            [
+               "223315",
+               "1M13S pasd"
+            ],
+            [
+               "223316",
+               "1M46S pasd"
+            ],
+            [
+               "223317",
+               "12S pasd"
+            ],
+            [
+               "2233266",
+               "24S pasd"
+            ],
+            [
+               "223318",
+               "16S pasd"
+            ],
+            [
+               "223319",
+               "36S pasd"
+            ],
+            [
+               "2233238",
+               "26S pasd"
+            ],
+            [
+               "223321",
+               "1M23S pasd"
+            ],
+            [
+               "223322",
+               "14S pasd"
+            ],
+            [
+               "223323",
+               "49S pasd"
+            ],
+            [
+               "223324",
+               "34S pasd"
+            ],
+            [
+               "223325",
+               "42S pasd"
+            ],
+            [
+               "223326",
+               "1M8S pasd"
+            ],
+            [
+               "223327",
+               "24S pasd"
+            ],
+            [
+               "223328",
+               "28S pasd"
+            ],
+            [
+               "223329",
+               "31S pasd"
+            ],
+            [
+               "223331",
+               "31S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Sutherland Station - Garvan Rd near Patterson Rd",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-1",
+            "id" : "R_27-991-_-sj2-1-H-1"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-2-TA",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "2M5S pasd"
+            ],
+            [
+               "2233175",
+               "1M27S pasd"
+            ],
+            [
+               "2233176",
+               "1M28S pasd"
+            ],
+            [
+               "2233177",
+               "1M41S pasd"
+            ],
+            [
+               "2233178",
+               "1M17S pasd"
+            ],
+            [
+               "2233179",
+               "2M18S pasd"
+            ],
+            [
+               "2233180",
+               "2M44S pasd"
+            ],
+            [
+               "2233181",
+               "41S pasd"
+            ],
+            [
+               "2233182",
+               "26S pasd"
+            ],
+            [
+               "2233183",
+               "29S pasd"
+            ],
+            [
+               "2233184",
+               "34S pasd"
+            ],
+            [
+               "2233185",
+               "27S pasd"
+            ],
+            [
+               "2233186",
+               "24S pasd"
+            ],
+            [
+               "2233187",
+               "59S pasd"
+            ],
+            [
+               "2233188",
+               "32S pasd"
+            ],
+            [
+               "223312",
+               "32S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Sutherland Station - Engadine Post Office Station St",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-2",
+            "id" : "R_27-991-_-sj2-1-H-2"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-14-TA",
+      "leaves" : "14:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223331",
+               null
+            ],
+            [
+               "223341",
+               "29S pasd"
+            ],
+            [
+               "223342",
+               "24S pasd"
+            ],
+            [
+               "223343",
+               "1M1S pasd"
+            ],
+            [
+               "223344",
+               "18S pasd"
+            ],
+            [
+               "223345",
+               "48S pasd"
+            ],
+            [
+               "223347",
+               "35S pasd"
+            ],
+            [
+               "223348",
+               "23S pasd"
+            ],
+            [
+               "223349",
+               "34S pasd"
+            ],
+            [
+               "223351",
+               "28S pasd"
+            ],
+            [
+               "223352",
+               "42S pasd"
+            ],
+            [
+               "2233205",
+               "1M21S pasd"
+            ],
+            [
+               "2233206",
+               "1M32S pasd"
+            ],
+            [
+               "2233207",
+               "20S pasd"
+            ],
+            [
+               "2233217",
+               "27S pasd"
+            ],
+            [
+               "2233218",
+               "38S pasd"
+            ],
+            [
+               "2233219",
+               "1M32S pasd"
+            ],
+            [
+               "2233220",
+               "28S pasd"
+            ],
+            [
+               "2233221",
+               "1M23S pasd"
+            ],
+            [
+               "2233222",
+               "1M8S pasd"
+            ],
+            [
+               "223311",
+               "5M29S pasd"
+            ],
+            [
+               "223312",
+               "1M6S pasd"
+            ],
+            [
+               "2233245",
+               "2M43S pasd"
+            ],
+            [
+               "2233116",
+               "2M31S pasd"
+            ],
+            [
+               "2233117",
+               "1M38S pasd"
+            ],
+            [
+               "2233118",
+               "22S pasd"
+            ],
+            [
+               "2233157",
+               "24S pasd"
+            ],
+            [
+               "2233158",
+               "3M17S pasd"
+            ],
+            [
+               "2233159",
+               "59S pasd"
+            ],
+            [
+               "2233160",
+               "54S pasd"
+            ],
+            [
+               "2233161",
+               "22S pasd"
+            ],
+            [
+               "2233162",
+               "26S pasd"
+            ],
+            [
+               "2233163",
+               "32S pasd"
+            ],
+            [
+               "2233164",
+               "34S pasd"
+            ],
+            [
+               "2233165",
+               "28S pasd"
+            ],
+            [
+               "2233166",
+               "44S pasd"
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "59S pasd"
+            ],
+            [
+               "223215",
+               "1M27S pasd"
+            ],
+            [
+               "223216",
+               "40S pasd"
+            ],
+            [
+               "223217",
+               "42S pasd"
+            ],
+            [
+               "223218",
+               "43S pasd"
+            ],
+            [
+               "223219",
+               "1M9S pasd"
+            ],
+            [
+               "2232221",
+               "41S pasd"
+            ],
+            [
+               "223221",
+               "1M35S pasd"
+            ],
+            [
+               "223222",
+               "1M4S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "54S pasd"
+            ],
+            [
+               "223227",
+               "1M17S pasd"
+            ],
+            [
+               "223228",
+               "23S pasd"
+            ],
+            [
+               "223229",
+               "28S pasd"
+            ],
+            [
+               "2232222",
+               "1M8S pasd"
+            ],
+            [
+               "2232205",
+               "4M36S pasd"
+            ],
+            [
+               "223231",
+               "4M36S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-13-R-11",
+         "route" : {
+            "name" : "Garvan Rd near Patterson Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-11",
+            "id" : "R_27-991-_-sj2-1-R-11"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-10-TA",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "223331",
+               null
+            ],
+            [
+               "223341",
+               "29S pasd"
+            ],
+            [
+               "223342",
+               "24S pasd"
+            ],
+            [
+               "223343",
+               "1M1S pasd"
+            ],
+            [
+               "223344",
+               "18S pasd"
+            ],
+            [
+               "223345",
+               "48S pasd"
+            ],
+            [
+               "223346",
+               "26S pasd"
+            ],
+            [
+               "223325",
+               "24S pasd"
+            ],
+            [
+               "2233265",
+               "2M10S pasd"
+            ],
+            [
+               "223347",
+               "2M29S pasd"
+            ],
+            [
+               "223348",
+               "39S pasd"
+            ],
+            [
+               "223349",
+               "58S pasd"
+            ],
+            [
+               "2233266",
+               "2M54S pasd"
+            ],
+            [
+               "223318",
+               "27S pasd"
+            ],
+            [
+               "223319",
+               "1M1S pasd"
+            ],
+            [
+               "2233238",
+               "45S pasd"
+            ],
+            [
+               "223321",
+               "2M22S pasd"
+            ],
+            [
+               "223322",
+               "24S pasd"
+            ],
+            [
+               "223351",
+               "1M1S pasd"
+            ],
+            [
+               "223352",
+               "1M25S pasd"
+            ],
+            [
+               "2233205",
+               "2M43S pasd"
+            ],
+            [
+               "2233206",
+               "3M4S pasd"
+            ],
+            [
+               "2233207",
+               "40S pasd"
+            ],
+            [
+               "2233217",
+               "54S pasd"
+            ],
+            [
+               "2233218",
+               "1M14S pasd"
+            ],
+            [
+               "2233219",
+               "2M18S pasd"
+            ],
+            [
+               "2233220",
+               "42S pasd"
+            ],
+            [
+               "2233221",
+               "2M4S pasd"
+            ],
+            [
+               "2233222",
+               "1M42S pasd"
+            ],
+            [
+               "223311",
+               "1M42S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-9-R-8",
+         "route" : {
+            "name" : "Garvan Rd near Patterson Rd - Engadine Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-8",
+            "id" : "R_27-991-_-sj2-1-R-8"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-7-TA",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2233166",
+               null
+            ],
+            [
+               "2233167",
+               "24S pasd"
+            ],
+            [
+               "2233168",
+               "15S pasd"
+            ],
+            [
+               "2233169",
+               "55S pasd"
+            ],
+            [
+               "2233170",
+               "1M18S pasd"
+            ],
+            [
+               "2233171",
+               "32S pasd"
+            ],
+            [
+               "2233172",
+               "34S pasd"
+            ],
+            [
+               "2233173",
+               "37S pasd"
+            ],
+            [
+               "2233174",
+               "39S pasd"
+            ],
+            [
+               "223212",
+               "35S pasd"
+            ],
+            [
+               "223213",
+               "1M11S pasd"
+            ],
+            [
+               "223214",
+               "39S pasd"
+            ],
+            [
+               "223215",
+               "58S pasd"
+            ],
+            [
+               "223216",
+               "26S pasd"
+            ],
+            [
+               "223217",
+               "28S pasd"
+            ],
+            [
+               "223218",
+               "29S pasd"
+            ],
+            [
+               "223219",
+               "46S pasd"
+            ],
+            [
+               "2232221",
+               "27S pasd"
+            ],
+            [
+               "223221",
+               "1M3S pasd"
+            ],
+            [
+               "223222",
+               "44S pasd"
+            ],
+            [
+               "223223",
+               "54S pasd"
+            ],
+            [
+               "223224",
+               "1M22S pasd"
+            ],
+            [
+               "223225",
+               "44S pasd"
+            ],
+            [
+               "223226",
+               "32S pasd"
+            ],
+            [
+               "223227",
+               "46S pasd"
+            ],
+            [
+               "223228",
+               "14S pasd"
+            ],
+            [
+               "223229",
+               "16S pasd"
+            ],
+            [
+               "2232222",
+               "41S pasd"
+            ],
+            [
+               "2232205",
+               "2M46S pasd"
+            ],
+            [
+               "223231",
+               "2M46S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-7-R-6",
+         "route" : {
+            "name" : "Yarrawarra Public School Old Bush Rd - Sutherland Station",
+            "rs_ref" : "RS_27-991-_-sj2-1-R-6",
+            "id" : "R_27-991-_-sj2-1-R-6"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   },
+   "VJ_27-991-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_27-991-_-sj2-1-4-TA",
+      "leaves" : "15:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "223231",
+               null
+            ],
+            [
+               "223232",
+               "1M20S pasd"
+            ],
+            [
+               "223233",
+               "15S pasd"
+            ],
+            [
+               "223234",
+               "24S pasd"
+            ],
+            [
+               "223235",
+               "19S pasd"
+            ],
+            [
+               "223236",
+               "24S pasd"
+            ],
+            [
+               "223237",
+               "18S pasd"
+            ],
+            [
+               "223238",
+               "23S pasd"
+            ],
+            [
+               "223239",
+               "40S pasd"
+            ],
+            [
+               "223240",
+               "43S pasd"
+            ],
+            [
+               "223241",
+               "25S pasd"
+            ],
+            [
+               "223242",
+               "49S pasd"
+            ],
+            [
+               "223243",
+               "37S pasd"
+            ],
+            [
+               "223244",
+               "1M7S pasd"
+            ],
+            [
+               "223245",
+               "27S pasd"
+            ],
+            [
+               "223246",
+               "36S pasd"
+            ],
+            [
+               "223247",
+               "37S pasd"
+            ],
+            [
+               "223248",
+               "30S pasd"
+            ],
+            [
+               "223249",
+               "21S pasd"
+            ],
+            [
+               "223250",
+               "56S pasd"
+            ],
+            [
+               "223251",
+               "29S pasd"
+            ],
+            [
+               "223252",
+               "20S pasd"
+            ],
+            [
+               "223253",
+               "58S pasd"
+            ],
+            [
+               "2233175",
+               "40S pasd"
+            ],
+            [
+               "2233176",
+               "40S pasd"
+            ],
+            [
+               "2233177",
+               "46S pasd"
+            ],
+            [
+               "2233178",
+               "35S pasd"
+            ],
+            [
+               "2233179",
+               "1M3S pasd"
+            ],
+            [
+               "2233180",
+               "1M18S pasd"
+            ],
+            [
+               "2233181",
+               "41S pasd"
+            ],
+            [
+               "2233182",
+               "26S pasd"
+            ],
+            [
+               "2233183",
+               "29S pasd"
+            ],
+            [
+               "2233184",
+               "34S pasd"
+            ],
+            [
+               "2233185",
+               "27S pasd"
+            ],
+            [
+               "2233186",
+               "24S pasd"
+            ],
+            [
+               "2233187",
+               "59S pasd"
+            ],
+            [
+               "2233188",
+               "1M25S pasd"
+            ],
+            [
+               "223312",
+               "1M25S pasd"
+            ]
+         ],
+         "id" : "JP_27-991-_-sj2-1-4-H-2",
+         "route" : {
+            "name" : "Sutherland Station - Engadine Post Office Station St",
+            "rs_ref" : "RS_27-991-_-sj2-1-H-2",
+            "id" : "R_27-991-_-sj2-1-H-2"
+         }
+      },
+      "service" : "27-991-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "991"
+   }
+}
+;
+

@@ -1,0 +1,4823 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-130-_-sj2-1" : "130"
+}
+;
+
+var stations = {
+   "210046" : "Pittwater Rd Nr Oliver St",
+   "209941" : "Griffin Rd nr Headland Rd",
+   "2100102" : "Allambie Rd nr Flers St",
+   "210072" : "Warringah Rd Nr Jones St",
+   "209943" : "Griffin Rd nr Pacific Pde",
+   "209659" : "Oliver St Nr Brighton St",
+   "210043" : "Pittwater Rd Nr Wakefield St",
+   "209682" : "Queenscliff Rd Nr Dalley St",
+   "210081" : "Allambie Rd nr Kirra Rd",
+   "209918" : "Alfred St Nr Warringah Rd",
+   "2100108" : "Kentwell Rd Nr Condamine St",
+   "209549" : "Pittwater Rd Nr Collingwood St",
+   "2100101" : "Allambie Rd nr Darmour Av",
+   "210071" : "Warringah Rd nr Goverment Rd",
+   "210067" : "Warringah Rd opp McKillop Rd",
+   "209948" : "Howard Av Nr Pittwater Rd",
+   "210080" : "Allambie Rd opp Roosevelt Av",
+   "209542" : "Pittwater Rd Nr Steinton St",
+   "210074" : "Allambie Rd nr Aquatic Dr",
+   "210047" : "Pittwater Rd nr Aitken Av",
+   "209552" : "Pittwater Rd Nr Raglan St",
+   "210070" : "Warringah Rd nr O'Connors Rd",
+   "209683" : "Cavill St Nr Dalley St",
+   "209663" : "Adams St nr Lalchere St",
+   "2100141" : "Warringah Rd nr Earl St",
+   "209944" : "Howard Av nr The Strand",
+   "2100105" : "Allambie Rd nr Lyly Rd",
+   "209998" : "Mcintosh Rd Nr Victor Rd",
+   "209917" : "Alfred St nr Oceania St",
+   "209519" : "Gilbert St Nr Belgrave St",
+   "2100106" : "Kentwell Rd Nr Allambie Rd",
+   "210068" : "Warringah Rd nr Beacon Hill Rd",
+   "209541" : "Belgrave St Nr Raglan St",
+   "210069" : "Warringah Rd nr Willandra Rd",
+   "2100100" : "Allambie Rd nr Mortain Av",
+   "210098" : "Allambie Rd nr Rodborough Rd",
+   "209662" : "Adams St Nr Travers Rd",
+   "209999" : "McIntosh Rd nr Beverley Job Park",
+   "2096105" : "Oliver St Nr St. John's",
+   "209547" : "Pittwater Rd Nr Eurobin Av",
+   "209550" : "Pittwater Rd Nr Pine St",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "209993" : "Warringah Rd nr Northcliffe Av",
+   "2100104" : "Allambie Rd nr Corkery Cr",
+   "209543" : "Pittwater Rd Nr Pine St",
+   "208620" : "Allambie Rd Nr Warringah Rd",
+   "2096115" : "Oliver St nr Wyadra Av",
+   "210044" : "Pittwater Rd Nr Western Av",
+   "2100103" : "Allambie Rd nr Allenby Park Pde",
+   "209996" : "Fisher Rd nr Lewis St",
+   "209997" : "Mcintosh Rd Nr Vale Av",
+   "210099" : "Allambie Rd nr Eaton Sq",
+   "209992" : "Warringah Rd nr Consul Rd",
+   "209551" : "Pittwater Rd Nr Carlton St",
+   "2100107" : "Kentwell Rd nr Orara Rd",
+   "209639" : "Bennett St Nr Oliver St",
+   "209553" : "Belgrave St Nr Sydney Rd",
+   "209681" : "Queenscliff Rd Nr Greycliffe St",
+   "209946" : "Howard Av Nr Avon Rd",
+   "209928" : "Griffin Rd Nr Abbott Rd",
+   "209942" : "Griffin Rd nr Boronia St",
+   "209661" : "Adams St Nr Park St",
+   "210079" : "Allambie Rd nr Inglebar Av",
+   "209947" : "Howard Av 200m E of Pittwater Rd",
+   "209516" : "Belgrave St Stand D",
+   "2096104" : "Oliver St Nr Lawrence St",
+   "209994" : "Griffin Rd Nr Pitt Rd",
+   "2099100" : "Mcintosh Rd Nr Mundara Pl",
+   "210045" : "Pittwater Rd Nr Riverview Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-130-_-sj2-1-8-b00b7" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-8-b00b7",
+      "leaves" : "02:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-10-b00b8" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-10-b00b8",
+      "leaves" : "01:28:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-9-b00b8" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-9-b00b8",
+      "leaves" : "02:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-3-b00b2" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-3-b00b2",
+      "leaves" : "02:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday",
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-5-b00b2" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-5-b00b2",
+      "leaves" : "02:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-7-b00b8" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-7-b00b8",
+      "leaves" : "01:58:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-2-b00ba" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-2-b00ba",
+      "leaves" : "01:28:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-11-b00b7" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-11-b00b7",
+      "leaves" : "02:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-6-b00b8" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-6-b00b8",
+      "leaves" : "02:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-16-b00b2" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-16-b00b2",
+      "leaves" : "02:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-15-b00ba" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-15-b00ba",
+      "leaves" : "02:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-13-b00ba" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-13-b00ba",
+      "leaves" : "02:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-4-b00b2",
+      "leaves" : "01:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-1-b00b7",
+      "leaves" : "01:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-12-b00b7" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-12-b00b7",
+      "leaves" : "02:55:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "130"
+   },
+   "VJ_90-130-_-sj2-1-14-b00ba" : {
+      "vjcode" : "VJ_90-130-_-sj2-1-14-b00ba",
+      "leaves" : "01:58:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209516",
+               null
+            ],
+            [
+               "209541",
+               "1M pasd"
+            ],
+            [
+               "209542",
+               "0S pasd"
+            ],
+            [
+               "209543",
+               "1M pasd"
+            ],
+            [
+               "209681",
+               "3M pasd"
+            ],
+            [
+               "209682",
+               "0S pasd"
+            ],
+            [
+               "209683",
+               "1M pasd"
+            ],
+            [
+               "2096104",
+               "1M pasd"
+            ],
+            [
+               "2096105",
+               "0S pasd"
+            ],
+            [
+               "2096115",
+               "1M pasd"
+            ],
+            [
+               "209659",
+               "1M pasd"
+            ],
+            [
+               "209639",
+               "0S pasd"
+            ],
+            [
+               "209661",
+               "0S pasd"
+            ],
+            [
+               "209662",
+               "1M pasd"
+            ],
+            [
+               "209663",
+               "0S pasd"
+            ],
+            [
+               "209928",
+               "2M pasd"
+            ],
+            [
+               "209994",
+               "0S pasd"
+            ],
+            [
+               "209941",
+               "1M pasd"
+            ],
+            [
+               "209942",
+               "1M pasd"
+            ],
+            [
+               "209943",
+               "1M pasd"
+            ],
+            [
+               "209944",
+               "1M pasd"
+            ],
+            [
+               "209946",
+               "1M pasd"
+            ],
+            [
+               "209947",
+               "1M pasd"
+            ],
+            [
+               "209948",
+               "0S pasd"
+            ],
+            [
+               "209996",
+               "1M pasd"
+            ],
+            [
+               "209997",
+               "0S pasd"
+            ],
+            [
+               "209998",
+               "1M pasd"
+            ],
+            [
+               "209999",
+               "1M pasd"
+            ],
+            [
+               "2099100",
+               "0S pasd"
+            ],
+            [
+               "209917",
+               "0S pasd"
+            ],
+            [
+               "209918",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "1M pasd"
+            ],
+            [
+               "209993",
+               "0S pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "0S pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "0S pasd"
+            ],
+            [
+               "208620",
+               "1M pasd"
+            ],
+            [
+               "210098",
+               "1M pasd"
+            ],
+            [
+               "210074",
+               "0S pasd"
+            ],
+            [
+               "210099",
+               "1M pasd"
+            ],
+            [
+               "2100100",
+               "0S pasd"
+            ],
+            [
+               "2100101",
+               "1M pasd"
+            ],
+            [
+               "2100102",
+               "1M pasd"
+            ],
+            [
+               "210079",
+               "0S pasd"
+            ],
+            [
+               "210080",
+               "1M pasd"
+            ],
+            [
+               "210081",
+               "0S pasd"
+            ],
+            [
+               "2100103",
+               "1M pasd"
+            ],
+            [
+               "2100104",
+               "0S pasd"
+            ],
+            [
+               "2100105",
+               "1M pasd"
+            ],
+            [
+               "2100106",
+               "0S pasd"
+            ],
+            [
+               "2100107",
+               "1M pasd"
+            ],
+            [
+               "2100108",
+               "0S pasd"
+            ],
+            [
+               "210043",
+               "1M pasd"
+            ],
+            [
+               "210044",
+               "0S pasd"
+            ],
+            [
+               "210045",
+               "1M pasd"
+            ],
+            [
+               "210046",
+               "0S pasd"
+            ],
+            [
+               "210047",
+               "1M pasd"
+            ],
+            [
+               "209547",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "1M pasd"
+            ],
+            [
+               "209549",
+               "0S pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "0S pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-130-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Belgrave St - Gilbert St Nr Belgrave St",
+            "rs_ref" : "RS_90-130-_-sj2-1-H-1",
+            "id" : "R_90-130-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-130-_-sj2-1",
+      "days" : [
+         "Sunday"
+      ],
+      "line" : "130"
+   }
+}
+;
+

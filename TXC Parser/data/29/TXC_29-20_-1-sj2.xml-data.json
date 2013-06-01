@@ -1,0 +1,2502 @@
+var OPERATOR = "Red Bus Service";
+
+
+var LINES = {
+   "29-20-_-sj2-1" : "20"
+}
+;
+
+var stations = {
+   "2250722" : "Central Coast Adventist School (opp. Bing Lee)",
+   "2250461" : "CC Hwy at Narrawa Av",
+   "2250544" : "Karalta Rd at Ilya Av",
+   "2250502" : "Wells St at Waratah St",
+   "225089" : "Erina Fair Stand A",
+   "2250548" : "Punt Bridge CC Hwy",
+   "2250460" : "Terrigal Dr Near Kuburra Rd",
+   "2260144" : "CC Hwy at Brooks Hill Lane",
+   "2250534" : "Mann St before Donnison St",
+   "2250473" : "The Fernery Oak Rd",
+   "2250547" : "Erina Council Depot CC Hwy",
+   "2250498" : "Springfield Rd opp Dolly Av",
+   "2250621" : "Carlton Rd and Milina Rd",
+   "2260146" : "CC Hwy at ERINA HEIGHTS PS",
+   "225013" : "CC Hwy at Albany St",
+   "2250546" : "CC Hwy before Avoca Dr",
+   "2260475" : "Central Coast Grammar School",
+   "2250495" : "Marana Rd at Springfield Rd",
+   "2250463" : "Gooriwa Rd Milina Rd near Wattle",
+   "225011" : "Mann St at  William St Mall",
+   "225029" : "Karalta Rd opp Bronzewing Dr",
+   "2250501" : "Wells St opp Diana St",
+   "2250535" : "Mann St at Georgiana Tce",
+   "2250769" : "Wells St at Springfield Rd",
+   "2250490" : "Wells St opp Clarence Rd",
+   "2250435" : "Terrigal Dr at CC Hwy",
+   "2250499" : "Wells St at Spring Av",
+   "2260145" : "CC Hwy opp Matcham Rd",
+   "2250462" : "CC Hwy at Carlton Rd",
+   "2250469" : "Wattle Tree Rd at Paroo Rd",
+   "2250474" : "End Oak Rd Oak Rd",
+   "2250466" : "Twin Bridges Wattle Tree Rd",
+   "2250491" : "Wells St at Meadow Rd",
+   "2250496" : "Springfield Rd opp Bushlands Av",
+   "2250255" : "Henry Kendall High School Racecourse Rd",
+   "225012" : "CC Hwy before Dane Dr",
+   "2250493" : "No 38 Sherwood Dr before Calvert Av",
+   "2250542" : "Karalta Rd at Bronzewing Dr",
+   "2250419" : "CC Hwy at  Adelaide St",
+   "225026" : "CC Hwy opp ERINA HS",
+   "2250459" : "Terrigal Dr opp Chetwynd Rd",
+   "225159" : "Ernest St at ERINA HS",
+   "2250464" : "Bandalong Rd Wattle Tree Rd",
+   "2250760" : "CC Hwy at Binglee Erina",
+   "2250543" : "Karalta Rd opp Miranda Av",
+   "225019" : "CC Hwy at Albany St",
+   "225014" : "CC Hwy opp White St",
+   "2250500" : "Wells St opp Lock Av",
+   "2250434" : "CC Hwy at Bonnal Rd",
+   "2250761" : "Karalta Rd after Riatta St",
+   "2250465" : "Wattle Tree Rd at HOLGATE PS",
+   "2250477" : "Coachwood and Oak Rd",
+   "2250545" : "Erina High School CC Hwy",
+   "2250708" : "CC Hwy at Chiltern Rd",
+   "225017" : "Mann St at Georgiana Tce",
+   "2250476" : "The Fernery Oak Rd",
+   "2250492" : "Sherwood Dr at Willow Rd",
+   "225027" : "Karalta Rd at Karalta Ln",
+   "225016" : "Mann St at Donnison St",
+   "2250504" : "Wells St at Wattle St",
+   "225025" : "CC Hwy opp  Avoca Dr",
+   "2250440" : "Mann St after Erina St East",
+   "2250437" : "York St at White St",
+   "2250471" : "Bandalong Rd Wattle Tree Rd",
+   "2250561" : "CC Hwy opp Binglee",
+   "2250497" : "Springfield Rd at  Willow Rd",
+   "2250454" : "Mann St at Faunce St",
+   "2250752" : "Wattletree Rd near Manor Hill Cl",
+   "2250623" : "Brougham St near Adelaide St",
+   "2250739" : "CC Hwy at  Frederick St",
+   "2250505" : "Brougham St at Wells St",
+   "2250751" : "End of Oak Rd MATCHAM",
+   "225090" : "Erina Fair Dr at MACCAS Terrigal Dr",
+   "2250768" : "Barralong Rd near Lingi St",
+   "2250436" : "Terrigal Dr at Kuburra Rd",
+   "2250503" : "Wells St at Boronia St",
+   "2250420" : "CC Hwy at Henry Parry Dr",
+   "2250470" : "Holgate PS_ Wattle Tree Rd",
+   "2250562" : "CC Hwy before Karalta Rd",
+   "2250641" : "CC Hwy at George St",
+   "2250559" : "Elaine Rd Matcham Rd near Elaine Rd",
+   "2260477" : "Matcham Rd at CC Hwy",
+   "2250475" : "End Of Oak Rd",
+   "225160" : "Ernest St near James Sea Dr",
+   "2250468" : "Wattle Tree Rd at Pollard Cl",
+   "225051" : "Gosford (Stand 11)",
+   "2260485" : "CC Hwy at Arundel Rd",
+   "2250724" : "Carlton Rd near Central Coast Hwy",
+   "2250382" : "Tarragal Glen Rd opp MACCAS Erina Fair",
+   "2250639" : "CC Hwy",
+   "2250438" : "Erina Fair Stand D",
+   "2250763" : "Sherwood Dr at Balfour Cl",
+   "2250489" : "Barralong Rd at Aston Rd",
+   "225024" : "CC Hwy opp Pateman St",
+   "2250494" : "Sherwood Dr at Calvert Av",
+   "225023" : "CC Hwy at Brougham St",
+   "2250444" : "The Entrance Rd opp Narrawa Av",
+   "225088" : "CC Hwy at Adelaide St",
+   "2250557" : "Matcham Rd at Wambina Rd",
+   "2250756" : "Milina Rd opp Paul Oval",
+   "225028" : "Karalta Rd at Miranda Av",
+   "2250472" : "Coachwood and Oak Rd Oak Rd",
+   "2250762" : "Thames Dr opp Severn Cl",
+   "225018" : "CC Hwy at Masons Pde",
+   "2260445" : "CC Hwy opp Arundel Rd",
+   "2250723" : "Brougham St at Adelaide St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_29-20-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-10-TA",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "6S pasd"
+            ],
+            [
+               "225011",
+               "26S pasd"
+            ],
+            [
+               "225016",
+               "16S pasd"
+            ],
+            [
+               "225017",
+               "22S pasd"
+            ],
+            [
+               "225018",
+               "52S pasd"
+            ],
+            [
+               "225019",
+               "23S pasd"
+            ],
+            [
+               "2250437",
+               "25S pasd"
+            ],
+            [
+               "2250420",
+               "40S pasd"
+            ],
+            [
+               "2250419",
+               "31S pasd"
+            ],
+            [
+               "225023",
+               "20S pasd"
+            ],
+            [
+               "225024",
+               "2M15S pasd"
+            ],
+            [
+               "225025",
+               "22S pasd"
+            ],
+            [
+               "225026",
+               "50S pasd"
+            ],
+            [
+               "225027",
+               "49S pasd"
+            ],
+            [
+               "225028",
+               "21S pasd"
+            ],
+            [
+               "225029",
+               "19S pasd"
+            ],
+            [
+               "2250438",
+               "43S pasd"
+            ],
+            [
+               "2250382",
+               "54S pasd"
+            ],
+            [
+               "2250459",
+               "11S pasd"
+            ],
+            [
+               "2250460",
+               "32S pasd"
+            ],
+            [
+               "2250461",
+               "43S pasd"
+            ],
+            [
+               "2250462",
+               "1M32S pasd"
+            ],
+            [
+               "2250724",
+               "16S pasd"
+            ],
+            [
+               "2250463",
+               "2M16S pasd"
+            ],
+            [
+               "2250472",
+               "3M2S pasd"
+            ],
+            [
+               "2250473",
+               "5M8S pasd"
+            ],
+            [
+               "2250474",
+               "4M33S pasd"
+            ],
+            [
+               "2250751",
+               "53S pasd"
+            ],
+            [
+               "2250475",
+               "38S pasd"
+            ],
+            [
+               "2250476",
+               "3M26S pasd"
+            ],
+            [
+               "2250477",
+               "3M44S pasd"
+            ],
+            [
+               "2250756",
+               "2M17S pasd"
+            ],
+            [
+               "2250708",
+               "1M59S pasd"
+            ],
+            [
+               "2250444",
+               "1M1S pasd"
+            ],
+            [
+               "2250435",
+               "19S pasd"
+            ],
+            [
+               "2250436",
+               "31S pasd"
+            ],
+            [
+               "225090",
+               "14S pasd"
+            ],
+            [
+               "225089",
+               "51S pasd"
+            ],
+            [
+               "2250762",
+               "3M pasd"
+            ],
+            [
+               "2250761",
+               "1M19S pasd"
+            ],
+            [
+               "2250542",
+               "2M44S pasd"
+            ],
+            [
+               "2250543",
+               "39S pasd"
+            ],
+            [
+               "2250544",
+               "37S pasd"
+            ],
+            [
+               "2250545",
+               "1M22S pasd"
+            ],
+            [
+               "2250546",
+               "1M19S pasd"
+            ],
+            [
+               "2250547",
+               "1M38S pasd"
+            ],
+            [
+               "2250548",
+               "2M39S pasd"
+            ],
+            [
+               "2250641",
+               "1M37S pasd"
+            ],
+            [
+               "225088",
+               "45S pasd"
+            ],
+            [
+               "225014",
+               "1M39S pasd"
+            ],
+            [
+               "2250739",
+               "31S pasd"
+            ],
+            [
+               "225013",
+               "20S pasd"
+            ],
+            [
+               "225012",
+               "58S pasd"
+            ],
+            [
+               "2250535",
+               "1M38S pasd"
+            ],
+            [
+               "2250534",
+               "36S pasd"
+            ],
+            [
+               "2250440",
+               "55S pasd"
+            ],
+            [
+               "225051",
+               "44S pasd"
+            ],
+            [
+               "2250255",
+               "44S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-10-R-8",
+         "route" : {
+            "name" : "Gosford Station - Henry Kendall High School Racecourse Rd",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-8",
+            "id" : "R_29-20-_-sj2-1-R-8"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-9-TA",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250621",
+               null
+            ],
+            [
+               "2250463",
+               "18S pasd"
+            ],
+            [
+               "2250464",
+               "1M16S pasd"
+            ],
+            [
+               "2250465",
+               "46S pasd"
+            ],
+            [
+               "2250466",
+               "46S pasd"
+            ],
+            [
+               "2250468",
+               "1M54S pasd"
+            ],
+            [
+               "2250469",
+               "7M42S pasd"
+            ],
+            [
+               "2250752",
+               "52S pasd"
+            ],
+            [
+               "2250470",
+               "1M20S pasd"
+            ],
+            [
+               "2250471",
+               "2M27S pasd"
+            ],
+            [
+               "2250756",
+               "4M23S pasd"
+            ],
+            [
+               "2250708",
+               "3M41S pasd"
+            ],
+            [
+               "2250444",
+               "1M53S pasd"
+            ],
+            [
+               "2250722",
+               "1M2S pasd"
+            ],
+            [
+               "2250561",
+               "37S pasd"
+            ],
+            [
+               "2250562",
+               "1M5S pasd"
+            ],
+            [
+               "2250545",
+               "1M29S pasd"
+            ],
+            [
+               "225159",
+               "30S pasd"
+            ],
+            [
+               "225160",
+               "30S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-9-R-7",
+         "route" : {
+            "name" : "Carlton Rd and Milina Rd - Ernest St near James Sea Dr",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-7",
+            "id" : "R_29-20-_-sj2-1-R-7"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-7-TA",
+      "leaves" : "16:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250468",
+               null
+            ],
+            [
+               "2250469",
+               "3M23S pasd"
+            ],
+            [
+               "2250752",
+               "23S pasd"
+            ],
+            [
+               "2250470",
+               "35S pasd"
+            ],
+            [
+               "2250471",
+               "1M5S pasd"
+            ],
+            [
+               "2250756",
+               "1M56S pasd"
+            ],
+            [
+               "2250708",
+               "1M37S pasd"
+            ],
+            [
+               "2250444",
+               "50S pasd"
+            ],
+            [
+               "2250722",
+               "27S pasd"
+            ],
+            [
+               "2250561",
+               "16S pasd"
+            ],
+            [
+               "2250562",
+               "28S pasd"
+            ],
+            [
+               "2250545",
+               "39S pasd"
+            ],
+            [
+               "2250546",
+               "42S pasd"
+            ],
+            [
+               "2250547",
+               "53S pasd"
+            ],
+            [
+               "2250548",
+               "1M26S pasd"
+            ],
+            [
+               "2250641",
+               "52S pasd"
+            ],
+            [
+               "225088",
+               "24S pasd"
+            ],
+            [
+               "225014",
+               "53S pasd"
+            ],
+            [
+               "2250739",
+               "16S pasd"
+            ],
+            [
+               "225013",
+               "11S pasd"
+            ],
+            [
+               "225012",
+               "31S pasd"
+            ],
+            [
+               "2250535",
+               "53S pasd"
+            ],
+            [
+               "2250534",
+               "19S pasd"
+            ],
+            [
+               "2250440",
+               "30S pasd"
+            ],
+            [
+               "225051",
+               "30S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-7-R-5",
+         "route" : {
+            "name" : "Wattle Tree Rd at Pollard Cl - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-5",
+            "id" : "R_29-20-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-6-TA",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2260144",
+               null
+            ],
+            [
+               "2260477",
+               "44S pasd"
+            ],
+            [
+               "2250559",
+               "4M29S pasd"
+            ],
+            [
+               "2250557",
+               "2M47S pasd"
+            ],
+            [
+               "2250756",
+               "15M28S pasd"
+            ],
+            [
+               "2260475",
+               "15M28S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "CC Hwy at Brooks Hill Lane - Central Coast Grammar School",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-4",
+            "id" : "R_29-20-_-sj2-1-R-4"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-5-TA",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "6S pasd"
+            ],
+            [
+               "225011",
+               "26S pasd"
+            ],
+            [
+               "225016",
+               "16S pasd"
+            ],
+            [
+               "225017",
+               "22S pasd"
+            ],
+            [
+               "225018",
+               "52S pasd"
+            ],
+            [
+               "225019",
+               "23S pasd"
+            ],
+            [
+               "2250437",
+               "25S pasd"
+            ],
+            [
+               "2250420",
+               "40S pasd"
+            ],
+            [
+               "2250419",
+               "31S pasd"
+            ],
+            [
+               "225023",
+               "20S pasd"
+            ],
+            [
+               "225024",
+               "2M15S pasd"
+            ],
+            [
+               "225025",
+               "22S pasd"
+            ],
+            [
+               "225026",
+               "50S pasd"
+            ],
+            [
+               "225027",
+               "49S pasd"
+            ],
+            [
+               "225028",
+               "21S pasd"
+            ],
+            [
+               "225029",
+               "19S pasd"
+            ],
+            [
+               "2250438",
+               "43S pasd"
+            ],
+            [
+               "2250382",
+               "46S pasd"
+            ],
+            [
+               "2250459",
+               "9S pasd"
+            ],
+            [
+               "2250460",
+               "27S pasd"
+            ],
+            [
+               "2250461",
+               "37S pasd"
+            ],
+            [
+               "2250462",
+               "1M19S pasd"
+            ],
+            [
+               "2260485",
+               "1M22S pasd"
+            ],
+            [
+               "2260477",
+               "3M34S pasd"
+            ],
+            [
+               "2250557",
+               "6M46S pasd"
+            ],
+            [
+               "2250472",
+               "6M18S pasd"
+            ],
+            [
+               "2250473",
+               "4M14S pasd"
+            ],
+            [
+               "2250474",
+               "3M46S pasd"
+            ],
+            [
+               "2250751",
+               "42S pasd"
+            ],
+            [
+               "2250475",
+               "37S pasd"
+            ],
+            [
+               "2250476",
+               "3M21S pasd"
+            ],
+            [
+               "2250477",
+               "3M39S pasd"
+            ],
+            [
+               "2250464",
+               "1M17S pasd"
+            ],
+            [
+               "2250465",
+               "1M23S pasd"
+            ],
+            [
+               "2250466",
+               "1M22S pasd"
+            ],
+            [
+               "2250468",
+               "3M21S pasd"
+            ],
+            [
+               "2250469",
+               "2M59S pasd"
+            ],
+            [
+               "2250752",
+               "20S pasd"
+            ],
+            [
+               "2250470",
+               "31S pasd"
+            ],
+            [
+               "2250471",
+               "57S pasd"
+            ],
+            [
+               "2250756",
+               "1M42S pasd"
+            ],
+            [
+               "2250708",
+               "1M26S pasd"
+            ],
+            [
+               "2250444",
+               "44S pasd"
+            ],
+            [
+               "2250435",
+               "13S pasd"
+            ],
+            [
+               "2250436",
+               "22S pasd"
+            ],
+            [
+               "225090",
+               "10S pasd"
+            ],
+            [
+               "225089",
+               "36S pasd"
+            ],
+            [
+               "2250762",
+               "5M pasd"
+            ],
+            [
+               "2250761",
+               "54S pasd"
+            ],
+            [
+               "2250542",
+               "1M52S pasd"
+            ],
+            [
+               "2250543",
+               "27S pasd"
+            ],
+            [
+               "2250544",
+               "25S pasd"
+            ],
+            [
+               "2250545",
+               "56S pasd"
+            ],
+            [
+               "2250546",
+               "53S pasd"
+            ],
+            [
+               "2250547",
+               "1M6S pasd"
+            ],
+            [
+               "2250548",
+               "1M48S pasd"
+            ],
+            [
+               "2250641",
+               "1M6S pasd"
+            ],
+            [
+               "225088",
+               "30S pasd"
+            ],
+            [
+               "225014",
+               "1M7S pasd"
+            ],
+            [
+               "2250739",
+               "21S pasd"
+            ],
+            [
+               "225013",
+               "14S pasd"
+            ],
+            [
+               "225012",
+               "40S pasd"
+            ],
+            [
+               "2250535",
+               "1M7S pasd"
+            ],
+            [
+               "2250534",
+               "24S pasd"
+            ],
+            [
+               "2250440",
+               "37S pasd"
+            ],
+            [
+               "225051",
+               "37S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-5-R-3",
+         "route" : {
+            "name" : "Gosford Station - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-3",
+            "id" : "R_29-20-_-sj2-1-R-3"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-1-TA",
+      "leaves" : "06:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250762",
+               null
+            ],
+            [
+               "2250761",
+               "1M6S pasd"
+            ],
+            [
+               "2250542",
+               "2M17S pasd"
+            ],
+            [
+               "2250543",
+               "33S pasd"
+            ],
+            [
+               "2250544",
+               "31S pasd"
+            ],
+            [
+               "2250434",
+               "55S pasd"
+            ],
+            [
+               "2250639",
+               "26S pasd"
+            ],
+            [
+               "2250760",
+               "2S pasd"
+            ],
+            [
+               "2250768",
+               "21S pasd"
+            ],
+            [
+               "2250489",
+               "27S pasd"
+            ],
+            [
+               "2250490",
+               "57S pasd"
+            ],
+            [
+               "2250491",
+               "48S pasd"
+            ],
+            [
+               "2250492",
+               "1M39S pasd"
+            ],
+            [
+               "2250493",
+               "25S pasd"
+            ],
+            [
+               "2250494",
+               "21S pasd"
+            ],
+            [
+               "2250763",
+               "29S pasd"
+            ],
+            [
+               "2250495",
+               "17S pasd"
+            ],
+            [
+               "2250496",
+               "36S pasd"
+            ],
+            [
+               "2250497",
+               "44S pasd"
+            ],
+            [
+               "2250498",
+               "30S pasd"
+            ],
+            [
+               "2250769",
+               "35S pasd"
+            ],
+            [
+               "2250499",
+               "44S pasd"
+            ],
+            [
+               "2250500",
+               "16S pasd"
+            ],
+            [
+               "2250501",
+               "55S pasd"
+            ],
+            [
+               "2250502",
+               "26S pasd"
+            ],
+            [
+               "2250503",
+               "19S pasd"
+            ],
+            [
+               "2250504",
+               "16S pasd"
+            ],
+            [
+               "2250505",
+               "33S pasd"
+            ],
+            [
+               "2250623",
+               "54S pasd"
+            ],
+            [
+               "2250723",
+               "1S pasd"
+            ],
+            [
+               "225088",
+               "20S pasd"
+            ],
+            [
+               "225014",
+               "1M22S pasd"
+            ],
+            [
+               "2250739",
+               "26S pasd"
+            ],
+            [
+               "225013",
+               "17S pasd"
+            ],
+            [
+               "225012",
+               "49S pasd"
+            ],
+            [
+               "2250535",
+               "1M22S pasd"
+            ],
+            [
+               "2250534",
+               "30S pasd"
+            ],
+            [
+               "2250440",
+               "46S pasd"
+            ],
+            [
+               "225051",
+               "46S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Thames Dr opp Severn Cl - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-1",
+            "id" : "R_29-20-_-sj2-1-R-1"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-11-TA",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "13S pasd"
+            ],
+            [
+               "225011",
+               "57S pasd"
+            ],
+            [
+               "225016",
+               "34S pasd"
+            ],
+            [
+               "225017",
+               "47S pasd"
+            ],
+            [
+               "225018",
+               "1M53S pasd"
+            ],
+            [
+               "225019",
+               "50S pasd"
+            ],
+            [
+               "2250437",
+               "54S pasd"
+            ],
+            [
+               "2250420",
+               "1M28S pasd"
+            ],
+            [
+               "2250419",
+               "1M7S pasd"
+            ],
+            [
+               "225023",
+               "44S pasd"
+            ],
+            [
+               "225024",
+               "4M53S pasd"
+            ],
+            [
+               "225025",
+               "48S pasd"
+            ],
+            [
+               "225026",
+               "1M49S pasd"
+            ],
+            [
+               "225027",
+               "1M46S pasd"
+            ],
+            [
+               "225028",
+               "47S pasd"
+            ],
+            [
+               "225029",
+               "42S pasd"
+            ],
+            [
+               "2250762",
+               "4M48S pasd"
+            ],
+            [
+               "2250761",
+               "1M43S pasd"
+            ],
+            [
+               "2250438",
+               "3M17S pasd"
+            ],
+            [
+               "2250382",
+               "54S pasd"
+            ],
+            [
+               "2250459",
+               "11S pasd"
+            ],
+            [
+               "2250460",
+               "32S pasd"
+            ],
+            [
+               "2250461",
+               "43S pasd"
+            ],
+            [
+               "2250462",
+               "1M32S pasd"
+            ],
+            [
+               "2250724",
+               "16S pasd"
+            ],
+            [
+               "2250463",
+               "2M16S pasd"
+            ],
+            [
+               "2250472",
+               "3M2S pasd"
+            ],
+            [
+               "2250473",
+               "5M8S pasd"
+            ],
+            [
+               "2250474",
+               "4M33S pasd"
+            ],
+            [
+               "2250751",
+               "53S pasd"
+            ],
+            [
+               "2250475",
+               "42S pasd"
+            ],
+            [
+               "2250476",
+               "3M49S pasd"
+            ],
+            [
+               "2250477",
+               "4M9S pasd"
+            ],
+            [
+               "2250559",
+               "3M48S pasd"
+            ],
+            [
+               "2250557",
+               "2M32S pasd"
+            ],
+            [
+               "2260145",
+               "4M28S pasd"
+            ],
+            [
+               "2260146",
+               "23S pasd"
+            ],
+            [
+               "2260445",
+               "1M56S pasd"
+            ],
+            [
+               "2250708",
+               "1M pasd"
+            ],
+            [
+               "2250444",
+               "46S pasd"
+            ],
+            [
+               "2250435",
+               "14S pasd"
+            ],
+            [
+               "2250436",
+               "24S pasd"
+            ],
+            [
+               "225090",
+               "10S pasd"
+            ],
+            [
+               "225089",
+               "39S pasd"
+            ],
+            [
+               "2250762",
+               "4M pasd"
+            ],
+            [
+               "2250761",
+               "1M5S pasd"
+            ],
+            [
+               "2250542",
+               "2M14S pasd"
+            ],
+            [
+               "2250543",
+               "32S pasd"
+            ],
+            [
+               "2250544",
+               "30S pasd"
+            ],
+            [
+               "2250545",
+               "1M7S pasd"
+            ],
+            [
+               "2250546",
+               "1M4S pasd"
+            ],
+            [
+               "2250547",
+               "1M20S pasd"
+            ],
+            [
+               "2250548",
+               "2M10S pasd"
+            ],
+            [
+               "2250641",
+               "1M19S pasd"
+            ],
+            [
+               "225088",
+               "36S pasd"
+            ],
+            [
+               "225014",
+               "1M21S pasd"
+            ],
+            [
+               "2250739",
+               "25S pasd"
+            ],
+            [
+               "225013",
+               "16S pasd"
+            ],
+            [
+               "225012",
+               "48S pasd"
+            ],
+            [
+               "2250535",
+               "1M20S pasd"
+            ],
+            [
+               "2250534",
+               "29S pasd"
+            ],
+            [
+               "2250440",
+               "45S pasd"
+            ],
+            [
+               "225051",
+               "45S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-11-R-9",
+         "route" : {
+            "name" : "Gosford Station - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-9",
+            "id" : "R_29-20-_-sj2-1-R-9"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-8-TA",
+      "leaves" : "17:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "9S pasd"
+            ],
+            [
+               "225011",
+               "39S pasd"
+            ],
+            [
+               "225016",
+               "23S pasd"
+            ],
+            [
+               "225017",
+               "32S pasd"
+            ],
+            [
+               "225018",
+               "1M17S pasd"
+            ],
+            [
+               "225019",
+               "34S pasd"
+            ],
+            [
+               "2250437",
+               "37S pasd"
+            ],
+            [
+               "2250420",
+               "59S pasd"
+            ],
+            [
+               "2250419",
+               "46S pasd"
+            ],
+            [
+               "225023",
+               "30S pasd"
+            ],
+            [
+               "225024",
+               "3M19S pasd"
+            ],
+            [
+               "225025",
+               "32S pasd"
+            ],
+            [
+               "225026",
+               "1M14S pasd"
+            ],
+            [
+               "225027",
+               "1M12S pasd"
+            ],
+            [
+               "225028",
+               "32S pasd"
+            ],
+            [
+               "225029",
+               "28S pasd"
+            ],
+            [
+               "2250762",
+               "3M17S pasd"
+            ],
+            [
+               "2250761",
+               "1M22S pasd"
+            ],
+            [
+               "2250438",
+               "2M38S pasd"
+            ],
+            [
+               "2250382",
+               "36S pasd"
+            ],
+            [
+               "2250459",
+               "7S pasd"
+            ],
+            [
+               "2250460",
+               "21S pasd"
+            ],
+            [
+               "2250461",
+               "29S pasd"
+            ],
+            [
+               "2250462",
+               "1M1S pasd"
+            ],
+            [
+               "2250724",
+               "10S pasd"
+            ],
+            [
+               "2250463",
+               "1M31S pasd"
+            ],
+            [
+               "2250464",
+               "2M6S pasd"
+            ],
+            [
+               "2250465",
+               "1M16S pasd"
+            ],
+            [
+               "2250466",
+               "1M15S pasd"
+            ],
+            [
+               "2250468",
+               "3M8S pasd"
+            ],
+            [
+               "2250469",
+               "5M22S pasd"
+            ],
+            [
+               "2250752",
+               "36S pasd"
+            ],
+            [
+               "2250470",
+               "56S pasd"
+            ],
+            [
+               "2250471",
+               "1M42S pasd"
+            ],
+            [
+               "2250559",
+               "5M26S pasd"
+            ],
+            [
+               "2250557",
+               "5M26S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-8-R-6",
+         "route" : {
+            "name" : "Gosford Station - Matcham Rd at Wambina Rd",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-6",
+            "id" : "R_29-20-_-sj2-1-R-6"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-3-TA",
+      "leaves" : "12:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "8S pasd"
+            ],
+            [
+               "225011",
+               "34S pasd"
+            ],
+            [
+               "225016",
+               "20S pasd"
+            ],
+            [
+               "225017",
+               "28S pasd"
+            ],
+            [
+               "225018",
+               "1M7S pasd"
+            ],
+            [
+               "225019",
+               "30S pasd"
+            ],
+            [
+               "2250437",
+               "32S pasd"
+            ],
+            [
+               "2250420",
+               "52S pasd"
+            ],
+            [
+               "2250419",
+               "40S pasd"
+            ],
+            [
+               "225023",
+               "26S pasd"
+            ],
+            [
+               "225024",
+               "2M56S pasd"
+            ],
+            [
+               "225025",
+               "29S pasd"
+            ],
+            [
+               "225026",
+               "1M5S pasd"
+            ],
+            [
+               "225027",
+               "1M3S pasd"
+            ],
+            [
+               "225028",
+               "28S pasd"
+            ],
+            [
+               "225029",
+               "25S pasd"
+            ],
+            [
+               "2250762",
+               "2M57S pasd"
+            ],
+            [
+               "2250761",
+               "1M22S pasd"
+            ],
+            [
+               "2250438",
+               "2M38S pasd"
+            ],
+            [
+               "2250382",
+               "36S pasd"
+            ],
+            [
+               "2250459",
+               "7S pasd"
+            ],
+            [
+               "2250460",
+               "21S pasd"
+            ],
+            [
+               "2250461",
+               "29S pasd"
+            ],
+            [
+               "2250462",
+               "1M1S pasd"
+            ],
+            [
+               "2250724",
+               "10S pasd"
+            ],
+            [
+               "2250463",
+               "1M31S pasd"
+            ],
+            [
+               "2250464",
+               "2M6S pasd"
+            ],
+            [
+               "2250465",
+               "1M16S pasd"
+            ],
+            [
+               "2250466",
+               "1M15S pasd"
+            ],
+            [
+               "2250468",
+               "3M8S pasd"
+            ],
+            [
+               "2250469",
+               "3M42S pasd"
+            ],
+            [
+               "2250752",
+               "25S pasd"
+            ],
+            [
+               "2250470",
+               "38S pasd"
+            ],
+            [
+               "2250471",
+               "1M10S pasd"
+            ],
+            [
+               "2250472",
+               "1M5S pasd"
+            ],
+            [
+               "2250473",
+               "3M24S pasd"
+            ],
+            [
+               "2250474",
+               "3M1S pasd"
+            ],
+            [
+               "2250751",
+               "35S pasd"
+            ],
+            [
+               "2250475",
+               "36S pasd"
+            ],
+            [
+               "2250476",
+               "3M18S pasd"
+            ],
+            [
+               "2250477",
+               "3M35S pasd"
+            ],
+            [
+               "2250559",
+               "3M18S pasd"
+            ],
+            [
+               "2250557",
+               "2M13S pasd"
+            ],
+            [
+               "2260145",
+               "5M21S pasd"
+            ],
+            [
+               "2260146",
+               "28S pasd"
+            ],
+            [
+               "2260445",
+               "2M19S pasd"
+            ],
+            [
+               "2250708",
+               "1M12S pasd"
+            ],
+            [
+               "2250444",
+               "56S pasd"
+            ],
+            [
+               "2250435",
+               "17S pasd"
+            ],
+            [
+               "2250436",
+               "29S pasd"
+            ],
+            [
+               "225090",
+               "12S pasd"
+            ],
+            [
+               "225089",
+               "46S pasd"
+            ],
+            [
+               "2250762",
+               "5M pasd"
+            ],
+            [
+               "2250542",
+               "2M46S pasd"
+            ],
+            [
+               "2250543",
+               "27S pasd"
+            ],
+            [
+               "2250544",
+               "25S pasd"
+            ],
+            [
+               "2250545",
+               "56S pasd"
+            ],
+            [
+               "2250546",
+               "53S pasd"
+            ],
+            [
+               "2250547",
+               "1M6S pasd"
+            ],
+            [
+               "2250548",
+               "1M48S pasd"
+            ],
+            [
+               "2250641",
+               "1M6S pasd"
+            ],
+            [
+               "225088",
+               "30S pasd"
+            ],
+            [
+               "225014",
+               "1M7S pasd"
+            ],
+            [
+               "2250739",
+               "21S pasd"
+            ],
+            [
+               "225013",
+               "14S pasd"
+            ],
+            [
+               "225012",
+               "40S pasd"
+            ],
+            [
+               "2250535",
+               "1M7S pasd"
+            ],
+            [
+               "2250534",
+               "24S pasd"
+            ],
+            [
+               "2250440",
+               "37S pasd"
+            ],
+            [
+               "225051",
+               "37S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-3-R-2",
+         "route" : {
+            "name" : "Gosford Station - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-2",
+            "id" : "R_29-20-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-2-TA",
+      "leaves" : "09:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "8S pasd"
+            ],
+            [
+               "225011",
+               "34S pasd"
+            ],
+            [
+               "225016",
+               "20S pasd"
+            ],
+            [
+               "225017",
+               "28S pasd"
+            ],
+            [
+               "225018",
+               "1M7S pasd"
+            ],
+            [
+               "225019",
+               "30S pasd"
+            ],
+            [
+               "2250437",
+               "32S pasd"
+            ],
+            [
+               "2250420",
+               "52S pasd"
+            ],
+            [
+               "2250419",
+               "40S pasd"
+            ],
+            [
+               "225023",
+               "26S pasd"
+            ],
+            [
+               "225024",
+               "2M56S pasd"
+            ],
+            [
+               "225025",
+               "29S pasd"
+            ],
+            [
+               "225026",
+               "1M5S pasd"
+            ],
+            [
+               "225027",
+               "1M3S pasd"
+            ],
+            [
+               "225028",
+               "28S pasd"
+            ],
+            [
+               "225029",
+               "25S pasd"
+            ],
+            [
+               "2250762",
+               "2M57S pasd"
+            ],
+            [
+               "2250761",
+               "1M43S pasd"
+            ],
+            [
+               "2250438",
+               "3M17S pasd"
+            ],
+            [
+               "2250382",
+               "36S pasd"
+            ],
+            [
+               "2250459",
+               "7S pasd"
+            ],
+            [
+               "2250460",
+               "21S pasd"
+            ],
+            [
+               "2250461",
+               "29S pasd"
+            ],
+            [
+               "2250462",
+               "1M1S pasd"
+            ],
+            [
+               "2250724",
+               "10S pasd"
+            ],
+            [
+               "2250463",
+               "1M31S pasd"
+            ],
+            [
+               "2250464",
+               "2M6S pasd"
+            ],
+            [
+               "2250465",
+               "1M16S pasd"
+            ],
+            [
+               "2250466",
+               "1M15S pasd"
+            ],
+            [
+               "2250468",
+               "3M8S pasd"
+            ],
+            [
+               "2250469",
+               "3M42S pasd"
+            ],
+            [
+               "2250752",
+               "25S pasd"
+            ],
+            [
+               "2250470",
+               "38S pasd"
+            ],
+            [
+               "2250471",
+               "1M10S pasd"
+            ],
+            [
+               "2250472",
+               "1M5S pasd"
+            ],
+            [
+               "2250473",
+               "3M24S pasd"
+            ],
+            [
+               "2250474",
+               "3M1S pasd"
+            ],
+            [
+               "2250751",
+               "35S pasd"
+            ],
+            [
+               "2250475",
+               "33S pasd"
+            ],
+            [
+               "2250476",
+               "3M3S pasd"
+            ],
+            [
+               "2250477",
+               "3M19S pasd"
+            ],
+            [
+               "2250559",
+               "3M2S pasd"
+            ],
+            [
+               "2250557",
+               "2M3S pasd"
+            ],
+            [
+               "2260145",
+               "5M21S pasd"
+            ],
+            [
+               "2260146",
+               "28S pasd"
+            ],
+            [
+               "2260445",
+               "2M19S pasd"
+            ],
+            [
+               "2250708",
+               "1M12S pasd"
+            ],
+            [
+               "2250444",
+               "56S pasd"
+            ],
+            [
+               "2250435",
+               "17S pasd"
+            ],
+            [
+               "2250436",
+               "29S pasd"
+            ],
+            [
+               "225090",
+               "12S pasd"
+            ],
+            [
+               "225089",
+               "46S pasd"
+            ],
+            [
+               "2250762",
+               "5M pasd"
+            ],
+            [
+               "2250542",
+               "2M46S pasd"
+            ],
+            [
+               "2250543",
+               "27S pasd"
+            ],
+            [
+               "2250544",
+               "25S pasd"
+            ],
+            [
+               "2250545",
+               "56S pasd"
+            ],
+            [
+               "2250546",
+               "53S pasd"
+            ],
+            [
+               "2250547",
+               "1M6S pasd"
+            ],
+            [
+               "2250548",
+               "1M48S pasd"
+            ],
+            [
+               "2250641",
+               "1M6S pasd"
+            ],
+            [
+               "225088",
+               "30S pasd"
+            ],
+            [
+               "225014",
+               "1M7S pasd"
+            ],
+            [
+               "2250739",
+               "21S pasd"
+            ],
+            [
+               "225013",
+               "14S pasd"
+            ],
+            [
+               "225012",
+               "40S pasd"
+            ],
+            [
+               "2250535",
+               "1M7S pasd"
+            ],
+            [
+               "2250534",
+               "24S pasd"
+            ],
+            [
+               "2250440",
+               "37S pasd"
+            ],
+            [
+               "225051",
+               "37S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Gosford Station - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-2",
+            "id" : "R_29-20-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   },
+   "VJ_29-20-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_29-20-_-sj2-1-4-TA",
+      "leaves" : "15:25:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225051",
+               null
+            ],
+            [
+               "2250454",
+               "10S pasd"
+            ],
+            [
+               "225011",
+               "46S pasd"
+            ],
+            [
+               "225016",
+               "27S pasd"
+            ],
+            [
+               "225017",
+               "38S pasd"
+            ],
+            [
+               "225018",
+               "1M30S pasd"
+            ],
+            [
+               "225019",
+               "40S pasd"
+            ],
+            [
+               "2250437",
+               "43S pasd"
+            ],
+            [
+               "2250420",
+               "1M10S pasd"
+            ],
+            [
+               "2250419",
+               "54S pasd"
+            ],
+            [
+               "225023",
+               "35S pasd"
+            ],
+            [
+               "225024",
+               "3M54S pasd"
+            ],
+            [
+               "225025",
+               "38S pasd"
+            ],
+            [
+               "225026",
+               "1M27S pasd"
+            ],
+            [
+               "225027",
+               "1M24S pasd"
+            ],
+            [
+               "225028",
+               "37S pasd"
+            ],
+            [
+               "225029",
+               "33S pasd"
+            ],
+            [
+               "2250762",
+               "3M54S pasd"
+            ],
+            [
+               "2250761",
+               "1M43S pasd"
+            ],
+            [
+               "2250438",
+               "3M17S pasd"
+            ],
+            [
+               "2250382",
+               "45S pasd"
+            ],
+            [
+               "2250459",
+               "9S pasd"
+            ],
+            [
+               "2250460",
+               "26S pasd"
+            ],
+            [
+               "2250461",
+               "36S pasd"
+            ],
+            [
+               "2250462",
+               "1M16S pasd"
+            ],
+            [
+               "2250724",
+               "13S pasd"
+            ],
+            [
+               "2250463",
+               "1M53S pasd"
+            ],
+            [
+               "2250464",
+               "2M37S pasd"
+            ],
+            [
+               "2250465",
+               "1M35S pasd"
+            ],
+            [
+               "2250466",
+               "1M34S pasd"
+            ],
+            [
+               "2250468",
+               "3M56S pasd"
+            ],
+            [
+               "2250469",
+               "2M38S pasd"
+            ],
+            [
+               "2250752",
+               "17S pasd"
+            ],
+            [
+               "2250470",
+               "27S pasd"
+            ],
+            [
+               "2250471",
+               "50S pasd"
+            ],
+            [
+               "2250472",
+               "47S pasd"
+            ],
+            [
+               "2250473",
+               "2M25S pasd"
+            ],
+            [
+               "2250474",
+               "2M9S pasd"
+            ],
+            [
+               "2250751",
+               "27S pasd"
+            ],
+            [
+               "2250475",
+               "28S pasd"
+            ],
+            [
+               "2250476",
+               "2M32S pasd"
+            ],
+            [
+               "2250477",
+               "2M46S pasd"
+            ],
+            [
+               "2250559",
+               "2M32S pasd"
+            ],
+            [
+               "2250557",
+               "1M42S pasd"
+            ],
+            [
+               "2260145",
+               "6M42S pasd"
+            ],
+            [
+               "2260146",
+               "35S pasd"
+            ],
+            [
+               "2260445",
+               "2M54S pasd"
+            ],
+            [
+               "2250708",
+               "1M30S pasd"
+            ],
+            [
+               "2250444",
+               "1M10S pasd"
+            ],
+            [
+               "2250435",
+               "22S pasd"
+            ],
+            [
+               "2250436",
+               "36S pasd"
+            ],
+            [
+               "225090",
+               "16S pasd"
+            ],
+            [
+               "225089",
+               "55S pasd"
+            ],
+            [
+               "2250762",
+               "5M pasd"
+            ],
+            [
+               "2250542",
+               "2M13S pasd"
+            ],
+            [
+               "2250543",
+               "21S pasd"
+            ],
+            [
+               "2250544",
+               "20S pasd"
+            ],
+            [
+               "2250545",
+               "45S pasd"
+            ],
+            [
+               "2250546",
+               "43S pasd"
+            ],
+            [
+               "2250547",
+               "53S pasd"
+            ],
+            [
+               "2250548",
+               "1M26S pasd"
+            ],
+            [
+               "2250641",
+               "52S pasd"
+            ],
+            [
+               "225088",
+               "24S pasd"
+            ],
+            [
+               "225014",
+               "54S pasd"
+            ],
+            [
+               "2250739",
+               "17S pasd"
+            ],
+            [
+               "225013",
+               "11S pasd"
+            ],
+            [
+               "225012",
+               "32S pasd"
+            ],
+            [
+               "2250535",
+               "53S pasd"
+            ],
+            [
+               "2250534",
+               "19S pasd"
+            ],
+            [
+               "2250440",
+               "30S pasd"
+            ],
+            [
+               "225051",
+               "30S pasd"
+            ]
+         ],
+         "id" : "JP_29-20-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Gosford Station - Gosford Station",
+            "rs_ref" : "RS_29-20-_-sj2-1-R-2",
+            "id" : "R_29-20-_-sj2-1-R-2"
+         }
+      },
+      "service" : "29-20-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "20"
+   }
+}
+;
+

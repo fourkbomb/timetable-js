@@ -1,0 +1,953 @@
+var OPERATOR = "Hunter Valley Buses (OM";
+
+
+var LINES = {
+   "4-276-_-sj2-1" : "276"
+}
+;
+
+var stations = {
+   "2283105" : "Sealand Rd near Balmoral Pl",
+   "228368" : "Awaba Rd Near Glenfield Rd",
+   "228361" : "Cary St near Toronto Bvd",
+   "228311" : "Awaba Station_ Wilton Rd",
+   "2283128" : "Letchworth Pde",
+   "228314" : "Ilford Av Near Barry St",
+   "228315" : "Ilford Av near Lisburn St",
+   "228370" : "Awaba Rd near Bridge St",
+   "228373" : "Letchworth Pde near Sealand Rd",
+   "226719" : "Dobell Dr near Reserve Rd",
+   "228364" : "Toronto Shopping Centre Bottom Toronto Bvd",
+   "228341" : "Victory Pde near Cary St",
+   "226721" : "Watkins Rd near Reserve Rd",
+   "228354" : "Awaba Rd near Sunderland Rd",
+   "228366" : "Toronto Uniting Church Toronto Bvd",
+   "228356" : "Awaba Rd Near Glenfield Rd",
+   "228326" : "Secret Corner Rd",
+   "228358" : "Toronto Bvd near Cook St",
+   "228371" : "Awaba Rd near Sunderland Rd",
+   "228369" : "Awaba Rd Near Woodale St",
+   "228319" : "Letchworth Pde Near Clydebank Rd",
+   "2283129" : "Rosemary Row Sutton St",
+   "228342" : "Old Toronto Victory Pde",
+   "228312" : "Alexander Pde Alexander Pde Near Glen Av",
+   "228328" : "Rosemary Row Rosemary Row near Hillcrest Av",
+   "226728" : "Dobell Dr Dobell Dr Near Puna Av",
+   "228357" : "Awaba Rd near Milford St",
+   "226725" : "Wangi Lakeside Shopping Plaza Watkins Rd",
+   "228329" : "Rathmines Public School Rosemary Row",
+   "228367" : "Awaba Rd near Jindalee St",
+   "228352" : "Alexander Pde near Donnelly Rd",
+   "226730" : "Dobell Dr The Promenade Near Market St",
+   "228355" : "Awaba Rd Near Woodale St",
+   "228365" : "Toronto Shopping Centre Top Toronto Bvd",
+   "226726" : "Watkins Rd Near Dobell Dr",
+   "226724" : "Watkins Rd near Short St",
+   "228325" : "Secret Corner Cafe Fishing Point Rd",
+   "228327" : "Secret Corner Rd",
+   "2283143" : "Awaba Station_ Wilton Rd",
+   "228313" : "Alexander Pde near Brooks St",
+   "226727" : "Dobell Dr Dobell Dr Near Beach Rd",
+   "226729" : "Dobell Dr Dobell Dr Near Kirin St",
+   "228323" : "Fishing Point Rd",
+   "226722" : "Watkins Rd Crescent Rd Near",
+   "228353" : "Awaba Rd near Kenton St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_4-276-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-4-TA",
+      "leaves" : "17:38:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228311",
+               null
+            ],
+            [
+               "228353",
+               "4M47S pasd"
+            ],
+            [
+               "228354",
+               "13S pasd"
+            ],
+            [
+               "228355",
+               "50S pasd"
+            ],
+            [
+               "228356",
+               "49S pasd"
+            ],
+            [
+               "228357",
+               "56S pasd"
+            ],
+            [
+               "228358",
+               "37S pasd"
+            ],
+            [
+               "228361",
+               "41S pasd"
+            ],
+            [
+               "228341",
+               "35S pasd"
+            ],
+            [
+               "228342",
+               "35S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Awaba Station - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-3",
+            "id" : "R_4-276-_-sj2-1-R-3"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-2-TA",
+      "leaves" : "11:48:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228342",
+               null
+            ],
+            [
+               "228364",
+               "17S pasd"
+            ],
+            [
+               "228365",
+               "31S pasd"
+            ],
+            [
+               "228366",
+               "17S pasd"
+            ],
+            [
+               "228367",
+               "1M14S pasd"
+            ],
+            [
+               "228368",
+               "54S pasd"
+            ],
+            [
+               "228369",
+               "53S pasd"
+            ],
+            [
+               "228370",
+               "22S pasd"
+            ],
+            [
+               "228371",
+               "32S pasd"
+            ],
+            [
+               "2283143",
+               "32S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Old Toronto Station Victory Pde - Awaba Station",
+            "rs_ref" : "RS_4-276-_-sj2-1-H-2",
+            "id" : "R_4-276-_-sj2-1-H-2"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-8-TA",
+      "leaves" : "06:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226719",
+               null
+            ],
+            [
+               "226721",
+               "1M pasd"
+            ],
+            [
+               "226722",
+               "52S pasd"
+            ],
+            [
+               "226724",
+               "58S pasd"
+            ],
+            [
+               "226725",
+               "50S pasd"
+            ],
+            [
+               "226726",
+               "20S pasd"
+            ],
+            [
+               "226727",
+               "1M39S pasd"
+            ],
+            [
+               "226728",
+               "1M3S pasd"
+            ],
+            [
+               "226729",
+               "28S pasd"
+            ],
+            [
+               "226730",
+               "24S pasd"
+            ],
+            [
+               "228352",
+               "54S pasd"
+            ],
+            [
+               "228312",
+               "45S pasd"
+            ],
+            [
+               "228313",
+               "47S pasd"
+            ],
+            [
+               "228314",
+               "1M3S pasd"
+            ],
+            [
+               "228315",
+               "44S pasd"
+            ],
+            [
+               "228319",
+               "4M27S pasd"
+            ],
+            [
+               "2283128",
+               "2M28S pasd"
+            ],
+            [
+               "228373",
+               "1M18S pasd"
+            ],
+            [
+               "2283105",
+               "16S pasd"
+            ],
+            [
+               "228323",
+               "1M24S pasd"
+            ],
+            [
+               "228325",
+               "2M20S pasd"
+            ],
+            [
+               "228326",
+               "1M13S pasd"
+            ],
+            [
+               "228327",
+               "19S pasd"
+            ],
+            [
+               "228328",
+               "1M38S pasd"
+            ],
+            [
+               "228311",
+               "9M50S pasd"
+            ],
+            [
+               "228353",
+               "3M49S pasd"
+            ],
+            [
+               "228354",
+               "11S pasd"
+            ],
+            [
+               "228355",
+               "1M1S pasd"
+            ],
+            [
+               "228356",
+               "59S pasd"
+            ],
+            [
+               "228357",
+               "1M8S pasd"
+            ],
+            [
+               "228358",
+               "44S pasd"
+            ],
+            [
+               "228361",
+               "50S pasd"
+            ],
+            [
+               "228341",
+               "42S pasd"
+            ],
+            [
+               "228342",
+               "42S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-7-R-4",
+         "route" : {
+            "name" : "Dobell Dr near Reserve Rd - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-4",
+            "id" : "R_4-276-_-sj2-1-R-4"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-7-TA",
+      "leaves" : "11:58:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "228311",
+               null
+            ],
+            [
+               "228353",
+               "6M42S pasd"
+            ],
+            [
+               "228354",
+               "18S pasd"
+            ],
+            [
+               "228355",
+               "1M31S pasd"
+            ],
+            [
+               "228356",
+               "1M28S pasd"
+            ],
+            [
+               "228357",
+               "1M42S pasd"
+            ],
+            [
+               "228358",
+               "1M6S pasd"
+            ],
+            [
+               "228361",
+               "1M15S pasd"
+            ],
+            [
+               "228341",
+               "1M3S pasd"
+            ],
+            [
+               "228342",
+               "1M3S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-6-R-3",
+         "route" : {
+            "name" : "Awaba Station - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-3",
+            "id" : "R_4-276-_-sj2-1-R-3"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-5-TA",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226719",
+               null
+            ],
+            [
+               "226721",
+               "1M pasd"
+            ],
+            [
+               "226722",
+               "52S pasd"
+            ],
+            [
+               "226724",
+               "58S pasd"
+            ],
+            [
+               "226725",
+               "50S pasd"
+            ],
+            [
+               "226726",
+               "20S pasd"
+            ],
+            [
+               "226727",
+               "1M39S pasd"
+            ],
+            [
+               "226728",
+               "1M3S pasd"
+            ],
+            [
+               "226729",
+               "28S pasd"
+            ],
+            [
+               "226730",
+               "24S pasd"
+            ],
+            [
+               "228352",
+               "54S pasd"
+            ],
+            [
+               "228312",
+               "45S pasd"
+            ],
+            [
+               "228313",
+               "47S pasd"
+            ],
+            [
+               "228314",
+               "57S pasd"
+            ],
+            [
+               "228315",
+               "39S pasd"
+            ],
+            [
+               "228319",
+               "4M pasd"
+            ],
+            [
+               "2283128",
+               "2M13S pasd"
+            ],
+            [
+               "228373",
+               "1M11S pasd"
+            ],
+            [
+               "2283105",
+               "12S pasd"
+            ],
+            [
+               "228323",
+               "1M3S pasd"
+            ],
+            [
+               "228325",
+               "1M45S pasd"
+            ],
+            [
+               "228326",
+               "56S pasd"
+            ],
+            [
+               "228327",
+               "14S pasd"
+            ],
+            [
+               "228328",
+               "1M15S pasd"
+            ],
+            [
+               "228311",
+               "7M35S pasd"
+            ],
+            [
+               "228353",
+               "5M44S pasd"
+            ],
+            [
+               "228354",
+               "16S pasd"
+            ],
+            [
+               "228355",
+               "1M11S pasd"
+            ],
+            [
+               "228356",
+               "1M9S pasd"
+            ],
+            [
+               "228357",
+               "1M19S pasd"
+            ],
+            [
+               "228358",
+               "51S pasd"
+            ],
+            [
+               "228361",
+               "58S pasd"
+            ],
+            [
+               "228341",
+               "49S pasd"
+            ],
+            [
+               "228342",
+               "49S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-4-R-4",
+         "route" : {
+            "name" : "Dobell Dr near Reserve Rd - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-4",
+            "id" : "R_4-276-_-sj2-1-R-4"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-1-TA",
+      "leaves" : "07:55:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226719",
+               null
+            ],
+            [
+               "226721",
+               "1M pasd"
+            ],
+            [
+               "226722",
+               "52S pasd"
+            ],
+            [
+               "226724",
+               "58S pasd"
+            ],
+            [
+               "226725",
+               "50S pasd"
+            ],
+            [
+               "226726",
+               "20S pasd"
+            ],
+            [
+               "226727",
+               "1M39S pasd"
+            ],
+            [
+               "226728",
+               "1M3S pasd"
+            ],
+            [
+               "226729",
+               "28S pasd"
+            ],
+            [
+               "226730",
+               "24S pasd"
+            ],
+            [
+               "228352",
+               "54S pasd"
+            ],
+            [
+               "228312",
+               "45S pasd"
+            ],
+            [
+               "228313",
+               "47S pasd"
+            ],
+            [
+               "228314",
+               "57S pasd"
+            ],
+            [
+               "228315",
+               "39S pasd"
+            ],
+            [
+               "228319",
+               "4M pasd"
+            ],
+            [
+               "2283128",
+               "2M13S pasd"
+            ],
+            [
+               "228373",
+               "1M11S pasd"
+            ],
+            [
+               "2283105",
+               "12S pasd"
+            ],
+            [
+               "228323",
+               "1M3S pasd"
+            ],
+            [
+               "228325",
+               "1M45S pasd"
+            ],
+            [
+               "228329",
+               "26S pasd"
+            ],
+            [
+               "2283129",
+               "45S pasd"
+            ],
+            [
+               "228328",
+               "51S pasd"
+            ],
+            [
+               "228311",
+               "7M58S pasd"
+            ],
+            [
+               "228353",
+               "5M44S pasd"
+            ],
+            [
+               "228354",
+               "16S pasd"
+            ],
+            [
+               "228355",
+               "1M11S pasd"
+            ],
+            [
+               "228356",
+               "1M9S pasd"
+            ],
+            [
+               "228357",
+               "1M19S pasd"
+            ],
+            [
+               "228358",
+               "51S pasd"
+            ],
+            [
+               "228361",
+               "58S pasd"
+            ],
+            [
+               "228341",
+               "49S pasd"
+            ],
+            [
+               "228342",
+               "49S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Dobell Dr near Reserve Rd - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-1",
+            "id" : "R_4-276-_-sj2-1-R-1"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-6-TA",
+      "leaves" : "08:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226719",
+               null
+            ],
+            [
+               "226721",
+               "1M pasd"
+            ],
+            [
+               "226722",
+               "52S pasd"
+            ],
+            [
+               "226724",
+               "58S pasd"
+            ],
+            [
+               "226725",
+               "50S pasd"
+            ],
+            [
+               "226726",
+               "20S pasd"
+            ],
+            [
+               "226727",
+               "1M39S pasd"
+            ],
+            [
+               "226728",
+               "1M3S pasd"
+            ],
+            [
+               "226729",
+               "28S pasd"
+            ],
+            [
+               "226730",
+               "24S pasd"
+            ],
+            [
+               "228352",
+               "54S pasd"
+            ],
+            [
+               "228312",
+               "45S pasd"
+            ],
+            [
+               "228313",
+               "47S pasd"
+            ],
+            [
+               "228314",
+               "57S pasd"
+            ],
+            [
+               "228315",
+               "39S pasd"
+            ],
+            [
+               "228319",
+               "4M pasd"
+            ],
+            [
+               "2283128",
+               "2M13S pasd"
+            ],
+            [
+               "228373",
+               "1M11S pasd"
+            ],
+            [
+               "2283105",
+               "12S pasd"
+            ],
+            [
+               "228323",
+               "1M3S pasd"
+            ],
+            [
+               "228325",
+               "1M45S pasd"
+            ],
+            [
+               "228326",
+               "1M2S pasd"
+            ],
+            [
+               "228327",
+               "16S pasd"
+            ],
+            [
+               "228328",
+               "1M23S pasd"
+            ],
+            [
+               "228311",
+               "8M19S pasd"
+            ],
+            [
+               "228353",
+               "3M49S pasd"
+            ],
+            [
+               "228354",
+               "11S pasd"
+            ],
+            [
+               "228355",
+               "1M41S pasd"
+            ],
+            [
+               "228356",
+               "1M38S pasd"
+            ],
+            [
+               "228357",
+               "1M53S pasd"
+            ],
+            [
+               "228358",
+               "1M14S pasd"
+            ],
+            [
+               "228361",
+               "1M23S pasd"
+            ],
+            [
+               "228341",
+               "1M10S pasd"
+            ],
+            [
+               "228342",
+               "1M10S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-5-R-4",
+         "route" : {
+            "name" : "Dobell Dr near Reserve Rd - Old Toronto Station Victory Pde",
+            "rs_ref" : "RS_4-276-_-sj2-1-R-4",
+            "id" : "R_4-276-_-sj2-1-R-4"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Saturday"
+      ],
+      "line" : "276"
+   },
+   "VJ_4-276-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_4-276-_-sj2-1-3-TA",
+      "leaves" : "17:28:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "228342",
+               null
+            ],
+            [
+               "228364",
+               "17S pasd"
+            ],
+            [
+               "228365",
+               "31S pasd"
+            ],
+            [
+               "228366",
+               "17S pasd"
+            ],
+            [
+               "228367",
+               "1M14S pasd"
+            ],
+            [
+               "228368",
+               "54S pasd"
+            ],
+            [
+               "228369",
+               "53S pasd"
+            ],
+            [
+               "228370",
+               "22S pasd"
+            ],
+            [
+               "228371",
+               "32S pasd"
+            ],
+            [
+               "2283143",
+               "32S pasd"
+            ]
+         ],
+         "id" : "JP_4-276-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Old Toronto Station Victory Pde - Awaba Station",
+            "rs_ref" : "RS_4-276-_-sj2-1-H-2",
+            "id" : "R_4-276-_-sj2-1-H-2"
+         }
+      },
+      "service" : "4-276-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "276"
+   }
+}
+;
+

@@ -1,0 +1,708 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-822-_-sj2-1" : "822"
+}
+;
+
+var stations = {
+   "2290251" : "Algona Rd nr Buwa St",
+   "2290249" : "Tirriki St nr Bukka St",
+   "2290205" : "Warners Bay Rd nr Whitburn Cl",
+   "2282172" : "Glad Gunson Dr Nr Yalumba Cl",
+   "2282156" : "Glad Gunson Dr Nr Leasingham Cl",
+   "2290204" : "Warners Bay Rd 200m E of Whitburn Cl",
+   "2290242" : "Algona Rd nr Tirriki St",
+   "2282185" : "Bareki Rd Nr Moani St",
+   "228025" : "Pacific Hwy nr Floraville Rd",
+   "2290209" : "Warners Bay Rd nr Wilsons Rd",
+   "2290206" : "Warners Bay Rd 250m W of Whitburn Cl",
+   "2280316" : "Croudace Bay Rd opp Lindsay Av",
+   "2290207" : "Warners Bay Rd opp Bayview St",
+   "2280254" : "Green Point Rd nr Croudace Bay Rd",
+   "2280372" : "Crown St opp The Shores Way",
+   "2290226" : "Oxford St nr Plane St",
+   "2290165" : "Warners Bay Rd nr Kirika St",
+   "2280194" : "Croudace Bay Rd nr Andrew Rd",
+   "2280225" : "Floraville Rd Nr Belmont  Bus Depot",
+   "2280320" : "Macquarie Dr nr Regal Way",
+   "2290208" : "Dunkley Pde nr Tennent Rd",
+   "2282173" : "Glad Gunson Dr Nr Bundarra Cl",
+   "2280222" : "Green Point Dr nr Belmont Hospital",
+   "2290250" : "Tirriki St Nr Algona Rd",
+   "2290176" : "Burton Rd opp Glad Gunson Dr",
+   "2280243" : "Pacific Hwy nr Cobbin Pde",
+   "2290175" : "Burton Rd nr Casson Av",
+   "2280253" : "Lewers St opp Croudace Bay Rd",
+   "2290398" : "Warners Bay Rd nr Burton Rd",
+   "2290155" : "Warners Bay Rd nr E K Av",
+   "2290264" : "Lonus Av nr Dudley Rd",
+   "2290177" : "Burton Rd nr Glad Gunson Dr",
+   "2290299" : "Dudley Rd 300m W of Wakal St",
+   "2282109" : "Harkins St Nr Elizabeth St",
+   "229033" : "Pacific Hwy nr Felton St",
+   "2290187" : "Cadaga Rd nr Carbeen St",
+   "2290248" : "Bati St nr Tirriki St",
+   "2290178" : "Burton Rd opp Casson Av",
+   "2290243" : "Tirriki St Nr Algona Rd",
+   "2280318" : "Macquarie Dr nr Tallawalla Rd",
+   "2290298" : "Dudley Rd nr Hallam St",
+   "2290183" : "Dunkley Pde nr Progress Rd",
+   "2290180" : "Warners Bay Rd 220m E of Burton Rd",
+   "2280374" : "Lewers St nr Roe St",
+   "2280252" : "Daniel St Nr Crown St",
+   "2290269" : "Lonus Av opp Kurraka St",
+   "2280162" : "Macquarie Dr opp Tingira Dr",
+   "2282111" : "Ian St Nr Mulimbah St",
+   "2290287" : "Oxford St nr Pacific Hwy",
+   "2282180" : "Bareki Rd Nr Eleebana Rd",
+   "2290186" : "Warners Bay Rd nr Conifer Cl",
+   "2290174" : "Burton Rd nr Warners Bay Rd",
+   "2290244" : "Tirriki St opp Bukka St",
+   "2290247" : "Buwa St nr Bati St",
+   "2290225" : "Oxford St nr Goundry St",
+   "2282178" : "Bareki Rd Opp Moani St",
+   "2280159" : "Macquarie Dr nr Tingira Dr",
+   "2282135" : "Rothbury St Opp Tyrrells Cl",
+   "2280368" : "Crown St Nr Green Point Dr",
+   "2282155" : "Glad Gunson Dr Nr Lindeman Cl",
+   "2280224" : "Ross St nr Evans St",
+   "2280367" : "Crown St nr The Shores Way",
+   "2280366" : "Evans St nr Haig St",
+   "2290181" : "Warners Bay Rd nr Old Warners Bay Rd",
+   "2280244" : "Evans St nr Pacific Hwy",
+   "2290182" : "Warners Bay Rd nr Cowmeadow Rd",
+   "2282181" : "Bareki Rd 200m S Of Harkins St",
+   "2280251" : "Lewers St nr Daniel St",
+   "2282157" : "Glad Gunson Dr Nr Wyndham Wy",
+   "2282182" : "Bareki Rd 250m S Of Harkins St",
+   "2282112" : "Ian St Opp Penfold Cl",
+   "2282141" : "Ian St Nr Elizabeth St",
+   "2282140" : "Ian St Nr Buring Cl",
+   "2290185" : "Warners Bay Rd 300m W of Whitburn Cl",
+   "2290179" : "Burton Rd opp Lamington Dr",
+   "2282136" : "Rothbury St Nr Glad Gunson Dr",
+   "2280317" : "Croudace Bay Rd nr Lindsay Av",
+   "2290400" : "Warners Bay opp Old Warners Bay Rd",
+   "2290245" : "Bati St opp Philipai St",
+   "2290194" : "Cadaga Rd nr Warners Bay Rd",
+   "2290198" : "Oxford St opp O'Brien St",
+   "2290188" : "Cadaga Rd opp Coral Cr",
+   "2282179" : "Bareki Rd Opp Yerambla Cl",
+   "2290428" : "Dudley St opp Kalinda St",
+   "2280247" : "Evans St nr Robb St",
+   "2282142" : "Elizabeth St Nr Macquarie Dr",
+   "2280373" : "Daniel St Nr Crown St",
+   "2290197" : "Oxford St nr Jamieson St",
+   "2280223" : "Lewers St nr Croudace Bay Rd",
+   "2280257" : "Evans St nr Vista Pde",
+   "2280255" : "Croudace Bay Rd opp Spinnaker Ridge Way",
+   "2282158" : "Glad Gunson Dr Nr Rothbury St",
+   "2290196" : "Oxford St nr Paper St",
+   "2290401" : "Dunkley Pde nr Mount Hutton Primary",
+   "2290189" : "Cadaga Rd Nr Oxford St",
+   "2290227" : "Oxford St nr Mallee St",
+   "2290266" : "Lonus Av nr Whitebridge High",
+   "2280221" : "Croudace Bay Rd nr Spinnaker Ridge Way",
+   "2282110" : "Ian St Nr Murray St",
+   "2282184" : "Bareki Rd Nr Yerambla Cl",
+   "2290255" : "Oxford St nr Felton St",
+   "2290192" : "Cadaga Rd nr Coral Cr",
+   "2280160" : "Macquarie Dr Nr St Johns Dr",
+   "2290193" : "Cadaga Rd nr Alder Cr",
+   "2290289" : "Algona Rd opp Tirriki St",
+   "2280248" : "Evans St opp Haig St",
+   "228024" : "Pacific Hwy nr Evans",
+   "2290265" : "Lonus Av nr Tumpoa St",
+   "2282183" : "Bareki Rd Nr Birubi Cl",
+   "2282177" : "Macquarie Rd Nr Bareki Rd",
+   "2290293" : "Dudley Rd 250m W of Wakal St",
+   "2280161" : "Macquarie Dr Nr St Johns Dr",
+   "2290399" : "Warners Bay Rd 200m E of Burton Rd",
+   "2290246" : "Buwa St opp Bati St",
+   "2280371" : "Crown St Nr Green Point Dr",
+   "2282171" : "Glad Gunson Dr Opp Wyndham Wy",
+   "2280370" : "Green Point Dr nr Brushtail Pl",
+   "2290294" : "Dudley Rd nr Wakal St",
+   "2280369" : "Green Point Dr nr Heron Pl",
+   "2280250" : "Ross St nr The Parade",
+   "229034" : "St Marys School",
+   "2290184" : "Warners Bay Rd nr Bayview St",
+   "2290295" : "Dudley Rd nr Bula St",
+   "2290297" : "Dudley Rd nr Kalinda St",
+   "2282186" : "Macquarie Dr Nr Bareki Rd",
+   "2282139" : "Ian St Nr Penfold Cl",
+   "2280181" : "Croudace Bay Rd nr Excalibur Pde"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-822-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-822-_-sj2-1-2-b0096",
+      "leaves" : "07:56:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2280225",
+               null
+            ],
+            [
+               "2280243",
+               "0S pasd"
+            ],
+            [
+               "2280244",
+               "1M pasd"
+            ],
+            [
+               "2280247",
+               "1M pasd"
+            ],
+            [
+               "2280248",
+               "0S pasd"
+            ],
+            [
+               "2280250",
+               "1M pasd"
+            ],
+            [
+               "2280253",
+               "0S pasd"
+            ],
+            [
+               "2280251",
+               "1M pasd"
+            ],
+            [
+               "2280252",
+               "0S pasd"
+            ],
+            [
+               "2280367",
+               "0S pasd"
+            ],
+            [
+               "2280368",
+               "1M pasd"
+            ],
+            [
+               "2280369",
+               "0S pasd"
+            ],
+            [
+               "2280254",
+               "1M pasd"
+            ],
+            [
+               "2280255",
+               "1M pasd"
+            ],
+            [
+               "2280317",
+               "1M pasd"
+            ],
+            [
+               "2280194",
+               "1M pasd"
+            ],
+            [
+               "2280318",
+               "1M pasd"
+            ],
+            [
+               "2280161",
+               "0S pasd"
+            ],
+            [
+               "2280162",
+               "1M pasd"
+            ],
+            [
+               "2282177",
+               "1M pasd"
+            ],
+            [
+               "2282178",
+               "1M pasd"
+            ],
+            [
+               "2282179",
+               "0S pasd"
+            ],
+            [
+               "2282180",
+               "1M pasd"
+            ],
+            [
+               "2282181",
+               "1M pasd"
+            ],
+            [
+               "2282109",
+               "0S pasd"
+            ],
+            [
+               "2282110",
+               "1M pasd"
+            ],
+            [
+               "2282111",
+               "0S pasd"
+            ],
+            [
+               "2282112",
+               "1M pasd"
+            ],
+            [
+               "2282135",
+               "1M pasd"
+            ],
+            [
+               "2282136",
+               "0S pasd"
+            ],
+            [
+               "2282171",
+               "1M pasd"
+            ],
+            [
+               "2282172",
+               "0S pasd"
+            ],
+            [
+               "2282173",
+               "1M pasd"
+            ],
+            [
+               "2290177",
+               "1M pasd"
+            ],
+            [
+               "2290178",
+               "1M pasd"
+            ],
+            [
+               "2290179",
+               "0S pasd"
+            ],
+            [
+               "2290180",
+               "1M pasd"
+            ],
+            [
+               "2290181",
+               "1M pasd"
+            ],
+            [
+               "2290182",
+               "1M pasd"
+            ],
+            [
+               "2290183",
+               "0S pasd"
+            ],
+            [
+               "2290401",
+               "0S pasd"
+            ],
+            [
+               "2290184",
+               "1M pasd"
+            ],
+            [
+               "2290185",
+               "1M pasd"
+            ],
+            [
+               "2290186",
+               "0S pasd"
+            ],
+            [
+               "2290155",
+               "2M pasd"
+            ],
+            [
+               "2290187",
+               "2M pasd"
+            ],
+            [
+               "2290188",
+               "1M pasd"
+            ],
+            [
+               "2290189",
+               "1M pasd"
+            ],
+            [
+               "2290196",
+               "0S pasd"
+            ],
+            [
+               "2290197",
+               "2M pasd"
+            ],
+            [
+               "2290198",
+               "0S pasd"
+            ],
+            [
+               "229033",
+               "1M pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ],
+            [
+               "2290255",
+               "2M pasd"
+            ],
+            [
+               "2290247",
+               "2M pasd"
+            ],
+            [
+               "2290248",
+               "1M pasd"
+            ],
+            [
+               "2290249",
+               "0S pasd"
+            ],
+            [
+               "2290250",
+               "1M pasd"
+            ],
+            [
+               "2290289",
+               "1M pasd"
+            ],
+            [
+               "2290293",
+               "1M pasd"
+            ],
+            [
+               "2290294",
+               "1M pasd"
+            ],
+            [
+               "2290295",
+               "1M pasd"
+            ],
+            [
+               "2290428",
+               "0S pasd"
+            ],
+            [
+               "2290264",
+               "1M pasd"
+            ],
+            [
+               "2290265",
+               "1M pasd"
+            ],
+            [
+               "2290266",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-822-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Floraville Rd Nr Belmont Bus Depot - Lonus Av nr Whitebridge High",
+            "rs_ref" : "RS_94-822-_-sj2-1-H-2",
+            "id" : "R_94-822-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-822-_-sj2-1",
+      "line" : "822"
+   },
+   "VJ_94-822-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-822-_-sj2-1-1-b0096",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2290266",
+               null
+            ],
+            [
+               "2290269",
+               "1M pasd"
+            ],
+            [
+               "2290297",
+               "2M pasd"
+            ],
+            [
+               "2290298",
+               "2M pasd"
+            ],
+            [
+               "2290299",
+               "1M pasd"
+            ],
+            [
+               "2290242",
+               "1M pasd"
+            ],
+            [
+               "2290243",
+               "0S pasd"
+            ],
+            [
+               "2290244",
+               "1M pasd"
+            ],
+            [
+               "2290245",
+               "1M pasd"
+            ],
+            [
+               "2290246",
+               "0S pasd"
+            ],
+            [
+               "2290251",
+               "1M pasd"
+            ],
+            [
+               "2290287",
+               "1M pasd"
+            ],
+            [
+               "229033",
+               "1M pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ],
+            [
+               "2290225",
+               "2M pasd"
+            ],
+            [
+               "2290226",
+               "0S pasd"
+            ],
+            [
+               "2290227",
+               "1M pasd"
+            ],
+            [
+               "2290192",
+               "1M pasd"
+            ],
+            [
+               "2290193",
+               "0S pasd"
+            ],
+            [
+               "2290194",
+               "1M pasd"
+            ],
+            [
+               "2290165",
+               "0S pasd"
+            ],
+            [
+               "2290204",
+               "1M pasd"
+            ],
+            [
+               "2290205",
+               "0S pasd"
+            ],
+            [
+               "2290206",
+               "1M pasd"
+            ],
+            [
+               "2290207",
+               "0S pasd"
+            ],
+            [
+               "2290208",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "0S pasd"
+            ],
+            [
+               "2290400",
+               "1M pasd"
+            ],
+            [
+               "2290399",
+               "1M pasd"
+            ],
+            [
+               "2290398",
+               "0S pasd"
+            ],
+            [
+               "2290174",
+               "0S pasd"
+            ],
+            [
+               "2290175",
+               "1M pasd"
+            ],
+            [
+               "2290176",
+               "0S pasd"
+            ],
+            [
+               "2282155",
+               "1M pasd"
+            ],
+            [
+               "2282156",
+               "0S pasd"
+            ],
+            [
+               "2282157",
+               "1M pasd"
+            ],
+            [
+               "2282158",
+               "1M pasd"
+            ],
+            [
+               "2282139",
+               "1M pasd"
+            ],
+            [
+               "2282140",
+               "0S pasd"
+            ],
+            [
+               "2282141",
+               "0S pasd"
+            ],
+            [
+               "2282142",
+               "1M pasd"
+            ],
+            [
+               "2282182",
+               "0S pasd"
+            ],
+            [
+               "2282183",
+               "1M pasd"
+            ],
+            [
+               "2282184",
+               "0S pasd"
+            ],
+            [
+               "2282185",
+               "1M pasd"
+            ],
+            [
+               "2282186",
+               "1M pasd"
+            ],
+            [
+               "2280159",
+               "0S pasd"
+            ],
+            [
+               "2280160",
+               "1M pasd"
+            ],
+            [
+               "2280320",
+               "0S pasd"
+            ],
+            [
+               "2280181",
+               "1M pasd"
+            ],
+            [
+               "2280316",
+               "1M pasd"
+            ],
+            [
+               "2280221",
+               "1M pasd"
+            ],
+            [
+               "2280222",
+               "1M pasd"
+            ],
+            [
+               "2280370",
+               "0S pasd"
+            ],
+            [
+               "2280371",
+               "1M pasd"
+            ],
+            [
+               "2280372",
+               "0S pasd"
+            ],
+            [
+               "2280373",
+               "1M pasd"
+            ],
+            [
+               "2280374",
+               "0S pasd"
+            ],
+            [
+               "2280223",
+               "1M pasd"
+            ],
+            [
+               "2280224",
+               "0S pasd"
+            ],
+            [
+               "2280366",
+               "1M pasd"
+            ],
+            [
+               "2280257",
+               "0S pasd"
+            ],
+            [
+               "228024",
+               "1M pasd"
+            ],
+            [
+               "228025",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-822-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Lonus Av nr Whitebridge High - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-822-_-sj2-1-R-1",
+            "id" : "R_94-822-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-822-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "822"
+   }
+}
+;
+

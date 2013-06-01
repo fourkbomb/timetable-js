@@ -1,0 +1,625 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-739-_-sj2-1" : "739"
+}
+;
+
+var stations = {
+   "230734" : "Mawson St Nr Sandgate Rd",
+   "2287181" : "Cameron St nr Douglas St",
+   "230496" : "Angophora Dr Nr Warabrook Bvd",
+   "228717" : "Newcastle Rd nr Illoura St",
+   "2287163" : "Rae St opp Heritage Pl",
+   "2287182" : "Cameron St nr Tillie St",
+   "230739" : "Marsden St Opp Mort Lane",
+   "2287352" : "Macquarie Rd nr Abel St",
+   "230722" : "Marsden St Nr Mort Lane",
+   "230494" : "Casuarina Cct nr Substation",
+   "2287333" : "Birchgrove Dr nr Coweambah Cl",
+   "2287171" : "Wilkinson Av opp Cunningham St",
+   "230723" : "Marsden St 300m S Of Mort St",
+   "229934" : "Janet St Nr Blue Gum Rd",
+   "2287184" : "Cameron St nr Nash St",
+   "2287173" : "Wilkinson Av Nr Tillie St",
+   "2287337" : "Birchgrove Dr nr Corio Cl",
+   "228742" : "Newcastle Rd nr Victory Pde",
+   "230733" : "Sandgate Rd Nr Hansen Pl",
+   "229918" : "Blue Gum Rd nr Janet St",
+   "2287165" : "Burke Pl nr Naughton Av",
+   "2287164" : "Rae St nr Heritage Pl",
+   "230736" : "Mawson St Nr Alister St",
+   "230744" : "Bardia Rd Nr Lovell Pde",
+   "228745" : "Longworth Av nr Cowper St",
+   "228719" : "Victory Pde nr Chalmers Rd",
+   "230746" : "Derna Rd Nr Lovell Pde",
+   "230740" : "King St Nr Mort St",
+   "2287166" : "Burke Pl nr Timmins St",
+   "2287142" : "University Dr nr Blue Gum Rd",
+   "2287183" : "Cameron St opp Nash St",
+   "2304100" : "Angophora Dr Nr Warabrook Bvd",
+   "230829" : "University Dr Opp Main Entrance",
+   "230738" : "Marsden St 200m N Of Alister St",
+   "230714" : "King St Nr Marton St",
+   "230737" : "Marsden St Nr Alister St",
+   "230717" : "Karloo St Nr Alderson Rd",
+   "2287170" : "Wilkinson Av opp Morris St",
+   "230748" : "Cobby St Nr Rabaul St",
+   "2287218" : "Cressington Wy nr Elermore Pde",
+   "230499" : "Angophora Dr Opp Floribunda Cl",
+   "230749" : "Derna Rd Nr Cobby St",
+   "230719" : "Blanch St Nr Long Cr",
+   "2287207" : "Metcalfe St nr Whitton St",
+   "2304101" : "Warabrook Bvd nr Angophora Dr",
+   "230741" : "King St Nr Cora Pl",
+   "229933" : "Janet St Opp Heaton St",
+   "230743" : "Marton St Nr Sandgate Rd",
+   "229932" : "Janet St Nr Algie St",
+   "230713" : "Marton St Nr Sandgate Rd",
+   "2287217" : "Cressington Wy nr Craignair Cl",
+   "2287167" : "Englund St nr Wlknson Av",
+   "2304275" : "Sandgate Rd nr Water Board Works",
+   "230729" : "Sandgate Rd Opp Hanse Pl",
+   "2304274" : "Sandgate Rd opp Rural Dr",
+   "2287168" : "Englund St nr Wilkinson Av",
+   "2287335" : "Birchgrove Dr nr Bellinger Cl",
+   "230742" : "King St Nr Marton St",
+   "230497" : "Angophora Dr opp Viola Wy",
+   "230715" : "King St Opp Cora Pl",
+   "230745" : "Derna Rd Nr Bardia Rd",
+   "2287174" : "Wilkinson Av Nr Tillie St",
+   "2287155" : "Wilkinson Av nr Blue Gum Rd",
+   "230751" : "Bardia Rd Nr Sandgate Rd",
+   "2287216" : "Cressington Wy nr Kadina Cl",
+   "230747" : "Cobby St Nr Sandgate Rd",
+   "230491" : "Casuarina Cct nr Retirement Village",
+   "230718" : "Long Cr Nr Blanch St",
+   "230441" : "Pacific Hwy opp Ferry Rd",
+   "230735" : "Mawson St Opp Hospital",
+   "230492" : "Casuarina Cct opp Melaleuca Pl",
+   "230716" : "King St Nr Mort St",
+   "230720" : "Blanch St Nr King St",
+   "2287169" : "Wilkinson Av nr Morris St",
+   "2287331" : "Birchgrove Dr Nr Victory Pde",
+   "2287340" : "Birchgrove Dr nr Wootton Cl",
+   "2304273" : "Sandgate Rd nr Rural Dr",
+   "229917" : "Blue Gum Rd opp Goodwin St",
+   "2304276" : "Sandgate Rd opp Water Board Works",
+   "230750" : "Derna Rd Nr Bardia Rd",
+   "229935" : "Janet St Nr Jesmond High",
+   "230495" : "Casuarina Cct nr Callistemon Cl",
+   "230426" : "Pacific Hwy nr Mangrove Rd",
+   "2287341" : "Birchgrove Dr nr Douglas St",
+   "230725" : "Mawson St Nr Marton St",
+   "230727" : "Mawson St Nr Sandgate Rd",
+   "230726" : "Mawson St Nr Hospital",
+   "2304277" : "Pacific Hwy Near Terry St",
+   "229912" : "Blue Gum Rd nr William St",
+   "228744" : "Longworth Ave near Newcastle Rd",
+   "230498" : "Angophora Dr Opp Floribunda Cl",
+   "230493" : "Casuarina Cct opp Viminaria Pl",
+   "2287156" : "Wilkinson Av nr King St",
+   "2304272" : "Angophora Dr nr Bakeri Cct",
+   "2287206" : "Elermore Pde nr Perks St",
+   "230471" : "Maitland Rd nr Terry St",
+   "230724" : "Marsden St Nr Conmurra Cir",
+   "230721" : "King St Nr Karloo St",
+   "2287172" : "Wilkinson Av nr Cunningham St",
+   "230490" : "Warabrook Bvd nr Casuarina Cct"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-739-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-739-_-sj2-1-1-b0096",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "230490",
+               null
+            ],
+            [
+               "230491",
+               "0S pasd"
+            ],
+            [
+               "230492",
+               "1M pasd"
+            ],
+            [
+               "230493",
+               "1M pasd"
+            ],
+            [
+               "230494",
+               "0S pasd"
+            ],
+            [
+               "230495",
+               "1M pasd"
+            ],
+            [
+               "230496",
+               "0S pasd"
+            ],
+            [
+               "230497",
+               "1M pasd"
+            ],
+            [
+               "230498",
+               "0S pasd"
+            ],
+            [
+               "230499",
+               "1M pasd"
+            ],
+            [
+               "2304272",
+               "0S pasd"
+            ],
+            [
+               "2304100",
+               "2M pasd"
+            ],
+            [
+               "2304101",
+               "1M pasd"
+            ],
+            [
+               "2304277",
+               "0S pasd"
+            ],
+            [
+               "230441",
+               "4M pasd"
+            ],
+            [
+               "2304273",
+               "1M pasd"
+            ],
+            [
+               "2304275",
+               "2M pasd"
+            ],
+            [
+               "230713",
+               "1M pasd"
+            ],
+            [
+               "230714",
+               "0S pasd"
+            ],
+            [
+               "230715",
+               "1M pasd"
+            ],
+            [
+               "230716",
+               "3M pasd"
+            ],
+            [
+               "230717",
+               "1M pasd"
+            ],
+            [
+               "230718",
+               "0S pasd"
+            ],
+            [
+               "230719",
+               "0S pasd"
+            ],
+            [
+               "230720",
+               "1M pasd"
+            ],
+            [
+               "230721",
+               "0S pasd"
+            ],
+            [
+               "230722",
+               "5M pasd"
+            ],
+            [
+               "230723",
+               "0S pasd"
+            ],
+            [
+               "230724",
+               "0S pasd"
+            ],
+            [
+               "230725",
+               "1M pasd"
+            ],
+            [
+               "230726",
+               "0S pasd"
+            ],
+            [
+               "230727",
+               "1M pasd"
+            ],
+            [
+               "230729",
+               "0S pasd"
+            ],
+            [
+               "230744",
+               "0S pasd"
+            ],
+            [
+               "230745",
+               "1M pasd"
+            ],
+            [
+               "230746",
+               "0S pasd"
+            ],
+            [
+               "230747",
+               "1M pasd"
+            ],
+            [
+               "2287163",
+               "0S pasd"
+            ],
+            [
+               "2287165",
+               "0S pasd"
+            ],
+            [
+               "2287167",
+               "1M pasd"
+            ],
+            [
+               "2287169",
+               "0S pasd"
+            ],
+            [
+               "2287156",
+               "0S pasd"
+            ],
+            [
+               "229917",
+               "1M pasd"
+            ],
+            [
+               "229918",
+               "0S pasd"
+            ],
+            [
+               "229934",
+               "1M pasd"
+            ],
+            [
+               "229935",
+               "0S pasd"
+            ],
+            [
+               "230829",
+               "3M pasd"
+            ],
+            [
+               "2287142",
+               "0S pasd"
+            ],
+            [
+               "2287155",
+               "1M pasd"
+            ],
+            [
+               "2287170",
+               "1M pasd"
+            ],
+            [
+               "2287171",
+               "1M pasd"
+            ],
+            [
+               "2287174",
+               "0S pasd"
+            ],
+            [
+               "2287181",
+               "1M pasd"
+            ],
+            [
+               "2287184",
+               "0S pasd"
+            ],
+            [
+               "2287352",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-739-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Warabrook Bvd nr Casuarina Cct - Macquarie Rd nr Abel St",
+            "rs_ref" : "RS_94-739-_-sj2-1-H-1",
+            "id" : "R_94-739-_-sj2-1-H-1"
+         }
+      },
+      "service" : "94-739-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "739"
+   },
+   "VJ_94-739-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-739-_-sj2-1-2-b0096",
+      "leaves" : "14:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229932",
+               null
+            ],
+            [
+               "229933",
+               "1M pasd"
+            ],
+            [
+               "229912",
+               "0S pasd"
+            ],
+            [
+               "228717",
+               "0S pasd"
+            ],
+            [
+               "228742",
+               "1M pasd"
+            ],
+            [
+               "228719",
+               "0S pasd"
+            ],
+            [
+               "2287331",
+               "1M pasd"
+            ],
+            [
+               "2287333",
+               "0S pasd"
+            ],
+            [
+               "2287335",
+               "1M pasd"
+            ],
+            [
+               "2287337",
+               "0S pasd"
+            ],
+            [
+               "2287340",
+               "1M pasd"
+            ],
+            [
+               "2287341",
+               "0S pasd"
+            ],
+            [
+               "2287216",
+               "1M pasd"
+            ],
+            [
+               "2287217",
+               "0S pasd"
+            ],
+            [
+               "2287218",
+               "0S pasd"
+            ],
+            [
+               "2287206",
+               "1M pasd"
+            ],
+            [
+               "2287207",
+               "0S pasd"
+            ],
+            [
+               "228744",
+               "2M pasd"
+            ],
+            [
+               "228745",
+               "0S pasd"
+            ],
+            [
+               "2287183",
+               "1M pasd"
+            ],
+            [
+               "2287182",
+               "0S pasd"
+            ],
+            [
+               "2287173",
+               "0S pasd"
+            ],
+            [
+               "2287172",
+               "1M pasd"
+            ],
+            [
+               "2287168",
+               "0S pasd"
+            ],
+            [
+               "2287166",
+               "0S pasd"
+            ],
+            [
+               "2287164",
+               "1M pasd"
+            ],
+            [
+               "230748",
+               "0S pasd"
+            ],
+            [
+               "230749",
+               "1M pasd"
+            ],
+            [
+               "230750",
+               "0S pasd"
+            ],
+            [
+               "230751",
+               "0S pasd"
+            ],
+            [
+               "230733",
+               "1M pasd"
+            ],
+            [
+               "230734",
+               "0S pasd"
+            ],
+            [
+               "230735",
+               "0S pasd"
+            ],
+            [
+               "230736",
+               "1M pasd"
+            ],
+            [
+               "230737",
+               "0S pasd"
+            ],
+            [
+               "230738",
+               "1M pasd"
+            ],
+            [
+               "230739",
+               "0S pasd"
+            ],
+            [
+               "230717",
+               "4M pasd"
+            ],
+            [
+               "230718",
+               "0S pasd"
+            ],
+            [
+               "230719",
+               "0S pasd"
+            ],
+            [
+               "230720",
+               "1M pasd"
+            ],
+            [
+               "230721",
+               "0S pasd"
+            ],
+            [
+               "230740",
+               "1M pasd"
+            ],
+            [
+               "230741",
+               "0S pasd"
+            ],
+            [
+               "230742",
+               "1M pasd"
+            ],
+            [
+               "230743",
+               "0S pasd"
+            ],
+            [
+               "2304276",
+               "1M pasd"
+            ],
+            [
+               "2304274",
+               "2M pasd"
+            ],
+            [
+               "230426",
+               "2M pasd"
+            ],
+            [
+               "230471",
+               "3M pasd"
+            ],
+            [
+               "230490",
+               "1M pasd"
+            ],
+            [
+               "230496",
+               "0S pasd"
+            ],
+            [
+               "230497",
+               "1M pasd"
+            ],
+            [
+               "230498",
+               "0S pasd"
+            ],
+            [
+               "230499",
+               "1M pasd"
+            ],
+            [
+               "2304272",
+               "0S pasd"
+            ],
+            [
+               "2304100",
+               "2M pasd"
+            ],
+            [
+               "230491",
+               "1M pasd"
+            ],
+            [
+               "230492",
+               "0S pasd"
+            ],
+            [
+               "230493",
+               "1M pasd"
+            ],
+            [
+               "230494",
+               "1M pasd"
+            ],
+            [
+               "230495",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-739-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Janet St Nr Algie St - Casuarina Cct nr Callistemon Cl",
+            "rs_ref" : "RS_94-739-_-sj2-1-R-2",
+            "id" : "R_94-739-_-sj2-1-R-2"
+         }
+      },
+      "service" : "94-739-_-sj2-1",
+      "line" : "739"
+   }
+}
+;
+

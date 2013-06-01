@@ -1,0 +1,448 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-669-c-sj2-1" : "669"
+}
+;
+
+var stations = {
+   "2206132" : "Homer St Nr Braeside Cr",
+   "220317" : "Marrickville Rd Nr New Canterbury Rd",
+   "219387" : "Northcote St Nr Cross St",
+   "2206130" : "Homer St Nr Leonora St",
+   "219424" : "Beamish St Nr Evaline St",
+   "219423" : "Beamish St Opp Unara St",
+   "204931" : "Denison St Nr Christian Bros",
+   "2206128" : "Homer St Nr Earlwood Primary",
+   "220498" : "Wardell Rd Nr Ewart St",
+   "220499" : "Wardell Rd Nr Riverside Cr",
+   "219419" : "Orissa St Nr Fletcher St",
+   "2208125" : "Bexley Rd nr William St",
+   "2206129" : "Homer St Nr Morgan St",
+   "219388" : "Northcote St Nr Cressy St",
+   "220653" : "Homer St Nr View St",
+   "219413" : "Beamish St nr South Pde",
+   "220652" : "Wardell Rd Nr Homer St",
+   "220647" : "Prince Edward Av Nr Dellwood Av",
+   "220664" : "Northcote St Nr Bexley Rd",
+   "220646" : "Permanent Av Nr Dellwood Av",
+   "219464" : "Canterbury Rd Nr Scahill St",
+   "219415" : "South Pde Nr Beamish St",
+   "220645" : "Permanent Av Nr Ashton Av",
+   "220650" : "Fricourt Av Nr Wardell Rd",
+   "220663" : "Bexley Rd Nr Calbina Rd",
+   "220636" : "Wardell Rd Nr Riverview Rd",
+   "220343" : "Wardell Rd near Dulwich Hill Station",
+   "219422" : "Beamish St Nr Fletcher St",
+   "219389" : "Northcote St Nr Canterbury Rd",
+   "220665" : "Northcote St Opp Narani Cr",
+   "2206127" : "Homer St Nr Hartill Law Av",
+   "220335" : "Wardell Rd Nr Challis Av",
+   "220643" : "Permanent Av Nr Prince Edward Av",
+   "2206131" : "Homer St Nr Woodlawn Av",
+   "2206133" : "Homer St Nr Bexley Rd",
+   "220644" : "Permanent Av Nr Lovat Av",
+   "220651" : "Wardell Rd Nr Watkin Av",
+   "220648" : "Earlwood Av Nr Flers Av",
+   "220339" : "Marrickville Rd Nr Fairfowl St",
+   "220654" : "Homer Nr St James",
+   "220649" : "Fricourt Av Nr Earlwood Av",
+   "2208118" : "Bexley Rd Nr Clemton Av",
+   "220497" : "Wardell Rd Nr Marrickville Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-669-c-sj2-1-2-b009t" : {
+      "vjcode" : "VJ_99-669-c-sj2-1-2-b009t",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204931",
+               null
+            ],
+            [
+               "220317",
+               "3M pasd"
+            ],
+            [
+               "220339",
+               "1M pasd"
+            ],
+            [
+               "220497",
+               "0S pasd"
+            ],
+            [
+               "220335",
+               "1M pasd"
+            ],
+            [
+               "220343",
+               "1M pasd"
+            ],
+            [
+               "220498",
+               "1M pasd"
+            ],
+            [
+               "220499",
+               "0S pasd"
+            ],
+            [
+               "220636",
+               "2M pasd"
+            ],
+            [
+               "220643",
+               "1M pasd"
+            ],
+            [
+               "220644",
+               "1M pasd"
+            ],
+            [
+               "220645",
+               "0S pasd"
+            ],
+            [
+               "220646",
+               "1M pasd"
+            ],
+            [
+               "220647",
+               "1M pasd"
+            ],
+            [
+               "220648",
+               "0S pasd"
+            ],
+            [
+               "220649",
+               "1M pasd"
+            ],
+            [
+               "220650",
+               "1M pasd"
+            ],
+            [
+               "220651",
+               "1M pasd"
+            ],
+            [
+               "220652",
+               "0S pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "2206127",
+               "1M pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "2206130",
+               "1M pasd"
+            ],
+            [
+               "2206131",
+               "0S pasd"
+            ],
+            [
+               "2206132",
+               "1M pasd"
+            ],
+            [
+               "2206133",
+               "0S pasd"
+            ],
+            [
+               "2208118",
+               "1M pasd"
+            ],
+            [
+               "2208125",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "0S pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "1M pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "0S pasd"
+            ],
+            [
+               "219389",
+               "1M pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "0S pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "0S pasd"
+            ],
+            [
+               "219415",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-669-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Denison St Nr Christian Bros - Campsie Station",
+            "rs_ref" : "RS_99-669-c-sj2-1-R-1",
+            "id" : "R_99-669-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-669-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "669"
+   },
+   "VJ_99-669-c-sj2-1-1-b009m" : {
+      "vjcode" : "VJ_99-669-c-sj2-1-1-b009m",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "204931",
+               null
+            ],
+            [
+               "220317",
+               "3M pasd"
+            ],
+            [
+               "220339",
+               "1M pasd"
+            ],
+            [
+               "220497",
+               "0S pasd"
+            ],
+            [
+               "220335",
+               "1M pasd"
+            ],
+            [
+               "220343",
+               "1M pasd"
+            ],
+            [
+               "220498",
+               "1M pasd"
+            ],
+            [
+               "220499",
+               "0S pasd"
+            ],
+            [
+               "220636",
+               "2M pasd"
+            ],
+            [
+               "220643",
+               "1M pasd"
+            ],
+            [
+               "220644",
+               "1M pasd"
+            ],
+            [
+               "220645",
+               "0S pasd"
+            ],
+            [
+               "220646",
+               "1M pasd"
+            ],
+            [
+               "220647",
+               "1M pasd"
+            ],
+            [
+               "220648",
+               "0S pasd"
+            ],
+            [
+               "220649",
+               "1M pasd"
+            ],
+            [
+               "220650",
+               "1M pasd"
+            ],
+            [
+               "220651",
+               "1M pasd"
+            ],
+            [
+               "220652",
+               "0S pasd"
+            ],
+            [
+               "220653",
+               "1M pasd"
+            ],
+            [
+               "220654",
+               "0S pasd"
+            ],
+            [
+               "2206127",
+               "1M pasd"
+            ],
+            [
+               "2206128",
+               "1M pasd"
+            ],
+            [
+               "2206129",
+               "0S pasd"
+            ],
+            [
+               "2206130",
+               "1M pasd"
+            ],
+            [
+               "2206131",
+               "0S pasd"
+            ],
+            [
+               "2206132",
+               "1M pasd"
+            ],
+            [
+               "2206133",
+               "0S pasd"
+            ],
+            [
+               "2208118",
+               "1M pasd"
+            ],
+            [
+               "2208125",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "0S pasd"
+            ],
+            [
+               "220664",
+               "1M pasd"
+            ],
+            [
+               "220665",
+               "1M pasd"
+            ],
+            [
+               "219387",
+               "1M pasd"
+            ],
+            [
+               "219388",
+               "0S pasd"
+            ],
+            [
+               "219389",
+               "1M pasd"
+            ],
+            [
+               "219464",
+               "1M pasd"
+            ],
+            [
+               "219419",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "0S pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "0S pasd"
+            ],
+            [
+               "219415",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-669-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Denison St Nr Christian Bros - Campsie Station",
+            "rs_ref" : "RS_99-669-c-sj2-1-R-1",
+            "id" : "R_99-669-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-669-c-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "669"
+   }
+}
+;
+

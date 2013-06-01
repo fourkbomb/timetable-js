@@ -1,0 +1,3379 @@
+var OPERATOR = "Sydney Buses";
+
+
+var LINES = {
+   "90-E89-_-sj2-1" : "E89"
+}
+;
+
+var stations = {
+   "2107111" : "Avalon Pde Nr Gunjulla Pl",
+   "210754" : "Avalon Pde nr Old Barrenjoey Rd",
+   "2107109" : "Hudson Pde nr Avalon Pde",
+   "210772" : "Bilambee Av nr Bilga Av",
+   "210612" : "Barrenjoey Rd Nr Karloo Pde",
+   "210769" : "Wandeen Rd nr Mia Pl",
+   "2107115" : "Old Barrenjoey Rd nr Avalon Pde",
+   "210776" : "Lower Plateau Rd nr Stromboli Pl",
+   "210775" : "Bilwara Av nr Bilambee Av",
+   "2000114" : "George St nr Barlow St",
+   "210774" : "Bilambee Av opp Bilga Av",
+   "2000214" : "George St opp Rawson Place",
+   "210734" : "Plateau Rd nr Barrenjoey Rd",
+   "210618" : "Barrenjoey Rd Nr Neptune Rd",
+   "210785" : "Hudson Rd nr Old Wharf Reserve",
+   "210770" : "Bilwara Av nr Lower Plateau Rd",
+   "210767" : "Wandeen Rd Nr Hudson Pde",
+   "210771" : "Bilwara Av opp Bilambee Av",
+   "210761" : "Hudson Rd nr Old Wharf Reserve",
+   "210617" : "Barrenjoey Rd Nr The Serpentine",
+   "210397" : "Pittwater Rd Nr Waratah St",
+   "2107110" : "Avalon Pde Nr Katandra Cl",
+   "210621" : "Barrenjoey Rd Nr Trevor Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "210765" : "Hudson Pde 200m E Of Taylors Point Rd",
+   "2107156" : "Avalon Pde nr Bellevue Av",
+   "210311" : "Barrenjoey Rd Nr Darley St",
+   "2000295" : "Wynyard Station_ Clarence St - Stand T",
+   "210779" : "Wandeen Rd Nr Hudson Pde",
+   "210773" : "Plateau Rd nr The Outlook",
+   "2000113" : "George St nr Liverpool St",
+   "210143" : "Pittwater Rd nr Jackson Rd",
+   "210732" : "Barrenjoey Rd Nr The Serpentine",
+   "210622" : "Barrenjoey Rd Nr Queens Pde East",
+   "210324" : "Barrenjoey Rd Nr Park St",
+   "2000139" : "Clarence St nr Market St",
+   "210766" : "Hudson Pde opp Taylors Point Wharf",
+   "210777" : "Lower Plateau Rd nr Wandeen Rd",
+   "210315" : "Barrenjoey Rd Nr Bassett St East",
+   "210747" : "Plateau Rd Nr Palmgrove Rd",
+   "210778" : "Wandeen Rd 400m E of Hudson Pde",
+   "210313" : "Barrenjoey Rd Nr Waterview St",
+   "210748" : "Plateau Rd nr Old Barrenjoey Rd",
+   "210745" : "Plateau Rd nr Weetawaa Rd",
+   "210756" : "Avalon Pde Nr Ruskin Rowe",
+   "210649" : "Barrenjoey Rd Nr Gladstone St",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210737" : "Plateau Rd opp Weetawaa Rd",
+   "210314" : "Barrenjoey Rd Nr Grandview Pde",
+   "200819" : "Lee St Set Down",
+   "210744" : "Plateau Rd nr Bilberry Av",
+   "210625" : "Barrenjoey Rd Nr Hillcrest Av",
+   "210316" : "Barrenjoey Rd Nr Darley St East",
+   "210616" : "Barrenjoey Rd Nr Neptune Rd",
+   "210782" : "Hudson Pde Nr Delecta Av",
+   "209717" : "Pittwater Rd nr Collaroy St",
+   "210623" : "Barrenjoey Rd Nr The Avenue",
+   "210312" : "Barrenjoey Rd Nr Bassett St",
+   "208913" : "Military Rd nr Wycombe Rd",
+   "210318" : "Barrenjoey Rd Nr Pittwater Rd",
+   "210763" : "Hudson Pde opp Delecta Av",
+   "210780" : "Hudson Pde nr Taylors Point Wharf",
+   "210735" : "Plateau Rd Nr Palmgrove Rd",
+   "210619" : "Barrenjoey Rd Nr Bramley Av",
+   "210764" : "Hudson Pde Nr Delecta Av",
+   "210317" : "Barrenjoey Rd Nr Golf Av",
+   "210757" : "Avalon Pde Nr Gunjulla Pl",
+   "210786" : "Hudson Pde Nr Hilltop Rd",
+   "210768" : "Wandeen Rd 300m E of Hudson Pde",
+   "210615" : "Barrenjoey Rd nr Robertson Rd",
+   "2107113" : "Avalon Pde opp Police Station",
+   "210762" : "Hudson Pde 500m S Of Hilltop Rd",
+   "210784" : "Hudson Pde 500m S Of Hilltop Rd",
+   "210760" : "Hudson Pde Nr Hilltop Rd",
+   "2000175" : "George St opp Wynyard",
+   "210728" : "Barrenjoey Rd Nr Avalon Pde",
+   "210736" : "Plateau Rd Nr Palmgrove Rd",
+   "2107114" : "Avalon Pde opp Bellevue Av",
+   "210758" : "Avalon Pde Nr Katandra Cl",
+   "210613" : "Barrenjoey Rd Nr Queens Pde",
+   "2000219" : "George St nr Market St",
+   "200061" : "Railway Square_ Lee St - Stand B",
+   "2000117" : "George St Nr Bathurst St",
+   "208948" : "Military Rd nr Wycombe Rd",
+   "210611" : "Barrenjoey Rd Nr Phillip Rd",
+   "210781" : "Hudson Pde 200m E Of Taylors Point Rd",
+   "210120" : "Pittwater Rd Nr Jackson Rd",
+   "2107112" : "Avalon Pde Nr Ruskin Rowe",
+   "210783" : "Hudson Pde Nr Delecta Av",
+   "210746" : "Plateau Rd Nr Palmgrove Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_90-E89-_-sj2-1-10-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-10-b009g",
+      "leaves" : "17:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-8-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-8-b009g",
+      "leaves" : "18:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "24M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "1M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "0S pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "0S pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "1M pasd"
+            ],
+            [
+               "210780",
+               "0S pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-6-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-1-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-1-b009h",
+      "leaves" : "07:04:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "30M pasd"
+            ],
+            [
+               "2000175",
+               "12M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "4M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-5-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-5-b009g",
+      "leaves" : "07:04:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "30M pasd"
+            ],
+            [
+               "2000175",
+               "12M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "4M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-6-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-6-b009g",
+      "leaves" : "17:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-16-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-16-b009h",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "30M pasd"
+            ],
+            [
+               "2000175",
+               "12M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "5M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-11-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-11-b009h",
+      "leaves" : "17:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-12-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-12-b009h",
+      "leaves" : "16:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "5M pickUp"
+            ],
+            [
+               "208948",
+               "12M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-13-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-13-b009h",
+      "leaves" : "18:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "24M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "1M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "0S pasd"
+            ],
+            [
+               "210775",
+               "1M pasd"
+            ],
+            [
+               "210776",
+               "0S pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "1M pasd"
+            ],
+            [
+               "210780",
+               "0S pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-6-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-14-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-14-b009h",
+      "leaves" : "06:44:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "29M pasd"
+            ],
+            [
+               "2000175",
+               "11M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "4M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-5-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-3-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-3-b009g",
+      "leaves" : "06:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "3M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "28M pasd"
+            ],
+            [
+               "2000175",
+               "7M pasd"
+            ],
+            [
+               "2000219",
+               "3M pasd"
+            ],
+            [
+               "2000113",
+               "3M setDown"
+            ],
+            [
+               "2000114",
+               "2M setDown"
+            ],
+            [
+               "200819",
+               "2M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-2-b009h",
+      "leaves" : "17:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "7M pickUp"
+            ],
+            [
+               "208948",
+               "16M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-4-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-4-b009g",
+      "leaves" : "16:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "200061",
+               null
+            ],
+            [
+               "2000214",
+               "1M pickUp"
+            ],
+            [
+               "2000117",
+               "4M pickUp"
+            ],
+            [
+               "2000139",
+               "4M pickUp"
+            ],
+            [
+               "2000295",
+               "5M pickUp"
+            ],
+            [
+               "208948",
+               "12M pickUp"
+            ],
+            [
+               "209717",
+               "25M pasd"
+            ],
+            [
+               "210120",
+               "7M pasd"
+            ],
+            [
+               "210397",
+               "4M pasd"
+            ],
+            [
+               "210324",
+               "1M pasd"
+            ],
+            [
+               "210311",
+               "1M pasd"
+            ],
+            [
+               "210312",
+               "1M pasd"
+            ],
+            [
+               "210313",
+               "1M pasd"
+            ],
+            [
+               "210611",
+               "1M pasd"
+            ],
+            [
+               "210612",
+               "1M pasd"
+            ],
+            [
+               "210613",
+               "2M pasd"
+            ],
+            [
+               "210649",
+               "1M pasd"
+            ],
+            [
+               "210615",
+               "1M pasd"
+            ],
+            [
+               "210616",
+               "1M pasd"
+            ],
+            [
+               "210617",
+               "2M pasd"
+            ],
+            [
+               "210734",
+               "2M pasd"
+            ],
+            [
+               "210735",
+               "1M pasd"
+            ],
+            [
+               "210736",
+               "0S pasd"
+            ],
+            [
+               "210737",
+               "1M pasd"
+            ],
+            [
+               "210773",
+               "1M pasd"
+            ],
+            [
+               "210774",
+               "1M pasd"
+            ],
+            [
+               "210775",
+               "0S pasd"
+            ],
+            [
+               "210776",
+               "1M pasd"
+            ],
+            [
+               "210777",
+               "0S pasd"
+            ],
+            [
+               "210778",
+               "1M pasd"
+            ],
+            [
+               "210779",
+               "0S pasd"
+            ],
+            [
+               "210780",
+               "1M pasd"
+            ],
+            [
+               "210781",
+               "1M pasd"
+            ],
+            [
+               "210782",
+               "0S pasd"
+            ],
+            [
+               "210783",
+               "1M pasd"
+            ],
+            [
+               "210784",
+               "0S pasd"
+            ],
+            [
+               "210785",
+               "1M pasd"
+            ],
+            [
+               "210786",
+               "1M pasd"
+            ],
+            [
+               "2107109",
+               "0S pasd"
+            ],
+            [
+               "2107110",
+               "0S pasd"
+            ],
+            [
+               "2107111",
+               "1M pasd"
+            ],
+            [
+               "2107112",
+               "1M pasd"
+            ],
+            [
+               "2107113",
+               "0S pasd"
+            ],
+            [
+               "2107114",
+               "1M pasd"
+            ],
+            [
+               "2107115",
+               "0S pasd"
+            ],
+            [
+               "210728",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-4-R-2",
+         "route" : {
+            "name" : "Railway Square - Barrenjoey Rd Nr Avalon Pde",
+            "rs_ref" : "RS_90-E89-_-sj2-1-R-2",
+            "id" : "R_90-E89-_-sj2-1-R-2"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-9-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-9-b009g",
+      "leaves" : "07:18:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "2M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "30M pasd"
+            ],
+            [
+               "2000175",
+               "12M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "5M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-7-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-15-b009h" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-15-b009h",
+      "leaves" : "06:27:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "3M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "28M pasd"
+            ],
+            [
+               "2000175",
+               "7M pasd"
+            ],
+            [
+               "2000219",
+               "3M pasd"
+            ],
+            [
+               "2000113",
+               "3M setDown"
+            ],
+            [
+               "2000114",
+               "2M setDown"
+            ],
+            [
+               "200819",
+               "2M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-3-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   },
+   "VJ_90-E89-_-sj2-1-7-b009g" : {
+      "vjcode" : "VJ_90-E89-_-sj2-1-7-b009g",
+      "leaves" : "06:44:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "210754",
+               null
+            ],
+            [
+               "2107156",
+               "1M pasd"
+            ],
+            [
+               "210756",
+               "0S pasd"
+            ],
+            [
+               "210757",
+               "1M pasd"
+            ],
+            [
+               "210758",
+               "1M pasd"
+            ],
+            [
+               "210760",
+               "1M pasd"
+            ],
+            [
+               "210761",
+               "1M pasd"
+            ],
+            [
+               "210762",
+               "0S pasd"
+            ],
+            [
+               "210763",
+               "1M pasd"
+            ],
+            [
+               "210764",
+               "0S pasd"
+            ],
+            [
+               "210765",
+               "1M pasd"
+            ],
+            [
+               "210766",
+               "1M pasd"
+            ],
+            [
+               "210767",
+               "1M pasd"
+            ],
+            [
+               "210768",
+               "0S pasd"
+            ],
+            [
+               "210769",
+               "1M pasd"
+            ],
+            [
+               "210770",
+               "0S pasd"
+            ],
+            [
+               "210771",
+               "1M pasd"
+            ],
+            [
+               "210772",
+               "0S pasd"
+            ],
+            [
+               "210744",
+               "1M pasd"
+            ],
+            [
+               "210745",
+               "1M pasd"
+            ],
+            [
+               "210746",
+               "1M pasd"
+            ],
+            [
+               "210747",
+               "0S pasd"
+            ],
+            [
+               "210748",
+               "1M pasd"
+            ],
+            [
+               "210732",
+               "2M pasd"
+            ],
+            [
+               "210618",
+               "2M pasd"
+            ],
+            [
+               "210619",
+               "1M pasd"
+            ],
+            [
+               "210621",
+               "1M pasd"
+            ],
+            [
+               "210622",
+               "1M pasd"
+            ],
+            [
+               "210623",
+               "1M pasd"
+            ],
+            [
+               "210625",
+               "1M pasd"
+            ],
+            [
+               "210314",
+               "1M pasd"
+            ],
+            [
+               "210315",
+               "1M pasd"
+            ],
+            [
+               "210316",
+               "1M pasd"
+            ],
+            [
+               "210317",
+               "1M pasd"
+            ],
+            [
+               "210318",
+               "1M pasd"
+            ],
+            [
+               "210143",
+               "4M pasd"
+            ],
+            [
+               "210184",
+               "3M pasd"
+            ],
+            [
+               "209722",
+               "4M pasd"
+            ],
+            [
+               "209922",
+               "5M pickUp"
+            ],
+            [
+               "208913",
+               "29M pasd"
+            ],
+            [
+               "2000175",
+               "11M pasd"
+            ],
+            [
+               "2000219",
+               "5M pasd"
+            ],
+            [
+               "2000113",
+               "4M setDown"
+            ],
+            [
+               "2000114",
+               "3M setDown"
+            ],
+            [
+               "200819",
+               "3M setDown"
+            ]
+         ],
+         "id" : "JP_90-E89-_-sj2-1-5-H-1",
+         "route" : {
+            "name" : "Avalon Pde nr Old Barrenjoey Rd - Railway Square",
+            "rs_ref" : "RS_90-E89-_-sj2-1-H-1",
+            "id" : "R_90-E89-_-sj2-1-H-1"
+         }
+      },
+      "service" : "90-E89-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "E89"
+   }
+}
+;
+

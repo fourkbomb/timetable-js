@@ -1,0 +1,735 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-567-a-sj2-1" : "567"
+}
+;
+
+var stations = {
+   "215087" : "Alice St near Our Lady of Lebanon",
+   "215068" : "Victoria Rd near Wandsworth St",
+   "211611" : "Victoria Rd near Rippon Av",
+   "211511" : "Victoria Rd Nr Marsden Rd",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "211535" : "Victoria Rd Nr Atkins Rd",
+   "2115116" : "Victoria Rd nr Barton St",
+   "211582" : "Victoria Rd Nr Patricia St",
+   "211240" : "Cressy Rd Nr Buffalo Rd",
+   "211532" : "Victoria Rd Opp Alma St",
+   "211647" : "Victoria Rd nr Euston St",
+   "211223" : "Victoria Rd Nr Beazley St",
+   "2112131" : "Morrison Rd Nr Regent St",
+   "211239" : "Cressy Rd Nr Victoria Rd",
+   "211619" : "Victoria Rd near Rydalmere Primary",
+   "2112133" : "Morrison Rd near Church St",
+   "2114131" : "Victoria Rd Nr Brush Rd",
+   "211227" : "Victoria Rd nr Beazley St",
+   "2112129" : "Morrison Rd Nr Princes St",
+   "211568" : "Victoria Rd Nr Trumble Av",
+   "211616" : "Victoria Rd Nr Clyde St",
+   "211562" : "Victoria Rd Nr Kissing Point Rd",
+   "211536" : "Victoria Rd Nr Spurway St",
+   "211640" : "Victoria Rd opp Myrtle St",
+   "2114100" : "Victoria Rd Nr Hermitage Rd",
+   "211533" : "Victoria Rd nr Spurway St",
+   "2114136" : "Victoria Rd Nr Moira Av",
+   "2114135" : "Victoria Rd Nr Mirool St",
+   "2114132" : "Victoria Rd Nr Darvall Rd",
+   "211214" : "Victoria Rd Nr Bowden St",
+   "211499" : "Victoria Rd Nr Forsyth St",
+   "211581" : "Victoria Rd Nr Kirby St",
+   "211639" : "Victoria Rd near Myrtle St",
+   "211441" : "Victoria Rd Nr Endeavour St",
+   "211237" : "Buffalo Rd Nr Holy Cross College",
+   "2114137" : "Victoria Rd Nr Shaftsbury Rd",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "211615" : "Victoria Rd Nr Clyde St",
+   "211567" : "Victoria Rd Nr Wentworth St",
+   "211641" : "Victoria Rd near Park Rd",
+   "211233" : "Victoria Rd nr Belmore St",
+   "211564" : "Victoria Rd Opp Hughes Av",
+   "211472" : "Victoria Rd Nr Chatham Rd",
+   "211234" : "Victoria Rd Nr Shepherd St",
+   "211563" : "Victoria Rd Nr Hughes Av",
+   "211620" : "Victoria Rd near Pine La",
+   "211274" : "Victoria Rd Nr Bowden St",
+   "215096" : "Victoria Rd Nr Pemberton St",
+   "2114134" : "Victoria Rd Nr Mirool St",
+   "2112130" : "Morrison Rd Nr Gladstone Av",
+   "211534" : "Victoria Rd Nr Atkins Rd",
+   "211447" : "Victoria Rd Nr Riverview St",
+   "211440" : "Victoria Rd Nr Gaza Rd",
+   "211473" : "Victoria Rd Nr West Pde",
+   "211638" : "Victoria Rd nr Euston St",
+   "211613" : "Victoria Rd near Bridge St",
+   "2150117" : "Macarthur St near New Zealand St",
+   "2150123" : "Alice St near Good St",
+   "211215" : "Victoria Rd nr Belmore St",
+   "211471" : "Victoria Rd Nr Bellevue Av",
+   "2112132" : "Morrison Rd near Church St",
+   "215086" : "Alfred St near Hassall St",
+   "211474" : "Victoria Rd Nr Forsyth St",
+   "211614" : "Victoria Rd near Crowgey St",
+   "2112128" : "Morrison Rd Nr Princes St",
+   "211561" : "Victoria Rd Nr Kissing Point Rd",
+   "211566" : "Victoria Rd Nr Turner St",
+   "211612" : "Victoria Rd opp Rippon Av",
+   "211459" : "Victoria Rd Nr Marsden Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-567-a-sj2-1-2-b00bk" : {
+      "vjcode" : "VJ_99-567-a-sj2-1-2-b00bk",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211238",
+               "1M pasd"
+            ],
+            [
+               "211227",
+               "0S pasd"
+            ],
+            [
+               "2112129",
+               "2M pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "211233",
+               "1M pasd"
+            ],
+            [
+               "211234",
+               "1M pasd"
+            ],
+            [
+               "211274",
+               "0S pasd"
+            ],
+            [
+               "211474",
+               "1M pasd"
+            ],
+            [
+               "211440",
+               "2M pasd"
+            ],
+            [
+               "211441",
+               "1M pasd"
+            ],
+            [
+               "211447",
+               "0S pasd"
+            ],
+            [
+               "2114136",
+               "0S pasd"
+            ],
+            [
+               "2114135",
+               "1M pasd"
+            ],
+            [
+               "2114131",
+               "1M pasd"
+            ],
+            [
+               "211511",
+               "0S pasd"
+            ],
+            [
+               "211561",
+               "1M pasd"
+            ],
+            [
+               "211563",
+               "0S pasd"
+            ],
+            [
+               "211535",
+               "0S pasd"
+            ],
+            [
+               "211566",
+               "1M pasd"
+            ],
+            [
+               "211568",
+               "0S pasd"
+            ],
+            [
+               "211536",
+               "1M pasd"
+            ],
+            [
+               "211582",
+               "1M pasd"
+            ],
+            [
+               "211619",
+               "1M pasd"
+            ],
+            [
+               "211640",
+               "1M pasd"
+            ],
+            [
+               "211638",
+               "0S pasd"
+            ],
+            [
+               "211615",
+               "1M pasd"
+            ],
+            [
+               "211613",
+               "0S pasd"
+            ],
+            [
+               "211612",
+               "1M pasd"
+            ],
+            [
+               "215096",
+               "2M pasd"
+            ],
+            [
+               "215068",
+               "1M pasd"
+            ],
+            [
+               "2150117",
+               "2M pasd"
+            ],
+            [
+               "2150123",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-567-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alice St near Good St",
+            "rs_ref" : "RS_99-567-a-sj2-1-H-1",
+            "id" : "R_99-567-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-567-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "567"
+   },
+   "VJ_99-567-a-sj2-1-4-b00bj" : {
+      "vjcode" : "VJ_99-567-a-sj2-1-4-b00bj",
+      "leaves" : "15:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "215087",
+               null
+            ],
+            [
+               "215086",
+               "1M pasd"
+            ],
+            [
+               "211611",
+               "7M pasd"
+            ],
+            [
+               "211614",
+               "1M pasd"
+            ],
+            [
+               "211616",
+               "1M pasd"
+            ],
+            [
+               "211647",
+               "1M pasd"
+            ],
+            [
+               "211639",
+               "1M pasd"
+            ],
+            [
+               "211641",
+               "1M pasd"
+            ],
+            [
+               "211620",
+               "0S pasd"
+            ],
+            [
+               "211532",
+               "1M pasd"
+            ],
+            [
+               "211581",
+               "1M pasd"
+            ],
+            [
+               "211533",
+               "2M pasd"
+            ],
+            [
+               "211567",
+               "1M pasd"
+            ],
+            [
+               "2115116",
+               "1M pasd"
+            ],
+            [
+               "211534",
+               "1M pasd"
+            ],
+            [
+               "211564",
+               "0S pasd"
+            ],
+            [
+               "211562",
+               "1M pasd"
+            ],
+            [
+               "211459",
+               "1M pasd"
+            ],
+            [
+               "2114132",
+               "1M pasd"
+            ],
+            [
+               "2114134",
+               "1M pasd"
+            ],
+            [
+               "2114137",
+               "1M pasd"
+            ],
+            [
+               "211471",
+               "1M pasd"
+            ],
+            [
+               "211472",
+               "0S pasd"
+            ],
+            [
+               "211473",
+               "1M pasd"
+            ],
+            [
+               "2114100",
+               "2M pasd"
+            ],
+            [
+               "211499",
+               "1M pasd"
+            ],
+            [
+               "211214",
+               "1M pasd"
+            ],
+            [
+               "211215",
+               "2M pasd"
+            ],
+            [
+               "2112133",
+               "2M pasd"
+            ],
+            [
+               "2112130",
+               "1M pasd"
+            ],
+            [
+               "2112128",
+               "0S pasd"
+            ],
+            [
+               "211223",
+               "4M pasd"
+            ],
+            [
+               "211239",
+               "0S pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-567-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Alice St near Our Lady of Lebanon - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-567-a-sj2-1-R-2",
+            "id" : "R_99-567-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-567-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "567"
+   },
+   "VJ_99-567-a-sj2-1-1-b00bj" : {
+      "vjcode" : "VJ_99-567-a-sj2-1-1-b00bj",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211237",
+               "0S pasd"
+            ],
+            [
+               "211238",
+               "1M pasd"
+            ],
+            [
+               "211227",
+               "0S pasd"
+            ],
+            [
+               "2112129",
+               "2M pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "211233",
+               "1M pasd"
+            ],
+            [
+               "211234",
+               "1M pasd"
+            ],
+            [
+               "211274",
+               "0S pasd"
+            ],
+            [
+               "211474",
+               "1M pasd"
+            ],
+            [
+               "211440",
+               "2M pasd"
+            ],
+            [
+               "211441",
+               "1M pasd"
+            ],
+            [
+               "211447",
+               "0S pasd"
+            ],
+            [
+               "2114136",
+               "0S pasd"
+            ],
+            [
+               "2114135",
+               "1M pasd"
+            ],
+            [
+               "2114131",
+               "1M pasd"
+            ],
+            [
+               "211511",
+               "0S pasd"
+            ],
+            [
+               "211561",
+               "1M pasd"
+            ],
+            [
+               "211563",
+               "0S pasd"
+            ],
+            [
+               "211535",
+               "0S pasd"
+            ],
+            [
+               "211566",
+               "1M pasd"
+            ],
+            [
+               "211568",
+               "0S pasd"
+            ],
+            [
+               "211536",
+               "1M pasd"
+            ],
+            [
+               "211582",
+               "1M pasd"
+            ],
+            [
+               "211619",
+               "1M pasd"
+            ],
+            [
+               "211640",
+               "1M pasd"
+            ],
+            [
+               "211638",
+               "0S pasd"
+            ],
+            [
+               "211615",
+               "1M pasd"
+            ],
+            [
+               "211613",
+               "0S pasd"
+            ],
+            [
+               "211612",
+               "1M pasd"
+            ],
+            [
+               "215096",
+               "2M pasd"
+            ],
+            [
+               "215068",
+               "1M pasd"
+            ],
+            [
+               "2150117",
+               "2M pasd"
+            ],
+            [
+               "2150123",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-567-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Alice St near Good St",
+            "rs_ref" : "RS_99-567-a-sj2-1-H-1",
+            "id" : "R_99-567-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-567-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "567"
+   },
+   "VJ_99-567-a-sj2-1-3-b00bk" : {
+      "vjcode" : "VJ_99-567-a-sj2-1-3-b00bk",
+      "leaves" : "15:18:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "215087",
+               null
+            ],
+            [
+               "215086",
+               "1M pasd"
+            ],
+            [
+               "211611",
+               "7M pasd"
+            ],
+            [
+               "211614",
+               "1M pasd"
+            ],
+            [
+               "211616",
+               "1M pasd"
+            ],
+            [
+               "211647",
+               "1M pasd"
+            ],
+            [
+               "211639",
+               "1M pasd"
+            ],
+            [
+               "211641",
+               "1M pasd"
+            ],
+            [
+               "211620",
+               "0S pasd"
+            ],
+            [
+               "211532",
+               "1M pasd"
+            ],
+            [
+               "211581",
+               "1M pasd"
+            ],
+            [
+               "211533",
+               "2M pasd"
+            ],
+            [
+               "211567",
+               "1M pasd"
+            ],
+            [
+               "2115116",
+               "1M pasd"
+            ],
+            [
+               "211534",
+               "1M pasd"
+            ],
+            [
+               "211564",
+               "0S pasd"
+            ],
+            [
+               "211562",
+               "1M pasd"
+            ],
+            [
+               "211459",
+               "1M pasd"
+            ],
+            [
+               "2114132",
+               "1M pasd"
+            ],
+            [
+               "2114134",
+               "1M pasd"
+            ],
+            [
+               "2114137",
+               "1M pasd"
+            ],
+            [
+               "211471",
+               "1M pasd"
+            ],
+            [
+               "211472",
+               "0S pasd"
+            ],
+            [
+               "211473",
+               "1M pasd"
+            ],
+            [
+               "2114100",
+               "2M pasd"
+            ],
+            [
+               "211499",
+               "1M pasd"
+            ],
+            [
+               "211214",
+               "1M pasd"
+            ],
+            [
+               "211215",
+               "2M pasd"
+            ],
+            [
+               "2112133",
+               "2M pasd"
+            ],
+            [
+               "2112130",
+               "1M pasd"
+            ],
+            [
+               "2112128",
+               "0S pasd"
+            ],
+            [
+               "211223",
+               "4M pasd"
+            ],
+            [
+               "211239",
+               "0S pasd"
+            ],
+            [
+               "211240",
+               "1M pasd"
+            ],
+            [
+               "211236",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-567-a-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Alice St near Our Lady of Lebanon - Buffalo Rd Nr Ryde Bus Depot",
+            "rs_ref" : "RS_99-567-a-sj2-1-R-2",
+            "id" : "R_99-567-a-sj2-1-R-2"
+         }
+      },
+      "service" : "99-567-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "567"
+   }
+}
+;
+

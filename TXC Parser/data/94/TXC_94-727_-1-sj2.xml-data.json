@@ -1,0 +1,630 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-727-_-sj2-1" : "727"
+}
+;
+
+var stations = {
+   "2284112" : "Speers St Nr Thompson St",
+   "228216" : "Medcalf St Nr Albert St",
+   "2282146" : "Warners Bay Rd Nr Jonathan St",
+   "2284113" : "Speers St opp Quarry Rd",
+   "2290205" : "Warners Bay Rd nr Whitburn Cl",
+   "228235" : "Myles Av Nr Warners Bay High School",
+   "2284111" : "Thompson Rd nr Speers St",
+   "2284126" : "Thompson Rd Nr Fairfax Rd",
+   "2284110" : "Thompson Rd nr Morse St",
+   "2290204" : "Warners Bay Rd 200m E of Whitburn Cl",
+   "228217" : "Medcalf St Nr Maurie Av",
+   "2290209" : "Warners Bay Rd nr Wilsons Rd",
+   "2284119" : "Speers St nr Lakeview St",
+   "228296" : "Mills St 250m S Of Bayview St",
+   "2290206" : "Warners Bay Rd 250m W of Whitburn Cl",
+   "2290207" : "Warners Bay Rd opp Bayview St",
+   "2284125" : "Thompson Rd opp Moulden St",
+   "2290226" : "Oxford St nr Plane St",
+   "229035" : "Pacific Hwy Near Hughes St",
+   "2290165" : "Warners Bay Rd nr Kirika St",
+   "2290208" : "Dunkley Pde nr Tennent Rd",
+   "228239" : "Myles Av Nr Warners Bay High School",
+   "228243" : "Vennard St Nr Myles Av",
+   "228228" : "Ambleside Cct Nr Derwent Cr",
+   "228240" : "Myles Av Opp Bonarius St",
+   "2290398" : "Warners Bay Rd nr Burton Rd",
+   "2290155" : "Warners Bay Rd nr E K Av",
+   "228225" : "Medcalf Rd Nr Vincent St",
+   "229033" : "Pacific Hwy nr Felton St",
+   "2290187" : "Cadaga Rd nr Carbeen St",
+   "228285" : "Jonathan St Nr Warners Bay Rd",
+   "228275" : "Bayview St Nr Warner St",
+   "2284107" : "Thompson Rd Nr Fairfax Rd",
+   "228218" : "Medcalf St Nr Fairfax Rd",
+   "228295" : "Mills St Nr Bucklee Cr",
+   "2290183" : "Dunkley Pde nr Progress Rd",
+   "2290180" : "Warners Bay Rd 220m E of Burton Rd",
+   "228251" : "East St Nr Bonarius St",
+   "228244" : "East St Opp Vennard St",
+   "228284" : "Mills St Nr Gregory Pde",
+   "228247" : "Yorston St Opp Pring St",
+   "228282" : "Mills St Nr Bayview St",
+   "228253" : "Vennard St Nr East St",
+   "2290186" : "Warners Bay Rd nr Conifer Cl",
+   "228269" : "King St Nr Medcalf St",
+   "229036" : "Pacific St nr Macquarie Av",
+   "2290225" : "Oxford St nr Goundry St",
+   "2284115" : "Speers St nr Main Rd",
+   "2290181" : "Warners Bay Rd nr Old Warners Bay Rd",
+   "228298" : "Bayview St Nr Barbara St",
+   "2290182" : "Warners Bay Rd nr Cowmeadow Rd",
+   "228245" : "East St Opp Wellings St",
+   "2282174" : "Warners Bay Rd Nr Burton Rd",
+   "228288" : "Jonathan St Nr Warners Bay Rd",
+   "228246" : "East St Opp Nott St",
+   "228249" : "Yorston St Opp Holt St",
+   "2284109" : "Thompson Rd nr Moulden St",
+   "228227" : "Medcalf St Opp Albert St",
+   "228248" : "Yorston St Nr Warner St",
+   "2284114" : "Speers St opp Bradford Cl",
+   "2290185" : "Warners Bay Rd 300m W of Whitburn Cl",
+   "2290400" : "Warners Bay opp Old Warners Bay Rd",
+   "2290194" : "Cadaga Rd nr Warners Bay Rd",
+   "228252" : "East St Nr Wellings St",
+   "2284122" : "Speers St Nr Thompson St",
+   "2290198" : "Oxford St opp O'Brien St",
+   "2290188" : "Cadaga Rd opp Coral Cr",
+   "228260" : "Myles Av Nr Warners Bay High School",
+   "228250" : "Yorston St Nr Pring St",
+   "228255" : "Myles Av Nr Vennard St",
+   "2290197" : "Oxford St nr Jamieson St",
+   "228299" : "Bayview St Opp Carwood Cl",
+   "2282176" : "Warners Bay Rd Nr Jonathan St",
+   "2290196" : "Oxford St nr Paper St",
+   "2290401" : "Dunkley Pde nr Mount Hutton Primary",
+   "228242" : "Myles Av Nr Indiana Cl",
+   "228257" : "Myles Av Nr Bonarius St",
+   "228230" : "Ambleside Cct Nr Ulverston Wy",
+   "2290189" : "Cadaga Rd Nr Oxford St",
+   "2290227" : "Oxford St nr Mallee St",
+   "2282175" : "Warners Bay Rd Nr Delma Pde",
+   "228297" : "Mills St Nr Bayview St",
+   "228233" : "Medcalf St Nr Lakelands Dr",
+   "2282149" : "Warners Bay Rd Opp Burton Rd",
+   "2282100" : "Bayview St Nr St Marys Primary",
+   "2284123" : "Thompson Rd nr Short St",
+   "228276" : "Bayview St Nr Carwood Cl",
+   "2290192" : "Cadaga Rd nr Coral Cr",
+   "2284120" : "Speers St nr Bradford Cl",
+   "228226" : "Medcalf St Nr Ruswell Av",
+   "228229" : "Ambleside Cct Nr Grasmere Wy",
+   "228232" : "Ambleside Cct Opp Kentmere Dr",
+   "228277" : "Bayview St Nr Andrew St",
+   "2290193" : "Cadaga Rd nr Alder Cr",
+   "228231" : "Ambleside Cct Nr Whitehaven Dr",
+   "2282132" : "Ambleside Cct Nr Lakelands Dr",
+   "228283" : "Mills St 300m S Of Bayview St",
+   "2282147" : "Warners Bay Rd Nr Coronation St",
+   "228215" : "Medcalf St Nr Walker St",
+   "228234" : "King St Nr Hillsborough Rd",
+   "2284121" : "Speers St nr Quarry Rd",
+   "2282148" : "Warners Bay Rd Nr Burton Rd",
+   "228254" : "Vennard St Nr Myles Av",
+   "2290399" : "Warners Bay Rd 200m E of Burton Rd",
+   "228224" : "Fairfax Rd Nr Vincent St",
+   "229034" : "St Marys School",
+   "2284108" : "Thompson Rd 200m W of Fairfax Rd",
+   "2290184" : "Warners Bay Rd nr Bayview St",
+   "2284124" : "Thompson Rd opp Morse St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-727-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-727-_-sj2-1-1-b0096",
+      "leaves" : "15:43:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "229034",
+               null
+            ],
+            [
+               "2290225",
+               "1M pasd"
+            ],
+            [
+               "2290226",
+               "1M pasd"
+            ],
+            [
+               "2290227",
+               "0S pasd"
+            ],
+            [
+               "2290192",
+               "1M pasd"
+            ],
+            [
+               "2290193",
+               "0S pasd"
+            ],
+            [
+               "2290194",
+               "1M pasd"
+            ],
+            [
+               "2290165",
+               "0S pasd"
+            ],
+            [
+               "2290204",
+               "1M pasd"
+            ],
+            [
+               "2290205",
+               "0S pasd"
+            ],
+            [
+               "2290206",
+               "1M pasd"
+            ],
+            [
+               "2290207",
+               "0S pasd"
+            ],
+            [
+               "2290208",
+               "1M pasd"
+            ],
+            [
+               "2290209",
+               "1M pasd"
+            ],
+            [
+               "2290400",
+               "1M pasd"
+            ],
+            [
+               "2290399",
+               "1M pasd"
+            ],
+            [
+               "2290398",
+               "0S pasd"
+            ],
+            [
+               "2282174",
+               "1M pasd"
+            ],
+            [
+               "2282175",
+               "0S pasd"
+            ],
+            [
+               "2282176",
+               "1M pasd"
+            ],
+            [
+               "228288",
+               "0S pasd"
+            ],
+            [
+               "228295",
+               "1M pasd"
+            ],
+            [
+               "228296",
+               "1M pasd"
+            ],
+            [
+               "228297",
+               "0S pasd"
+            ],
+            [
+               "228298",
+               "1M pasd"
+            ],
+            [
+               "228299",
+               "0S pasd"
+            ],
+            [
+               "2282100",
+               "1M pasd"
+            ],
+            [
+               "228249",
+               "0S pasd"
+            ],
+            [
+               "228250",
+               "1M pasd"
+            ],
+            [
+               "228251",
+               "1M pasd"
+            ],
+            [
+               "228252",
+               "0S pasd"
+            ],
+            [
+               "228253",
+               "1M pasd"
+            ],
+            [
+               "228254",
+               "0S pasd"
+            ],
+            [
+               "228255",
+               "1M pasd"
+            ],
+            [
+               "228257",
+               "0S pasd"
+            ],
+            [
+               "228260",
+               "1M pasd"
+            ],
+            [
+               "228269",
+               "1M pasd"
+            ],
+            [
+               "228215",
+               "1M pasd"
+            ],
+            [
+               "228228",
+               "1M pasd"
+            ],
+            [
+               "228229",
+               "1M pasd"
+            ],
+            [
+               "228230",
+               "1M pasd"
+            ],
+            [
+               "228231",
+               "0S pasd"
+            ],
+            [
+               "228232",
+               "1M pasd"
+            ],
+            [
+               "2282132",
+               "1M pasd"
+            ],
+            [
+               "228216",
+               "1M pasd"
+            ],
+            [
+               "228217",
+               "0S pasd"
+            ],
+            [
+               "228218",
+               "1M pasd"
+            ],
+            [
+               "2284107",
+               "1M pasd"
+            ],
+            [
+               "2284108",
+               "0S pasd"
+            ],
+            [
+               "2284109",
+               "1M pasd"
+            ],
+            [
+               "2284110",
+               "0S pasd"
+            ],
+            [
+               "2284111",
+               "1M pasd"
+            ],
+            [
+               "2284112",
+               "0S pasd"
+            ],
+            [
+               "2284113",
+               "1M pasd"
+            ],
+            [
+               "2284114",
+               "0S pasd"
+            ],
+            [
+               "2284115",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-727-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "St Marys School - Speers St nr Main Rd",
+            "rs_ref" : "RS_94-727-_-sj2-1-R-1",
+            "id" : "R_94-727-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-727-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "727"
+   },
+   "VJ_94-727-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-727-_-sj2-1-2-b0096",
+      "leaves" : "08:03:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2284119",
+               null
+            ],
+            [
+               "2284120",
+               "0S pasd"
+            ],
+            [
+               "2284121",
+               "1M pasd"
+            ],
+            [
+               "2284122",
+               "0S pasd"
+            ],
+            [
+               "2284123",
+               "0S pasd"
+            ],
+            [
+               "2284124",
+               "0S pasd"
+            ],
+            [
+               "2284125",
+               "1M pasd"
+            ],
+            [
+               "2284126",
+               "0S pasd"
+            ],
+            [
+               "228224",
+               "0S pasd"
+            ],
+            [
+               "228225",
+               "1M pasd"
+            ],
+            [
+               "228226",
+               "0S pasd"
+            ],
+            [
+               "228227",
+               "0S pasd"
+            ],
+            [
+               "228228",
+               "1M pasd"
+            ],
+            [
+               "228229",
+               "0S pasd"
+            ],
+            [
+               "228230",
+               "1M pasd"
+            ],
+            [
+               "228231",
+               "0S pasd"
+            ],
+            [
+               "228232",
+               "1M pasd"
+            ],
+            [
+               "2282132",
+               "0S pasd"
+            ],
+            [
+               "228233",
+               "2M pasd"
+            ],
+            [
+               "228234",
+               "3M pasd"
+            ],
+            [
+               "228235",
+               "1M pasd"
+            ],
+            [
+               "228239",
+               "0S pasd"
+            ],
+            [
+               "228240",
+               "1M pasd"
+            ],
+            [
+               "228242",
+               "0S pasd"
+            ],
+            [
+               "228243",
+               "1M pasd"
+            ],
+            [
+               "228244",
+               "0S pasd"
+            ],
+            [
+               "228245",
+               "0S pasd"
+            ],
+            [
+               "228246",
+               "1M pasd"
+            ],
+            [
+               "228247",
+               "0S pasd"
+            ],
+            [
+               "228248",
+               "1M pasd"
+            ],
+            [
+               "228275",
+               "0S pasd"
+            ],
+            [
+               "228276",
+               "1M pasd"
+            ],
+            [
+               "228277",
+               "1M pasd"
+            ],
+            [
+               "228282",
+               "0S pasd"
+            ],
+            [
+               "228283",
+               "0S pasd"
+            ],
+            [
+               "228284",
+               "1M pasd"
+            ],
+            [
+               "228285",
+               "0S pasd"
+            ],
+            [
+               "2282146",
+               "1M pasd"
+            ],
+            [
+               "2282147",
+               "0S pasd"
+            ],
+            [
+               "2282148",
+               "1M pasd"
+            ],
+            [
+               "2282149",
+               "0S pasd"
+            ],
+            [
+               "2290180",
+               "1M pasd"
+            ],
+            [
+               "2290181",
+               "0S pasd"
+            ],
+            [
+               "2290182",
+               "1M pasd"
+            ],
+            [
+               "2290183",
+               "1M pasd"
+            ],
+            [
+               "2290401",
+               "0S pasd"
+            ],
+            [
+               "2290184",
+               "0S pasd"
+            ],
+            [
+               "2290185",
+               "1M pasd"
+            ],
+            [
+               "2290186",
+               "1M pasd"
+            ],
+            [
+               "2290155",
+               "1M pasd"
+            ],
+            [
+               "2290187",
+               "1M pasd"
+            ],
+            [
+               "2290188",
+               "1M pasd"
+            ],
+            [
+               "2290189",
+               "0S pasd"
+            ],
+            [
+               "2290196",
+               "1M pasd"
+            ],
+            [
+               "2290197",
+               "0S pasd"
+            ],
+            [
+               "2290198",
+               "0S pasd"
+            ],
+            [
+               "229033",
+               "1M pasd"
+            ],
+            [
+               "229034",
+               "0S pasd"
+            ],
+            [
+               "229035",
+               "0S pasd"
+            ],
+            [
+               "229036",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-727-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Speers St nr Lakeview St - Pacific St nr Macquarie Av",
+            "rs_ref" : "RS_94-727-_-sj2-1-H-2",
+            "id" : "R_94-727-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-727-_-sj2-1",
+      "line" : "727"
+   }
+}
+;
+

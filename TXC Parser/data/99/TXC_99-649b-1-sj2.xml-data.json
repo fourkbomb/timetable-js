@@ -1,0 +1,493 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-649-b-sj2-1" : "649"
+}
+;
+
+var stations = {
+   "2088211" : "Medusa St Nr Pursell Av",
+   "2088182" : "Spit Rd Nr Bickell Rd",
+   "208837" : "Burran Av Nr Stanton Rd",
+   "2088160" : "Raglan St Nr Want St",
+   "208843" : "Moruben Rd Nr Awaba St",
+   "208879" : "The Esplanade Terminus",
+   "2088227" : "Macpherson Rd Nr Prince St",
+   "208833" : "The Grove Nr Edwards Bay Rd",
+   "208835" : "Edwards Bay Rd Nr Wyargine St",
+   "2088115" : "Beaconsfield Rd Nr Wolseley Rd",
+   "208845" : "Military Rd Nr Mandalong Rd",
+   "2088225" : "Macpherson St Nr Middle Harbour Primary",
+   "2088200" : "Medusa St Nr Pursell Av",
+   "208836" : "Burran Av Nr Stanton Rd",
+   "208838" : "Burran Av Nr Kirkoswald Av",
+   "2088113" : "Middle Head Rd Nr King Max St",
+   "208875" : "Raglan St Nr Esther Rd",
+   "208841" : "Tivoli St Nr Stanton Rd",
+   "208848" : "Military Rd Nr Raglan St",
+   "2088177" : "Military Rd Nr Lang St",
+   "2088178" : "Military Rd Nr Bond St",
+   "2088217" : "Ourimbah Rd Nr Rosebery St",
+   "208839" : "Kirkoswald Av Nr Fairfax Rd",
+   "2088176" : "Military Rd Nr Prince St",
+   "2088229" : "Myahgah Rd Nr Belmont Rd",
+   "2088187" : "Spit Rd Nr Parriwi Rd",
+   "2088189" : "Spit Rd Nr Awaba St",
+   "208876" : "Raglan St Nr The Esplanade",
+   "208842" : "Stanton Rd Nr Hampden St",
+   "2088184" : "Spit Rd Nr Medusa St",
+   "2088203" : "Pindari Av Nr Medusa St",
+   "2088117" : "Wolseley Rd Nr Mulbring St",
+   "2088144" : "Queenwood Junior",
+   "2088201" : "Mosman_ Medusa St nr Pindari Av",
+   "208874" : "Raglan St Nr Gibson Rd",
+   "2088161" : "Raglan St near Military Rd",
+   "2088183" : "Spit Rd Nr Quakers Rd",
+   "2088202" : "Pindari Av Nr Euryalus St",
+   "2088159" : "Raglan St Nr Milner St",
+   "208840" : "Kirkoswald Av Nr Tivoli St",
+   "2088212" : "Medusa St Nr Spit Rd",
+   "208846" : "Military Rd Nr Upper Almora St",
+   "2088114" : "Middle Head Rd Nr Gordon St",
+   "208818" : "Spit Junction_ Military Rd",
+   "2088226" : "Macpherson St Nr Erith St",
+   "2088118" : "Redan St Nr Raglan St",
+   "2088116" : "Wolseley Rd Nr Gordon St",
+   "2088188" : "Spit Rd Nr Stanton Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-649-b-sj2-1-2-b00ab" : {
+      "vjcode" : "VJ_99-649-b-sj2-1-2-b00ab",
+      "leaves" : "08:29:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088144",
+               null
+            ],
+            [
+               "2088159",
+               "1M pasd"
+            ],
+            [
+               "2088160",
+               "0S pasd"
+            ],
+            [
+               "2088161",
+               "1M pasd"
+            ],
+            [
+               "208848",
+               "0S pasd"
+            ],
+            [
+               "2088113",
+               "1M pasd"
+            ],
+            [
+               "2088114",
+               "0S pasd"
+            ],
+            [
+               "2088115",
+               "1M pasd"
+            ],
+            [
+               "2088116",
+               "0S pasd"
+            ],
+            [
+               "2088117",
+               "1M pasd"
+            ],
+            [
+               "2088118",
+               "0S pasd"
+            ],
+            [
+               "208874",
+               "1M pasd"
+            ],
+            [
+               "208875",
+               "1M pasd"
+            ],
+            [
+               "208876",
+               "0S pasd"
+            ],
+            [
+               "208879",
+               "1M pasd"
+            ],
+            [
+               "208833",
+               "1M pasd"
+            ],
+            [
+               "208835",
+               "1M pasd"
+            ],
+            [
+               "208836",
+               "1M pasd"
+            ],
+            [
+               "208837",
+               "0S pasd"
+            ],
+            [
+               "208838",
+               "1M pasd"
+            ],
+            [
+               "208839",
+               "1M pasd"
+            ],
+            [
+               "208840",
+               "0S pasd"
+            ],
+            [
+               "208841",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "0S pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "0S pasd"
+            ],
+            [
+               "2088201",
+               "1M pasd"
+            ],
+            [
+               "2088202",
+               "1M pasd"
+            ],
+            [
+               "2088203",
+               "1M pasd"
+            ],
+            [
+               "2088211",
+               "0S pasd"
+            ],
+            [
+               "2088212",
+               "0S pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "0S pasd"
+            ],
+            [
+               "2088217",
+               "2M pasd"
+            ],
+            [
+               "2088225",
+               "1M pasd"
+            ],
+            [
+               "2088226",
+               "0S pasd"
+            ],
+            [
+               "2088227",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "208818",
+               "1M pasd"
+            ],
+            [
+               "208845",
+               "1M pasd"
+            ],
+            [
+               "208846",
+               "0S pasd"
+            ],
+            [
+               "2088229",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-649-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Queenwood Junior - Myahgah Rd Nr Belmont Rd",
+            "rs_ref" : "RS_99-649-b-sj2-1-H-1",
+            "id" : "R_99-649-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-649-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "649"
+   },
+   "VJ_99-649-b-sj2-1-1-b00aa" : {
+      "vjcode" : "VJ_99-649-b-sj2-1-1-b00aa",
+      "leaves" : "08:29:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2088144",
+               null
+            ],
+            [
+               "2088159",
+               "1M pasd"
+            ],
+            [
+               "2088160",
+               "0S pasd"
+            ],
+            [
+               "2088161",
+               "1M pasd"
+            ],
+            [
+               "208848",
+               "0S pasd"
+            ],
+            [
+               "2088113",
+               "1M pasd"
+            ],
+            [
+               "2088114",
+               "0S pasd"
+            ],
+            [
+               "2088115",
+               "1M pasd"
+            ],
+            [
+               "2088116",
+               "0S pasd"
+            ],
+            [
+               "2088117",
+               "1M pasd"
+            ],
+            [
+               "2088118",
+               "0S pasd"
+            ],
+            [
+               "208874",
+               "1M pasd"
+            ],
+            [
+               "208875",
+               "1M pasd"
+            ],
+            [
+               "208876",
+               "0S pasd"
+            ],
+            [
+               "208879",
+               "1M pasd"
+            ],
+            [
+               "208833",
+               "1M pasd"
+            ],
+            [
+               "208835",
+               "1M pasd"
+            ],
+            [
+               "208836",
+               "1M pasd"
+            ],
+            [
+               "208837",
+               "0S pasd"
+            ],
+            [
+               "208838",
+               "1M pasd"
+            ],
+            [
+               "208839",
+               "1M pasd"
+            ],
+            [
+               "208840",
+               "0S pasd"
+            ],
+            [
+               "208841",
+               "1M pasd"
+            ],
+            [
+               "208842",
+               "0S pasd"
+            ],
+            [
+               "208843",
+               "1M pasd"
+            ],
+            [
+               "2088182",
+               "2M pasd"
+            ],
+            [
+               "2088183",
+               "1M pasd"
+            ],
+            [
+               "2088184",
+               "0S pasd"
+            ],
+            [
+               "2088200",
+               "0S pasd"
+            ],
+            [
+               "2088201",
+               "1M pasd"
+            ],
+            [
+               "2088202",
+               "1M pasd"
+            ],
+            [
+               "2088203",
+               "1M pasd"
+            ],
+            [
+               "2088211",
+               "0S pasd"
+            ],
+            [
+               "2088212",
+               "0S pasd"
+            ],
+            [
+               "2088187",
+               "1M pasd"
+            ],
+            [
+               "2088188",
+               "1M pasd"
+            ],
+            [
+               "2088189",
+               "0S pasd"
+            ],
+            [
+               "2088217",
+               "2M pasd"
+            ],
+            [
+               "2088225",
+               "1M pasd"
+            ],
+            [
+               "2088226",
+               "0S pasd"
+            ],
+            [
+               "2088227",
+               "1M pasd"
+            ],
+            [
+               "2088176",
+               "1M pasd"
+            ],
+            [
+               "2088177",
+               "0S pasd"
+            ],
+            [
+               "2088178",
+               "1M pasd"
+            ],
+            [
+               "208818",
+               "1M pasd"
+            ],
+            [
+               "208845",
+               "1M pasd"
+            ],
+            [
+               "208846",
+               "0S pasd"
+            ],
+            [
+               "2088229",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-649-b-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Queenwood Junior - Myahgah Rd Nr Belmont Rd",
+            "rs_ref" : "RS_99-649-b-sj2-1-H-1",
+            "id" : "R_99-649-b-sj2-1-H-1"
+         }
+      },
+      "service" : "99-649-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "649"
+   }
+}
+;
+

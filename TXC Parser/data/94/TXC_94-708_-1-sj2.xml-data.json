@@ -1,0 +1,480 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-708-_-sj2-1" : "708"
+}
+;
+
+var stations = {
+   "2290251" : "Algona Rd nr Buwa St",
+   "2290261" : "Bulls Garden Rd nr Justine Av",
+   "2290487" : "Hallam St Nr Kalinda Pde",
+   "2290354" : "Cowlishaw St Nr Woods St",
+   "2290288" : "Felton St nr Lees St",
+   "2290375" : "Redhead Rd nr Whitecap Cl",
+   "2290252" : "Kulai St nr Repton St",
+   "2290242" : "Algona Rd nr Tirriki St",
+   "2280117" : "Wommara Av nr John Fisher Rd",
+   "2290272" : "Bulls Garden Rd nr Gundy St",
+   "2290342" : "Allard St opp Burns St",
+   "229084" : "Smart St nr Dickinson St",
+   "2290263" : "37 Bulls Garden Rd",
+   "2280225" : "Floraville Rd Nr Belmont  Bus Depot",
+   "2290270" : "38 Bulls Garden Rd",
+   "228059" : "Railway Cr Nr Kalaroo Rd",
+   "229080" : "Frederick St nr Dickinson St",
+   "229087" : "Dickinson St nr Charles St",
+   "2290262" : "55 Bulls Garden Rd",
+   "2290337" : "Cowlishaw St Nr Allard St",
+   "2290357" : "Kallaroo Rd opp Seasands Dr",
+   "2290352" : "Collier St nr Hutchinson St",
+   "2290243" : "Tirriki St Nr Algona Rd",
+   "2290355" : "Cowlishaw St Nr Steel St",
+   "2290348" : "Cowlishaw St Nr Steel St",
+   "2290433" : "James St opp Dickinson St",
+   "2290351" : "Collier St opp Hutchinson St",
+   "2290271" : "66 Bulls Garden Rd",
+   "2290369" : "Beach Rd Nr Steel St",
+   "2290353" : "Collier St nr Woods St",
+   "2290346" : "Allard St nr Beach Rd",
+   "228064" : "Wommara Av opp Prince St",
+   "2290349" : "Cowlishaw St nr Woods St",
+   "228037" : "Pacific Hwy nr Patrick St",
+   "2290344" : "Jesmond St nr Collier St",
+   "2290244" : "Tirriki St opp Bukka St",
+   "2290345" : "Cowlishaw St nr Bennett St",
+   "2290110" : "Dudley Rd nr Tiral St",
+   "2290359" : "Kallaroo Rd nr Mobile Home Village",
+   "2290253" : "Hazelton Gr nr Alvestor Cl",
+   "229085" : "Smart St Nr Smith St",
+   "228065" : "Wommara Av Nr Master St",
+   "228066" : "Wommara Av opp Saros St",
+   "2290350" : "Collier St nr Geraldton Dr",
+   "2290358" : "Kalaroo Rd nr Ocean Breeze Caravan Park",
+   "2290245" : "Bati St opp Philipai St",
+   "2290336" : "Redhead Rd opp Whitecap Cl",
+   "2290428" : "Dudley St opp Kalinda St",
+   "2290439" : "Bula St nr Leagues Club",
+   "2290371" : "Brown St Nr Hutchinson St",
+   "229078" : "St Josephs Primary",
+   "2290378" : "Redhead Rd nr Oakdale Rd",
+   "2290435" : "James St Nr Wakal St",
+   "228062" : "Wommara Av nr Railway Cr",
+   "2290347" : "Cowlishaw St Nr Allard St",
+   "2290370" : "Beach Rd Nr Hutchinson St",
+   "2290289" : "Algona Rd opp Tirriki St",
+   "2290296" : "Bula St nr James St",
+   "2290366" : "Hutchinson St nr Redhead Primary",
+   "2290334" : "Redhead Rd opp Oakdale Rd",
+   "2290373" : "Brown St nr Elsdon St",
+   "2290293" : "Dudley Rd 250m W of Wakal St",
+   "2290246" : "Buwa St opp Bati St",
+   "2290489" : "Dudley St Nr Hallam St",
+   "2290294" : "Dudley Rd nr Wakal St",
+   "2290109" : "Dudley Rd nr James St",
+   "2290343" : "Hanly St nr Cowlishaw St",
+   "2290295" : "Dudley Rd nr Bula St",
+   "2290297" : "Dudley Rd nr Kalinda St",
+   "229086" : "Smith St nr Charlestown Primary",
+   "2290372" : "Brown St nr Woods St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-708-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-708-_-sj2-1-2-b0096",
+      "leaves" : "08:23:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2290334",
+               null
+            ],
+            [
+               "2290336",
+               "3M pasd"
+            ],
+            [
+               "2290343",
+               "2M pasd"
+            ],
+            [
+               "2290344",
+               "1M pasd"
+            ],
+            [
+               "2290345",
+               "0S pasd"
+            ],
+            [
+               "2290346",
+               "2M pasd"
+            ],
+            [
+               "2290347",
+               "0S pasd"
+            ],
+            [
+               "2290369",
+               "1M pasd"
+            ],
+            [
+               "2290370",
+               "1M pasd"
+            ],
+            [
+               "2290366",
+               "0S pasd"
+            ],
+            [
+               "2290348",
+               "1M pasd"
+            ],
+            [
+               "2290349",
+               "0S pasd"
+            ],
+            [
+               "2290350",
+               "1M pasd"
+            ],
+            [
+               "2290351",
+               "0S pasd"
+            ],
+            [
+               "2290375",
+               "1M pasd"
+            ],
+            [
+               "2290378",
+               "2M pasd"
+            ],
+            [
+               "2290261",
+               "5M pasd"
+            ],
+            [
+               "2290262",
+               "1M pasd"
+            ],
+            [
+               "2290263",
+               "0S pasd"
+            ],
+            [
+               "2290297",
+               "2M pasd"
+            ],
+            [
+               "2290487",
+               "1M pasd"
+            ],
+            [
+               "2290245",
+               "0S pasd"
+            ],
+            [
+               "2290246",
+               "0S pasd"
+            ],
+            [
+               "2290251",
+               "1M pasd"
+            ],
+            [
+               "2290252",
+               "1M pasd"
+            ],
+            [
+               "2290253",
+               "0S pasd"
+            ],
+            [
+               "2290289",
+               "2M pasd"
+            ],
+            [
+               "2290293",
+               "1M pasd"
+            ],
+            [
+               "2290489",
+               "0S pasd"
+            ],
+            [
+               "2290295",
+               "1M pasd"
+            ],
+            [
+               "2290439",
+               "1M pasd"
+            ],
+            [
+               "2290296",
+               "0S pasd"
+            ],
+            [
+               "2290435",
+               "1M pasd"
+            ],
+            [
+               "2290433",
+               "1M pasd"
+            ],
+            [
+               "229087",
+               "1M pasd"
+            ],
+            [
+               "229080",
+               "1M pasd"
+            ],
+            [
+               "229078",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-708-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Redhead Rd opp Oakdale Rd - St Josephs Primary",
+            "rs_ref" : "RS_94-708-_-sj2-1-H-2",
+            "id" : "R_94-708-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-708-_-sj2-1",
+      "line" : "708"
+   },
+   "VJ_94-708-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-708-_-sj2-1-1-b0096",
+      "leaves" : "15:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2290296",
+               null
+            ],
+            [
+               "2290435",
+               "1M pasd"
+            ],
+            [
+               "229078",
+               "3M pasd"
+            ],
+            [
+               "229084",
+               "1M pasd"
+            ],
+            [
+               "229085",
+               "1M pasd"
+            ],
+            [
+               "229086",
+               "0S pasd"
+            ],
+            [
+               "2290109",
+               "1M pasd"
+            ],
+            [
+               "2290110",
+               "0S pasd"
+            ],
+            [
+               "2290242",
+               "1M pasd"
+            ],
+            [
+               "2290243",
+               "0S pasd"
+            ],
+            [
+               "2290244",
+               "1M pasd"
+            ],
+            [
+               "2290245",
+               "0S pasd"
+            ],
+            [
+               "2290246",
+               "1M pasd"
+            ],
+            [
+               "2290251",
+               "0S pasd"
+            ],
+            [
+               "2290252",
+               "1M pasd"
+            ],
+            [
+               "2290253",
+               "1M pasd"
+            ],
+            [
+               "2290288",
+               "1M pasd"
+            ],
+            [
+               "2290289",
+               "1M pasd"
+            ],
+            [
+               "2290294",
+               "1M pasd"
+            ],
+            [
+               "2290295",
+               "1M pasd"
+            ],
+            [
+               "2290428",
+               "0S pasd"
+            ],
+            [
+               "2290270",
+               "1M pasd"
+            ],
+            [
+               "2290271",
+               "1M pasd"
+            ],
+            [
+               "2290272",
+               "1M pasd"
+            ],
+            [
+               "2290334",
+               "5M pasd"
+            ],
+            [
+               "2290336",
+               "3M pasd"
+            ],
+            [
+               "2290352",
+               "1M pasd"
+            ],
+            [
+               "2290353",
+               "0S pasd"
+            ],
+            [
+               "2290354",
+               "0S pasd"
+            ],
+            [
+               "2290355",
+               "1M pasd"
+            ],
+            [
+               "2290337",
+               "1M pasd"
+            ],
+            [
+               "2290342",
+               "0S pasd"
+            ],
+            [
+               "2290343",
+               "1M pasd"
+            ],
+            [
+               "2290344",
+               "0S pasd"
+            ],
+            [
+               "2290345",
+               "1M pasd"
+            ],
+            [
+               "2290369",
+               "1M pasd"
+            ],
+            [
+               "2290370",
+               "0S pasd"
+            ],
+            [
+               "2290371",
+               "0S pasd"
+            ],
+            [
+               "2290372",
+               "1M pasd"
+            ],
+            [
+               "2290373",
+               "0S pasd"
+            ],
+            [
+               "2290357",
+               "0S pasd"
+            ],
+            [
+               "2290358",
+               "1M pasd"
+            ],
+            [
+               "2290359",
+               "1M pasd"
+            ],
+            [
+               "228059",
+               "1M pasd"
+            ],
+            [
+               "228062",
+               "1M pasd"
+            ],
+            [
+               "228064",
+               "1M pasd"
+            ],
+            [
+               "228065",
+               "0S pasd"
+            ],
+            [
+               "228066",
+               "0S pasd"
+            ],
+            [
+               "2280117",
+               "1M pasd"
+            ],
+            [
+               "228037",
+               "1M pasd"
+            ],
+            [
+               "2280225",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-708-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bula St nr James St - Floraville Rd Nr Belmont Bus Depot",
+            "rs_ref" : "RS_94-708-_-sj2-1-R-1",
+            "id" : "R_94-708-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-708-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "708"
+   }
+}
+;
+

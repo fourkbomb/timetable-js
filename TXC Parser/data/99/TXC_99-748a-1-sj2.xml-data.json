@@ -1,0 +1,664 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-748-a-sj2-1" : "748"
+}
+;
+
+var stations = {
+   "2099150" : "Carrington Av Nr Toronto Av",
+   "2100128" : "McIntosh Rd nr Parr Pde",
+   "2099190" : "Fisher Rd nr Lismore Av",
+   "209733" : "Kirkstone Rd Nr Carlisle St",
+   "2100122" : "Oxford Fall Rd nr Brooker Av",
+   "210025" : "Pittwater Rd nr Chard Rd",
+   "2099111" : "McIntosh Rd nr Creer Pl",
+   "2100121" : "Iris St Nr Jones St",
+   "208628" : "Iris St Nr Jimada Av",
+   "2100127" : "Willandra Rd nr Egan Pl",
+   "210040" : "Warringah Mall Set Down",
+   "209783" : "Parkes Rd Nr Westmoreland Av",
+   "2099127" : "Alfred St nr Carawa Rd",
+   "209772" : "Collaroy Plateau_ Edgecliffe Bvd nr Claudare St",
+   "208636" : "Frenchs Forest Rd Nr Bantry Bay Rd",
+   "2099192" : "Westminster Av nr Lismore Av",
+   "209771" : "Veterans Pde Nr Edgecliffe Bvd",
+   "210022" : "Pittwater Rd nr Carter Rd",
+   "209731" : "Ambleside St nr Penrith Cr",
+   "2099148" : "Grover Av nr Carcoola Av",
+   "209767" : "Veterans Pde nr Lantana Av",
+   "2099146" : "Carcoola Rd Nr Carawa Rd",
+   "2099147" : "Carcoola Rd nr Pinta Pl",
+   "2099123" : "Alfred St Nr Parr Pde",
+   "2099113" : "Mcintosh Rd Nr Lascelles Rd",
+   "208656" : "Frenchs Forest Rd Nr Forest High",
+   "2099188" : "Campbell Pde nr Heron Pl",
+   "209784" : "Parkes Rd nr South Creek Rd",
+   "209778" : "Telopea St nr Aubreen St",
+   "209777" : "Hilma St nr Telopea St",
+   "209782" : "Parkes Rd Nr Orlando Rd",
+   "209735" : "Rose Av nr Grasmere Cr",
+   "2099189" : "Fisher Rd Nr Ilikai Pl",
+   "209779" : "Plateau Rd nr Hall Av",
+   "209775" : "Edgecliffe Bvd Nr Acacia St",
+   "2100123" : "Tristram Rd nr Boyer Rd",
+   "2086121" : "Romford Rd Nr Bimbadeen Cr",
+   "208639" : "Frenchs Forest Rd Nr Skyline Pl",
+   "2099124" : "Narraweena_ Alfred nr Karoola",
+   "2100156" : "Oxford Falls Grammar School",
+   "209922" : "Pittwater Rd nr Howard Av",
+   "210024" : "Pittwater Rd nr Mitchell Av",
+   "209774" : "Edgecliffe Bvd Nr Aubreen St",
+   "209732" : "Heather St nr Ambleside St",
+   "209776" : "Edgecliffe Bvd nr Grevillia St",
+   "209781" : "Anzac Av nr Parkes Rd",
+   "2099149" : "Carrington Av Nr Washington Av",
+   "2099125" : "Alfred Nr Rowena",
+   "2099218" : "Toronto Av Nr Carrington Av",
+   "209921" : "Pittwater Rd Nr Hawkesbury Av",
+   "2099128" : "Carawa Rd nr Davison St",
+   "209773" : "Edgecliffe Bvd nr Stella St",
+   "2099114" : "Mcintosh Rd Nr Alfred St",
+   "208626" : "Paxton St Nr Poulton Pde",
+   "2099126" : "Alfred St Nr Maas St",
+   "2086120" : "Romford Rd nr Frenchs Forest Rd",
+   "209734" : "Kirkstone Rd nr Rose Av",
+   "209780" : "Plateau Rd Nr Hilma St",
+   "209736" : "Rose Av Nr Veterans Pde",
+   "2100125" : "Tristram Rd Nr Willandra Rd",
+   "2099112" : "Mcintosh Rd Nr Eltham St",
+   "210021" : "Pittwater Rd nr Harbord Rd",
+   "209923" : "Pittwater Rd Nr Pacific Pde",
+   "208629" : "Iris St Nr Karabah Pl",
+   "210026" : "Pittwater Rd nr Orchard Rd",
+   "208627" : "Paxton St Nr Iris St",
+   "2099143" : "Alfred St Nr Greenwood Av"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-748-a-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-748-a-sj2-1-1-b00b2",
+      "leaves" : "15:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208656",
+               null
+            ],
+            [
+               "208636",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "2086120",
+               "0S pasd"
+            ],
+            [
+               "2086121",
+               "0S pasd"
+            ],
+            [
+               "208626",
+               "2M pasd"
+            ],
+            [
+               "208627",
+               "0S pasd"
+            ],
+            [
+               "208628",
+               "1M pasd"
+            ],
+            [
+               "208629",
+               "0S pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "3M pasd"
+            ],
+            [
+               "2100122",
+               "4M pasd"
+            ],
+            [
+               "2100123",
+               "0S pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "1M pasd"
+            ],
+            [
+               "2099125",
+               "0S pasd"
+            ],
+            [
+               "2099126",
+               "1M pasd"
+            ],
+            [
+               "2099127",
+               "0S pasd"
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "1M pasd"
+            ],
+            [
+               "2099149",
+               "0S pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "0S pasd"
+            ],
+            [
+               "209731",
+               "2M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "1M pasd"
+            ],
+            [
+               "209734",
+               "0S pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "0S pasd"
+            ],
+            [
+               "209779",
+               "1M pasd"
+            ],
+            [
+               "209780",
+               "0S pasd"
+            ],
+            [
+               "209781",
+               "1M pasd"
+            ],
+            [
+               "209782",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "0S pasd"
+            ],
+            [
+               "209784",
+               "1M pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "0S pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "0S pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "1M pasd"
+            ],
+            [
+               "210022",
+               "1M pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "210040",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd Nr Forest High - Warringah Mall",
+            "rs_ref" : "RS_99-748-a-sj2-1-R-1",
+            "id" : "R_99-748-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   },
+   "VJ_99-748-a-sj2-1-2-b00b7" : {
+      "vjcode" : "VJ_99-748-a-sj2-1-2-b00b7",
+      "leaves" : "15:08:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "208656",
+               null
+            ],
+            [
+               "208636",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "1M pasd"
+            ],
+            [
+               "2086120",
+               "0S pasd"
+            ],
+            [
+               "2086121",
+               "0S pasd"
+            ],
+            [
+               "208626",
+               "2M pasd"
+            ],
+            [
+               "208627",
+               "0S pasd"
+            ],
+            [
+               "208628",
+               "1M pasd"
+            ],
+            [
+               "208629",
+               "0S pasd"
+            ],
+            [
+               "2100121",
+               "1M pasd"
+            ],
+            [
+               "2100156",
+               "3M pasd"
+            ],
+            [
+               "2100122",
+               "4M pasd"
+            ],
+            [
+               "2100123",
+               "0S pasd"
+            ],
+            [
+               "2100125",
+               "1M pasd"
+            ],
+            [
+               "2100127",
+               "1M pasd"
+            ],
+            [
+               "2100128",
+               "1M pasd"
+            ],
+            [
+               "2099111",
+               "0S pasd"
+            ],
+            [
+               "2099112",
+               "1M pasd"
+            ],
+            [
+               "2099113",
+               "0S pasd"
+            ],
+            [
+               "2099114",
+               "1M pasd"
+            ],
+            [
+               "2099123",
+               "1M pasd"
+            ],
+            [
+               "2099143",
+               "0S pasd"
+            ],
+            [
+               "2099124",
+               "1M pasd"
+            ],
+            [
+               "2099125",
+               "0S pasd"
+            ],
+            [
+               "2099126",
+               "1M pasd"
+            ],
+            [
+               "2099127",
+               "0S pasd"
+            ],
+            [
+               "2099128",
+               "1M pasd"
+            ],
+            [
+               "2099146",
+               "1M pasd"
+            ],
+            [
+               "2099147",
+               "1M pasd"
+            ],
+            [
+               "2099148",
+               "1M pasd"
+            ],
+            [
+               "2099149",
+               "0S pasd"
+            ],
+            [
+               "2099150",
+               "1M pasd"
+            ],
+            [
+               "2099218",
+               "0S pasd"
+            ],
+            [
+               "209731",
+               "2M pasd"
+            ],
+            [
+               "209732",
+               "1M pasd"
+            ],
+            [
+               "209733",
+               "1M pasd"
+            ],
+            [
+               "209734",
+               "0S pasd"
+            ],
+            [
+               "209735",
+               "1M pasd"
+            ],
+            [
+               "209736",
+               "1M pasd"
+            ],
+            [
+               "209767",
+               "1M pasd"
+            ],
+            [
+               "209771",
+               "0S pasd"
+            ],
+            [
+               "209772",
+               "0S pasd"
+            ],
+            [
+               "209773",
+               "1M pasd"
+            ],
+            [
+               "209774",
+               "1M pasd"
+            ],
+            [
+               "209775",
+               "0S pasd"
+            ],
+            [
+               "209776",
+               "1M pasd"
+            ],
+            [
+               "209777",
+               "0S pasd"
+            ],
+            [
+               "209778",
+               "0S pasd"
+            ],
+            [
+               "209779",
+               "1M pasd"
+            ],
+            [
+               "209780",
+               "0S pasd"
+            ],
+            [
+               "209781",
+               "1M pasd"
+            ],
+            [
+               "209782",
+               "1M pasd"
+            ],
+            [
+               "209783",
+               "0S pasd"
+            ],
+            [
+               "209784",
+               "1M pasd"
+            ],
+            [
+               "2099188",
+               "1M pasd"
+            ],
+            [
+               "2099189",
+               "0S pasd"
+            ],
+            [
+               "2099190",
+               "1M pasd"
+            ],
+            [
+               "2099192",
+               "0S pasd"
+            ],
+            [
+               "209921",
+               "1M pasd"
+            ],
+            [
+               "209922",
+               "1M pasd"
+            ],
+            [
+               "209923",
+               "1M pasd"
+            ],
+            [
+               "210021",
+               "1M pasd"
+            ],
+            [
+               "210022",
+               "1M pasd"
+            ],
+            [
+               "210024",
+               "1M pasd"
+            ],
+            [
+               "210025",
+               "1M pasd"
+            ],
+            [
+               "210026",
+               "1M pasd"
+            ],
+            [
+               "210040",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-a-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Frenchs Forest Rd Nr Forest High - Warringah Mall",
+            "rs_ref" : "RS_99-748-a-sj2-1-R-1",
+            "id" : "R_99-748-a-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   }
+}
+;
+

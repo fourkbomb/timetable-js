@@ -1,0 +1,538 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-799-a-sj2-1" : "799a"
+}
+;
+
+var stations = {
+   "209566" : "Eurobin St Nr Stella Maris Stand 4",
+   "209968" : "Headland Rd nr Wheeler Pde",
+   "209550" : "Pittwater Rd Nr Pine St",
+   "2100139" : "Warringah Rd opp Beacon Hill Rd",
+   "209958" : "Griffin Rd Nr Pitt Rd",
+   "2099106" : "Warringah Rd nr Princess Mary St",
+   "209548" : "Pittwater Rd Nr Balgowlah Rd",
+   "209649" : "Wyuna Av Nr Harbord Rd",
+   "2099107" : "Warringah Rd nr Waratah Pde",
+   "2096111" : "Queenscliff Rd Nr Dalley St",
+   "2099110" : "Warringah Rd nr Victor Rd",
+   "2096101" : "Harbord Rd nr Surfers Pde",
+   "208664" : "Warrringah Rd Nr Bantry Bay Rd",
+   "2100142" : "Warringah Rd Nr Jones St",
+   "209995" : "Griffin Rd Nr Abbott Rd",
+   "2099109" : "Warringah Rd nr May Rd",
+   "208639" : "Frenchs Forest Rd Nr Skyline Pl",
+   "209637" : "Adams St Nr Travers Rd",
+   "208649" : "Rabbett St Nr Holland Av",
+   "209558" : "North Steyne Nr Cameron Av",
+   "2100113" : "Warringah Rd nr Cornish Av",
+   "209638" : "Adams St Nr Park St",
+   "2099108" : "Warringah Rd nr Alfred St",
+   "209549" : "Pittwater Rd Nr Collingwood St",
+   "2096112" : "Queenscliff Rd Nr Greycliffe St",
+   "209647" : "Wyuna Av Nr Oliver St",
+   "208641" : "Frenchs Forest Rd nr Inverness Av",
+   "209551" : "Pittwater Rd Nr Carlton St",
+   "2096103" : "Lawrence St Nr Harbord Rd",
+   "208640" : "Frenchs Forest Rd nr Romford Rd",
+   "209552" : "Pittwater Rd Nr Raglan St",
+   "208617" : "Frenchs Forest Rd nr Patanga Rd",
+   "209553" : "Belgrave St Nr Sydney Rd",
+   "2100143" : "Warringah Rd nr Ellis Rd",
+   "209571" : "Darley Rd Nr St Pauls College",
+   "209642" : "Oliver St nr Harbord Primary",
+   "2100140" : "Warringah Rd nr McKillop Rd",
+   "209634" : "Adams St nr Farnell St",
+   "209640" : "Oliver St Nr Brighton St",
+   "209925" : "Harbord Rd nr Headland Rd",
+   "2096100" : "Harbord Rd nr Wyndora Av",
+   "209519" : "Gilbert St Nr Belgrave St",
+   "209698" : "Brighton St nr Waratah St",
+   "2100144" : "Warringah Rd nr Oxford Falls Rd",
+   "2096110" : "Cavill St Nr Dalley St",
+   "2100114" : "Warringah Rd nr Willandra Rd",
+   "209648" : "Wyuna Av 250m W Of Oliver St",
+   "209693" : "Bennet St nr Freshwater High",
+   "2096102" : "Harbord Rd Nr Soldiers Av",
+   "209926" : "Headland Rd nr St Lukes Stand 1",
+   "209694" : "Bennett St nr Stirgess Av",
+   "209660" : "Bennett St Nr Oliver St",
+   "209697" : "Brighton St nr Oliver St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-799-a-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-799-a-sj2-1-2-b00b2",
+      "leaves" : "08:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208649",
+               null
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "2M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208617",
+               "1M pasd"
+            ],
+            [
+               "2100142",
+               "1M pasd"
+            ],
+            [
+               "2100143",
+               "1M pasd"
+            ],
+            [
+               "2100144",
+               "0S pasd"
+            ],
+            [
+               "2100113",
+               "1M pasd"
+            ],
+            [
+               "2100114",
+               "0S pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "1M pasd"
+            ],
+            [
+               "2099108",
+               "0S pasd"
+            ],
+            [
+               "2099109",
+               "1M pasd"
+            ],
+            [
+               "2099110",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209926",
+               "1M pasd"
+            ],
+            [
+               "209968",
+               "2M pasd"
+            ],
+            [
+               "209958",
+               "0S pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209634",
+               "1M pasd"
+            ],
+            [
+               "209637",
+               "0S pasd"
+            ],
+            [
+               "209638",
+               "0S pasd"
+            ],
+            [
+               "209660",
+               "1M pasd"
+            ],
+            [
+               "209697",
+               "0S pasd"
+            ],
+            [
+               "209698",
+               "1M pasd"
+            ],
+            [
+               "209693",
+               "0S pasd"
+            ],
+            [
+               "209694",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "0S pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "0S pasd"
+            ],
+            [
+               "209649",
+               "1M pasd"
+            ],
+            [
+               "2096100",
+               "0S pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "0S pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "1M pasd"
+            ],
+            [
+               "209566",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209549",
+               "1M pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "1M pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S setDown"
+            ],
+            [
+               "209571",
+               "0S setDown"
+            ]
+         ],
+         "id" : "JP_99-799-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Rabbett St Nr Holland Av - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-799-a-sj2-1-H-1",
+            "id" : "R_99-799-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-799-a-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "799a"
+   },
+   "VJ_99-799-a-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-799-a-sj2-1-1-b00b7",
+      "leaves" : "08:01:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "208649",
+               null
+            ],
+            [
+               "208664",
+               "2M pasd"
+            ],
+            [
+               "208639",
+               "2M pasd"
+            ],
+            [
+               "208640",
+               "1M pasd"
+            ],
+            [
+               "208641",
+               "0S pasd"
+            ],
+            [
+               "208617",
+               "1M pasd"
+            ],
+            [
+               "2100142",
+               "1M pasd"
+            ],
+            [
+               "2100143",
+               "1M pasd"
+            ],
+            [
+               "2100144",
+               "0S pasd"
+            ],
+            [
+               "2100113",
+               "1M pasd"
+            ],
+            [
+               "2100114",
+               "0S pasd"
+            ],
+            [
+               "2100139",
+               "1M pasd"
+            ],
+            [
+               "2100140",
+               "0S pasd"
+            ],
+            [
+               "2099106",
+               "1M pasd"
+            ],
+            [
+               "2099107",
+               "1M pasd"
+            ],
+            [
+               "2099108",
+               "0S pasd"
+            ],
+            [
+               "2099109",
+               "1M pasd"
+            ],
+            [
+               "2099110",
+               "1M pasd"
+            ],
+            [
+               "209925",
+               "2M pasd"
+            ],
+            [
+               "209926",
+               "1M pasd"
+            ],
+            [
+               "209968",
+               "2M pasd"
+            ],
+            [
+               "209958",
+               "0S pasd"
+            ],
+            [
+               "209995",
+               "1M pasd"
+            ],
+            [
+               "209634",
+               "1M pasd"
+            ],
+            [
+               "209637",
+               "0S pasd"
+            ],
+            [
+               "209638",
+               "0S pasd"
+            ],
+            [
+               "209660",
+               "1M pasd"
+            ],
+            [
+               "209697",
+               "0S pasd"
+            ],
+            [
+               "209698",
+               "1M pasd"
+            ],
+            [
+               "209693",
+               "0S pasd"
+            ],
+            [
+               "209694",
+               "1M pasd"
+            ],
+            [
+               "209640",
+               "0S pasd"
+            ],
+            [
+               "209642",
+               "1M pasd"
+            ],
+            [
+               "209647",
+               "0S pasd"
+            ],
+            [
+               "209648",
+               "0S pasd"
+            ],
+            [
+               "209649",
+               "1M pasd"
+            ],
+            [
+               "2096100",
+               "0S pasd"
+            ],
+            [
+               "2096101",
+               "0S pasd"
+            ],
+            [
+               "2096102",
+               "0S pasd"
+            ],
+            [
+               "2096103",
+               "1M pasd"
+            ],
+            [
+               "2096110",
+               "0S pasd"
+            ],
+            [
+               "2096111",
+               "1M pasd"
+            ],
+            [
+               "2096112",
+               "0S pasd"
+            ],
+            [
+               "209558",
+               "1M pasd"
+            ],
+            [
+               "209566",
+               "0S pasd"
+            ],
+            [
+               "209548",
+               "2M pasd"
+            ],
+            [
+               "209549",
+               "1M pasd"
+            ],
+            [
+               "209550",
+               "1M pasd"
+            ],
+            [
+               "209551",
+               "1M pasd"
+            ],
+            [
+               "209552",
+               "1M pasd"
+            ],
+            [
+               "209553",
+               "0S pasd"
+            ],
+            [
+               "209519",
+               "0S setDown"
+            ],
+            [
+               "209571",
+               "0S setDown"
+            ]
+         ],
+         "id" : "JP_99-799-a-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Rabbett St Nr Holland Av - Darley Rd Nr St Pauls College",
+            "rs_ref" : "RS_99-799-a-sj2-1-H-1",
+            "id" : "R_99-799-a-sj2-1-H-1"
+         }
+      },
+      "service" : "99-799-a-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "799a"
+   }
+}
+;
+

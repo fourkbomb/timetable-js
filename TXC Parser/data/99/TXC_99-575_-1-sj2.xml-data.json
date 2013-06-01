@@ -1,0 +1,556 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-575-_-sj2-1" : "575"
+}
+;
+
+var stations = {
+   "2112210" : "Parkes St Nr Samuel St",
+   "211147" : "Buffalo Rd Nr Nelson St",
+   "211284" : "Morrison Rd nr Delange Rd",
+   "211280" : "Morrison Rd Nr Mitchell St",
+   "2112226" : "Bowden St Nr Stone St",
+   "2112138" : "Belmore St Nr Constitution Rd",
+   "211279" : "Morrison Rd Nr Bass St",
+   "211177" : "Monash Rd nr Oates Av",
+   "211238" : "Cressy Rd Nr Victoria Rd",
+   "2114153" : "Bowden St Nr Victoria Rd",
+   "2111105" : "Morrison Rd nr Bayview St",
+   "211236" : "Buffalo Rd Nr Ryde Bus Depot",
+   "211221" : "Blaxland Rd Nr Argyle Av",
+   "2111108" : "Morrison Rd nr Champion Rd",
+   "211151" : "Thompson St Nr Monash Rd",
+   "211079" : "Pittwater Rd nr Ryde Rd",
+   "2112240" : "Parkes St Nr Hinkler Av",
+   "211166" : "Pittwater Rd Nr Victoria Rd",
+   "2111117" : "Ross St nr Blair St",
+   "2112135" : "Morrison Rd Nr Belmore St",
+   "211285" : "Charles St Nr Morrison Rd",
+   "2112244" : "Constitution Rd Nr Hamilton Cr",
+   "2112250" : "Forrest Rd Nr Aitchandar Rd",
+   "211299" : "Pellisier Rd Nr Jetty Rd",
+   "2112120" : "Payten St Nr Phillip Rd",
+   "211294" : "Pellisier Rd Nr Mitchell St",
+   "211163" : "Pittwater Rd nr Venus St",
+   "2112131" : "Morrison Rd Nr Regent St",
+   "2112100" : "Pellisier Rd Nr Putney Pde",
+   "211220" : "Blaxland Rd Nr Devlin St",
+   "2112111" : "Delange Rd Nr Phillip Rd",
+   "2112101" : "Mcgowan St Nr Pellisier Rd",
+   "2111107" : "Morrison Rd Nr Western Cr",
+   "2112109" : "Delange Rd Nr Phillip Rd",
+   "211146" : "Buffalo Rd nr Ryde Bus Depot",
+   "211227" : "Victoria Rd nr Beazley St",
+   "2112129" : "Morrison Rd Nr Princes St",
+   "211431" : "Constitution Rd nr Meadowbank Station",
+   "2112136" : "Belmore St Nr Suttor Av",
+   "2112122" : "Payten St Nr Morrison Rd",
+   "2112213" : "Buffalo Rd Nr Kells Rd",
+   "211289" : "Charles St Nr Phillip Rd",
+   "211296" : "Pellisier Rd Nr Stanley St",
+   "2112223" : "Princes St Nr Crescent Av",
+   "211235" : "Bowden St Nr Sewell St",
+   "211152" : "Thompson St Nr Westminster Rd",
+   "2112218" : "Princes St Nr Turner Av",
+   "211080" : "Pittwater Rd nr Aston St",
+   "2112199" : "Malvina Rd nr Ryde Secondary College",
+   "2112132" : "Morrison Rd near Church St",
+   "2112232" : "Bowden St Nr Mcpherson St",
+   "211222" : "Blaxland Rd Nr Princes St",
+   "211153" : "Thompson St nr The Strand",
+   "2111101" : "Morrison Rd nr Tennyson Rd",
+   "211287" : "Charles St Nr Morrison Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-575-_-sj2-1-2-b00bj" : {
+      "vjcode" : "VJ_99-575-_-sj2-1-2-b00bj",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211146",
+               "0S pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211177",
+               "1M pasd"
+            ],
+            [
+               "211151",
+               "0S pasd"
+            ],
+            [
+               "211152",
+               "1M pasd"
+            ],
+            [
+               "211153",
+               "0S pasd"
+            ],
+            [
+               "211079",
+               "1M pasd"
+            ],
+            [
+               "211080",
+               "1M pasd"
+            ],
+            [
+               "211163",
+               "0S pasd"
+            ],
+            [
+               "211166",
+               "1M pasd"
+            ],
+            [
+               "2111117",
+               "1M pasd"
+            ],
+            [
+               "2111107",
+               "1M pasd"
+            ],
+            [
+               "2111108",
+               "1M pasd"
+            ],
+            [
+               "2111101",
+               "0S pasd"
+            ],
+            [
+               "2111105",
+               "1M pasd"
+            ],
+            [
+               "211279",
+               "1M pasd"
+            ],
+            [
+               "211280",
+               "0S pasd"
+            ],
+            [
+               "211284",
+               "1M pasd"
+            ],
+            [
+               "211285",
+               "0S pasd"
+            ],
+            [
+               "211287",
+               "1M pasd"
+            ],
+            [
+               "211289",
+               "0S pasd"
+            ],
+            [
+               "2112111",
+               "0S pasd"
+            ],
+            [
+               "211294",
+               "1M pasd"
+            ],
+            [
+               "211296",
+               "1M pasd"
+            ],
+            [
+               "211299",
+               "0S pasd"
+            ],
+            [
+               "2112100",
+               "1M pasd"
+            ],
+            [
+               "2112101",
+               "0S pasd"
+            ],
+            [
+               "2112109",
+               "3M pasd"
+            ],
+            [
+               "2112120",
+               "1M pasd"
+            ],
+            [
+               "2112122",
+               "1M pasd"
+            ],
+            [
+               "2112129",
+               "0S pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "2112135",
+               "1M pasd"
+            ],
+            [
+               "2112136",
+               "0S pasd"
+            ],
+            [
+               "2112138",
+               "1M pasd"
+            ],
+            [
+               "2112244",
+               "0S pasd"
+            ],
+            [
+               "211431",
+               "2M pasd"
+            ],
+            [
+               "2112226",
+               "1M pasd"
+            ],
+            [
+               "2112232",
+               "0S pasd"
+            ],
+            [
+               "2114153",
+               "1M pasd"
+            ],
+            [
+               "211235",
+               "1M pasd"
+            ],
+            [
+               "2112240",
+               "0S pasd"
+            ],
+            [
+               "2112210",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "1M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "0S pasd"
+            ],
+            [
+               "2112218",
+               "1M pasd"
+            ],
+            [
+               "2112223",
+               "1M pasd"
+            ],
+            [
+               "2112213",
+               "0S pasd"
+            ],
+            [
+               "2112250",
+               "1M pasd"
+            ],
+            [
+               "2112199",
+               "1M pasd"
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211227",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-575-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Victoria Rd nr Beazley St",
+            "rs_ref" : "RS_99-575-_-sj2-1-H-1",
+            "id" : "R_99-575-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-575-_-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "575"
+   },
+   "VJ_99-575-_-sj2-1-1-b00bk" : {
+      "vjcode" : "VJ_99-575-_-sj2-1-1-b00bk",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "211236",
+               null
+            ],
+            [
+               "211146",
+               "0S pasd"
+            ],
+            [
+               "211147",
+               "1M pasd"
+            ],
+            [
+               "211177",
+               "1M pasd"
+            ],
+            [
+               "211151",
+               "0S pasd"
+            ],
+            [
+               "211152",
+               "1M pasd"
+            ],
+            [
+               "211153",
+               "0S pasd"
+            ],
+            [
+               "211079",
+               "1M pasd"
+            ],
+            [
+               "211080",
+               "1M pasd"
+            ],
+            [
+               "211163",
+               "0S pasd"
+            ],
+            [
+               "211166",
+               "1M pasd"
+            ],
+            [
+               "2111117",
+               "1M pasd"
+            ],
+            [
+               "2111107",
+               "1M pasd"
+            ],
+            [
+               "2111108",
+               "1M pasd"
+            ],
+            [
+               "2111101",
+               "0S pasd"
+            ],
+            [
+               "2111105",
+               "1M pasd"
+            ],
+            [
+               "211279",
+               "1M pasd"
+            ],
+            [
+               "211280",
+               "0S pasd"
+            ],
+            [
+               "211284",
+               "1M pasd"
+            ],
+            [
+               "211285",
+               "0S pasd"
+            ],
+            [
+               "211287",
+               "1M pasd"
+            ],
+            [
+               "211289",
+               "0S pasd"
+            ],
+            [
+               "2112111",
+               "0S pasd"
+            ],
+            [
+               "211294",
+               "1M pasd"
+            ],
+            [
+               "211296",
+               "1M pasd"
+            ],
+            [
+               "211299",
+               "0S pasd"
+            ],
+            [
+               "2112100",
+               "1M pasd"
+            ],
+            [
+               "2112101",
+               "0S pasd"
+            ],
+            [
+               "2112109",
+               "3M pasd"
+            ],
+            [
+               "2112120",
+               "1M pasd"
+            ],
+            [
+               "2112122",
+               "1M pasd"
+            ],
+            [
+               "2112129",
+               "0S pasd"
+            ],
+            [
+               "2112131",
+               "1M pasd"
+            ],
+            [
+               "2112132",
+               "0S pasd"
+            ],
+            [
+               "2112135",
+               "1M pasd"
+            ],
+            [
+               "2112136",
+               "0S pasd"
+            ],
+            [
+               "2112138",
+               "1M pasd"
+            ],
+            [
+               "2112244",
+               "0S pasd"
+            ],
+            [
+               "211431",
+               "2M pasd"
+            ],
+            [
+               "2112226",
+               "1M pasd"
+            ],
+            [
+               "2112232",
+               "0S pasd"
+            ],
+            [
+               "2114153",
+               "1M pasd"
+            ],
+            [
+               "211235",
+               "1M pasd"
+            ],
+            [
+               "2112240",
+               "0S pasd"
+            ],
+            [
+               "2112210",
+               "1M pasd"
+            ],
+            [
+               "211220",
+               "1M pasd"
+            ],
+            [
+               "211221",
+               "1M pasd"
+            ],
+            [
+               "211222",
+               "0S pasd"
+            ],
+            [
+               "2112218",
+               "1M pasd"
+            ],
+            [
+               "2112223",
+               "1M pasd"
+            ],
+            [
+               "2112213",
+               "0S pasd"
+            ],
+            [
+               "2112250",
+               "1M pasd"
+            ],
+            [
+               "2112199",
+               "1M pasd"
+            ],
+            [
+               "211238",
+               "2M pasd"
+            ],
+            [
+               "211227",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-575-_-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Buffalo Rd Nr Ryde Bus Depot - Victoria Rd nr Beazley St",
+            "rs_ref" : "RS_99-575-_-sj2-1-H-1",
+            "id" : "R_99-575-_-sj2-1-H-1"
+         }
+      },
+      "service" : "99-575-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "575"
+   }
+}
+;
+

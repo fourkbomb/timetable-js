@@ -1,0 +1,756 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-868-_-sj2-1" : "868"
+}
+;
+
+var stations = {
+   "230312" : "Tudor St Nr Murray St",
+   "228717" : "Newcastle Rd nr Illoura St",
+   "2287237" : "Cambronne Pde nr Andretta Av",
+   "2287230" : "Dangerfield Dr nr Cambronne Pde",
+   "2285161" : "Rudolph Steiner School",
+   "2298106" : "Christo Rd Nr Lambton Rd",
+   "2287226" : "Dangerfield Dr opp Allenwood Cl",
+   "2287333" : "Birchgrove Dr nr Coweambah Cl",
+   "228715" : "Victory Pde opp Chalmers Rd",
+   "2287281" : "Grandview Rd nr Cranbrook Pde",
+   "2287234" : "82 Dangerfield Dr",
+   "229896" : "Christo Rd Nr Asher St",
+   "228742" : "Newcastle Rd nr Victory Pde",
+   "2287295" : "McCaffrey Dr nr Dangerfield Dr",
+   "2287222" : "115 Dangerfield Dr",
+   "2287282" : "Grandview Rd nr Meldon Pl",
+   "2287223" : "95 Dangerfield Dr",
+   "2287297" : "McCaffrey Dr nr Duval St",
+   "229920" : "Newcastle Rd Opp Jesmond Park",
+   "2305162" : "Grandview Rd Nr Elbrook Dr",
+   "2287279" : "Smith Rd nr Grandview Rd",
+   "229898" : "Christo Rd Nr Stephen St",
+   "229955" : "Newcastle Rd Nr Albert St",
+   "229245" : "Broadmeadow Rd nr Jackson St",
+   "229922" : "Newcastle Rd Nr Dent St",
+   "228719" : "Victory Pde nr Chalmers Rd",
+   "2299106" : "Newcastle Rd Nr Albert St",
+   "229225" : "Belford St nr Samdon St",
+   "2287235" : "92 Dangerfield Dr",
+   "2287288" : "Elbrook Dr nr Atherton Cl",
+   "2287330" : "Jubilee Rd 350m S of Aries Wy",
+   "2287285" : "Elbrook Dr opp Kingsway Av",
+   "2287293" : "McCaffrey Dr nr Orana St",
+   "2285158" : "Reservoir Rd nr Valley View Cr",
+   "229226" : "Belford St nr Torpey Pl",
+   "2287336" : "Birchgrove Dr nr Sakonia Cl",
+   "229965" : "Griffiths Rd Nr Verulam Rd",
+   "2287217" : "Cressington Wy nr Craignair Cl",
+   "2287312" : "Jubilee Rd nr Taurus St",
+   "2285157" : "Reservoir Rd nr Clarence St",
+   "2287266" : "Watkins Rd opp Kerry Av",
+   "229895" : "Christo Rd Nr Turton Rd",
+   "2287310" : "Jubilee Rd opp Aries Wy",
+   "2287228" : "Dangerfield Dr nr Croudace Rd",
+   "2287221" : "Cambronne Pde nr Rialto Cl",
+   "229893" : "Christo Rd Nr Crescent Rd",
+   "229897" : "Christo Rd Nr Georgetown Rd",
+   "228733" : "Cardiff Rd nr Watkins Rd",
+   "229239" : "Broadmeadow Rd nr Australia Rd",
+   "228732" : "Cardiff Rd opp Smith Rd",
+   "2287340" : "Birchgrove Dr nr Wootton Cl",
+   "229250" : "Lambton Rd nr Market St",
+   "229242" : "Broadmeadow Rd nr Clyde St",
+   "2287342" : "Birchgrove Dr nr Iranda Gr",
+   "229927" : "Newcastle Rd Nr Jesmond Park",
+   "2287204" : "Cambronne Pde nr Garsdale Av",
+   "2287332" : "Birchgrove Dr Nr Victory Pde",
+   "2287274" : "Smith Rd Nr Cardiff Rd",
+   "2298104" : "Christo Rd Nr Cintra Rd",
+   "2285155" : "Jubilee Rd Nr Reservoir Rd",
+   "2287233" : "68 Dangerfield Dr",
+   "230315" : "Tudor St Nr Gordon Av",
+   "2287283" : "Elbrook Dr opp Atherton Cl",
+   "2285175" : "Reservoir Rd opp Clarence St",
+   "229919" : "Newcastle Rd Nr Blue Gum Rd",
+   "2285160" : "Macquarie College",
+   "2287232" : "Dangerfield Dr nr Allenwood Cl",
+   "2287210" : "Cressington Wy opp Craignair Cl",
+   "2287339" : "Birchgrove Dr nr Coorong Cl",
+   "230313" : "Tudor St Nr Murray St",
+   "2287334" : "Birchgrove Dr nr Duckerfield Pl",
+   "229241" : "Broadmeadow Rd opp Boreas St",
+   "2287284" : "Elbrook Dr nr Hasluck Dr",
+   "2287337" : "Birchgrove Dr nr Corio Cl",
+   "2305157" : "Grandview Rd Nr Clepham St",
+   "2298105" : "Christo Rd Nr Crescent Rd",
+   "2305156" : "Grandview Rd Opp Elbrook Dr",
+   "2287296" : "McCaffrey Dr opp Rosedale Cr",
+   "228741" : "Cardiff Rd nr Smith Rd",
+   "229246" : "Broadmeadow Rd Nr Curley Rd",
+   "2287278" : "Smith Rd Nr Cardiff Rd",
+   "2287209" : "Cressington Wy nr Murnin St",
+   "2285162" : "Reservoir Rd opp Valley View Cr",
+   "230323" : "Tudor St nr Gordon Av",
+   "229243" : "Broadmeadow Rd nr Boreas Rd",
+   "2287329" : "Jubilee Rd 250m S of Aries Wy",
+   "2287311" : "Jubilee Rd nr Aries Wy",
+   "229228" : "Belford St nr Dixon St",
+   "2287292" : "McCaffrey Dr opp Dean Pde",
+   "2287225" : "73 Dangerfield Dr",
+   "2287268" : "Grandview Rd nr Justin Pde",
+   "229235" : "Curley Rd nr Lambton Rd",
+   "2287229" : "Dangerfield Dr nr Isabella Cl",
+   "229954" : "Newcastle Rd Nr Arthur St",
+   "230321" : "Tudor St Nr Steel St",
+   "2287272" : "McCaffrey Dr nr Spencer St",
+   "2287219" : "Elermore Pde opp Cambronne Pde",
+   "2299124" : "Newcastle Rd Nr Grainger St",
+   "2287267" : "Grandview Rd opp Meldon Cl",
+   "2287218" : "Cressington Wy nr Elermore Pde",
+   "2287294" : "McCaffrey Dr nr Rosedale Cr",
+   "229923" : "Newcastle Rd Nr Nerong Rd",
+   "2299123" : "Newcastle Rd Nr Morehead St",
+   "2287236" : "106 Dangerfield Dr",
+   "2298103" : "Christo Rd Nr Turton Rd",
+   "2287309" : "Jubilee Rd opp Taurus St",
+   "2287308" : "Watkins Rd nr Kerry Av",
+   "2287227" : "35 Dangerfield Dr",
+   "2305108" : "Grandview Rd Opp Clepham St",
+   "229899" : "Christo Rd Nr Asher St",
+   "230316" : "Tudor St Nr Lawson St",
+   "2299122" : "Newcastle Rd Nr Young Rd",
+   "2287335" : "Birchgrove Dr nr Bellinger Cl",
+   "228740" : "Cardiff Rd opp Watkins Rd",
+   "2287205" : "Cambronne Pde nr Elermore Pde",
+   "230324" : "Denison St Nr Hamilton Bus Depot",
+   "230317" : "Tudor St Nr Steel St",
+   "229925" : "Newcastle Rd Nr Croudace St",
+   "229892" : "Christo Rd Nr Lambton Rd",
+   "2287231" : "34 Dangerfield Dr",
+   "229926" : "Newcastle Rd Opp Steel St",
+   "2285156" : "Jubilee Rd Nr Reservoir Rd",
+   "2287216" : "Cressington Wy nr Kadina Cl",
+   "2285159" : "Rudolph Steiner School",
+   "2287140" : "Newcastle Rd opp Crest Rd",
+   "2287331" : "Birchgrove Dr Nr Victory Pde",
+   "229227" : "Belford St nr Chatham St",
+   "229266" : "Lambton Rd nr Curley Rd",
+   "2287287" : "Elbrook Dr nr Cheshire Cl",
+   "229963" : "Newcastle Rd Nr Grainger St",
+   "2287211" : "Cressington Wy opp Seladon Av",
+   "2287220" : "Cambronne Pde nr Colwyn Cl",
+   "2287286" : "Elbrook Dr nr Kingsway Av",
+   "229921" : "Newcastle Rd Nr Steel St",
+   "2287224" : "79 Dangerfield Dr",
+   "2287341" : "Birchgrove Dr nr Douglas St",
+   "2287273" : "Smith Rd nr Dianne St",
+   "229894" : "Christo Rd Opp Cintra Rd",
+   "2287338" : "Birchgrove Dr opp Corio Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-868-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-868-_-sj2-1-1-b0096",
+      "leaves" : "15:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2285160",
+               null
+            ],
+            [
+               "2285161",
+               "1M pasd"
+            ],
+            [
+               "2285162",
+               "0S pasd"
+            ],
+            [
+               "2285175",
+               "1M pasd"
+            ],
+            [
+               "2285156",
+               "1M pasd"
+            ],
+            [
+               "2287330",
+               "1M pasd"
+            ],
+            [
+               "2287311",
+               "1M pasd"
+            ],
+            [
+               "2287312",
+               "0S pasd"
+            ],
+            [
+               "2287266",
+               "1M pasd"
+            ],
+            [
+               "228740",
+               "1M pasd"
+            ],
+            [
+               "228741",
+               "0S pasd"
+            ],
+            [
+               "2287278",
+               "1M pasd"
+            ],
+            [
+               "2287279",
+               "0S pasd"
+            ],
+            [
+               "2287281",
+               "1M pasd"
+            ],
+            [
+               "2287282",
+               "0S pasd"
+            ],
+            [
+               "2305108",
+               "1M pasd"
+            ],
+            [
+               "2305162",
+               "1M pasd"
+            ],
+            [
+               "2287283",
+               "0S pasd"
+            ],
+            [
+               "2287284",
+               "1M pasd"
+            ],
+            [
+               "2287285",
+               "0S pasd"
+            ],
+            [
+               "2287292",
+               "0S pasd"
+            ],
+            [
+               "2287293",
+               "1M pasd"
+            ],
+            [
+               "2287294",
+               "0S pasd"
+            ],
+            [
+               "2287272",
+               "1M pasd"
+            ],
+            [
+               "2287229",
+               "0S pasd"
+            ],
+            [
+               "2287230",
+               "1M pasd"
+            ],
+            [
+               "2287231",
+               "0S pasd"
+            ],
+            [
+               "2287232",
+               "0S pasd"
+            ],
+            [
+               "2287233",
+               "1M pasd"
+            ],
+            [
+               "2287234",
+               "0S pasd"
+            ],
+            [
+               "2287235",
+               "1M pasd"
+            ],
+            [
+               "2287236",
+               "0S pasd"
+            ],
+            [
+               "2287237",
+               "1M pasd"
+            ],
+            [
+               "2287204",
+               "0S pasd"
+            ],
+            [
+               "2287205",
+               "1M pasd"
+            ],
+            [
+               "2287209",
+               "0S pasd"
+            ],
+            [
+               "2287210",
+               "1M pasd"
+            ],
+            [
+               "2287211",
+               "0S pasd"
+            ],
+            [
+               "2287342",
+               "1M pasd"
+            ],
+            [
+               "2287339",
+               "1M pasd"
+            ],
+            [
+               "2287338",
+               "0S pasd"
+            ],
+            [
+               "2287336",
+               "1M pasd"
+            ],
+            [
+               "2287334",
+               "1M pasd"
+            ],
+            [
+               "2287332",
+               "0S pasd"
+            ],
+            [
+               "228715",
+               "0S pasd"
+            ],
+            [
+               "2287140",
+               "1M pasd"
+            ],
+            [
+               "229919",
+               "1M pasd"
+            ],
+            [
+               "229920",
+               "1M pasd"
+            ],
+            [
+               "229921",
+               "1M pasd"
+            ],
+            [
+               "229954",
+               "0S pasd"
+            ],
+            [
+               "229955",
+               "1M pasd"
+            ],
+            [
+               "229922",
+               "1M pasd"
+            ],
+            [
+               "229963",
+               "0S pasd"
+            ],
+            [
+               "229923",
+               "0S pasd"
+            ],
+            [
+               "229965",
+               "1M pasd"
+            ],
+            [
+               "229892",
+               "1M pasd"
+            ],
+            [
+               "229893",
+               "1M pasd"
+            ],
+            [
+               "229894",
+               "1M pasd"
+            ],
+            [
+               "229895",
+               "0S pasd"
+            ],
+            [
+               "229896",
+               "1M pasd"
+            ],
+            [
+               "229897",
+               "0S pasd"
+            ],
+            [
+               "229243",
+               "1M pasd"
+            ],
+            [
+               "229245",
+               "1M pasd"
+            ],
+            [
+               "229246",
+               "1M pasd"
+            ],
+            [
+               "229266",
+               "1M pasd"
+            ],
+            [
+               "229250",
+               "1M pasd"
+            ],
+            [
+               "229226",
+               "0S pasd"
+            ],
+            [
+               "229225",
+               "1M pasd"
+            ],
+            [
+               "230321",
+               "1M pasd"
+            ],
+            [
+               "230312",
+               "0S pasd"
+            ],
+            [
+               "230323",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-868-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Macquarie College - Tudor St nr Gordon Av",
+            "rs_ref" : "RS_94-868-_-sj2-1-R-1",
+            "id" : "R_94-868-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-868-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "868"
+   },
+   "VJ_94-868-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-868-_-sj2-1-2-b0096",
+      "leaves" : "07:22:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "230324",
+               null
+            ],
+            [
+               "230315",
+               "1M pasd"
+            ],
+            [
+               "230316",
+               "1M pasd"
+            ],
+            [
+               "230313",
+               "0S pasd"
+            ],
+            [
+               "230317",
+               "1M pasd"
+            ],
+            [
+               "229228",
+               "0S pasd"
+            ],
+            [
+               "229227",
+               "1M pasd"
+            ],
+            [
+               "229235",
+               "1M pasd"
+            ],
+            [
+               "229239",
+               "2M pasd"
+            ],
+            [
+               "229241",
+               "1M pasd"
+            ],
+            [
+               "229242",
+               "0S pasd"
+            ],
+            [
+               "229898",
+               "1M pasd"
+            ],
+            [
+               "229899",
+               "0S pasd"
+            ],
+            [
+               "2298103",
+               "1M pasd"
+            ],
+            [
+               "2298104",
+               "0S pasd"
+            ],
+            [
+               "2298105",
+               "1M pasd"
+            ],
+            [
+               "2298106",
+               "1M pasd"
+            ],
+            [
+               "2299122",
+               "1M pasd"
+            ],
+            [
+               "2299123",
+               "1M pasd"
+            ],
+            [
+               "2299124",
+               "0S pasd"
+            ],
+            [
+               "229925",
+               "1M pasd"
+            ],
+            [
+               "2299106",
+               "0S pasd"
+            ],
+            [
+               "229926",
+               "1M pasd"
+            ],
+            [
+               "229927",
+               "1M pasd"
+            ],
+            [
+               "228717",
+               "1M pasd"
+            ],
+            [
+               "228742",
+               "0S pasd"
+            ],
+            [
+               "228719",
+               "1M pasd"
+            ],
+            [
+               "2287331",
+               "1M pasd"
+            ],
+            [
+               "2287333",
+               "0S pasd"
+            ],
+            [
+               "2287335",
+               "1M pasd"
+            ],
+            [
+               "2287337",
+               "0S pasd"
+            ],
+            [
+               "2287340",
+               "1M pasd"
+            ],
+            [
+               "2287341",
+               "1M pasd"
+            ],
+            [
+               "2287216",
+               "0S pasd"
+            ],
+            [
+               "2287217",
+               "1M pasd"
+            ],
+            [
+               "2287218",
+               "0S pasd"
+            ],
+            [
+               "2287219",
+               "1M pasd"
+            ],
+            [
+               "2287220",
+               "0S pasd"
+            ],
+            [
+               "2287221",
+               "1M pasd"
+            ],
+            [
+               "2287222",
+               "0S pasd"
+            ],
+            [
+               "2287223",
+               "1M pasd"
+            ],
+            [
+               "2287224",
+               "0S pasd"
+            ],
+            [
+               "2287225",
+               "1M pasd"
+            ],
+            [
+               "2287226",
+               "0S pasd"
+            ],
+            [
+               "2287227",
+               "0S pasd"
+            ],
+            [
+               "2287228",
+               "1M pasd"
+            ],
+            [
+               "2287295",
+               "0S pasd"
+            ],
+            [
+               "2287296",
+               "1M pasd"
+            ],
+            [
+               "2287297",
+               "0S pasd"
+            ],
+            [
+               "2287286",
+               "1M pasd"
+            ],
+            [
+               "2287287",
+               "1M pasd"
+            ],
+            [
+               "2287288",
+               "0S pasd"
+            ],
+            [
+               "2305156",
+               "0S pasd"
+            ],
+            [
+               "2305157",
+               "1M pasd"
+            ],
+            [
+               "2287267",
+               "1M pasd"
+            ],
+            [
+               "2287268",
+               "0S pasd"
+            ],
+            [
+               "2287273",
+               "1M pasd"
+            ],
+            [
+               "2287274",
+               "1M pasd"
+            ],
+            [
+               "228732",
+               "0S pasd"
+            ],
+            [
+               "228733",
+               "0S pasd"
+            ],
+            [
+               "2287308",
+               "1M pasd"
+            ],
+            [
+               "2287309",
+               "1M pasd"
+            ],
+            [
+               "2287310",
+               "0S pasd"
+            ],
+            [
+               "2287329",
+               "0S pasd"
+            ],
+            [
+               "2285155",
+               "1M pasd"
+            ],
+            [
+               "2285157",
+               "1M pasd"
+            ],
+            [
+               "2285158",
+               "0S pasd"
+            ],
+            [
+               "2285159",
+               "1M pasd"
+            ],
+            [
+               "2285160",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-868-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Denison St Nr Hamilton Bus Depot - Macquarie College",
+            "rs_ref" : "RS_94-868-_-sj2-1-H-2",
+            "id" : "R_94-868-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-868-_-sj2-1",
+      "line" : "868"
+   }
+}
+;
+

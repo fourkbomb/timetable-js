@@ -1,0 +1,636 @@
+var OPERATOR = "Newcastle Buses and Fer";
+
+
+var LINES = {
+   "94-831-_-sj2-1" : "831"
+}
+;
+
+var stations = {
+   "228598" : "Wallsend Rd opp Rowes Ln",
+   "2287317" : "Aries Wy opp Virgo St",
+   "230583" : "Bridges Rd Opp Penman St",
+   "2285152" : "Reservoir Rd nr Hartford St",
+   "2305104" : "Victoria St Nr Bridges Rd",
+   "2287281" : "Grandview Rd nr Cranbrook Pde",
+   "2287302" : "Croudace Rd opp Urara Pde",
+   "228595" : "Wallsend Rd nr Rowes Ln",
+   "2305157" : "Grandview Rd Nr Clepham St",
+   "2305122" : "Fairfield Av Nr St James Rd",
+   "2305156" : "Grandview Rd Opp Elbrook Dr",
+   "2305158" : "Holly Cct Nr Eskdale Cl",
+   "2287282" : "Grandview Rd nr Meldon Pl",
+   "2287305" : "Croudace Rd nr Sherwood St",
+   "228741" : "Cardiff Rd nr Smith Rd",
+   "2287278" : "Smith Rd Nr Cardiff Rd",
+   "2305151" : "Lookout Rd Opp Grandview Rd",
+   "2287318" : "Aries Wy opp Leo Cl",
+   "2305162" : "Grandview Rd Nr Elbrook Dr",
+   "2287279" : "Smith Rd nr Grandview Rd",
+   "2305121" : "Fairfield Av Nr Moonbi St",
+   "230577" : "Rugby Rd Nr Westcourt Rd",
+   "230578" : "Russell Rd Opp Baker St",
+   "2287329" : "Jubilee Rd 250m S of Aries Wy",
+   "2305172" : "Lookout Rd 250m N Of Bushland Cl",
+   "2287315" : "Aries Wy nr Taurus St",
+   "2305113" : "Mackie Av Nr Warren Ave",
+   "2285245" : "Main Rd nr Wallsend Rd",
+   "2285176" : "Reservoir Rd nr Jubilee Rd",
+   "2305160" : "Walkern Rd Nr Candlebark Wy",
+   "2287326" : "Aries Wy opp Taurus St",
+   "2287268" : "Grandview Rd nr Justin Pde",
+   "2305171" : "Lookout Rd Nr Mccaffrey Dr",
+   "2305107" : "St Therese Primary",
+   "230580" : "Russell Rd Nr Brett St",
+   "2285246" : "Main Rd opp Highfield Tce",
+   "2289196" : "Lexington Pde Nr Kotara High",
+   "2285185" : "Reservoir Rd opp Jubilee Rd",
+   "2305144" : "Croudace St Nr Curzon Rd",
+   "2305178" : "Moonbi St Nr Bridges Rd",
+   "2305150" : "Lookout Rd 300m N Of Grandview Rd",
+   "2285252" : "Main Rd nr Harrisons Ln",
+   "2287322" : "Aries Wy nr Gemini Av",
+   "2287267" : "Grandview Rd opp Meldon Cl",
+   "2287303" : "Croudace Rd opp Sherwood St",
+   "2305148" : "Lookout Rd Nr Ridgeway Rd",
+   "2305114" : "Sketchley Pde Nr Meadow Rd",
+   "2305165" : "Grandview Rd Nr Marshall St",
+   "2285248" : "Main Rd nr Baptist Church",
+   "2285147" : "Reservoir Rd nr Hartford St",
+   "2285250" : "Main Rd 200m E of Cockburns Ln",
+   "2287330" : "Jubilee Rd 350m S of Aries Wy",
+   "2285249" : "Main Rd opp Baptist Church",
+   "2287250" : "Cardiff Rd Nr Croudace Rd",
+   "2305108" : "Grandview Rd Opp Clepham St",
+   "2305154" : "Grandview Rd Nr Marshall St",
+   "230570" : "Alma Rd Nr Regent St",
+   "2285247" : "Main Rd 250m E of Cockburns Ln",
+   "2305131" : "Portland Pl Nr Regent St",
+   "230568" : "Russell Rd Nr Baker St",
+   "2285228" : "Main Rd opp Cockburns Ln",
+   "2289182" : "Northcott Dr Nr Bradford Cl",
+   "2305153" : "Grandview Rd Nr Marshall St",
+   "2305161" : "Walkern Rd Nr Bowness St",
+   "2287304" : "Croudace Rd nr Elermore Vale Primary",
+   "2285177" : "Reservoir Rd nr Longworth Av",
+   "2285251" : "Main Rd nr Cockburns Ln",
+   "2305105" : "Victoria St Nr Burke St",
+   "228740" : "Cardiff Rd opp Watkins Rd",
+   "2285148" : "Reservoir Rd nr Nadrian Cl",
+   "2305155" : "Grandview Rd Nr Arkana Cl",
+   "230566" : "Russell Rd Opp Brett St",
+   "2305170" : "Lookout Rd 200m S Of Mccaffrey Dr",
+   "2305159" : "Holly Cct Nr Tranmere Cl",
+   "2305164" : "Grandview Rd Nr Marshall St",
+   "2285156" : "Jubilee Rd Nr Reservoir Rd",
+   "2287324" : "Aries Wy nr Virgo St",
+   "2305152" : "Grandview Rd Nr Lookout Rd",
+   "2305115" : "Sketchley Pde near Bridges Rd",
+   "230565" : "Russell Rd Nr Croudace St",
+   "2285150" : "Reservoir Rd opp Dewrang St",
+   "2287316" : "Aries Wy nr Aries Way Reserve",
+   "2285153" : "Reservoir Rd nr Wallsend Rd",
+   "2287306" : "Croudace Rd nr Urara Pde",
+   "228733" : "Cardiff Rd nr Watkins Rd",
+   "2287325" : "Aries Wy opp Aries Way Reserve",
+   "228732" : "Cardiff Rd opp Smith Rd",
+   "2287319" : "Aries Wy opp Gemini Av",
+   "2305145" : "Lookout Rd 150m N Of Bushland Cl",
+   "2287314" : "Aries Wy nr Croudace Rd",
+   "2285151" : "Reservoir Rd nr Christina St",
+   "2287320" : "Aries Wy nr Jubile Rd",
+   "2305175" : "Cardiff Rd Nr Marshall St",
+   "2305174" : "Cardiff Rd Opp Beverley Cr",
+   "2287323" : "Aries Wy nr Leo Cl",
+   "2305112" : "Mackie Av Nr St James Rd",
+   "2285184" : "Reservoir Rd nr Lowry St",
+   "2285149" : "Reservoir Rd nr Dewrang St",
+   "2287273" : "Smith Rd nr Dianne St",
+   "230596" : "Regent St Nr New Lambton Primary",
+   "2305166" : "Grandview Rd Nr Lookout Rd",
+   "2287328" : "Croudace Rd nr Jubilee Rd",
+   "2287274" : "Smith Rd Nr Cardiff Rd",
+   "2287251" : "Cardiff Rd Nr Croudace Rd",
+   "2287321" : "Aries Wy nr Pisces Av",
+   "2287327" : "Aries Wy nr Aquarius Av",
+   "2285155" : "Jubilee Rd Nr Reservoir Rd",
+   "2289258" : "Park Av Nr Northcott Rd",
+   "2305126" : "Bridges Rd Nr Carnley Av",
+   "2289219" : "Lexington Pde Nr Rachael Av",
+   "2305163" : "Grandview Rd Nr Arkana Cl"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_94-831-_-sj2-1-2-b0096" : {
+      "vjcode" : "VJ_94-831-_-sj2-1-2-b0096",
+      "leaves" : "08:28:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2305175",
+               null
+            ],
+            [
+               "2285249",
+               "1M pasd"
+            ],
+            [
+               "2285250",
+               "0S pasd"
+            ],
+            [
+               "2285251",
+               "1M pasd"
+            ],
+            [
+               "2285252",
+               "0S pasd"
+            ],
+            [
+               "228595",
+               "1M pasd"
+            ],
+            [
+               "2285147",
+               "1M pasd"
+            ],
+            [
+               "2285148",
+               "0S pasd"
+            ],
+            [
+               "2285149",
+               "1M pasd"
+            ],
+            [
+               "2285184",
+               "1M pasd"
+            ],
+            [
+               "2285185",
+               "0S pasd"
+            ],
+            [
+               "2285156",
+               "1M pasd"
+            ],
+            [
+               "2287330",
+               "0S pasd"
+            ],
+            [
+               "2287321",
+               "1M pasd"
+            ],
+            [
+               "2287322",
+               "1M pasd"
+            ],
+            [
+               "2287323",
+               "0S pasd"
+            ],
+            [
+               "2287324",
+               "1M pasd"
+            ],
+            [
+               "2287325",
+               "0S pasd"
+            ],
+            [
+               "2287326",
+               "1M pasd"
+            ],
+            [
+               "2287327",
+               "0S pasd"
+            ],
+            [
+               "2287328",
+               "1M pasd"
+            ],
+            [
+               "2287305",
+               "0S pasd"
+            ],
+            [
+               "2287306",
+               "1M pasd"
+            ],
+            [
+               "2287250",
+               "0S pasd"
+            ],
+            [
+               "228740",
+               "1M pasd"
+            ],
+            [
+               "228741",
+               "0S pasd"
+            ],
+            [
+               "2287278",
+               "1M pasd"
+            ],
+            [
+               "2287279",
+               "0S pasd"
+            ],
+            [
+               "2287281",
+               "1M pasd"
+            ],
+            [
+               "2287282",
+               "0S pasd"
+            ],
+            [
+               "2305158",
+               "1M pasd"
+            ],
+            [
+               "2305159",
+               "1M pasd"
+            ],
+            [
+               "2305160",
+               "1M pasd"
+            ],
+            [
+               "2305161",
+               "0S pasd"
+            ],
+            [
+               "2305108",
+               "0S pasd"
+            ],
+            [
+               "2305162",
+               "1M pasd"
+            ],
+            [
+               "2305163",
+               "1M pasd"
+            ],
+            [
+               "2305164",
+               "1M pasd"
+            ],
+            [
+               "2305165",
+               "0S pasd"
+            ],
+            [
+               "2305166",
+               "0S pasd"
+            ],
+            [
+               "2305170",
+               "1M pasd"
+            ],
+            [
+               "2305171",
+               "1M pasd"
+            ],
+            [
+               "2305172",
+               "1M pasd"
+            ],
+            [
+               "230565",
+               "1M pasd"
+            ],
+            [
+               "230566",
+               "0S pasd"
+            ],
+            [
+               "230568",
+               "1M pasd"
+            ],
+            [
+               "230570",
+               "1M pasd"
+            ],
+            [
+               "2305107",
+               "1M pasd"
+            ],
+            [
+               "230596",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_94-831-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Cardiff Rd Nr Marshall St - Regent St Nr New Lambton Primary",
+            "rs_ref" : "RS_94-831-_-sj2-1-H-2",
+            "id" : "R_94-831-_-sj2-1-H-2"
+         }
+      },
+      "service" : "94-831-_-sj2-1",
+      "line" : "831"
+   },
+   "VJ_94-831-_-sj2-1-1-b0096" : {
+      "vjcode" : "VJ_94-831-_-sj2-1-1-b0096",
+      "leaves" : "15:16:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2289196",
+               null
+            ],
+            [
+               "2289219",
+               "1M pasd"
+            ],
+            [
+               "2289258",
+               "3M pasd"
+            ],
+            [
+               "2289182",
+               "1M pasd"
+            ],
+            [
+               "230583",
+               "1M pasd"
+            ],
+            [
+               "2305126",
+               "1M pasd"
+            ],
+            [
+               "2305178",
+               "1M pasd"
+            ],
+            [
+               "2305121",
+               "1M pasd"
+            ],
+            [
+               "2305122",
+               "1M pasd"
+            ],
+            [
+               "2305112",
+               "0S pasd"
+            ],
+            [
+               "2305113",
+               "1M pasd"
+            ],
+            [
+               "2305114",
+               "2M pasd"
+            ],
+            [
+               "2305115",
+               "0S pasd"
+            ],
+            [
+               "2305104",
+               "1M pasd"
+            ],
+            [
+               "2305105",
+               "1M pasd"
+            ],
+            [
+               "2305107",
+               "1M pasd"
+            ],
+            [
+               "2305131",
+               "1M pasd"
+            ],
+            [
+               "230596",
+               "1M pasd"
+            ],
+            [
+               "230577",
+               "0S pasd"
+            ],
+            [
+               "230578",
+               "1M pasd"
+            ],
+            [
+               "230580",
+               "1M pasd"
+            ],
+            [
+               "2305144",
+               "0S pasd"
+            ],
+            [
+               "2305145",
+               "1M pasd"
+            ],
+            [
+               "2305148",
+               "1M pasd"
+            ],
+            [
+               "2305150",
+               "0S pasd"
+            ],
+            [
+               "2305151",
+               "1M pasd"
+            ],
+            [
+               "2305152",
+               "0S pasd"
+            ],
+            [
+               "2305153",
+               "1M pasd"
+            ],
+            [
+               "2305154",
+               "0S pasd"
+            ],
+            [
+               "2305155",
+               "0S pasd"
+            ],
+            [
+               "2305156",
+               "1M pasd"
+            ],
+            [
+               "2305157",
+               "1M pasd"
+            ],
+            [
+               "2305158",
+               "1M pasd"
+            ],
+            [
+               "2305159",
+               "0S pasd"
+            ],
+            [
+               "2305160",
+               "1M pasd"
+            ],
+            [
+               "2305161",
+               "0S pasd"
+            ],
+            [
+               "2287267",
+               "0S pasd"
+            ],
+            [
+               "2287268",
+               "1M pasd"
+            ],
+            [
+               "2287273",
+               "1M pasd"
+            ],
+            [
+               "2287274",
+               "0S pasd"
+            ],
+            [
+               "228732",
+               "0S pasd"
+            ],
+            [
+               "228733",
+               "1M pasd"
+            ],
+            [
+               "2287251",
+               "0S pasd"
+            ],
+            [
+               "2287302",
+               "1M pasd"
+            ],
+            [
+               "2287303",
+               "0S pasd"
+            ],
+            [
+               "2287304",
+               "0S pasd"
+            ],
+            [
+               "2287314",
+               "1M pasd"
+            ],
+            [
+               "2287315",
+               "0S pasd"
+            ],
+            [
+               "2287316",
+               "1M pasd"
+            ],
+            [
+               "2287317",
+               "0S pasd"
+            ],
+            [
+               "2287318",
+               "1M pasd"
+            ],
+            [
+               "2287319",
+               "0S pasd"
+            ],
+            [
+               "2287320",
+               "1M pasd"
+            ],
+            [
+               "2287329",
+               "0S pasd"
+            ],
+            [
+               "2285155",
+               "1M pasd"
+            ],
+            [
+               "2285176",
+               "1M pasd"
+            ],
+            [
+               "2285177",
+               "0S pasd"
+            ],
+            [
+               "2285150",
+               "1M pasd"
+            ],
+            [
+               "2285151",
+               "0S pasd"
+            ],
+            [
+               "2285152",
+               "0S pasd"
+            ],
+            [
+               "2285153",
+               "1M pasd"
+            ],
+            [
+               "228598",
+               "0S pasd"
+            ],
+            [
+               "2285245",
+               "1M pasd"
+            ],
+            [
+               "2285246",
+               "0S pasd"
+            ],
+            [
+               "2285228",
+               "0S pasd"
+            ],
+            [
+               "2285247",
+               "1M pasd"
+            ],
+            [
+               "2285248",
+               "0S pasd"
+            ],
+            [
+               "2305174",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_94-831-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Lexington Pde Nr Kotara High - Cardiff Rd Opp Beverley Cr",
+            "rs_ref" : "RS_94-831-_-sj2-1-R-1",
+            "id" : "R_94-831-_-sj2-1-R-1"
+         }
+      },
+      "service" : "94-831-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "831"
+   }
+}
+;
+

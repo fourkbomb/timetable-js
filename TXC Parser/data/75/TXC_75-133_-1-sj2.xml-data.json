@@ -1,0 +1,5161 @@
+var OPERATOR = "Port Stephens Coach";
+
+
+var LINES = {
+   "75-133-_-sj2-1" : "133"
+}
+;
+
+var stations = {
+   "2315101" : "Sandy Point Rd Near Carrool Av",
+   "231565" : "Government Rd Near Karuah Cl",
+   "231725" : "Soldiers Point Public School Cromarty Rd",
+   "231548" : "Rocky Point Rd Near Creswell Pl",
+   "231551" : "Stockton St Near Tallean Rd",
+   "231722" : "Soldiers Point Ridgeway Av near Mitchell St",
+   "231713" : "Bagnalls Beach Rd Near Sandy Point Rd",
+   "231563" : "Angaphora Park Bagnalls Beach Rd",
+   "231720" : "Country Comfort Motel Sandy Point Rd",
+   "231591" : "Galoola Dr Near Yoolarai Cr",
+   "231754" : "Foreshore Dr Near Randall Dr",
+   "231583" : "Workers Club Fingal Bay Surf Club",
+   "231574" : "Shoal Bay Rd Near Harwood Av",
+   "231586" : "Spinnaker Wy Near Flathead Cl",
+   "231526" : "Shoal Bay Rd Near Harwood Av",
+   "231739" : "Salamander Wy",
+   "231559" : "Wallawa Rd Near Canomii Cl",
+   "231736" : "Salamander Wy",
+   "231560" : "Spinnaker Wy Near Bonito St",
+   "231568" : "Nelson Bay Shops Donald St",
+   "231741" : "Salamander Wy Near Sandpiper Reserve",
+   "231533" : "Austral St Near Wentworth St",
+   "231577" : "Tomaree Rd Near Messines St",
+   "231728" : "Soldiers Point Rd Near Seaview Cr",
+   "231711" : "Sandy Point Rd Near Worimi Dr",
+   "231558" : "Wallawa Rd Near Bayview St",
+   "2315117" : "Galoola Dr. Bagnall Beach Road",
+   "231514" : "Rocky Point Rd Near Coral St",
+   "231546" : "Fingal Bay Sport And Recreation Club",
+   "231567" : "Dalton Adult Education Government Rd",
+   "231758" : "Fleet St Soldiers Point Rd",
+   "231580" : "Tomaree Rd Near Rigney St",
+   "231593" : "Stockton St Near Tallean Rd",
+   "231538" : "Government Rd Near Taree St",
+   "231512" : "Boulder Bay Rd Near Bent St",
+   "2315108" : "Sandy Point Rd Near Carrool Av",
+   "2315116" : "Bagnall Beach Rd",
+   "231731" : "Salamander Bay Shops Soldiers Point Rd",
+   "231523" : "Shoal Bay Country Club Shoal Bay Rd",
+   "2315110" : "Corlette Fire Sandy Point Rd",
+   "231727" : "Bagnall Av Near Waratah Av",
+   "231719" : "Keel St Bagnalls Beach Rd",
+   "231576" : "Shoal Bay Shops Shoal Bay Rd",
+   "231760" : "Soldiers Point Bowling Club",
+   "231597" : "Corlette Shops Sandy Point Rd",
+   "231557" : "Galoola Dr Near Wahgunyah Rd",
+   "2315100" : "Sandy Point Rd Near Judith St",
+   "231581" : "Marine Dr Near",
+   "231569" : "Marina Resort Magnus St Near Donald St",
+   "231535" : "Nelson Bay Donald St near Stockton St",
+   "231519" : "Tomaree Rd Near Rigney St",
+   "231511" : "Fingal Bay Shops Market St",
+   "231747" : "Salamander Wy",
+   "231750" : "Salamander Wy",
+   "231552" : "Stockton St Near Tallean Rd",
+   "2315134" : "Sea Breeze Shopping Centre Austral St",
+   "2315103" : "Sandy Point Rd Near Spinnaker Wy",
+   "231578" : "Tomaree Rd Near Verona Rd",
+   "231742" : "Salamander Wy",
+   "231737" : "Salamander Wy",
+   "231755" : "Salamander Bay Shopping Centre Soldiers Point Rd",
+   "2315107" : "Sandy Point Rd Near Foreshore Dr",
+   "2315112" : "Corlette Shops Sandy Point Rd",
+   "231761" : "Soldiers Point Rd Near Redman Pl",
+   "231744" : "Salamander Wy",
+   "231745" : "Salamander Wy Near Sandpiper Reserve",
+   "231723" : "Soldiers Point Shops Soldiers Point Rd",
+   "231757" : "Soldiers Point Rd",
+   "231555" : "Galoola Dr Near Yoolarai Cr",
+   "231752" : "Port Stephens Dr Near Muller St",
+   "231588" : "Wallawa Rd Near Bayview St",
+   "2315136" : "Norburn Av near Dixon Dr",
+   "231596" : "Marine Dr Near",
+   "231729" : "Fleet St Soldiers Point Rd",
+   "231570" : "Fingal St Near Trafalgar St",
+   "2315109" : "Sandy Point Rd Near Judith St",
+   "231712" : "Oaks Pacific Blue_ Sandy Point Rd",
+   "231594" : "Stockton St Near Tallean Rd",
+   "231726" : "Bagnall Av Near Hutcheson Av",
+   "231764" : "Bagnalls Beach Rd Near Helm Cl",
+   "231543" : "Sandy Point Rd Near Bagnalls Beach Rd",
+   "231721" : "Sandy Point Rd Near Worimi Dr",
+   "2315111" : "Sandy Point Rd",
+   "231759" : "Soldiers Point Rd Near Seaview Cr",
+   "231732" : "Foreshore Dr Near Randall Dr",
+   "2315113" : "Sandy Point Rd Near Pantowora St",
+   "231537" : "Government Rd Near Seaham St",
+   "231517" : "Workers Club Fingal Bay Surf Club",
+   "231762" : "Soldiers Point Rd Near Ash St",
+   "231520" : "Tomaree Rd Near Garden Pl",
+   "231562" : "Bagnall Beach Rd",
+   "231589" : "Wallawa Rd Near Galoola Dr",
+   "2315133" : "Nelson Bay and Districts Polyclinic near Treval",
+   "231740" : "Salamander Wy Near",
+   "231525" : "Harbour Side Haven Retirement Village",
+   "2315102" : "Sandy Point Rd Near Foreshore Dr",
+   "231566" : "Government Rd Near Seaham St",
+   "231521" : "Tomaree Rd Near Verona Rd",
+   "231545" : "Rocky Point Rd Near Whitesands Rd",
+   "231513" : "Rocky Point Rd Near Creswell Pl",
+   "231734" : "Port Stephens Dr Near Muller St",
+   "231582" : "Marine Dr Near Lentara St",
+   "231718" : "Salamander Shopping Centre Town Centre Cct",
+   "231556" : "Galoola Dr Near Navala Av",
+   "231564" : "Government Rd Near Irambang St",
+   "231748" : "Salamander Wy",
+   "231749" : "Salamander Wy",
+   "231515" : "Fingal Bay Sport And Recreation Club",
+   "231547" : "Rocky Point Rd Near Coral St",
+   "231536" : "Dalton Centre Government Rd Near Church St",
+   "231539" : "Government Rd Near Sandy Point Rd",
+   "231599" : "Corlette Fire Sandy Point Rd",
+   "231534" : "Marina Resort Near Donald St",
+   "231746" : "Salamander Wy Near",
+   "231550" : "Boulder Bay Rd Near Tuna Cr",
+   "231540" : "Bagnalls Beach Sandy Point Rd",
+   "231524" : "Shoal Bay Caravan Park Shoal Bay Rd",
+   "231724" : "Cromarty Rd Near Elk St",
+   "231733" : "Foreshore Dr Near Port Stephens Dr",
+   "231554" : "Galoola Dr Near Ullora Cl",
+   "231527" : "Shoal Bay Rd Near Gowrie Av",
+   "231735" : "Port Stephens Dr Near Yachtsman Cr",
+   "231579" : "Tomaree Rd Near Garden Pl",
+   "231573" : "Peninsular Motel Shoal Bay Rd",
+   "2315129" : "Nelson Bay and Districts Polyclinic near Treval",
+   "231522" : "Tomaree Rd Near Messines St",
+   "231532" : "Sea Breeze Shopping Centre Austral St",
+   "231590" : "Galoola Dr Near Navala Av",
+   "231595" : "Rocky Point Rd Near Whitesands Rd",
+   "2315115" : "Bagnalls Beach Rd",
+   "231549" : "Boulder Bay Rd Near Bent St",
+   "231598" : "Sandy Point Rd",
+   "231753" : "Foreshore Dr Near Port Stephens Dr",
+   "231743" : "Bagnalls Beach Rd Near Seargent Baker Dr",
+   "231516" : "Rocky Point Rd Near Lentara St",
+   "231587" : "Wallawa Rd Near Canomii Cl",
+   "231756" : "Soldiers Point Rd Near Randall Dr",
+   "231738" : "Salamander Wy",
+   "231561" : "Galoola Dr. Bagnall Beach Road",
+   "231544" : "Rocky Point Rd Near Lentara St",
+   "231529" : "Fingal St Near Magnus St",
+   "231592" : "Galoola Dr Near Ullora Cl",
+   "231518" : "Marine Dr Near Lentara St",
+   "231575" : "Harbourside Haven Retirement Village Shoal Bay",
+   "2315135" : "Gowrie Av near Achilles St",
+   "231730" : "Soldiers Point Rd Near Randall Dr",
+   "231572" : "Nelson Bay Rsl Shoal Bay Rd",
+   "2315130" : "Dixon Dr near Shoal Bay Rd",
+   "231751" : "Port Stephens Dr Near Yachtsman Cr"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_75-133-_-sj2-1-9-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-9-TA",
+      "leaves" : "18:52:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231718",
+               null
+            ],
+            [
+               "231744",
+               "32S pasd"
+            ],
+            [
+               "231745",
+               "35S pasd"
+            ],
+            [
+               "231746",
+               "35S pasd"
+            ],
+            [
+               "231747",
+               "36S pasd"
+            ],
+            [
+               "231748",
+               "32S pasd"
+            ],
+            [
+               "231749",
+               "34S pasd"
+            ],
+            [
+               "231750",
+               "35S pasd"
+            ],
+            [
+               "231751",
+               "34S pasd"
+            ],
+            [
+               "231752",
+               "41S pasd"
+            ],
+            [
+               "231753",
+               "52S pasd"
+            ],
+            [
+               "231754",
+               "1M11S pasd"
+            ],
+            [
+               "231755",
+               "31S pasd"
+            ],
+            [
+               "231756",
+               "28S pasd"
+            ],
+            [
+               "231757",
+               "24S pasd"
+            ],
+            [
+               "231758",
+               "30S pasd"
+            ],
+            [
+               "231759",
+               "38S pasd"
+            ],
+            [
+               "231760",
+               "31S pasd"
+            ],
+            [
+               "231761",
+               "30S pasd"
+            ],
+            [
+               "231762",
+               "31S pasd"
+            ],
+            [
+               "231722",
+               "31S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-5-R-4",
+         "route" : {
+            "name" : "Salamnder Centre Town Centre Cct - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-4",
+            "id" : "R_75-133-_-sj2-1-R-4"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-3-TA",
+      "leaves" : "11:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2315130",
+               null
+            ],
+            [
+               "231572",
+               "26S pasd"
+            ],
+            [
+               "2315129",
+               "1M34S pasd"
+            ],
+            [
+               "231532",
+               "2M pasd"
+            ],
+            [
+               "231533",
+               "44S pasd"
+            ],
+            [
+               "231529",
+               "53S pasd"
+            ],
+            [
+               "231534",
+               "1M8S pasd"
+            ],
+            [
+               "231535",
+               "1M15S pasd"
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "55S pasd"
+            ],
+            [
+               "231562",
+               "1M16S pasd"
+            ],
+            [
+               "231563",
+               "57S pasd"
+            ],
+            [
+               "231743",
+               "1M28S pasd"
+            ],
+            [
+               "231713",
+               "1M2S pasd"
+            ],
+            [
+               "231718",
+               "1M22S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Dixon Dr near Shoal Bay Rd - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-3",
+            "id" : "R_75-133-_-sj2-1-R-3"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-25-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-25-TA",
+      "leaves" : "20:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "15S pasd"
+            ],
+            [
+               "231724",
+               "37S pasd"
+            ],
+            [
+               "231725",
+               "27S pasd"
+            ],
+            [
+               "231726",
+               "23S pasd"
+            ],
+            [
+               "231727",
+               "37S pasd"
+            ],
+            [
+               "231728",
+               "16S pasd"
+            ],
+            [
+               "231729",
+               "36S pasd"
+            ],
+            [
+               "231730",
+               "22S pasd"
+            ],
+            [
+               "231731",
+               "30S pasd"
+            ],
+            [
+               "231732",
+               "25S pasd"
+            ],
+            [
+               "231733",
+               "51S pasd"
+            ],
+            [
+               "231734",
+               "40S pasd"
+            ],
+            [
+               "231735",
+               "29S pasd"
+            ],
+            [
+               "231736",
+               "27S pasd"
+            ],
+            [
+               "231737",
+               "30S pasd"
+            ],
+            [
+               "231738",
+               "22S pasd"
+            ],
+            [
+               "231739",
+               "27S pasd"
+            ],
+            [
+               "231740",
+               "21S pasd"
+            ],
+            [
+               "231741",
+               "25S pasd"
+            ],
+            [
+               "231742",
+               "15S pasd"
+            ],
+            [
+               "231718",
+               "15S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-20-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-5-TA",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2315130",
+               null
+            ],
+            [
+               "231572",
+               "26S pasd"
+            ],
+            [
+               "2315129",
+               "1M34S pasd"
+            ],
+            [
+               "231532",
+               "2M pasd"
+            ],
+            [
+               "231533",
+               "44S pasd"
+            ],
+            [
+               "231529",
+               "53S pasd"
+            ],
+            [
+               "231534",
+               "1M8S pasd"
+            ],
+            [
+               "231535",
+               "1M15S pasd"
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "55S pasd"
+            ],
+            [
+               "231562",
+               "1M16S pasd"
+            ],
+            [
+               "231563",
+               "57S pasd"
+            ],
+            [
+               "231743",
+               "1M28S pasd"
+            ],
+            [
+               "231713",
+               "1M2S pasd"
+            ],
+            [
+               "231718",
+               "1M22S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Dixon Dr near Shoal Bay Rd - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-3",
+            "id" : "R_75-133-_-sj2-1-R-3"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-4-TA",
+      "leaves" : "13:40:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2315130",
+               null
+            ],
+            [
+               "231572",
+               "19S pasd"
+            ],
+            [
+               "2315129",
+               "1M10S pasd"
+            ],
+            [
+               "231532",
+               "1M31S pasd"
+            ],
+            [
+               "231533",
+               "44S pasd"
+            ],
+            [
+               "231529",
+               "53S pasd"
+            ],
+            [
+               "231534",
+               "1M8S pasd"
+            ],
+            [
+               "231535",
+               "1M15S pasd"
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "1M3S pasd"
+            ],
+            [
+               "231562",
+               "1M27S pasd"
+            ],
+            [
+               "231563",
+               "1M5S pasd"
+            ],
+            [
+               "231743",
+               "1M41S pasd"
+            ],
+            [
+               "231713",
+               "1M11S pasd"
+            ],
+            [
+               "231718",
+               "1M33S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Dixon Dr near Shoal Bay Rd - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-3",
+            "id" : "R_75-133-_-sj2-1-R-3"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-27-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-27-TA",
+      "leaves" : "08:05:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "41S pasd"
+            ],
+            [
+               "231764",
+               "33S pasd"
+            ],
+            [
+               "2315115",
+               "51S pasd"
+            ],
+            [
+               "2315116",
+               "28S pasd"
+            ],
+            [
+               "2315117",
+               "43S pasd"
+            ],
+            [
+               "231586",
+               "44S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M22S pasd"
+            ],
+            [
+               "231569",
+               "1M22S pasd"
+            ],
+            [
+               "231570",
+               "1M17S pasd"
+            ],
+            [
+               "2315134",
+               "1M21S pasd"
+            ],
+            [
+               "2315133",
+               "45S pasd"
+            ],
+            [
+               "231573",
+               "35S pasd"
+            ],
+            [
+               "231574",
+               "38S pasd"
+            ],
+            [
+               "231575",
+               "32S pasd"
+            ],
+            [
+               "231576",
+               "32S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-22-H-12",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Shoal Bay Country Club Shoal Bay Rd",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-12",
+            "id" : "R_75-133-_-sj2-1-H-12"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-15-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-15-TA",
+      "leaves" : "07:32:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "20S pasd"
+            ],
+            [
+               "231724",
+               "48S pasd"
+            ],
+            [
+               "231725",
+               "35S pasd"
+            ],
+            [
+               "231726",
+               "30S pasd"
+            ],
+            [
+               "231727",
+               "48S pasd"
+            ],
+            [
+               "231728",
+               "20S pasd"
+            ],
+            [
+               "231729",
+               "47S pasd"
+            ],
+            [
+               "231730",
+               "29S pasd"
+            ],
+            [
+               "231731",
+               "39S pasd"
+            ],
+            [
+               "231732",
+               "32S pasd"
+            ],
+            [
+               "231733",
+               "1M7S pasd"
+            ],
+            [
+               "231734",
+               "53S pasd"
+            ],
+            [
+               "231735",
+               "37S pasd"
+            ],
+            [
+               "231736",
+               "35S pasd"
+            ],
+            [
+               "231737",
+               "39S pasd"
+            ],
+            [
+               "231738",
+               "29S pasd"
+            ],
+            [
+               "231739",
+               "35S pasd"
+            ],
+            [
+               "231740",
+               "28S pasd"
+            ],
+            [
+               "231741",
+               "33S pasd"
+            ],
+            [
+               "231742",
+               "19S pasd"
+            ],
+            [
+               "231718",
+               "57S pasd"
+            ],
+            [
+               "231719",
+               "25S pasd"
+            ],
+            [
+               "231764",
+               "20S pasd"
+            ],
+            [
+               "2315115",
+               "31S pasd"
+            ],
+            [
+               "2315116",
+               "17S pasd"
+            ],
+            [
+               "2315117",
+               "26S pasd"
+            ],
+            [
+               "231543",
+               "1M1S pasd"
+            ],
+            [
+               "231564",
+               "18S pasd"
+            ],
+            [
+               "231565",
+               "24S pasd"
+            ],
+            [
+               "231566",
+               "22S pasd"
+            ],
+            [
+               "231567",
+               "36S pasd"
+            ],
+            [
+               "231568",
+               "36S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-13-H-8",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Nelson Bay Shops Donald St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-8",
+            "id" : "R_75-133-_-sj2-1-H-8"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-6-TA",
+      "leaves" : "06:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231718",
+               null
+            ],
+            [
+               "231744",
+               "32S pasd"
+            ],
+            [
+               "231745",
+               "35S pasd"
+            ],
+            [
+               "231746",
+               "35S pasd"
+            ],
+            [
+               "231747",
+               "36S pasd"
+            ],
+            [
+               "231748",
+               "32S pasd"
+            ],
+            [
+               "231749",
+               "34S pasd"
+            ],
+            [
+               "231750",
+               "35S pasd"
+            ],
+            [
+               "231751",
+               "34S pasd"
+            ],
+            [
+               "231752",
+               "41S pasd"
+            ],
+            [
+               "231753",
+               "52S pasd"
+            ],
+            [
+               "231754",
+               "1M11S pasd"
+            ],
+            [
+               "231755",
+               "31S pasd"
+            ],
+            [
+               "231756",
+               "28S pasd"
+            ],
+            [
+               "231757",
+               "24S pasd"
+            ],
+            [
+               "231758",
+               "30S pasd"
+            ],
+            [
+               "231759",
+               "38S pasd"
+            ],
+            [
+               "231760",
+               "31S pasd"
+            ],
+            [
+               "231761",
+               "30S pasd"
+            ],
+            [
+               "231762",
+               "31S pasd"
+            ],
+            [
+               "231722",
+               "31S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-5-R-4",
+         "route" : {
+            "name" : "Salamnder Centre Town Centre Cct - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-4",
+            "id" : "R_75-133-_-sj2-1-R-4"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-18-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-18-TA",
+      "leaves" : "18:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "21S pasd"
+            ],
+            [
+               "231724",
+               "52S pasd"
+            ],
+            [
+               "231725",
+               "38S pasd"
+            ],
+            [
+               "231726",
+               "33S pasd"
+            ],
+            [
+               "231727",
+               "52S pasd"
+            ],
+            [
+               "231728",
+               "22S pasd"
+            ],
+            [
+               "231729",
+               "50S pasd"
+            ],
+            [
+               "231730",
+               "32S pasd"
+            ],
+            [
+               "231731",
+               "42S pasd"
+            ],
+            [
+               "231732",
+               "35S pasd"
+            ],
+            [
+               "231733",
+               "1M12S pasd"
+            ],
+            [
+               "231734",
+               "57S pasd"
+            ],
+            [
+               "231735",
+               "40S pasd"
+            ],
+            [
+               "231736",
+               "38S pasd"
+            ],
+            [
+               "231737",
+               "42S pasd"
+            ],
+            [
+               "231738",
+               "32S pasd"
+            ],
+            [
+               "231739",
+               "38S pasd"
+            ],
+            [
+               "231740",
+               "30S pasd"
+            ],
+            [
+               "231741",
+               "36S pasd"
+            ],
+            [
+               "231742",
+               "21S pasd"
+            ],
+            [
+               "231718",
+               "57S pasd"
+            ],
+            [
+               "231719",
+               "30S pasd"
+            ],
+            [
+               "231764",
+               "24S pasd"
+            ],
+            [
+               "2315115",
+               "38S pasd"
+            ],
+            [
+               "2315116",
+               "21S pasd"
+            ],
+            [
+               "2315117",
+               "32S pasd"
+            ],
+            [
+               "231586",
+               "35S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M39S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-16-H-9",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Nelson Bay Shops Donald St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-9",
+            "id" : "R_75-133-_-sj2-1-H-9"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-14-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-14-TA",
+      "leaves" : "16:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "20S pasd"
+            ],
+            [
+               "231724",
+               "48S pasd"
+            ],
+            [
+               "231725",
+               "35S pasd"
+            ],
+            [
+               "231726",
+               "30S pasd"
+            ],
+            [
+               "231727",
+               "48S pasd"
+            ],
+            [
+               "231728",
+               "20S pasd"
+            ],
+            [
+               "231729",
+               "47S pasd"
+            ],
+            [
+               "231730",
+               "29S pasd"
+            ],
+            [
+               "231731",
+               "39S pasd"
+            ],
+            [
+               "231732",
+               "32S pasd"
+            ],
+            [
+               "231733",
+               "1M7S pasd"
+            ],
+            [
+               "231734",
+               "53S pasd"
+            ],
+            [
+               "231735",
+               "37S pasd"
+            ],
+            [
+               "231736",
+               "35S pasd"
+            ],
+            [
+               "231737",
+               "39S pasd"
+            ],
+            [
+               "231738",
+               "29S pasd"
+            ],
+            [
+               "231739",
+               "35S pasd"
+            ],
+            [
+               "231740",
+               "28S pasd"
+            ],
+            [
+               "231741",
+               "33S pasd"
+            ],
+            [
+               "231742",
+               "19S pasd"
+            ],
+            [
+               "231718",
+               "57S pasd"
+            ],
+            [
+               "231719",
+               "41S pasd"
+            ],
+            [
+               "231764",
+               "33S pasd"
+            ],
+            [
+               "2315115",
+               "51S pasd"
+            ],
+            [
+               "2315116",
+               "28S pasd"
+            ],
+            [
+               "2315117",
+               "43S pasd"
+            ],
+            [
+               "231586",
+               "44S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M22S pasd"
+            ],
+            [
+               "231569",
+               "25S pasd"
+            ],
+            [
+               "231570",
+               "24S pasd"
+            ],
+            [
+               "2315129",
+               "39S pasd"
+            ],
+            [
+               "2315135",
+               "17S pasd"
+            ],
+            [
+               "2315136",
+               "14S pasd"
+            ],
+            [
+               "2315130",
+               "13S pasd"
+            ],
+            [
+               "231572",
+               "5S pasd"
+            ],
+            [
+               "231573",
+               "20S pasd"
+            ],
+            [
+               "231574",
+               "18S pasd"
+            ],
+            [
+               "231575",
+               "15S pasd"
+            ],
+            [
+               "231576",
+               "50S pasd"
+            ],
+            [
+               "231577",
+               "15S pasd"
+            ],
+            [
+               "231578",
+               "15S pasd"
+            ],
+            [
+               "231579",
+               "24S pasd"
+            ],
+            [
+               "231580",
+               "10S pasd"
+            ],
+            [
+               "231581",
+               "21S pasd"
+            ],
+            [
+               "231582",
+               "22S pasd"
+            ],
+            [
+               "231583",
+               "19S pasd"
+            ],
+            [
+               "231544",
+               "15S pasd"
+            ],
+            [
+               "231545",
+               "12S pasd"
+            ],
+            [
+               "231546",
+               "12S pasd"
+            ],
+            [
+               "231547",
+               "16S pasd"
+            ],
+            [
+               "231548",
+               "19S pasd"
+            ],
+            [
+               "231549",
+               "15S pasd"
+            ],
+            [
+               "231550",
+               "10S pasd"
+            ],
+            [
+               "231511",
+               "10S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-12-H-7",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Fingal Bay Shops Market St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-7",
+            "id" : "R_75-133-_-sj2-1-H-7"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-26-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-26-TA",
+      "leaves" : "14:57:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "31S pasd"
+            ],
+            [
+               "231724",
+               "1M14S pasd"
+            ],
+            [
+               "231725",
+               "54S pasd"
+            ],
+            [
+               "231726",
+               "47S pasd"
+            ],
+            [
+               "231727",
+               "1M14S pasd"
+            ],
+            [
+               "231728",
+               "32S pasd"
+            ],
+            [
+               "231729",
+               "1M12S pasd"
+            ],
+            [
+               "231730",
+               "45S pasd"
+            ],
+            [
+               "231731",
+               "1M1S pasd"
+            ],
+            [
+               "231732",
+               "50S pasd"
+            ],
+            [
+               "231733",
+               "1M43S pasd"
+            ],
+            [
+               "231734",
+               "1M21S pasd"
+            ],
+            [
+               "231735",
+               "58S pasd"
+            ],
+            [
+               "231736",
+               "54S pasd"
+            ],
+            [
+               "231737",
+               "1M1S pasd"
+            ],
+            [
+               "231738",
+               "45S pasd"
+            ],
+            [
+               "231739",
+               "54S pasd"
+            ],
+            [
+               "231740",
+               "43S pasd"
+            ],
+            [
+               "231741",
+               "51S pasd"
+            ],
+            [
+               "231742",
+               "30S pasd"
+            ],
+            [
+               "231718",
+               "1M20S pasd"
+            ],
+            [
+               "231719",
+               "28S pasd"
+            ],
+            [
+               "231720",
+               "13S pasd"
+            ],
+            [
+               "231721",
+               "23S pasd"
+            ],
+            [
+               "2315107",
+               "47S pasd"
+            ],
+            [
+               "2315108",
+               "34S pasd"
+            ],
+            [
+               "2315109",
+               "25S pasd"
+            ],
+            [
+               "2315110",
+               "25S pasd"
+            ],
+            [
+               "2315111",
+               "18S pasd"
+            ],
+            [
+               "2315112",
+               "27S pasd"
+            ],
+            [
+               "2315113",
+               "34S pasd"
+            ],
+            [
+               "231543",
+               "2M52S pasd"
+            ],
+            [
+               "231564",
+               "51S pasd"
+            ],
+            [
+               "231565",
+               "1M8S pasd"
+            ],
+            [
+               "231566",
+               "1M3S pasd"
+            ],
+            [
+               "231567",
+               "1M42S pasd"
+            ],
+            [
+               "231568",
+               "50S pasd"
+            ],
+            [
+               "231569",
+               "25S pasd"
+            ],
+            [
+               "231570",
+               "24S pasd"
+            ],
+            [
+               "2315129",
+               "39S pasd"
+            ],
+            [
+               "2315135",
+               "17S pasd"
+            ],
+            [
+               "2315136",
+               "14S pasd"
+            ],
+            [
+               "2315130",
+               "13S pasd"
+            ],
+            [
+               "231572",
+               "5S pasd"
+            ],
+            [
+               "231573",
+               "20S pasd"
+            ],
+            [
+               "231574",
+               "18S pasd"
+            ],
+            [
+               "231575",
+               "15S pasd"
+            ],
+            [
+               "231576",
+               "50S pasd"
+            ],
+            [
+               "231577",
+               "15S pasd"
+            ],
+            [
+               "231578",
+               "15S pasd"
+            ],
+            [
+               "231579",
+               "24S pasd"
+            ],
+            [
+               "231580",
+               "10S pasd"
+            ],
+            [
+               "231581",
+               "21S pasd"
+            ],
+            [
+               "231582",
+               "22S pasd"
+            ],
+            [
+               "231583",
+               "19S pasd"
+            ],
+            [
+               "231544",
+               "15S pasd"
+            ],
+            [
+               "231545",
+               "12S pasd"
+            ],
+            [
+               "231546",
+               "12S pasd"
+            ],
+            [
+               "231547",
+               "16S pasd"
+            ],
+            [
+               "231548",
+               "19S pasd"
+            ],
+            [
+               "231549",
+               "15S pasd"
+            ],
+            [
+               "231550",
+               "10S pasd"
+            ],
+            [
+               "231511",
+               "10S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-21-H-11",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Fingal Bay Shops Market St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-11",
+            "id" : "R_75-133-_-sj2-1-H-11"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-12-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-12-TA",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "30S pasd"
+            ],
+            [
+               "231764",
+               "24S pasd"
+            ],
+            [
+               "2315115",
+               "38S pasd"
+            ],
+            [
+               "2315116",
+               "21S pasd"
+            ],
+            [
+               "2315117",
+               "32S pasd"
+            ],
+            [
+               "231586",
+               "35S pasd"
+            ],
+            [
+               "231587",
+               "54S pasd"
+            ],
+            [
+               "231588",
+               "35S pasd"
+            ],
+            [
+               "231589",
+               "54S pasd"
+            ],
+            [
+               "231590",
+               "59S pasd"
+            ],
+            [
+               "231591",
+               "35S pasd"
+            ],
+            [
+               "231592",
+               "1M8S pasd"
+            ],
+            [
+               "231593",
+               "32S pasd"
+            ],
+            [
+               "231594",
+               "1M51S pasd"
+            ],
+            [
+               "231568",
+               "1M32S pasd"
+            ],
+            [
+               "231569",
+               "51S pasd"
+            ],
+            [
+               "231570",
+               "48S pasd"
+            ],
+            [
+               "2315129",
+               "1M19S pasd"
+            ],
+            [
+               "2315135",
+               "34S pasd"
+            ],
+            [
+               "2315136",
+               "28S pasd"
+            ],
+            [
+               "2315130",
+               "26S pasd"
+            ],
+            [
+               "231572",
+               "11S pasd"
+            ],
+            [
+               "231573",
+               "41S pasd"
+            ],
+            [
+               "231574",
+               "37S pasd"
+            ],
+            [
+               "231575",
+               "31S pasd"
+            ],
+            [
+               "231576",
+               "1M34S pasd"
+            ],
+            [
+               "231577",
+               "38S pasd"
+            ],
+            [
+               "231578",
+               "39S pasd"
+            ],
+            [
+               "231579",
+               "1M1S pasd"
+            ],
+            [
+               "231580",
+               "25S pasd"
+            ],
+            [
+               "231581",
+               "54S pasd"
+            ],
+            [
+               "231582",
+               "56S pasd"
+            ],
+            [
+               "231583",
+               "48S pasd"
+            ],
+            [
+               "231544",
+               "39S pasd"
+            ],
+            [
+               "231545",
+               "30S pasd"
+            ],
+            [
+               "231546",
+               "30S pasd"
+            ],
+            [
+               "231547",
+               "41S pasd"
+            ],
+            [
+               "231548",
+               "47S pasd"
+            ],
+            [
+               "231549",
+               "39S pasd"
+            ],
+            [
+               "231550",
+               "26S pasd"
+            ],
+            [
+               "231511",
+               "26S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-10-H-7",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Fingal Bay Shops Market St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-7",
+            "id" : "R_75-133-_-sj2-1-H-7"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-29-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-29-TA",
+      "leaves" : "08:47:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231523",
+               null
+            ],
+            [
+               "231524",
+               "1M44S pasd"
+            ],
+            [
+               "231525",
+               "1M30S pasd"
+            ],
+            [
+               "231526",
+               "1M pasd"
+            ],
+            [
+               "231527",
+               "1M28S pasd"
+            ],
+            [
+               "2315135",
+               "20S pasd"
+            ],
+            [
+               "2315136",
+               "1M pasd"
+            ],
+            [
+               "2315130",
+               "58S pasd"
+            ],
+            [
+               "231572",
+               "26S pasd"
+            ],
+            [
+               "2315129",
+               "1M34S pasd"
+            ],
+            [
+               "231532",
+               "2M pasd"
+            ],
+            [
+               "231533",
+               "44S pasd"
+            ],
+            [
+               "231529",
+               "53S pasd"
+            ],
+            [
+               "231534",
+               "1M8S pasd"
+            ],
+            [
+               "231535",
+               "1M15S pasd"
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "55S pasd"
+            ],
+            [
+               "231562",
+               "1M16S pasd"
+            ],
+            [
+               "231563",
+               "57S pasd"
+            ],
+            [
+               "231743",
+               "1M28S pasd"
+            ],
+            [
+               "231713",
+               "1M2S pasd"
+            ],
+            [
+               "231718",
+               "1M22S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-24-R-13",
+         "route" : {
+            "name" : "Shoal Bay Country Club Shoal Bay Rd - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-13",
+            "id" : "R_75-133-_-sj2-1-R-13"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-11-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-11-TA",
+      "leaves" : "12:58:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231535",
+               null
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "55S pasd"
+            ],
+            [
+               "231562",
+               "1M16S pasd"
+            ],
+            [
+               "231563",
+               "57S pasd"
+            ],
+            [
+               "231743",
+               "1M28S pasd"
+            ],
+            [
+               "231713",
+               "1M2S pasd"
+            ],
+            [
+               "231718",
+               "1M22S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-9-R-6",
+         "route" : {
+            "name" : "Nelson Bay Donald St near Stockton St - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-6",
+            "id" : "R_75-133-_-sj2-1-R-6"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-13-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-13-TA",
+      "leaves" : "15:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "41S pasd"
+            ],
+            [
+               "231764",
+               "33S pasd"
+            ],
+            [
+               "2315115",
+               "51S pasd"
+            ],
+            [
+               "2315116",
+               "28S pasd"
+            ],
+            [
+               "2315117",
+               "43S pasd"
+            ],
+            [
+               "231586",
+               "44S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M22S pasd"
+            ],
+            [
+               "231569",
+               "25S pasd"
+            ],
+            [
+               "231570",
+               "24S pasd"
+            ],
+            [
+               "2315129",
+               "39S pasd"
+            ],
+            [
+               "2315135",
+               "17S pasd"
+            ],
+            [
+               "2315136",
+               "14S pasd"
+            ],
+            [
+               "2315130",
+               "13S pasd"
+            ],
+            [
+               "231572",
+               "5S pasd"
+            ],
+            [
+               "231573",
+               "20S pasd"
+            ],
+            [
+               "231574",
+               "18S pasd"
+            ],
+            [
+               "231575",
+               "15S pasd"
+            ],
+            [
+               "231576",
+               "50S pasd"
+            ],
+            [
+               "231577",
+               "15S pasd"
+            ],
+            [
+               "231578",
+               "15S pasd"
+            ],
+            [
+               "231579",
+               "24S pasd"
+            ],
+            [
+               "231580",
+               "10S pasd"
+            ],
+            [
+               "231581",
+               "21S pasd"
+            ],
+            [
+               "231582",
+               "22S pasd"
+            ],
+            [
+               "231583",
+               "19S pasd"
+            ],
+            [
+               "231544",
+               "15S pasd"
+            ],
+            [
+               "231545",
+               "12S pasd"
+            ],
+            [
+               "231546",
+               "12S pasd"
+            ],
+            [
+               "231547",
+               "16S pasd"
+            ],
+            [
+               "231548",
+               "19S pasd"
+            ],
+            [
+               "231549",
+               "15S pasd"
+            ],
+            [
+               "231550",
+               "10S pasd"
+            ],
+            [
+               "231511",
+               "10S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-11-H-7",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Fingal Bay Shops Market St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-7",
+            "id" : "R_75-133-_-sj2-1-H-7"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-8-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-8-TA",
+      "leaves" : "17:57:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231718",
+               null
+            ],
+            [
+               "231744",
+               "29S pasd"
+            ],
+            [
+               "231745",
+               "32S pasd"
+            ],
+            [
+               "231746",
+               "32S pasd"
+            ],
+            [
+               "231747",
+               "33S pasd"
+            ],
+            [
+               "231748",
+               "30S pasd"
+            ],
+            [
+               "231749",
+               "32S pasd"
+            ],
+            [
+               "231750",
+               "32S pasd"
+            ],
+            [
+               "231751",
+               "31S pasd"
+            ],
+            [
+               "231752",
+               "38S pasd"
+            ],
+            [
+               "231753",
+               "48S pasd"
+            ],
+            [
+               "231754",
+               "1M5S pasd"
+            ],
+            [
+               "231755",
+               "29S pasd"
+            ],
+            [
+               "231756",
+               "26S pasd"
+            ],
+            [
+               "231757",
+               "22S pasd"
+            ],
+            [
+               "231758",
+               "27S pasd"
+            ],
+            [
+               "231759",
+               "35S pasd"
+            ],
+            [
+               "231760",
+               "29S pasd"
+            ],
+            [
+               "231761",
+               "27S pasd"
+            ],
+            [
+               "231762",
+               "29S pasd"
+            ],
+            [
+               "231722",
+               "29S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-7-R-4",
+         "route" : {
+            "name" : "Salamnder Centre Town Centre Cct - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-4",
+            "id" : "R_75-133-_-sj2-1-R-4"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-20-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-20-TA",
+      "leaves" : "10:00:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "22S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-18-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-16-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-16-TA",
+      "leaves" : "12:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "51S pasd"
+            ],
+            [
+               "231764",
+               "41S pasd"
+            ],
+            [
+               "2315115",
+               "1M4S pasd"
+            ],
+            [
+               "2315116",
+               "35S pasd"
+            ],
+            [
+               "2315117",
+               "54S pasd"
+            ],
+            [
+               "231586",
+               "55S pasd"
+            ],
+            [
+               "231587",
+               "42S pasd"
+            ],
+            [
+               "231588",
+               "27S pasd"
+            ],
+            [
+               "231589",
+               "42S pasd"
+            ],
+            [
+               "231590",
+               "46S pasd"
+            ],
+            [
+               "231591",
+               "27S pasd"
+            ],
+            [
+               "231592",
+               "53S pasd"
+            ],
+            [
+               "231593",
+               "25S pasd"
+            ],
+            [
+               "231594",
+               "1M26S pasd"
+            ],
+            [
+               "231568",
+               "1M26S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-14-H-9",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Nelson Bay Shops Donald St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-9",
+            "id" : "R_75-133-_-sj2-1-H-9"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-1-TA",
+      "leaves" : "07:50:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231535",
+               null
+            ],
+            [
+               "231536",
+               "29S pasd"
+            ],
+            [
+               "231537",
+               "1M1S pasd"
+            ],
+            [
+               "231538",
+               "37S pasd"
+            ],
+            [
+               "231539",
+               "32S pasd"
+            ],
+            [
+               "231540",
+               "25S pasd"
+            ],
+            [
+               "231597",
+               "1M56S pasd"
+            ],
+            [
+               "231598",
+               "50S pasd"
+            ],
+            [
+               "231599",
+               "56S pasd"
+            ],
+            [
+               "2315100",
+               "47S pasd"
+            ],
+            [
+               "2315101",
+               "57S pasd"
+            ],
+            [
+               "2315102",
+               "1M43S pasd"
+            ],
+            [
+               "2315103",
+               "52S pasd"
+            ],
+            [
+               "231711",
+               "53S pasd"
+            ],
+            [
+               "231712",
+               "1M4S pasd"
+            ],
+            [
+               "231713",
+               "38S pasd"
+            ],
+            [
+               "231718",
+               "1M20S pasd"
+            ],
+            [
+               "231744",
+               "44S pasd"
+            ],
+            [
+               "231745",
+               "48S pasd"
+            ],
+            [
+               "231746",
+               "48S pasd"
+            ],
+            [
+               "231747",
+               "50S pasd"
+            ],
+            [
+               "231748",
+               "45S pasd"
+            ],
+            [
+               "231749",
+               "48S pasd"
+            ],
+            [
+               "231750",
+               "49S pasd"
+            ],
+            [
+               "231751",
+               "47S pasd"
+            ],
+            [
+               "231752",
+               "57S pasd"
+            ],
+            [
+               "231753",
+               "1M12S pasd"
+            ],
+            [
+               "231754",
+               "1M38S pasd"
+            ],
+            [
+               "231755",
+               "43S pasd"
+            ],
+            [
+               "231756",
+               "39S pasd"
+            ],
+            [
+               "231757",
+               "34S pasd"
+            ],
+            [
+               "231758",
+               "41S pasd"
+            ],
+            [
+               "231759",
+               "53S pasd"
+            ],
+            [
+               "231760",
+               "44S pasd"
+            ],
+            [
+               "231761",
+               "41S pasd"
+            ],
+            [
+               "231762",
+               "43S pasd"
+            ],
+            [
+               "231722",
+               "43S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Nelson Bay Donald St near Stockton St - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-1",
+            "id" : "R_75-133-_-sj2-1-R-1"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-19-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-19-TA",
+      "leaves" : "06:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "20S pasd"
+            ],
+            [
+               "231724",
+               "48S pasd"
+            ],
+            [
+               "231725",
+               "35S pasd"
+            ],
+            [
+               "231726",
+               "30S pasd"
+            ],
+            [
+               "231727",
+               "48S pasd"
+            ],
+            [
+               "231728",
+               "20S pasd"
+            ],
+            [
+               "231729",
+               "47S pasd"
+            ],
+            [
+               "231730",
+               "29S pasd"
+            ],
+            [
+               "231731",
+               "39S pasd"
+            ],
+            [
+               "231732",
+               "32S pasd"
+            ],
+            [
+               "231733",
+               "1M7S pasd"
+            ],
+            [
+               "231734",
+               "53S pasd"
+            ],
+            [
+               "231735",
+               "37S pasd"
+            ],
+            [
+               "231736",
+               "35S pasd"
+            ],
+            [
+               "231737",
+               "39S pasd"
+            ],
+            [
+               "231738",
+               "29S pasd"
+            ],
+            [
+               "231739",
+               "35S pasd"
+            ],
+            [
+               "231740",
+               "28S pasd"
+            ],
+            [
+               "231741",
+               "33S pasd"
+            ],
+            [
+               "231742",
+               "19S pasd"
+            ],
+            [
+               "231718",
+               "19S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-17-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-7-TA",
+      "leaves" : "10:15:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231718",
+               null
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-6-R-4",
+         "route" : {
+            "name" : "Salamnder Centre Town Centre Cct - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-4",
+            "id" : "R_75-133-_-sj2-1-R-4"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-28-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-28-TA",
+      "leaves" : "09:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "41S pasd"
+            ],
+            [
+               "231764",
+               "33S pasd"
+            ],
+            [
+               "2315115",
+               "51S pasd"
+            ],
+            [
+               "2315116",
+               "28S pasd"
+            ],
+            [
+               "2315117",
+               "43S pasd"
+            ],
+            [
+               "231586",
+               "44S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M22S pasd"
+            ],
+            [
+               "231569",
+               "1M22S pasd"
+            ],
+            [
+               "231570",
+               "1M17S pasd"
+            ],
+            [
+               "2315134",
+               "1M21S pasd"
+            ],
+            [
+               "2315133",
+               "1M18S pasd"
+            ],
+            [
+               "2315135",
+               "1M5S pasd"
+            ],
+            [
+               "2315136",
+               "49S pasd"
+            ],
+            [
+               "2315130",
+               "49S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-23-H-2",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Dixon Dr near Shoal Bay Rd",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-2",
+            "id" : "R_75-133-_-sj2-1-H-2"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-10-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-10-TA",
+      "leaves" : "09:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "231511",
+               null
+            ],
+            [
+               "231512",
+               "42S pasd"
+            ],
+            [
+               "231513",
+               "43S pasd"
+            ],
+            [
+               "231514",
+               "43S pasd"
+            ],
+            [
+               "231515",
+               "47S pasd"
+            ],
+            [
+               "231595",
+               "30S pasd"
+            ],
+            [
+               "231516",
+               "39S pasd"
+            ],
+            [
+               "231517",
+               "30S pasd"
+            ],
+            [
+               "231518",
+               "43S pasd"
+            ],
+            [
+               "231596",
+               "1M pasd"
+            ],
+            [
+               "231519",
+               "54S pasd"
+            ],
+            [
+               "231520",
+               "25S pasd"
+            ],
+            [
+               "231521",
+               "58S pasd"
+            ],
+            [
+               "231522",
+               "41S pasd"
+            ],
+            [
+               "231523",
+               "45S pasd"
+            ],
+            [
+               "231524",
+               "52S pasd"
+            ],
+            [
+               "231525",
+               "45S pasd"
+            ],
+            [
+               "231526",
+               "30S pasd"
+            ],
+            [
+               "231527",
+               "44S pasd"
+            ],
+            [
+               "2315135",
+               "10S pasd"
+            ],
+            [
+               "2315136",
+               "30S pasd"
+            ],
+            [
+               "2315130",
+               "29S pasd"
+            ],
+            [
+               "231572",
+               "19S pasd"
+            ],
+            [
+               "2315129",
+               "1M10S pasd"
+            ],
+            [
+               "231532",
+               "1M31S pasd"
+            ],
+            [
+               "231533",
+               "55S pasd"
+            ],
+            [
+               "231529",
+               "1M6S pasd"
+            ],
+            [
+               "231534",
+               "1M25S pasd"
+            ],
+            [
+               "231535",
+               "1M34S pasd"
+            ],
+            [
+               "231551",
+               "53S pasd"
+            ],
+            [
+               "231552",
+               "48S pasd"
+            ],
+            [
+               "231554",
+               "16S pasd"
+            ],
+            [
+               "231555",
+               "33S pasd"
+            ],
+            [
+               "231556",
+               "24S pasd"
+            ],
+            [
+               "231557",
+               "24S pasd"
+            ],
+            [
+               "231558",
+               "39S pasd"
+            ],
+            [
+               "231559",
+               "18S pasd"
+            ],
+            [
+               "231560",
+               "45S pasd"
+            ],
+            [
+               "231561",
+               "1M3S pasd"
+            ],
+            [
+               "231562",
+               "1M27S pasd"
+            ],
+            [
+               "231563",
+               "1M5S pasd"
+            ],
+            [
+               "231743",
+               "1M41S pasd"
+            ],
+            [
+               "231713",
+               "1M11S pasd"
+            ],
+            [
+               "231718",
+               "1M33S pasd"
+            ],
+            [
+               "231744",
+               "34S pasd"
+            ],
+            [
+               "231745",
+               "37S pasd"
+            ],
+            [
+               "231746",
+               "37S pasd"
+            ],
+            [
+               "231747",
+               "39S pasd"
+            ],
+            [
+               "231748",
+               "35S pasd"
+            ],
+            [
+               "231749",
+               "37S pasd"
+            ],
+            [
+               "231750",
+               "38S pasd"
+            ],
+            [
+               "231751",
+               "37S pasd"
+            ],
+            [
+               "231752",
+               "44S pasd"
+            ],
+            [
+               "231753",
+               "56S pasd"
+            ],
+            [
+               "231754",
+               "1M16S pasd"
+            ],
+            [
+               "231755",
+               "33S pasd"
+            ],
+            [
+               "231756",
+               "30S pasd"
+            ],
+            [
+               "231757",
+               "26S pasd"
+            ],
+            [
+               "231758",
+               "32S pasd"
+            ],
+            [
+               "231759",
+               "41S pasd"
+            ],
+            [
+               "231760",
+               "34S pasd"
+            ],
+            [
+               "231761",
+               "32S pasd"
+            ],
+            [
+               "231762",
+               "33S pasd"
+            ],
+            [
+               "231722",
+               "33S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-8-R-5",
+         "route" : {
+            "name" : "Fingal Bay Shops Market St - Soldiers Point Ridgeway Av near Mitchell St",
+            "rs_ref" : "RS_75-133-_-sj2-1-R-5",
+            "id" : "R_75-133-_-sj2-1-R-5"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-17-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-17-TA",
+      "leaves" : "13:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "1M5S pasd"
+            ],
+            [
+               "231719",
+               "30S pasd"
+            ],
+            [
+               "231764",
+               "24S pasd"
+            ],
+            [
+               "2315115",
+               "38S pasd"
+            ],
+            [
+               "2315116",
+               "21S pasd"
+            ],
+            [
+               "2315117",
+               "32S pasd"
+            ],
+            [
+               "231586",
+               "35S pasd"
+            ],
+            [
+               "231587",
+               "54S pasd"
+            ],
+            [
+               "231588",
+               "35S pasd"
+            ],
+            [
+               "231589",
+               "54S pasd"
+            ],
+            [
+               "231590",
+               "59S pasd"
+            ],
+            [
+               "231591",
+               "35S pasd"
+            ],
+            [
+               "231592",
+               "1M8S pasd"
+            ],
+            [
+               "231593",
+               "32S pasd"
+            ],
+            [
+               "231594",
+               "1M51S pasd"
+            ],
+            [
+               "231568",
+               "1M51S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-15-H-9",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Nelson Bay Shops Donald St",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-9",
+            "id" : "R_75-133-_-sj2-1-H-9"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-2-TA",
+      "leaves" : "11:44:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "17S pasd"
+            ],
+            [
+               "231724",
+               "41S pasd"
+            ],
+            [
+               "231725",
+               "30S pasd"
+            ],
+            [
+               "231726",
+               "26S pasd"
+            ],
+            [
+               "231727",
+               "41S pasd"
+            ],
+            [
+               "231728",
+               "17S pasd"
+            ],
+            [
+               "231729",
+               "39S pasd"
+            ],
+            [
+               "231730",
+               "25S pasd"
+            ],
+            [
+               "231731",
+               "33S pasd"
+            ],
+            [
+               "231732",
+               "27S pasd"
+            ],
+            [
+               "231733",
+               "57S pasd"
+            ],
+            [
+               "231734",
+               "44S pasd"
+            ],
+            [
+               "231735",
+               "31S pasd"
+            ],
+            [
+               "231736",
+               "30S pasd"
+            ],
+            [
+               "231737",
+               "33S pasd"
+            ],
+            [
+               "231738",
+               "25S pasd"
+            ],
+            [
+               "231739",
+               "29S pasd"
+            ],
+            [
+               "231740",
+               "23S pasd"
+            ],
+            [
+               "231741",
+               "28S pasd"
+            ],
+            [
+               "231742",
+               "16S pasd"
+            ],
+            [
+               "231718",
+               "48S pasd"
+            ],
+            [
+               "231719",
+               "51S pasd"
+            ],
+            [
+               "231764",
+               "41S pasd"
+            ],
+            [
+               "2315115",
+               "1M4S pasd"
+            ],
+            [
+               "2315116",
+               "35S pasd"
+            ],
+            [
+               "2315117",
+               "54S pasd"
+            ],
+            [
+               "231586",
+               "55S pasd"
+            ],
+            [
+               "231587",
+               "48S pasd"
+            ],
+            [
+               "231588",
+               "31S pasd"
+            ],
+            [
+               "231589",
+               "48S pasd"
+            ],
+            [
+               "231590",
+               "52S pasd"
+            ],
+            [
+               "231591",
+               "31S pasd"
+            ],
+            [
+               "231592",
+               "1M1S pasd"
+            ],
+            [
+               "231593",
+               "28S pasd"
+            ],
+            [
+               "231594",
+               "1M39S pasd"
+            ],
+            [
+               "231568",
+               "1M22S pasd"
+            ],
+            [
+               "231569",
+               "1M1S pasd"
+            ],
+            [
+               "231570",
+               "57S pasd"
+            ],
+            [
+               "2315134",
+               "1M2S pasd"
+            ],
+            [
+               "2315133",
+               "1M18S pasd"
+            ],
+            [
+               "2315135",
+               "1M5S pasd"
+            ],
+            [
+               "2315136",
+               "49S pasd"
+            ],
+            [
+               "2315130",
+               "49S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Dixon Dr near Shoal Bay Rd",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-2",
+            "id" : "R_75-133-_-sj2-1-H-2"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-21-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-21-TA",
+      "leaves" : "14:15:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "20S pasd"
+            ],
+            [
+               "231724",
+               "48S pasd"
+            ],
+            [
+               "231725",
+               "35S pasd"
+            ],
+            [
+               "231726",
+               "30S pasd"
+            ],
+            [
+               "231727",
+               "48S pasd"
+            ],
+            [
+               "231728",
+               "20S pasd"
+            ],
+            [
+               "231729",
+               "47S pasd"
+            ],
+            [
+               "231730",
+               "29S pasd"
+            ],
+            [
+               "231731",
+               "39S pasd"
+            ],
+            [
+               "231732",
+               "32S pasd"
+            ],
+            [
+               "231733",
+               "1M7S pasd"
+            ],
+            [
+               "231734",
+               "53S pasd"
+            ],
+            [
+               "231735",
+               "37S pasd"
+            ],
+            [
+               "231736",
+               "35S pasd"
+            ],
+            [
+               "231737",
+               "39S pasd"
+            ],
+            [
+               "231738",
+               "29S pasd"
+            ],
+            [
+               "231739",
+               "35S pasd"
+            ],
+            [
+               "231740",
+               "28S pasd"
+            ],
+            [
+               "231741",
+               "33S pasd"
+            ],
+            [
+               "231742",
+               "19S pasd"
+            ],
+            [
+               "231718",
+               "19S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-17-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-23-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-23-TA",
+      "leaves" : "17:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "21S pasd"
+            ],
+            [
+               "231724",
+               "52S pasd"
+            ],
+            [
+               "231725",
+               "38S pasd"
+            ],
+            [
+               "231726",
+               "33S pasd"
+            ],
+            [
+               "231727",
+               "52S pasd"
+            ],
+            [
+               "231728",
+               "22S pasd"
+            ],
+            [
+               "231729",
+               "50S pasd"
+            ],
+            [
+               "231730",
+               "32S pasd"
+            ],
+            [
+               "231731",
+               "42S pasd"
+            ],
+            [
+               "231732",
+               "35S pasd"
+            ],
+            [
+               "231733",
+               "1M12S pasd"
+            ],
+            [
+               "231734",
+               "57S pasd"
+            ],
+            [
+               "231735",
+               "40S pasd"
+            ],
+            [
+               "231736",
+               "38S pasd"
+            ],
+            [
+               "231737",
+               "42S pasd"
+            ],
+            [
+               "231738",
+               "32S pasd"
+            ],
+            [
+               "231739",
+               "38S pasd"
+            ],
+            [
+               "231740",
+               "30S pasd"
+            ],
+            [
+               "231741",
+               "36S pasd"
+            ],
+            [
+               "231742",
+               "21S pasd"
+            ],
+            [
+               "231718",
+               "21S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-19-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-22-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-22-TA",
+      "leaves" : "16:30:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "22S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-18-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   },
+   "VJ_75-133-_-sj2-1-24-TA" : {
+      "vjcode" : "VJ_75-133-_-sj2-1-24-TA",
+      "leaves" : "18:35:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "231722",
+               null
+            ],
+            [
+               "231723",
+               "23S pasd"
+            ],
+            [
+               "231724",
+               "55S pasd"
+            ],
+            [
+               "231725",
+               "41S pasd"
+            ],
+            [
+               "231726",
+               "35S pasd"
+            ],
+            [
+               "231727",
+               "55S pasd"
+            ],
+            [
+               "231728",
+               "24S pasd"
+            ],
+            [
+               "231729",
+               "54S pasd"
+            ],
+            [
+               "231730",
+               "34S pasd"
+            ],
+            [
+               "231731",
+               "45S pasd"
+            ],
+            [
+               "231732",
+               "37S pasd"
+            ],
+            [
+               "231733",
+               "1M17S pasd"
+            ],
+            [
+               "231734",
+               "1M1S pasd"
+            ],
+            [
+               "231735",
+               "43S pasd"
+            ],
+            [
+               "231736",
+               "40S pasd"
+            ],
+            [
+               "231737",
+               "45S pasd"
+            ],
+            [
+               "231738",
+               "34S pasd"
+            ],
+            [
+               "231739",
+               "40S pasd"
+            ],
+            [
+               "231740",
+               "32S pasd"
+            ],
+            [
+               "231741",
+               "38S pasd"
+            ],
+            [
+               "231742",
+               "22S pasd"
+            ],
+            [
+               "231718",
+               "22S pasd"
+            ]
+         ],
+         "id" : "JP_75-133-_-sj2-1-18-H-10",
+         "route" : {
+            "name" : "Soldiers Point Ridgeway Av near Mitchell St - Salamnder Centre Town Centre Cct",
+            "rs_ref" : "RS_75-133-_-sj2-1-H-10",
+            "id" : "R_75-133-_-sj2-1-H-10"
+         }
+      },
+      "service" : "75-133-_-sj2-1",
+      "days" : [
+         "Saturday",
+         "Sunday"
+      ],
+      "line" : "133"
+   }
+}
+;
+

@@ -1,0 +1,552 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-657-f-sj2-1" : "657"
+}
+;
+
+var stations = {
+   "203573" : "Anzac Pde Nr Gale Rd",
+   "203655" : "Mirrabooka Cr Nr Little Bay Rd",
+   "2031174" : "Belmore Rd Opp Silver St",
+   "203557" : "Anzac Pde Nr Green St",
+   "203684" : "Franklin St nr Waterton Av",
+   "203575" : "Anzac Pde Nr Maroubra Junction Schools",
+   "203639" : "Bunnerong Rd nr Fitzgerald Rd",
+   "203657" : "Mirrabooka Cr Nr Alkoo Av",
+   "2031153" : "Avoca St Opp Albert St",
+   "203664" : "Woomera Rd Nr Bega Av",
+   "203555" : "Anzac Pde Nr Storey St",
+   "203665" : "Woomera Rd Nr Woonah St",
+   "2036125" : "Anzac Pde Nr Little Bay Rd",
+   "203672" : "Little Bay Rd nr Nurla Av",
+   "203680" : "Wassell St nr Franklin St",
+   "203675" : "Hastings Av nr Macquarie St",
+   "203583" : "Maroubra Rd Nr Hannan St",
+   "203581" : "Maroubra Rd nr Bunnerong Rd",
+   "203674" : "Hastings Av Nr Hall St",
+   "203556" : "Anzac Pde Nr Alma Rd",
+   "203673" : "Hastings Av Nr Little Bay Rd",
+   "203640" : "Bunnerong Rd nr Smith St",
+   "203637" : "Bunnerong Rd nr Devitt Pl",
+   "203636" : "Bunnerong Rd Nr Beauchamp Rd",
+   "203574" : "Anzac Pde Nr Storey St",
+   "203679" : "Wassell St nr Burke St",
+   "203525" : "Bunnerong Rd Nr Wentworth Av",
+   "2031141" : "Avoca St Nr Randwick Boys High",
+   "203678" : "Dampier St nr Wassell St",
+   "203635" : "Bunnerong Rd opp Daunt Av",
+   "2035163" : "Moverly Rd Nr Garden St",
+   "2031112" : "Alison Rd Nr Marcellin College",
+   "203582" : "Maroubra Rd R Royal St",
+   "203658" : "Mirrabooka Cr nr Bega Av",
+   "2035130" : "Maroubra Rd Nr Garden St",
+   "2031152" : "Avoca St Nr Short St",
+   "203676" : "Macquarie St nr Forest St",
+   "203576" : "Anzac Pde Nr Snape St",
+   "203265" : "Avoca St Nr Sturt St",
+   "203638" : "Bunnerong Rd nr Flint St",
+   "2035177" : "Garden St Nr Gale Rd",
+   "2035164" : "Moverley Rd Nr The Sydney French School",
+   "203656" : "Mirrabooka Cr Nr Woonah St",
+   "2035178" : "Storey St Nr Cooper St",
+   "203677" : "Dampier St Nr Eyre Av",
+   "2031150" : "Avoca St Nr Randwick Girls High",
+   "203683" : "Franklin St nr Wassell St",
+   "2031160" : "Belmore Rd Opp Arthur St",
+   "203264" : "Avoca St Nr Araluen St",
+   "203584" : "Maroubra Rd nr Anzac Pde",
+   "2031159" : "Perouse Rd Nr Aeolia St",
+   "2031158" : "Belmore Rd Nr Avoca St",
+   "203263" : "Avoca St Nr Anzac Pde",
+   "203634" : "Bunnerong Rd nr Perry St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-657-f-sj2-1-2-b00ag" : {
+      "vjcode" : "VJ_99-657-f-sj2-1-2-b00ag",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "0S pasd"
+            ],
+            [
+               "203664",
+               "1M pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "0S pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "0S pasd"
+            ],
+            [
+               "203683",
+               "1M pasd"
+            ],
+            [
+               "203684",
+               "0S pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203581",
+               "2M pasd"
+            ],
+            [
+               "203582",
+               "1M pasd"
+            ],
+            [
+               "203583",
+               "1M pasd"
+            ],
+            [
+               "203584",
+               "2M pasd"
+            ],
+            [
+               "203573",
+               "1M pasd"
+            ],
+            [
+               "203574",
+               "1M pasd"
+            ],
+            [
+               "203575",
+               "0S pasd"
+            ],
+            [
+               "203576",
+               "0S pasd"
+            ],
+            [
+               "203555",
+               "1M pasd"
+            ],
+            [
+               "203556",
+               "1M pasd"
+            ],
+            [
+               "203557",
+               "0S pasd"
+            ],
+            [
+               "2035130",
+               "1M pasd"
+            ],
+            [
+               "2035177",
+               "1M pasd"
+            ],
+            [
+               "2035178",
+               "1M pasd"
+            ],
+            [
+               "2035163",
+               "1M pasd"
+            ],
+            [
+               "2035164",
+               "1M pasd"
+            ],
+            [
+               "203263",
+               "1M pasd"
+            ],
+            [
+               "203264",
+               "1M pasd"
+            ],
+            [
+               "203265",
+               "1M pasd"
+            ],
+            [
+               "2031141",
+               "0S pasd"
+            ],
+            [
+               "2031150",
+               "1M pasd"
+            ],
+            [
+               "2031152",
+               "2M pasd"
+            ],
+            [
+               "2031153",
+               "0S pasd"
+            ],
+            [
+               "2031112",
+               "1M pasd"
+            ],
+            [
+               "2031174",
+               "1M pasd"
+            ],
+            [
+               "2031160",
+               "0S pasd"
+            ],
+            [
+               "2031158",
+               "0S pasd"
+            ],
+            [
+               "2031159",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-657-f-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Perouse Rd Nr Aeolia St",
+            "rs_ref" : "RS_99-657-f-sj2-1-H-1",
+            "id" : "R_99-657-f-sj2-1-H-1"
+         }
+      },
+      "service" : "99-657-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "657"
+   },
+   "VJ_99-657-f-sj2-1-1-b00af" : {
+      "vjcode" : "VJ_99-657-f-sj2-1-1-b00af",
+      "leaves" : "07:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2036125",
+               null
+            ],
+            [
+               "203655",
+               "1M pasd"
+            ],
+            [
+               "203656",
+               "0S pasd"
+            ],
+            [
+               "203657",
+               "0S pasd"
+            ],
+            [
+               "203658",
+               "0S pasd"
+            ],
+            [
+               "203664",
+               "1M pasd"
+            ],
+            [
+               "203665",
+               "0S pasd"
+            ],
+            [
+               "203672",
+               "0S pasd"
+            ],
+            [
+               "203673",
+               "1M pasd"
+            ],
+            [
+               "203674",
+               "0S pasd"
+            ],
+            [
+               "203675",
+               "1M pasd"
+            ],
+            [
+               "203676",
+               "0S pasd"
+            ],
+            [
+               "203677",
+               "1M pasd"
+            ],
+            [
+               "203678",
+               "0S pasd"
+            ],
+            [
+               "203679",
+               "1M pasd"
+            ],
+            [
+               "203680",
+               "0S pasd"
+            ],
+            [
+               "203683",
+               "1M pasd"
+            ],
+            [
+               "203684",
+               "0S pasd"
+            ],
+            [
+               "203634",
+               "1M pasd"
+            ],
+            [
+               "203635",
+               "1M pasd"
+            ],
+            [
+               "203636",
+               "0S pasd"
+            ],
+            [
+               "203637",
+               "1M pasd"
+            ],
+            [
+               "203638",
+               "1M pasd"
+            ],
+            [
+               "203639",
+               "1M pasd"
+            ],
+            [
+               "203640",
+               "0S pasd"
+            ],
+            [
+               "203525",
+               "1M pasd"
+            ],
+            [
+               "203581",
+               "2M pasd"
+            ],
+            [
+               "203582",
+               "1M pasd"
+            ],
+            [
+               "203583",
+               "1M pasd"
+            ],
+            [
+               "203584",
+               "2M pasd"
+            ],
+            [
+               "203573",
+               "1M pasd"
+            ],
+            [
+               "203574",
+               "1M pasd"
+            ],
+            [
+               "203575",
+               "0S pasd"
+            ],
+            [
+               "203576",
+               "0S pasd"
+            ],
+            [
+               "203555",
+               "1M pasd"
+            ],
+            [
+               "203556",
+               "1M pasd"
+            ],
+            [
+               "203557",
+               "0S pasd"
+            ],
+            [
+               "2035130",
+               "1M pasd"
+            ],
+            [
+               "2035177",
+               "1M pasd"
+            ],
+            [
+               "2035178",
+               "1M pasd"
+            ],
+            [
+               "2035163",
+               "1M pasd"
+            ],
+            [
+               "2035164",
+               "1M pasd"
+            ],
+            [
+               "203263",
+               "1M pasd"
+            ],
+            [
+               "203264",
+               "1M pasd"
+            ],
+            [
+               "203265",
+               "1M pasd"
+            ],
+            [
+               "2031141",
+               "0S pasd"
+            ],
+            [
+               "2031150",
+               "1M pasd"
+            ],
+            [
+               "2031152",
+               "2M pasd"
+            ],
+            [
+               "2031153",
+               "0S pasd"
+            ],
+            [
+               "2031112",
+               "1M pasd"
+            ],
+            [
+               "2031174",
+               "1M pasd"
+            ],
+            [
+               "2031160",
+               "0S pasd"
+            ],
+            [
+               "2031158",
+               "0S pasd"
+            ],
+            [
+               "2031159",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-657-f-sj2-1-1-H-1",
+         "route" : {
+            "name" : "Anzac Pde Nr Little Bay Rd - Perouse Rd Nr Aeolia St",
+            "rs_ref" : "RS_99-657-f-sj2-1-H-1",
+            "id" : "R_99-657-f-sj2-1-H-1"
+         }
+      },
+      "service" : "99-657-f-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "657"
+   }
+}
+;
+

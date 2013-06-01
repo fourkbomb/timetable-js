@@ -1,0 +1,995 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-748-b-sj2-1" : "748"
+}
+;
+
+var stations = {
+   "209759" : "Edgecliffe Bvd nr Hilma St",
+   "209727" : "Pittwater Rd Nr Long Reef S.L.S.C.",
+   "209728" : "Pittwater Rd Nr Hadleigh Av",
+   "209758" : "Telopea St nr Hilma St",
+   "209763" : "Edgecliffe Bvd nr Fuller St",
+   "210152" : "Pittwater Rd Nr Goodwin St",
+   "210229" : "Jacksons Rd Nr Pittwater Rd",
+   "209741" : "Hall Av nr Heather St",
+   "210150" : "Pittwater Rd nr Robertson St",
+   "210184" : "Pittwater Rd Nr Waterloo St",
+   "210147" : "Pittwater Rd nr Garden St",
+   "209726" : "Pittwater Rd nr Hay St",
+   "209724" : "Pittwater Rd nr Ocean Gr",
+   "209751" : "Parkes Rd nr South Creek Rd",
+   "209754" : "Anzac Av nr Kangaroo Rd",
+   "209738" : "Veterans Pde nr Ettalong St",
+   "210227" : "Garden St nr Irrawong Rd",
+   "210144" : "Pittwater Rd nr Walsh St",
+   "209765" : "Veterans Pde nr Acacia St",
+   "209739" : "Telopea St nr Fuller St",
+   "209764" : "Veterans Pde Nr Edgecliffe Bvd",
+   "209721" : "Pittwater Rd Nr Jenkins St",
+   "209740" : "Fuller St nr Hall Av",
+   "209756" : "Plateau Rd nr David Rd",
+   "209762" : "Edgecliffe Bvd nr Blandford St",
+   "210148" : "Pittwater Rd nr Rickard Rd",
+   "210221" : "Mater Maria School",
+   "209752" : "Parkes Rd Nr Westmoreland Av",
+   "209761" : "Edgecliffe Bvd Nr Aubreen St",
+   "210228" : "Jacksons Rd nr Warriewood Sq",
+   "209760" : "Edgecliffe Bvd Nr Acacia St",
+   "210226" : "Garden St Nr Retirement Village",
+   "210153" : "Pittwater Rd Nr Clarke St",
+   "209720" : "Pittwater Rd Nr Ramsay St",
+   "210121" : "Garden St Nr Jacksons Rd",
+   "209722" : "Pittwater Rd opp Collaroy St",
+   "210151" : "Pittwater Rd Nr Devitt St",
+   "209723" : "Pittwater Rd nr Brissden Av",
+   "209785" : "South Creek Rd opp Pittwater House School",
+   "209757" : "Aubreen St nr Telopea St",
+   "210145" : "Pittwater Rd Nr Namona St",
+   "210146" : "Pittwater Rd Nr Lake Park Rd",
+   "209755" : "Plateau Rd Nr Hilma St",
+   "210223" : "Macpherson St nr Garden St",
+   "209729" : "Pittwater Rd Nr Westmoreland Av",
+   "210225" : "Garden St Nr Orchard St",
+   "210224" : "Garden St Nr Macpherson St",
+   "209766" : "Veterans Pde Nr Rose Av",
+   "209725" : "Pittwater Rd Nr Anzac Av",
+   "2099217" : "South Creek Rd nr Pittwater Rd",
+   "209737" : "Veterans Pde nr Grevillea St",
+   "209753" : "Parkes Rd Nr Orlando Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-748-b-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-748-b-sj2-1-1-b00b2",
+      "leaves" : "15:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210224",
+               "1M pasd"
+            ],
+            [
+               "210225",
+               "0S pasd"
+            ],
+            [
+               "210226",
+               "1M pasd"
+            ],
+            [
+               "210227",
+               "1M pasd"
+            ],
+            [
+               "210121",
+               "0S pasd"
+            ],
+            [
+               "210228",
+               "1M pasd"
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "0S pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "0S pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "0S pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "0S pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Mater Maria School - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-748-b-sj2-1-R-1",
+            "id" : "R_99-748-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   },
+   "VJ_99-748-b-sj2-1-4-b00b7" : {
+      "vjcode" : "VJ_99-748-b-sj2-1-4-b00b7",
+      "leaves" : "15:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210224",
+               "1M pasd"
+            ],
+            [
+               "210225",
+               "0S pasd"
+            ],
+            [
+               "210226",
+               "1M pasd"
+            ],
+            [
+               "210227",
+               "1M pasd"
+            ],
+            [
+               "210121",
+               "0S pasd"
+            ],
+            [
+               "210228",
+               "1M pasd"
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "0S pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "0S pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "0S pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "0S pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Mater Maria School - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-748-b-sj2-1-R-1",
+            "id" : "R_99-748-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   },
+   "VJ_99-748-b-sj2-1-3-b009g" : {
+      "vjcode" : "VJ_99-748-b-sj2-1-3-b009g",
+      "leaves" : "15:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210224",
+               "1M pasd"
+            ],
+            [
+               "210225",
+               "0S pasd"
+            ],
+            [
+               "210226",
+               "1M pasd"
+            ],
+            [
+               "210227",
+               "1M pasd"
+            ],
+            [
+               "210121",
+               "0S pasd"
+            ],
+            [
+               "210228",
+               "1M pasd"
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "0S pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "0S pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "0S pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "0S pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Mater Maria School - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-748-b-sj2-1-R-1",
+            "id" : "R_99-748-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   },
+   "VJ_99-748-b-sj2-1-2-b009h" : {
+      "vjcode" : "VJ_99-748-b-sj2-1-2-b009h",
+      "leaves" : "15:32:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "210221",
+               null
+            ],
+            [
+               "210223",
+               "1M pasd"
+            ],
+            [
+               "210224",
+               "1M pasd"
+            ],
+            [
+               "210225",
+               "0S pasd"
+            ],
+            [
+               "210226",
+               "1M pasd"
+            ],
+            [
+               "210227",
+               "1M pasd"
+            ],
+            [
+               "210121",
+               "0S pasd"
+            ],
+            [
+               "210228",
+               "1M pasd"
+            ],
+            [
+               "210229",
+               "1M pasd"
+            ],
+            [
+               "210144",
+               "0S pasd"
+            ],
+            [
+               "210145",
+               "1M pasd"
+            ],
+            [
+               "210146",
+               "1M pasd"
+            ],
+            [
+               "210147",
+               "0S pasd"
+            ],
+            [
+               "210148",
+               "1M pasd"
+            ],
+            [
+               "210184",
+               "1M pasd"
+            ],
+            [
+               "210150",
+               "1M pasd"
+            ],
+            [
+               "210151",
+               "0S pasd"
+            ],
+            [
+               "210152",
+               "1M pasd"
+            ],
+            [
+               "210153",
+               "0S pasd"
+            ],
+            [
+               "209720",
+               "1M pasd"
+            ],
+            [
+               "209721",
+               "1M pasd"
+            ],
+            [
+               "209722",
+               "0S pasd"
+            ],
+            [
+               "209723",
+               "1M pasd"
+            ],
+            [
+               "209724",
+               "0S pasd"
+            ],
+            [
+               "209725",
+               "1M pasd"
+            ],
+            [
+               "209726",
+               "0S pasd"
+            ],
+            [
+               "209727",
+               "1M pasd"
+            ],
+            [
+               "209728",
+               "1M pasd"
+            ],
+            [
+               "209729",
+               "0S pasd"
+            ],
+            [
+               "2099217",
+               "1M pasd"
+            ],
+            [
+               "209785",
+               "1M pasd"
+            ],
+            [
+               "209751",
+               "0S pasd"
+            ],
+            [
+               "209752",
+               "1M pasd"
+            ],
+            [
+               "209753",
+               "0S pasd"
+            ],
+            [
+               "209754",
+               "1M pasd"
+            ],
+            [
+               "209755",
+               "1M pasd"
+            ],
+            [
+               "209756",
+               "0S pasd"
+            ],
+            [
+               "209757",
+               "0S pasd"
+            ],
+            [
+               "209758",
+               "1M pasd"
+            ],
+            [
+               "209759",
+               "1M pasd"
+            ],
+            [
+               "209760",
+               "0S pasd"
+            ],
+            [
+               "209761",
+               "1M pasd"
+            ],
+            [
+               "209762",
+               "0S pasd"
+            ],
+            [
+               "209763",
+               "1M pasd"
+            ],
+            [
+               "209764",
+               "1M pasd"
+            ],
+            [
+               "209765",
+               "0S pasd"
+            ],
+            [
+               "209766",
+               "0S pasd"
+            ],
+            [
+               "209737",
+               "1M pasd"
+            ],
+            [
+               "209738",
+               "0S pasd"
+            ],
+            [
+               "209739",
+               "0S pasd"
+            ],
+            [
+               "209740",
+               "1M pasd"
+            ],
+            [
+               "209741",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-748-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Mater Maria School - Hall Av nr Heather St",
+            "rs_ref" : "RS_99-748-b-sj2-1-R-1",
+            "id" : "R_99-748-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-748-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "748"
+   }
+}
+;
+

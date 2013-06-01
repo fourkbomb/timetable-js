@@ -1,0 +1,1165 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-769-b-sj2-1" : "769"
+}
+;
+
+var stations = {
+   "208642" : "French Forest Rd Nr Patanga Rd",
+   "209321" : "Condamine St Nr Gordon St",
+   "210072" : "Warringah Rd Nr Jones St",
+   "2093139" : "White St Nr Condamine St",
+   "2093125" : "Beatrice St Nr Ernest St",
+   "209393" : "Beatrice St 150m N of Moore St",
+   "210019" : "Pittwater Rd nr Warringah Rd",
+   "210096" : "Allambie Rd opp Arnhem Rd",
+   "208644" : "Frenchs Forest Rd Nr Skyline Pl",
+   "210030" : "Pittwater Rd nr Queencliff Rd",
+   "210015" : "Pittwater Rd nr Roger St",
+   "209381" : "Bungaloe Av Nr Lower Beach St",
+   "209397" : "Woodland St opp Bareena Dr",
+   "208643" : "Frenchs Forest Rd Nr Hurdis Av",
+   "210016" : "Pittwater Rd nr Winbourne Rd",
+   "208615" : "Allambie Rd nr Warringah Rd",
+   "210034" : "Pittwater Rd Nr Western Av",
+   "210071" : "Warringah Rd nr Goverment Rd",
+   "209392" : "Beatrice St nr Gordon St",
+   "210067" : "Warringah Rd opp McKillop Rd",
+   "2093122" : "Upper Beach St nr Seaview St",
+   "209989" : "Warringah Rd nr Victor Rd",
+   "2100135" : "Kentwell Rd Nr Allambie Rd",
+   "2093137" : "Upper Beach St nr Woodland St",
+   "210070" : "Warringah Rd nr O'Connors Rd",
+   "210032" : "Pittwater Rd Nr Oliver St",
+   "210018" : "Pittwater Rd nr Federal Pde",
+   "2100141" : "Warringah Rd nr Earl St",
+   "209396" : "Woodland St Nr Alma St",
+   "210068" : "Warringah Rd nr Beacon Hill Rd",
+   "208645" : "Frenchs Forest Rd Nr Bantry Bay Rd",
+   "2093132" : "New St nr Hogan St",
+   "210087" : "Allambie Rd nr Nargong Rd",
+   "210069" : "Warringah Rd nr Willandra Rd",
+   "210037" : "Pittwater Rd Nr Sterland Av",
+   "209250" : "Sydney Rd Nr Ethel St",
+   "209322" : "Condamine St nr Sloane Cr",
+   "208656" : "Frenchs Forest Rd Nr Forest High",
+   "210088" : "Allambie Rd nr Monserra Rd",
+   "2100134" : "Kentwell Rd nr Cornwell Rd",
+   "2100133" : "Kentwell Rd Nr Condamine St",
+   "208671" : "Forest Wy Nr Warringah Rd",
+   "2100111" : "Pittwater Rd nr Warringah Mall",
+   "2093123" : "Seaview St nr New St",
+   "209990" : "Warringah Rd nr Pine Av",
+   "209566" : "Eurobin St Nr Stella Maris Stand 4",
+   "210090" : "Allambie Rd opp Inglebar Av",
+   "208666" : "Warringah Rd nr Allambie Rd",
+   "209993" : "Warringah Rd nr Northcliffe Av",
+   "210093" : "Allambie Rd nr Martin Luther Pl",
+   "210036" : "Pittwater Rd nr Kentwell Rd",
+   "209991" : "Warringah Rd nr Alfred St",
+   "210089" : "Allambie Rd nr Roosevelt Av",
+   "208649" : "Rabbett St Nr Holland Av",
+   "209546" : "Pittwater Rd Nr Eurobin Av",
+   "2093121" : "Upper Beach St nr Maretimo St",
+   "2093129" : "Curban St opp Concise St",
+   "210094" : "Allambie Rd opp Mortain Av",
+   "210091" : "Allambie Rd nr Grigor Pl",
+   "2093130" : "Curban St Nr Valley Rd",
+   "2093107" : "Condamine St nr Sydney Rd",
+   "2093128" : "Curban St Nr Vista Av",
+   "209992" : "Warringah Rd nr Consul Rd",
+   "209395" : "Alma St nr Woodlands St",
+   "209317" : "Condamine St Nr Griffiths St",
+   "209316" : "Condamine St nr Sydney Rd",
+   "208674" : "Warrringah Rd Nr Bantry Bay Rd",
+   "209394" : "Beatrice St Nr Moore St",
+   "209318" : "Condamine St Nr Balgowlah Rd",
+   "210092" : "Allambie Rd opp Darmour Av",
+   "2093120" : "Ethel St nr Coral St",
+   "209326" : "Condamine St Nr Kenneth Rd",
+   "209398" : "Woodland St Nr Ernest St",
+   "208616" : "Allambie Rd Nr Frenchs Forest Rd",
+   "209319" : "Condamine St nr King St",
+   "210033" : "Pittwater Rd Nr Riverview Pde",
+   "2100170" : "St Augustines School",
+   "2093124" : "Beatrice St Nr The Walk",
+   "2093138" : "Woodland St Nr White St",
+   "210095" : "Allambie Rd opp Sunlea Pl",
+   "209251" : "Ethel St Nr Sydney Rd",
+   "210086" : "Allambie Rd opp Corkery Cr",
+   "210085" : "Allambie Rd nr Eerawy Rd",
+   "209380" : "New St nr Bungaloe Av",
+   "2093131" : "Curban St Nr New St",
+   "210035" : "Pittwater Rd Nr Wakefield St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-769-b-sj2-1-4-b00b2" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-4-b00b2",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209250",
+               null
+            ],
+            [
+               "209251",
+               "1M pasd"
+            ],
+            [
+               "2093120",
+               "0S pasd"
+            ],
+            [
+               "2093121",
+               "1M pasd"
+            ],
+            [
+               "2093122",
+               "0S pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "1M pasd"
+            ],
+            [
+               "2093125",
+               "0S pasd"
+            ],
+            [
+               "209392",
+               "1M pasd"
+            ],
+            [
+               "209393",
+               "0S pasd"
+            ],
+            [
+               "209394",
+               "1M pasd"
+            ],
+            [
+               "209395",
+               "1M pasd"
+            ],
+            [
+               "209396",
+               "0S pasd"
+            ],
+            [
+               "209397",
+               "0S pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "0S pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "0S pasd"
+            ],
+            [
+               "2093107",
+               "1M pasd"
+            ],
+            [
+               "209316",
+               "0S pasd"
+            ],
+            [
+               "209317",
+               "1M pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "2M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209321",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "2100133",
+               "0S pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "1M pasd"
+            ],
+            [
+               "210085",
+               "0S pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "1M pasd"
+            ],
+            [
+               "210088",
+               "1M pasd"
+            ],
+            [
+               "210089",
+               "0S pasd"
+            ],
+            [
+               "210090",
+               "1M pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "1M pasd"
+            ],
+            [
+               "210095",
+               "0S pasd"
+            ],
+            [
+               "210096",
+               "1M pasd"
+            ],
+            [
+               "208615",
+               "2M pasd"
+            ],
+            [
+               "208616",
+               "0S pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "1M pasd"
+            ],
+            [
+               "208656",
+               "1M pasd"
+            ],
+            [
+               "208649",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Sydney Rd Nr Ethel St - Rabbett St Nr Holland Av",
+            "rs_ref" : "RS_99-769-b-sj2-1-H-2",
+            "id" : "R_99-769-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-b-sj2-1-2-b00b2" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-2-b00b2",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "0S pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "1M pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "1M pasd"
+            ],
+            [
+               "208666",
+               "3M pasd"
+            ],
+            [
+               "208674",
+               "2M pasd"
+            ],
+            [
+               "208671",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Forest Wy Nr Warringah Rd",
+            "rs_ref" : "RS_99-769-b-sj2-1-R-1",
+            "id" : "R_99-769-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-b-sj2-1-1-b00b2" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-1-b00b2",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "0S pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "1M pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "1M pasd"
+            ],
+            [
+               "208666",
+               "3M pasd"
+            ],
+            [
+               "208674",
+               "2M pasd"
+            ],
+            [
+               "208671",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Forest Wy Nr Warringah Rd",
+            "rs_ref" : "RS_99-769-b-sj2-1-R-1",
+            "id" : "R_99-769-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-b-sj2-1-6-b00b7" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-6-b00b7",
+      "leaves" : "07:17:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "209250",
+               null
+            ],
+            [
+               "209251",
+               "1M pasd"
+            ],
+            [
+               "2093120",
+               "0S pasd"
+            ],
+            [
+               "2093121",
+               "1M pasd"
+            ],
+            [
+               "2093122",
+               "0S pasd"
+            ],
+            [
+               "2093123",
+               "1M pasd"
+            ],
+            [
+               "2093124",
+               "1M pasd"
+            ],
+            [
+               "2093125",
+               "0S pasd"
+            ],
+            [
+               "209392",
+               "1M pasd"
+            ],
+            [
+               "209393",
+               "0S pasd"
+            ],
+            [
+               "209394",
+               "1M pasd"
+            ],
+            [
+               "209395",
+               "1M pasd"
+            ],
+            [
+               "209396",
+               "0S pasd"
+            ],
+            [
+               "209397",
+               "0S pasd"
+            ],
+            [
+               "209398",
+               "1M pasd"
+            ],
+            [
+               "2093128",
+               "1M pasd"
+            ],
+            [
+               "2093129",
+               "1M pasd"
+            ],
+            [
+               "2093130",
+               "0S pasd"
+            ],
+            [
+               "2093131",
+               "0S pasd"
+            ],
+            [
+               "2093132",
+               "1M pasd"
+            ],
+            [
+               "209380",
+               "0S pasd"
+            ],
+            [
+               "209381",
+               "1M pasd"
+            ],
+            [
+               "2093137",
+               "0S pasd"
+            ],
+            [
+               "2093138",
+               "1M pasd"
+            ],
+            [
+               "2093139",
+               "0S pasd"
+            ],
+            [
+               "2093107",
+               "1M pasd"
+            ],
+            [
+               "209316",
+               "0S pasd"
+            ],
+            [
+               "209317",
+               "1M pasd"
+            ],
+            [
+               "209318",
+               "1M pasd"
+            ],
+            [
+               "209326",
+               "2M pasd"
+            ],
+            [
+               "209319",
+               "1M pasd"
+            ],
+            [
+               "209321",
+               "1M pasd"
+            ],
+            [
+               "209322",
+               "1M pasd"
+            ],
+            [
+               "2100133",
+               "0S pasd"
+            ],
+            [
+               "2100134",
+               "1M pasd"
+            ],
+            [
+               "2100135",
+               "1M pasd"
+            ],
+            [
+               "210085",
+               "0S pasd"
+            ],
+            [
+               "210086",
+               "1M pasd"
+            ],
+            [
+               "210087",
+               "1M pasd"
+            ],
+            [
+               "210088",
+               "1M pasd"
+            ],
+            [
+               "210089",
+               "0S pasd"
+            ],
+            [
+               "210090",
+               "1M pasd"
+            ],
+            [
+               "210091",
+               "1M pasd"
+            ],
+            [
+               "210092",
+               "1M pasd"
+            ],
+            [
+               "210093",
+               "1M pasd"
+            ],
+            [
+               "210094",
+               "1M pasd"
+            ],
+            [
+               "210095",
+               "0S pasd"
+            ],
+            [
+               "210096",
+               "1M pasd"
+            ],
+            [
+               "208615",
+               "2M pasd"
+            ],
+            [
+               "208616",
+               "0S pasd"
+            ],
+            [
+               "208642",
+               "1M pasd"
+            ],
+            [
+               "208643",
+               "1M pasd"
+            ],
+            [
+               "208644",
+               "1M pasd"
+            ],
+            [
+               "208645",
+               "1M pasd"
+            ],
+            [
+               "208656",
+               "1M pasd"
+            ],
+            [
+               "208649",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Sydney Rd Nr Ethel St - Rabbett St Nr Holland Av",
+            "rs_ref" : "RS_99-769-b-sj2-1-H-2",
+            "id" : "R_99-769-b-sj2-1-H-2"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-b-sj2-1-5-b00b7" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-5-b00b7",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "0S pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "1M pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "1M pasd"
+            ],
+            [
+               "208666",
+               "3M pasd"
+            ],
+            [
+               "208674",
+               "2M pasd"
+            ],
+            [
+               "208671",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Forest Wy Nr Warringah Rd",
+            "rs_ref" : "RS_99-769-b-sj2-1-R-1",
+            "id" : "R_99-769-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   },
+   "VJ_99-769-b-sj2-1-3-b00b7" : {
+      "vjcode" : "VJ_99-769-b-sj2-1-3-b00b7",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "209566",
+               null
+            ],
+            [
+               "209546",
+               "1M pasd"
+            ],
+            [
+               "210030",
+               "1M pasd"
+            ],
+            [
+               "210032",
+               "1M pasd"
+            ],
+            [
+               "210033",
+               "0S pasd"
+            ],
+            [
+               "210034",
+               "1M pasd"
+            ],
+            [
+               "210035",
+               "0S pasd"
+            ],
+            [
+               "210036",
+               "1M pasd"
+            ],
+            [
+               "210037",
+               "1M pasd"
+            ],
+            [
+               "2100111",
+               "1M pasd"
+            ],
+            [
+               "210015",
+               "1M pasd"
+            ],
+            [
+               "210016",
+               "1M pasd"
+            ],
+            [
+               "2100170",
+               "1M pasd"
+            ],
+            [
+               "210018",
+               "2M pasd"
+            ],
+            [
+               "210019",
+               "0S pasd"
+            ],
+            [
+               "209989",
+               "1M pasd"
+            ],
+            [
+               "209990",
+               "0S pasd"
+            ],
+            [
+               "209991",
+               "1M pasd"
+            ],
+            [
+               "209992",
+               "0S pasd"
+            ],
+            [
+               "209993",
+               "1M pasd"
+            ],
+            [
+               "210067",
+               "0S pasd"
+            ],
+            [
+               "210068",
+               "1M pasd"
+            ],
+            [
+               "210069",
+               "0S pasd"
+            ],
+            [
+               "2100141",
+               "1M pasd"
+            ],
+            [
+               "210070",
+               "1M pasd"
+            ],
+            [
+               "210071",
+               "1M pasd"
+            ],
+            [
+               "210072",
+               "1M pasd"
+            ],
+            [
+               "208666",
+               "3M pasd"
+            ],
+            [
+               "208674",
+               "2M pasd"
+            ],
+            [
+               "208671",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_99-769-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Eurobin St Nr Stella Maris - Forest Wy Nr Warringah Rd",
+            "rs_ref" : "RS_99-769-b-sj2-1-R-1",
+            "id" : "R_99-769-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-769-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "769"
+   }
+}
+;
+

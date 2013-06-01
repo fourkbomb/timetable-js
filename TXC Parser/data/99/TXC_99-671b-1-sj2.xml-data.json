@@ -1,0 +1,493 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-671-b-sj2-1" : "671"
+}
+;
+
+var stations = {
+   "2207239" : "Bradford St Nr Parliament Tce",
+   "2207215" : "Bradford St Nr Forest Rd",
+   "220521" : "Firth St Nr Arncliffe Station",
+   "220518" : "Wollongong Rd Nr Kembla St",
+   "2206114" : "William St Nr Woolcott St",
+   "219424" : "Beamish St Nr Evaline St",
+   "221629" : "Villiers St Nr Oswell St",
+   "2206125" : "William St Nr Homer St",
+   "220522" : "Wollongong Rd Nr Bonar St",
+   "221626" : "Railway St Nr Villiers St",
+   "219423" : "Beamish St Opp Unara St",
+   "220516" : "Wollongong Rd Nr Wilsons Rd",
+   "2206116" : "William St Nr Main St",
+   "219470" : "Bexley Rd Nr Cross St",
+   "220543" : "Rickard St nr Hannam St",
+   "219411" : "Beamish St Nr North Pde",
+   "220514" : "Lorraine Av Nr Wilsons Rd",
+   "219469" : "Bexley Rd Nr Vicliffe Av",
+   "219413" : "Beamish St nr South Pde",
+   "220535" : "Loftus St Nr Willington St",
+   "220544" : "Wilkins St Nr Rickard St",
+   "220663" : "Bexley Rd Nr Calbina Rd",
+   "220532" : "Turrella St Nr Reede St",
+   "219422" : "Beamish St Nr Fletcher St",
+   "2206115" : "William St Nr Hood Av",
+   "220515" : "Wilsons Rd Nr Fairview St",
+   "221628" : "Villiers St Nr Arlington St",
+   "2206113" : "William St Nr Cameron Av",
+   "220513" : "Lorraine Av Nr Alsace Av",
+   "2207214" : "Forest Rd Nr Frederick St",
+   "2207219" : "Darley Rd Nr Water St",
+   "2217133" : "Palmerston St nr St. George Girls High",
+   "220512" : "Parliament Tce nr Sackville St",
+   "220517" : "Wollongong Rd Nr Fripp St",
+   "220511" : "Wolli Creek Rd Nr Forest Rd",
+   "220536" : "Loftus St Nr Cook St",
+   "220519" : "Wollongong Rd Nr Mitchell St",
+   "221627" : "Villiers St Nr Railway St",
+   "221618" : "Railway St Stand H",
+   "221630" : "Oswell St Nr Wolli Creek Rd",
+   "2207213" : "Forest Rd Nr Clarence Rd",
+   "220523" : "Wollongong Rd Nr Kelsey St",
+   "2207218" : "Darley Rd Nr May St",
+   "2206117" : "William St Nr Bexley Rd",
+   "2207143" : "Hartill-Law Av Nr Slade Rd",
+   "220546" : "Bardwell Rd Nr Shepherd Pde",
+   "221649" : "Princes Hwy Nr Subway Rd",
+   "220545" : "John St Nr Wentworth St"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-671-b-sj2-1-2-b009m" : {
+      "vjcode" : "VJ_99-671-b-sj2-1-2-b009m",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2217133",
+               null
+            ],
+            [
+               "221649",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "2M pasd"
+            ],
+            [
+               "221626",
+               "2M pasd"
+            ],
+            [
+               "221627",
+               "1M pasd"
+            ],
+            [
+               "221628",
+               "1M pasd"
+            ],
+            [
+               "221629",
+               "1M pasd"
+            ],
+            [
+               "221630",
+               "1M pasd"
+            ],
+            [
+               "220511",
+               "0S pasd"
+            ],
+            [
+               "2207213",
+               "1M pasd"
+            ],
+            [
+               "2207214",
+               "1M pasd"
+            ],
+            [
+               "2207215",
+               "1M pasd"
+            ],
+            [
+               "2207239",
+               "1M pasd"
+            ],
+            [
+               "220512",
+               "1M pasd"
+            ],
+            [
+               "220513",
+               "1M pasd"
+            ],
+            [
+               "220514",
+               "1M pasd"
+            ],
+            [
+               "220515",
+               "1M pasd"
+            ],
+            [
+               "220516",
+               "1M pasd"
+            ],
+            [
+               "220517",
+               "0S pasd"
+            ],
+            [
+               "220518",
+               "2M pasd"
+            ],
+            [
+               "220519",
+               "0S pasd"
+            ],
+            [
+               "220523",
+               "1M pasd"
+            ],
+            [
+               "220522",
+               "1M pasd"
+            ],
+            [
+               "220521",
+               "1M pasd"
+            ],
+            [
+               "220535",
+               "2M pasd"
+            ],
+            [
+               "220536",
+               "1M pasd"
+            ],
+            [
+               "220532",
+               "1M pasd"
+            ],
+            [
+               "220543",
+               "1M pasd"
+            ],
+            [
+               "220544",
+               "0S pasd"
+            ],
+            [
+               "220545",
+               "1M pasd"
+            ],
+            [
+               "220546",
+               "1M pasd"
+            ],
+            [
+               "2207218",
+               "1M pasd"
+            ],
+            [
+               "2207219",
+               "0S pasd"
+            ],
+            [
+               "2207143",
+               "1M pasd"
+            ],
+            [
+               "2206125",
+               "2M pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "1M pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "1M pasd"
+            ],
+            [
+               "2206117",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "219469",
+               "1M pasd"
+            ],
+            [
+               "219470",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-671-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Palmerston St nr St. George Girls High - Campsie Station",
+            "rs_ref" : "RS_99-671-b-sj2-1-R-1",
+            "id" : "R_99-671-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-671-b-sj2-1",
+      "days" : [
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "671"
+   },
+   "VJ_99-671-b-sj2-1-1-b009t" : {
+      "vjcode" : "VJ_99-671-b-sj2-1-1-b009t",
+      "leaves" : "15:20:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2217133",
+               null
+            ],
+            [
+               "221649",
+               "2M pasd"
+            ],
+            [
+               "221618",
+               "2M pasd"
+            ],
+            [
+               "221626",
+               "2M pasd"
+            ],
+            [
+               "221627",
+               "1M pasd"
+            ],
+            [
+               "221628",
+               "1M pasd"
+            ],
+            [
+               "221629",
+               "1M pasd"
+            ],
+            [
+               "221630",
+               "1M pasd"
+            ],
+            [
+               "220511",
+               "0S pasd"
+            ],
+            [
+               "2207213",
+               "1M pasd"
+            ],
+            [
+               "2207214",
+               "1M pasd"
+            ],
+            [
+               "2207215",
+               "1M pasd"
+            ],
+            [
+               "2207239",
+               "1M pasd"
+            ],
+            [
+               "220512",
+               "1M pasd"
+            ],
+            [
+               "220513",
+               "1M pasd"
+            ],
+            [
+               "220514",
+               "1M pasd"
+            ],
+            [
+               "220515",
+               "1M pasd"
+            ],
+            [
+               "220516",
+               "1M pasd"
+            ],
+            [
+               "220517",
+               "0S pasd"
+            ],
+            [
+               "220518",
+               "2M pasd"
+            ],
+            [
+               "220519",
+               "0S pasd"
+            ],
+            [
+               "220523",
+               "1M pasd"
+            ],
+            [
+               "220522",
+               "1M pasd"
+            ],
+            [
+               "220521",
+               "1M pasd"
+            ],
+            [
+               "220535",
+               "2M pasd"
+            ],
+            [
+               "220536",
+               "1M pasd"
+            ],
+            [
+               "220532",
+               "1M pasd"
+            ],
+            [
+               "220543",
+               "1M pasd"
+            ],
+            [
+               "220544",
+               "0S pasd"
+            ],
+            [
+               "220545",
+               "1M pasd"
+            ],
+            [
+               "220546",
+               "1M pasd"
+            ],
+            [
+               "2207218",
+               "1M pasd"
+            ],
+            [
+               "2207219",
+               "0S pasd"
+            ],
+            [
+               "2207143",
+               "1M pasd"
+            ],
+            [
+               "2206125",
+               "2M pasd"
+            ],
+            [
+               "2206113",
+               "1M pasd"
+            ],
+            [
+               "2206114",
+               "1M pasd"
+            ],
+            [
+               "2206115",
+               "1M pasd"
+            ],
+            [
+               "2206116",
+               "1M pasd"
+            ],
+            [
+               "2206117",
+               "1M pasd"
+            ],
+            [
+               "220663",
+               "1M pasd"
+            ],
+            [
+               "219469",
+               "1M pasd"
+            ],
+            [
+               "219470",
+               "1M pasd"
+            ],
+            [
+               "219422",
+               "1M pasd"
+            ],
+            [
+               "219423",
+               "1M pasd"
+            ],
+            [
+               "219424",
+               "1M pasd"
+            ],
+            [
+               "219413",
+               "1M pasd"
+            ],
+            [
+               "219411",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_99-671-b-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Palmerston St nr St. George Girls High - Campsie Station",
+            "rs_ref" : "RS_99-671-b-sj2-1-R-1",
+            "id" : "R_99-671-b-sj2-1-R-1"
+         }
+      },
+      "service" : "99-671-b-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "671"
+   }
+}
+;
+

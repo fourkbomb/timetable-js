@@ -1,0 +1,1281 @@
+var OPERATOR = "Busways (Region 6)";
+
+
+var LINES = {
+   "93-33-_-sj2-1" : "33"
+}
+;
+
+var stations = {
+   "225096" : "Maliwa Rd Near Adam St",
+   "225098" : "Maliwa Rd near Jirrang Rd",
+   "2250773" : "Kangoo Rd (Opp.Youth Conect College)",
+   "225091" : "Gosford High School Showground Rd",
+   "2250774" : "Kangoo Rd (Youth Conect College)",
+   "2250342" : "Wisemans Ferry Rd Near Ulinga Rd",
+   "225092" : "Showground Rd near Glennie St",
+   "2250305" : "Opposite Summersby Public School Wisemans Ferry",
+   "2250343" : "Wisemans Ferry Rd Near Falls Rd",
+   "2250259" : "Pacific Hwy near Boolari Rd",
+   "2250339" : "Wisemans Ferry Rd Near Lackersteens Rd",
+   "2250260" : "Pacific Hwy near Wakefield Cl",
+   "2250366" : "Manns Rd Near Carnarvon Rd",
+   "2250540" : "Maliwa Rd near Showground Rd",
+   "2250294" : "Opp 22 Gindurra Rd Before Chivers Rd",
+   "225095" : "Maliwa Rd Near Rowena Rd",
+   "2250293" : "Gindurra Rd near Chivers Rd",
+   "2250295" : "Acacia Rd near Debenham Rd",
+   "2250370" : "Manns Rd Near Carnarvon Rd",
+   "2250296" : "Kangoo Rd near Wella Wy",
+   "2250364" : "Manns Rd - No.232",
+   "2250372" : "Manns Rd - Opp.No.234",
+   "2250367" : "Manns Rd & Dyer Cr",
+   "2250565" : "Maliwa Rd - No.5",
+   "2250298" : "Wisemans Ferry Rd near Howes Rd",
+   "225079" : "Maliwa Rd Near Adam St",
+   "225085" : "Pacific Hwy near Etna St",
+   "2250564" : "Manns Rd (Before Dell Rd)",
+   "2250284" : "Pacific Hwy near Curringa Rd",
+   "2250348" : "Pacific Hwy near Dyer Dr",
+   "2250287" : "Pile Rd (Before Pacific Hwy)",
+   "2250648" : "Acaia Rd - No.10 (Before Debenham Rd)",
+   "2250292" : "Somersby Falls Rd Near Wisemans Ferry Rd",
+   "2250341" : "Wisemans Ferry Rd Near Debenham Rd",
+   "2250302" : "Wisemans Ferry Rd near Lutana Rd",
+   "2250646" : "Kangoo Rd (After Pacific Hwy)",
+   "2250345" : "Pacific Hwy near Woy Woy Rd",
+   "2250297" : "Wisemans Ferry Rd Near Falls Rd",
+   "2250652" : "Somersby Fall Rd - No.41 (Before Pile Rd)",
+   "2250363" : "Manns Rd near Dell Dr",
+   "225083" : "Maliwa Rd near Glennie St Showground Rd",
+   "2250538" : "Maliwa Rd Near Rowena Rd",
+   "2250289" : "Pile Rd",
+   "225077" : "Maliwa Rd near Jirrang Rd",
+   "2250338" : "Wisemans Ferry Rd Near Silvesters Rd",
+   "2250654" : "Pile Rd - No.24",
+   "2250365" : "Manns Rd near Merinee Rd",
+   "2250649" : "22 Gindurra Rd Opp Chivers Rd",
+   "2250843" : "376 Wisemans Ferry Rd before Bimbil Rd",
+   "2250288" : "Pile Rd (After Pacific Hwy)",
+   "2250291" : "Somersby Falls Rd Near Ace Rd",
+   "2250285" : "Wisemans Ferry Rd - No.62 (After Pacific Hwy)",
+   "2250346" : "Pacific Hwy near Wakefield Cl",
+   "225094" : "Maliwa Rd near Showground Rd",
+   "2250301" : "Wisemans Ferry Rd Near Debenham Rd",
+   "2250286" : "Wisemans Ferry Rd - Opp.No.62 (Before Pacific H",
+   "2250347" : "Pacific Hwy near Wakefield Cl",
+   "2250650" : "Gindurra Rd - Opp.No.15 (Before Wisemans Ferry",
+   "2250368" : "Manns Rd & Dyer Cr",
+   "2250651" : "Somersby Fall Rd - No.15 (Opp.Ace Rd)",
+   "2250299" : "Wisemans Ferry Rd Near Ulinga Rd",
+   "2250647" : "Kangoo Rd - No.33 (After Wella Way)",
+   "2250537" : "Showground Rd Showground Rd near Maliwa Rd",
+   "2250290" : "Pile Rd near Warringah Cl",
+   "225078" : "Maliwa Rd Near Kimberley Av",
+   "2250304" : "Wisemans Ferry Rd Near Silvesters Rd",
+   "225076" : "Maliwa Rd near Narara Creek Rd",
+   "2250373" : "Manns Rd near Dignity Cr",
+   "2250655" : "Kangoo Rd (Before Pacific Hwy)",
+   "2250337" : "Wisemans Ferry Rd (Somersby PS)",
+   "2250303" : "Wisemans Ferry Rd Near Lackersteens Rd",
+   "225084" : "Gosford High Showground Road Showground Rd",
+   "225097" : "Maliwa Rd Near Kimberley Av",
+   "2250653" : "Pile Rd (Before Warringah Cl)",
+   "2250369" : "Manns Rd Near Carnarvon Rd",
+   "225042" : "Gosford (Stand 6)",
+   "2250371" : "Manns Rd near Nells Rd",
+   "2250261" : "Pacific Hwy near Wakefield Cl",
+   "2250340" : "Wisemans Ferry Rd near Grants Rd",
+   "225093" : "Showground Rd near Sensory Park",
+   "2250300" : "Wisemans Ferry Rd near Bimbil Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_93-33-_-sj2-1-9-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-9-b0195",
+      "leaves" : "17:14:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250337",
+               null
+            ],
+            [
+               "2250338",
+               "1M pasd"
+            ],
+            [
+               "2250339",
+               "1M pasd"
+            ],
+            [
+               "2250340",
+               "2M pasd"
+            ],
+            [
+               "2250341",
+               "0S pasd"
+            ],
+            [
+               "2250843",
+               "1M pasd"
+            ],
+            [
+               "2250342",
+               "1M pasd"
+            ],
+            [
+               "2250343",
+               "2M pasd"
+            ],
+            [
+               "2250286",
+               "0S pasd"
+            ],
+            [
+               "2250288",
+               "1M pasd"
+            ],
+            [
+               "2250289",
+               "0S pasd"
+            ],
+            [
+               "2250290",
+               "0S pasd"
+            ],
+            [
+               "2250291",
+               "1M pasd"
+            ],
+            [
+               "2250292",
+               "0S pasd"
+            ],
+            [
+               "2250293",
+               "0S pasd"
+            ],
+            [
+               "2250294",
+               "1M pasd"
+            ],
+            [
+               "2250295",
+               "1M pasd"
+            ],
+            [
+               "2250296",
+               "1M pasd"
+            ],
+            [
+               "2250774",
+               "0S pasd"
+            ],
+            [
+               "2250655",
+               "1M pasd"
+            ],
+            [
+               "2250345",
+               "1M pasd"
+            ],
+            [
+               "2250346",
+               "0S pasd"
+            ],
+            [
+               "2250347",
+               "1M pasd"
+            ],
+            [
+               "2250348",
+               "5M pasd"
+            ],
+            [
+               "2250368",
+               "1M pasd"
+            ],
+            [
+               "2250369",
+               "0S pasd"
+            ],
+            [
+               "2250370",
+               "0S pasd"
+            ],
+            [
+               "2250371",
+               "1M pasd"
+            ],
+            [
+               "2250373",
+               "0S pasd"
+            ],
+            [
+               "2250372",
+               "0S pasd"
+            ],
+            [
+               "2250564",
+               "1M pasd"
+            ],
+            [
+               "225076",
+               "2M pasd"
+            ],
+            [
+               "225077",
+               "0S pasd"
+            ],
+            [
+               "225078",
+               "0S pasd"
+            ],
+            [
+               "225079",
+               "1M pasd"
+            ],
+            [
+               "2250538",
+               "0S pasd"
+            ],
+            [
+               "2250540",
+               "0S pasd"
+            ],
+            [
+               "2250537",
+               "1M pasd"
+            ],
+            [
+               "225083",
+               "1M pasd"
+            ],
+            [
+               "225084",
+               "1M pasd"
+            ],
+            [
+               "225085",
+               "0S pasd"
+            ],
+            [
+               "225042",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-4-R-3",
+         "route" : {
+            "name" : "Wisemans Ferry Rd (Somersby PS) - Gosford Station",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-3",
+            "id" : "R_93-33-_-sj2-1-R-3"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-5-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-5-b0195",
+      "leaves" : "16:30:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250288",
+               null
+            ],
+            [
+               "2250289",
+               "0S pasd"
+            ],
+            [
+               "2250290",
+               "0S pasd"
+            ],
+            [
+               "2250291",
+               "1M pasd"
+            ],
+            [
+               "2250292",
+               "0S pasd"
+            ],
+            [
+               "2250293",
+               "0S pasd"
+            ],
+            [
+               "2250294",
+               "1M pasd"
+            ],
+            [
+               "2250295",
+               "1M pasd"
+            ],
+            [
+               "2250296",
+               "1M pasd"
+            ],
+            [
+               "2250774",
+               "0S pasd"
+            ],
+            [
+               "2250655",
+               "1M pasd"
+            ],
+            [
+               "2250345",
+               "1M pasd"
+            ],
+            [
+               "2250346",
+               "1M pasd"
+            ],
+            [
+               "2250347",
+               "0S pasd"
+            ],
+            [
+               "2250348",
+               "7M pasd"
+            ],
+            [
+               "2250368",
+               "1M pasd"
+            ],
+            [
+               "2250369",
+               "0S pasd"
+            ],
+            [
+               "2250370",
+               "0S pasd"
+            ],
+            [
+               "2250371",
+               "1M pasd"
+            ],
+            [
+               "2250373",
+               "0S pasd"
+            ],
+            [
+               "2250372",
+               "1M pasd"
+            ],
+            [
+               "2250564",
+               "0S pasd"
+            ],
+            [
+               "225076",
+               "3M pasd"
+            ],
+            [
+               "225077",
+               "0S pasd"
+            ],
+            [
+               "225078",
+               "0S pasd"
+            ],
+            [
+               "225079",
+               "1M pasd"
+            ],
+            [
+               "2250538",
+               "0S pasd"
+            ],
+            [
+               "2250540",
+               "0S pasd"
+            ],
+            [
+               "2250537",
+               "1M pasd"
+            ],
+            [
+               "225083",
+               "1M pasd"
+            ],
+            [
+               "225084",
+               "1M pasd"
+            ],
+            [
+               "225085",
+               "1M pasd"
+            ],
+            [
+               "225042",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Pile Rd (After Pacific Hwy) - Gosford Station",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-1",
+            "id" : "R_93-33-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-2-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-2-b0195",
+      "leaves" : "06:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225042",
+               null
+            ],
+            [
+               "225091",
+               "1M pasd"
+            ],
+            [
+               "225092",
+               "1M pasd"
+            ],
+            [
+               "225093",
+               "0S pasd"
+            ],
+            [
+               "225094",
+               "1M pasd"
+            ],
+            [
+               "225095",
+               "0S pasd"
+            ],
+            [
+               "225096",
+               "0S pasd"
+            ],
+            [
+               "225097",
+               "1M pasd"
+            ],
+            [
+               "225098",
+               "0S pasd"
+            ],
+            [
+               "2250565",
+               "1M pasd"
+            ],
+            [
+               "2250363",
+               "0S pasd"
+            ],
+            [
+               "2250364",
+               "1M pasd"
+            ],
+            [
+               "2250365",
+               "0S pasd"
+            ],
+            [
+               "2250366",
+               "1M pasd"
+            ],
+            [
+               "2250367",
+               "2M pasd"
+            ],
+            [
+               "2250259",
+               "1M pasd"
+            ],
+            [
+               "2250260",
+               "3M pasd"
+            ],
+            [
+               "2250261",
+               "1M pasd"
+            ],
+            [
+               "2250284",
+               "0S pasd"
+            ],
+            [
+               "2250646",
+               "1M pasd"
+            ],
+            [
+               "2250773",
+               "1M pasd"
+            ],
+            [
+               "2250647",
+               "0S pasd"
+            ],
+            [
+               "2250648",
+               "2M pasd"
+            ],
+            [
+               "2250649",
+               "1M pasd"
+            ],
+            [
+               "2250650",
+               "1M pasd"
+            ],
+            [
+               "2250651",
+               "0S pasd"
+            ],
+            [
+               "2250652",
+               "1M pasd"
+            ],
+            [
+               "2250653",
+               "0S pasd"
+            ],
+            [
+               "2250654",
+               "1M pasd"
+            ],
+            [
+               "2250287",
+               "0S pasd"
+            ],
+            [
+               "2250285",
+               "1M pasd"
+            ],
+            [
+               "2250297",
+               "1M pasd"
+            ],
+            [
+               "2250298",
+               "1M pasd"
+            ],
+            [
+               "2250299",
+               "1M pasd"
+            ],
+            [
+               "2250300",
+               "1M pasd"
+            ],
+            [
+               "2250301",
+               "1M pasd"
+            ],
+            [
+               "2250302",
+               "1M pasd"
+            ],
+            [
+               "2250303",
+               "1M pasd"
+            ],
+            [
+               "2250304",
+               "2M pasd"
+            ],
+            [
+               "2250305",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Gosford Station - Opposite Summersby Public School Wisemans Ferry",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-2",
+            "id" : "R_93-33-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-4-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-4-b0195",
+      "leaves" : "06:56:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "225042",
+               null
+            ],
+            [
+               "225091",
+               "1M pasd"
+            ],
+            [
+               "225092",
+               "1M pasd"
+            ],
+            [
+               "225093",
+               "0S pasd"
+            ],
+            [
+               "225094",
+               "1M pasd"
+            ],
+            [
+               "225095",
+               "0S pasd"
+            ],
+            [
+               "225096",
+               "0S pasd"
+            ],
+            [
+               "225097",
+               "1M pasd"
+            ],
+            [
+               "225098",
+               "0S pasd"
+            ],
+            [
+               "2250565",
+               "1M pasd"
+            ],
+            [
+               "2250363",
+               "0S pasd"
+            ],
+            [
+               "2250364",
+               "1M pasd"
+            ],
+            [
+               "2250365",
+               "0S pasd"
+            ],
+            [
+               "2250366",
+               "1M pasd"
+            ],
+            [
+               "2250367",
+               "2M pasd"
+            ],
+            [
+               "2250259",
+               "1M pasd"
+            ],
+            [
+               "2250260",
+               "3M pasd"
+            ],
+            [
+               "2250261",
+               "1M pasd"
+            ],
+            [
+               "2250284",
+               "0S pasd"
+            ],
+            [
+               "2250646",
+               "1M pasd"
+            ],
+            [
+               "2250773",
+               "1M pasd"
+            ],
+            [
+               "2250647",
+               "0S pasd"
+            ],
+            [
+               "2250648",
+               "2M pasd"
+            ],
+            [
+               "2250649",
+               "1M pasd"
+            ],
+            [
+               "2250650",
+               "1M pasd"
+            ],
+            [
+               "2250651",
+               "0S pasd"
+            ],
+            [
+               "2250652",
+               "1M pasd"
+            ],
+            [
+               "2250653",
+               "0S pasd"
+            ],
+            [
+               "2250654",
+               "1M pasd"
+            ],
+            [
+               "2250287",
+               "0S pasd"
+            ],
+            [
+               "2250285",
+               "1M pasd"
+            ],
+            [
+               "2250297",
+               "1M pasd"
+            ],
+            [
+               "2250298",
+               "1M pasd"
+            ],
+            [
+               "2250299",
+               "1M pasd"
+            ],
+            [
+               "2250300",
+               "1M pasd"
+            ],
+            [
+               "2250301",
+               "1M pasd"
+            ],
+            [
+               "2250302",
+               "1M pasd"
+            ],
+            [
+               "2250303",
+               "1M pasd"
+            ],
+            [
+               "2250304",
+               "2M pasd"
+            ],
+            [
+               "2250305",
+               "2M pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-2-R-2",
+         "route" : {
+            "name" : "Gosford Station - Opposite Summersby Public School Wisemans Ferry",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-2",
+            "id" : "R_93-33-_-sj2-1-R-2"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-3-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-3-b0195",
+      "leaves" : "15:45:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250288",
+               null
+            ],
+            [
+               "2250289",
+               "0S pasd"
+            ],
+            [
+               "2250290",
+               "0S pasd"
+            ],
+            [
+               "2250291",
+               "1M pasd"
+            ],
+            [
+               "2250292",
+               "0S pasd"
+            ],
+            [
+               "2250293",
+               "0S pasd"
+            ],
+            [
+               "2250294",
+               "1M pasd"
+            ],
+            [
+               "2250295",
+               "1M pasd"
+            ],
+            [
+               "2250296",
+               "1M pasd"
+            ],
+            [
+               "2250774",
+               "0S pasd"
+            ],
+            [
+               "2250655",
+               "1M pasd"
+            ],
+            [
+               "2250345",
+               "1M pasd"
+            ],
+            [
+               "2250346",
+               "1M pasd"
+            ],
+            [
+               "2250347",
+               "0S pasd"
+            ],
+            [
+               "2250348",
+               "7M pasd"
+            ],
+            [
+               "2250368",
+               "1M pasd"
+            ],
+            [
+               "2250369",
+               "0S pasd"
+            ],
+            [
+               "2250370",
+               "0S pasd"
+            ],
+            [
+               "2250371",
+               "1M pasd"
+            ],
+            [
+               "2250373",
+               "0S pasd"
+            ],
+            [
+               "2250372",
+               "1M pasd"
+            ],
+            [
+               "2250564",
+               "0S pasd"
+            ],
+            [
+               "225076",
+               "3M pasd"
+            ],
+            [
+               "225077",
+               "0S pasd"
+            ],
+            [
+               "225078",
+               "0S pasd"
+            ],
+            [
+               "225079",
+               "1M pasd"
+            ],
+            [
+               "2250538",
+               "0S pasd"
+            ],
+            [
+               "2250540",
+               "0S pasd"
+            ],
+            [
+               "2250537",
+               "1M pasd"
+            ],
+            [
+               "225083",
+               "1M pasd"
+            ],
+            [
+               "225084",
+               "1M pasd"
+            ],
+            [
+               "225085",
+               "1M pasd"
+            ],
+            [
+               "225042",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Pile Rd (After Pacific Hwy) - Gosford Station",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-1",
+            "id" : "R_93-33-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-6-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-6-b0195",
+      "leaves" : "17:00:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250288",
+               null
+            ],
+            [
+               "2250289",
+               "0S pasd"
+            ],
+            [
+               "2250290",
+               "0S pasd"
+            ],
+            [
+               "2250291",
+               "1M pasd"
+            ],
+            [
+               "2250292",
+               "0S pasd"
+            ],
+            [
+               "2250293",
+               "0S pasd"
+            ],
+            [
+               "2250294",
+               "1M pasd"
+            ],
+            [
+               "2250295",
+               "1M pasd"
+            ],
+            [
+               "2250296",
+               "1M pasd"
+            ],
+            [
+               "2250774",
+               "0S pasd"
+            ],
+            [
+               "2250655",
+               "1M pasd"
+            ],
+            [
+               "2250345",
+               "1M pasd"
+            ],
+            [
+               "2250346",
+               "1M pasd"
+            ],
+            [
+               "2250347",
+               "0S pasd"
+            ],
+            [
+               "2250348",
+               "7M pasd"
+            ],
+            [
+               "2250368",
+               "1M pasd"
+            ],
+            [
+               "2250369",
+               "0S pasd"
+            ],
+            [
+               "2250370",
+               "0S pasd"
+            ],
+            [
+               "2250371",
+               "1M pasd"
+            ],
+            [
+               "2250373",
+               "0S pasd"
+            ],
+            [
+               "2250372",
+               "1M pasd"
+            ],
+            [
+               "2250564",
+               "0S pasd"
+            ],
+            [
+               "225076",
+               "3M pasd"
+            ],
+            [
+               "225077",
+               "0S pasd"
+            ],
+            [
+               "225078",
+               "0S pasd"
+            ],
+            [
+               "225079",
+               "1M pasd"
+            ],
+            [
+               "2250538",
+               "0S pasd"
+            ],
+            [
+               "2250540",
+               "0S pasd"
+            ],
+            [
+               "2250537",
+               "1M pasd"
+            ],
+            [
+               "225083",
+               "1M pasd"
+            ],
+            [
+               "225084",
+               "1M pasd"
+            ],
+            [
+               "225085",
+               "0S pasd"
+            ],
+            [
+               "225042",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Pile Rd (After Pacific Hwy) - Gosford Station",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-1",
+            "id" : "R_93-33-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   },
+   "VJ_93-33-_-sj2-1-8-b0195" : {
+      "vjcode" : "VJ_93-33-_-sj2-1-8-b0195",
+      "leaves" : "16:05:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "2250288",
+               null
+            ],
+            [
+               "2250289",
+               "0S pasd"
+            ],
+            [
+               "2250290",
+               "0S pasd"
+            ],
+            [
+               "2250291",
+               "1M pasd"
+            ],
+            [
+               "2250292",
+               "0S pasd"
+            ],
+            [
+               "2250293",
+               "0S pasd"
+            ],
+            [
+               "2250294",
+               "1M pasd"
+            ],
+            [
+               "2250295",
+               "1M pasd"
+            ],
+            [
+               "2250296",
+               "1M pasd"
+            ],
+            [
+               "2250774",
+               "0S pasd"
+            ],
+            [
+               "2250655",
+               "1M pasd"
+            ],
+            [
+               "2250345",
+               "1M pasd"
+            ],
+            [
+               "2250346",
+               "1M pasd"
+            ],
+            [
+               "2250347",
+               "0S pasd"
+            ],
+            [
+               "2250348",
+               "7M pasd"
+            ],
+            [
+               "2250368",
+               "1M pasd"
+            ],
+            [
+               "2250369",
+               "0S pasd"
+            ],
+            [
+               "2250370",
+               "0S pasd"
+            ],
+            [
+               "2250371",
+               "1M pasd"
+            ],
+            [
+               "2250373",
+               "0S pasd"
+            ],
+            [
+               "2250372",
+               "1M pasd"
+            ],
+            [
+               "2250564",
+               "0S pasd"
+            ],
+            [
+               "225076",
+               "3M pasd"
+            ],
+            [
+               "225077",
+               "0S pasd"
+            ],
+            [
+               "225078",
+               "0S pasd"
+            ],
+            [
+               "225079",
+               "1M pasd"
+            ],
+            [
+               "2250538",
+               "0S pasd"
+            ],
+            [
+               "2250540",
+               "0S pasd"
+            ],
+            [
+               "2250537",
+               "1M pasd"
+            ],
+            [
+               "225083",
+               "1M pasd"
+            ],
+            [
+               "225084",
+               "1M pasd"
+            ],
+            [
+               "225085",
+               "1M pasd"
+            ],
+            [
+               "225042",
+               "1M pasd"
+            ]
+         ],
+         "id" : "JP_93-33-_-sj2-1-3-R-1",
+         "route" : {
+            "name" : "Pile Rd (After Pacific Hwy) - Gosford Station",
+            "rs_ref" : "RS_93-33-_-sj2-1-R-1",
+            "id" : "R_93-33-_-sj2-1-R-1"
+         }
+      },
+      "service" : "93-33-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "33"
+   }
+}
+;
+

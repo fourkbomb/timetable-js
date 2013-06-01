@@ -1,0 +1,1742 @@
+var OPERATOR = "Red Bus Service";
+
+
+var LINES = {
+   "29-47-_-sj2-1" : "47"
+}
+;
+
+var stations = {
+   "225825" : "Pacific Hwy - No.159 (Beforer Ourimbah Creek Rd)",
+   "2261139" : "Wyong Rd opp Adelaide St",
+   "225853" : "Chittaway Rd",
+   "225878" : "Enterprise Dr and Chittaway Rd",
+   "2261171" : "Wyong Rd before Cornish Av",
+   "2261308" : "Wyong Rd at Kilkenny Pde",
+   "225822" : "Pacific Hwy at Burns Rd",
+   "2261311" : "Berkeley Rd opp Tlsc Berkeley Vale",
+   "2261104" : "Wyong Rd before Mingara Dr",
+   "2259689" : "Pacific Hwy at Tambelin St",
+   "225819" : "Pacific Hwy near Teralba St",
+   "225831" : "Shirley St at The Boulevarde",
+   "2261210" : "Wyong Rd at Kathleen White Cr",
+   "2261167" : "Wyong Rd at Norton Av",
+   "2259595" : "Mardi Rd Mcpherson Rd Near Mardi Rd",
+   "2258100" : "Preston Rd at Old Tuggerah Rd",
+   "2261169" : "Wyong Rd at Adelaide St",
+   "225896" : "Brownlee St at Ourimbah EAST",
+   "225875" : "Catamaran Rd Enterprise Dr near",
+   "2261170" : "Wyong Rd opp Mackay Dr",
+   "225811" : "Pacific Hwy at Ourimbah WEST",
+   "2261164" : "Wyong Rd at Killarney St",
+   "2261234" : "Wyong Rd opp Kilkenny Pde",
+   "225859" : "Pacific Hwy opp Palmdale Rd",
+   "2259627" : "Pacific Hwy at Johnson Rd",
+   "225815" : "Pacific Hwy at Chittaway Rd",
+   "225876" : "University of Newcastle_ The Boulevarde",
+   "2259596" : "Overpass Mcpherson Rd near Sydney Newcastle Fwy",
+   "2261216" : "Wyong Rd opp Killarney St",
+   "2261462" : "Wyong Rd near The Entrance Rd",
+   "2261217" : "Wyong Rd opp Cornish Av",
+   "2261215" : "Wyong Rd at South St",
+   "225820" : "Pacific Hwy near Walmsley Rd",
+   "2250134" : "Pacific Hwy near Teralba St",
+   "2261212" : "Wyong Rd opp Norton Av",
+   "225830" : "Shirley St opp Ourimbah St",
+   "226135" : "Bateau Bay Square BAY VILLAGE",
+   "225946" : "Alison Rd at WYONG HS",
+   "225067" : "Pacific Hwy near Ourimbah St",
+   "2259598" : "Old Maitland Rd Cobbs Rd",
+   "225082" : "Opposite Lisarow Pacific Hwy",
+   "2261168" : "Wyong Rd at Armstrong Av",
+   "2259597" : "Mardi Dam Old Maitland Rd",
+   "225863" : "Pacific Hwy at Old Tuggerah Rd",
+   "225823" : "Pacific Hwy at OURIMBAH PS",
+   "2261394" : "Wyong Rd near Pindarri Ave",
+   "225827" : "225 Pacific Hwy",
+   "2250132" : "Pacific Hwy near Dora St",
+   "2261396" : "Wyong Rd near Main St",
+   "2259869" : "Pac Hwy after South Tacoma Rd",
+   "225813" : "Pacific Hwy (Opp.Ourimbah Station)",
+   "2261476" : "Wyong Rd near Beckingham Rd",
+   "225817" : "Pacific Hwy (Opp.Glen Rd - Opp.Ourimbah Shops)",
+   "225816" : "Pacific Hwy op No 225 OURIMBAH",
+   "225826" : "Pacific Hwy near Burns Rd",
+   "2259382" : "Porters Creek Alison Rd",
+   "2261233" : "Wyong Rd Near Pindarri Av",
+   "2250133" : "Pacific Hwy near Ourimbah St",
+   "225824" : "Pacific Hwy near Dog Trap Rd",
+   "2259873" : "Old Maitland Rd near McPherson Rd",
+   "225814" : "Pacific Hwy near Chittaway Rd",
+   "225861" : "Pacific Hwy Opp Bridge St",
+   "225913" : "Pacific Hwy opp Tuggerah Station",
+   "225849" : "Chittaway Rd near The Boulevarde",
+   "2259871" : "Westfield Tuggerah Stand Redbus",
+   "225922" : "Wyong Station",
+   "2261213" : "Wyong Rd at Shortland Av",
+   "2261363" : "CC Hwy opp TLSC The Entrance",
+   "225848" : "Shirley St at Ourimbah St",
+   "225858" : "Pacific Hwy at Bridge St",
+   "225828" : "Brownlee St opp Ourimbah Stn EAST",
+   "225898" : "End of Liza Close FOUNTAINDALE",
+   "2259600" : "Old Maitland Rd",
+   "2261385" : "Wyong Rd after Cornish Av",
+   "2259867" : "Tuggerah PS",
+   "2261211" : "Wyong Rd at Tasman Av",
+   "226134" : "CC Hwy at Tlsc The Entrance",
+   "2261138" : "Wyong Rd at Mackay Dr",
+   "225862" : "Pacific Hwy at Old Maitland Rd",
+   "2259599" : "Cobbs Rd Old Maitland Rd",
+   "2261214" : "Wyong Rd opp Davidson Av",
+   "2261397" : "Wyong Rd near Pindarri Ave",
+   "2261402" : "Wyong Rd after Bundilla Pde",
+   "2259502" : "Mardi Rd Mcpherson Rd Near Mardi Rd",
+   "225860" : "Pacific Hwy at Palmdale Rd",
+   "2261395" : "Wyong Rd near Central Coast Hwy",
+   "2250541" : "Pacific Hwy near Railway Cr",
+   "225857" : "Pacific Hwy opp Old Maitland Rd",
+   "2261379" : "Wyong Rd near Tumbi Creek Rd",
+   "2261165" : "Wyong Rd at Davidson Av",
+   "2259874" : "Old Maitland Rd near McPherson Rd",
+   "2261314" : "Berkeley Rd at Tlsc BERKELEY VALE",
+   "225869" : "Liza Cl near Berrys La",
+   "2261309" : "Wyong Rd Near Pindarri Av",
+   "225855" : "Pacific Hwy at Yates Rd",
+   "2261479" : "Wyong Rd after Mingara Dr",
+   "225868" : "Berrys La near Peach Orchard Rd",
+   "2261312" : "Berkeley Rd at Corona Lane",
+   "2259688" : "Pacific Hwy opp Tambelin St",
+   "225874" : "Old Chittaway Rd Enterprise Dr",
+   "2261477" : "Wyong Rd at Tumbi Creek Rd",
+   "2261310" : "Wyong Rd Before Beckingham Rd",
+   "225829" : "Ourimbah University",
+   "225914" : "Pacific Hwy after Mildon Rd",
+   "2261232" : "Wyong Rd after Beckingham Rd",
+   "225821" : "Pacific Hwy (Before Glen Rd - Ourimbah Shops)",
+   "2261166" : "Wyong Rd at Boorana Cl",
+   "2261313" : "Berkeley Rd opp Corona Ln",
+   "225847" : "Shirley St opp Ourimbah University",
+   "2259357" : "Pacific Hwy opp TUGGERAH PS",
+   "2261235" : "Wyong Rd at Palm Springs Av",
+   "2261378" : "Wyong Rd near South St",
+   "225081" : "Lisarow Station",
+   "2259601" : "Mcpherson Rd Sydney Newcastle Fwy",
+   "225851" : "Pacific Hwy near Walmsley Rd",
+   "225856" : "Pacific Hwy opp Old Tuggerah Rd",
+   "2259348" : "Tuggerah Primary School Pacific Hwy",
+   "225867" : "Peach Orchard Rd at Orange Rd"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_29-47-_-sj2-1-1-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-1-TA",
+      "leaves" : "11:26:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226135",
+               null
+            ],
+            [
+               "2261363",
+               "39S pasd"
+            ],
+            [
+               "2261462",
+               "33S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "40S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261378",
+               "7S pasd"
+            ],
+            [
+               "2261396",
+               "2S pasd"
+            ],
+            [
+               "2261216",
+               "12S pasd"
+            ],
+            [
+               "2261217",
+               "21S pasd"
+            ],
+            [
+               "2261138",
+               "21S pasd"
+            ],
+            [
+               "2261139",
+               "21S pasd"
+            ],
+            [
+               "2261104",
+               "25S pasd"
+            ],
+            [
+               "2261479",
+               "11S pasd"
+            ],
+            [
+               "2261476",
+               "35S pasd"
+            ],
+            [
+               "2261232",
+               "13S pasd"
+            ],
+            [
+               "2261233",
+               "40S pasd"
+            ],
+            [
+               "2261397",
+               "21S pasd"
+            ],
+            [
+               "2261234",
+               "21S pasd"
+            ],
+            [
+               "2261235",
+               "41S pasd"
+            ],
+            [
+               "2261311",
+               "33S pasd"
+            ],
+            [
+               "2261312",
+               "36S pasd"
+            ],
+            [
+               "225878",
+               "4M pasd"
+            ],
+            [
+               "225849",
+               "3M40S pasd"
+            ],
+            [
+               "225829",
+               "1M20S pasd"
+            ],
+            [
+               "225847",
+               "29S pasd"
+            ],
+            [
+               "225848",
+               "19S pasd"
+            ],
+            [
+               "225896",
+               "12S pasd"
+            ],
+            [
+               "225811",
+               "2M pasd"
+            ],
+            [
+               "225813",
+               "9S pasd"
+            ],
+            [
+               "225823",
+               "1M51S pasd"
+            ],
+            [
+               "225824",
+               "1M14S pasd"
+            ],
+            [
+               "225825",
+               "34S pasd"
+            ],
+            [
+               "225826",
+               "1M12S pasd"
+            ],
+            [
+               "225827",
+               "1M24S pasd"
+            ],
+            [
+               "225860",
+               "36S pasd"
+            ],
+            [
+               "225861",
+               "19S pasd"
+            ],
+            [
+               "225862",
+               "41S pasd"
+            ],
+            [
+               "225863",
+               "1M4S pasd"
+            ],
+            [
+               "2259357",
+               "4M1S pasd"
+            ],
+            [
+               "2259688",
+               "1M5S pasd"
+            ],
+            [
+               "2259871",
+               "1M5S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Bateau Bay Square BAY VILLAGE - Westfield Tuggerah",
+            "rs_ref" : "RS_29-47-_-sj2-1-R-1",
+            "id" : "R_29-47-_-sj2-1-R-1"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-4-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-4-TA",
+      "leaves" : "08:25:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "225946",
+               "1M22S pasd"
+            ],
+            [
+               "2259382",
+               "1M36S pasd"
+            ],
+            [
+               "2259874",
+               "5M4S pasd"
+            ],
+            [
+               "2259597",
+               "2M2S pasd"
+            ],
+            [
+               "2259598",
+               "2M5S pasd"
+            ],
+            [
+               "2259871",
+               "2M51S pasd"
+            ],
+            [
+               "2259689",
+               "47S pasd"
+            ],
+            [
+               "2259348",
+               "58S pasd"
+            ],
+            [
+               "225856",
+               "3M20S pasd"
+            ],
+            [
+               "225857",
+               "55S pasd"
+            ],
+            [
+               "225858",
+               "41S pasd"
+            ],
+            [
+               "225859",
+               "19S pasd"
+            ],
+            [
+               "225816",
+               "34S pasd"
+            ],
+            [
+               "225822",
+               "1M26S pasd"
+            ],
+            [
+               "225855",
+               "38S pasd"
+            ],
+            [
+               "225814",
+               "1M7S pasd"
+            ],
+            [
+               "225815",
+               "1M29S pasd"
+            ],
+            [
+               "225811",
+               "1M46S pasd"
+            ],
+            [
+               "225813",
+               "36S pasd"
+            ],
+            [
+               "225828",
+               "2M24S pasd"
+            ],
+            [
+               "225830",
+               "7S pasd"
+            ],
+            [
+               "225831",
+               "13S pasd"
+            ],
+            [
+               "225853",
+               "40S pasd"
+            ],
+            [
+               "225874",
+               "4M pasd"
+            ],
+            [
+               "225875",
+               "3M3S pasd"
+            ],
+            [
+               "2261313",
+               "2M57S pasd"
+            ],
+            [
+               "2261314",
+               "38S pasd"
+            ],
+            [
+               "2261402",
+               "32S pasd"
+            ],
+            [
+               "2261308",
+               "50S pasd"
+            ],
+            [
+               "2261394",
+               "26S pasd"
+            ],
+            [
+               "2261309",
+               "23S pasd"
+            ],
+            [
+               "2261310",
+               "48S pasd"
+            ],
+            [
+               "2261477",
+               "53S pasd"
+            ],
+            [
+               "2261379",
+               "11S pasd"
+            ],
+            [
+               "2261169",
+               "25S pasd"
+            ],
+            [
+               "2261170",
+               "14S pasd"
+            ],
+            [
+               "2261171",
+               "29S pasd"
+            ],
+            [
+               "2261385",
+               "16S pasd"
+            ],
+            [
+               "2261164",
+               "19S pasd"
+            ],
+            [
+               "2261165",
+               "36S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "51S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-4-H-4",
+         "route" : {
+            "name" : "Wyong Station - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-47-_-sj2-1-H-4",
+            "id" : "R_29-47-_-sj2-1-H-4"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-6-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-6-TA",
+      "leaves" : "15:40:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "225922",
+               null
+            ],
+            [
+               "2259595",
+               "5M59S pasd"
+            ],
+            [
+               "2259596",
+               "4M1S pasd"
+            ],
+            [
+               "2259874",
+               "5M21S pasd"
+            ],
+            [
+               "2259597",
+               "4M18S pasd"
+            ],
+            [
+               "2259598",
+               "4M23S pasd"
+            ],
+            [
+               "2259871",
+               "5M58S pasd"
+            ],
+            [
+               "2259689",
+               "39S pasd"
+            ],
+            [
+               "2259348",
+               "48S pasd"
+            ],
+            [
+               "225856",
+               "2M47S pasd"
+            ],
+            [
+               "225857",
+               "46S pasd"
+            ],
+            [
+               "225858",
+               "2M44S pasd"
+            ],
+            [
+               "225859",
+               "1M16S pasd"
+            ],
+            [
+               "225816",
+               "17S pasd"
+            ],
+            [
+               "225822",
+               "43S pasd"
+            ],
+            [
+               "225855",
+               "30S pasd"
+            ],
+            [
+               "225814",
+               "53S pasd"
+            ],
+            [
+               "225815",
+               "1M11S pasd"
+            ],
+            [
+               "225811",
+               "1M26S pasd"
+            ],
+            [
+               "225813",
+               "1M pasd"
+            ],
+            [
+               "225828",
+               "4M pasd"
+            ],
+            [
+               "225830",
+               "7S pasd"
+            ],
+            [
+               "225831",
+               "13S pasd"
+            ],
+            [
+               "225853",
+               "40S pasd"
+            ],
+            [
+               "225867",
+               "3M43S pasd"
+            ],
+            [
+               "225869",
+               "1M17S pasd"
+            ],
+            [
+               "225898",
+               "16S pasd"
+            ],
+            [
+               "225868",
+               "46S pasd"
+            ],
+            [
+               "225874",
+               "1M58S pasd"
+            ],
+            [
+               "225875",
+               "2M32S pasd"
+            ],
+            [
+               "2261313",
+               "2M28S pasd"
+            ],
+            [
+               "2261314",
+               "44S pasd"
+            ],
+            [
+               "2261402",
+               "37S pasd"
+            ],
+            [
+               "2261308",
+               "58S pasd"
+            ],
+            [
+               "2261394",
+               "30S pasd"
+            ],
+            [
+               "2261309",
+               "27S pasd"
+            ],
+            [
+               "2261310",
+               "54S pasd"
+            ],
+            [
+               "2261477",
+               "1M1S pasd"
+            ],
+            [
+               "2261379",
+               "12S pasd"
+            ],
+            [
+               "2261169",
+               "29S pasd"
+            ],
+            [
+               "2261170",
+               "16S pasd"
+            ],
+            [
+               "2261171",
+               "33S pasd"
+            ],
+            [
+               "2261385",
+               "18S pasd"
+            ],
+            [
+               "2261164",
+               "22S pasd"
+            ],
+            [
+               "2261165",
+               "39S pasd"
+            ],
+            [
+               "2261166",
+               "38S pasd"
+            ],
+            [
+               "2261167",
+               "47S pasd"
+            ],
+            [
+               "2261168",
+               "40S pasd"
+            ],
+            [
+               "2261395",
+               "34S pasd"
+            ],
+            [
+               "226134",
+               "41S pasd"
+            ],
+            [
+               "226135",
+               "41S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-6-H-6",
+         "route" : {
+            "name" : "Wyong Station - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-47-_-sj2-1-H-6",
+            "id" : "R_29-47-_-sj2-1-H-6"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-5-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-5-TA",
+      "leaves" : "07:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226135",
+               null
+            ],
+            [
+               "2261363",
+               "39S pasd"
+            ],
+            [
+               "2261462",
+               "33S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "40S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261378",
+               "7S pasd"
+            ],
+            [
+               "2261396",
+               "2S pasd"
+            ],
+            [
+               "2261216",
+               "12S pasd"
+            ],
+            [
+               "2261217",
+               "21S pasd"
+            ],
+            [
+               "2261138",
+               "21S pasd"
+            ],
+            [
+               "2261139",
+               "21S pasd"
+            ],
+            [
+               "2261104",
+               "25S pasd"
+            ],
+            [
+               "2261479",
+               "11S pasd"
+            ],
+            [
+               "2261476",
+               "35S pasd"
+            ],
+            [
+               "2261232",
+               "13S pasd"
+            ],
+            [
+               "2261233",
+               "40S pasd"
+            ],
+            [
+               "2261397",
+               "21S pasd"
+            ],
+            [
+               "2261234",
+               "21S pasd"
+            ],
+            [
+               "2261235",
+               "41S pasd"
+            ],
+            [
+               "2261311",
+               "33S pasd"
+            ],
+            [
+               "2261312",
+               "36S pasd"
+            ],
+            [
+               "225878",
+               "5M pasd"
+            ],
+            [
+               "225867",
+               "2M33S pasd"
+            ],
+            [
+               "225869",
+               "1M27S pasd"
+            ],
+            [
+               "225898",
+               "30S pasd"
+            ],
+            [
+               "225868",
+               "1M27S pasd"
+            ],
+            [
+               "225849",
+               "4M11S pasd"
+            ],
+            [
+               "225829",
+               "52S pasd"
+            ],
+            [
+               "225847",
+               "29S pasd"
+            ],
+            [
+               "225848",
+               "19S pasd"
+            ],
+            [
+               "225896",
+               "12S pasd"
+            ],
+            [
+               "225811",
+               "2M pasd"
+            ],
+            [
+               "225813",
+               "5S pasd"
+            ],
+            [
+               "225823",
+               "1M6S pasd"
+            ],
+            [
+               "225824",
+               "44S pasd"
+            ],
+            [
+               "225825",
+               "20S pasd"
+            ],
+            [
+               "225826",
+               "45S pasd"
+            ],
+            [
+               "225827",
+               "1M24S pasd"
+            ],
+            [
+               "225860",
+               "36S pasd"
+            ],
+            [
+               "225861",
+               "39S pasd"
+            ],
+            [
+               "225862",
+               "1M21S pasd"
+            ],
+            [
+               "225863",
+               "46S pasd"
+            ],
+            [
+               "2258100",
+               "47S pasd"
+            ],
+            [
+               "2259357",
+               "3M1S pasd"
+            ],
+            [
+               "2259867",
+               "8S pasd"
+            ],
+            [
+               "2259688",
+               "40S pasd"
+            ],
+            [
+               "2259871",
+               "38S pasd"
+            ],
+            [
+               "2259599",
+               "3M14S pasd"
+            ],
+            [
+               "2259600",
+               "2M23S pasd"
+            ],
+            [
+               "2259873",
+               "1M49S pasd"
+            ],
+            [
+               "2259601",
+               "2M38S pasd"
+            ],
+            [
+               "2259502",
+               "1M58S pasd"
+            ],
+            [
+               "225922",
+               "1M58S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-5-R-5",
+         "route" : {
+            "name" : "Bateau Bay Square BAY VILLAGE - Wyong Station",
+            "rs_ref" : "RS_29-47-_-sj2-1-R-5",
+            "id" : "R_29-47-_-sj2-1-R-5"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-3-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-3-TA",
+      "leaves" : "14:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226135",
+               null
+            ],
+            [
+               "2261363",
+               "39S pasd"
+            ],
+            [
+               "2261462",
+               "33S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "40S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261396",
+               "10S pasd"
+            ],
+            [
+               "2261216",
+               "12S pasd"
+            ],
+            [
+               "2261217",
+               "21S pasd"
+            ],
+            [
+               "2261138",
+               "21S pasd"
+            ],
+            [
+               "2261139",
+               "21S pasd"
+            ],
+            [
+               "2261104",
+               "25S pasd"
+            ],
+            [
+               "2261479",
+               "11S pasd"
+            ],
+            [
+               "2261476",
+               "35S pasd"
+            ],
+            [
+               "2261232",
+               "13S pasd"
+            ],
+            [
+               "2261233",
+               "40S pasd"
+            ],
+            [
+               "2261397",
+               "21S pasd"
+            ],
+            [
+               "2261234",
+               "21S pasd"
+            ],
+            [
+               "2261235",
+               "41S pasd"
+            ],
+            [
+               "2261311",
+               "33S pasd"
+            ],
+            [
+               "2261312",
+               "35S pasd"
+            ],
+            [
+               "225878",
+               "4M pasd"
+            ],
+            [
+               "225849",
+               "3M40S pasd"
+            ],
+            [
+               "225829",
+               "1M20S pasd"
+            ],
+            [
+               "225847",
+               "29S pasd"
+            ],
+            [
+               "225848",
+               "19S pasd"
+            ],
+            [
+               "225896",
+               "12S pasd"
+            ],
+            [
+               "225811",
+               "2M pasd"
+            ],
+            [
+               "225813",
+               "9S pasd"
+            ],
+            [
+               "225823",
+               "1M51S pasd"
+            ],
+            [
+               "225824",
+               "1M14S pasd"
+            ],
+            [
+               "225825",
+               "34S pasd"
+            ],
+            [
+               "225826",
+               "1M12S pasd"
+            ],
+            [
+               "225827",
+               "1M24S pasd"
+            ],
+            [
+               "225860",
+               "36S pasd"
+            ],
+            [
+               "225861",
+               "19S pasd"
+            ],
+            [
+               "225862",
+               "41S pasd"
+            ],
+            [
+               "225863",
+               "1M4S pasd"
+            ],
+            [
+               "2259357",
+               "4M1S pasd"
+            ],
+            [
+               "2259688",
+               "1M5S pasd"
+            ],
+            [
+               "2259871",
+               "50S pasd"
+            ],
+            [
+               "225913",
+               "4M pasd"
+            ],
+            [
+               "225914",
+               "1M3S pasd"
+            ],
+            [
+               "2259627",
+               "1M6S pasd"
+            ],
+            [
+               "2259869",
+               "34S pasd"
+            ],
+            [
+               "225922",
+               "34S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-3-R-3",
+         "route" : {
+            "name" : "Bateau Bay Square BAY VILLAGE - Wyong Station",
+            "rs_ref" : "RS_29-47-_-sj2-1-R-3",
+            "id" : "R_29-47-_-sj2-1-R-3"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-7-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-7-TA",
+      "leaves" : "07:10:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "226135",
+               null
+            ],
+            [
+               "2261363",
+               "39S pasd"
+            ],
+            [
+               "2261462",
+               "33S pasd"
+            ],
+            [
+               "2261210",
+               "20S pasd"
+            ],
+            [
+               "2261211",
+               "26S pasd"
+            ],
+            [
+               "2261212",
+               "30S pasd"
+            ],
+            [
+               "2261213",
+               "40S pasd"
+            ],
+            [
+               "2261214",
+               "23S pasd"
+            ],
+            [
+               "2261215",
+               "29S pasd"
+            ],
+            [
+               "2261378",
+               "7S pasd"
+            ],
+            [
+               "2261396",
+               "2S pasd"
+            ],
+            [
+               "2261216",
+               "12S pasd"
+            ],
+            [
+               "2261217",
+               "21S pasd"
+            ],
+            [
+               "2261138",
+               "21S pasd"
+            ],
+            [
+               "2261139",
+               "21S pasd"
+            ],
+            [
+               "2261104",
+               "25S pasd"
+            ],
+            [
+               "2261479",
+               "11S pasd"
+            ],
+            [
+               "2261476",
+               "35S pasd"
+            ],
+            [
+               "2261232",
+               "13S pasd"
+            ],
+            [
+               "2261233",
+               "40S pasd"
+            ],
+            [
+               "2261397",
+               "21S pasd"
+            ],
+            [
+               "2261234",
+               "21S pasd"
+            ],
+            [
+               "2261235",
+               "41S pasd"
+            ],
+            [
+               "2261311",
+               "33S pasd"
+            ],
+            [
+               "2261312",
+               "36S pasd"
+            ],
+            [
+               "225878",
+               "10M pasd"
+            ],
+            [
+               "225867",
+               "3M11S pasd"
+            ],
+            [
+               "225869",
+               "1M49S pasd"
+            ],
+            [
+               "225898",
+               "39S pasd"
+            ],
+            [
+               "225868",
+               "1M52S pasd"
+            ],
+            [
+               "225849",
+               "5M23S pasd"
+            ],
+            [
+               "225829",
+               "1M6S pasd"
+            ],
+            [
+               "225847",
+               "58S pasd"
+            ],
+            [
+               "225848",
+               "39S pasd"
+            ],
+            [
+               "225896",
+               "23S pasd"
+            ],
+            [
+               "225811",
+               "2M pasd"
+            ],
+            [
+               "225817",
+               "19S pasd"
+            ],
+            [
+               "225851",
+               "30S pasd"
+            ],
+            [
+               "225819",
+               "1M35S pasd"
+            ],
+            [
+               "225067",
+               "44S pasd"
+            ],
+            [
+               "2250541",
+               "18S pasd"
+            ],
+            [
+               "225082",
+               "1M18S pasd"
+            ],
+            [
+               "225081",
+               "2S pasd"
+            ],
+            [
+               "2250132",
+               "1M10S pasd"
+            ],
+            [
+               "2250133",
+               "27S pasd"
+            ],
+            [
+               "2250134",
+               "33S pasd"
+            ],
+            [
+               "225820",
+               "1M33S pasd"
+            ],
+            [
+               "225821",
+               "29S pasd"
+            ],
+            [
+               "225813",
+               "31S pasd"
+            ],
+            [
+               "225823",
+               "55S pasd"
+            ],
+            [
+               "225824",
+               "36S pasd"
+            ],
+            [
+               "225825",
+               "17S pasd"
+            ],
+            [
+               "225826",
+               "43S pasd"
+            ],
+            [
+               "225827",
+               "1M24S pasd"
+            ],
+            [
+               "225860",
+               "36S pasd"
+            ],
+            [
+               "225861",
+               "59S pasd"
+            ],
+            [
+               "225862",
+               "2M1S pasd"
+            ],
+            [
+               "225863",
+               "1M18S pasd"
+            ],
+            [
+               "2258100",
+               "1M18S pasd"
+            ],
+            [
+               "2259357",
+               "5M3S pasd"
+            ],
+            [
+               "2259867",
+               "14S pasd"
+            ],
+            [
+               "2259688",
+               "1M6S pasd"
+            ],
+            [
+               "2259871",
+               "1M1S pasd"
+            ],
+            [
+               "2259599",
+               "3M40S pasd"
+            ],
+            [
+               "2259600",
+               "2M42S pasd"
+            ],
+            [
+               "2259873",
+               "2M4S pasd"
+            ],
+            [
+               "2259601",
+               "3M pasd"
+            ],
+            [
+               "2259502",
+               "2M14S pasd"
+            ],
+            [
+               "225922",
+               "2M14S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-7-R-7",
+         "route" : {
+            "name" : "Bateau Bay Square BAY VILLAGE - Wyong Station",
+            "rs_ref" : "RS_29-47-_-sj2-1-R-7",
+            "id" : "R_29-47-_-sj2-1-R-7"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   },
+   "VJ_29-47-_-sj2-1-2-TA" : {
+      "vjcode" : "VJ_29-47-_-sj2-1-2-TA",
+      "leaves" : "12:10:00",
+      "jpref" : {
+         "direction" : "outbound",
+         "jpatsect" : [
+            [
+               "2259871",
+               null
+            ],
+            [
+               "2259689",
+               "47S pasd"
+            ],
+            [
+               "2259348",
+               "58S pasd"
+            ],
+            [
+               "225856",
+               "3M20S pasd"
+            ],
+            [
+               "225857",
+               "55S pasd"
+            ],
+            [
+               "225858",
+               "41S pasd"
+            ],
+            [
+               "225859",
+               "19S pasd"
+            ],
+            [
+               "225816",
+               "34S pasd"
+            ],
+            [
+               "225822",
+               "1M26S pasd"
+            ],
+            [
+               "225855",
+               "38S pasd"
+            ],
+            [
+               "225814",
+               "1M7S pasd"
+            ],
+            [
+               "225815",
+               "1M29S pasd"
+            ],
+            [
+               "225811",
+               "1M46S pasd"
+            ],
+            [
+               "225813",
+               "36S pasd"
+            ],
+            [
+               "225828",
+               "2M24S pasd"
+            ],
+            [
+               "225830",
+               "12S pasd"
+            ],
+            [
+               "225831",
+               "20S pasd"
+            ],
+            [
+               "225876",
+               "28S pasd"
+            ],
+            [
+               "225853",
+               "44S pasd"
+            ],
+            [
+               "225874",
+               "3M16S pasd"
+            ],
+            [
+               "225875",
+               "3M3S pasd"
+            ],
+            [
+               "2261313",
+               "2M57S pasd"
+            ],
+            [
+               "2261314",
+               "38S pasd"
+            ],
+            [
+               "2261402",
+               "32S pasd"
+            ],
+            [
+               "2261308",
+               "50S pasd"
+            ],
+            [
+               "2261394",
+               "26S pasd"
+            ],
+            [
+               "2261309",
+               "23S pasd"
+            ],
+            [
+               "2261310",
+               "48S pasd"
+            ],
+            [
+               "2261477",
+               "53S pasd"
+            ],
+            [
+               "2261379",
+               "11S pasd"
+            ],
+            [
+               "2261169",
+               "25S pasd"
+            ],
+            [
+               "2261170",
+               "14S pasd"
+            ],
+            [
+               "2261171",
+               "29S pasd"
+            ],
+            [
+               "2261385",
+               "16S pasd"
+            ],
+            [
+               "2261164",
+               "19S pasd"
+            ],
+            [
+               "2261165",
+               "36S pasd"
+            ],
+            [
+               "2261166",
+               "48S pasd"
+            ],
+            [
+               "2261167",
+               "59S pasd"
+            ],
+            [
+               "2261168",
+               "50S pasd"
+            ],
+            [
+               "2261395",
+               "43S pasd"
+            ],
+            [
+               "226134",
+               "51S pasd"
+            ],
+            [
+               "226135",
+               "51S pasd"
+            ]
+         ],
+         "id" : "JP_29-47-_-sj2-1-2-H-2",
+         "route" : {
+            "name" : "Westfield Tuggerah - Bateau Bay Square BAY VILLAGE",
+            "rs_ref" : "RS_29-47-_-sj2-1-H-2",
+            "id" : "R_29-47-_-sj2-1-H-2"
+         }
+      },
+      "service" : "29-47-_-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "47"
+   }
+}
+;
+

@@ -1,0 +1,651 @@
+var OPERATOR = "Sydney Buses School Bus";
+
+
+var LINES = {
+   "99-688-c-sj2-1" : "688"
+}
+;
+
+var stations = {
+   "212189" : "Interchange Set Down",
+   "2066236" : "Epping Rd Nr Cox Lane",
+   "206513" : "Pacific Hwy Nr Christie St",
+   "206121" : "Alfred St near Glen St",
+   "2065109" : "Falcon St Nr Alexander St",
+   "206048" : "Miller St near Ridge St",
+   "211366" : "Coxs Rd Nr Chauvel St",
+   "2066242" : "Epping Rd Nr Moore St",
+   "206127" : "Fitzroy St nr Alfred St",
+   "212256" : "Kent Rd Nr Kent Rd Primary",
+   "211350" : "Kent Rd Nr Pindari St",
+   "2065107" : "North Sydney Boys High",
+   "206049" : "Miller St Nr Carlow St",
+   "2065136" : "Pacific Hwy Nr Innes Rd",
+   "211365" : "Blenheim Rd Nr Coxs Rd",
+   "206533" : "Pacific Hwy nr Dickson Av",
+   "2066231" : "Epping Rd Nr Mowbray Rd West",
+   "212251" : "Herring Rd Nr Winston St",
+   "2066244" : "Epping Rd 370m W Of Sam Johnson Wy",
+   "206012" : "Blue St Stand B",
+   "211341" : "Herring Rd Nr Epping Rd",
+   "211368" : "Coxs Rd Nr Holy Spirit Primary",
+   "206050" : "Miller St nr Falcon St",
+   "206082" : "Miller St near Ridge St",
+   "2066227" : "Pacific Hwy nr Allison Av",
+   "211363" : "Blenhiem Rd Nr Warwick St",
+   "2113227" : "Macquarie Centre_ Stand C",
+   "206529" : "Pacific Hwy nr Greenwich Rd",
+   "2066226" : "Pacific Hwy nr Cobden Av",
+   "211351" : "Kent Rd Nr Ada St",
+   "211364" : "Blenheim Rd Nr Cutler Pde",
+   "212139" : "Pembroke St Nr Smith St",
+   "211343" : "Herring Rd near Waterloo Rd",
+   "212220" : "Epping Rd Nr Vimiera Rd",
+   "211367" : "Coxs Rd Nr Wicks Rd",
+   "206512" : "Pacific Hwy Nr Hume St",
+   "212221" : "Epping Rd Opp Lucknow Park",
+   "212253" : "Herring Rd Nr Booth St",
+   "2065141" : "Pacific Hwy nr Campbell St",
+   "2066228" : "Lane Cove Interchange Stand C",
+   "212218" : "Epping Rd Nr Culloden Rd",
+   "212118" : "Pembroke St Nr Epping Rd",
+   "2066237" : "Epping Rd Nr Centennial Av",
+   "2113103" : "Coxs Rd Nr Blamey St",
+   "212252" : "Herring Rd Opp Dora St",
+   "211352" : "Kent Rd Nr Ruse St",
+   "211316" : "Macquarie University_ University Av",
+   "2065135" : "St Leonards Station_ Pacific Hwy - Stand B",
+   "206528" : "Pacific Hwy Nr Portview Rd",
+   "2066241" : "Epping Rd Nr Fraser St",
+   "211369" : "Coxs Rd Nr North Ryde Primary",
+   "212216" : "Epping Rd Nr Stewart Park",
+   "2066265" : "Epping Rd 400m E Of Mowbray Rd",
+   "2066223" : "Epping Rd Nr Sam Johnson Way",
+   "211353" : "Kent Rd Opp Els Hall Park",
+   "211342" : "Herring Rd Nr Windsor Dr",
+   "212217" : "Epping Rd Nr Balaclava Rd",
+   "2066229" : "Epping Rd Nr Cox Ln",
+   "211323" : "Epping Rd Nr Pittwater Rd",
+   "2065108" : "Falcon St Nr West St",
+   "206524" : "Pacific Hwy N Of Shirley St",
+   "211370" : "Coxs Rd Nr Lane Cove Rd",
+   "2066248" : "Epping Rd Nr Munro St",
+   "211317" : "Balaclava Rd Nr University Ave",
+   "206079" : "Miller Nr Monte Sant Angelo College"
+}
+;
+
+var TRIP_DATA = {
+   "VJ_99-688-c-sj2-1-2-b00a4" : {
+      "vjcode" : "VJ_99-688-c-sj2-1-2-b00a4",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206127",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "3M pasd"
+            ],
+            [
+               "206079",
+               "2M pasd"
+            ],
+            [
+               "206082",
+               "0S pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "2065107",
+               "0S pasd"
+            ],
+            [
+               "2065108",
+               "0S pasd"
+            ],
+            [
+               "2065109",
+               "2M pasd"
+            ],
+            [
+               "206524",
+               "0S pasd"
+            ],
+            [
+               "206512",
+               "1M pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "0S pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "0S pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "1M pasd"
+            ],
+            [
+               "212251",
+               "1M pasd"
+            ],
+            [
+               "212252",
+               "0S pasd"
+            ],
+            [
+               "212253",
+               "1M pasd"
+            ],
+            [
+               "211341",
+               "1M pasd"
+            ],
+            [
+               "211342",
+               "1M pasd"
+            ],
+            [
+               "211343",
+               "1M pasd"
+            ],
+            [
+               "2113227",
+               "2M pasd"
+            ],
+            [
+               "211316",
+               "3M pasd"
+            ],
+            [
+               "211317",
+               "1M pasd"
+            ],
+            [
+               "212217",
+               "1M pasd"
+            ],
+            [
+               "212218",
+               "1M pasd"
+            ],
+            [
+               "212216",
+               "1M pasd"
+            ],
+            [
+               "212220",
+               "1M pasd"
+            ],
+            [
+               "212221",
+               "1M pasd"
+            ],
+            [
+               "212118",
+               "2M pasd"
+            ],
+            [
+               "212139",
+               "0S pasd"
+            ],
+            [
+               "212189",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-688-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fitzroy St nr Alfred St - Interchange",
+            "rs_ref" : "RS_99-688-c-sj2-1-R-1",
+            "id" : "R_99-688-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-688-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "688"
+   },
+   "VJ_99-688-c-sj2-1-1-b00b7" : {
+      "vjcode" : "VJ_99-688-c-sj2-1-1-b00b7",
+      "leaves" : "15:35:00",
+      "jpref" : {
+         "direction" : "inbound",
+         "jpatsect" : [
+            [
+               "206127",
+               null
+            ],
+            [
+               "206121",
+               "1M pasd"
+            ],
+            [
+               "206012",
+               "3M pasd"
+            ],
+            [
+               "206079",
+               "2M pasd"
+            ],
+            [
+               "206082",
+               "0S pasd"
+            ],
+            [
+               "206048",
+               "1M pasd"
+            ],
+            [
+               "206049",
+               "0S pasd"
+            ],
+            [
+               "206050",
+               "1M pasd"
+            ],
+            [
+               "2065107",
+               "0S pasd"
+            ],
+            [
+               "2065108",
+               "0S pasd"
+            ],
+            [
+               "2065109",
+               "2M pasd"
+            ],
+            [
+               "206524",
+               "0S pasd"
+            ],
+            [
+               "206512",
+               "1M pasd"
+            ],
+            [
+               "206513",
+               "1M pasd"
+            ],
+            [
+               "2065135",
+               "1M pasd"
+            ],
+            [
+               "206528",
+               "0S pasd"
+            ],
+            [
+               "206529",
+               "1M pasd"
+            ],
+            [
+               "2065136",
+               "1M pasd"
+            ],
+            [
+               "2065141",
+               "1M pasd"
+            ],
+            [
+               "206533",
+               "1M pasd"
+            ],
+            [
+               "2066226",
+               "1M pasd"
+            ],
+            [
+               "2066227",
+               "0S pasd"
+            ],
+            [
+               "2066228",
+               "2M pasd"
+            ],
+            [
+               "2066229",
+               "1M pasd"
+            ],
+            [
+               "2066236",
+               "0S pasd"
+            ],
+            [
+               "2066237",
+               "0S pasd"
+            ],
+            [
+               "2066248",
+               "1M pasd"
+            ],
+            [
+               "2066241",
+               "1M pasd"
+            ],
+            [
+               "2066242",
+               "0S pasd"
+            ],
+            [
+               "2066223",
+               "1M pasd"
+            ],
+            [
+               "2066244",
+               "1M pasd"
+            ],
+            [
+               "2066265",
+               "1M pasd"
+            ],
+            [
+               "2066231",
+               "0S pasd"
+            ],
+            [
+               "211323",
+               "2M pasd"
+            ],
+            [
+               "211363",
+               "2M pasd"
+            ],
+            [
+               "211364",
+               "0S pasd"
+            ],
+            [
+               "211365",
+               "1M pasd"
+            ],
+            [
+               "2113103",
+               "1M pasd"
+            ],
+            [
+               "211366",
+               "0S pasd"
+            ],
+            [
+               "211367",
+               "1M pasd"
+            ],
+            [
+               "211368",
+               "1M pasd"
+            ],
+            [
+               "211369",
+               "1M pasd"
+            ],
+            [
+               "211370",
+               "0S pasd"
+            ],
+            [
+               "211350",
+               "1M pasd"
+            ],
+            [
+               "211351",
+               "1M pasd"
+            ],
+            [
+               "211352",
+               "1M pasd"
+            ],
+            [
+               "211353",
+               "1M pasd"
+            ],
+            [
+               "212256",
+               "1M pasd"
+            ],
+            [
+               "212251",
+               "1M pasd"
+            ],
+            [
+               "212252",
+               "0S pasd"
+            ],
+            [
+               "212253",
+               "1M pasd"
+            ],
+            [
+               "211341",
+               "1M pasd"
+            ],
+            [
+               "211342",
+               "1M pasd"
+            ],
+            [
+               "211343",
+               "1M pasd"
+            ],
+            [
+               "2113227",
+               "2M pasd"
+            ],
+            [
+               "211316",
+               "3M pasd"
+            ],
+            [
+               "211317",
+               "1M pasd"
+            ],
+            [
+               "212217",
+               "1M pasd"
+            ],
+            [
+               "212218",
+               "1M pasd"
+            ],
+            [
+               "212216",
+               "1M pasd"
+            ],
+            [
+               "212220",
+               "1M pasd"
+            ],
+            [
+               "212221",
+               "1M pasd"
+            ],
+            [
+               "212118",
+               "2M pasd"
+            ],
+            [
+               "212139",
+               "0S pasd"
+            ],
+            [
+               "212189",
+               "0S pasd"
+            ]
+         ],
+         "id" : "JP_99-688-c-sj2-1-1-R-1",
+         "route" : {
+            "name" : "Fitzroy St nr Alfred St - Interchange",
+            "rs_ref" : "RS_99-688-c-sj2-1-R-1",
+            "id" : "R_99-688-c-sj2-1-R-1"
+         }
+      },
+      "service" : "99-688-c-sj2-1",
+      "days" : [
+         "Monday",
+         "Tuesday",
+         "Wednesday",
+         "Thursday",
+         "Friday"
+      ],
+      "line" : "688"
+   }
+}
+;
+
